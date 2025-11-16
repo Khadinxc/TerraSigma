@@ -1,5 +1,5 @@
 # TerraSigma - Modern Detection Engineering for the Cloud-Native SIEM Microsoft Sentinel
-__Terraform converted Sigma rules for deployment to Microsoft Sentinel. Providing the coverage of all Kusto backend supported Sigma rules and the DevOps practices provided from Terraform including state management, drift detection, and incremental deployment.__
+__Terraform converted Sigma rules for deployment to Microsoft Sentinel. Providing the coverage of all Kusto backend supported pySigma rules and the DevOps practices provided from Terraform including state management, drift detection, and incremental deployment.__
 
 ### Usage:
 **Clone the Sigma2KQL rules repository:**
