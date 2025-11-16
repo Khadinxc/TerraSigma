@@ -1,0 +1,10 @@
+// Title: MacOS FileGrabber Infostealer
+// Author: Jason Phang Vern - Onn (Gen Digital)
+// Date: 2025-09-12
+// Level: high
+// Description: Detects execution of FileGrabber on macOS, which is associated with Amos infostealer campaigns targeting sensitive user files.
+// MITRE Tactic: Execution
+// Tags: attack.execution, attack.t1059.002, detection.emerging-threats
+
+DeviceProcessEvents
+| where ProcessCommandLine contains "FileGrabber" and ProcessCommandLine contains "/tmp"
