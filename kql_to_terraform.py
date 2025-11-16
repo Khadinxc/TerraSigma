@@ -424,7 +424,6 @@ class KQLToTerraform:
             if metadata.get('tactic'):
                 self.stats['by_tactic'][metadata['tactic']] += 1
             
-            print(f"[OK] {relative_path} -> {output_file.relative_to(self.output_dir)}")
             return True
             
         except Exception as e:
@@ -434,7 +433,6 @@ class KQLToTerraform:
                 "traceback": traceback.format_exc()
             }
             self.failures.append(error_detail)
-            print(f"[ERROR] {relative_path} - {e}", file=sys.stderr)
             self.stats['failed'] += 1
             return False
     

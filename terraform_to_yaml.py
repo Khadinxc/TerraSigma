@@ -351,7 +351,6 @@ class TerraformToYAML:
                 for tactic in yaml_data['tactics']:
                     self.stats['by_tactic'][tactic] += 1
             
-            print(f"[OK] {relative_path} -> {output_file.relative_to(self.output_dir)}")
             return True
             
         except Exception as e:
@@ -361,7 +360,6 @@ class TerraformToYAML:
                 "traceback": traceback.format_exc()
             }
             self.failures.append(error_detail)
-            print(f"[ERROR] {relative_path} - {e}", file=sys.stderr)
             self.stats['failed'] += 1
             return False
     
