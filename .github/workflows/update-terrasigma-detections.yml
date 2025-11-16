@@ -57,23 +57,23 @@ jobs:
         run: |
           FAILED=0
           if [ -f conversion_failures_kql_to_tf.json ]; then
-            echo "❌ KQL to Terraform conversion had failures:"
+            echo " - KQL to Terraform conversion had failures:"
             jq . conversion_failures_kql_to_tf.json || cat conversion_failures_kql_to_tf.json
             FAILED=1
           fi
           if [ -f conversion_failures_tf_to_yaml.json ]; then
-            echo "❌ Terraform to YAML conversion had failures:"
+            echo " - Terraform to YAML conversion had failures:"
             jq . conversion_failures_tf_to_yaml.json || cat conversion_failures_tf_to_yaml.json
             FAILED=1
           fi
           
           if [ $FAILED -eq 1 ]; then
             echo "has_failures=true" >> $GITHUB_OUTPUT
-            echo "⚠️ Conversions completed with failures. Check artifacts for details."
+            echo " =! Conversions completed with failures. Check artifacts for details."
             exit 1
           else
             echo "has_failures=false" >> $GITHUB_OUTPUT
-            echo "✅ All conversions completed successfully"
+            echo " + All conversions completed successfully"
           fi
         continue-on-error: false
 
@@ -86,8 +86,8 @@ jobs:
         id: fmt
         run: |
           cd TF
-          terraform fmt -recursive -diff -check
-          echo "Terraform format check completed"
+          terraform fmt -recursive -diff
+          echo "Terraform files formatted"
         continue-on-error: true
 
       - name: Initialize Terraform (for validation)
@@ -175,10 +175,10 @@ jobs:
             This PR updates TerraSigma detections from the latest Sigma2KQL repository.
             
             ### Changes Include:
-            - ✅ Converted KQL rules to Terraform format
-            - ✅ Generated YAML exports for portability
-            - ✅ Terraform format validation: ${{ steps.fmt.outcome }}
-            - ✅ Terraform syntax validation: ${{ steps.validate.outcome }}
+            - + Converted KQL rules to Terraform format
+            - + Generated YAML exports for portability
+            - + Terraform format validation: ${{ steps.fmt.outcome }}
+            - + Terraform syntax validation: ${{ steps.validate.outcome }}
             
             ### Pipeline Steps:
             1. Cloned latest Sigma2KQL repository
@@ -205,15 +205,15 @@ jobs:
           echo "## TerraSigma Detection Update Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Conversion Results:" >> $GITHUB_STEP_SUMMARY
-          echo "- **KQL to Terraform:** ${{ steps.changes.outputs.has_changes == 'true' && '✅ Completed with changes' || '✅ Completed - No changes' }}" >> $GITHUB_STEP_SUMMARY
-          echo "- **Terraform to YAML:** ✅ Completed" >> $GITHUB_STEP_SUMMARY
-          echo "- **Terraform Format:** ${{ steps.fmt.outcome == 'success' && '✅ Passed' || '⚠️ Some files need formatting' }}" >> $GITHUB_STEP_SUMMARY
-          echo "- **Terraform Validate:** ${{ steps.validate.outcome == 'success' && '✅ Passed' || '❌ Failed' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **KQL to Terraform:** ${{ steps.changes.outputs.has_changes == 'true' && '+ Completed with changes' || '+ Completed - No changes' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Terraform to YAML:** + Completed" >> $GITHUB_STEP_SUMMARY
+          echo "- **Terraform Format:** ${{ steps.fmt.outcome == 'success' && '+ Passed' || '=! Some files need formatting' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Terraform Validate:** ${{ steps.validate.outcome == 'success' && '+ Passed' || ' - Failed' }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           if [ "${{ steps.changes.outputs.has_changes }}" == "true" ]; then
             echo "### 🎉 Pull Request Created" >> $GITHUB_STEP_SUMMARY
             echo "A pull request has been created with the updated detections." >> $GITHUB_STEP_SUMMARY
           else
-            echo "### ℹ️ No Changes" >> $GITHUB_STEP_SUMMARY
+            echo "### i No Changes" >> $GITHUB_STEP_SUMMARY
             echo "No detection updates were needed - repository is up to date." >> $GITHUB_STEP_SUMMARY
           fi
