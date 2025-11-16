@@ -1,4 +1,5 @@
 ![Update TerraSigma Detections](https://github.com/Khadinxc/TerraSigma/actions/workflows/update-terrasigma-detections.yml/badge.svg)
+![GitHub last commit](https://img.shields.io/github/last-commit/Khadinxc/TerraSigma)
 # TerraSigma - Modern Detection Engineering for the Cloud-Native SIEM Microsoft Sentinel - Automated Updates
 __Terraform converted Sigma rules for deployment to Microsoft Sentinel. Providing the coverage of all Kusto backend supported pySigma rules and the DevOps practices provided from Terraform including state management, drift detection, and incremental deployment.__
 
