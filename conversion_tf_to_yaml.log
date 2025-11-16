@@ -1,0 +1,42 @@
+Starting Terraform to YAML conversion...
+
+Input directory:  TF
+Output directory: YAML
+
+================================================================================
+
+Found 4451 Terraform files
+
+Skipping provider.tf - could not parse
+
+================================================================================
+CONVERSION SUMMARY
+================================================================================
+
+Total Terraform files: 4451
+Successfully converted:  4450
+Failed:                  1
+
+Conversions by MITRE Tactic:
+  Collection                 110 rules
+  CommandAndControl          362 rules
+  CredentialAccess           342 rules
+  DefenseEvasion            2072 rules
+  Discovery                  344 rules
+  Execution                 1238 rules
+  Exfiltration                82 rules
+  Impact                     130 rules
+  InitialAccess              156 rules
+  LateralMovement            136 rules
+  Persistence                990 rules
+  PrivilegeEscalation        804 rules
+  Reconnaissance              20 rules
+  ResourceDevelopment         54 rules
+
+================================================================================
+Success Rate: 99.98%
+================================================================================
+
+Output location: YAML
+YAML files ready for Azure Sentinel deployment!
+

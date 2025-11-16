@@ -1,0 +1,42 @@
+Starting KQL to Terraform conversion...
+
+Input directory:  KQL
+Output directory: TF
+Schemas loaded:   10 tables
+
+================================================================================
+
+Found 4450 KQL files
+
+
+================================================================================
+CONVERSION SUMMARY
+================================================================================
+
+Total KQL files:     4450
+Successfully converted: 4450
+Failed:              0
+
+Conversions by MITRE Tactic:
+  Collection                  86 rules
+  Command and Control        258 rules
+  Credential Access          246 rules
+  Defense Evasion           1464 rules
+  Discovery                  274 rules
+  Execution                  840 rules
+  Exfiltration                68 rules
+  Impact                      98 rules
+  Initial Access              92 rules
+  Lateral Movement            62 rules
+  Persistence                468 rules
+  Privilege Escalation       434 rules
+  Reconnaissance              16 rules
+  Resource Development        44 rules
+
+================================================================================
+Success Rate: 100.00%
+================================================================================
+
+Output location: TF
+Terraform files ready for deployment!
+
