@@ -6,8 +6,11 @@ Converts Terraform azurerm_sentinel_alert_rule resources to Azure Sentinel YAML 
 
 import os
 import re
+import sys
 import uuid
 import yaml
+import json
+import traceback
 from pathlib import Path
 from collections import defaultdict
 
@@ -22,6 +25,7 @@ class TerraformToYAML:
             'failed': 0,
             'by_tactic': defaultdict(int)
         }
+        self.failures = []  # Track detailed failure information
         
         # Severity mapping from Terraform to YAML
         self.severity_map = {
@@ -347,11 +351,17 @@ class TerraformToYAML:
                 for tactic in yaml_data['tactics']:
                     self.stats['by_tactic'][tactic] += 1
             
-            print(f"✓ {relative_path} -> {output_file.relative_to(self.output_dir)}")
+            print(f"[OK] {relative_path} -> {output_file.relative_to(self.output_dir)}")
             return True
             
         except Exception as e:
-            print(f"✗ {relative_path} - {e}")
+            error_detail = {
+                "file": str(relative_path),
+                "error": str(e),
+                "traceback": traceback.format_exc()
+            }
+            self.failures.append(error_detail)
+            print(f"[ERROR] {relative_path} - {e}", file=sys.stderr)
             self.stats['failed'] += 1
             return False
     
@@ -398,6 +408,13 @@ class TerraformToYAML:
         
         print(f"Output location: {self.output_dir}")
         print(f"YAML files ready for Azure Sentinel deployment!\n")
+        
+        # Write failures to JSON file if any
+        if self.failures:
+            failures_file = Path("conversion_failures_tf_to_yaml.json")
+            with open(failures_file, 'w', encoding='utf-8') as f:
+                json.dump(self.failures, f, indent=2)
+            print(f"[WARNING] {len(self.failures)} conversion failure(s) logged to {failures_file}", file=sys.stderr)
 
 
 def main():

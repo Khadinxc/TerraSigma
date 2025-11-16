@@ -8,6 +8,8 @@ with intelligent entity mapping based on table schemas
 import os
 import re
 import json
+import sys
+import traceback
 from pathlib import Path
 from collections import defaultdict
 
@@ -24,6 +26,7 @@ class KQLToTerraform:
             'failed': 0,
             'by_tactic': defaultdict(int)
         }
+        self.failures = []  # Track detailed failure information
         
         # Entity mapping configuration based on common field patterns
         self.entity_mappings = {
@@ -421,11 +424,17 @@ class KQLToTerraform:
             if metadata.get('tactic'):
                 self.stats['by_tactic'][metadata['tactic']] += 1
             
-            print(f"✓ {relative_path} -> {output_file.relative_to(self.output_dir)}")
+            print(f"[OK] {relative_path} -> {output_file.relative_to(self.output_dir)}")
             return True
             
         except Exception as e:
-            print(f"✗ {relative_path} - {e}")
+            error_detail = {
+                "file": str(relative_path),
+                "error": str(e),
+                "traceback": traceback.format_exc()
+            }
+            self.failures.append(error_detail)
+            print(f"[ERROR] {relative_path} - {e}", file=sys.stderr)
             self.stats['failed'] += 1
             return False
     
@@ -468,6 +477,13 @@ class KQLToTerraform:
         
         success_rate = (self.stats['converted'] / self.stats['total_files'] * 100) if self.stats['total_files'] > 0 else 0
         print(f"\n{'='*80}")
+        
+        # Write failures to JSON file if any
+        if self.failures:
+            failures_file = Path("conversion_failures_kql_to_tf.json")
+            with open(failures_file, 'w', encoding='utf-8') as f:
+                json.dump(self.failures, f, indent=2)
+            print(f"[WARNING] {len(self.failures)} conversion failure(s) logged to {failures_file}", file=sys.stderr)
         print(f"Success Rate: {success_rate:.2f}%")
         print(f"{'='*80}\n")
         

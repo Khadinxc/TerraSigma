@@ -40,13 +40,42 @@ jobs:
 
       - name: Convert KQL to Terraform
         run: |
-          python kql_to_terraform.py --kql-dir ./KQL --output-dir ./TF --schemas ./schemas.json
+          set -o pipefail
+          python kql_to_terraform.py --kql-dir ./KQL --output-dir ./TF --schemas ./schemas.json 2>&1 | tee conversion_kql_to_tf.log
           echo "Converted KQL to Terraform"
+        continue-on-error: true
 
       - name: Convert Terraform to YAML
         run: |
-          python terraform_to_yaml.py --tf-dir ./TF --output-dir ./YAML
+          set -o pipefail
+          python terraform_to_yaml.py --tf-dir ./TF --output-dir ./YAML 2>&1 | tee conversion_tf_to_yaml.log
           echo "Converted Terraform to YAML"
+        continue-on-error: true
+
+      - name: Check conversion failures
+        id: check_failures
+        run: |
+          FAILED=0
+          if [ -f conversion_failures_kql_to_tf.json ]; then
+            echo "❌ KQL to Terraform conversion had failures:"
+            jq . conversion_failures_kql_to_tf.json || cat conversion_failures_kql_to_tf.json
+            FAILED=1
+          fi
+          if [ -f conversion_failures_tf_to_yaml.json ]; then
+            echo "❌ Terraform to YAML conversion had failures:"
+            jq . conversion_failures_tf_to_yaml.json || cat conversion_failures_tf_to_yaml.json
+            FAILED=1
+          fi
+          
+          if [ $FAILED -eq 1 ]; then
+            echo "has_failures=true" >> $GITHUB_OUTPUT
+            echo "⚠️ Conversions completed with failures. Check artifacts for details."
+            exit 1
+          else
+            echo "has_failures=false" >> $GITHUB_OUTPUT
+            echo "✅ All conversions completed successfully"
+          fi
+        continue-on-error: false
 
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v3
@@ -96,6 +125,20 @@ jobs:
           rm -rf TF/.terraform
           rm -f TF/.terraform.lock.hcl
           echo "Cleaned up Terraform artifacts"
+
+      - name: Upload conversion artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: conversion-artifacts
+          path: |
+            conversion_kql_to_tf.log
+            conversion_tf_to_yaml.log
+            conversion_failures_kql_to_tf.json
+            conversion_failures_tf_to_yaml.json
+            TF/
+            YAML/
+          retention-days: 7
 
       - name: Check for changes
         id: changes
