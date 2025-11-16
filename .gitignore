@@ -14,6 +14,7 @@ override.tf.json
 .terraformrc
 terraform.rc
 TF/.terraform/providers/registry.terraform.io/hashicorp/azurerm/3.117.1/linux_amd64/*
+TF/.terraform/providers/registry.terraform.io/hashicorp/azurerm/3.117.1/linux_amd64/
 
 # Python
 __pycache__/
