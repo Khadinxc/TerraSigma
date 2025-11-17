@@ -36,14 +36,38 @@ QUERY
   }
 
   entity_mapping {
-    entity_type = "File"
+    entity_type = "Account"
     field_mapping {
-      identifier  = "SHA1"
-      column_name = "SHA1"
+      identifier  = "Name"
+      column_name = "InitiatingProcessAccountName"
     }
     field_mapping {
-      identifier  = "SHA256"
-      column_name = "SHA256"
+      identifier  = "NTDomain"
+      column_name = "InitiatingProcessAccountDomain"
+    }
+    field_mapping {
+      identifier  = "Sid"
+      column_name = "InitiatingProcessAccountSid"
+    }
+    field_mapping {
+      identifier  = "UPNSuffix"
+      column_name = "InitiatingProcessAccountUpn"
+    }
+    field_mapping {
+      identifier  = "AadUserId"
+      column_name = "InitiatingProcessAccountObjectId"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "Host"
+    field_mapping {
+      identifier  = "HostName"
+      column_name = "DeviceName"
+    }
+    field_mapping {
+      identifier  = "AzureID"
+      column_name = "DeviceId"
     }
   }
 }

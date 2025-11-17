@@ -36,13 +36,53 @@ QUERY
   }
 
   entity_mapping {
-    entity_type = "Registry"
+    entity_type = "Account"
+    field_mapping {
+      identifier  = "Name"
+      column_name = "InitiatingProcessAccountName"
+    }
+    field_mapping {
+      identifier  = "NTDomain"
+      column_name = "InitiatingProcessAccountDomain"
+    }
+    field_mapping {
+      identifier  = "Sid"
+      column_name = "InitiatingProcessAccountSid"
+    }
+    field_mapping {
+      identifier  = "UPNSuffix"
+      column_name = "InitiatingProcessAccountUpn"
+    }
+    field_mapping {
+      identifier  = "AadUserId"
+      column_name = "InitiatingProcessAccountObjectId"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "Host"
+    field_mapping {
+      identifier  = "HostName"
+      column_name = "DeviceName"
+    }
+    field_mapping {
+      identifier  = "AzureID"
+      column_name = "DeviceId"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "RegistryKey"
     field_mapping {
       identifier  = "Key"
       column_name = "RegistryKey"
     }
+  }
+
+  entity_mapping {
+    entity_type = "RegistryValue"
     field_mapping {
-      identifier  = "ValueData"
+      identifier  = "Value"
       column_name = "RegistryValueData"
     }
   }

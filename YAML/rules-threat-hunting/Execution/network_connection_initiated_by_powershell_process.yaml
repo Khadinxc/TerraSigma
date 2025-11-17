@@ -20,10 +20,20 @@ entityMappings:
   fieldMappings:
   - identifier: Name
     columnName: InitiatingProcessAccountName
-- entityType: Process
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
   fieldMappings:
-  - identifier: ProcessPath
-    columnName: InitiatingProcessFolderPath
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
 - entityType: IP
   fieldMappings:
   - identifier: Address

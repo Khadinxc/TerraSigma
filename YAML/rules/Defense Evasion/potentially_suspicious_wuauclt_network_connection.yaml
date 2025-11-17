@@ -16,16 +16,32 @@ kind: Scheduled
 relevantTechniques:
 - T1218
 entityMappings:
-- entityType: Process
+- entityType: Account
   fieldMappings:
-  - identifier: CommandLine
-    columnName: InitiatingProcessCommandLine
-  - identifier: ProcessPath
-    columnName: InitiatingProcessFolderPath
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
 - entityType: IP
   fieldMappings:
   - identifier: Address
     columnName: RemoteIP
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: InitiatingProcessCommandLine
 requiredDataConnectors:
 - connectorId: MicrosoftThreatProtection
   dataTypes:
