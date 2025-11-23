@@ -1,0 +1,10 @@
+// Title: Modify User Shell Folders Startup Value
+// Author: frack113
+// Date: 2022-10-01
+// Level: high
+// Description: Detect modification of the startup key to a path where a payload could be stored to be launched during startup
+// MITRE Tactic: Persistence
+// Tags: attack.persistence, attack.privilege-escalation, attack.t1547.001
+
+DeviceRegistryEvents
+| where RegistryKey contains "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\User Shell Folders" and RegistryKey endswith "Startup"

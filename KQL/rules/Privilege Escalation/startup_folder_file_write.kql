@@ -1,0 +1,12 @@
+// Title: Startup Folder File Write
+// Author: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)
+// Date: 2020-05-02
+// Level: medium
+// Description: A General detection for files being created in the Windows startup directory. This could be an indicator of persistence.
+// MITRE Tactic: Privilege Escalation
+// Tags: attack.privilege-escalation, attack.persistence, attack.t1547.001
+// False Positives:
+//   - FP could be caused by legitimate application writing shortcuts for example. This folder should always be inspected to make sure that all the files in there are legitimate
+
+DeviceFileEvents
+| where FolderPath contains "\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp" and (not((InitiatingProcessFolderPath =~ "C:\\Windows\\System32\\wuauclt.exe" or FolderPath startswith "C:\\$WINDOWS.~BT\\NewOS\\"))) and (not((InitiatingProcessFolderPath endswith "\\ONENOTE.EXE" and FolderPath endswith "\\Send to OneNote.lnk")))

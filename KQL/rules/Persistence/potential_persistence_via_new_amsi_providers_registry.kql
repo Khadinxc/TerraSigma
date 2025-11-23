@@ -1,0 +1,12 @@
+// Title: Potential Persistence Via New AMSI Providers - Registry
+// Author: Nasreddine Bencherchali (Nextron Systems)
+// Date: 2022-07-21
+// Level: high
+// Description: Detects when an attacker registers a new AMSI provider in order to achieve persistence
+// MITRE Tactic: Persistence
+// Tags: attack.persistence
+// False Positives:
+//   - Legitimate security products adding their own AMSI providers. Filter these according to your environment
+
+DeviceRegistryEvents
+| where (ActionType =~ "RegistryKeyCreated" and (RegistryKey endswith "\\SOFTWARE\\Microsoft\\AMSI\\Providers*" or RegistryKey endswith "\\SOFTWARE\\WOW6432Node\\Microsoft\\AMSI\\Providers*")) and (not((InitiatingProcessFolderPath startswith "C:\\Windows\\System32\\" or InitiatingProcessFolderPath startswith "C:\\Program Files\\" or InitiatingProcessFolderPath startswith "C:\\Program Files (x86)\\")))
