@@ -1,0 +1,50 @@
+id: 86303782-edf7-5417-a1d9-35e6ef93c99d
+name: PowerShell Logging Disabled Via Registry Key Tampering
+description: Detects changes to the registry for the currently logged-in user. In order to disable PowerShell module logging, script block logging or transcription and script execution logging
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Persistence
+query: |-
+  DeviceRegistryEvents
+  | where RegistryValueData =~ "DWORD (0x00000000)" and (RegistryKey endswith "\\Microsoft\\Windows\\PowerShell*" or RegistryKey endswith "\\Microsoft\\PowerShellCore*") and (RegistryKey endswith "\\ModuleLogging\\EnableModuleLogging" or RegistryKey endswith "\\ScriptBlockLogging\\EnableScriptBlockLogging" or RegistryKey endswith "\\ScriptBlockLogging\\EnableScriptBlockInvocationLogging" or RegistryKey endswith "\\Transcription\\EnableTranscripting" or RegistryKey endswith "\\Transcription\\EnableInvocationHeader" or RegistryKey endswith "\\EnableScripts")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1564
+- T1112
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

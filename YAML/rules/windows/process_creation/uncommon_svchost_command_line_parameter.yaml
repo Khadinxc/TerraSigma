@@ -1,0 +1,50 @@
+id: 5c58615e-b21e-5ea2-b5f8-c4107acdd7f0
+name: Uncommon Svchost Command Line Parameter
+description: Detects instances of svchost.exe running with an unusual or uncommon command line parameter by excluding known legitimate or common patterns. This could point at a file masquerading as svchost, a process injection, or hollowing of a legitimate svchost instance. - Unlikely
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- PrivilegeEscalation
+query: |-
+  DeviceProcessEvents
+  | where FolderPath endswith "\\svchost.exe" and (not((ProcessCommandLine =~ "" or ProcessCommandLine matches regex "-k\\s\\w{1,64}(\\s?(-p|-s))?" or isnull(ProcessCommandLine)))) and (not(((ProcessCommandLine contains "svchost.exe" and InitiatingProcessFolderPath endswith "\\MsMpEng.exe") or (ProcessCommandLine =~ "svchost.exe" and InitiatingProcessFolderPath endswith "\\MRT.exe"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1036
+- T1055
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

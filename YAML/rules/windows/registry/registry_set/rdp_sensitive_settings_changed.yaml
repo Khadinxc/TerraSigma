@@ -1,0 +1,50 @@
+id: 96593af5-0f7f-5f76-855f-24af81032e39
+name: RDP Sensitive Settings Changed
+description: 'Detects tampering of RDP Terminal Service/Server sensitive settings. Such as allowing unauthorized users access to a system via the ''fAllowUnsolicited'' or enabling RDP via ''fDenyTSConnections'', etc. Below is a list of registry keys/values that are monitored by this rule: - Shadow: Used to enable Remote Desktop shadowing, which allows an administrator to view or control a user''s session. - DisableRemoteDesktopAntiAlias: Disables anti-aliasing for remote desktop sessions. - DisableSecuritySettings: Disables certain security settings for Remote Desktop connections. - fAllowUnsolicited: Allows unsolicited remote assistance offers. - fAllowUnsolicitedFullControl: Allows unsolicited remote assistance offers with full control. - InitialProgram: Specifies a program to run automatically when a user logs on to a remote computer. - ServiceDll: Used in RDP hijacking techniques to specify a custom DLL to be loaded by the Terminal Services service. - SecurityLayer: Specifies the security
+  layer used for RDP connections. - Some of the keys mentioned here could be modified by an administrator while setting group policy (it should be investigated either way)'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Persistence
+query: |-
+  DeviceRegistryEvents
+  | where (((RegistryValueData in~ ("DWORD (0x00000001)", "DWORD (0x00000002)", "DWORD (0x00000003)", "DWORD (0x00000004)")) and (RegistryKey endswith "\\Control\\Terminal Server*" or RegistryKey endswith "\\Windows NT\\Terminal Services*") and RegistryKey endswith "\\Shadow") or (RegistryValueData =~ "DWORD (0x00000001)" and (RegistryKey endswith "\\Control\\Terminal Server*" or RegistryKey endswith "\\Windows NT\\Terminal Services*") and (RegistryKey endswith "\\DisableRemoteDesktopAntiAlias" or RegistryKey endswith "\\DisableSecuritySettings" or RegistryKey endswith "\\fAllowUnsolicited" or RegistryKey endswith "\\fAllowUnsolicitedFullControl")) or (RegistryKey contains "\\Control\\Terminal Server\\InitialProgram" or RegistryKey contains "\\Control\\Terminal Server\\WinStations\\RDP-Tcp\\InitialProgram" or RegistryKey contains "\\services\\TermService\\Parameters\\ServiceDll" or RegistryKey contains "\\Terminal Server\\WinStations\\RDP-Tcp\\SecurityLayer" or RegistryKey contains "\\Windows NT\\Terminal Services\\InitialProgram")) and (not((RegistryValueData =~ "DWORD (0x00000002)" and RegistryKey endswith "\\SecurityLayer")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1112
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

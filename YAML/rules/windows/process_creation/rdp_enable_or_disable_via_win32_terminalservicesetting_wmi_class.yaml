@@ -1,0 +1,52 @@
+id: a74fe423-53fe-522b-b72f-ebccde7f6cc1
+name: RDP Enable or Disable via Win32_TerminalServiceSetting WMI Class
+description: Detects enabling or disabling of Remote Desktop Protocol (RDP) using alternate methods such as WMIC or PowerShell. In PowerShell one-liner commands, the "SetAllowTSConnections" method of the "Win32_TerminalServiceSetting" class may be used to enable or disable RDP. In WMIC, the "rdtoggle" alias or "Win32_TerminalServiceSetting" class may be used for the same purpose. - Legitimate system administrators enabling RDP for remote support - System configuration scripts during deployment
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- LateralMovement
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "rdtoggle" or ProcessCommandLine contains "Win32_TerminalServiceSetting") and ProcessCommandLine contains "SetAllowTSConnections" and ((FolderPath endswith "\\wmic.exe" or FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe") or (ProcessVersionInfoOriginalFileName in~ ("wmic.exe", "PowerShell.EXE", "pwsh.dll")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1021
+- T1047
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

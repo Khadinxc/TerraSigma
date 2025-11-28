@@ -1,0 +1,47 @@
+id: e22bcb41-4ee6-54fa-b0af-5e90c2c3498c
+name: Registry Modification Attempt Via VBScript
+description: Detects attempts to modify the registry using VBScript's CreateObject("Wscript.shell") and RegWrite methods via common LOLBINs. It could be an attempt to modify the registry for persistence without using straightforward methods like regedit.exe, reg.exe, or PowerShell. Threat Actors may use this technique to evade detection by security solutions that monitor for direct registry modifications through traditional tools.
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Persistence
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine contains "CreateObject" and ProcessCommandLine contains "Wscript.shell" and ProcessCommandLine contains ".RegWrite"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1112
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

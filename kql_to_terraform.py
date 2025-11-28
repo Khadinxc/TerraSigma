@@ -15,7 +15,7 @@ from collections import defaultdict
 
 
 class KQLToTerraform:
-    def __init__(self, kql_dir, output_dir, schemas_file):
+    def __init__(self, kql_dir, output_dir, schemas_file, output_structure='source'):
         self.kql_dir = Path(kql_dir)
         self.output_dir = Path(output_dir)
         self.schemas_file = Path(schemas_file)
@@ -27,6 +27,9 @@ class KQLToTerraform:
             'by_tactic': defaultdict(int)
         }
         self.failures = []  # Track detailed failure information
+        # output_structure: 'source' to mirror original Sigma repo paths,
+        # 'tactics' to organize by MITRE tactic (legacy behavior)
+        self.output_structure = output_structure
         
         # Entity mapping configuration based on Microsoft Sentinel entity reference
         # https://learn.microsoft.com/en-us/azure/sentinel/entities-reference
@@ -419,13 +422,32 @@ class KQLToTerraform:
                 print(f"Skipping {relative_path} - no query found")
                 return False
             
-            # Remove leading 'KQL' folder from path if present
-            path_parts = relative_path.parts
-            if path_parts and path_parts[0].upper() == 'KQL':
-                relative_path = Path(*path_parts[1:])
-            
-            # Determine output directory (preserve folder structure)
-            output_subdir = self.output_dir / relative_path.parent
+            # Compute output directory based on desired output structure
+            # Option 'source' mirrors the original Sigma repo folder structure
+            # Option 'tactics' groups rules by first MITRE tactic (legacy)
+            if self.output_structure == 'source':
+                # Remove leading 'KQL' folder from path if present
+                path_parts = relative_path.parts
+                if path_parts and path_parts[0].upper() == 'KQL':
+                    relative_path = Path(*path_parts[1:])
+
+                # Preserve the source folder structure under output_dir
+                output_subdir = self.output_dir / relative_path.parent
+            else:
+                # Group by first tactic if available, otherwise fallback to source path
+                tactic_folder = None
+                if metadata.get('tactics') and len(metadata['tactics']) > 0:
+                    tactic_folder = metadata['tactics'][0]
+
+                if tactic_folder:
+                    output_subdir = self.output_dir / 'rules' / tactic_folder
+                else:
+                    # Fallback to preserving source structure
+                    path_parts = relative_path.parts
+                    if path_parts and path_parts[0].upper() == 'KQL':
+                        relative_path = Path(*path_parts[1:])
+                    output_subdir = self.output_dir / relative_path.parent
+
             output_subdir.mkdir(parents=True, exist_ok=True)
             
             # Generate resource name from file stem
@@ -541,6 +563,12 @@ Examples:
         default='./schemas.json',
         help='Path to the schemas JSON file (default: ./schemas.json)'
     )
+    parser.add_argument(
+        '--output-structure',
+        choices=['source', 'tactics'],
+        default='source',
+        help='How to structure the output folders: "source" mirrors the source repo structure, "tactics" groups rules by MITRE tactic (default: source)'
+    )
     
     args = parser.parse_args()
     
@@ -556,7 +584,7 @@ Examples:
         return 1
     
     # Create converter and run
-    converter = KQLToTerraform(args.kql_dir, args.output_dir, args.schemas)
+    converter = KQLToTerraform(args.kql_dir, args.output_dir, args.schemas, output_structure=args.output_structure)
     converter.convert_all()
     
     return 0 if converter.stats['failed'] == 0 else 1

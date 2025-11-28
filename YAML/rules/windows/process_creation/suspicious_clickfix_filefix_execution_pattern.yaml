@@ -1,0 +1,48 @@
+id: 827e191f-3025-5246-b2e5-f40863ecf545
+name: Suspicious ClickFix/FileFix Execution Pattern
+description: Detects suspicious execution patterns where users are tricked into running malicious commands via clipboard manipulation, either through the Windows Run dialog (ClickFix) or File Explorer address bar (FileFix). Attackers leverage social engineering campaigns—such as fake CAPTCHA challenges or urgent alerts—encouraging victims to paste clipboard contents, often executing mshta.exe, powershell.exe, or similar commands to infect systems. - Unlikely
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "account" or ProcessCommandLine contains "anti-bot" or ProcessCommandLine contains "botcheck" or ProcessCommandLine contains "captcha" or ProcessCommandLine contains "challenge" or ProcessCommandLine contains "confirmation" or ProcessCommandLine contains "fraud" or ProcessCommandLine contains "human" or ProcessCommandLine contains "identification" or ProcessCommandLine contains "identificator" or ProcessCommandLine contains "identity" or ProcessCommandLine contains "robot" or ProcessCommandLine contains "validation" or ProcessCommandLine contains "verification" or ProcessCommandLine contains "verify") and (ProcessCommandLine contains "#" and InitiatingProcessFolderPath endswith "\\explorer.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1204
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

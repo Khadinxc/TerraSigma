@@ -1,0 +1,50 @@
+id: 99fe8107-55b1-50fa-aa99-2e826e0ae714
+name: Suspicious Kerberos Ticket Request via CLI
+description: Detects suspicious Kerberos ticket requests via command line using System.IdentityModel.Tokens.KerberosRequestorSecurityToken class. Threat actors may use command line interfaces to request Kerberos tickets for service accounts in order to perform offline password cracking attacks commonly known as Kerberoasting or other Kerberos ticket abuse techniques like silver ticket attacks. - Legitimate command line usage by administrators or security tools.
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CredentialAccess
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "System.IdentityModel.Tokens.KerberosRequestorSecurityToken" and ProcessCommandLine contains ".GetRequest()") and ((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe") or (ProcessVersionInfoOriginalFileName in~ ("powershell.exe", "pwsh.dll")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1558
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

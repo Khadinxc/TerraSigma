@@ -16,9 +16,11 @@ from collections import defaultdict
 
 
 class TerraformToYAML:
-    def __init__(self, tf_dir, output_dir):
+    def __init__(self, tf_dir, output_dir, output_structure='source'):
         self.tf_dir = Path(tf_dir)
         self.output_dir = Path(output_dir)
+        # output_structure: 'source' to mirror TF folder structure, 'tactics' to group by MITRE tactic
+        self.output_structure = output_structure
         self.stats = {
             'total_files': 0,
             'converted': 0,
@@ -320,8 +322,22 @@ class TerraformToYAML:
             # Convert to YAML
             yaml_data = self.convert_to_yaml(config, tf_file.stem)
             
-            # Determine output directory (preserve folder structure)
-            output_subdir = self.output_dir / relative_path.parent
+            # Determine output directory
+            if self.output_structure == 'source':
+                # Preserve the source TF folder structure under output_dir
+                output_subdir = self.output_dir / relative_path.parent
+            else:
+                # Group by first tactic if available, otherwise fallback to source path
+                tactic_folder = None
+                yaml_data = self.convert_to_yaml(config, tf_file.stem)
+                if yaml_data.get('tactics') and len(yaml_data['tactics']) > 0:
+                    tactic_folder = yaml_data['tactics'][0]
+
+                if tactic_folder:
+                    output_subdir = self.output_dir / 'rules' / tactic_folder
+                else:
+                    output_subdir = self.output_dir / relative_path.parent
+
             output_subdir.mkdir(parents=True, exist_ok=True)
             
             # Write YAML file
@@ -440,6 +456,12 @@ Examples:
         default='./YAML',
         help='Path to the output directory for YAML files (default: ./YAML)'
     )
+    parser.add_argument(
+        '--output-structure',
+        choices=['source', 'tactics'],
+        default='source',
+        help='How to structure the output folders: "source" mirrors the TF source structure, "tactics" groups rules by MITRE tactic (default: source)'
+    )
     
     args = parser.parse_args()
     
@@ -450,7 +472,7 @@ Examples:
         return 1
     
     # Create converter and run
-    converter = TerraformToYAML(args.tf_dir, args.output_dir)
+    converter = TerraformToYAML(args.tf_dir, args.output_dir, output_structure=args.output_structure)
     converter.convert_all()
     
     return 0 if converter.stats['failed'] == 0 else 1

@@ -1,0 +1,46 @@
+id: 477284c5-1f3b-5c96-87b2-6fc495a52990
+name: Suspicious Usage of For Loop with Recursive Directory Search in CMD
+description: Detects suspicious usage of the cmd.exe 'for /f' loop combined with the 'tokens=' parameter and a recursive directory listing. This pattern may indicate an attempt to discover and execute system binaries dynamically, for example powershell, a technique sometimes used by attackers to evade detection. This behavior has been observed in various malicious lnk files.
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "for /f" and ProcessCommandLine contains "tokens=" and ProcessCommandLine contains "in (" and ProcessCommandLine contains "dir") or (InitiatingProcessCommandLine contains "for /f" and InitiatingProcessCommandLine contains "tokens=" and InitiatingProcessCommandLine contains "in (" and InitiatingProcessCommandLine contains "dir")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+- T1027
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

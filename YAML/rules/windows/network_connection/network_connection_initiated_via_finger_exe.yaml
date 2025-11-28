@@ -1,0 +1,46 @@
+id: 8990753e-11e3-5aaf-a51a-26b1caae48b4
+name: Network Connection Initiated via Finger.EXE
+description: Detects network connections via finger.exe, which can be abused by threat actors to retrieve remote commands for execution on Windows devices. In one ClickFix malware campaign, adversaries leveraged the finger protocol to fetch commands from a remote server. Since the finger utility is not commonly used in modern Windows environments, its presence already raises suspicion. Investigating such network connections can also help identify potential malicious infrastructure used by threat actors - Unlikely
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CommandAndControl
+- Execution
+query: |-
+  DeviceNetworkEvents
+  | where InitiatingProcessFolderPath endswith "\\finger.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1071
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: IP
+  fieldMappings:
+  - identifier: Address
+    columnName: RemoteIP
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceNetworkEvents

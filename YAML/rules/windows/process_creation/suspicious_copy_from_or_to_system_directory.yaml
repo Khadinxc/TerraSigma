@@ -1,0 +1,50 @@
+id: 8674fb75-94a7-541b-ae1e-6c8bf9bdd160
+name: Suspicious Copy From or To System Directory
+description: Detects a suspicious copy operation that tries to copy a program from system (System32, SysWOW64, WinSxS) directories to another on disk. Often used to move LOLBINs such as 'certutil' or 'desktopimgdownldr' to a different location with a different name in order to bypass detections based on locations. - Depend on scripts and administrative tools used in the monitored environment (For example an admin scripts like https://www.itexperience.net/sccm-batch-files-and-32-bits-processes-on-64-bits-os/) - When cmd.exe and xcopy.exe are called directly - When the command contains the keywords but not in the correct order
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "copy " and FolderPath endswith "\\cmd.exe") or ((FolderPath endswith "\\robocopy.exe" or FolderPath endswith "\\xcopy.exe") or (ProcessVersionInfoOriginalFileName in~ ("robocopy.exe", "XCOPY.EXE"))) or ((ProcessCommandLine contains "copy-item" or ProcessCommandLine contains " copy " or ProcessCommandLine contains "cpi " or ProcessCommandLine contains " cp ") and (FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe"))) and ProcessCommandLine matches regex "(?i)\\s['"]?C:\\\\Windows\\\\(System32|SysWOW64|WinSxS)" and (not(((ProcessCommandLine contains "C:\\Program Files\\Avira\\" or ProcessCommandLine contains "C:\\Program Files (x86)\\Avira\\") and (ProcessCommandLine contains "/c copy" and ProcessCommandLine contains "\\Temp\\" and ProcessCommandLine contains "\\avira_system_speedup.exe") and FolderPath endswith "\\cmd.exe")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1036
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

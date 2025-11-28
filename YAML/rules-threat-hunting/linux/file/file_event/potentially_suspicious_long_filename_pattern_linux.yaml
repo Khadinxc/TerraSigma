@@ -1,0 +1,46 @@
+id: 335bb9b5-05c3-5a9c-b1f2-d8c8051bb6fb
+name: Potentially Suspicious Long Filename Pattern - Linux
+description: Detects the creation of files with unusually long filenames (100 or more characters), which may indicate obfuscation techniques used by malware such as VShell. This is a hunting rule to identify potential threats that use long filenames to evade detection. Keep in mind that on a legitimate system, such long filenames can and are common. Run this detection in the context of threat hunting rather than alerting. Adjust the threshold of filename length as needed based on your environment. - Legitimate files with long filenames.
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- DefenseEvasion
+query: |-
+  DeviceFileEvents
+  | where FolderPath matches regex "[^/]{100,}$" and (not((FolderPath startswith "/run/systemd/units/invocation:systemd-fsck@" or FolderPath startswith "/sys/firmware/" or FolderPath startswith "/var/log/journal/")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+- T1027
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

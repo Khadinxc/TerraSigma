@@ -1,0 +1,89 @@
+resource "azurerm_sentinel_alert_rule_scheduled" "rdp_sensitive_settings_changed" {
+  name                       = "rdp_sensitive_settings_changed"
+  log_analytics_workspace_id = var.workspace_id
+  display_name               = "RDP Sensitive Settings Changed"
+  description                = "Detects tampering of RDP Terminal Service/Server sensitive settings. Such as allowing unauthorized users access to a system via the 'fAllowUnsolicited' or enabling RDP via 'fDenyTSConnections', etc. Below is a list of registry keys/values that are monitored by this rule: - Shadow: Used to enable Remote Desktop shadowing, which allows an administrator to view or control a user's session. - DisableRemoteDesktopAntiAlias: Disables anti-aliasing for remote desktop sessions. - DisableSecuritySettings: Disables certain security settings for Remote Desktop connections. - fAllowUnsolicited: Allows unsolicited remote assistance offers. - fAllowUnsolicitedFullControl: Allows unsolicited remote assistance offers with full control. - InitialProgram: Specifies a program to run automatically when a user logs on to a remote computer. - ServiceDll: Used in RDP hijacking techniques to specify a custom DLL to be loaded by the Terminal Services service. - SecurityLayer: Specifies the security layer used for RDP connections. - Some of the keys mentioned here could be modified by an administrator while setting group policy (it should be investigated either way)"
+  severity                   = "High"
+  query                      = <<QUERY
+DeviceRegistryEvents
+| where (((RegistryValueData in~ ("DWORD (0x00000001)", "DWORD (0x00000002)", "DWORD (0x00000003)", "DWORD (0x00000004)")) and (RegistryKey endswith "\\Control\\Terminal Server*" or RegistryKey endswith "\\Windows NT\\Terminal Services*") and RegistryKey endswith "\\Shadow") or (RegistryValueData =~ "DWORD (0x00000001)" and (RegistryKey endswith "\\Control\\Terminal Server*" or RegistryKey endswith "\\Windows NT\\Terminal Services*") and (RegistryKey endswith "\\DisableRemoteDesktopAntiAlias" or RegistryKey endswith "\\DisableSecuritySettings" or RegistryKey endswith "\\fAllowUnsolicited" or RegistryKey endswith "\\fAllowUnsolicitedFullControl")) or (RegistryKey contains "\\Control\\Terminal Server\\InitialProgram" or RegistryKey contains "\\Control\\Terminal Server\\WinStations\\RDP-Tcp\\InitialProgram" or RegistryKey contains "\\services\\TermService\\Parameters\\ServiceDll" or RegistryKey contains "\\Terminal Server\\WinStations\\RDP-Tcp\\SecurityLayer" or RegistryKey contains "\\Windows NT\\Terminal Services\\InitialProgram")) and (not((RegistryValueData =~ "DWORD (0x00000002)" and RegistryKey endswith "\\SecurityLayer")))
+QUERY
+  query_frequency            = "PT1H"
+  query_period               = "PT1H"
+  trigger_operator           = "GreaterThan"
+  trigger_threshold          = 0
+  suppression_enabled        = false
+  suppression_duration       = "PT5H"
+  tactics                    = ["DefenseEvasion", "Persistence"]
+  techniques                 = ["T1112"]
+  enabled                    = true
+
+  incident {
+    create_incident_enabled = true
+    grouping {
+      enabled                 = false
+      lookback_duration       = "PT5H"
+      reopen_closed_incidents = false
+      entity_matching_method  = "AllEntities"
+      by_entities             = []
+      by_alert_details        = []
+      by_custom_details       = []
+    }
+  }
+
+  event_grouping {
+    aggregation_method = "SingleAlert"
+  }
+
+  entity_mapping {
+    entity_type = "Account"
+    field_mapping {
+      identifier  = "Name"
+      column_name = "InitiatingProcessAccountName"
+    }
+    field_mapping {
+      identifier  = "NTDomain"
+      column_name = "InitiatingProcessAccountDomain"
+    }
+    field_mapping {
+      identifier  = "Sid"
+      column_name = "InitiatingProcessAccountSid"
+    }
+    field_mapping {
+      identifier  = "UPNSuffix"
+      column_name = "InitiatingProcessAccountUpn"
+    }
+    field_mapping {
+      identifier  = "AadUserId"
+      column_name = "InitiatingProcessAccountObjectId"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "Host"
+    field_mapping {
+      identifier  = "HostName"
+      column_name = "DeviceName"
+    }
+    field_mapping {
+      identifier  = "AzureID"
+      column_name = "DeviceId"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "RegistryKey"
+    field_mapping {
+      identifier  = "Key"
+      column_name = "RegistryKey"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "RegistryValue"
+    field_mapping {
+      identifier  = "Value"
+      column_name = "RegistryValueData"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+id: 5d78479a-a86f-5a49-a61b-f5c8c3f1de64
+name: PPL Tampering Via WerFaultSecure
+description: 'Detects potential abuse of WerFaultSecure.exe to dump Protected Process Light (PPL) processes like LSASS or to freeze security solutions (EDR/antivirus). This technique is used by tools such as EDR-Freeze and WSASS to bypass PPL protections and access sensitive information or disable security software. Distinct command line patterns help identify the specific tool: - WSASS usage typically shows: "WSASS.exe WerFaultSecure.exe [PID]" in ParentCommandLine - EDR-Freeze usage typically shows: "EDR-Freeze_[version].exe [PID] [timeout]" in ParentCommandLine Legitimate debugging operations using WerFaultSecure are rare in production environments and should be investigated. - Legitimate usage of WerFaultSecure for debugging purposes'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- CredentialAccess
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains " /h " and ProcessCommandLine contains " /pid " and ProcessCommandLine contains " /tid " and ProcessCommandLine contains " /encfile " and ProcessCommandLine contains " /cancel " and ProcessCommandLine contains " /type " and ProcessCommandLine contains " 268310") and (FolderPath endswith "\\WerFaultSecure.exe" or ProcessVersionInfoOriginalFileName =~ "WerFaultSecure.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1562
+- T1003
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

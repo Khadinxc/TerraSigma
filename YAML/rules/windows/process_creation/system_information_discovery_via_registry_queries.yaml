@@ -1,0 +1,48 @@
+id: 0e705b6d-93c4-515c-af6f-6b01d6a66676
+name: System Information Discovery via Registry Queries
+description: Detects attempts to query system information directly from the Windows Registry. - Unlikely
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where (((ProcessCommandLine contains "Get-ItemPropertyValue" or ProcessCommandLine contains "gpv") and (FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe")) or (ProcessCommandLine contains "query" and (ProcessCommandLine contains "-v" or ProcessCommandLine contains "/v" or ProcessCommandLine contains "–v" or ProcessCommandLine contains "—v" or ProcessCommandLine contains "―v") and FolderPath endswith "\\reg.exe")) and (ProcessCommandLine contains "\\SOFTWARE\\Microsoft\\Windows Defender" or ProcessCommandLine contains "\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion" or ProcessCommandLine contains "\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall" or ProcessCommandLine contains "\\SYSTEM\\CurrentControlSet\\Control\\TimeZoneInformation" or ProcessCommandLine contains "\\SYSTEM\\CurrentControlSet\\Services")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1082
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

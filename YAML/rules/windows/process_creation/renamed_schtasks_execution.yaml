@@ -1,0 +1,54 @@
+id: 2f7ac49f-9d9e-5cf9-a25e-2dc8c9e2680f
+name: Renamed Schtasks Execution
+description: Detects the execution of renamed schtasks.exe binary, which is a legitimate Windows utility used for scheduling tasks. One of the very common persistence techniques is schedule malicious tasks using schtasks.exe. Since, it is heavily abused, it is also heavily monitored by security products. To evade detection, threat actors may rename the schtasks.exe binary to schedule their malicious tasks. - Unlikely
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Execution
+- Persistence
+- PrivilegeEscalation
+query: |-
+  DeviceProcessEvents
+  | where (((ProcessCommandLine contains " -tn " or ProcessCommandLine contains " /tn " or ProcessCommandLine contains " –tn " or ProcessCommandLine contains " —tn " or ProcessCommandLine contains " ―tn " or ProcessCommandLine contains " -tr " or ProcessCommandLine contains " /tr " or ProcessCommandLine contains " –tr " or ProcessCommandLine contains " —tr " or ProcessCommandLine contains " ―tr " or ProcessCommandLine contains " -sc " or ProcessCommandLine contains " /sc " or ProcessCommandLine contains " –sc " or ProcessCommandLine contains " —sc " or ProcessCommandLine contains " ―sc " or ProcessCommandLine contains " -st " or ProcessCommandLine contains " /st " or ProcessCommandLine contains " –st " or ProcessCommandLine contains " —st " or ProcessCommandLine contains " ―st " or ProcessCommandLine contains " -ru " or ProcessCommandLine contains " /ru " or ProcessCommandLine contains " –ru " or ProcessCommandLine contains " —ru " or ProcessCommandLine contains " ―ru " or ProcessCommandLine contains " -fo " or ProcessCommandLine contains " /fo " or ProcessCommandLine contains " –fo " or ProcessCommandLine contains " —fo " or ProcessCommandLine contains " ―fo ") and (ProcessCommandLine contains " -create " or ProcessCommandLine contains " /create " or ProcessCommandLine contains " –create " or ProcessCommandLine contains " —create " or ProcessCommandLine contains " ―create " or ProcessCommandLine contains " -delete " or ProcessCommandLine contains " /delete " or ProcessCommandLine contains " –delete " or ProcessCommandLine contains " —delete " or ProcessCommandLine contains " ―delete " or ProcessCommandLine contains " -query " or ProcessCommandLine contains " /query " or ProcessCommandLine contains " –query " or ProcessCommandLine contains " —query " or ProcessCommandLine contains " ―query " or ProcessCommandLine contains " -change " or ProcessCommandLine contains " /change " or ProcessCommandLine contains " –change " or ProcessCommandLine contains " —change " or ProcessCommandLine contains " ―change " or ProcessCommandLine contains " -run " or ProcessCommandLine contains " /run " or ProcessCommandLine contains " –run " or ProcessCommandLine contains " —run " or ProcessCommandLine contains " ―run " or ProcessCommandLine contains " -end " or ProcessCommandLine contains " /end " or ProcessCommandLine contains " –end " or ProcessCommandLine contains " —end " or ProcessCommandLine contains " ―end ")) and (not(ProcessCommandLine contains "schtasks"))) or (ProcessVersionInfoOriginalFileName =~ "schtasks.exe" and (not(FolderPath endswith "\\schtasks.exe")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1036
+- T1053
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

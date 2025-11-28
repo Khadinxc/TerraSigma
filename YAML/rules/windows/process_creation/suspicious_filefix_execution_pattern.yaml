@@ -1,0 +1,48 @@
+id: 9eb87e25-e372-5ae5-bd84-662e58274a6b
+name: Suspicious FileFix Execution Pattern
+description: Detects suspicious FileFix execution patterns where users are tricked into running malicious commands through browser file upload dialog manipulation. This attack typically begins when users visit malicious websites impersonating legitimate services or news platforms, which may display fake CAPTCHA challenges or direct instructions to open file explorer and paste clipboard content. The clipboard content usually contains commands that download and execute malware, such as information stealing tools. - Legitimate use of PowerShell or other utilities launched from browser extensions or automation tools
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "#" and (InitiatingProcessFolderPath endswith "\\brave.exe" or InitiatingProcessFolderPath endswith "\\chrome.exe" or InitiatingProcessFolderPath endswith "\\firefox.exe" or InitiatingProcessFolderPath endswith "\\msedge.exe")) and ((ProcessCommandLine contains "account" or ProcessCommandLine contains "anti-bot" or ProcessCommandLine contains "botcheck" or ProcessCommandLine contains "captcha" or ProcessCommandLine contains "challenge" or ProcessCommandLine contains "confirmation" or ProcessCommandLine contains "fraud" or ProcessCommandLine contains "human" or ProcessCommandLine contains "identification" or ProcessCommandLine contains "identificator" or ProcessCommandLine contains "identity" or ProcessCommandLine contains "robot" or ProcessCommandLine contains "validation" or ProcessCommandLine contains "verification" or ProcessCommandLine contains "verify") or (ProcessCommandLine contains "%comspec%" or ProcessCommandLine contains "bitsadmin" or ProcessCommandLine contains "certutil" or ProcessCommandLine contains "cmd" or ProcessCommandLine contains "cscript" or ProcessCommandLine contains "curl" or ProcessCommandLine contains "finger" or ProcessCommandLine contains "mshta" or ProcessCommandLine contains "powershell" or ProcessCommandLine contains "pwsh" or ProcessCommandLine contains "regsvr32" or ProcessCommandLine contains "rundll32" or ProcessCommandLine contains "schtasks" or ProcessCommandLine contains "wget" or ProcessCommandLine contains "wscript"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1204
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

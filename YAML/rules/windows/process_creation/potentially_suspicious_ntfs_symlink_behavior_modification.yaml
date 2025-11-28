@@ -1,0 +1,52 @@
+id: d791b13e-be48-5388-9e6e-412d791232a0
+name: Potentially Suspicious NTFS Symlink Behavior Modification
+description: Detects the modification of NTFS symbolic link behavior using fsutil, which could be used to enable remote to local or remote to remote symlinks for potential attacks. - Legitimate usage, investigate the parent process and context to determine if benign.
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "fsutil" and ProcessCommandLine contains "behavior" and ProcessCommandLine contains "set" and ProcessCommandLine contains "SymlinkEvaluation") and ((FolderPath endswith "\\cmd.exe" or FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe") or (ProcessVersionInfoOriginalFileName in~ ("Cmd.Exe", "PowerShell.EXE", "pwsh.dll"))) and (ProcessCommandLine contains "R2L:1" or ProcessCommandLine contains "R2R:1" or ProcessCommandLine contains "L2L:1")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+- T1222
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

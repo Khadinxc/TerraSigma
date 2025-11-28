@@ -1,0 +1,44 @@
+id: c1de66a9-68be-5a36-88d6-3ea5a6ba66c4
+name: Suspicious Execution Of Renamed Sysinternals Tools - Registry
+description: Detects the creation of the "accepteula" key related to the Sysinternals tools being created from executables with the wrong name (e.g. a renamed Sysinternals tool) - Unlikely
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- ResourceDevelopment
+query: |-
+  DeviceRegistryEvents
+  | where ((RegistryKey contains "\\Active Directory Explorer" or RegistryKey contains "\\Handle" or RegistryKey contains "\\LiveKd" or RegistryKey contains "\\ProcDump" or RegistryKey contains "\\Process Explorer" or RegistryKey contains "\\PsExec" or RegistryKey contains "\\PsLoggedon" or RegistryKey contains "\\PsLoglist" or RegistryKey contains "\\PsPasswd" or RegistryKey contains "\\PsPing" or RegistryKey contains "\\PsService" or RegistryKey contains "\\SDelete") and RegistryKey endswith "\\EulaAccepted") and (not((InitiatingProcessFolderPath endswith "\\ADExplorer.exe" or InitiatingProcessFolderPath endswith "\\ADExplorer64.exe" or InitiatingProcessFolderPath endswith "\\handle.exe" or InitiatingProcessFolderPath endswith "\\handle64.exe" or InitiatingProcessFolderPath endswith "\\livekd.exe" or InitiatingProcessFolderPath endswith "\\livekd64.exe" or InitiatingProcessFolderPath endswith "\\procdump.exe" or InitiatingProcessFolderPath endswith "\\procdump64.exe" or InitiatingProcessFolderPath endswith "\\procexp.exe" or InitiatingProcessFolderPath endswith "\\procexp64.exe" or InitiatingProcessFolderPath endswith "\\PsExec.exe" or InitiatingProcessFolderPath endswith "\\PsExec64.exe" or InitiatingProcessFolderPath endswith "\\PsLoggedon.exe" or InitiatingProcessFolderPath endswith "\\PsLoggedon64.exe" or InitiatingProcessFolderPath endswith "\\psloglist.exe" or InitiatingProcessFolderPath endswith "\\psloglist64.exe" or InitiatingProcessFolderPath endswith "\\pspasswd.exe" or InitiatingProcessFolderPath endswith "\\pspasswd64.exe" or InitiatingProcessFolderPath endswith "\\PsPing.exe" or InitiatingProcessFolderPath endswith "\\PsPing64.exe" or InitiatingProcessFolderPath endswith "\\PsService.exe" or InitiatingProcessFolderPath endswith "\\PsService64.exe" or InitiatingProcessFolderPath endswith "\\sdelete.exe")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1588
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents
