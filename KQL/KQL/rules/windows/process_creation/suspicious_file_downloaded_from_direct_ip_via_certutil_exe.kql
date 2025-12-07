@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects the execution of certutil with certain flags that allow the utility to download files from direct IPs.
 // MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1027
+// Tags: attack.defense-evasion, attack.t1027, attack.command-and-control, attack.t1105
 
 DeviceProcessEvents
-| where ((ProcessCommandLine contains "urlcache " or ProcessCommandLine contains "verifyctl ") and (ProcessCommandLine contains "://1" or ProcessCommandLine contains "://2" or ProcessCommandLine contains "://3" or ProcessCommandLine contains "://4" or ProcessCommandLine contains "://5" or ProcessCommandLine contains "://6" or ProcessCommandLine contains "://7" or ProcessCommandLine contains "://8" or ProcessCommandLine contains "://9") and (FolderPath endswith "\\certutil.exe" or ProcessVersionInfoOriginalFileName =~ "CertUtil.exe")) and (not(ProcessCommandLine contains "://7-"))
+| where ((ProcessCommandLine contains "urlcache " or ProcessCommandLine contains "verifyctl " or ProcessCommandLine contains "URL ") and (ProcessCommandLine contains "://1" or ProcessCommandLine contains "://2" or ProcessCommandLine contains "://3" or ProcessCommandLine contains "://4" or ProcessCommandLine contains "://5" or ProcessCommandLine contains "://6" or ProcessCommandLine contains "://7" or ProcessCommandLine contains "://8" or ProcessCommandLine contains "://9") and (FolderPath endswith "\\certutil.exe" or ProcessVersionInfoOriginalFileName =~ "CertUtil.exe")) and (not(ProcessCommandLine contains "://7-"))

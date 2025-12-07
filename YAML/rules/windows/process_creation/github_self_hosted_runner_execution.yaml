@@ -1,0 +1,51 @@
+id: 5276266d-e3d2-5b61-931e-06c0a8b08f66
+name: Github Self-Hosted Runner Execution
+description: Detects GitHub self-hosted runners executing workflows on local infrastructure that could be abused for persistence and code execution. Shai-Hulud is an npm supply chain worm targeting CI/CD environments. It installs runners on compromised systems to maintain access after credential theft, leveraging their access to secrets and internal networks. - Legitimate GitHub self-hosted runner installations on designated CI/CD infrastructure - Authorized runner deployments by DevOps/Platform teams following change management - Scheduled runner updates or reconfigurations on existing build agents - Self-hosted runners that follow expected/known naming patterns - Installation via expected/known configuration management tools (reflected mostly as parent process name)
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CommandAndControl
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "spawnclient" and (FolderPath endswith "\\Runner.Worker.exe" or ProcessVersionInfoOriginalFileName =~ "Runner.Worker.dll")) or ((ProcessCommandLine contains "run" or ProcessCommandLine contains "configure") and (FolderPath endswith "\\Runner.Listener.exe" or ProcessVersionInfoOriginalFileName =~ "Runner.Listener.dll"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1102
+- T1071
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

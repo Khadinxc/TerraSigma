@@ -1,0 +1,50 @@
+id: f962178a-3002-5f81-bfd5-f1d65cf12c0b
+name: HTML File Opened From Download Folder
+description: Detects web browser process opening an HTML file from a user's Downloads folder. This behavior is could be associated with phishing attacks where threat actors send HTML attachments to users. When a user opens such an attachment, it can lead to the execution of malicious scripts or the download of malware. During investigation, analyze the HTML file for embedded scripts or links, check for any subsequent downloads or process executions, and investigate the source of the email or message containing the attachment. - Opening any HTML file located in users directories via a browser process will trigger this.
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- InitialAccess
+- Reconnaissance
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains ":\\users\\" and ProcessCommandLine contains "\\Downloads\\" and ProcessCommandLine contains ".htm") and (FolderPath endswith "\\brave.exe" or FolderPath endswith "\\chrome.exe" or FolderPath endswith "\\firefox.exe" or FolderPath endswith "\\msedge.exe" or FolderPath endswith "\\opera.exe" or FolderPath endswith "\\vivaldi.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1598
+- T1566
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents
