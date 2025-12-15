@@ -9,4 +9,4 @@
 //   - FP could be caused by legitimate application writing shortcuts for example. This folder should always be inspected to make sure that all the files in there are legitimate
 
 DeviceFileEvents
-| where FolderPath contains "\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp" and (not((InitiatingProcessFolderPath =~ "C:\\Windows\\System32\\wuauclt.exe" or FolderPath startswith "C:\\$WINDOWS.~BT\\NewOS\\"))) and (not((InitiatingProcessFolderPath endswith "\\ONENOTE.EXE" and FolderPath endswith "\\Send to OneNote.lnk")))
+| where FolderPath contains "\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp" and (not(((InitiatingProcessFolderPath in~ ("C:\\Windows\\System32\\wuauclt.exe", "C:\\Windows\\uus\\ARM64\\wuaucltcore.exe")) or (FolderPath startswith "C:\\$WINDOWS.~BT\\NewOS\\" or FolderPath startswith "C:\\$WinREAgent\\Scratch\\Mount\\")))) and (not((InitiatingProcessFolderPath endswith "\\ONENOTE.EXE" and FolderPath endswith "\\Send to OneNote.lnk")))

@@ -7,4 +7,4 @@
 // Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.t1574.001
 
 DeviceFileEvents
-| where (FolderPath endswith "\\WerFault.exe" or FolderPath endswith "\\wer.dll") and (not((FolderPath startswith "C:\\Windows\\SoftwareDistribution\\" or FolderPath startswith "C:\\Windows\\System32\\" or FolderPath startswith "C:\\Windows\\SysWOW64\\" or FolderPath startswith "C:\\Windows\\WinSxS\\")))
+| where (FolderPath endswith "\\WerFault.exe" or FolderPath endswith "\\wer.dll") and (not((FolderPath startswith "C:\\Windows\\SoftwareDistribution\\" or FolderPath startswith "C:\\Windows\\System32\\" or FolderPath startswith "C:\\Windows\\SysWOW64\\" or FolderPath startswith "C:\\Windows\\WinSxS\\" or FolderPath startswith "C:\\Windows\\UUS\\arm64\\")))

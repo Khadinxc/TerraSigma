@@ -1,0 +1,46 @@
+id: 52b78f62-ec51-5546-8bc4-bc95463d3461
+name: Suspicious Loading of Dbgcore/Dbghelp DLLs from Uncommon Location
+description: Detects loading of dbgcore.dll or dbghelp.dll from uncommon locations such as user directories. These DLLs contain the MiniDumpWriteDump function, which can be abused for credential dumping purposes or in some cases for evading EDR/AV detection by suspending processes. - Possibly during software installation or update processes
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CredentialAccess
+- DefenseEvasion
+query: |-
+  DeviceImageLoadEvents
+  | where (FolderPath endswith "\\dbgcore.dll" or FolderPath endswith "\\dbghelp.dll") and (InitiatingProcessFolderPath contains ":\\Perflogs\\" or InitiatingProcessFolderPath contains ":\\Temp\\" or InitiatingProcessFolderPath contains ":\\Users\\Public\\" or InitiatingProcessFolderPath contains "\\$Recycle.Bin\\" or InitiatingProcessFolderPath contains "\\Contacts\\" or InitiatingProcessFolderPath contains "\\Desktop\\" or InitiatingProcessFolderPath contains "\\Documents\\" or InitiatingProcessFolderPath contains "\\Downloads\\" or InitiatingProcessFolderPath contains "\\Favorites\\" or InitiatingProcessFolderPath contains "\\Favourites\\" or InitiatingProcessFolderPath contains "\\inetpub\\wwwroot\\" or InitiatingProcessFolderPath contains "\\Music\\" or InitiatingProcessFolderPath contains "\\Pictures\\" or InitiatingProcessFolderPath contains "\\Start Menu\\Programs\\Startup\\" or InitiatingProcessFolderPath contains "\\Users\\Default\\" or InitiatingProcessFolderPath contains "\\Videos\\")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1003
+- T1562
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents
