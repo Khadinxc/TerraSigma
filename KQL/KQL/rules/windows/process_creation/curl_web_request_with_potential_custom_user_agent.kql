@@ -7,4 +7,4 @@
 // Tags: attack.execution
 
 DeviceProcessEvents
-| where (ProcessCommandLine contains "User-Agent:" and ProcessCommandLine matches regex "\\s-H\\s") and (FolderPath endswith "\\curl.exe" or ProcessVersionInfoOriginalFileName =~ "curl.exe")
+| where (FolderPath endswith "\\curl.exe" or ProcessVersionInfoOriginalFileName =~ "curl.exe") and (ProcessCommandLine matches regex "\\s-H\\s" or ProcessCommandLine contains "--header") and ProcessCommandLine contains "User-Agent:"
