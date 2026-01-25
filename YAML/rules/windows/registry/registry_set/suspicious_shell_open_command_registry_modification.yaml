@@ -1,0 +1,51 @@
+id: 01da8093-d738-5660-9051-1d17032ca781
+name: Suspicious Shell Open Command Registry Modification
+description: Detects modifications to shell open registry keys that point to suspicious locations typically used by malware for persistence. Generally, modifications to the `*\shell\open\command` registry key can indicate an attempt to change the default action for opening files, and various UAC bypass or persistence techniques involve modifying these keys to execute malicious scripts or binaries. - Legitimate software installations or updates that modify the shell open command registry keys to these locations.
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- PrivilegeEscalation
+- Persistence
+query: |-
+  DeviceRegistryEvents
+  | where (RegistryValueData contains "\\$Recycle.Bin\\" or RegistryValueData contains "\\AppData\\Local\\Temp\\" or RegistryValueData contains "\\Contacts\\" or RegistryValueData contains "\\Music\\" or RegistryValueData contains "\\PerfLogs\\" or RegistryValueData contains "\\Photos\\" or RegistryValueData contains "\\Pictures\\" or RegistryValueData contains "\\Users\\Public\\" or RegistryValueData contains "\\Videos\\" or RegistryValueData contains "\\Windows\\Temp\\" or RegistryValueData contains "%AppData%" or RegistryValueData contains "%LocalAppData%" or RegistryValueData contains "%Temp%" or RegistryValueData contains "%tmp%") and RegistryKey endswith "\\shell\\open\\command*"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1548
+- T1546
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

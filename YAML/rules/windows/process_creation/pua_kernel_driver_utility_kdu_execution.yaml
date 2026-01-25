@@ -1,0 +1,51 @@
+id: 25cf4525-fbfd-55f8-b6ab-e8f0759034b0
+name: PUA - Kernel Driver Utility (KDU) Execution
+description: Detects execution of the Kernel Driver Utility (KDU) tool. KDU can be used to bypass driver signature enforcement and load unsigned or malicious drivers into the Windows kernel. Potentially allowing for privilege escalation, persistence, or evasion of security controls. - Legitimate driver development, testing, or administrative troubleshooting (e.g., enabling/disabling hardware)
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- PrivilegeEscalation
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "-map " or ProcessCommandLine contains "-prv " or ProcessCommandLine contains "-dse " or ProcessCommandLine contains "-ps ") and ((FolderPath endswith "\\kdu.exe" or FolderPath endswith "\\hamakaze.exe") or ProcessVersionInfoOriginalFileName =~ "hamakaze.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1543
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

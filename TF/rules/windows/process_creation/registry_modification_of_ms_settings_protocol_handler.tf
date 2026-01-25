@@ -1,0 +1,93 @@
+resource "azurerm_sentinel_alert_rule_scheduled" "registry_modification_of_ms_settings_protocol_handler" {
+  name                       = "registry_modification_of_ms_settings_protocol_handler"
+  log_analytics_workspace_id = var.workspace_id
+  display_name               = "Registry Modification of MS-settings Protocol Handler"
+  description                = "Detects registry modifications to the 'ms-settings' protocol handler, which is frequently targeted for UAC bypass or persistence. Attackers can modify this registry to execute malicious code with elevated privileges by hijacking the command execution path."
+  severity                   = "Medium"
+  query                      = <<QUERY
+DeviceProcessEvents
+| where ((ProcessCommandLine contains "add" and (FolderPath endswith "\\reg.exe" or ProcessVersionInfoOriginalFileName =~ "reg.exe")) or ((ProcessCommandLine contains "New-ItemProperty" or ProcessCommandLine contains "Set-ItemProperty" or ProcessCommandLine contains "ni " or ProcessCommandLine contains "sp ") and ((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe") or (ProcessVersionInfoOriginalFileName in~ ("powershell.exe", "pwsh.dll"))))) and ProcessCommandLine contains "\\ms-settings\\shell\\open\\command"
+QUERY
+  query_frequency            = "PT1H"
+  query_period               = "PT1H"
+  trigger_operator           = "GreaterThan"
+  trigger_threshold          = 0
+  suppression_enabled        = false
+  suppression_duration       = "PT5H"
+  tactics                    = ["DefenseEvasion", "PrivilegeEscalation", "Persistence"]
+  techniques                 = ["T1548", "T1546", "T1112"]
+  enabled                    = true
+
+  incident {
+    create_incident_enabled = true
+    grouping {
+      enabled                 = false
+      lookback_duration       = "PT5H"
+      reopen_closed_incidents = false
+      entity_matching_method  = "AllEntities"
+      by_entities             = []
+      by_alert_details        = []
+      by_custom_details       = []
+    }
+  }
+
+  event_grouping {
+    aggregation_method = "SingleAlert"
+  }
+
+  entity_mapping {
+    entity_type = "Account"
+    field_mapping {
+      identifier  = "Name"
+      column_name = "InitiatingProcessAccountName"
+    }
+    field_mapping {
+      identifier  = "NTDomain"
+      column_name = "InitiatingProcessAccountDomain"
+    }
+    field_mapping {
+      identifier  = "Sid"
+      column_name = "InitiatingProcessAccountSid"
+    }
+    field_mapping {
+      identifier  = "UPNSuffix"
+      column_name = "InitiatingProcessAccountUpn"
+    }
+    field_mapping {
+      identifier  = "AadUserId"
+      column_name = "InitiatingProcessAccountObjectId"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "Host"
+    field_mapping {
+      identifier  = "HostName"
+      column_name = "DeviceName"
+    }
+    field_mapping {
+      identifier  = "AzureID"
+      column_name = "DeviceId"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "Process"
+    field_mapping {
+      identifier  = "CommandLine"
+      column_name = "ProcessCommandLine"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "File"
+    field_mapping {
+      identifier  = "Name"
+      column_name = "FileName"
+    }
+    field_mapping {
+      identifier  = "Directory"
+      column_name = "FolderPath"
+    }
+  }
+}
