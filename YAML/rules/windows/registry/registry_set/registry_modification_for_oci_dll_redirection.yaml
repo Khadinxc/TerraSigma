@@ -1,0 +1,51 @@
+id: 63e1e767-ac75-5c00-b76c-a5caa2f67891
+name: Registry Modification for OCI DLL Redirection
+description: Detects registry modifications related to 'OracleOciLib' and 'OracleOciLibPath' under 'MSDTC' settings. Threat actors may modify these registry keys to redirect the loading of 'oci.dll' to a malicious DLL, facilitating phantom DLL hijacking via the MSDTC service. - Unlikely
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- PrivilegeEscalation
+- DefenseEvasion
+query: |-
+  DeviceRegistryEvents
+  | where (RegistryKey endswith "\\SOFTWARE\\Microsoft\\MSDTC\\MTxOCI\\OracleOciLib" and (not(RegistryValueData contains "oci.dll"))) or (RegistryKey endswith "\\SOFTWARE\\Microsoft\\MSDTC\\MTxOCI\\OracleOciLibPath" and (not(RegistryValueData contains "%SystemRoot%\\System32\\")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1112
+- T1574
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

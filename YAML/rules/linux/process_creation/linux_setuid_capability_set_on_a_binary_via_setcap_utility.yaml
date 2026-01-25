@@ -1,0 +1,51 @@
+id: 3e057bcb-f5eb-592e-a83f-7647e2e77875
+name: Linux Setuid Capability Set on a Binary via Setcap Utility
+description: Detects the use of the 'setcap' utility to set the 'setuid' capability (cap_setuid) on a binary file. This capability allows a non privileged process to make arbitrary manipulations of user IDs (UIDs), including setting its current UID to a value that would otherwise be restricted (i.e. UID 0, the root user). This behavior can be used by adversaries to backdoor a binary in order to escalate privileges again in the future if needed.
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- DefenseEvasion
+- Persistence
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine contains "cap_setuid" and FolderPath endswith "/setcap"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1548
+- T1554
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents
