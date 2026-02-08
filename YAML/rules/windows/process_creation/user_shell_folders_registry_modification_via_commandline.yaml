@@ -1,0 +1,53 @@
+id: 0fdb1590-f904-5451-aafc-8e02820d084c
+name: User Shell Folders Registry Modification via CommandLine
+description: Detects modifications to User Shell Folders registry values via reg.exe or PowerShell, which could indicate persistence attempts. Attackers may modify User Shell Folders registry values to point to malicious executables or scripts that will be executed during startup. This technique is often used to maintain persistence on a compromised system by ensuring that malicious payloads are executed automatically. - Usage of reg.exe or PowerShell to modify User Shell Folders for legitimate purposes; but rare.
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- PrivilegeEscalation
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains " add " or ProcessCommandLine contains "New-ItemProperty" or ProcessCommandLine contains "Set-ItemProperty" or ProcessCommandLine contains "si ") and (ProcessCommandLine contains "\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Folders" or ProcessCommandLine contains "\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\User Shell Folders") and ProcessCommandLine contains "Startup" and ((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe" or FolderPath endswith "\\reg.exe") or (ProcessVersionInfoOriginalFileName in~ ("powershell.exe", "pwsh.dll", "reg.exe")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1547
+- T1112
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

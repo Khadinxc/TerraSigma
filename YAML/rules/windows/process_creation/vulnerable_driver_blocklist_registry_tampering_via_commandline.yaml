@@ -1,0 +1,50 @@
+id: c4802c17-9414-503c-beb3-cc1e548d822a
+name: Vulnerable Driver Blocklist Registry Tampering Via CommandLine
+description: Detects tampering of the Vulnerable Driver Blocklist registry via command line tools such as PowerShell or REG.EXE. The Vulnerable Driver Blocklist is a security feature that helps prevent the loading of known vulnerable drivers. Disabling this feature may indicate an attempt to bypass security controls, often targeted by threat actors to facilitate the installation of malicious or vulnerable drivers, particularly in scenarios involving Endpoint Detection and Response - It is very unlikely for legitimate activities to disable the Vulnerable Driver Blocklist via command line tools; thus it is recommended to investigate promptly.
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "add " or ProcessCommandLine contains "New-ItemProperty " or ProcessCommandLine contains "Set-ItemProperty " or ProcessCommandLine contains "si ") and (ProcessCommandLine contains "\\Control\\CI\\Config" and ProcessCommandLine contains "VulnerableDriverBlocklistEnable") and ((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe" or FolderPath endswith "\\reg.exe") or (ProcessVersionInfoOriginalFileName in~ ("PowerShell.EXE", "pwsh.dll", "reg.exe")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1562
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents
