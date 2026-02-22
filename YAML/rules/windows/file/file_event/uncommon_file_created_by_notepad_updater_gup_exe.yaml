@@ -1,0 +1,47 @@
+id: ddadaaf4-92f1-582d-8770-52a6363d9eae
+name: Uncommon File Created by Notepad++ Updater Gup.EXE
+description: Detects when the Notepad++ updater (gup.exe) creates files in suspicious or uncommon locations. This could indicate potential exploitation of the updater component to deliver unwanted malware or unwarranted files. - Custom or portable Notepad++ installations in non-standard directories. - Legitimate update processes creating temporary files in unexpected locations.
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Collection
+- CredentialAccess
+- InitialAccess
+query: |-
+  DeviceFileEvents
+  | where InitiatingProcessFolderPath endswith "\\gup.exe" and (not(((FolderPath startswith "C:\\Program Files\\Notepad++\\" or FolderPath startswith "C:\\Program Files (x86)\\Notepad++\\") or FolderPath startswith "C:\\$Recycle.Bin\\S-1-5-21" or ((FolderPath contains "\\AppData\\Local\\Temp\\" and FolderPath contains ".zip") and FolderPath startswith "C:\\Users\\") or ((FolderPath contains "\\AppData\\Local\\Temp\\" and FolderPath contains "npp." and FolderPath contains ".Installer." and FolderPath contains ".exe") and FolderPath startswith "C:\\Users\\"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1195
+- T1557
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+  - identifier: UPNSuffix
+    columnName: InitiatingProcessAccountUpn
+  - identifier: AadUserId
+    columnName: InitiatingProcessAccountObjectId
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents
