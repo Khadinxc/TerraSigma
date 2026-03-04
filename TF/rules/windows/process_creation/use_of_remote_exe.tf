@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "use_of_remote_exe" {
   name                       = "use_of_remote_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Use of Remote.exe"
-  description                = "Remote.exe is part of WinDbg in the Windows SDK and can be used for AWL bypass and running remote files. - Approved installs of Windows SDK with Debugging Tools for Windows (WinDbg). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_of_remote_exe.yml"
+  description                = "Remote.exe is part of WinDbg in the Windows SDK and can be used for AWL bypass and running remote files. - Approved installs of Windows SDK with Debugging Tools for Windows (WinDbg). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_of_remote_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

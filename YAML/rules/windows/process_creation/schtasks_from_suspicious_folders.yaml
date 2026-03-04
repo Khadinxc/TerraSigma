@@ -1,6 +1,6 @@
 id: e6db4986-3c05-53ec-a0b2-6ca7ca16f5f2
 name: Schtasks From Suspicious Folders
-description: 'Detects scheduled task creations that have suspicious action command and folder combinations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/schtasks_from_suspicious_folders.yml'
+description: 'Detects scheduled task creations that have suspicious action command and folder combinations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/schtasks_from_suspicious_folders.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

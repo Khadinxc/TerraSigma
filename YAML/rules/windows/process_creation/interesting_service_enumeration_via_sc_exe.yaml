@@ -1,6 +1,6 @@
 id: 47aa67e7-86dc-5280-975c-736e13245cbf
 name: Interesting Service Enumeration Via Sc.EXE
-description: 'Detects the enumeration and query of interesting and in some cases sensitive services on the system via "sc.exe". Attackers often try to enumerate the services currently running on a system in order to find different attack vectors. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/interesting_service_enumeration_via_sc_exe.yml'
+description: 'Detects the enumeration and query of interesting and in some cases sensitive services on the system via "sc.exe". Attackers often try to enumerate the services currently running on a system in order to find different attack vectors. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/interesting_service_enumeration_via_sc_exe.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

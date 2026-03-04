@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "xwizard_exe_execution_from_non
   name                       = "xwizard_exe_execution_from_non_default_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Xwizard.EXE Execution From Non-Default Location"
-  description                = "Detects the execution of Xwizard tool from a non-default directory. When executed from a non-default directory, this utility can be abused in order to side load a custom version of \"xwizards.dll\". - Windows installed on non-C drive | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/xwizard_exe_execution_from_non_default_location.yml"
+  description                = "Detects the execution of Xwizard tool from a non-default directory. When executed from a non-default directory, this utility can be abused in order to side load a custom version of \"xwizards.dll\". - Windows installed on non-C drive | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/xwizard_exe_execution_from_non_default_location.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

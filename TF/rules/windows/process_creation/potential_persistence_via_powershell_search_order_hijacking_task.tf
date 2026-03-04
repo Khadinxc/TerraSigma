@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_persistence_via_powe
   name                       = "potential_persistence_via_powershell_search_order_hijacking_task"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Powershell Search Order Hijacking - Task"
-  description                = "Detects suspicious powershell execution via a schedule task where the command ends with an suspicious flags to hide the powershell instance instead of executeing scripts or commands. This could be a sign of persistence via PowerShell \"Get-Variable\" technique as seen being used in Colibri Loader | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_persistence_via_powershell_search_order_hijacking_task.yml"
+  description                = "Detects suspicious powershell execution via a schedule task where the command ends with an suspicious flags to hide the powershell instance instead of executeing scripts or commands. This could be a sign of persistence via PowerShell \"Get-Variable\" technique as seen being used in Colibri Loader | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_persistence_via_powershell_search_order_hijacking_task.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: d8f9305e-d296-5b50-8602-f8bcbf323428
 name: Arbitrary File Download Via GfxDownloadWrapper.EXE
-description: 'Detects execution of GfxDownloadWrapper.exe with a URL as an argument to download file. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_file_download_via_gfxdownloadwrapper_exe.yml'
+description: 'Detects execution of GfxDownloadWrapper.exe with a URL as an argument to download file. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_file_download_via_gfxdownloadwrapper_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

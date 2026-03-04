@@ -1,6 +1,6 @@
 id: 0cc1d804-8bf2-54fa-b11b-d45eaff7efbe
 name: Remote File Download Via Findstr.EXE
-description: 'Detects execution of "findstr" with specific flags and a remote share path. This specific set of CLI flags would allow "findstr" to download the content of the file located on the remote share as described in the LOLBAS entry. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_file_download_via_findstr_exe.yml'
+description: 'Detects execution of "findstr" with specific flags and a remote share path. This specific set of CLI flags would allow "findstr" to download the content of the file located on the remote share as described in the LOLBAS entry. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_file_download_via_findstr_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

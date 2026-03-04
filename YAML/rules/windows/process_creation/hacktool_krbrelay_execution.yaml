@@ -1,6 +1,6 @@
 id: f5fc8483-7d49-577e-9476-0b61931eb21f
 name: HackTool - KrbRelay Execution
-description: 'Detects the use of KrbRelay, a Kerberos relaying tool - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_krbrelay_execution.yml'
+description: 'Detects the use of KrbRelay, a Kerberos relaying tool - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_krbrelay_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

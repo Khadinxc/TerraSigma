@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "rdp_file_created_by_uncommon_a
   name                       = "rdp_file_created_by_uncommon_application"
   log_analytics_workspace_id = var.workspace_id
   display_name               = ".RDP File Created By Uncommon Application"
-  description                = "Detects creation of a file with an \".rdp\" extension by an application that doesn't commonly create such files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/_rdp_file_created_by_uncommon_application.yml"
+  description                = "Detects creation of a file with an \".rdp\" extension by an application that doesn't commonly create such files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/_rdp_file_created_by_uncommon_application.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

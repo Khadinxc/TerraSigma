@@ -1,6 +1,6 @@
 id: a20359cb-c437-5a62-a816-c582d0335abc
 name: Curl.EXE Execution With Custom UserAgent
-description: 'Detects execution of curl.exe with custom useragent options - Scripts created by developers and admins - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/curl_exe_execution_with_custom_useragent.yml'
+description: 'Detects execution of curl.exe with custom useragent options - Scripts created by developers and admins - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/curl_exe_execution_with_custom_useragent.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

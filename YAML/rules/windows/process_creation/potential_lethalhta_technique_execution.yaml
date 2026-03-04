@@ -1,6 +1,6 @@
 id: bb2b8007-1cd2-5596-a750-eaf2e70e5add
 name: Potential LethalHTA Technique Execution
-description: 'Detects potential LethalHTA technique where the "mshta.exe" is spawned by an "svchost.exe" process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_lethalhta_technique_execution.yml'
+description: 'Detects potential LethalHTA technique where the "mshta.exe" is spawned by an "svchost.exe" process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_lethalhta_technique_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

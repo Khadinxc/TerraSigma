@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "unsigned_appx_installation_att
   name                       = "unsigned_appx_installation_attempt_using_add_appxpackage"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Unsigned AppX Installation Attempt Using Add-AppxPackage"
-  description                = "Detects usage of the \"Add-AppxPackage\" or it's alias \"Add-AppPackage\" to install unsigned AppX packages - Installation of unsigned packages for testing purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/unsigned_appx_installation_attempt_using_add_appxpackage.yml"
+  description                = "Detects usage of the \"Add-AppxPackage\" or it's alias \"Add-AppPackage\" to install unsigned AppX packages - Installation of unsigned packages for testing purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/unsigned_appx_installation_attempt_using_add_appxpackage.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

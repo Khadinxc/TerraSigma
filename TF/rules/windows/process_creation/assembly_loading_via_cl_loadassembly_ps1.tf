@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "assembly_loading_via_cl_loadas
   name                       = "assembly_loading_via_cl_loadassembly_ps1"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Assembly Loading Via CL_LoadAssembly.ps1"
-  description                = "Detects calls to \"LoadAssemblyFromPath\" or \"LoadAssemblyFromNS\" that are part of the \"CL_LoadAssembly.ps1\" script. This can be abused to load different assemblies and bypass App locker controls. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/assembly_loading_via_cl_loadassembly_ps1.yml"
+  description                = "Detects calls to \"LoadAssemblyFromPath\" or \"LoadAssemblyFromNS\" that are part of the \"CL_LoadAssembly.ps1\" script. This can be abused to load different assemblies and bypass App locker controls. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/assembly_loading_via_cl_loadassembly_ps1.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

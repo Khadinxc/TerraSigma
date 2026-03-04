@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_sam_database_dump" {
   name                       = "potential_sam_database_dump"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential SAM Database Dump"
-  description                = "Detects the creation of files that look like exports of the local SAM (Security Account Manager) - Rare cases of administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_sam_database_dump.yml"
+  description                = "Detects the creation of files that look like exports of the local SAM (Security Account Manager) - Rare cases of administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_sam_database_dump.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

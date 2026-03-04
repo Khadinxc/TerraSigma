@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "obfuscated_powershell_oneliner
   name                       = "obfuscated_powershell_oneliner_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Obfuscated PowerShell OneLiner Execution"
-  description                = "Detects the execution of a specific OneLiner to download and execute powershell modules in memory. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/obfuscated_powershell_oneliner_execution.yml"
+  description                = "Detects the execution of a specific OneLiner to download and execute powershell modules in memory. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/obfuscated_powershell_oneliner_execution.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

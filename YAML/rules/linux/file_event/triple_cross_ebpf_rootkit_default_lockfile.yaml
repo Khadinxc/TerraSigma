@@ -1,6 +1,6 @@
 id: 5e15df4d-a6e2-5663-a003-b2dc3651e51a
 name: Triple Cross eBPF Rootkit Default LockFile
-description: 'Detects the creation of the file "rootlog" which is used by the TripleCross rootkit as a way to check if the backdoor is already running. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/triple_cross_ebpf_rootkit_default_lockfile.yml'
+description: 'Detects the creation of the file "rootlog" which is used by the TripleCross rootkit as a way to check if the backdoor is already running. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/triple_cross_ebpf_rootkit_default_lockfile.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

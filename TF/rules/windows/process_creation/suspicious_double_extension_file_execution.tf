@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_double_extension_fi
   name                       = "suspicious_double_extension_file_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Double Extension File Execution"
-  description                = "Detects suspicious use of an .exe extension after a non-executable file extension like .pdf.exe, a set of spaces or underlines to cloak the executable file in spear phishing campaigns | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_double_extension_file_execution.yml"
+  description                = "Detects suspicious use of an .exe extension after a non-executable file extension like .pdf.exe, a set of spaces or underlines to cloak the executable file in spear phishing campaigns | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_double_extension_file_execution.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

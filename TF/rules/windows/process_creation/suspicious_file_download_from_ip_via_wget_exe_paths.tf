@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_file_download_from_
   name                       = "suspicious_file_download_from_ip_via_wget_exe_paths"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Download From IP Via Wget.EXE - Paths"
-  description                = "Detects potentially suspicious file downloads directly from IP addresses and stored in suspicious locations using Wget.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_file_download_from_ip_via_wget_exe_paths.yml"
+  description                = "Detects potentially suspicious file downloads directly from IP addresses and stored in suspicious locations using Wget.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_file_download_from_ip_via_wget_exe_paths.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "query_usage_to_exfil_data" {
   name                       = "query_usage_to_exfil_data"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Query Usage To Exfil Data"
-  description                = "Detects usage of \"query.exe\" a system binary to exfil information such as \"sessions\" and \"processes\" for later use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/query_usage_to_exfil_data.yml"
+  description                = "Detects usage of \"query.exe\" a system binary to exfil information such as \"sessions\" and \"processes\" for later use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/query_usage_to_exfil_data.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

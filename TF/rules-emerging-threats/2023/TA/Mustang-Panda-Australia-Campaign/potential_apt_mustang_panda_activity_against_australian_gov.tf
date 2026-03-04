@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_apt_mustang_panda_ac
   name                       = "potential_apt_mustang_panda_activity_against_australian_gov"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential APT Mustang Panda Activity Against Australian Gov"
-  description                = "Detects specific command line execution used by Mustang Panda in a targeted attack against the Australian government as reported by Lab52 - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Mustang-Panda-Australia-Campaign/potential_apt_mustang_panda_activity_against_australian_gov.yml"
+  description                = "Detects specific command line execution used by Mustang Panda in a targeted attack against the Australian government as reported by Lab52 - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Mustang-Panda-Australia-Campaign/potential_apt_mustang_panda_activity_against_australian_gov.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

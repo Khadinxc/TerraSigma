@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "jxa_in_memory_execution_via_os
   name                       = "jxa_in_memory_execution_via_osascript"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "JXA In-memory Execution Via OSAScript"
-  description                = "Detects possible malicious execution of JXA in-memory via OSAScript | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/jxa_in_memory_execution_via_osascript.yml"
+  description                = "Detects possible malicious execution of JXA in-memory via OSAScript | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/jxa_in_memory_execution_via_osascript.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

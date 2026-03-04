@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_deleted_via_sysinternals_
   name                       = "file_deleted_via_sysinternals_sdelete"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Deleted Via Sysinternals SDelete"
-  description                = "Detects the deletion of files by the Sysinternals SDelete utility. It looks for the common name pattern used to rename files. - Legitimate usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_deleted_via_sysinternals_sdelete.yml"
+  description                = "Detects the deletion of files by the Sysinternals SDelete utility. It looks for the common name pattern used to rename files. - Legitimate usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_deleted_via_sysinternals_sdelete.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

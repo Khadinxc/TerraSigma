@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "abusable_dll_potential_sideloa
   name                       = "abusable_dll_potential_sideloading_from_suspicious_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Abusable DLL Potential Sideloading From Suspicious Location"
-  description                = "Detects potential DLL sideloading of DLLs that are known to be abused from suspicious locations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/abusable_dll_potential_sideloading_from_suspicious_location.yml"
+  description                = "Detects potential DLL sideloading of DLLs that are known to be abused from suspicious locations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/abusable_dll_potential_sideloading_from_suspicious_location.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

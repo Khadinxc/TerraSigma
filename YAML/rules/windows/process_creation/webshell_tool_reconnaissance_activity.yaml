@@ -1,6 +1,6 @@
 id: 877f1319-c44a-56b0-b1f6-e0fcc8d9c1d1
 name: Webshell Tool Reconnaissance Activity
-description: 'Detects processes spawned from web servers (PHP, Tomcat, IIS, etc.) that perform reconnaissance looking for the existence of popular scripting tools (perl, python, wget) on the system via the help commands | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/webshell_tool_reconnaissance_activity.yml'
+description: 'Detects processes spawned from web servers (PHP, Tomcat, IIS, etc.) that perform reconnaissance looking for the existence of popular scripting tools (perl, python, wget) on the system via the help commands | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/webshell_tool_reconnaissance_activity.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

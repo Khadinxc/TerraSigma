@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_defense_evasion_acti
   name                       = "potential_defense_evasion_activity_via_emoji_usage_in_commandline_1"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Defense Evasion Activity Via Emoji Usage In CommandLine - 1"
-  description                = "Detects the usage of emojis in the command line, this could be a sign of potential defense evasion activity. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_defense_evasion_activity_via_emoji_usage_in_commandline_1.yml"
+  description                = "Detects the usage of emojis in the command line, this could be a sign of potential defense evasion activity. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_defense_evasion_activity_via_emoji_usage_in_commandline_1.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

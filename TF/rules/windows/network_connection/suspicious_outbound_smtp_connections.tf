@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_outbound_smtp_conne
   name                       = "suspicious_outbound_smtp_connections"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Outbound SMTP Connections"
-  description                = "Adversaries may steal data by exfiltrating it over an un-encrypted network protocol other than that of the existing command and control channel. The data may also be sent to an alternate network location from the main command and control server. - Other SMTP tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/suspicious_outbound_smtp_connections.yml"
+  description                = "Adversaries may steal data by exfiltrating it over an un-encrypted network protocol other than that of the existing command and control channel. The data may also be sent to an alternate network location from the main command and control server. - Other SMTP tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/suspicious_outbound_smtp_connections.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

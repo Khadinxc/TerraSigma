@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "guest_account_enabled_via_sysa
   name                       = "guest_account_enabled_via_sysadminctl"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Guest Account Enabled Via Sysadminctl"
-  description                = "Detects attempts to enable the guest account using the sysadminctl utility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/guest_account_enabled_via_sysadminctl.yml"
+  description                = "Detects attempts to enable the guest account using the sysadminctl utility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/guest_account_enabled_via_sysadminctl.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

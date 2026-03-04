@@ -1,6 +1,6 @@
 id: c7040aaa-988c-564c-8df2-24360b8537cb
 name: Suspicious Creation with Colorcpl
-description: 'Once executed, colorcpl.exe will copy the arbitrary file to c:\windows\system32\spool\drivers\color\ | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_creation_with_colorcpl.yml'
+description: 'Once executed, colorcpl.exe will copy the arbitrary file to c:\windows\system32\spool\drivers\color\ | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_creation_with_colorcpl.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

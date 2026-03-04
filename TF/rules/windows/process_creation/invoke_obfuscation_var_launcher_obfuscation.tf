@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "invoke_obfuscation_var_launche
   name                       = "invoke_obfuscation_var_launcher_obfuscation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION"
-  description                = "Detects Obfuscated Powershell via VAR++ LAUNCHER | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/invoke_obfuscation_var_launcher_obfuscation.yml"
+  description                = "Detects Obfuscated Powershell via VAR++ LAUNCHER | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/invoke_obfuscation_var_launcher_obfuscation.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

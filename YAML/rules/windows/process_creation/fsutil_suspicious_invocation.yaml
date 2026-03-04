@@ -1,6 +1,6 @@
 id: 1210a736-69b5-566c-bd3e-21a8cc926186
 name: Fsutil Suspicious Invocation
-description: 'Detects suspicious parameters of fsutil (deleting USN journal, configuring it with small size, etc). Might be used by ransomwares during the attack (seen by NotPetya and others). - Admin activity - Scripts and administrative tools used in the monitored environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/fsutil_suspicious_invocation.yml'
+description: 'Detects suspicious parameters of fsutil (deleting USN journal, configuring it with small size, etc). Might be used by ransomwares during the attack (seen by NotPetya and others). - Admin activity - Scripts and administrative tools used in the monitored environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/fsutil_suspicious_invocation.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

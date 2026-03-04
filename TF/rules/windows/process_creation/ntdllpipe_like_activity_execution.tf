@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "ntdllpipe_like_activity_execut
   name                       = "ntdllpipe_like_activity_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "NtdllPipe Like Activity Execution"
-  description                = "Detects command that type the content of ntdll.dll to a different file or a pipe in order to evade AV / EDR detection. As seen being used in the POC NtdllPipe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/ntdllpipe_like_activity_execution.yml"
+  description                = "Detects command that type the content of ntdll.dll to a different file or a pipe in order to evade AV / EDR detection. As seen being used in the POC NtdllPipe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/ntdllpipe_like_activity_execution.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: fd683adf-d04c-5356-9843-f678c83a87b7
 name: Dllhost.EXE Initiated Network Connection To Non-Local IP Address
-description: 'Detects Dllhost.EXE initiating a network connection to a non-local IP address. Aside from Microsoft own IP range that needs to be excluded. Network communication from Dllhost will depend entirely on the hosted DLL. An initial baseline is recommended before deployment. - Communication to other corporate systems that use IP addresses from public address spaces | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/dllhost_exe_initiated_network_connection_to_non_local_ip_address.yml'
+description: 'Detects Dllhost.EXE initiating a network connection to a non-local IP address. Aside from Microsoft own IP range that needs to be excluded. Network communication from Dllhost will depend entirely on the hosted DLL. An initial baseline is recommended before deployment. - Communication to other corporate systems that use IP addresses from public address spaces | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/dllhost_exe_initiated_network_connection_to_non_local_ip_address.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

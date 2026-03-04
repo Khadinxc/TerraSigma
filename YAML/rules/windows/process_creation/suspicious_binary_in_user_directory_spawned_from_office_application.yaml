@@ -1,6 +1,6 @@
 id: a8d74164-d3b4-509a-b348-38440983ff42
 name: Suspicious Binary In User Directory Spawned From Office Application
-description: 'Detects an executable in the users directory started from one of the Microsoft Office suite applications (Word, Excel, PowerPoint, Publisher, Visio) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_binary_in_user_directory_spawned_from_office_application.yml'
+description: 'Detects an executable in the users directory started from one of the Microsoft Office suite applications (Word, Excel, PowerPoint, Publisher, Visio) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_binary_in_user_directory_spawned_from_office_application.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_suspicious_activedirectory
   name                       = "pua_suspicious_activedirectory_enumeration_via_adfind_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Suspicious ActiveDirectory Enumeration Via AdFind.EXE"
-  description                = "Detects active directory enumeration activity using known AdFind CLI flags - Authorized administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_suspicious_activedirectory_enumeration_via_adfind_exe.yml"
+  description                = "Detects active directory enumeration activity using known AdFind CLI flags - Authorized administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_suspicious_activedirectory_enumeration_via_adfind_exe.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

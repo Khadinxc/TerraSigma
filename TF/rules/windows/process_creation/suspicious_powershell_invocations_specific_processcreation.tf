@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_powershell_invocati
   name                       = "suspicious_powershell_invocations_specific_processcreation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious PowerShell Invocations - Specific - ProcessCreation"
-  description                = "Detects suspicious PowerShell invocation command parameters | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_powershell_invocations_specific_processcreation.yml"
+  description                = "Detects suspicious PowerShell invocation command parameters | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_powershell_invocations_specific_processcreation.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

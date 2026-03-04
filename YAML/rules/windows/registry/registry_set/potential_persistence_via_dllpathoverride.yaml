@@ -1,6 +1,6 @@
 id: f4c6cd13-b7ee-5e16-9aca-7e896d585ef8
 name: Potential Persistence Via DLLPathOverride
-description: 'Detects when an attacker adds a new "DLLPathOverride" value to the "Natural Language" key in order to achieve persistence which will get invoked by "SearchIndexer.exe" process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_dllpathoverride.yml'
+description: 'Detects when an attacker adds a new "DLLPathOverride" value to the "Natural Language" key in order to achieve persistence which will get invoked by "SearchIndexer.exe" process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_dllpathoverride.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

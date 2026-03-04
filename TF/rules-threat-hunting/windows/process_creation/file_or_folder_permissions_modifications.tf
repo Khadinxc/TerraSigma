@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_or_folder_permissions_mod
   name                       = "file_or_folder_permissions_modifications"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File or Folder Permissions Modifications"
-  description                = "Detects a file or folder's permissions being modified or tampered with. - Users interacting with the files on their own (unlikely unless privileged users). - Dynatrace app | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/file_or_folder_permissions_modifications.yml"
+  description                = "Detects a file or folder's permissions being modified or tampered with. - Users interacting with the files on their own (unlikely unless privileged users). - Dynatrace app | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/file_or_folder_permissions_modifications.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_child_process_of_we
   name                       = "suspicious_child_process_of_wermgr_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Child Process Of Wermgr.EXE"
-  description                = "Detects suspicious Windows Error Reporting manager (wermgr.exe) child process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_child_process_of_wermgr_exe.yml"
+  description                = "Detects suspicious Windows Error Reporting manager (wermgr.exe) child process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_child_process_of_wermgr_exe.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

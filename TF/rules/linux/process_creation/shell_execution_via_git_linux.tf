@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "shell_execution_via_git_linux"
   name                       = "shell_execution_via_git_linux"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Shell Execution via Git - Linux"
-  description                = "Detects the use of the \"git\" utility to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or to break out from restricted environments. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/shell_execution_via_git_linux.yml"
+  description                = "Detects the use of the \"git\" utility to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or to break out from restricted environments. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/shell_execution_via_git_linux.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

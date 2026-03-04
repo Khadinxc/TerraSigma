@@ -1,6 +1,6 @@
 id: 26de5128-7d60-53b4-9fe4-42fa821c8e56
 name: Potential SysInternals ProcDump Evasion
-description: 'Detects uses of the SysInternals ProcDump utility in which ProcDump or its output get renamed, or a dump file is moved or copied to a different name | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_sysinternals_procdump_evasion.yml'
+description: 'Detects uses of the SysInternals ProcDump utility in which ProcDump or its output get renamed, or a dump file is moved or copied to a different name | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_sysinternals_procdump_evasion.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

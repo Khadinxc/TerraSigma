@@ -1,6 +1,6 @@
 id: 5233c688-da53-555f-8db5-38082cacf448
 name: HH.EXE Initiated HTTP Network Connection
-description: 'Detects a network connection initiated by the "hh.exe" process to HTTP destination ports, which could indicate the execution/download of remotely hosted .chm files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/hh_exe_initiated_http_network_connection.yml'
+description: 'Detects a network connection initiated by the "hh.exe" process to HTTP destination ports, which could indicate the execution/download of remotely hosted .chm files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/hh_exe_initiated_http_network_connection.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "schtasks_creation_or_modificat
   name                       = "schtasks_creation_or_modification_with_system_privileges"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Schtasks Creation Or Modification With SYSTEM Privileges"
-  description                = "Detects the creation or update of a scheduled task to run with \"NT AUTHORITY\\SYSTEM\" privileges | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/schtasks_creation_or_modification_with_system_privileges.yml"
+  description                = "Detects the creation or update of a scheduled task to run with \"NT AUTHORITY\\SYSTEM\" privileges | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/schtasks_creation_or_modification_with_system_privileges.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

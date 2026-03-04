@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "jamf_mdm_potential_suspicious_
   name                       = "jamf_mdm_potential_suspicious_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "JAMF MDM Potential Suspicious Child Process"
-  description                = "Detects potential suspicious child processes of \"jamf\". Could be a sign of potential abuse of Jamf as a C2 server as seen by Typhon MythicAgent. - Legitimate execution of custom scripts or commands by Jamf administrators. Apply additional filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/jamf_mdm_potential_suspicious_child_process.yml"
+  description                = "Detects potential suspicious child processes of \"jamf\". Could be a sign of potential abuse of Jamf as a C2 server as seen by Typhon MythicAgent. - Legitimate execution of custom scripts or commands by Jamf administrators. Apply additional filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/jamf_mdm_potential_suspicious_child_process.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

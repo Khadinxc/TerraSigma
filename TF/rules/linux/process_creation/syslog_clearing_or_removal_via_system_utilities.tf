@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "syslog_clearing_or_removal_via
   name                       = "syslog_clearing_or_removal_via_system_utilities"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Syslog Clearing or Removal Via System Utilities"
-  description                = "Detects specific commands commonly used to remove or empty the syslog. Which is a technique often used by attacker as a method to hide their tracks - Log rotation. - Maintenance. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/syslog_clearing_or_removal_via_system_utilities.yml"
+  description                = "Detects specific commands commonly used to remove or empty the syslog. Which is a technique often used by attacker as a method to hide their tracks - Log rotation. - Maintenance. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/syslog_clearing_or_removal_via_system_utilities.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

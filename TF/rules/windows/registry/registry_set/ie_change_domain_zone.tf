@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "ie_change_domain_zone" {
   name                       = "ie_change_domain_zone"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "IE Change Domain Zone"
-  description                = "Hides the file extension through modification of the registry - Administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/ie_change_domain_zone.yml"
+  description                = "Hides the file extension through modification of the registry - Administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/ie_change_domain_zone.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

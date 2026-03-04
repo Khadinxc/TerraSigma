@@ -1,6 +1,6 @@
 id: 4cd7d22f-511b-5610-ad9d-5fc47dfacff9
 name: Suspicious Non-Browser Network Communication With Telegram API
-description: 'Detects an a non-browser process interacting with the Telegram API which could indicate use of a covert C2 - Legitimate applications communicating with the Telegram API e.g. web browsers not in the exclusion list, app with an RSS  etc. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/suspicious_non_browser_network_communication_with_telegram_api.yml'
+description: 'Detects an a non-browser process interacting with the Telegram API which could indicate use of a covert C2 - Legitimate applications communicating with the Telegram API e.g. web browsers not in the exclusion list, app with an RSS  etc. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/suspicious_non_browser_network_communication_with_telegram_api.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

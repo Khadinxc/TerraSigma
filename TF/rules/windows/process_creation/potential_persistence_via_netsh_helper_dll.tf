@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_persistence_via_nets
   name                       = "potential_persistence_via_netsh_helper_dll"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Netsh Helper DLL"
-  description                = "Detects the execution of netsh with \"add helper\" flag in order to add a custom helper DLL. This technique can be abused to add a malicious helper DLL that can be used as a persistence proxy that gets called when netsh.exe is executed. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_persistence_via_netsh_helper_dll.yml"
+  description                = "Detects the execution of netsh with \"add helper\" flag in order to add a custom helper DLL. This technique can be abused to add a malicious helper DLL that can be used as a persistence proxy that gets called when netsh.exe is executed. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_persistence_via_netsh_helper_dll.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

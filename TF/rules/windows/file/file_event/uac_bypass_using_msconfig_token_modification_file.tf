@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uac_bypass_using_msconfig_toke
   name                       = "uac_bypass_using_msconfig_token_modification_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass Using MSConfig Token Modification - File"
-  description                = "Detects the pattern of UAC Bypass using a msconfig GUI hack (UACMe 55) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/uac_bypass_using_msconfig_token_modification_file.yml"
+  description                = "Detects the pattern of UAC Bypass using a msconfig GUI hack (UACMe 55) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/uac_bypass_using_msconfig_token_modification_file.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

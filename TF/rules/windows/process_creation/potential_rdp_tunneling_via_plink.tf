@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_rdp_tunneling_via_pl
   name                       = "potential_rdp_tunneling_via_plink"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential RDP Tunneling Via Plink"
-  description                = "Execution of plink to perform data exfiltration and tunneling | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_rdp_tunneling_via_plink.yml"
+  description                = "Execution of plink to perform data exfiltration and tunneling | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_rdp_tunneling_via_plink.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

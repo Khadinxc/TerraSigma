@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "shell_execution_of_process_loc
   name                       = "shell_execution_of_process_located_in_tmp_directory"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Shell Execution Of Process Located In Tmp Directory"
-  description                = "Detects execution of shells from a parent process located in a temporary (/tmp) directory | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/shell_execution_of_process_located_in_tmp_directory.yml"
+  description                = "Detects execution of shells from a parent process located in a temporary (/tmp) directory | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/shell_execution_of_process_located_in_tmp_directory.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

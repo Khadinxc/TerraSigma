@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_xterm_reverse_shell"
   name                       = "potential_xterm_reverse_shell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Xterm Reverse Shell"
-  description                = "Detects usage of \"xterm\" as a potential reverse shell tunnel | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potential_xterm_reverse_shell.yml"
+  description                = "Detects usage of \"xterm\" as a potential reverse shell tunnel | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potential_xterm_reverse_shell.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

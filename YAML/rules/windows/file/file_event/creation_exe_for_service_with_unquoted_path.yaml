@@ -1,6 +1,6 @@
 id: 85d684c2-df25-549d-bce3-5b0ce1ed2ee5
 name: Creation Exe for Service with Unquoted Path
-description: 'Adversaries may execute their own malicious payloads by hijacking vulnerable file path references. Adversaries can take advantage of paths that lack surrounding quotations by placing an executable in a higher level directory within the path, so that Windows will choose the adversary''s executable to launch. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/creation_exe_for_service_with_unquoted_path.yml'
+description: 'Adversaries may execute their own malicious payloads by hijacking vulnerable file path references. Adversaries can take advantage of paths that lack surrounding quotations by placing an executable in a higher level directory within the path, so that Windows will choose the adversary''s executable to launch. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/creation_exe_for_service_with_unquoted_path.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_file_exclusion_added_to_ti
   name                       = "new_file_exclusion_added_to_time_machine_via_tmutil_macos"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New File Exclusion Added To Time Machine Via Tmutil - MacOS"
-  description                = "Detects the addition of a new file or path exclusion to MacOS Time Machine via the \"tmutil\" utility. An adversary could exclude a path from Time Machine backups to prevent certain files from being backed up. - Legitimate administrator activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/new_file_exclusion_added_to_time_machine_via_tmutil_macos.yml"
+  description                = "Detects the addition of a new file or path exclusion to MacOS Time Machine via the \"tmutil\" utility. An adversary could exclude a path from Time Machine backups to prevent certain files from being backed up. - Legitimate administrator activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/new_file_exclusion_added_to_time_machine_via_tmutil_macos.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

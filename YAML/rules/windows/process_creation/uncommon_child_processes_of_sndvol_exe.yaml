@@ -1,6 +1,6 @@
 id: 029b27b0-4edd-583e-9f81-80357d535e9c
 name: Uncommon Child Processes Of SndVol.exe
-description: 'Detects potentially uncommon child processes of SndVol.exe (the Windows volume mixer) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_child_processes_of_sndvol_exe.yml'
+description: 'Detects potentially uncommon child processes of SndVol.exe (the Windows volume mixer) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_child_processes_of_sndvol_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

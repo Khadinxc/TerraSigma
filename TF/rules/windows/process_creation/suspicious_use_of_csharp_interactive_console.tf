@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_use_of_csharp_inter
   name                       = "suspicious_use_of_csharp_interactive_console"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Use of CSharp Interactive Console"
-  description                = "Detects the execution of CSharp interactive console by PowerShell - Possible depending on environment. Pair with other factors such as net connections, command-line args, etc. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_use_of_csharp_interactive_console.yml"
+  description                = "Detects the execution of CSharp interactive console by PowerShell - Possible depending on environment. Pair with other factors such as net connections, command-line args, etc. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_use_of_csharp_interactive_console.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

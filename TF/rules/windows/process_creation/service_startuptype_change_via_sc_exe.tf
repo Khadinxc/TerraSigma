@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "service_startuptype_change_via
   name                       = "service_startuptype_change_via_sc_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Service StartupType Change Via Sc.EXE"
-  description                = "Detect the use of \"sc.exe\" to change the startup type of a service to \"disabled\" or \"demand\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/service_startuptype_change_via_sc_exe.yml"
+  description                = "Detect the use of \"sc.exe\" to change the startup type of a service to \"disabled\" or \"demand\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/service_startuptype_change_via_sc_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

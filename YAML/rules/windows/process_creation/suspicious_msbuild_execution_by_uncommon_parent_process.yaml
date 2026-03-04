@@ -1,6 +1,6 @@
 id: 50528ce5-ca77-5b13-803d-8567f4c22f49
 name: Suspicious Msbuild Execution By Uncommon Parent Process
-description: 'Detects suspicious execution of ''Msbuild.exe'' by a uncommon parent process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_msbuild_execution_by_uncommon_parent_process.yml'
+description: 'Detects suspicious execution of ''Msbuild.exe'' by a uncommon parent process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_msbuild_execution_by_uncommon_parent_process.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

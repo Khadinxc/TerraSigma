@@ -1,6 +1,6 @@
 id: 6ac74b8f-98a8-5734-b482-1360aa1903d2
 name: TrustedPath UAC Bypass Pattern
-description: 'Detects indicators of a UAC bypass method by mocking directories | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/trustedpath_uac_bypass_pattern.yml'
+description: 'Detects indicators of a UAC bypass method by mocking directories | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/trustedpath_uac_bypass_pattern.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

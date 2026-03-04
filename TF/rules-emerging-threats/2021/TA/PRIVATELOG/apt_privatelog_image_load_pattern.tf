@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "apt_privatelog_image_load_patt
   name                       = "apt_privatelog_image_load_pattern"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "APT PRIVATELOG Image Load Pattern"
-  description                = "Detects an image load pattern as seen when a tool named PRIVATELOG is used and rarely observed under legitimate circumstances - Rarely observed | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/TA/PRIVATELOG/apt_privatelog_image_load_pattern.yml"
+  description                = "Detects an image load pattern as seen when a tool named PRIVATELOG is used and rarely observed under legitimate circumstances - Rarely observed | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/TA/PRIVATELOG/apt_privatelog_image_load_pattern.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

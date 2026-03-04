@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "base64_encoded_powershell_comm
   name                       = "base64_encoded_powershell_command_detected"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Base64 Encoded PowerShell Command Detected"
-  description                = "Detects usage of the \"FromBase64String\" function in the commandline which is used to decode a base64 encoded string - Administrative script libraries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/base64_encoded_powershell_command_detected.yml"
+  description                = "Detects usage of the \"FromBase64String\" function in the commandline which is used to decode a base64 encoded string - Administrative script libraries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/base64_encoded_powershell_command_detected.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

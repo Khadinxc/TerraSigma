@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_proxy_execution_via_
   name                       = "potential_proxy_execution_via_explorer_exe_from_shell_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Proxy Execution Via Explorer.EXE From Shell Process"
-  description                = "Detects the creation of a child \"explorer.exe\" process from a shell like process such as \"cmd.exe\" or \"powershell.exe\". Attackers can use \"explorer.exe\" for evading defense mechanisms by proxying the execution through the latter. While this is often a legitimate action, this rule can be use to hunt for anomalies. Muddy Waters threat actor was seeing using this technique. - Legitimate explorer.exe run from a shell host like \"cmd.exe\" or \"powershell.exe\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/potential_proxy_execution_via_explorer_exe_from_shell_process.yml"
+  description                = "Detects the creation of a child \"explorer.exe\" process from a shell like process such as \"cmd.exe\" or \"powershell.exe\". Attackers can use \"explorer.exe\" for evading defense mechanisms by proxying the execution through the latter. While this is often a legitimate action, this rule can be use to hunt for anomalies. Muddy Waters threat actor was seeing using this technique. - Legitimate explorer.exe run from a shell host like \"cmd.exe\" or \"powershell.exe\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/potential_proxy_execution_via_explorer_exe_from_shell_process.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_arbitrary_command_ex
   name                       = "potential_arbitrary_command_execution_using_msdt_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Arbitrary Command Execution Using Msdt.EXE"
-  description                = "Detects processes leveraging the \"ms-msdt\" handler or the \"msdt.exe\" binary to execute arbitrary commands as seen in the follina (CVE-2022-30190) vulnerability | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_arbitrary_command_execution_using_msdt_exe.yml"
+  description                = "Detects processes leveraging the \"ms-msdt\" handler or the \"msdt.exe\" binary to execute arbitrary commands as seen in the follina (CVE-2022-30190) vulnerability | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_arbitrary_command_execution_using_msdt_exe.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

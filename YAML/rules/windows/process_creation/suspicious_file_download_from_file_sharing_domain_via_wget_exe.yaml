@@ -1,6 +1,6 @@
 id: b8a19f6f-d61d-5aff-8599-c102320d83be
 name: Suspicious File Download From File Sharing Domain Via Wget.EXE
-description: 'Detects potentially suspicious file downloads from file sharing domains using wget.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_file_download_from_file_sharing_domain_via_wget_exe.yml'
+description: 'Detects potentially suspicious file downloads from file sharing domains using wget.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_file_download_from_file_sharing_domain_via_wget_exe.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

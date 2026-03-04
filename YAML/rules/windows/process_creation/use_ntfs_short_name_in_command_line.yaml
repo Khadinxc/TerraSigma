@@ -1,6 +1,6 @@
 id: 317c0c6d-2331-56a9-96a6-d891f2cf69f8
 name: Use NTFS Short Name in Command Line
-description: 'Detect use of the Windows 8.3 short name. Which could be used as a method to avoid command-line detection - Applications could use this notation occasionally which might generate some false positives. In that case Investigate the parent and child process. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_ntfs_short_name_in_command_line.yml'
+description: 'Detect use of the Windows 8.3 short name. Which could be used as a method to avoid command-line detection - Applications could use this notation occasionally which might generate some false positives. In that case Investigate the parent and child process. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_ntfs_short_name_in_command_line.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

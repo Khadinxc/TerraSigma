@@ -1,6 +1,6 @@
 id: fd831a9e-d4bf-56ab-a2f1-d7a8f351ce8c
 name: Uncommon Svchost Parent Process
-description: 'Detects an uncommon svchost parent process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_svchost_parent_process.yml'
+description: 'Detects an uncommon svchost parent process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_svchost_parent_process.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

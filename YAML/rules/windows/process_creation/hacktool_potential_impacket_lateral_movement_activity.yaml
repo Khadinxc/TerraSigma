@@ -1,6 +1,6 @@
 id: f1ed3450-8e7e-5b28-bf0a-9030399e62cd
 name: HackTool - Potential Impacket Lateral Movement Activity
-description: 'Detects wmiexec/dcomexec/atexec/smbexec from Impacket framework | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_potential_impacket_lateral_movement_activity.yml'
+description: 'Detects wmiexec/dcomexec/atexec/smbexec from Impacket framework | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_potential_impacket_lateral_movement_activity.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

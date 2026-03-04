@@ -1,6 +1,6 @@
 id: 52e38c20-b13a-5712-9e4b-db5096a2730a
 name: DotNET Assembly DLL Loaded Via Office Application
-description: 'Detects any assembly DLL being loaded by an Office Product | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/dotnet_assembly_dll_loaded_via_office_application.yml'
+description: 'Detects any assembly DLL being loaded by an Office Product | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/dotnet_assembly_dll_loaded_via_office_application.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

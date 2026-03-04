@@ -1,6 +1,6 @@
 id: 36095a1d-458e-57af-9273-850d236fc51a
 name: New Network Trace Capture Started Via Netsh.EXE
-description: 'Detects the execution of netsh with the "trace" flag in order to start a network capture - Legitimate administration activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_network_trace_capture_started_via_netsh_exe.yml'
+description: 'Detects the execution of netsh with the "trace" flag in order to start a network capture - Legitimate administration activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_network_trace_capture_started_via_netsh_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

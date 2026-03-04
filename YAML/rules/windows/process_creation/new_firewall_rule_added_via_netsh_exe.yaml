@@ -1,6 +1,6 @@
 id: e05d7b36-305a-5b17-b00d-f78466d6c55f
 name: New Firewall Rule Added Via Netsh.EXE
-description: 'Detects the addition of a new rule to the Windows firewall via netsh - Legitimate administration activity - Software installations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_firewall_rule_added_via_netsh_exe.yml'
+description: 'Detects the addition of a new rule to the Windows firewall via netsh - Legitimate administration activity - Software installations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_firewall_rule_added_via_netsh_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

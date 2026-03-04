@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "powershell_token_obfuscation_p
   name                       = "powershell_token_obfuscation_process_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Powershell Token Obfuscation - Process Creation"
-  description                = "Detects TOKEN OBFUSCATION technique from Invoke-Obfuscation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_token_obfuscation_process_creation.yml"
+  description                = "Detects TOKEN OBFUSCATION technique from Invoke-Obfuscation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_token_obfuscation_process_creation.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

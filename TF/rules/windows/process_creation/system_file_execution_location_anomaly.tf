@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "system_file_execution_location
   name                       = "system_file_execution_location_anomaly"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "System File Execution Location Anomaly"
-  description                = "Detects the execution of a Windows system binary that is usually located in the system folder from an uncommon location. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/system_file_execution_location_anomaly.yml"
+  description                = "Detects the execution of a Windows system binary that is usually located in the system folder from an uncommon location. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/system_file_execution_location_anomaly.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

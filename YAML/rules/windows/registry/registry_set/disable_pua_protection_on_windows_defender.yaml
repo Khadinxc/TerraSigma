@@ -1,6 +1,6 @@
 id: ae057d32-1f9a-5653-a46f-e3197e8f29de
 name: Disable PUA Protection on Windows Defender
-description: 'Detects disabling Windows Defender PUA protection | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/disable_pua_protection_on_windows_defender.yml'
+description: 'Detects disabling Windows Defender PUA protection | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/disable_pua_protection_on_windows_defender.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

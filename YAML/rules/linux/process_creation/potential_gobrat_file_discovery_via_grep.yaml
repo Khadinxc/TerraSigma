@@ -1,6 +1,6 @@
 id: db1b7a67-72d1-5b87-b9b4-dd3449e9a3f4
 name: Potential GobRAT File Discovery Via Grep
-description: 'Detects the use of grep to discover specific files created by the GobRAT malware | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potential_gobrat_file_discovery_via_grep.yml'
+description: 'Detects the use of grep to discover specific files created by the GobRAT malware | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potential_gobrat_file_discovery_via_grep.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

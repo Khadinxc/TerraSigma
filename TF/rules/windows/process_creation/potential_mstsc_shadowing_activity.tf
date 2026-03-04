@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_mstsc_shadowing_acti
   name                       = "potential_mstsc_shadowing_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential MSTSC Shadowing Activity"
-  description                = "Detects RDP session hijacking by using MSTSC shadowing | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_mstsc_shadowing_activity.yml"
+  description                = "Detects RDP session hijacking by using MSTSC shadowing | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_mstsc_shadowing_activity.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

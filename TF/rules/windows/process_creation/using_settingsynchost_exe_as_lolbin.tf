@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "using_settingsynchost_exe_as_l
   name                       = "using_settingsynchost_exe_as_lolbin"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Using SettingSyncHost.exe as LOLBin"
-  description                = "Detects using SettingSyncHost.exe to run hijacked binary | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/using_settingsynchost_exe_as_lolbin.yml"
+  description                = "Detects using SettingSyncHost.exe to run hijacked binary | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/using_settingsynchost_exe_as_lolbin.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

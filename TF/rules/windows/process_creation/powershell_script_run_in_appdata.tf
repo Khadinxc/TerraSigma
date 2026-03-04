@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "powershell_script_run_in_appda
   name                       = "powershell_script_run_in_appdata"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Script Run in AppData"
-  description                = "Detects a suspicious command line execution that invokes PowerShell with reference to an AppData folder - Administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_script_run_in_appdata.yml"
+  description                = "Detects a suspicious command line execution that invokes PowerShell with reference to an AppData folder - Administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_script_run_in_appdata.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

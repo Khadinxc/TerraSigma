@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_advancedrun_execution" {
   name                       = "pua_advancedrun_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - AdvancedRun Execution"
-  description                = "Detects the execution of AdvancedRun utility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_advancedrun_execution.yml"
+  description                = "Detects the execution of AdvancedRun utility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_advancedrun_execution.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

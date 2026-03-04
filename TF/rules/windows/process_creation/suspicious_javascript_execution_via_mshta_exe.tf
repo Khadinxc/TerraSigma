@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_javascript_executio
   name                       = "suspicious_javascript_execution_via_mshta_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious JavaScript Execution Via Mshta.EXE"
-  description                = "Detects execution of javascript code using \"mshta.exe\". | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_javascript_execution_via_mshta_exe.yml"
+  description                = "Detects execution of javascript code using \"mshta.exe\". | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_javascript_execution_via_mshta_exe.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

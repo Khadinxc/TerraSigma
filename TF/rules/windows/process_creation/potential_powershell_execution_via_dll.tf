@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_powershell_execution
   name                       = "potential_powershell_execution_via_dll"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential PowerShell Execution Via DLL"
-  description                = "Detects potential PowerShell execution from a DLL instead of the usual PowerShell process as seen used in PowerShdll. This detection assumes that PowerShell commands are passed via the CommandLine. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_powershell_execution_via_dll.yml"
+  description                = "Detects potential PowerShell execution from a DLL instead of the usual PowerShell process as seen used in PowerShdll. This detection assumes that PowerShell commands are passed via the CommandLine. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_powershell_execution_via_dll.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

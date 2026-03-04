@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_defendercheck_execution" {
   name                       = "pua_defendercheck_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - DefenderCheck Execution"
-  description                = "Detects the use of DefenderCheck, a tool to evaluate the signatures used in Microsoft Defender. It can be used to figure out the strings / byte chains used in Microsoft Defender to detect a tool and thus used for AV evasion. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_defendercheck_execution.yml"
+  description                = "Detects the use of DefenderCheck, a tool to evaluate the signatures used in Microsoft Defender. It can be used to figure out the strings / byte chains used in Microsoft Defender to detect a tool and thus used for AV evasion. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_defendercheck_execution.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

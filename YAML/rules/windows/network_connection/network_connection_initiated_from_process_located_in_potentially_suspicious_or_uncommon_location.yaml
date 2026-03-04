@@ -1,6 +1,6 @@
 id: 6be463b9-10d8-55b0-b0c2-d3d9dbe145f2
 name: Network Connection Initiated From Process Located In Potentially Suspicious Or Uncommon Location
-description: 'Detects a network connection initiated by programs or processes running from suspicious or uncommon files system locations. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/network_connection_initiated_from_process_located_in_potentially_suspicious_or_uncommon_location.yml'
+description: 'Detects a network connection initiated by programs or processes running from suspicious or uncommon files system locations. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/network_connection_initiated_from_process_located_in_potentially_suspicious_or_uncommon_location.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: cdc1e0fc-a7d9-53e9-8e77-2017d9f1a170
 name: Suspicious Startup Folder Persistence
-description: 'Detects the creation of potentially malicious script and executable files in Windows startup folders, which is a common persistence technique used by threat actors. These files (.ps1, .vbs, .js, .bat, etc.) are automatically executed when a user logs in, making the Startup folder an attractive target for attackers. This technique is frequently observed in malvertising campaigns and malware distribution where attackers attempt to maintain long-term access to compromised systems. - Rare legitimate usage of some of the extensions mentioned in the rule | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_startup_folder_persistence.yml'
+description: 'Detects the creation of potentially malicious script and executable files in Windows startup folders, which is a common persistence technique used by threat actors. These files (.ps1, .vbs, .js, .bat, etc.) are automatically executed when a user logs in, making the Startup folder an attractive target for attackers. This technique is frequently observed in malvertising campaigns and malware distribution where attackers attempt to maintain long-term access to compromised systems. - Rare legitimate usage of some of the extensions mentioned in the rule | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_startup_folder_persistence.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

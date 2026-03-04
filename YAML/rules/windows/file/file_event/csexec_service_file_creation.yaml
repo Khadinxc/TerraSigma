@@ -1,6 +1,6 @@
 id: 7256ef59-b50c-513c-bdb1-0e161a038964
 name: CSExec Service File Creation
-description: 'Detects default CSExec service filename which indicates CSExec service installation and execution | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/csexec_service_file_creation.yml'
+description: 'Detects default CSExec service filename which indicates CSExec service installation and execution | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/csexec_service_file_creation.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

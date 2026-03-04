@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "process_discovery" {
   name                       = "process_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Process Discovery"
-  description                = "Detects process discovery commands. Adversaries may attempt to get information about running processes on a system. Information obtained could be used to gain an understanding of common software/applications running on systems within the network - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/process_creation/process_discovery.yml"
+  description                = "Detects process discovery commands. Adversaries may attempt to get information about running processes on a system. Information obtained could be used to gain an understanding of common software/applications running on systems within the network - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/process_creation/process_discovery.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

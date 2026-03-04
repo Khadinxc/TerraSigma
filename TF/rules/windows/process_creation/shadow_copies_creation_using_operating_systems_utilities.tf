@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "shadow_copies_creation_using_o
   name                       = "shadow_copies_creation_using_operating_systems_utilities"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Shadow Copies Creation Using Operating Systems Utilities"
-  description                = "Shadow Copies creation using operating systems utilities, possible credential access - Legitimate administrator working with shadow copies, access for backup purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/shadow_copies_creation_using_operating_systems_utilities.yml"
+  description                = "Shadow Copies creation using operating systems utilities, possible credential access - Legitimate administrator working with shadow copies, access for backup purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/shadow_copies_creation_using_operating_systems_utilities.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: eb597484-143f-53fe-9749-1096f3b01063
 name: Suspicious Response File Execution Via Odbcconf.EXE
-description: 'Detects execution of "odbcconf" with the "-f" flag in order to load a response file with a non-".rsp" extension. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_response_file_execution_via_odbcconf_exe.yml'
+description: 'Detects execution of "odbcconf" with the "-f" flag in order to load a response file with a non-".rsp" extension. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_response_file_execution_via_odbcconf_exe.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

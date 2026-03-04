@@ -1,6 +1,6 @@
 id: 363fa3c3-03db-5d9a-9955-5a2fb6925e84
 name: Suspicious Process Parents
-description: 'Detects suspicious parent processes that should not have any children or should only have a single possible child program | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_process_parents.yml'
+description: 'Detects suspicious parent processes that should not have any children or should only have a single possible child program | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_process_parents.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

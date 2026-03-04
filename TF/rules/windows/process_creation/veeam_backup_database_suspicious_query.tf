@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "veeam_backup_database_suspicio
   name                       = "veeam_backup_database_suspicious_query"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Veeam Backup Database Suspicious Query"
-  description                = "Detects potentially suspicious SQL queries using SQLCmd targeting the Veeam backup databases in order to steal information. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/veeam_backup_database_suspicious_query.yml"
+  description                = "Detects potentially suspicious SQL queries using SQLCmd targeting the Veeam backup databases in order to steal information. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/veeam_backup_database_suspicious_query.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

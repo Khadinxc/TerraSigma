@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_lateral_movement_via
   name                       = "potential_lateral_movement_via_windows_remote_shell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Lateral Movement via Windows Remote Shell"
-  description                = "Detects a child process spawned by 'winrshost.exe', which suggests remote command execution through Windows Remote Shell (WinRs) and may indicate potential lateral movement activity. - Legitimate use of WinRM within the organization | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_lateral_movement_via_windows_remote_shell.yml"
+  description                = "Detects a child process spawned by 'winrshost.exe', which suggests remote command execution through Windows Remote Shell (WinRs) and may indicate potential lateral movement activity. - Legitimate use of WinRM within the organization | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_lateral_movement_via_windows_remote_shell.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

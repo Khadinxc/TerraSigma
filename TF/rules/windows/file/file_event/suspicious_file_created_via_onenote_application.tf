@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_file_created_via_on
   name                       = "suspicious_file_created_via_onenote_application"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Created Via OneNote Application"
-  description                = "Detects suspicious files created via the OneNote application. This could indicate a potential malicious \".one\"/\".onepkg\" file was executed as seen being used in malware activity in the wild - Occasional FPs might occur if OneNote is used internally to share different embedded documents | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_file_created_via_onenote_application.yml"
+  description                = "Detects suspicious files created via the OneNote application. This could indicate a potential malicious \".one\"/\".onepkg\" file was executed as seen being used in malware activity in the wild - Occasional FPs might occur if OneNote is used internally to share different embedded documents | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_file_created_via_onenote_application.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

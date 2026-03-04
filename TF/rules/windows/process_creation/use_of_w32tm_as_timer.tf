@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "use_of_w32tm_as_timer" {
   name                       = "use_of_w32tm_as_timer"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Use of W32tm as Timer"
-  description                = "When configured with suitable command line arguments, w32tm can act as a delay mechanism - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_of_w32tm_as_timer.yml"
+  description                = "When configured with suitable command line arguments, w32tm can act as a delay mechanism - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_of_w32tm_as_timer.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

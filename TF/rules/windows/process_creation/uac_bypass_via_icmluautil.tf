@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uac_bypass_via_icmluautil" {
   name                       = "uac_bypass_via_icmluautil"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass via ICMLuaUtil"
-  description                = "Detects the pattern of UAC Bypass using ICMLuaUtil Elevated COM interface | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uac_bypass_via_icmluautil.yml"
+  description                = "Detects the pattern of UAC Bypass using ICMLuaUtil Elevated COM interface | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uac_bypass_via_icmluautil.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

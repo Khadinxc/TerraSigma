@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_rdp_tunneling_via_ss
   name                       = "potential_rdp_tunneling_via_ssh"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential RDP Tunneling Via SSH"
-  description                = "Execution of ssh.exe to perform data exfiltration and tunneling through RDP | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_rdp_tunneling_via_ssh.yml"
+  description                = "Execution of ssh.exe to perform data exfiltration and tunneling through RDP | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_rdp_tunneling_via_ssh.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

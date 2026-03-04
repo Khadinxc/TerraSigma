@@ -1,6 +1,6 @@
 id: 72b4f47d-2c01-5aae-b21c-a0659eb4a9fe
 name: HackTool - Jlaive In-Memory Assembly Execution
-description: 'Detects the use of Jlaive to execute assemblies in a copied PowerShell | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_jlaive_in_memory_assembly_execution.yml'
+description: 'Detects the use of Jlaive to execute assemblies in a copied PowerShell | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_jlaive_in_memory_assembly_execution.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

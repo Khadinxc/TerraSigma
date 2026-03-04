@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "communication_to_localtonet_tu
   name                       = "communication_to_localtonet_tunneling_service_initiated"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Communication To LocaltoNet Tunneling Service Initiated"
-  description                = "Detects an executable initiating a network connection to \"LocaltoNet\" tunneling sub-domains. LocaltoNet is a reverse proxy that enables localhost services to be exposed to the Internet. Attackers have been seen to use this service for command-and-control activities to bypass MFA and perimeter controls. - Legitimate use of the LocaltoNet service. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/communication_to_localtonet_tunneling_service_initiated.yml"
+  description                = "Detects an executable initiating a network connection to \"LocaltoNet\" tunneling sub-domains. LocaltoNet is a reverse proxy that enables localhost services to be exposed to the Internet. Attackers have been seen to use this service for command-and-control activities to bypass MFA and perimeter controls. - Legitimate use of the LocaltoNet service. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/communication_to_localtonet_tunneling_service_initiated.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents

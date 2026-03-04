@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_meterpreter_cobaltst
   name                       = "potential_meterpreter_cobaltstrike_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Meterpreter/CobaltStrike Activity"
-  description                = "Detects the use of getsystem Meterpreter/Cobalt Strike command by detecting a specific service starting - Commandlines containing components like cmd accidentally - Jobs and services started with cmd | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_meterpreter_cobaltstrike_activity.yml"
+  description                = "Detects the use of getsystem Meterpreter/Cobalt Strike command by detecting a specific service starting - Commandlines containing components like cmd accidentally - Jobs and services started with cmd | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_meterpreter_cobaltstrike_activity.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

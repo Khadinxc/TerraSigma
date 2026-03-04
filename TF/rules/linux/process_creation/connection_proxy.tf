@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "connection_proxy" {
   name                       = "connection_proxy"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Connection Proxy"
-  description                = "Detects setting proxy configuration - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/connection_proxy.yml"
+  description                = "Detects setting proxy configuration - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/connection_proxy.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

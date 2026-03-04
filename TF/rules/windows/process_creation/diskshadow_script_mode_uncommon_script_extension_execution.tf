@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "diskshadow_script_mode_uncommo
   name                       = "diskshadow_script_mode_uncommon_script_extension_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Diskshadow Script Mode - Uncommon Script Extension Execution"
-  description                = "Detects execution of \"Diskshadow.exe\" in script mode to execute an script with a potentially uncommon extension. Initial baselining of the allowed extension list is required. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/diskshadow_script_mode_uncommon_script_extension_execution.yml"
+  description                = "Detects execution of \"Diskshadow.exe\" in script mode to execute an script with a potentially uncommon extension. Initial baselining of the allowed extension list is required. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/diskshadow_script_mode_uncommon_script_extension_execution.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

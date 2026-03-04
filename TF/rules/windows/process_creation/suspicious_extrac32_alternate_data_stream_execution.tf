@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_extrac32_alternate_
   name                       = "suspicious_extrac32_alternate_data_stream_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Extrac32 Alternate Data Stream Execution"
-  description                = "Extract data from cab file and hide it in an alternate data stream | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_extrac32_alternate_data_stream_execution.yml"
+  description                = "Extract data from cab file and hide it in an alternate data stream | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_extrac32_alternate_data_stream_execution.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

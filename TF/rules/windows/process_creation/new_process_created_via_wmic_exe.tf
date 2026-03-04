@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_process_created_via_wmic_e
   name                       = "new_process_created_via_wmic_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Process Created Via Wmic.EXE"
-  description                = "Detects new process creation using WMIC via the \"process call create\" flag | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_process_created_via_wmic_exe.yml"
+  description                = "Detects new process creation using WMIC via the \"process call create\" flag | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_process_created_via_wmic_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

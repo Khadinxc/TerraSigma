@@ -1,6 +1,6 @@
 id: 7624a1ce-dfb0-5e90-a4de-8aef56ab296d
 name: Suspicious Schtasks Schedule Type With High Privileges
-description: 'Detects scheduled task creations or modification to be run with high privileges on a suspicious schedule type - Some installers were seen using this method of creation unfortunately. Filter them in your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_schtasks_schedule_type_with_high_privileges.yml'
+description: 'Detects scheduled task creations or modification to be run with high privileges on a suspicious schedule type - Some installers were seen using this method of creation unfortunately. Filter them in your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_schtasks_schedule_type_with_high_privileges.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

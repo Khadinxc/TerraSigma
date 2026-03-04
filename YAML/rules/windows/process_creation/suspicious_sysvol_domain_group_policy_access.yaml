@@ -1,6 +1,6 @@
 id: aeb853ec-796f-5c81-85b2-3f3b2f389389
 name: Suspicious SYSVOL Domain Group Policy Access
-description: 'Detects Access to Domain Group Policies stored in SYSVOL - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_sysvol_domain_group_policy_access.yml'
+description: 'Detects Access to Domain Group Policies stored in SYSVOL - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_sysvol_domain_group_policy_access.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

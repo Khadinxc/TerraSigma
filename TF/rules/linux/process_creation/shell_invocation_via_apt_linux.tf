@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "shell_invocation_via_apt_linux
   name                       = "shell_invocation_via_apt_linux"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Shell Invocation via Apt - Linux"
-  description                = "Detects the use of the \"apt\" and \"apt-get\" commands to execute a shell or proxy commands. Such behavior may be associated with privilege escalation, unauthorized command execution, or to break out from restricted environments. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/shell_invocation_via_apt_linux.yml"
+  description                = "Detects the use of the \"apt\" and \"apt-get\" commands to execute a shell or proxy commands. Such behavior may be associated with privilege escalation, unauthorized command execution, or to break out from restricted environments. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/shell_invocation_via_apt_linux.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

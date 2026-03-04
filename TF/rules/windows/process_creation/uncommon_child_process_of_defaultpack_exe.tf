@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uncommon_child_process_of_defa
   name                       = "uncommon_child_process_of_defaultpack_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon Child Process Of Defaultpack.EXE"
-  description                = "Detects uncommon child processes of \"DefaultPack.EXE\" binary as a proxy to launch other programs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_child_process_of_defaultpack_exe.yml"
+  description                = "Detects uncommon child processes of \"DefaultPack.EXE\" binary as a proxy to launch other programs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_child_process_of_defaultpack_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

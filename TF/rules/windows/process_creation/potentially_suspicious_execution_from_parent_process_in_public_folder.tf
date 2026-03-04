@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_executi
   name                       = "potentially_suspicious_execution_from_parent_process_in_public_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Execution From Parent Process In Public Folder"
-  description                = "Detects a potentially suspicious execution of a parent process located in the \"\\Users\\Public\" folder executing a child process containing references to shell or scripting binaries and commandlines. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_execution_from_parent_process_in_public_folder.yml"
+  description                = "Detects a potentially suspicious execution of a parent process located in the \"\\Users\\Public\" folder executing a child process containing references to shell or scripting binaries and commandlines. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_execution_from_parent_process_in_public_folder.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: 5970f5b9-437d-5fc1-8282-2920d37c5d16
 name: Potential Amazon SSM Agent Hijacking
-description: 'Detects potential Amazon SSM agent hijack attempts as outlined in the Mitiga research report. - Legitimate activity of system administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_amazon_ssm_agent_hijacking.yml'
+description: 'Detects potential Amazon SSM agent hijack attempts as outlined in the Mitiga research report. - Legitimate activity of system administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_amazon_ssm_agent_hijacking.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

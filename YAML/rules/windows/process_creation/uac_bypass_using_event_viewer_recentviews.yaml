@@ -1,6 +1,6 @@
 id: 83d8dafe-31c0-5333-97dc-bf4681909782
 name: UAC Bypass Using Event Viewer RecentViews
-description: 'Detects the pattern of UAC Bypass using Event Viewer RecentViews | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uac_bypass_using_event_viewer_recentviews.yml'
+description: 'Detects the pattern of UAC Bypass using Event Viewer RecentViews | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uac_bypass_using_event_viewer_recentviews.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

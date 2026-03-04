@@ -1,6 +1,6 @@
 id: 4293102d-495e-5e34-adbf-0702227186b2
 name: Linux HackTool Execution
-description: 'Detects known hacktool execution based on image name. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_hacktool_execution.yml'
+description: 'Detects known hacktool execution based on image name. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_hacktool_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

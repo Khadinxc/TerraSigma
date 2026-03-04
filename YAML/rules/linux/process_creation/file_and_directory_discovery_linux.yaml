@@ -1,6 +1,6 @@
 id: 337e604e-3455-5397-89c8-ab89b474074e
 name: File and Directory Discovery - Linux
-description: 'Detects usage of system utilities such as "find", "tree", "findmnt", etc, to discover files, directories and network shares. - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/file_and_directory_discovery_linux.yml'
+description: 'Detects usage of system utilities such as "find", "tree", "findmnt", etc, to discover files, directories and network shares. - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/file_and_directory_discovery_linux.tf'
 severity: Informational
 queryFrequency: PT1H
 queryPeriod: PT1H

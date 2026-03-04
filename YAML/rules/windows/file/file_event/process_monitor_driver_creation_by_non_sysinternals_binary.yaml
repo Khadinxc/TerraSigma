@@ -1,6 +1,6 @@
 id: 7d6652a2-66dd-5fdc-b4b2-0b9879e165ed
 name: Process Monitor Driver Creation By Non-Sysinternals Binary
-description: 'Detects creation of the Process Monitor driver by processes other than Process Monitor (procmon) itself. - Some false positives may occur with legitimate renamed process monitor binaries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/process_monitor_driver_creation_by_non_sysinternals_binary.yml'
+description: 'Detects creation of the Process Monitor driver by processes other than Process Monitor (procmon) itself. - Some false positives may occur with legitimate renamed process monitor binaries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/process_monitor_driver_creation_by_non_sysinternals_binary.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

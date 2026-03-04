@@ -1,6 +1,6 @@
 id: ffde1a72-9cec-5478-8d86-1650a8af7275
 name: Suspicious New Service Creation
-description: 'Detects creation of a new service via "sc" command or the powershell "new-service" cmdlet with suspicious binary paths - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_new_service_creation.yml'
+description: 'Detects creation of a new service via "sc" command or the powershell "new-service" cmdlet with suspicious binary paths - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_new_service_creation.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

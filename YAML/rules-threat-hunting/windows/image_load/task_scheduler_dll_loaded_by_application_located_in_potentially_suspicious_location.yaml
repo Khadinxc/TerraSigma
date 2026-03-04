@@ -1,6 +1,6 @@
 id: 306121aa-32c7-5f03-90a1-bbfecb54de96
 name: Task Scheduler DLL Loaded By Application Located In Potentially Suspicious Location
-description: 'Detects the loading of the "taskschd.dll" module from a process that located in a potentially suspicious or uncommon directory. The loading of this DLL might indicate that the application have the capability to create a scheduled task via the "Schedule.Service" COM object. Investigation of the loading application and its behavior is required to determining if its malicious. - Some installers might generate false positives, apply additional filters accordingly. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/task_scheduler_dll_loaded_by_application_located_in_potentially_suspicious_location.yml'
+description: 'Detects the loading of the "taskschd.dll" module from a process that located in a potentially suspicious or uncommon directory. The loading of this DLL might indicate that the application have the capability to create a scheduled task via the "Schedule.Service" COM object. Investigation of the loading application and its behavior is required to determining if its malicious. - Some installers might generate false positives, apply additional filters accordingly. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/task_scheduler_dll_loaded_by_application_located_in_potentially_suspicious_location.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

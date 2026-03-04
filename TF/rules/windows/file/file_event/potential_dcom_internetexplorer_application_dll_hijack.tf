@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_dcom_internetexplore
   name                       = "potential_dcom_internetexplorer_application_dll_hijack"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential DCOM InternetExplorer.Application DLL Hijack"
-  description                = "Detects potential DLL hijack of \"iertutil.dll\" found in the DCOM InternetExplorer.Application Class over the network | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_dcom_internetexplorer_application_dll_hijack.yml"
+  description                = "Detects potential DLL hijack of \"iertutil.dll\" found in the DCOM InternetExplorer.Application Class over the network | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_dcom_internetexplorer_application_dll_hijack.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

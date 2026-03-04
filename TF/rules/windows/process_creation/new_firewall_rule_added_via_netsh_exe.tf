@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_firewall_rule_added_via_ne
   name                       = "new_firewall_rule_added_via_netsh_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Firewall Rule Added Via Netsh.EXE"
-  description                = "Detects the addition of a new rule to the Windows firewall via netsh - Legitimate administration activity - Software installations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_firewall_rule_added_via_netsh_exe.yml"
+  description                = "Detects the addition of a new rule to the Windows firewall via netsh - Legitimate administration activity - Software installations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_firewall_rule_added_via_netsh_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

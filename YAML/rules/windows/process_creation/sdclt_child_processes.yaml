@@ -1,6 +1,6 @@
 id: 7d2359d9-913e-5a23-a27b-e631a1b0b906
 name: Sdclt Child Processes
-description: 'A General detection for sdclt spawning new processes. This could be an indicator of sdclt being used for bypass UAC techniques. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sdclt_child_processes.yml'
+description: 'A General detection for sdclt spawning new processes. This could be an indicator of sdclt being used for bypass UAC techniques. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sdclt_child_processes.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

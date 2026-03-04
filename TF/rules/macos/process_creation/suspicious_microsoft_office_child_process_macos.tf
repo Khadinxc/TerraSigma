@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_microsoft_office_ch
   name                       = "suspicious_microsoft_office_child_process_macos"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Microsoft Office Child Process - MacOS"
-  description                = "Detects suspicious child processes spawning from microsoft office suite applications such as word or excel. This could indicates malicious macro execution | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/suspicious_microsoft_office_child_process_macos.yml"
+  description                = "Detects suspicious child processes spawning from microsoft office suite applications such as word or excel. This could indicates malicious macro execution | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/suspicious_microsoft_office_child_process_macos.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

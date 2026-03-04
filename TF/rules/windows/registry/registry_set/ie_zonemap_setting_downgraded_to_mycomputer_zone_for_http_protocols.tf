@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "ie_zonemap_setting_downgraded_
   name                       = "ie_zonemap_setting_downgraded_to_mycomputer_zone_for_http_protocols"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "IE ZoneMap Setting Downgraded To MyComputer Zone For HTTP Protocols"
-  description                = "Detects changes to Internet Explorer's (IE / Windows Internet properties) ZoneMap configuration of the \"HTTP\" and \"HTTPS\" protocols to point to the \"My Computer\" zone. This allows downloaded files from the Internet to be granted the same level of trust as files stored locally. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/ie_zonemap_setting_downgraded_to_mycomputer_zone_for_http_protocols.yml"
+  description                = "Detects changes to Internet Explorer's (IE / Windows Internet properties) ZoneMap configuration of the \"HTTP\" and \"HTTPS\" protocols to point to the \"My Computer\" zone. This allows downloaded files from the Internet to be granted the same level of trust as files stored locally. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/ie_zonemap_setting_downgraded_to_mycomputer_zone_for_http_protocols.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

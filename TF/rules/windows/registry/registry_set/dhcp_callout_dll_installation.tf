@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dhcp_callout_dll_installation"
   name                       = "dhcp_callout_dll_installation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DHCP Callout DLL Installation"
-  description                = "Detects the installation of a Callout DLL via CalloutDlls and CalloutEnabled parameter in Registry, which can be used to execute code in context of the DHCP server (restart required) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/dhcp_callout_dll_installation.yml"
+  description                = "Detects the installation of a Callout DLL via CalloutDlls and CalloutEnabled parameter in Registry, which can be used to execute code in context of the DHCP server (restart required) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/dhcp_callout_dll_installation.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

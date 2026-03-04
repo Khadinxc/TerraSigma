@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_default_powersploit_e
   name                       = "hacktool_default_powersploit_empire_scheduled_task_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Default PowerSploit/Empire Scheduled Task Creation"
-  description                = "Detects the creation of a schtask via PowerSploit or Empire Default Configuration. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_default_powersploit_empire_scheduled_task_creation.yml"
+  description                = "Detects the creation of a schtask via PowerSploit or Empire Default Configuration. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_default_powersploit_empire_scheduled_task_creation.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: 4099f9c4-56fa-5ed6-8d87-48e851b78162
 name: New BgInfo.EXE Custom VBScript Registry Configuration
-description: 'Detects setting of a new registry value related to BgInfo configuration, which can be abused to execute custom VBScript via "BgInfo.exe" - Legitimate VBScript | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/new_bginfo_exe_custom_vbscript_registry_configuration.yml'
+description: 'Detects setting of a new registry value related to BgInfo configuration, which can be abused to execute custom VBScript via "BgInfo.exe" - Legitimate VBScript | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/new_bginfo_exe_custom_vbscript_registry_configuration.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

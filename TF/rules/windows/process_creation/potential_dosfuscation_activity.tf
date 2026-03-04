@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_dosfuscation_activit
   name                       = "potential_dosfuscation_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Dosfuscation Activity"
-  description                = "Detects possible payload obfuscation via the commandline | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_dosfuscation_activity.yml"
+  description                = "Detects possible payload obfuscation via the commandline | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_dosfuscation_activity.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

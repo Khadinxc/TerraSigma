@@ -1,6 +1,6 @@
 id: 4be6fb88-af7b-5885-a9bc-c13c1eb85574
 name: HackTool - SharpChisel Execution
-description: 'Detects usage of the Sharp Chisel via the commandline arguments - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_sharpchisel_execution.yml'
+description: 'Detects usage of the Sharp Chisel via the commandline arguments - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_sharpchisel_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

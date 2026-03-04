@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "path_to_screensaver_binary_mod
   name                       = "path_to_screensaver_binary_modified"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Path To Screensaver Binary Modified"
-  description                = "Detects value modification of registry key containing path to binary used as screensaver. - Legitimate modification of screensaver | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/path_to_screensaver_binary_modified.yml"
+  description                = "Detects value modification of registry key containing path to binary used as screensaver. - Legitimate modification of screensaver | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/path_to_screensaver_binary_modified.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

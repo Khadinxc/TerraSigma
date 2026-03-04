@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_radmin_viewer_utility_exec
   name                       = "pua_radmin_viewer_utility_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Radmin Viewer Utility Execution"
-  description                = "Detects the execution of Radmin which can be abused by an adversary to remotely control Windows machines | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_radmin_viewer_utility_execution.yml"
+  description                = "Detects the execution of Radmin which can be abused by an adversary to remotely control Windows machines | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_radmin_viewer_utility_execution.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

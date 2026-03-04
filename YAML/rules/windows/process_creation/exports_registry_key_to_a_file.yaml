@@ -1,6 +1,6 @@
 id: 12b269b1-4ecb-5a63-b659-68b1fee53434
 name: Exports Registry Key To a File
-description: 'Detects the export of the target Registry key to a file. - Legitimate export of keys | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/exports_registry_key_to_a_file.yml'
+description: 'Detects the export of the target Registry key to a file. - Legitimate export of keys | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/exports_registry_key_to_a_file.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

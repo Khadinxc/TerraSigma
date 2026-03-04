@@ -1,6 +1,6 @@
 id: e6075f46-41b4-5802-9fc4-7d20ac60e096
 name: Tasks Folder Evasion
-description: 'The Tasks folder in system32 and syswow64 are globally writable paths. Adversaries can take advantage of this and load or influence any script hosts or ANY .NET Application in Tasks to load and execute a custom assembly into cscript, wscript, regsvr32, mshta, eventvwr | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/tasks_folder_evasion.yml'
+description: 'The Tasks folder in system32 and syswow64 are globally writable paths. Adversaries can take advantage of this and load or influence any script hosts or ANY .NET Application in Tasks to load and execute a custom assembly into cscript, wscript, regsvr32, mshta, eventvwr | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/tasks_folder_evasion.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

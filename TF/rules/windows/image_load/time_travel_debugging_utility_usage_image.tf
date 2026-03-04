@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "time_travel_debugging_utility_
   name                       = "time_travel_debugging_utility_usage_image"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Time Travel Debugging Utility Usage - Image"
-  description                = "Detects usage of Time Travel Debugging Utility. Adversaries can execute malicious processes and dump processes, such as lsass.exe, via tttracer.exe. - Legitimate usage by software developers/testers | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/time_travel_debugging_utility_usage_image.yml"
+  description                = "Detects usage of Time Travel Debugging Utility. Adversaries can execute malicious processes and dump processes, such as lsass.exe, via tttracer.exe. - Legitimate usage by software developers/testers | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/time_travel_debugging_utility_usage_image.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

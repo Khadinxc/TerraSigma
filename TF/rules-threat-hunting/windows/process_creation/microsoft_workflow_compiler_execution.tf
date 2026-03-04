@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "microsoft_workflow_compiler_ex
   name                       = "microsoft_workflow_compiler_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Microsoft Workflow Compiler Execution"
-  description                = "Detects the execution of Microsoft Workflow Compiler, which may permit the execution of arbitrary unsigned code. - Legitimate MWC use (unlikely in modern enterprise environments) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/microsoft_workflow_compiler_execution.yml"
+  description                = "Detects the execution of Microsoft Workflow Compiler, which may permit the execution of arbitrary unsigned code. - Legitimate MWC use (unlikely in modern enterprise environments) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/microsoft_workflow_compiler_execution.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

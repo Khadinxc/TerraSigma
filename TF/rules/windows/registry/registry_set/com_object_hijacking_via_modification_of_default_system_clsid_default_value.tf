@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "com_object_hijacking_via_modif
   name                       = "com_object_hijacking_via_modification_of_default_system_clsid_default_value"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "COM Object Hijacking Via Modification Of Default System CLSID Default Value"
-  description                = "Detects potential COM object hijacking via modification of default system CLSID. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/com_object_hijacking_via_modification_of_default_system_clsid_default_value.yml"
+  description                = "Detects potential COM object hijacking via modification of default system CLSID. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/com_object_hijacking_via_modification_of_default_system_clsid_default_value.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

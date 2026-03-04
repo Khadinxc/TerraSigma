@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "narrator_s_feedback_hub_persis
   name                       = "narrator_s_feedback_hub_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Narrator's Feedback-Hub Persistence"
-  description                = "Detects abusing Windows 10 Narrator's Feedback-Hub | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/narrator_s_feedback_hub_persistence.yml"
+  description                = "Detects abusing Windows 10 Narrator's Feedback-Hub | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/narrator_s_feedback_hub_persistence.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

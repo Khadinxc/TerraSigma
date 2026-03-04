@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "codepage_modification_via_mode
   name                       = "codepage_modification_via_mode_com_to_russian_language"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "CodePage Modification Via MODE.COM To Russian Language"
-  description                = "Detects a CodePage modification using the \"mode.com\" utility to Russian language. This behavior has been used by threat actors behind Dharma ransomware. - Russian speaking people changing the CodePage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/codepage_modification_via_mode_com_to_russian_language.yml"
+  description                = "Detects a CodePage modification using the \"mode.com\" utility to Russian language. This behavior has been used by threat actors behind Dharma ransomware. - Russian speaking people changing the CodePage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/codepage_modification_via_mode_com_to_russian_language.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

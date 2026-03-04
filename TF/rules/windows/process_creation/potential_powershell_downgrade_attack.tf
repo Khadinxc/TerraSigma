@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_powershell_downgrade
   name                       = "potential_powershell_downgrade_attack"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential PowerShell Downgrade Attack"
-  description                = "Detects PowerShell downgrade attack by comparing the host versions with the actually used engine version 2.0 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_powershell_downgrade_attack.yml"
+  description                = "Detects PowerShell downgrade attack by comparing the host versions with the actually used engine version 2.0 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_powershell_downgrade_attack.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

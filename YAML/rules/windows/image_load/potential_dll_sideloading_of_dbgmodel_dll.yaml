@@ -1,6 +1,6 @@
 id: 31c42690-6ead-51df-b843-c43becf32aff
 name: Potential DLL Sideloading Of DbgModel.DLL
-description: 'Detects potential DLL sideloading of "DbgModel.dll" - Legitimate applications loading their own versions of the DLL mentioned in this rule | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_dll_sideloading_of_dbgmodel_dll.yml'
+description: 'Detects potential DLL sideloading of "DbgModel.dll" - Legitimate applications loading their own versions of the DLL mentioned in this rule | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_dll_sideloading_of_dbgmodel_dll.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

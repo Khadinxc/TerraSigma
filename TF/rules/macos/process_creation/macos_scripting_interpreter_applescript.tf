@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "macos_scripting_interpreter_ap
   name                       = "macos_scripting_interpreter_applescript"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "MacOS Scripting Interpreter AppleScript"
-  description                = "Detects execution of AppleScript of the macOS scripting language AppleScript. - Application installers might contain scripts as part of the installation process. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/macos_scripting_interpreter_applescript.yml"
+  description                = "Detects execution of AppleScript of the macOS scripting language AppleScript. - Application installers might contain scripts as part of the installation process. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/macos_scripting_interpreter_applescript.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "register_new_ifiltre_for_persi
   name                       = "register_new_ifiltre_for_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Register New IFiltre For Persistence"
-  description                = "Detects when an attacker registers a new IFilter for an extension. Microsoft Windows Search uses filters to extract the content of items for inclusion in a full-text index. You can extend Windows Search to index new or proprietary file types by writing filters to extract the content, and property handlers to extract the properties of files. - Legitimate registration of IFilters by the OS or software | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/register_new_ifiltre_for_persistence.yml"
+  description                = "Detects when an attacker registers a new IFilter for an extension. Microsoft Windows Search uses filters to extract the content of items for inclusion in a full-text index. You can extend Windows Search to index new or proprietary file types by writing filters to extract the content, and property handlers to extract the properties of files. - Legitimate registration of IFilters by the OS or software | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/register_new_ifiltre_for_persistence.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

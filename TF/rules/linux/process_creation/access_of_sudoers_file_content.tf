@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "access_of_sudoers_file_content
   name                       = "access_of_sudoers_file_content"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Access of Sudoers File Content"
-  description                = "Detects the execution of a text-based file access or inspection utilities to read the content of /etc/sudoers in order to potentially list all users that have sudo rights. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/access_of_sudoers_file_content.yml"
+  description                = "Detects the execution of a text-based file access or inspection utilities to read the content of /etc/sudoers in order to potentially list all users that have sudo rights. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/access_of_sudoers_file_content.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

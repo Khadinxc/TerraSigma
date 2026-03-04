@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "schtasks_from_suspicious_folde
   name                       = "schtasks_from_suspicious_folders"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Schtasks From Suspicious Folders"
-  description                = "Detects scheduled task creations that have suspicious action command and folder combinations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/schtasks_from_suspicious_folders.yml"
+  description                = "Detects scheduled task creations that have suspicious action command and folder combinations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/schtasks_from_suspicious_folders.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

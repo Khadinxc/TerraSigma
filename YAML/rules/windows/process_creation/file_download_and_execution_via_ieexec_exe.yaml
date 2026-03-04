@@ -1,6 +1,6 @@
 id: 7277ccca-d55a-57c6-992d-725ac809ca67
 name: File Download And Execution Via IEExec.EXE
-description: 'Detects execution of the IEExec utility to download and execute files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_and_execution_via_ieexec_exe.yml'
+description: 'Detects execution of the IEExec utility to download and execute files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_and_execution_via_ieexec_exe.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

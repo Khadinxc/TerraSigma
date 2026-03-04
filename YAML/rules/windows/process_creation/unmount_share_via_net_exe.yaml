@@ -1,6 +1,6 @@
 id: 75e4aaaa-e842-5490-a101-918cca0e56e4
 name: Unmount Share Via Net.EXE
-description: 'Detects when when a mounted share is removed. Adversaries may remove share connections that are no longer useful in order to clean up traces of their operation - Administrators or Power users may remove their shares via cmd line | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/unmount_share_via_net_exe.yml'
+description: 'Detects when when a mounted share is removed. Adversaries may remove share connections that are no longer useful in order to clean up traces of their operation - Administrators or Power users may remove their shares via cmd line | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/unmount_share_via_net_exe.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

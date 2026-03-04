@@ -1,6 +1,6 @@
 id: 3398cd21-4190-570d-95e0-b453318b5642
 name: Common Autorun Keys Modification
-description: 'Detects modification of autostart extensibility point (ASEP) in registry. - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reason - Legitimate administrator sets up autorun keys for legitimate reason | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/common_autorun_keys_modification.yml'
+description: 'Detects modification of autostart extensibility point (ASEP) in registry. - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reason - Legitimate administrator sets up autorun keys for legitimate reason | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/common_autorun_keys_modification.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 002a058f-4fdf-5675-8b53-b34c4e839d73
 name: PUA - AdvancedRun Suspicious Execution
-description: 'Detects the execution of AdvancedRun utility in the context of the TrustedInstaller, SYSTEM, Local Service or Network Service accounts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_advancedrun_suspicious_execution.yml'
+description: 'Detects the execution of AdvancedRun utility in the context of the TrustedInstaller, SYSTEM, Local Service or Network Service accounts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_advancedrun_suspicious_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

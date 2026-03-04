@@ -1,6 +1,6 @@
 id: 5f47aceb-9253-58bd-9fcf-261b79bbcea0
 name: Aruba Network Service Potential DLL Sideloading
-description: 'Detects potential DLL sideloading activity via the Aruba Networks Virtual Intranet Access "arubanetsvc.exe" process using DLL Search Order Hijacking | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/aruba_network_service_potential_dll_sideloading.yml'
+description: 'Detects potential DLL sideloading activity via the Aruba Networks Virtual Intranet Access "arubanetsvc.exe" process using DLL Search Order Hijacking | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/aruba_network_service_potential_dll_sideloading.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

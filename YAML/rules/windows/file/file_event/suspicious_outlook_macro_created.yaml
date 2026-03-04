@@ -1,6 +1,6 @@
 id: 035fc62f-6be6-5ba4-9e77-a7099fb403fb
 name: Suspicious Outlook Macro Created
-description: 'Detects the creation of a macro file for Outlook. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_outlook_macro_created.yml'
+description: 'Detects the creation of a macro file for Outlook. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_outlook_macro_created.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

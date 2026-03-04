@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "local_system_accounts_discover
   name                       = "local_system_accounts_discovery_linux"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Local System Accounts Discovery - Linux"
-  description                = "Detects enumeration of local systeam accounts. This information can help adversaries determine which local accounts exist on a system to aid in follow-on behavior. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/local_system_accounts_discovery_linux.yml"
+  description                = "Detects enumeration of local systeam accounts. This information can help adversaries determine which local accounts exist on a system to aid in follow-on behavior. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/local_system_accounts_discovery_linux.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

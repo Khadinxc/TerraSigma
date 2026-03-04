@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "enable_local_manifest_installa
   name                       = "enable_local_manifest_installation_with_winget"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Enable Local Manifest Installation With Winget"
-  description                = "Detects changes to the AppInstaller (winget) policy. Specifically the activation of the local manifest installation, which allows a user to install new packages via custom manifests. - Administrators or developers might enable this for testing purposes or to install custom private packages | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/enable_local_manifest_installation_with_winget.yml"
+  description                = "Detects changes to the AppInstaller (winget) policy. Specifically the activation of the local manifest installation, which allows a user to install new packages via custom manifests. - Administrators or developers might enable this for testing purposes or to install custom private packages | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/enable_local_manifest_installation_with_winget.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_password_reconnaissa
   name                       = "potential_password_reconnaissance_via_findstr_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Password Reconnaissance Via Findstr.EXE"
-  description                = "Detects command line usage of \"findstr\" to search for the \"passwords\" keyword in a variety of different languages | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/potential_password_reconnaissance_via_findstr_exe.yml"
+  description                = "Detects command line usage of \"findstr\" to search for the \"passwords\" keyword in a variety of different languages | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/potential_password_reconnaissance_via_findstr_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

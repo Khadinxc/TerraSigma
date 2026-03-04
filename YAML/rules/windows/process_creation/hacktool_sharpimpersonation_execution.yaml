@@ -1,6 +1,6 @@
 id: 8538efcb-4771-5ce6-b3c3-b11b1f441e83
 name: HackTool - SharpImpersonation Execution
-description: 'Detects execution of the SharpImpersonation tool. Which can be used to manipulate tokens on a Windows computers remotely (PsExec/WmiExec) or interactively | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_sharpimpersonation_execution.yml'
+description: 'Detects execution of the SharpImpersonation tool. Which can be used to manipulate tokens on a Windows computers remotely (PsExec/WmiExec) or interactively | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_sharpimpersonation_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

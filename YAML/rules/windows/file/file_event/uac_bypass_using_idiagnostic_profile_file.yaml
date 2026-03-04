@@ -1,6 +1,6 @@
 id: 283758ac-54a5-5e46-a267-45ecb4d65efc
 name: UAC Bypass Using IDiagnostic Profile - File
-description: 'Detects the creation of a file by "dllhost.exe" in System32 directory part of "IDiagnosticProfileUAC" UAC bypass technique | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/uac_bypass_using_idiagnostic_profile_file.yml'
+description: 'Detects the creation of a file by "dllhost.exe" in System32 directory part of "IDiagnosticProfileUAC" UAC bypass technique | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/uac_bypass_using_idiagnostic_profile_file.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

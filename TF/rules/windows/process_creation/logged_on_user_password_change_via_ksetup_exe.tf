@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "logged_on_user_password_change
   name                       = "logged_on_user_password_change_via_ksetup_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Logged-On User Password Change Via Ksetup.EXE"
-  description                = "Detects password change for the logged-on user's via \"ksetup.exe\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/logged_on_user_password_change_via_ksetup_exe.yml"
+  description                = "Detects password change for the logged-on user's via \"ksetup.exe\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/logged_on_user_password_change_via_ksetup_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: 32cf9b71-6535-5e64-b13c-af6f1bef9a97
 name: Suspicious Interactive PowerShell as SYSTEM
-description: 'Detects the creation of files that indicator an interactive use of PowerShell in the SYSTEM user context - Administrative activity - PowerShell scripts running as SYSTEM user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_interactive_powershell_as_system.yml'
+description: 'Detects the creation of files that indicator an interactive use of PowerShell in the SYSTEM user context - Administrative activity - PowerShell scripts running as SYSTEM user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_interactive_powershell_as_system.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

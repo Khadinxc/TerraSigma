@@ -1,6 +1,6 @@
 id: eb9d9576-07b6-5af3-9e9f-5c1ac7a703e2
 name: Potential Persistence Via Outlook Form
-description: 'Detects the creation of a new Outlook form which can contain malicious code - Legitimate use of outlook forms | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_persistence_via_outlook_form.yml'
+description: 'Detects the creation of a new Outlook form which can contain malicious code - Legitimate use of outlook forms | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_persistence_via_outlook_form.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

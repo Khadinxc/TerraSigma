@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_wordpad_outbound_co
   name                       = "suspicious_wordpad_outbound_connections"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Wordpad Outbound Connections"
-  description                = "Detects a network connection initiated by \"wordpad.exe\" over uncommon destination ports. This might indicate potential process injection activity from a beacon or similar mechanisms. - Other ports can be used, apply additional filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/suspicious_wordpad_outbound_connections.yml"
+  description                = "Detects a network connection initiated by \"wordpad.exe\" over uncommon destination ports. This might indicate potential process injection activity from a beacon or similar mechanisms. - Other ports can be used, apply additional filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/suspicious_wordpad_outbound_connections.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

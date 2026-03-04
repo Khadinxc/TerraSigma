@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dd_file_overwrite" {
   name                       = "dd_file_overwrite"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DD File Overwrite"
-  description                = "Detects potential overwriting and deletion of a file using DD. - Any user deleting files that way. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/dd_file_overwrite.yml"
+  description                = "Detects potential overwriting and deletion of a file using DD. - Any user deleting files that way. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/dd_file_overwrite.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

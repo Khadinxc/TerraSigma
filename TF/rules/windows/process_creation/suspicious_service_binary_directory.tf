@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_service_binary_dire
   name                       = "suspicious_service_binary_directory"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Service Binary Directory"
-  description                = "Detects a service binary running in a suspicious directory | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_service_binary_directory.yml"
+  description                = "Detects a service binary running in a suspicious directory | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_service_binary_directory.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

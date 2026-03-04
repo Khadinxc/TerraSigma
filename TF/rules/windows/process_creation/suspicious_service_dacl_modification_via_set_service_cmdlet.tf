@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_service_dacl_modifi
   name                       = "suspicious_service_dacl_modification_via_set_service_cmdlet"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Service DACL Modification Via Set-Service Cmdlet"
-  description                = "Detects suspicious DACL modifications via the \"Set-Service\" cmdlet using the \"SecurityDescriptorSddl\" flag (Only available with PowerShell 7) that can be used to hide services or make them unstopable | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_service_dacl_modification_via_set_service_cmdlet.yml"
+  description                = "Detects suspicious DACL modifications via the \"Set-Service\" cmdlet using the \"SecurityDescriptorSddl\" flag (Only available with PowerShell 7) that can be used to hide services or make them unstopable | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_service_dacl_modification_via_set_service_cmdlet.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

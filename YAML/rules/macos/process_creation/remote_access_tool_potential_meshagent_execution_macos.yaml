@@ -1,6 +1,6 @@
 id: 6cdcf2cb-a537-58f4-b3b9-5eaa1266d3e3
 name: Remote Access Tool - Potential MeshAgent Execution - MacOS
-description: 'Detects potential execution of MeshAgent which is a tool used for remote access. Historical data shows that threat actors rename MeshAgent binary to evade detection. Matching command lines with the ''--meshServiceName'' argument can indicate that the MeshAgent is being used for remote access. - Environments that legitimately use MeshAgent | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/remote_access_tool_potential_meshagent_execution_macos.yml'
+description: 'Detects potential execution of MeshAgent which is a tool used for remote access. Historical data shows that threat actors rename MeshAgent binary to evade detection. Matching command lines with the ''--meshServiceName'' argument can indicate that the MeshAgent is being used for remote access. - Environments that legitimately use MeshAgent | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/remote_access_tool_potential_meshagent_execution_macos.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

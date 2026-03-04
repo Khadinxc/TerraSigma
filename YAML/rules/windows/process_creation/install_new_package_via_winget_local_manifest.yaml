@@ -1,6 +1,6 @@
 id: 4656ffe7-fec1-5c75-ba38-5c837ebb8656
 name: Install New Package Via Winget Local Manifest
-description: 'Detects usage of winget to install applications via manifest file. Adversaries can abuse winget to download payloads remotely and execute them. The manifest option enables you to install an application by passing in a YAML file directly to the client. Winget can be used to download and install exe, msi or msix files later. - Some false positives are expected in some environment that may use this functionality to install and test their custom applications | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/install_new_package_via_winget_local_manifest.yml'
+description: 'Detects usage of winget to install applications via manifest file. Adversaries can abuse winget to download payloads remotely and execute them. The manifest option enables you to install an application by passing in a YAML file directly to the client. Winget can be used to download and install exe, msi or msix files later. - Some false positives are expected in some environment that may use this functionality to install and test their custom applications | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/install_new_package_via_winget_local_manifest.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

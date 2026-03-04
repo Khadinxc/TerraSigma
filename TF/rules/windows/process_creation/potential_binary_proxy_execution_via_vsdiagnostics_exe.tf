@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_binary_proxy_executi
   name                       = "potential_binary_proxy_execution_via_vsdiagnostics_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Binary Proxy Execution Via VSDiagnostics.EXE"
-  description                = "Detects execution of \"VSDiagnostics.exe\" with the \"start\" command in order to launch and proxy arbitrary binaries. - Legitimate usage for tracing and diagnostics purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_binary_proxy_execution_via_vsdiagnostics_exe.yml"
+  description                = "Detects execution of \"VSDiagnostics.exe\" with the \"start\" command in order to launch and proxy arbitrary binaries. - Legitimate usage for tracing and diagnostics purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_binary_proxy_execution_via_vsdiagnostics_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

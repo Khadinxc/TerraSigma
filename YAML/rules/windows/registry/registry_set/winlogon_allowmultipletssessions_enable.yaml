@@ -1,6 +1,6 @@
 id: 15713115-baf5-5bc3-a39c-37cb7a023e5f
 name: Winlogon AllowMultipleTSSessions Enable
-description: 'Detects when the ''AllowMultipleTSSessions'' value is enabled. Which allows for multiple Remote Desktop connection sessions to be opened at once. This is often used by attacker as a way to connect to an RDP session without disconnecting the other users - Legitimate use of the multi session functionality | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/winlogon_allowmultipletssessions_enable.yml'
+description: 'Detects when the ''AllowMultipleTSSessions'' value is enabled. Which allows for multiple Remote Desktop connection sessions to be opened at once. This is often used by attacker as a way to connect to an RDP session without disconnecting the other users - Legitimate use of the multi session functionality | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/winlogon_allowmultipletssessions_enable.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

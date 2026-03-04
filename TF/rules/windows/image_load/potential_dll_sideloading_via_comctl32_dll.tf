@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_dll_sideloading_via_
   name                       = "potential_dll_sideloading_via_comctl32_dll"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential DLL Sideloading Via comctl32.dll"
-  description                = "Detects potential DLL sideloading using comctl32.dll to obtain system privileges - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_dll_sideloading_via_comctl32_dll.yml"
+  description                = "Detects potential DLL sideloading using comctl32.dll to obtain system privileges - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_dll_sideloading_via_comctl32_dll.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

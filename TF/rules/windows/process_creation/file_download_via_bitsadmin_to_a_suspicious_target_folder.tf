@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_download_via_bitsadmin_to
   name                       = "file_download_via_bitsadmin_to_a_suspicious_target_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Download Via Bitsadmin To A Suspicious Target Folder"
-  description                = "Detects usage of bitsadmin downloading a file to a suspicious target folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_via_bitsadmin_to_a_suspicious_target_folder.yml"
+  description                = "Detects usage of bitsadmin downloading a file to a suspicious target folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_via_bitsadmin_to_a_suspicious_target_folder.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

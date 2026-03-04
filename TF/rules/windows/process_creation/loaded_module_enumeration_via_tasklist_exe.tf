@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "loaded_module_enumeration_via_
   name                       = "loaded_module_enumeration_via_tasklist_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Loaded Module Enumeration Via Tasklist.EXE"
-  description                = "Detects the enumeration of a specific DLL or EXE being used by a binary via \"tasklist.exe\". This is often used by attackers in order to find the specific process identifier (PID) that is using the DLL in question. In order to dump the process memory or perform other nefarious actions. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/loaded_module_enumeration_via_tasklist_exe.yml"
+  description                = "Detects the enumeration of a specific DLL or EXE being used by a binary via \"tasklist.exe\". This is often used by attackers in order to find the specific process identifier (PID) that is using the DLL in question. In order to dump the process memory or perform other nefarious actions. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/loaded_module_enumeration_via_tasklist_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

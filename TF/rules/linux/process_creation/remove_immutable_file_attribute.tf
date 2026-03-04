@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "remove_immutable_file_attribut
   name                       = "remove_immutable_file_attribute"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remove Immutable File Attribute"
-  description                = "Detects usage of the 'chattr' utility to remove immutable file attribute. - Administrator interacting with immutable files (e.g. for instance backups). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/remove_immutable_file_attribute.yml"
+  description                = "Detects usage of the 'chattr' utility to remove immutable file attribute. - Administrator interacting with immutable files (e.g. for instance backups). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/remove_immutable_file_attribute.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

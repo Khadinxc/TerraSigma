@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "mint_sandstorm_manageengine_su
   name                       = "mint_sandstorm_manageengine_suspicious_process_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Mint Sandstorm - ManageEngine Suspicious Process Execution"
-  description                = "Detects suspicious execution from ManageEngine as seen used by Mint Sandstorm - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Mint-Sandstorm/mint_sandstorm_manageengine_suspicious_process_execution.yml"
+  description                = "Detects suspicious execution from ManageEngine as seen used by Mint Sandstorm - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Mint-Sandstorm/mint_sandstorm_manageengine_suspicious_process_execution.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

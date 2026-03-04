@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_application_in_appcompat" 
   name                       = "new_application_in_appcompat"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Application in AppCompat"
-  description                = "A General detection for a new application in AppCompat. This indicates an application executing for the first time on an endpoint. - Newly setup system. - Legitimate installation of new application. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/new_application_in_appcompat.yml"
+  description                = "A General detection for a new application in AppCompat. This indicates an application executing for the first time on an endpoint. - Newly setup system. - Legitimate installation of new application. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/new_application_in_appcompat.tf"
   severity                   = "Informational"
   query                      = <<QUERY
 DeviceRegistryEvents

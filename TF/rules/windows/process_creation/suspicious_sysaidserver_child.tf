@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_sysaidserver_child"
   name                       = "suspicious_sysaidserver_child"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious SysAidServer Child"
-  description                = "Detects suspicious child processes of SysAidServer (as seen in MERCURY threat actor intrusions) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_sysaidserver_child.yml"
+  description                = "Detects suspicious child processes of SysAidServer (as seen in MERCURY threat actor intrusions) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_sysaidserver_child.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

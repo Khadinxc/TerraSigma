@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "system_information_discovery_v
   name                       = "system_information_discovery_via_wmic_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "System Information Discovery Via Wmic.EXE"
-  description                = "Detects the use of the WMI command-line (WMIC) utility to identify and display various system information, including OS, CPU, GPU, disk drive names, memory capacity, display resolution, baseboard, BIOS, and GPU driver products/versions. - VMWare Tools serviceDiscovery scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/system_information_discovery_via_wmic_exe.yml"
+  description                = "Detects the use of the WMI command-line (WMIC) utility to identify and display various system information, including OS, CPU, GPU, disk drive names, memory capacity, display resolution, baseboard, BIOS, and GPU driver products/versions. - VMWare Tools serviceDiscovery scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/system_information_discovery_via_wmic_exe.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

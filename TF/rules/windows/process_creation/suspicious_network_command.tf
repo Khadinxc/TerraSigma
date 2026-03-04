@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_network_command" {
   name                       = "suspicious_network_command"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Network Command"
-  description                = "Adversaries may look for details about the network configuration and settings of systems they access or through information discovery of remote systems - Administrator, hotline ask to user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_network_command.yml"
+  description                = "Adversaries may look for details about the network configuration and settings of systems they access or through information discovery of remote systems - Administrator, hotline ask to user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_network_command.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: 999237b7-00e9-5a08-ae95-6eb69822a16c
 name: PsExec Service Execution
-description: 'Detects launch of the PSEXESVC service, which means that this system was the target of a psexec remote execution - Legitimate administrative tasks | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/psexec_service_execution.yml'
+description: 'Detects launch of the PSEXESVC service, which means that this system was the target of a psexec remote execution - Legitimate administrative tasks | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/psexec_service_execution.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

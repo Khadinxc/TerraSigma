@@ -1,6 +1,6 @@
 id: 2dcdc398-84b5-5e03-bc1d-e5468e542f13
 name: Potentially Suspicious DMP/HDMP File Creation
-description: 'Detects the creation of a file with the ".dmp"/".hdmp" extension by a shell or scripting application such as "cmd", "powershell", etc. Often created by software during a crash. Memory dumps can sometimes contain sensitive information such as credentials. It''s best to determine the source of the crash. - Some administrative PowerShell or VB scripts might have the ability to collect dumps and move them to other folders which might trigger a false positive. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potentially_suspicious_dmp_hdmp_file_creation.yml'
+description: 'Detects the creation of a file with the ".dmp"/".hdmp" extension by a shell or scripting application such as "cmd", "powershell", etc. Often created by software during a crash. Memory dumps can sometimes contain sensitive information such as credentials. It''s best to determine the source of the crash. - Some administrative PowerShell or VB scripts might have the ability to collect dumps and move them to other folders which might trigger a false positive. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potentially_suspicious_dmp_hdmp_file_creation.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

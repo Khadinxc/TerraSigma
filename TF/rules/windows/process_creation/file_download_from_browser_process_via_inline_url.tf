@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_download_from_browser_pro
   name                       = "file_download_from_browser_process_via_inline_url"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Download From Browser Process Via Inline URL"
-  description                = "Detects execution of a browser process with a URL argument pointing to a file with a potentially interesting extension. This can be abused to download arbitrary files or to hide from the user for example by launching the browser in a minimized state. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_from_browser_process_via_inline_url.yml"
+  description                = "Detects execution of a browser process with a URL argument pointing to a file with a potentially interesting extension. This can be abused to download arbitrary files or to hide from the user for example by launching the browser in a minimized state. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_from_browser_process_via_inline_url.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

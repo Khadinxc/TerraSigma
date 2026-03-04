@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_child_process_of_as
   name                       = "suspicious_child_process_of_aspnetcompiler"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Child Process of AspNetCompiler"
-  description                = "Detects potentially suspicious child processes of \"aspnet_compiler.exe\". | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_child_process_of_aspnetcompiler.yml"
+  description                = "Detects potentially suspicious child processes of \"aspnet_compiler.exe\". | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_child_process_of_aspnetcompiler.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

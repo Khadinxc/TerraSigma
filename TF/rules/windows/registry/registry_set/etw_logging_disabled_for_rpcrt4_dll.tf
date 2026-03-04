@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "etw_logging_disabled_for_rpcrt
   name                       = "etw_logging_disabled_for_rpcrt4_dll"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ETW Logging Disabled For rpcrt4.dll"
-  description                = "Detects changes to the \"ExtErrorInformation\" key in order to disable ETW logging for rpcrt4.dll | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/etw_logging_disabled_for_rpcrt4_dll.yml"
+  description                = "Detects changes to the \"ExtErrorInformation\" key in order to disable ETW logging for rpcrt4.dll | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/etw_logging_disabled_for_rpcrt4_dll.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceRegistryEvents

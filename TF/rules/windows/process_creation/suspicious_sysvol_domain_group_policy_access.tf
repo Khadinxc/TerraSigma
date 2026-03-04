@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_sysvol_domain_group
   name                       = "suspicious_sysvol_domain_group_policy_access"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious SYSVOL Domain Group Policy Access"
-  description                = "Detects Access to Domain Group Policies stored in SYSVOL - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_sysvol_domain_group_policy_access.yml"
+  description                = "Detects Access to Domain Group Policies stored in SYSVOL - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_sysvol_domain_group_policy_access.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

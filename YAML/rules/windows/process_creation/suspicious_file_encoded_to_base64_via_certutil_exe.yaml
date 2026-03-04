@@ -1,6 +1,6 @@
 id: da147278-b78e-5687-83cd-51a16f00d64a
 name: Suspicious File Encoded To Base64 Via Certutil.EXE
-description: 'Detects the execution of certutil with the "encode" flag to encode a file to base64 where the extensions of the file is suspicious | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_file_encoded_to_base64_via_certutil_exe.yml'
+description: 'Detects the execution of certutil with the "encode" flag to encode a file to base64 where the extensions of the file is suspicious | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_file_encoded_to_base64_via_certutil_exe.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

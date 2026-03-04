@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "linux_crypto_mining_pool_conne
   name                       = "linux_crypto_mining_pool_connections"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux Crypto Mining Pool Connections"
-  description                = "Detects process connections to a Monero crypto mining pool - Legitimate use of crypto miners | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/network_connection/linux_crypto_mining_pool_connections.yml"
+  description                = "Detects process connections to a Monero crypto mining pool - Legitimate use of crypto miners | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/network_connection/linux_crypto_mining_pool_connections.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents

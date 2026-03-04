@@ -1,6 +1,6 @@
 id: 68ebe4c0-f447-53bf-9d42-6f75526dc758
 name: Removal Of AMSI Provider Registry Keys
-description: 'Detects the deletion of AMSI provider registry key entries in HKLM\Software\Microsoft\AMSI. This technique could be used by an attacker in order to disable AMSI inspection. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/removal_of_amsi_provider_registry_keys.yml'
+description: 'Detects the deletion of AMSI provider registry key entries in HKLM\Software\Microsoft\AMSI. This technique could be used by an attacker in order to disable AMSI inspection. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/removal_of_amsi_provider_registry_keys.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "clickonce_trust_prompt_tamperi
   name                       = "clickonce_trust_prompt_tampering"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ClickOnce Trust Prompt Tampering"
-  description                = "Detects changes to the ClickOnce trust prompt registry key in order to enable an installation from different locations such as the Internet. - Legitimate internal requirements. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/clickonce_trust_prompt_tampering.yml"
+  description                = "Detects changes to the ClickOnce trust prompt registry key in order to enable an installation from different locations such as the Internet. - Legitimate internal requirements. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/clickonce_trust_prompt_tampering.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

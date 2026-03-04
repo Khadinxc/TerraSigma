@@ -1,6 +1,6 @@
 id: 5f8412bd-1d30-50a7-9013-4377b87f8729
 name: Php Inline Command Execution
-description: 'Detects execution of php using the "-r" flag. This is could be used as a way to launch a reverse shell or execute live php code. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/php_inline_command_execution.yml'
+description: 'Detects execution of php using the "-r" flag. This is could be used as a way to launch a reverse shell or execute live php code. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/php_inline_command_execution.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "gathernetworkinfo_vbs_reconnai
   name                       = "gathernetworkinfo_vbs_reconnaissance_script_output"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "GatherNetworkInfo.VBS Reconnaissance Script Output"
-  description                = "Detects creation of files which are the results of executing the built-in reconnaissance script \"C:\\Windows\\System32\\gatherNetworkInfo.vbs\". | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/gathernetworkinfo_vbs_reconnaissance_script_output.yml"
+  description                = "Detects creation of files which are the results of executing the built-in reconnaissance script \"C:\\Windows\\System32\\gatherNetworkInfo.vbs\". | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/gathernetworkinfo_vbs_reconnaissance_script_output.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

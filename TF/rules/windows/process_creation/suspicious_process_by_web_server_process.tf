@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_process_by_web_serv
   name                       = "suspicious_process_by_web_server_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Process By Web Server Process"
-  description                = "Detects potentially suspicious processes being spawned by a web server process which could be the result of a successfully placed web shell or exploitation - Particular web applications may spawn a shell process legitimately | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_process_by_web_server_process.yml"
+  description                = "Detects potentially suspicious processes being spawned by a web server process which could be the result of a successfully placed web shell or exploitation - Particular web applications may spawn a shell process legitimately | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_process_by_web_server_process.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

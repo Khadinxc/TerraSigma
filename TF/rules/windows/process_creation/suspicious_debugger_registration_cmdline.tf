@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_debugger_registrati
   name                       = "suspicious_debugger_registration_cmdline"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Debugger Registration Cmdline"
-  description                = "Detects the registration of a debugger for a program that is available in the logon screen (sticky key backdoor). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_debugger_registration_cmdline.yml"
+  description                = "Detects the registration of a debugger for a program that is available in the logon screen (sticky key backdoor). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_debugger_registration_cmdline.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

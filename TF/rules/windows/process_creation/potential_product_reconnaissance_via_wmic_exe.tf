@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_product_reconnaissan
   name                       = "potential_product_reconnaissance_via_wmic_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Product Reconnaissance Via Wmic.EXE"
-  description                = "Detects the execution of WMIC in order to get a list of firewall and antivirus products | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_product_reconnaissance_via_wmic_exe.yml"
+  description                = "Detects the execution of WMIC in order to get a list of firewall and antivirus products | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_product_reconnaissance_via_wmic_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

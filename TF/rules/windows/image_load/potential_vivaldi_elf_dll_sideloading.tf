@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_vivaldi_elf_dll_side
   name                       = "potential_vivaldi_elf_dll_sideloading"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Vivaldi_elf.DLL Sideloading"
-  description                = "Detects potential DLL sideloading of \"vivaldi_elf.dll\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_vivaldi_elf_dll_sideloading.yml"
+  description                = "Detects potential DLL sideloading of \"vivaldi_elf.dll\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_vivaldi_elf_dll_sideloading.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

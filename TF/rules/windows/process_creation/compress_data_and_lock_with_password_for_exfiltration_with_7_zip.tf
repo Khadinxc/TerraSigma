@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "compress_data_and_lock_with_pa
   name                       = "compress_data_and_lock_with_password_for_exfiltration_with_7_zip"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Compress Data and Lock With Password for Exfiltration With 7-ZIP"
-  description                = "An adversary may compress or encrypt data that is collected prior to exfiltration using 3rd party utilities - Legitimate activity is expected since compressing files with a password is common. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/compress_data_and_lock_with_password_for_exfiltration_with_7_zip.yml"
+  description                = "An adversary may compress or encrypt data that is collected prior to exfiltration using 3rd party utilities - Legitimate activity is expected since compressing files with a password is common. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/compress_data_and_lock_with_password_for_exfiltration_with_7_zip.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

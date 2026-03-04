@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_binary_writes_via_a
   name                       = "suspicious_binary_writes_via_anydesk"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Binary Writes Via AnyDesk"
-  description                = "Detects AnyDesk writing binary files to disk other than \"gcapi.dll\". According to RedCanary research it is highly abnormal for AnyDesk to write executable files to disk besides gcapi.dll, which is a legitimate DLL that is part of the Google Chrome web browser used to interact with the Google Cloud API. (See reference section for more details) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_binary_writes_via_anydesk.yml"
+  description                = "Detects AnyDesk writing binary files to disk other than \"gcapi.dll\". According to RedCanary research it is highly abnormal for AnyDesk to write executable files to disk besides gcapi.dll, which is a legitimate DLL that is part of the Google Chrome web browser used to interact with the Google Cloud API. (See reference section for more details) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_binary_writes_via_anydesk.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

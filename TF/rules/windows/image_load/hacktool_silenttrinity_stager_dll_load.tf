@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_silenttrinity_stager_
   name                       = "hacktool_silenttrinity_stager_dll_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - SILENTTRINITY Stager DLL Load"
-  description                = "Detects SILENTTRINITY stager dll loading activity - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/hacktool_silenttrinity_stager_dll_load.yml"
+  description                = "Detects SILENTTRINITY stager dll loading activity - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/hacktool_silenttrinity_stager_dll_load.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

@@ -1,6 +1,6 @@
 id: d6efe6f3-9768-5929-a225-cb867bfa0c1f
 name: Potentially Suspicious Child Process Of Regsvr32
-description: 'Detects potentially suspicious child processes of "regsvr32.exe". - Unlikely, but can rarely occur. Apply additional filters accordingly. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_child_process_of_regsvr32.yml'
+description: 'Detects potentially suspicious child processes of "regsvr32.exe". - Unlikely, but can rarely occur. Apply additional filters accordingly. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_child_process_of_regsvr32.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_shell_open_command_
   name                       = "suspicious_shell_open_command_registry_modification"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Shell Open Command Registry Modification"
-  description                = "Detects modifications to shell open registry keys that point to suspicious locations typically used by malware for persistence. Generally, modifications to the `*\\shell\\open\\command` registry key can indicate an attempt to change the default action for opening files, and various UAC bypass or persistence techniques involve modifying these keys to execute malicious scripts or binaries. - Legitimate software installations or updates that modify the shell open command registry keys to these locations. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/suspicious_shell_open_command_registry_modification.yml"
+  description                = "Detects modifications to shell open registry keys that point to suspicious locations typically used by malware for persistence. Generally, modifications to the `*\\shell\\open\\command` registry key can indicate an attempt to change the default action for opening files, and various UAC bypass or persistence techniques involve modifying these keys to execute malicious scripts or binaries. - Legitimate software installations or updates that modify the shell open command registry keys to these locations. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/suspicious_shell_open_command_registry_modification.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

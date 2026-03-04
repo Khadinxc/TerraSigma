@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hh_exe_execution" {
   name                       = "hh_exe_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HH.EXE Execution"
-  description                = "Detects the execution of \"hh.exe\" to open \".chm\" files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hh_exe_execution.yml"
+  description                = "Detects the execution of \"hh.exe\" to open \".chm\" files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hh_exe_execution.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

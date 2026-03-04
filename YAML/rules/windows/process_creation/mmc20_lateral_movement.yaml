@@ -1,6 +1,6 @@
 id: 1bc61c07-72fd-509f-b9df-1bf74d55e446
 name: MMC20 Lateral Movement
-description: 'Detects MMC20.Application Lateral Movement; specifically looks for the spawning of the parent MMC.exe with a command line of "-Embedding" as a child of svchost.exe - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/mmc20_lateral_movement.yml'
+description: 'Detects MMC20.Application Lateral Movement; specifically looks for the spawning of the parent MMC.exe with a command line of "-Embedding" as a child of svchost.exe - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/mmc20_lateral_movement.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

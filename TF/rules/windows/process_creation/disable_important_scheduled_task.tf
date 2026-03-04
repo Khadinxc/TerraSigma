@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "disable_important_scheduled_ta
   name                       = "disable_important_scheduled_task"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disable Important Scheduled Task"
-  description                = "Detects when adversaries stop services or processes by disabling their respective scheduled tasks in order to conduct data destructive activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/disable_important_scheduled_task.yml"
+  description                = "Detects when adversaries stop services or processes by disabling their respective scheduled tasks in order to conduct data destructive activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/disable_important_scheduled_task.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

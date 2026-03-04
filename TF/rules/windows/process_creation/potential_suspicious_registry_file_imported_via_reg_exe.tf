@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_suspicious_registry_
   name                       = "potential_suspicious_registry_file_imported_via_reg_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Suspicious Registry File Imported Via Reg.EXE"
-  description                = "Detects the import of '.reg' files from suspicious paths using the 'reg.exe' utility - Legitimate import of keys | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_suspicious_registry_file_imported_via_reg_exe.yml"
+  description                = "Detects the import of '.reg' files from suspicious paths using the 'reg.exe' utility - Legitimate import of keys | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_suspicious_registry_file_imported_via_reg_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

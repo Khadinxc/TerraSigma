@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_defense_evasion_via_
   name                       = "potential_defense_evasion_via_binary_rename"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Defense Evasion Via Binary Rename"
-  description                = "Detects the execution of a renamed binary often used by attackers or malware leveraging new Sysmon OriginalFileName datapoint. - Custom applications use renamed binaries adding slight change to binary name. Typically this is easy to spot and add to whitelist | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_defense_evasion_via_binary_rename.yml"
+  description                = "Detects the execution of a renamed binary often used by attackers or malware leveraging new Sysmon OriginalFileName datapoint. - Custom applications use renamed binaries adding slight change to binary name. Typically this is easy to spot and add to whitelist | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_defense_evasion_via_binary_rename.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

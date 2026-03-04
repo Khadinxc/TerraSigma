@@ -1,6 +1,6 @@
 id: 581665d5-03a4-5370-81ed-d51207cccb24
 name: Potential Mpclient.DLL Sideloading
-description: 'Detects potential sideloading of "mpclient.dll" by Windows Defender processes ("MpCmdRun" and "NisSrv") from their non-default directory. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_mpclient_dll_sideloading.yml'
+description: 'Detects potential sideloading of "mpclient.dll" by Windows Defender processes ("MpCmdRun" and "NisSrv") from their non-default directory. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_mpclient_dll_sideloading.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

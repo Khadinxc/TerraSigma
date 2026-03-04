@@ -1,6 +1,6 @@
 id: 6335d392-11aa-5277-8a8b-d08110df8d17
 name: Potential Persistence Via GlobalFlags
-description: 'Detects registry persistence technique using the GlobalFlags and SilentProcessExit keys | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_globalflags.yml'
+description: 'Detects registry persistence technique using the GlobalFlags and SilentProcessExit keys | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_globalflags.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

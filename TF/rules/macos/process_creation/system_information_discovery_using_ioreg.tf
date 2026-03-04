@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "system_information_discovery_u
   name                       = "system_information_discovery_using_ioreg"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "System Information Discovery Using Ioreg"
-  description                = "Detects the use of \"ioreg\" which will show I/O Kit registry information. This process is used for system information discovery. It has been observed in-the-wild by calling this process directly or using bash and grep to look for specific strings. - Legitimate administrative activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/system_information_discovery_using_ioreg.yml"
+  description                = "Detects the use of \"ioreg\" which will show I/O Kit registry information. This process is used for system information discovery. It has been observed in-the-wild by calling this process directly or using bash and grep to look for specific strings. - Legitimate administrative activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/system_information_discovery_using_ioreg.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_registry_persistence
   name                       = "potential_registry_persistence_attempt_via_windows_telemetry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Registry Persistence Attempt Via Windows Telemetry"
-  description                = "Detects potential persistence behavior using the windows telemetry registry key. Windows telemetry makes use of the binary CompatTelRunner.exe to run a variety of commands and perform the actual telemetry collections. This binary was created to be easily extensible, and to that end, it relies on the registry to instruct on which commands to run. The problem is, it will run any arbitrary command without restriction of location or type. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_registry_persistence_attempt_via_windows_telemetry.yml"
+  description                = "Detects potential persistence behavior using the windows telemetry registry key. Windows telemetry makes use of the binary CompatTelRunner.exe to run a variety of commands and perform the actual telemetry collections. This binary was created to be easily extensible, and to that end, it relies on the registry to instruct on which commands to run. The problem is, it will run any arbitrary command without restriction of location or type. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_registry_persistence_attempt_via_windows_telemetry.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

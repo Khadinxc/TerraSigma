@@ -1,6 +1,6 @@
 id: d9814702-1f35-56cb-b9e3-325eab664ca5
 name: Stop Windows Service Via PowerShell Stop-Service
-description: 'Detects the stopping of a Windows service via the PowerShell Cmdlet "Stop-Service" - There are many legitimate reasons to stop a service. This rule isn''t looking for any suspicious behaviour in particular. Filter legitimate activity accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/stop_windows_service_via_powershell_stop_service.yml'
+description: 'Detects the stopping of a Windows service via the PowerShell Cmdlet "Stop-Service" - There are many legitimate reasons to stop a service. This rule isn''t looking for any suspicious behaviour in particular. Filter legitimate activity accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/stop_windows_service_via_powershell_stop_service.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

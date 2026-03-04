@@ -1,6 +1,6 @@
 id: e36e0cf7-7f85-564a-b798-59daf37b0cfe
 name: COM Hijack via Sdclt
-description: 'Detects changes to ''HKCU\Software\Classes\Folder\shell\open\command\DelegateExecute'' | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/com_hijack_via_sdclt.yml'
+description: 'Detects changes to ''HKCU\Software\Classes\Folder\shell\open\command\DelegateExecute'' | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/com_hijack_via_sdclt.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 9f946c81-72f3-505e-b777-f4e3edd5dea2
 name: Installation of WSL Kali-Linux
-description: 'Detects installation of Kali Linux distribution through Windows Subsystem for Linux (WSL). Attackers may use Kali Linux WSL to leverage its penetration testing tools and capabilities for malicious purposes. - Legitimate installation or usage of Kali Linux WSL by administrators or security teams | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/installation_of_wsl_kali_linux.yml'
+description: 'Detects installation of Kali Linux distribution through Windows Subsystem for Linux (WSL). Attackers may use Kali Linux WSL to leverage its penetration testing tools and capabilities for malicious purposes. - Legitimate installation or usage of Kali Linux WSL by administrators or security teams | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/installation_of_wsl_kali_linux.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

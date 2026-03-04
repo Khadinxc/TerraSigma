@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "usage_of_renamed_sysinternals_
   name                       = "usage_of_renamed_sysinternals_tools_registryset"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Usage of Renamed Sysinternals Tools - RegistrySet"
-  description                = "Detects non-sysinternals tools setting the \"accepteula\" key which normally is set on sysinternals tool execution - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/usage_of_renamed_sysinternals_tools_registryset.yml"
+  description                = "Detects non-sysinternals tools setting the \"accepteula\" key which normally is set on sysinternals tool execution - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/usage_of_renamed_sysinternals_tools_registryset.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

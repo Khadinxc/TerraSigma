@@ -1,6 +1,6 @@
 id: 3392cd50-d5e8-53a4-b0db-eeb0fb5c6d73
 name: DirLister Execution
-description: 'Detect the usage of "DirLister.exe" a utility for quickly listing folder or drive contents. It was seen used by BlackCat ransomware to create a list of accessible directories and files. - Legitimate use by users | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dirlister_execution.yml'
+description: 'Detect the usage of "DirLister.exe" a utility for quickly listing folder or drive contents. It was seen used by BlackCat ransomware to create a list of accessible directories and files. - Legitimate use by users | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dirlister_execution.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

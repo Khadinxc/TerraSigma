@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_bloodhound_sharphound
   name                       = "hacktool_bloodhound_sharphound_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Bloodhound/Sharphound Execution"
-  description                = "Detects command line parameters used by Bloodhound and Sharphound hack tools - Other programs that use these command line option and accepts an 'All' parameter | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_bloodhound_sharphound_execution.yml"
+  description                = "Detects command line parameters used by Bloodhound and Sharphound hack tools - Other programs that use these command line option and accepts an 'All' parameter | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_bloodhound_sharphound_execution.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

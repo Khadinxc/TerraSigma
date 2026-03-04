@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_wuauclt
   name                       = "potentially_suspicious_wuauclt_network_connection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Wuauclt Network Connection"
-  description                = "Detects the use of the Windows Update Client binary (wuauclt.exe) to proxy execute code and making network connections. One could easily make the DLL spawn a new process and inject to it to proxy the network connection and bypass this rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/potentially_suspicious_wuauclt_network_connection.yml"
+  description                = "Detects the use of the Windows Update Client binary (wuauclt.exe) to proxy execute code and making network connections. One could easily make the DLL spawn a new process and inject to it to proxy the network connection and bypass this rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/potentially_suspicious_wuauclt_network_connection.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

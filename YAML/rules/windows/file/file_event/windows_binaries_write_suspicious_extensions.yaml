@@ -1,6 +1,6 @@
 id: f8b82829-5f32-5dfd-a6fe-87c042332610
 name: Windows Binaries Write Suspicious Extensions
-description: 'Detects Windows executables that write files with suspicious extensions | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/windows_binaries_write_suspicious_extensions.yml'
+description: 'Detects Windows executables that write files with suspicious extensions | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/windows_binaries_write_suspicious_extensions.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

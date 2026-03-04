@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "wab_wabmig_unusual_parent_or_c
   name                       = "wab_wabmig_unusual_parent_or_child_processes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Wab/Wabmig Unusual Parent Or Child Processes"
-  description                = "Detects unusual parent or children of the wab.exe (Windows Contacts) and Wabmig.exe (Microsoft Address Book Import Tool) processes as seen being used with bumblebee activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wab_wabmig_unusual_parent_or_child_processes.yml"
+  description                = "Detects unusual parent or children of the wab.exe (Windows Contacts) and Wabmig.exe (Microsoft Address Book Import Tool) processes as seen being used with bumblebee activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wab_wabmig_unusual_parent_or_child_processes.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

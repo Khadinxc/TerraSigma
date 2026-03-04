@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "download_file_to_potentially_s
   name                       = "download_file_to_potentially_suspicious_directory_via_wget"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Download File To Potentially Suspicious Directory Via Wget"
-  description                = "Detects the use of wget to download content to a suspicious directory | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/download_file_to_potentially_suspicious_directory_via_wget.yml"
+  description                = "Detects the use of wget to download content to a suspicious directory | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/download_file_to_potentially_suspicious_directory_via_wget.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

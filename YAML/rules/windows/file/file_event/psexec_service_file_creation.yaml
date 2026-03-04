@@ -1,6 +1,6 @@
 id: 5241add1-3a64-5a3e-ab14-ab422b8aa1b6
 name: PsExec Service File Creation
-description: 'Detects default PsExec service filename which indicates PsExec service installation and execution | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/psexec_service_file_creation.yml'
+description: 'Detects default PsExec service filename which indicates PsExec service installation and execution | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/psexec_service_file_creation.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

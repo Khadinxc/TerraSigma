@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "winrs_local_command_execution"
   name                       = "winrs_local_command_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Winrs Local Command Execution"
-  description                = "Detects the execution of Winrs.exe where it is used to execute commands locally. Commands executed this way are launched under Winrshost.exe and can represent proxy execution used for defense evasion or lateral movement. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/winrs_local_command_execution.yml"
+  description                = "Detects the execution of Winrs.exe where it is used to execute commands locally. Commands executed this way are launched under Winrshost.exe and can represent proxy execution used for defense evasion or lateral movement. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/winrs_local_command_execution.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

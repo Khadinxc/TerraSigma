@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "outgoing_logon_with_new_creden
   name                       = "outgoing_logon_with_new_credentials"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Outgoing Logon with New Credentials"
-  description                = "Detects logon events that specify new credentials - Legitimate remote administration activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/account_management/outgoing_logon_with_new_credentials.yml"
+  description                = "Detects logon events that specify new credentials - Legitimate remote administration activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/account_management/outgoing_logon_with_new_credentials.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceLogonEvents

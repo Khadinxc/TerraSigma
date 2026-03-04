@@ -1,6 +1,6 @@
 id: 1ce05e98-04ff-56af-9663-6cec1f612b1f
 name: Node Process Executions
-description: 'Detects the execution of other scripts using the Node executable packaged with Adobe Creative Cloud | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/node_process_executions.yml'
+description: 'Detects the execution of other scripts using the Node executable packaged with Adobe Creative Cloud | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/node_process_executions.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

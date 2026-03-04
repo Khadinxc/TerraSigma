@@ -1,6 +1,6 @@
 id: df7b4113-b3d9-52f3-a708-e96cc8548a22
 name: Perl Inline Command Execution
-description: 'Detects execution of perl using the "-e"/"-E" flags. This is could be used as a way to launch a reverse shell or execute live perl code. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/perl_inline_command_execution.yml'
+description: 'Detects execution of perl using the "-e"/"-E" flags. This is could be used as a way to launch a reverse shell or execute live perl code. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/perl_inline_command_execution.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

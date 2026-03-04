@@ -1,6 +1,6 @@
 id: 43847b3b-0308-58a2-afc1-e8e201fb8cb4
 name: Enumerate All Information With Whoami.EXE
-description: 'Detects the execution of "whoami.exe" with the "/all" flag | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/enumerate_all_information_with_whoami_exe.yml'
+description: 'Detects the execution of "whoami.exe" with the "/all" flag | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/enumerate_all_information_with_whoami_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

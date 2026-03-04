@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "visual_studio_code_tunnel_serv
   name                       = "visual_studio_code_tunnel_service_installation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Visual Studio Code Tunnel Service Installation"
-  description                = "Detects the installation of VsCode tunnel (code-tunnel) as a service. - Legitimate installation of code-tunnel as a service | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/visual_studio_code_tunnel_service_installation.yml"
+  description                = "Detects the installation of VsCode tunnel (code-tunnel) as a service. - Legitimate installation of code-tunnel as a service | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/visual_studio_code_tunnel_service_installation.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

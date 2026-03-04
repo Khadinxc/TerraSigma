@@ -1,6 +1,6 @@
 id: bb5c9316-f6eb-5f14-b82a-2b23cc9cbf2e
 name: Cab File Extraction Via Wusa.EXE
-description: 'Detects execution of the "wusa.exe" (Windows Update Standalone Installer) utility to extract cab using the "/extract" argument that is no longer supported. - The "extract" flag still works on older ''wusa.exe'' versions, which could be a legitimate use (monitor the path of the cab being extracted) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/cab_file_extraction_via_wusa_exe.yml'
+description: 'Detects execution of the "wusa.exe" (Windows Update Standalone Installer) utility to extract cab using the "/extract" argument that is no longer supported. - The "extract" flag still works on older ''wusa.exe'' versions, which could be a legitimate use (monitor the path of the cab being extracted) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/cab_file_extraction_via_wusa_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

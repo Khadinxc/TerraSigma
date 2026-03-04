@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_libvlc_dll_sideloadi
   name                       = "potential_libvlc_dll_sideloading"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Libvlc.DLL Sideloading"
-  description                = "Detects potential DLL sideloading of \"libvlc.dll\", a DLL that is legitimately used by \"VLC.exe\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_libvlc_dll_sideloading.yml"
+  description                = "Detects potential DLL sideloading of \"libvlc.dll\", a DLL that is legitimately used by \"VLC.exe\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_libvlc_dll_sideloading.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

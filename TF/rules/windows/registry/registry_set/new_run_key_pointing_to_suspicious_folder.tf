@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_run_key_pointing_to_suspic
   name                       = "new_run_key_pointing_to_suspicious_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New RUN Key Pointing to Suspicious Folder"
-  description                = "Detects suspicious new RUN key element pointing to an executable in a suspicious folder - Software using weird folders for updates | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/new_run_key_pointing_to_suspicious_folder.yml"
+  description                = "Detects suspicious new RUN key element pointing to an executable in a suspicious folder - Software using weird folders for updates | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/new_run_key_pointing_to_suspicious_folder.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

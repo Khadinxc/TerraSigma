@@ -1,6 +1,6 @@
 id: b63cede4-50d4-52a6-aa8c-58741b8ba568
 name: Shell Execution via Find - Linux
-description: 'Detects the use of the find command to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or exploitation attempt. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/shell_execution_via_find_linux.yml'
+description: 'Detects the use of the find command to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or exploitation attempt. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/shell_execution_via_find_linux.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

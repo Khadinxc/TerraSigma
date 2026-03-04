@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "volumeshadowcopy_symlink_creat
   name                       = "volumeshadowcopy_symlink_creation_via_mklink"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "VolumeShadowCopy Symlink Creation Via Mklink"
-  description                = "Shadow Copies storage symbolic link creation using operating systems utilities - Legitimate administrator working with shadow copies, access for backup purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/volumeshadowcopy_symlink_creation_via_mklink.yml"
+  description                = "Shadow Copies storage symbolic link creation using operating systems utilities - Legitimate administrator working with shadow copies, access for backup purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/volumeshadowcopy_symlink_creation_via_mklink.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

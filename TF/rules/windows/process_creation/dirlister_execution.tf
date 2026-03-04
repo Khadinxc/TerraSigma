@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dirlister_execution" {
   name                       = "dirlister_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DirLister Execution"
-  description                = "Detect the usage of \"DirLister.exe\" a utility for quickly listing folder or drive contents. It was seen used by BlackCat ransomware to create a list of accessible directories and files. - Legitimate use by users | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dirlister_execution.yml"
+  description                = "Detect the usage of \"DirLister.exe\" a utility for quickly listing folder or drive contents. It was seen used by BlackCat ransomware to create a list of accessible directories and files. - Legitimate use by users | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dirlister_execution.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

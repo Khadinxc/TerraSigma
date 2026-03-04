@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "etw_logging_tamper_in_net_proc
   name                       = "etw_logging_tamper_in_net_processes_via_commandline"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ETW Logging Tamper In .NET Processes Via CommandLine"
-  description                = "Detects changes to environment variables related to ETW logging via the CommandLine. This could indicate potential adversaries stopping ETW providers recording loaded .NET assemblies. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/etw_logging_tamper_in_net_processes_via_commandline.yml"
+  description                = "Detects changes to environment variables related to ETW logging via the CommandLine. This could indicate potential adversaries stopping ETW providers recording loaded .NET assemblies. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/etw_logging_tamper_in_net_processes_via_commandline.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "local_system_accounts_discover
   name                       = "local_system_accounts_discovery_macos"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Local System Accounts Discovery - MacOs"
-  description                = "Detects enumeration of local systeam accounts on MacOS - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/local_system_accounts_discovery_macos.yml"
+  description                = "Detects enumeration of local systeam accounts on MacOS - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/local_system_accounts_discovery_macos.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

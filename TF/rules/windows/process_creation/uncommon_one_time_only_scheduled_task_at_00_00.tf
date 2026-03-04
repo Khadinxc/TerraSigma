@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uncommon_one_time_only_schedul
   name                       = "uncommon_one_time_only_scheduled_task_at_00_00"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon One Time Only Scheduled Task At 00:00"
-  description                = "Detects scheduled task creation events that include suspicious actions, and is run once at 00:00 - Software installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_one_time_only_scheduled_task_at_00_00.yml"
+  description                = "Detects scheduled task creation events that include suspicious actions, and is run once at 00:00 - Software installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_one_time_only_scheduled_task_at_00_00.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

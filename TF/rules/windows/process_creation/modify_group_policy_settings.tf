@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "modify_group_policy_settings" 
   name                       = "modify_group_policy_settings"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Modify Group Policy Settings"
-  description                = "Detect malicious GPO modifications can be used to implement many other malicious behaviors. - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/modify_group_policy_settings.yml"
+  description                = "Detect malicious GPO modifications can be used to implement many other malicious behaviors. - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/modify_group_policy_settings.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

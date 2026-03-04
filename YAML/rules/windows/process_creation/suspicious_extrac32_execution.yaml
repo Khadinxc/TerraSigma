@@ -1,6 +1,6 @@
 id: 8d9b1846-c7ee-5982-a4c6-a399474bdffd
 name: Suspicious Extrac32 Execution
-description: 'Download or Copy file with Extrac32 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_extrac32_execution.yml'
+description: 'Download or Copy file with Extrac32 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_extrac32_execution.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 8186b7b4-f138-59b1-a770-f65667e36a70
 name: Potentially Suspicious Network Connection To Notion API
-description: 'Detects a non-browser process communicating with the Notion API. This could indicate potential use of a covert C2 channel such as "OffensiveNotion C2" - Legitimate applications communicating with the "api.notion.com" endpoint that are not already in the exclusion list. The desktop and browser applications do not appear to be using the API by default unless integrations are configured. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/potentially_suspicious_network_connection_to_notion_api.yml'
+description: 'Detects a non-browser process communicating with the Notion API. This could indicate potential use of a covert C2 channel such as "OffensiveNotion C2" - Legitimate applications communicating with the "api.notion.com" endpoint that are not already in the exclusion list. The desktop and browser applications do not appear to be using the API by default unless integrations are configured. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/potentially_suspicious_network_connection_to_notion_api.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

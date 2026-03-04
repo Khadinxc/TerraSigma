@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "process_creation_using_sysnati
   name                       = "process_creation_using_sysnative_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Process Creation Using Sysnative Folder"
-  description                = "Detects process creation events that use the Sysnative folder (common for CobaltStrike spawns) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/process_creation_using_sysnative_folder.yml"
+  description                = "Detects process creation events that use the Sysnative folder (common for CobaltStrike spawns) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/process_creation_using_sysnative_folder.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_crypto_mining_activi
   name                       = "potential_crypto_mining_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Crypto Mining Activity"
-  description                = "Detects command line parameters or strings often used by crypto miners - Legitimate use of crypto miners - Some build frameworks | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_crypto_mining_activity.yml"
+  description                = "Detects command line parameters or strings often used by crypto miners - Legitimate use of crypto miners - Some build frameworks | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_crypto_mining_activity.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "process_execution_from_a_poten
   name                       = "process_execution_from_a_potentially_suspicious_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Process Execution From A Potentially Suspicious Folder"
-  description                = "Detects a potentially suspicious execution from an uncommon folder. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/process_execution_from_a_potentially_suspicious_folder.yml"
+  description                = "Detects a potentially suspicious execution from an uncommon folder. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/process_execution_from_a_potentially_suspicious_folder.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_eventlo
   name                       = "potentially_suspicious_eventlog_recon_activity_using_log_query_utilities"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious EventLog Recon Activity Using Log Query Utilities"
-  description                = "Detects execution of different log query utilities and commands to search and dump the content of specific event logs or look for specific event IDs. This technique is used by threat actors in order to extract sensitive information from events logs such as usernames, IP addresses, hostnames, etc. - Legitimate usage of the utility by administrators to query the event log | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_eventlog_recon_activity_using_log_query_utilities.yml"
+  description                = "Detects execution of different log query utilities and commands to search and dump the content of specific event logs or look for specific event IDs. This technique is used by threat actors in order to extract sensitive information from events logs such as usernames, IP addresses, hostnames, etc. - Legitimate usage of the utility by administrators to query the event log | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_eventlog_recon_activity_using_log_query_utilities.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

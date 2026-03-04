@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_self_extracting_package_cr
   name                       = "new_self_extracting_package_created_via_iexpress_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Self Extracting Package Created Via IExpress.EXE"
-  description                = "Detects the \"iexpress.exe\" utility creating self-extracting packages. Attackers where seen leveraging \"iexpress\" to compile packages on the fly via \".sed\" files. Investigate the command line options provided to \"iexpress\" and in case of a \".sed\" file, check the contents and legitimacy of it. - Administrators building packages using iexpress.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/new_self_extracting_package_created_via_iexpress_exe.yml"
+  description                = "Detects the \"iexpress.exe\" utility creating self-extracting packages. Attackers where seen leveraging \"iexpress\" to compile packages on the fly via \".sed\" files. Investigate the command line options provided to \"iexpress\" and in case of a \".sed\" file, check the contents and legitimacy of it. - Administrators building packages using iexpress.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/new_self_extracting_package_created_via_iexpress_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

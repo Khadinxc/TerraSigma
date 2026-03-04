@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "diamond_sleet_apt_dll_sideload
   name                       = "diamond_sleet_apt_dll_sideloading_indicators"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Diamond Sleet APT DLL Sideloading Indicators"
-  description                = "Detects DLL sideloading activity seen used by Diamond Sleet APT - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/diamond_sleet_apt_dll_sideloading_indicators.yml"
+  description                = "Detects DLL sideloading activity seen used by Diamond Sleet APT - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/diamond_sleet_apt_dll_sideloading_indicators.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

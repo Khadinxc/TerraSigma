@@ -1,6 +1,6 @@
 id: 53822184-ac24-5905-bc77-77cc7b5af4b7
 name: Potential Compromised 3CXDesktopApp Beaconing Activity - Netcon
-description: 'Detects potential beaconing activity to domains related to 3CX 3CXDesktopApp compromise - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/3CX-Supply-Chain/potential_compromised_3cxdesktopapp_beaconing_activity_netcon.yml'
+description: 'Detects potential beaconing activity to domains related to 3CX 3CXDesktopApp compromise - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/3CX-Supply-Chain/potential_compromised_3cxdesktopapp_beaconing_activity_netcon.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

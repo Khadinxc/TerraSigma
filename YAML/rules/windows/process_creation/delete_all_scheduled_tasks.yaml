@@ -1,6 +1,6 @@
 id: 1861c849-74d6-52f5-a23a-e770630b8a1b
 name: Delete All Scheduled Tasks
-description: 'Detects the usage of schtasks with the delete flag and the asterisk symbol to delete all tasks from the schedule of the local computer, including tasks scheduled by other users. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/delete_all_scheduled_tasks.yml'
+description: 'Detects the usage of schtasks with the delete flag and the asterisk symbol to delete all tasks from the schedule of the local computer, including tasks scheduled by other users. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/delete_all_scheduled_tasks.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

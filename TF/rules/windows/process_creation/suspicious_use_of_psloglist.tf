@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_use_of_psloglist" {
   name                       = "suspicious_use_of_psloglist"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Use of PsLogList"
-  description                = "Detects usage of the PsLogList utility to dump event log in order to extract admin accounts and perform account discovery or delete events logs - Another tool that uses the command line switches of PsLogList - Legitimate use of PsLogList by an administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_use_of_psloglist.yml"
+  description                = "Detects usage of the PsLogList utility to dump event log in order to extract admin accounts and perform account discovery or delete events logs - Another tool that uses the command line switches of PsLogList - Legitimate use of PsLogList by an administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_use_of_psloglist.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

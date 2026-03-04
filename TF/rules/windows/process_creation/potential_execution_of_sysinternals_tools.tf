@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_execution_of_sysinte
   name                       = "potential_execution_of_sysinternals_tools"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Execution of Sysinternals Tools"
-  description                = "Detects command lines that contain the 'accepteula' flag which could be a sign of execution of one of the Sysinternals tools - Legitimate use of SysInternals tools - Programs that use the same command line flag | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_execution_of_sysinternals_tools.yml"
+  description                = "Detects command lines that contain the 'accepteula' flag which could be a sign of execution of one of the Sysinternals tools - Legitimate use of SysInternals tools - Programs that use the same command line flag | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_execution_of_sysinternals_tools.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

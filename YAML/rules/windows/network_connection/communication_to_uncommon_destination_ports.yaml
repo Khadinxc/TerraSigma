@@ -1,6 +1,6 @@
 id: 89f825ae-73dc-5d18-9f88-758033f81b37
 name: Communication To Uncommon Destination Ports
-description: 'Detects programs that connect to uncommon destination ports | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/communication_to_uncommon_destination_ports.yml'
+description: 'Detects programs that connect to uncommon destination ports | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/communication_to_uncommon_destination_ports.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

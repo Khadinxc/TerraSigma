@@ -1,6 +1,6 @@
 id: 67b7bdd1-20d6-5f31-bd07-c0fabf295c63
 name: Explorer Process Tree Break
-description: 'Detects a command line process that uses explorer.exe to launch arbitrary commands or binaries, which is similar to cmd.exe /c, only it breaks the process tree and makes its parent a new instance of explorer spawning from "svchost" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/explorer_process_tree_break.yml'
+description: 'Detects a command line process that uses explorer.exe to launch arbitrary commands or binaries, which is similar to cmd.exe /c, only it breaks the process tree and makes its parent a new instance of explorer spawning from "svchost" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/explorer_process_tree_break.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

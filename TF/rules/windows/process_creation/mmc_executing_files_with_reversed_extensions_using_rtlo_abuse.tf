@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "mmc_executing_files_with_rever
   name                       = "mmc_executing_files_with_reversed_extensions_using_rtlo_abuse"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "MMC Executing Files with Reversed Extensions Using RTLO Abuse"
-  description                = "Detects malicious behavior where the MMC utility (`mmc.exe`) executes files with reversed extensions caused by Right-to-Left Override (RLO) abuse, disguising them as document formats. - Legitimate administrative actions using MMC to execute misnamed `.msc` files. - Unconventional but non-malicious usage of RLO or reversed extensions. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/mmc_executing_files_with_reversed_extensions_using_rtlo_abuse.yml"
+  description                = "Detects malicious behavior where the MMC utility (`mmc.exe`) executes files with reversed extensions caused by Right-to-Left Override (RLO) abuse, disguising them as document formats. - Legitimate administrative actions using MMC to execute misnamed `.msc` files. - Unconventional but non-malicious usage of RLO or reversed extensions. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/mmc_executing_files_with_reversed_extensions_using_rtlo_abuse.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

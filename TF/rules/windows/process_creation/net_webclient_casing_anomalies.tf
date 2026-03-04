@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_webclient_casing_anomalies
   name                       = "net_webclient_casing_anomalies"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Net WebClient Casing Anomalies"
-  description                = "Detects PowerShell command line contents that include a suspicious abnormal casing in the Net.Webclient (e.g. nEt.WEbCliEnT) string as used in obfuscation techniques | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/net_webclient_casing_anomalies.yml"
+  description                = "Detects PowerShell command line contents that include a suspicious abnormal casing in the Net.Webclient (e.g. nEt.WEbCliEnT) string as used in obfuscation techniques | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/net_webclient_casing_anomalies.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

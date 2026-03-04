@@ -1,6 +1,6 @@
 id: bf6fd7f2-806a-59d5-9e74-fe3fb53858c1
 name: Potential Persistence Via VMwareToolBoxCmd.EXE VM State Change Script
-description: 'Detects execution of the "VMwareToolBoxCmd.exe" with the "script" and "set" flag to setup a specific script to run for a specific VM state | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_persistence_via_vmwaretoolboxcmd_exe_vm_state_change_script.yml'
+description: 'Detects execution of the "VMwareToolBoxCmd.exe" with the "script" and "set" flag to setup a specific script to run for a specific VM state | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_persistence_via_vmwaretoolboxcmd_exe_vm_state_change_script.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

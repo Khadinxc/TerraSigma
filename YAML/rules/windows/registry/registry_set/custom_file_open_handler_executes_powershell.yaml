@@ -1,6 +1,6 @@
 id: 90c98c8a-5a9b-5437-b825-a689311662c8
 name: Custom File Open Handler Executes PowerShell
-description: 'Detects the abuse of custom file open handler, executing powershell | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/custom_file_open_handler_executes_powershell.yml'
+description: 'Detects the abuse of custom file open handler, executing powershell | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/custom_file_open_handler_executes_powershell.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

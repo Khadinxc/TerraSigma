@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "weak_or_abused_passwords_in_cl
   name                       = "weak_or_abused_passwords_in_cli"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Weak or Abused Passwords In CLI"
-  description                = "Detects weak passwords or often abused passwords (seen used by threat actors) via the CLI. An example would be a threat actor creating a new user via the net command and providing the password inline - Legitimate usage of the passwords by users via commandline (should be discouraged) - Other currently unknown false positives | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/weak_or_abused_passwords_in_cli.yml"
+  description                = "Detects weak passwords or often abused passwords (seen used by threat actors) via the CLI. An example would be a threat actor creating a new user via the net command and providing the password inline - Legitimate usage of the passwords by users via commandline (should be discouraged) - Other currently unknown false positives | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/weak_or_abused_passwords_in_cli.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

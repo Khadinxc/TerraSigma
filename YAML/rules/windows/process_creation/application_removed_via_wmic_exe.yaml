@@ -1,6 +1,6 @@
 id: df76d217-5ba4-5d88-9d01-59c3dfb877a9
 name: Application Removed Via Wmic.EXE
-description: 'Detects the removal or uninstallation of an application via "Wmic.EXE". | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/application_removed_via_wmic_exe.yml'
+description: 'Detects the removal or uninstallation of an application via "Wmic.EXE". | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/application_removed_via_wmic_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

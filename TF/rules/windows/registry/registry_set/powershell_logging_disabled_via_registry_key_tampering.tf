@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "powershell_logging_disabled_vi
   name                       = "powershell_logging_disabled_via_registry_key_tampering"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Logging Disabled Via Registry Key Tampering"
-  description                = "Detects changes to the registry for the currently logged-in user. In order to disable PowerShell module logging, script block logging or transcription and script execution logging | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/powershell_logging_disabled_via_registry_key_tampering.yml"
+  description                = "Detects changes to the registry for the currently logged-in user. In order to disable PowerShell module logging, script block logging or transcription and script execution logging | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/powershell_logging_disabled_via_registry_key_tampering.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

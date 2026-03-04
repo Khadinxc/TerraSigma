@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "ping_hex_ip" {
   name                       = "ping_hex_ip"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Ping Hex IP"
-  description                = "Detects a ping command that uses a hex encoded IP address - Unlikely, because no sane admin pings IP addresses in a hexadecimal form | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/ping_hex_ip.yml"
+  description                = "Detects a ping command that uses a hex encoded IP address - Unlikely, because no sane admin pings IP addresses in a hexadecimal form | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/ping_hex_ip.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

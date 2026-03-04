@@ -1,6 +1,6 @@
 id: b851f3a2-78cd-56ff-b610-194d38f3b17c
 name: REGISTER_APP.VBS Proxy Execution
-description: 'Detects the use of a Microsoft signed script ''REGISTER_APP.VBS'' to register a VSS/VDS Provider as a COM+ application. - Legitimate usage of the script. Always investigate what''s being registered to confirm if it''s benign | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/register_app_vbs_proxy_execution.yml'
+description: 'Detects the use of a Microsoft signed script ''REGISTER_APP.VBS'' to register a VSS/VDS Provider as a COM+ application. - Legitimate usage of the script. Always investigate what''s being registered to confirm if it''s benign | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/register_app_vbs_proxy_execution.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

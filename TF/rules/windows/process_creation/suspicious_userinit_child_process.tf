@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_userinit_child_proc
   name                       = "suspicious_userinit_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Userinit Child Process"
-  description                = "Detects a suspicious child process of userinit - Administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_userinit_child_process.yml"
+  description                = "Detects a suspicious child process of userinit - Administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_userinit_child_process.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

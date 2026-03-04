@@ -1,6 +1,6 @@
 id: 043a19f1-7737-5e30-84f1-0a6e7ddefc4a
 name: Potential Ransomware Activity Using LegalNotice Message
-description: 'Detect changes to the "LegalNoticeCaption" or "LegalNoticeText" registry values where the message set contains keywords often used in ransomware ransom messages | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_ransomware_activity_using_legalnotice_message.yml'
+description: 'Detect changes to the "LegalNoticeCaption" or "LegalNoticeText" registry values where the message set contains keywords often used in ransomware ransom messages | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_ransomware_activity_using_legalnotice_message.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

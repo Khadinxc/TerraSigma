@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_arbitrary_code_execu
   name                       = "potential_arbitrary_code_execution_via_node_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Arbitrary Code Execution Via Node.EXE"
-  description                = "Detects the execution node.exe which is shipped with multiple software such as VMware, Adobe...etc. In order to execute arbitrary code. For example to establish reverse shell as seen in Log4j attacks...etc - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_arbitrary_code_execution_via_node_exe.yml"
+  description                = "Detects the execution node.exe which is shipped with multiple software such as VMware, Adobe...etc. In order to execute arbitrary code. For example to establish reverse shell as seen in Log4j attacks...etc - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_arbitrary_code_execution_via_node_exe.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

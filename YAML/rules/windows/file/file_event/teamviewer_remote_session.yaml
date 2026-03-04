@@ -1,6 +1,6 @@
 id: 8116c204-e05b-5ea2-bcd8-c0e522dcdb92
 name: TeamViewer Remote Session
-description: 'Detects the creation of log files during a TeamViewer remote session - Legitimate uses of TeamViewer in an organisation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/teamviewer_remote_session.yml'
+description: 'Detects the creation of log files during a TeamViewer remote session - Legitimate uses of TeamViewer in an organisation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/teamviewer_remote_session.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

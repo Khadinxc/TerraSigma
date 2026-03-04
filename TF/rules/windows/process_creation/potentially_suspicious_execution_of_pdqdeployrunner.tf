@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_executi
   name                       = "potentially_suspicious_execution_of_pdqdeployrunner"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Execution Of PDQDeployRunner"
-  description                = "Detects suspicious execution of \"PDQDeployRunner\" which is part of the PDQDeploy service stack that is responsible for executing commands and packages on a remote machines - Legitimate use of the PDQDeploy tool to execute these commands | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_execution_of_pdqdeployrunner.yml"
+  description                = "Detects suspicious execution of \"PDQDeployRunner\" which is part of the PDQDeploy service stack that is responsible for executing commands and packages on a remote machines - Legitimate use of the PDQDeploy tool to execute these commands | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_execution_of_pdqdeployrunner.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

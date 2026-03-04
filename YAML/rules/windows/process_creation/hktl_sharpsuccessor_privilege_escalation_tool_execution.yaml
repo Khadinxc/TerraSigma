@@ -1,6 +1,6 @@
 id: 5a4243ea-8277-5113-abc9-8f47aa72b38e
 name: HKTL - SharpSuccessor Privilege Escalation Tool Execution
-description: 'Detects the execution of SharpSuccessor, a tool used to exploit the BadSuccessor attack for privilege escalation in WinServer 2025 Active Directory environments. Successful usage of this tool can let the attackers gain the domain admin privileges by exploiting the BadSuccessor vulnerability. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hktl_sharpsuccessor_privilege_escalation_tool_execution.yml'
+description: 'Detects the execution of SharpSuccessor, a tool used to exploit the BadSuccessor attack for privilege escalation in WinServer 2025 Active Directory environments. Successful usage of this tool can let the attackers gain the domain admin privileges by exploiting the BadSuccessor vulnerability. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hktl_sharpsuccessor_privilege_escalation_tool_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

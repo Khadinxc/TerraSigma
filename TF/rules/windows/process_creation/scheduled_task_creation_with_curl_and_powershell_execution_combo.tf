@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "scheduled_task_creation_with_c
   name                       = "scheduled_task_creation_with_curl_and_powershell_execution_combo"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Scheduled Task Creation with Curl and PowerShell Execution Combo"
-  description                = "Detects the creation of a scheduled task using schtasks.exe, potentially in combination with curl for downloading payloads and PowerShell for executing them. This facilitates executing malicious payloads or connecting with C&C server persistently without dropping the malware sample on the host. - Legitimate use of schtasks for administrative purposes. - Automation scripts combining curl and PowerShell in controlled environments. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/scheduled_task_creation_with_curl_and_powershell_execution_combo.yml"
+  description                = "Detects the creation of a scheduled task using schtasks.exe, potentially in combination with curl for downloading payloads and PowerShell for executing them. This facilitates executing malicious payloads or connecting with C&C server persistently without dropping the malware sample on the host. - Legitimate use of schtasks for administrative purposes. - Automation scripts combining curl and PowerShell in controlled environments. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/scheduled_task_creation_with_curl_and_powershell_execution_combo.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

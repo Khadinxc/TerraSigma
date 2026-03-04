@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_credential_dumping_a
   name                       = "potential_credential_dumping_attempt_using_new_networkprovider_cli"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Credential Dumping Attempt Using New NetworkProvider - CLI"
-  description                = "Detects when an attacker tries to add a new network provider in order to dump clear text credentials, similar to how the NPPSpy tool does it - Other legitimate network providers used and not filtred in this rule | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_credential_dumping_attempt_using_new_networkprovider_cli.yml"
+  description                = "Detects when an attacker tries to add a new network provider in order to dump clear text credentials, similar to how the NPPSpy tool does it - Other legitimate network providers used and not filtred in this rule | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_credential_dumping_attempt_using_new_networkprovider_cli.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

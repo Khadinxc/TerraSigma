@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dll_search_order_hijackig_via_
   name                       = "dll_search_order_hijackig_via_additional_space_in_path"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DLL Search Order Hijackig Via Additional Space in Path"
-  description                = "Detects when an attacker create a similar folder structure to windows system folders such as (Windows, Program Files...) but with a space in order to trick DLL load search order and perform a \"DLL Search Order Hijacking\" attack | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/dll_search_order_hijackig_via_additional_space_in_path.yml"
+  description                = "Detects when an attacker create a similar folder structure to windows system folders such as (Windows, Program Files...) but with a space in order to trick DLL load search order and perform a \"DLL Search Order Hijacking\" attack | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/dll_search_order_hijackig_via_additional_space_in_path.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

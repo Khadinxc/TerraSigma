@@ -1,6 +1,6 @@
 id: e1534ae9-9382-51b3-9c63-ebb4b745cf84
 name: Windows Default Domain GPO Modification via GPME
-description: 'Detects the use of the Group Policy Management Editor (GPME) to modify Default Domain or Default Domain Controllers Group Policy Objects (GPOs). Adversaries may leverage GPME to make stealthy changes in these default GPOs to deploy malicious GPOs configurations across the domain without raising suspicion. - Legitimate use of GPME to modify GPOs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_default_domain_gpo_modification_via_gpme.yml'
+description: 'Detects the use of the Group Policy Management Editor (GPME) to modify Default Domain or Default Domain Controllers Group Policy Objects (GPOs). Adversaries may leverage GPME to make stealthy changes in these default GPOs to deploy malicious GPOs configurations across the domain without raising suspicion. - Legitimate use of GPME to modify GPOs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_default_domain_gpo_modification_via_gpme.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

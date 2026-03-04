@@ -1,6 +1,6 @@
 id: 04b8a345-40cf-57d1-b1c8-55d89a1fa902
 name: Macos Remote System Discovery
-description: 'Detects the enumeration of other remote systems. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/macos_remote_system_discovery.yml'
+description: 'Detects the enumeration of other remote systems. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/macos_remote_system_discovery.tf'
 severity: Informational
 queryFrequency: PT1H
 queryPeriod: PT1H

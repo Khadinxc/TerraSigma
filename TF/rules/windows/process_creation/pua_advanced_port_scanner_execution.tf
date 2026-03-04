@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_advanced_port_scanner_exec
   name                       = "pua_advanced_port_scanner_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Advanced Port Scanner Execution"
-  description                = "Detects the use of Advanced Port Scanner. - Legitimate administrative use - Tools with similar commandline (very rare) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_advanced_port_scanner_execution.yml"
+  description                = "Detects the use of Advanced Port Scanner. - Legitimate administrative use - Tools with similar commandline (very rare) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_advanced_port_scanner_execution.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: 29f90ca6-3857-5417-a766-5b8bf077bcbc
 name: Psexec Execution
-description: 'Detects user accept agreement execution in psexec commandline - Administrative scripts. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/psexec_execution.yml'
+description: 'Detects user accept agreement execution in psexec commandline - Administrative scripts. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/psexec_execution.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

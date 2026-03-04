@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_cmd_she
   name                       = "potentially_suspicious_cmd_shell_output_redirect"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious CMD Shell Output Redirect"
-  description                = "Detects inline Windows shell commands redirecting output via the \">\" symbol to a suspicious location. This technique is sometimes used by malicious actors in order to redirect the output of reconnaissance commands such as \"hostname\" and \"dir\" to files for future exfiltration. - Legitimate admin or third party scripts used for diagnostic collection might generate some false positives | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_cmd_shell_output_redirect.yml"
+  description                = "Detects inline Windows shell commands redirecting output via the \">\" symbol to a suspicious location. This technique is sometimes used by malicious actors in order to redirect the output of reconnaissance commands such as \"hostname\" and \"dir\" to files for future exfiltration. - Legitimate admin or third party scripts used for diagnostic collection might generate some false positives | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_cmd_shell_output_redirect.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

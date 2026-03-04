@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_autologger_sessions_
   name                       = "potential_autologger_sessions_tampering"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential AutoLogger Sessions Tampering"
-  description                = "Detects tampering with autologger trace sessions which is a technique used by attackers to disable logging | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_autologger_sessions_tampering.yml"
+  description                = "Detects tampering with autologger trace sessions which is a technique used by attackers to disable logging | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_autologger_sessions_tampering.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

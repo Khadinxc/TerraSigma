@@ -1,6 +1,6 @@
 id: 1a3dba22-6a4a-580b-8c52-d539643fb1b0
 name: Potential Persistence Via Event Viewer Events.asp
-description: 'Detects potential registry persistence technique using the Event Viewer "Events.asp" technique | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_event_viewer_events_asp.yml'
+description: 'Detects potential registry persistence technique using the Event Viewer "Events.asp" technique | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_event_viewer_events_asp.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

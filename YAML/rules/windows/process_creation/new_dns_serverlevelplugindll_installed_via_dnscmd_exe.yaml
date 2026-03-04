@@ -1,6 +1,6 @@
 id: 4ab576f5-b739-5c54-9c93-35cf4e0ebc7a
 name: New DNS ServerLevelPluginDll Installed Via Dnscmd.EXE
-description: 'Detects the installation of a DNS plugin DLL via ServerLevelPluginDll parameter in registry, which can be used to execute code in context of the DNS server (restart required) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_dns_serverlevelplugindll_installed_via_dnscmd_exe.yml'
+description: 'Detects the installation of a DNS plugin DLL via ServerLevelPluginDll parameter in registry, which can be used to execute code in context of the DNS server (restart required) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_dns_serverlevelplugindll_installed_via_dnscmd_exe.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

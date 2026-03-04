@@ -1,6 +1,6 @@
 id: 4006f6de-456e-5744-9648-c60c56add88b
 name: Linux Recon Indicators
-description: 'Detects events with patterns found in commands used for reconnaissance on linux systems - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_recon_indicators.yml'
+description: 'Detects events with patterns found in commands used for reconnaissance on linux systems - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_recon_indicators.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

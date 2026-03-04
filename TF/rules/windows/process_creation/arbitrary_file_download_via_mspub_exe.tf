@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "arbitrary_file_download_via_ms
   name                       = "arbitrary_file_download_via_mspub_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Arbitrary File Download Via MSPUB.EXE"
-  description                = "Detects usage of \"MSPUB\" (Microsoft Publisher) to download arbitrary files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_file_download_via_mspub_exe.yml"
+  description                = "Detects usage of \"MSPUB\" (Microsoft Publisher) to download arbitrary files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_file_download_via_mspub_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_nohup_execution" {
   name                       = "suspicious_nohup_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Nohup Execution"
-  description                = "Detects execution of binaries located in potentially suspicious locations via \"nohup\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/suspicious_nohup_execution.yml"
+  description                = "Detects execution of binaries located in potentially suspicious locations via \"nohup\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/suspicious_nohup_execution.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

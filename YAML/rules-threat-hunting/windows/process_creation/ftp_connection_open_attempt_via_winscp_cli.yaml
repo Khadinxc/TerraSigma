@@ -1,6 +1,6 @@
 id: fe3f30ee-54ce-54d2-bbb6-bd455c0b1d95
 name: FTP Connection Open Attempt Via Winscp CLI
-description: 'Detects the execution of Winscp with the "-command" and the "open" flags in order to open an FTP connection. Akira ransomware was seen using this technique in order to exfiltrate data. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/ftp_connection_open_attempt_via_winscp_cli.yml'
+description: 'Detects the execution of Winscp with the "-command" and the "open" flags in order to open an FTP connection. Akira ransomware was seen using this technique in order to exfiltrate data. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/ftp_connection_open_attempt_via_winscp_cli.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

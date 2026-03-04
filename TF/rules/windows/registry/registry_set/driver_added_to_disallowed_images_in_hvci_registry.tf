@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "driver_added_to_disallowed_ima
   name                       = "driver_added_to_disallowed_images_in_hvci_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Driver Added To Disallowed Images In HVCI - Registry"
-  description                = "Detects changes to the \"HVCIDisallowedImages\" registry value to potentially add a driver to the list, in order to prevent it from loading. - Legitimate usage of this key would also trigger this. Investigate the driver being added and make sure its intended | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/driver_added_to_disallowed_images_in_hvci_registry.yml"
+  description                = "Detects changes to the \"HVCIDisallowedImages\" registry value to potentially add a driver to the list, in order to prevent it from loading. - Legitimate usage of this key would also trigger this. Investigate the driver being added and make sure its intended | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/driver_added_to_disallowed_images_in_hvci_registry.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

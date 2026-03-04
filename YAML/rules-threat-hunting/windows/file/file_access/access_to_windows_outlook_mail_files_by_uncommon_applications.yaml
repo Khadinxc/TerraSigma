@@ -1,6 +1,6 @@
 id: 2147cd10-cc29-5773-bc5b-9d385a66d781
 name: Access To Windows Outlook Mail Files By Uncommon Applications
-description: 'Detects file access requests to Windows Outlook Mail by uncommon processes. Could indicate potential attempt of credential stealing. Requires heavy baselining before usage - Antivirus, Anti-Spyware, Anti-Malware Software - Backup software - Legitimate software installed on partitions other than "C:\" - Searching software such as "everything.exe" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/access_to_windows_outlook_mail_files_by_uncommon_applications.yml'
+description: 'Detects file access requests to Windows Outlook Mail by uncommon processes. Could indicate potential attempt of credential stealing. Requires heavy baselining before usage - Antivirus, Anti-Spyware, Anti-Malware Software - Backup software - Legitimate software installed on partitions other than "C:\" - Searching software such as "everything.exe" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/access_to_windows_outlook_mail_files_by_uncommon_applications.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

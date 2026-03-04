@@ -1,6 +1,6 @@
 id: 5a44518e-7273-5cf4-bb97-01cb621ac470
 name: Potential Manage-bde.wsf Abuse To Proxy Execution
-description: 'Detects potential abuse of the "manage-bde.wsf" script as a LOLBIN to proxy execution - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_manage_bde_wsf_abuse_to_proxy_execution.yml'
+description: 'Detects potential abuse of the "manage-bde.wsf" script as a LOLBIN to proxy execution - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_manage_bde_wsf_abuse_to_proxy_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

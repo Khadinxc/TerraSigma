@@ -1,6 +1,6 @@
 id: 154f7286-519a-5df4-958e-6a162880c9aa
 name: Mint Sandstorm - ManageEngine Suspicious Process Execution
-description: 'Detects suspicious execution from ManageEngine as seen used by Mint Sandstorm - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Mint-Sandstorm/mint_sandstorm_manageengine_suspicious_process_execution.yml'
+description: 'Detects suspicious execution from ManageEngine as seen used by Mint Sandstorm - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Mint-Sandstorm/mint_sandstorm_manageengine_suspicious_process_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

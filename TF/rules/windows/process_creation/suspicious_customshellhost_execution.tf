@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_customshellhost_exe
   name                       = "suspicious_customshellhost_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious CustomShellHost Execution"
-  description                = "Detects the execution of CustomShellHost.exe where the child isn't located in 'C:\\Windows\\explorer.exe'. CustomShellHost is a known LOLBin that can be abused by attackers for defense evasion techniques. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_customshellhost_execution.yml"
+  description                = "Detects the execution of CustomShellHost.exe where the child isn't located in 'C:\\Windows\\explorer.exe'. CustomShellHost is a known LOLBin that can be abused by attackers for defense evasion techniques. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_customshellhost_execution.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

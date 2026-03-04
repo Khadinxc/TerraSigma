@@ -1,6 +1,6 @@
 id: 51c3e5f6-9315-542b-b36f-786183d98c3e
 name: Invoke-Obfuscation VAR+ Launcher
-description: 'Detects Obfuscated use of Environment Variables to execute PowerShell | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/invoke_obfuscation_var_launcher.yml'
+description: 'Detects Obfuscated use of Environment Variables to execute PowerShell | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/invoke_obfuscation_var_launcher.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

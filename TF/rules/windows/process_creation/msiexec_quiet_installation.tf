@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "msiexec_quiet_installation" {
   name                       = "msiexec_quiet_installation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Msiexec Quiet Installation"
-  description                = "Adversaries may abuse msiexec.exe to proxy execution of malicious payloads. Msiexec.exe is the command-line utility for the Windows Installer and is thus commonly associated with executing installation packages (.msi) - WindowsApps installing updates via the quiet flag | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/msiexec_quiet_installation.yml"
+  description                = "Adversaries may abuse msiexec.exe to proxy execution of malicious payloads. Msiexec.exe is the command-line utility for the Windows Installer and is thus commonly associated with executing installation packages (.msi) - WindowsApps installing updates via the quiet flag | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/msiexec_quiet_installation.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

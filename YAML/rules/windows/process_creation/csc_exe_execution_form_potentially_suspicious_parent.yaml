@@ -1,6 +1,6 @@
 id: aaf7b3ec-96f5-560f-815e-c8e190c7f427
 name: Csc.EXE Execution Form Potentially Suspicious Parent
-description: 'Detects a potentially suspicious parent of "csc.exe", which could be a sign of payload delivery. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/csc_exe_execution_form_potentially_suspicious_parent.yml'
+description: 'Detects a potentially suspicious parent of "csc.exe", which could be a sign of payload delivery. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/csc_exe_execution_form_potentially_suspicious_parent.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

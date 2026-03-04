@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "enable_microsoft_dynamic_data_
   name                       = "enable_microsoft_dynamic_data_exchange"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Enable Microsoft Dynamic Data Exchange"
-  description                = "Enable Dynamic Data Exchange protocol (DDE) in all supported editions of Microsoft Word or Excel. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/enable_microsoft_dynamic_data_exchange.yml"
+  description                = "Enable Dynamic Data Exchange protocol (DDE) in all supported editions of Microsoft Word or Excel. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/enable_microsoft_dynamic_data_exchange.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_usage_of_active_dir
   name                       = "suspicious_usage_of_active_directory_diagnostic_tool_ntdsutil_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Usage Of Active Directory Diagnostic Tool (ntdsutil.exe)"
-  description                = "Detects execution of ntdsutil.exe to perform different actions such as restoring snapshots...etc. - Legitimate usage to restore snapshots - Legitimate admin activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_usage_of_active_directory_diagnostic_tool_ntdsutil_exe_.yml"
+  description                = "Detects execution of ntdsutil.exe to perform different actions such as restoring snapshots...etc. - Legitimate usage to restore snapshots - Legitimate admin activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_usage_of_active_directory_diagnostic_tool_ntdsutil_exe_.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "vscode_code_tunnel_execution_f
   name                       = "vscode_code_tunnel_execution_file_indicator"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "VsCode Code Tunnel Execution File Indicator"
-  description                = "Detects the creation of a file with the name \"code_tunnel.json\" which indicate execution and usage of VsCode tunneling utility. Attackers can abuse this functionality to establish a C2 channel - Legitimate usage of VsCode tunneling functionality will also trigger this | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/vscode_code_tunnel_execution_file_indicator.yml"
+  description                = "Detects the creation of a file with the name \"code_tunnel.json\" which indicate execution and usage of VsCode tunneling utility. Attackers can abuse this functionality to establish a C2 channel - Legitimate usage of VsCode tunneling functionality will also trigger this | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/vscode_code_tunnel_execution_file_indicator.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

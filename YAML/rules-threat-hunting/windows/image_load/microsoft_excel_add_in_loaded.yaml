@@ -1,6 +1,6 @@
 id: 5d65e310-4db4-5c45-aced-9dea8090f6e2
 name: Microsoft Excel Add-In Loaded
-description: 'Detects Microsoft Excel loading an Add-In (.xll) file - The rules is only looking for ".xll" loads. So some false positives are expected with legitimate and allowed XLLs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/microsoft_excel_add_in_loaded.yml'
+description: 'Detects Microsoft Excel loading an Add-In (.xll) file - The rules is only looking for ".xll" loads. So some false positives are expected with legitimate and allowed XLLs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/microsoft_excel_add_in_loaded.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

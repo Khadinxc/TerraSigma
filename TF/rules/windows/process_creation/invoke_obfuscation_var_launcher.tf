@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "invoke_obfuscation_var_launche
   name                       = "invoke_obfuscation_var_launcher"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Invoke-Obfuscation VAR+ Launcher"
-  description                = "Detects Obfuscated use of Environment Variables to execute PowerShell | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/invoke_obfuscation_var_launcher.yml"
+  description                = "Detects Obfuscated use of Environment Variables to execute PowerShell | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/invoke_obfuscation_var_launcher.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

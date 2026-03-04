@@ -1,6 +1,6 @@
 id: 5e15dc23-9be2-521b-8d99-3eaf72a2ffd4
 name: Potentially Over Permissive Permissions Granted Using Dsacls.EXE
-description: 'Detects usage of Dsacls to grant over permissive permissions - Legitimate administrators granting over permissive permissions to users | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_over_permissive_permissions_granted_using_dsacls_exe.yml'
+description: 'Detects usage of Dsacls to grant over permissive permissions - Legitimate administrators granting over permissive permissions to users | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_over_permissive_permissions_granted_using_dsacls_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 8da1ab40-e4b2-5424-9148-37fe7c8d3fd3
 name: LSASS Process Reconnaissance Via Findstr.EXE
-description: 'Detects findstring commands that include the keyword lsass, which indicates recon actviity for the LSASS process PID | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/lsass_process_reconnaissance_via_findstr_exe.yml'
+description: 'Detects findstring commands that include the keyword lsass, which indicates recon actviity for the LSASS process PID | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/lsass_process_reconnaissance_via_findstr_exe.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

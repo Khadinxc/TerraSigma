@@ -1,6 +1,6 @@
 id: 57675d8a-df33-5913-8873-ad6067a9130f
 name: Remote Access Tool - MeshAgent Command Execution via MeshCentral
-description: 'Detects the use of MeshAgent to execute commands on the target host, particularly when threat actors might abuse it to execute commands directly. MeshAgent can execute commands on the target host by leveraging win-console to obscure their activities and win-dispatcher to run malicious code through IPC with child processes. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_access_tool_meshagent_command_execution_via_meshcentral.yml'
+description: 'Detects the use of MeshAgent to execute commands on the target host, particularly when threat actors might abuse it to execute commands directly. MeshAgent can execute commands on the target host by leveraging win-console to obscure their activities and win-dispatcher to run malicious code through IPC with child processes. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_access_tool_meshagent_command_execution_via_meshcentral.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

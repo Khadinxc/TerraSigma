@@ -1,6 +1,6 @@
 id: df48b4ee-8e12-5faa-8da4-10e3a5838194
 name: SafeBoot Registry Key Deleted Via Reg.EXE
-description: 'Detects execution of "reg.exe" commands with the "delete" flag on safe boot registry keys. Often used by attacker to prevent safeboot execution of security products - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/safeboot_registry_key_deleted_via_reg_exe.yml'
+description: 'Detects execution of "reg.exe" commands with the "delete" flag on safe boot registry keys. Often used by attacker to prevent safeboot execution of security products - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/safeboot_registry_key_deleted_via_reg_exe.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

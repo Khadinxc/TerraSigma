@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "stop_windows_service_via_sc_ex
   name                       = "stop_windows_service_via_sc_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Stop Windows Service Via Sc.EXE"
-  description                = "Detects the stopping of a Windows service via the \"sc.exe\" utility - There are many legitimate reasons to stop a service. This rule isn't looking for any suspicious behavior in particular. Filter legitimate activity accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/stop_windows_service_via_sc_exe.yml"
+  description                = "Detects the stopping of a Windows service via the \"sc.exe\" utility - There are many legitimate reasons to stop a service. This rule isn't looking for any suspicious behavior in particular. Filter legitimate activity accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/stop_windows_service_via_sc_exe.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

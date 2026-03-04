@@ -1,6 +1,6 @@
 id: a9327e49-eb9a-5199-9550-347297ba33d9
 name: Potential MsiExec Masquerading
-description: 'Detects the execution of msiexec.exe from an uncommon directory | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_msiexec_masquerading.yml'
+description: 'Detects the execution of msiexec.exe from an uncommon directory | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_msiexec_masquerading.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

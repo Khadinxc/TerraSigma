@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "tap_installer_execution" {
   name                       = "tap_installer_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Tap Installer Execution"
-  description                = "Well-known TAP software installation. Possible preparation for data exfiltration using tunneling techniques - Legitimate OpenVPN TAP installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/tap_installer_execution.yml"
+  description                = "Well-known TAP software installation. Possible preparation for data exfiltration using tunneling techniques - Legitimate OpenVPN TAP installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/tap_installer_execution.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

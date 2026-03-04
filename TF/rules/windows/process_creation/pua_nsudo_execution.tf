@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_nsudo_execution" {
   name                       = "pua_nsudo_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - NSudo Execution"
-  description                = "Detects the use of NSudo tool for command execution - Legitimate use by administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_nsudo_execution.yml"
+  description                = "Detects the use of NSudo tool for command execution - Legitimate use by administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_nsudo_execution.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

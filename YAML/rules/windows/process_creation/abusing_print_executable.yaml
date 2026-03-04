@@ -1,6 +1,6 @@
 id: 912e3e39-54a6-5aa9-a10b-bdecd79f0975
 name: Abusing Print Executable
-description: 'Attackers can use print.exe for remote file copy | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/abusing_print_executable.yml'
+description: 'Attackers can use print.exe for remote file copy | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/abusing_print_executable.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 3c80485c-8e6b-5ea9-b636-5b4d426cb136
 name: Potential Persistence Via Shim Database In Uncommon Location
-description: 'Detects the installation of a new shim database where the file is located in a non-default location | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_shim_database_in_uncommon_location.yml'
+description: 'Detects the installation of a new shim database where the file is located in a non-default location | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_shim_database_in_uncommon_location.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 2c7d488d-0d4d-5cdd-8bf4-9bd381d8db4f
 name: Mshtml.DLL RunHTMLApplication Suspicious Usage
-description: 'Detects execution of commands that leverage the "mshtml.dll" RunHTMLApplication export to run arbitrary code via different protocol handlers (vbscript, javascript, file, http...) - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/mshtml_dll_runhtmlapplication_suspicious_usage.yml'
+description: 'Detects execution of commands that leverage the "mshtml.dll" RunHTMLApplication export to run arbitrary code via different protocol handlers (vbscript, javascript, file, http...) - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/mshtml_dll_runhtmlapplication_suspicious_usage.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

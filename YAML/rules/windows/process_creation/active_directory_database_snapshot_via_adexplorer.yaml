@@ -1,6 +1,6 @@
 id: c44d47f9-3b4e-5ec8-8f09-7640054e7a8e
 name: Active Directory Database Snapshot Via ADExplorer
-description: 'Detects the execution of Sysinternals ADExplorer with the "-snapshot" flag in order to save a local copy of the active directory database. This can be used by attackers to extract data for Bloodhound, usernames for password spraying or use the meta data for social engineering. The snapshot doesn''t contain password hashes but there have been cases, where administrators put passwords in the comment field. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/active_directory_database_snapshot_via_adexplorer.yml'
+description: 'Detects the execution of Sysinternals ADExplorer with the "-snapshot" flag in order to save a local copy of the active directory database. This can be used by attackers to extract data for Bloodhound, usernames for password spraying or use the meta data for social engineering. The snapshot doesn''t contain password hashes but there have been cases, where administrators put passwords in the comment field. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/active_directory_database_snapshot_via_adexplorer.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

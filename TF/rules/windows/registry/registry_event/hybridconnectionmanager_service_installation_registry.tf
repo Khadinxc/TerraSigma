@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hybridconnectionmanager_servic
   name                       = "hybridconnectionmanager_service_installation_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HybridConnectionManager Service Installation - Registry"
-  description                = "Detects the installation of the Azure Hybrid Connection Manager service to allow remote code execution from Azure function. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/hybridconnectionmanager_service_installation_registry.yml"
+  description                = "Detects the installation of the Azure Hybrid Connection Manager service to allow remote code execution from Azure function. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/hybridconnectionmanager_service_installation_registry.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

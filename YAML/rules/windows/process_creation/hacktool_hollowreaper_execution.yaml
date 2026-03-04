@@ -1,6 +1,6 @@
 id: dae0bb02-1911-5a59-9686-75e38d1b7421
 name: HackTool - HollowReaper Execution
-description: 'Detects usage of HollowReaper, a process hollowing shellcode launcher used for stealth payload execution through process hollowing. It replaces the memory of a legitimate process with custom shellcode, allowing the attacker to execute payloads under the guise of trusted binaries. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_hollowreaper_execution.yml'
+description: 'Detects usage of HollowReaper, a process hollowing shellcode launcher used for stealth payload execution through process hollowing. It replaces the memory of a legitimate process with custom shellcode, allowing the attacker to execute payloads under the guise of trusted binaries. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_hollowreaper_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

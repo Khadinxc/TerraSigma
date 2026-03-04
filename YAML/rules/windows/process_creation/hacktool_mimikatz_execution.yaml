@@ -1,6 +1,6 @@
 id: b0d104a2-bd14-53a9-a196-56d251e8dace
 name: HackTool - Mimikatz Execution
-description: 'Detection well-known mimikatz command line arguments - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_mimikatz_execution.yml'
+description: 'Detection well-known mimikatz command line arguments - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_mimikatz_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "rundll32_execution_without_par
   name                       = "rundll32_execution_without_parameters"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Rundll32 Execution Without Parameters"
-  description                = "Detects rundll32 execution without parameters as observed when running Metasploit windows/smb/psexec exploit module | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rundll32_execution_without_parameters.yml"
+  description                = "Detects rundll32 execution without parameters as observed when running Metasploit windows/smb/psexec exploit module | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rundll32_execution_without_parameters.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

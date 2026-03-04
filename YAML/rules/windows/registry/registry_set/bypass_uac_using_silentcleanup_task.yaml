@@ -1,6 +1,6 @@
 id: ca94b975-255b-550f-8a21-5f424e3e9c0f
 name: Bypass UAC Using SilentCleanup Task
-description: 'Detects the setting of the environement variable "windir" to a non default value. Attackers often abuse this variable in order to trigger a UAC bypass via the "SilentCleanup" task. The SilentCleanup task located in %windir%\system32\cleanmgr.exe is an auto-elevated task that can be abused to elevate any file with administrator privileges without prompting UAC. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/bypass_uac_using_silentcleanup_task.yml'
+description: 'Detects the setting of the environement variable "windir" to a non default value. Attackers often abuse this variable in order to trigger a UAC bypass via the "SilentCleanup" task. The SilentCleanup task located in %windir%\system32\cleanmgr.exe is an auto-elevated task that can be abused to elevate any file with administrator privileges without prompting UAC. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/bypass_uac_using_silentcleanup_task.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 0711e1a5-9a02-5787-9735-0a1d55f9edfd
 name: VBScript Payload Stored in Registry
-description: 'Detects VBScript content stored into registry keys as seen being used by UNC2452 group | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/vbscript_payload_stored_in_registry.yml'
+description: 'Detects VBScript content stored into registry keys as seen being used by UNC2452 group | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/vbscript_payload_stored_in_registry.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

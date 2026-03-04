@@ -1,6 +1,6 @@
 id: d151c367-ad4b-5346-947c-f0ecb72e78eb
 name: New User Created Via Net.EXE
-description: 'Identifies the creation of local users via the net.exe command. - Legitimate user creation. - Better use event IDs for user creation rather than command line rules. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_user_created_via_net_exe.yml'
+description: 'Identifies the creation of local users via the net.exe command. - Legitimate user creation. - Better use event IDs for user creation rather than command line rules. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_user_created_via_net_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

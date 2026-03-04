@@ -1,6 +1,6 @@
 id: 875bc5de-f5aa-5212-b027-f559e8b3e979
 name: Process Memory Dump Via Dotnet-Dump
-description: 'Detects the execution of "dotnet-dump" with the "collect" flag. The execution could indicate potential process dumping of critical processes such as LSASS. - Process dumping is the expected behavior of the tool. So false positives are expected in legitimate usage. The PID/Process Name of the process being dumped needs to be investigated | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/process_memory_dump_via_dotnet_dump.yml'
+description: 'Detects the execution of "dotnet-dump" with the "collect" flag. The execution could indicate potential process dumping of critical processes such as LSASS. - Process dumping is the expected behavior of the tool. So false positives are expected in legitimate usage. The PID/Process Name of the process being dumped needs to be investigated | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/process_memory_dump_via_dotnet_dump.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

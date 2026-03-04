@@ -1,6 +1,6 @@
 id: 64ded2cf-af50-57dc-959c-392145447257
 name: Screen Capture - macOS
-description: 'Detects attempts to use screencapture to collect macOS screenshots - Legitimate user activity taking screenshots | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/screen_capture_macos.yml'
+description: 'Detects attempts to use screencapture to collect macOS screenshots - Legitimate user activity taking screenshots | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/screen_capture_macos.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

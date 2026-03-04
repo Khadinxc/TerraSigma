@@ -1,6 +1,6 @@
 id: b0bef9b8-33ef-5836-881c-f67fd73c1988
 name: Potential Goopdate.DLL Sideloading
-description: 'Detects potential DLL sideloading of "goopdate.dll", a DLL used by googleupdate.exe - Other third party chromium browsers located in AppData | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_goopdate_dll_sideloading.yml'
+description: 'Detects potential DLL sideloading of "goopdate.dll", a DLL used by googleupdate.exe - Other third party chromium browsers located in AppData | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_goopdate_dll_sideloading.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

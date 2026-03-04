@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "whoami_exe_execution_with_outp
   name                       = "whoami_exe_execution_with_output_option"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Whoami.EXE Execution With Output Option"
-  description                = "Detects the execution of \"whoami.exe\" with the \"/FO\" flag to choose CSV as output format or with redirection options to export the results to a file for later use. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/whoami_exe_execution_with_output_option.yml"
+  description                = "Detects the execution of \"whoami.exe\" with the \"/FO\" flag to choose CSV as output format or with redirection options to export the results to a file for later use. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/whoami_exe_execution_with_output_option.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

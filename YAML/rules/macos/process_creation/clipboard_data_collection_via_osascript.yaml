@@ -1,6 +1,6 @@
 id: 5869c5cf-50c2-5fb4-9bf0-940503a7addf
 name: Clipboard Data Collection Via OSAScript
-description: 'Detects possible collection of data from the clipboard via execution of the osascript binary - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/clipboard_data_collection_via_osascript.yml'
+description: 'Detects possible collection of data from the clipboard via execution of the osascript binary - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/clipboard_data_collection_via_osascript.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

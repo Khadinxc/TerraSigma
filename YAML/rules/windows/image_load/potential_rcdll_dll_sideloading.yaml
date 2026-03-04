@@ -1,6 +1,6 @@
 id: 17bb2d21-d0d9-5f20-a940-fc6fba0d43a1
 name: Potential Rcdll.DLL Sideloading
-description: 'Detects potential DLL sideloading of rcdll.dll | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_rcdll_dll_sideloading.yml'
+description: 'Detects potential DLL sideloading of rcdll.dll | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_rcdll_dll_sideloading.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

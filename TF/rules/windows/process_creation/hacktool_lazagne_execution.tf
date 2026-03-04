@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_lazagne_execution" {
   name                       = "hacktool_lazagne_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - LaZagne Execution"
-  description                = "Detects the execution of the LaZagne. A utility used to retrieve multiple types of passwords stored on a local computer. LaZagne has been leveraged multiple times by threat actors in order to dump credentials. - Some false positive is expected from tools with similar command line flags. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_lazagne_execution.yml"
+  description                = "Detects the execution of the LaZagne. A utility used to retrieve multiple types of passwords stored on a local computer. LaZagne has been leveraged multiple times by threat actors in order to dump credentials. - Some false positive is expected from tools with similar command line flags. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_lazagne_execution.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

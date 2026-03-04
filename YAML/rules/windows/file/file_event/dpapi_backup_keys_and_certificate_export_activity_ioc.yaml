@@ -1,6 +1,6 @@
 id: a5f94faf-c134-5e88-8f58-c6769b808d32
 name: DPAPI Backup Keys And Certificate Export Activity IOC
-description: 'Detects file names with specific patterns seen generated and used by tools such as Mimikatz and DSInternals related to exported or stolen DPAPI backup keys and certificates. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/dpapi_backup_keys_and_certificate_export_activity_ioc.yml'
+description: 'Detects file names with specific patterns seen generated and used by tools such as Mimikatz and DSInternals related to exported or stolen DPAPI backup keys and certificates. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/dpapi_backup_keys_and_certificate_export_activity_ioc.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

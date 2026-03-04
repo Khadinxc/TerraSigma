@@ -1,6 +1,6 @@
 id: ff38e6b5-1837-5098-8744-416bc233f5a3
 name: Potential CobaltStrike Process Patterns
-description: 'Detects potential process patterns related to Cobalt Strike beacon activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_cobaltstrike_process_patterns.yml'
+description: 'Detects potential process patterns related to Cobalt Strike beacon activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_cobaltstrike_process_patterns.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

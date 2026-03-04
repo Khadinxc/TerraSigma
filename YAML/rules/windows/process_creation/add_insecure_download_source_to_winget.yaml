@@ -1,6 +1,6 @@
 id: 1a8d7a65-e843-55d1-b318-a446410e8467
 name: Add Insecure Download Source To Winget
-description: 'Detects usage of winget to add a new insecure (http) download source. Winget will not allow the addition of insecure sources, hence this could indicate potential suspicious activity (or typos) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/add_insecure_download_source_to_winget.yml'
+description: 'Detects usage of winget to add a new insecure (http) download source. Winget will not allow the addition of insecure sources, hence this could indicate potential suspicious activity (or typos) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/add_insecure_download_source_to_winget.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

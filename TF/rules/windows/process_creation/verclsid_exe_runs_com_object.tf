@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "verclsid_exe_runs_com_object" 
   name                       = "verclsid_exe_runs_com_object"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Verclsid.exe Runs COM Object"
-  description                = "Detects when verclsid.exe is used to run COM object via GUID | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/verclsid_exe_runs_com_object.yml"
+  description                = "Detects when verclsid.exe is used to run COM object via GUID | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/verclsid_exe_runs_com_object.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

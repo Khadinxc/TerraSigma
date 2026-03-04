@@ -1,6 +1,6 @@
 id: 7dc9dde6-9683-5cb3-b545-6fe6f8e3d5c1
 name: Potential Download/Upload Activity Using Type Command
-description: 'Detects usage of the "type" command to download/upload data from WebDAV server | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_download_upload_activity_using_type_command.yml'
+description: 'Detects usage of the "type" command to download/upload data from WebDAV server | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_download_upload_activity_using_type_command.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

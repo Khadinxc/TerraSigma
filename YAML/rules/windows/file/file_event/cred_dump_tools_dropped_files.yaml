@@ -1,6 +1,6 @@
 id: 62669521-6429-5b90-bec9-40488be0dbc0
 name: Cred Dump Tools Dropped Files
-description: 'Files with well-known filenames (parts of credential dump software or files produced by them) creation - Legitimate Administrator using tool for password recovery | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/cred_dump_tools_dropped_files.yml'
+description: 'Files with well-known filenames (parts of credential dump software or files produced by them) creation - Legitimate Administrator using tool for password recovery | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/cred_dump_tools_dropped_files.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

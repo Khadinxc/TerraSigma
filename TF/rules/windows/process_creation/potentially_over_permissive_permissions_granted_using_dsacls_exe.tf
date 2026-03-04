@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_over_permissive_pe
   name                       = "potentially_over_permissive_permissions_granted_using_dsacls_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Over Permissive Permissions Granted Using Dsacls.EXE"
-  description                = "Detects usage of Dsacls to grant over permissive permissions - Legitimate administrators granting over permissive permissions to users | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_over_permissive_permissions_granted_using_dsacls_exe.yml"
+  description                = "Detects usage of Dsacls to grant over permissive permissions - Legitimate administrators granting over permissive permissions to users | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_over_permissive_permissions_granted_using_dsacls_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

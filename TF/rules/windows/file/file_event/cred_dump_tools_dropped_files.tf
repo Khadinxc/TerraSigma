@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "cred_dump_tools_dropped_files"
   name                       = "cred_dump_tools_dropped_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Cred Dump Tools Dropped Files"
-  description                = "Files with well-known filenames (parts of credential dump software or files produced by them) creation - Legitimate Administrator using tool for password recovery | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/cred_dump_tools_dropped_files.yml"
+  description                = "Files with well-known filenames (parts of credential dump software or files produced by them) creation - Legitimate Administrator using tool for password recovery | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/cred_dump_tools_dropped_files.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

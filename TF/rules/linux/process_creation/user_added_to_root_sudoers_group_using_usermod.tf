@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "user_added_to_root_sudoers_gro
   name                       = "user_added_to_root_sudoers_group_using_usermod"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "User Added To Root/Sudoers Group Using Usermod"
-  description                = "Detects usage of the \"usermod\" binary to add users add users to the root or suoders groups - Legitimate administrator activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/user_added_to_root_sudoers_group_using_usermod.yml"
+  description                = "Detects usage of the \"usermod\" binary to add users add users to the root or suoders groups - Legitimate administrator activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/user_added_to_root_sudoers_group_using_usermod.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

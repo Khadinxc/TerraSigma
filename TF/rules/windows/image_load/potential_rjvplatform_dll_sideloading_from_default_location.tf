@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_rjvplatform_dll_side
   name                       = "potential_rjvplatform_dll_sideloading_from_default_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential RjvPlatform.DLL Sideloading From Default Location"
-  description                = "Detects loading of \"RjvPlatform.dll\" by the \"SystemResetPlatform.exe\" binary which can be abused as a method of DLL side loading since the \"$SysReset\" directory isn't created by default. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_rjvplatform_dll_sideloading_from_default_location.yml"
+  description                = "Detects loading of \"RjvPlatform.dll\" by the \"SystemResetPlatform.exe\" binary which can be abused as a method of DLL side loading since the \"$SysReset\" directory isn't created by default. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_rjvplatform_dll_sideloading_from_default_location.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

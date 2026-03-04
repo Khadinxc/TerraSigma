@@ -1,6 +1,6 @@
 id: d88e1435-dc3c-5e0b-a240-8e38c3a2f826
 name: Arbitrary DLL or Csproj Code Execution Via Dotnet.EXE
-description: 'Detects execution of arbitrary DLLs or unsigned code via a ".csproj" files via Dotnet.EXE. - Legitimate administrator usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_dll_or_csproj_code_execution_via_dotnet_exe.yml'
+description: 'Detects execution of arbitrary DLLs or unsigned code via a ".csproj" files via Dotnet.EXE. - Legitimate administrator usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_dll_or_csproj_code_execution_via_dotnet_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

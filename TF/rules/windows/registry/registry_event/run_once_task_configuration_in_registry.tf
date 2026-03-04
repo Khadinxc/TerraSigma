@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "run_once_task_configuration_in
   name                       = "run_once_task_configuration_in_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Run Once Task Configuration in Registry"
-  description                = "Rule to detect the configuration of Run Once registry key. Configured payload can be run by runonce.exe /AlternateShellStartup - Legitimate modification of the registry key by legitimate program | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/run_once_task_configuration_in_registry.yml"
+  description                = "Rule to detect the configuration of Run Once registry key. Configured payload can be run by runonce.exe /AlternateShellStartup - Legitimate modification of the registry key by legitimate program | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/run_once_task_configuration_in_registry.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -1,6 +1,6 @@
 id: e123bd24-8625-505b-aa36-62142ac29c42
 name: Potential appverifUI.DLL Sideloading
-description: 'Detects potential DLL sideloading of "appverifUI.dll" - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_appverifui_dll_sideloading.yml'
+description: 'Detects potential DLL sideloading of "appverifUI.dll" - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_appverifui_dll_sideloading.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

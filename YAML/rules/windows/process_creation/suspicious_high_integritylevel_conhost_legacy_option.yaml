@@ -1,6 +1,6 @@
 id: 301e6d10-943b-5e75-a203-ac4d4a8a7f70
 name: Suspicious High IntegrityLevel Conhost Legacy Option
-description: 'ForceV1 asks for information directly from the kernel space. Conhost connects to the console application. High IntegrityLevel means the process is running with elevated privileges, such as an Administrator context. - Very Likely, including launching cmd.exe via Run As Administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_high_integritylevel_conhost_legacy_option.yml'
+description: 'ForceV1 asks for information directly from the kernel space. Conhost connects to the console application. High IntegrityLevel means the process is running with elevated privileges, such as an Administrator context. - Very Likely, including launching cmd.exe via Run As Administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_high_integritylevel_conhost_legacy_option.tf'
 severity: Informational
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uncommon_svchost_parent_proces
   name                       = "uncommon_svchost_parent_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon Svchost Parent Process"
-  description                = "Detects an uncommon svchost parent process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_svchost_parent_process.yml"
+  description                = "Detects an uncommon svchost parent process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_svchost_parent_process.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

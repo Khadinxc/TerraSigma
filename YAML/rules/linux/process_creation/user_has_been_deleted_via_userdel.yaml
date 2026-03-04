@@ -1,6 +1,6 @@
 id: a280f771-5dab-5abf-86be-41a0f9301d08
 name: User Has Been Deleted Via Userdel
-description: 'Detects execution of the "userdel" binary. Which is used to delete a user account and related files. This is sometimes abused by threat actors in order to cover their tracks - Legitimate administrator activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/user_has_been_deleted_via_userdel.yml'
+description: 'Detects execution of the "userdel" binary. Which is used to delete a user account and related files. This is sometimes abused by threat actors in order to cover their tracks - Legitimate administrator activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/user_has_been_deleted_via_userdel.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

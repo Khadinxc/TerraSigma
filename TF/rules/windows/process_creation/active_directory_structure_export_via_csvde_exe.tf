@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "active_directory_structure_exp
   name                       = "active_directory_structure_export_via_csvde_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Active Directory Structure Export Via Csvde.EXE"
-  description                = "Detects the execution of \"csvde.exe\" in order to export organizational Active Directory structure. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/active_directory_structure_export_via_csvde_exe.yml"
+  description                = "Detects the execution of \"csvde.exe\" in order to export organizational Active Directory structure. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/active_directory_structure_export_via_csvde_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

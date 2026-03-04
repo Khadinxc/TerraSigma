@@ -1,6 +1,6 @@
 id: e83f1a25-9bdd-5bad-8ca9-18a5ae32fe94
 name: OpenWith.exe Executes Specified Binary
-description: 'The OpenWith.exe executes other binary | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/openwith_exe_executes_specified_binary.yml'
+description: 'The OpenWith.exe executes other binary | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/openwith_exe_executes_specified_binary.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

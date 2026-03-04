@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "service_dacl_abuse_to_hide_ser
   name                       = "service_dacl_abuse_to_hide_services_via_sc_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Service DACL Abuse To Hide Services Via Sc.EXE"
-  description                = "Detects usage of the \"sc.exe\" utility adding a new service with special permission seen used by threat actors which makes the service hidden and unremovable. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/service_dacl_abuse_to_hide_services_via_sc_exe.yml"
+  description                = "Detects usage of the \"sc.exe\" utility adding a new service with special permission seen used by threat actors which makes the service hidden and unremovable. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/service_dacl_abuse_to_hide_services_via_sc_exe.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

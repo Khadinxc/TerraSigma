@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_high_integritylevel
   name                       = "suspicious_high_integritylevel_conhost_legacy_option"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious High IntegrityLevel Conhost Legacy Option"
-  description                = "ForceV1 asks for information directly from the kernel space. Conhost connects to the console application. High IntegrityLevel means the process is running with elevated privileges, such as an Administrator context. - Very Likely, including launching cmd.exe via Run As Administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_high_integritylevel_conhost_legacy_option.yml"
+  description                = "ForceV1 asks for information directly from the kernel space. Conhost connects to the console application. High IntegrityLevel means the process is running with elevated privileges, such as an Administrator context. - Very Likely, including launching cmd.exe via Run As Administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_high_integritylevel_conhost_legacy_option.tf"
   severity                   = "Informational"
   query                      = <<QUERY
 DeviceProcessEvents

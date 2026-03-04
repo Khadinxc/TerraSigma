@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "wsl_child_process_anomaly" {
   name                       = "wsl_child_process_anomaly"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WSL Child Process Anomaly"
-  description                = "Detects uncommon or suspicious child processes spawning from a WSL process. This could indicate an attempt to evade parent/child relationship detections or persistence attempts via cron using WSL | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wsl_child_process_anomaly.yml"
+  description                = "Detects uncommon or suspicious child processes spawning from a WSL process. This could indicate an attempt to evade parent/child relationship detections or persistence attempts via cron using WSL | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wsl_child_process_anomaly.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

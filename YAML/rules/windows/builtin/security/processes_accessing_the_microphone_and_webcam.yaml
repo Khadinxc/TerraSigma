@@ -1,6 +1,6 @@
 id: e40a53ca-e238-5e1a-945e-8abbf18ce2b2
 name: Processes Accessing the Microphone and Webcam
-description: 'Potential adversaries accessing the microphone and webcam in an endpoint. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/processes_accessing_the_microphone_and_webcam.yml'
+description: 'Potential adversaries accessing the microphone and webcam in an endpoint. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/processes_accessing_the_microphone_and_webcam.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

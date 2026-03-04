@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_cleanwipe_execution" {
   name                       = "pua_cleanwipe_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - CleanWipe Execution"
-  description                = "Detects the use of CleanWipe a tool usually used to delete Symantec antivirus. - Legitimate administrative use (Should be investigated either way) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_cleanwipe_execution.yml"
+  description                = "Detects the use of CleanWipe a tool usually used to delete Symantec antivirus. - Legitimate administrative use (Should be investigated either way) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_cleanwipe_execution.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

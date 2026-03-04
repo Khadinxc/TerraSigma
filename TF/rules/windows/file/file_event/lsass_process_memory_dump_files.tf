@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "lsass_process_memory_dump_file
   name                       = "lsass_process_memory_dump_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "LSASS Process Memory Dump Files"
-  description                = "Detects creation of files with names used by different memory dumping tools to create a memory dump of the LSASS process memory, which contains user credentials. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/lsass_process_memory_dump_files.yml"
+  description                = "Detects creation of files with names used by different memory dumping tools to create a memory dump of the LSASS process memory, which contains user credentials. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/lsass_process_memory_dump_files.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

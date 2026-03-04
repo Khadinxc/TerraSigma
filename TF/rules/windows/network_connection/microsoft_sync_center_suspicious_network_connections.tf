@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "microsoft_sync_center_suspicio
   name                       = "microsoft_sync_center_suspicious_network_connections"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Microsoft Sync Center Suspicious Network Connections"
-  description                = "Detects suspicious connections from Microsoft Sync Center to non-private IPs. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/microsoft_sync_center_suspicious_network_connections.yml"
+  description                = "Detects suspicious connections from Microsoft Sync Center to non-private IPs. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/microsoft_sync_center_suspicious_network_connections.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

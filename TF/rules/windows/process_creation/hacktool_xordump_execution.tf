@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_xordump_execution" {
   name                       = "hacktool_xordump_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - XORDump Execution"
-  description                = "Detects suspicious use of XORDump process memory dumping utility - Another tool that uses the command line switches of XORdump | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_xordump_execution.yml"
+  description                = "Detects suspicious use of XORDump process memory dumping utility - Another tool that uses the command line switches of XORdump | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_xordump_execution.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

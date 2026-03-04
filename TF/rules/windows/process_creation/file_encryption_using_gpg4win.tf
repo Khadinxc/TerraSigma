@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_encryption_using_gpg4win"
   name                       = "file_encryption_using_gpg4win"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Encryption Using Gpg4win"
-  description                = "Detects usage of Gpg4win to encrypt files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_encryption_using_gpg4win.yml"
+  description                = "Detects usage of Gpg4win to encrypt files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_encryption_using_gpg4win.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

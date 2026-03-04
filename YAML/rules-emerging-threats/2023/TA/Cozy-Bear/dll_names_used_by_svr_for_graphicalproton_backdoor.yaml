@@ -1,6 +1,6 @@
 id: 60426dd2-3f48-50e0-b200-28cd1d4443a6
 name: DLL Names Used By SVR For GraphicalProton Backdoor
-description: 'Hunts known SVR-specific DLL names. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Cozy-Bear/dll_names_used_by_svr_for_graphicalproton_backdoor.yml'
+description: 'Hunts known SVR-specific DLL names. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Cozy-Bear/dll_names_used_by_svr_for_graphicalproton_backdoor.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

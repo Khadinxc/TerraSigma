@@ -1,6 +1,6 @@
 id: 4e2fb9e8-92b7-5276-9624-babd868df74c
 name: PUA - Rclone Execution
-description: 'Detects execution of RClone utility for exfiltration as used by various ransomwares strains like REvil, Conti, FiveHands, etc | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_rclone_execution.yml'
+description: 'Detects execution of RClone utility for exfiltration as used by various ransomwares strains like REvil, Conti, FiveHands, etc | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_rclone_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

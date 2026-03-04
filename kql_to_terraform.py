@@ -430,7 +430,7 @@ class KQLToTerraform:
             if sigma_parts and sigma_parts[0].upper() == 'KQL':
                 sigma_rel = Path(*sigma_parts[1:])
             metadata['sigma_reference'] = (
-                f"https://github.com/SigmaHQ/sigma/blob/master/{sigma_rel.with_suffix('.yml')}"
+                f"https://github.com/SigmaHQ/sigma/blob/master/{sigma_rel.with_suffix('.tf')}"
             )
 
             # Compute output directory based on desired output structure

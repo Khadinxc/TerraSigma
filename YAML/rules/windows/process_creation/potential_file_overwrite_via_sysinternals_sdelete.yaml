@@ -1,6 +1,6 @@
 id: 21133f38-fcf7-5ac3-8284-62459985f922
 name: Potential File Overwrite Via Sysinternals SDelete
-description: 'Detects the use of SDelete to erase a file not the free space | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_file_overwrite_via_sysinternals_sdelete.yml'
+description: 'Detects the use of SDelete to erase a file not the free space | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_file_overwrite_via_sysinternals_sdelete.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

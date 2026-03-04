@@ -1,6 +1,6 @@
 id: 76908895-882d-5939-a70d-4ca471870f2a
 name: Use of UltraVNC Remote Access Software
-description: 'An adversary may use legitimate desktop support and remote access software,to establish an interactive command and control channel to target systems within networks - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_of_ultravnc_remote_access_software.yml'
+description: 'An adversary may use legitimate desktop support and remote access software,to establish an interactive command and control channel to target systems within networks - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_of_ultravnc_remote_access_software.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

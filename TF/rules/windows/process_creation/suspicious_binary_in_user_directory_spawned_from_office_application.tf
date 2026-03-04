@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_binary_in_user_dire
   name                       = "suspicious_binary_in_user_directory_spawned_from_office_application"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Binary In User Directory Spawned From Office Application"
-  description                = "Detects an executable in the users directory started from one of the Microsoft Office suite applications (Word, Excel, PowerPoint, Publisher, Visio) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_binary_in_user_directory_spawned_from_office_application.yml"
+  description                = "Detects an executable in the users directory started from one of the Microsoft Office suite applications (Word, Excel, PowerPoint, Publisher, Visio) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_binary_in_user_directory_spawned_from_office_application.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

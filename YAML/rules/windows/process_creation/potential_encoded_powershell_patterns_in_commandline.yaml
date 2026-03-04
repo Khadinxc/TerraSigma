@@ -1,6 +1,6 @@
 id: be447b98-67a7-58b9-aea6-edc87fa6daf5
 name: Potential Encoded PowerShell Patterns In CommandLine
-description: 'Detects specific combinations of encoding methods in PowerShell via the commandline | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_encoded_powershell_patterns_in_commandline.yml'
+description: 'Detects specific combinations of encoding methods in PowerShell via the commandline | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_encoded_powershell_patterns_in_commandline.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

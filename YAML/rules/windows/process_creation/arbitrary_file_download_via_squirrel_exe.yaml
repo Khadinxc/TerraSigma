@@ -1,6 +1,6 @@
 id: 2197e464-f456-56f1-95f1-178ce9e6440d
 name: Arbitrary File Download Via Squirrel.EXE
-description: 'Detects the usage of the "Squirrel.exe" to download arbitrary files. This binary is part of multiple Electron based software installations (Slack, Teams, Discord, etc.) - Expected FP with some Electron based applications such as (1Clipboard, Beaker Browser, Caret, Discord, GitHub Desktop, etc.) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_file_download_via_squirrel_exe.yml'
+description: 'Detects the usage of the "Squirrel.exe" to download arbitrary files. This binary is part of multiple Electron based software installations (Slack, Teams, Discord, etc.) - Expected FP with some Electron based applications such as (1Clipboard, Beaker Browser, Caret, Discord, GitHub Desktop, etc.) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_file_download_via_squirrel_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

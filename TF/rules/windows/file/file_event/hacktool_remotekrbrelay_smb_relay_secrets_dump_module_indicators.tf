@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_remotekrbrelay_smb_re
   name                       = "hacktool_remotekrbrelay_smb_relay_secrets_dump_module_indicators"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - RemoteKrbRelay SMB Relay Secrets Dump Module Indicators"
-  description                = "Detects the creation of file with specific names used by RemoteKrbRelay SMB Relay attack module. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/hacktool_remotekrbrelay_smb_relay_secrets_dump_module_indicators.yml"
+  description                = "Detects the creation of file with specific names used by RemoteKrbRelay SMB Relay attack module. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/hacktool_remotekrbrelay_smb_relay_secrets_dump_module_indicators.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

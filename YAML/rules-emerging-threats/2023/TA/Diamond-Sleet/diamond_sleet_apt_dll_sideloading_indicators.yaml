@@ -1,6 +1,6 @@
 id: b753340b-6f8d-5538-b7e4-b22121654f3b
 name: Diamond Sleet APT DLL Sideloading Indicators
-description: 'Detects DLL sideloading activity seen used by Diamond Sleet APT - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/diamond_sleet_apt_dll_sideloading_indicators.yml'
+description: 'Detects DLL sideloading activity seen used by Diamond Sleet APT - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/diamond_sleet_apt_dll_sideloading_indicators.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

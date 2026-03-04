@@ -1,6 +1,6 @@
 id: f603c789-fb74-5bdf-ac22-da19ee764228
 name: Periodic Backup For System Registry Hives Enabled
-description: 'Detects the enabling of the "EnablePeriodicBackup" registry value. Once enabled, The OS will backup System registry hives on restarts to the "C:\Windows\System32\config\RegBack" folder. Windows creates a "RegIdleBackup" task to manage subsequent backups. Registry backup was a default behavior on Windows and was disabled as of "Windows 10, version 1803". - Legitimate need for RegBack feature by administrators. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/periodic_backup_for_system_registry_hives_enabled.yml'
+description: 'Detects the enabling of the "EnablePeriodicBackup" registry value. Once enabled, The OS will backup System registry hives on restarts to the "C:\Windows\System32\config\RegBack" folder. Windows creates a "RegIdleBackup" task to manage subsequent backups. Registry backup was a default behavior on Windows and was disabled as of "Windows 10, version 1803". - Legitimate need for RegBack feature by administrators. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/periodic_backup_for_system_registry_hives_enabled.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

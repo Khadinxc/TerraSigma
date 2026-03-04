@@ -1,6 +1,6 @@
 id: 2567d49c-514f-518a-87c5-994710a612e0
 name: Potential AutoLogger Sessions Tampering
-description: 'Detects tampering with autologger trace sessions which is a technique used by attackers to disable logging | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_autologger_sessions_tampering.yml'
+description: 'Detects tampering with autologger trace sessions which is a technique used by attackers to disable logging | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_autologger_sessions_tampering.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

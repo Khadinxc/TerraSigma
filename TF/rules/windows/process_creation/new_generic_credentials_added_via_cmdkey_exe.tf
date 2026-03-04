@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_generic_credentials_added_
   name                       = "new_generic_credentials_added_via_cmdkey_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Generic Credentials Added Via Cmdkey.EXE"
-  description                = "Detects usage of \"cmdkey.exe\" to add generic credentials. As an example, this can be used before connecting to an RDP session via command line interface. - Legitimate usage for administration purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_generic_credentials_added_via_cmdkey_exe.yml"
+  description                = "Detects usage of \"cmdkey.exe\" to add generic credentials. As an example, this can be used before connecting to an RDP session via command line interface. - Legitimate usage for administration purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_generic_credentials_added_via_cmdkey_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

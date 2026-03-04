@@ -1,6 +1,6 @@
 id: a2bc6f90-4c52-5635-b3df-ab986cc880f9
 name: Renamed CreateDump Utility Execution
-description: 'Detects uses of a renamed legitimate createdump.exe LOLOBIN utility to dump process memory - Command lines that use the same flags | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_createdump_utility_execution.yml'
+description: 'Detects uses of a renamed legitimate createdump.exe LOLOBIN utility to dump process memory - Command lines that use the same flags | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_createdump_utility_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 85790c52-9eea-50e8-8d0d-17f36422318c
 name: Arbitrary File Download Via PresentationHost.EXE
-description: 'Detects usage of "PresentationHost" which is a utility that runs ".xbap" (Browser Applications) files to download arbitrary files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_file_download_via_presentationhost_exe.yml'
+description: 'Detects usage of "PresentationHost" which is a utility that runs ".xbap" (Browser Applications) files to download arbitrary files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_file_download_via_presentationhost_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

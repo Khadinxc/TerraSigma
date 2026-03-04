@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_execution_via_macos
   name                       = "suspicious_execution_via_macos_script_editor"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Execution via macOS Script Editor"
-  description                = "Detects when the macOS Script Editor utility spawns an unusual child process. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/suspicious_execution_via_macos_script_editor.yml"
+  description                = "Detects when the macOS Script Editor utility spawns an unusual child process. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/suspicious_execution_via_macos_script_editor.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

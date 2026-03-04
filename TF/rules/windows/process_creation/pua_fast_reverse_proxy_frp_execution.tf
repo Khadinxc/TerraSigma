@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_fast_reverse_proxy_frp_exe
   name                       = "pua_fast_reverse_proxy_frp_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Fast Reverse Proxy (FRP) Execution"
-  description                = "Detects the use of Fast Reverse Proxy. frp is a fast reverse proxy to help you expose a local server behind a NAT or firewall to the Internet. - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_fast_reverse_proxy_frp_execution.yml"
+  description                = "Detects the use of Fast Reverse Proxy. frp is a fast reverse proxy to help you expose a local server behind a NAT or firewall to the Internet. - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_fast_reverse_proxy_frp_execution.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

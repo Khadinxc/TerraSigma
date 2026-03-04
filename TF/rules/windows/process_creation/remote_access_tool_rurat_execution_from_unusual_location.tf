@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "remote_access_tool_rurat_execu
   name                       = "remote_access_tool_rurat_execution_from_unusual_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Access Tool - RURAT Execution From Unusual Location"
-  description                = "Detects execution of Remote Utilities RAT (RURAT) from an unusual location (outside of 'C:\\Program Files') | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_access_tool_rurat_execution_from_unusual_location.yml"
+  description                = "Detects execution of Remote Utilities RAT (RURAT) from an unusual location (outside of 'C:\\Program Files') | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_access_tool_rurat_execution_from_unusual_location.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

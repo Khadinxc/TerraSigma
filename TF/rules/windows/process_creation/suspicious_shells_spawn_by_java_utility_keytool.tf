@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_shells_spawn_by_jav
   name                       = "suspicious_shells_spawn_by_java_utility_keytool"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Shells Spawn by Java Utility Keytool"
-  description                = "Detects suspicious shell spawn from Java utility keytool process (e.g. adselfservice plus exploitation) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_shells_spawn_by_java_utility_keytool.yml"
+  description                = "Detects suspicious shell spawn from Java utility keytool process (e.g. adselfservice plus exploitation) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_shells_spawn_by_java_utility_keytool.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

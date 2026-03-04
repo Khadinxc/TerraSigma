@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "sensitive_file_access_via_volu
   name                       = "sensitive_file_access_via_volume_shadow_copy_backup"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Sensitive File Access Via Volume Shadow Copy Backup"
-  description                = "Detects a command that accesses the VolumeShadowCopy in order to extract sensitive files such as the Security or SAM registry hives or the AD database (ntds.dit) - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sensitive_file_access_via_volume_shadow_copy_backup.yml"
+  description                = "Detects a command that accesses the VolumeShadowCopy in order to extract sensitive files such as the Security or SAM registry hives or the AD database (ntds.dit) - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sensitive_file_access_via_volume_shadow_copy_backup.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

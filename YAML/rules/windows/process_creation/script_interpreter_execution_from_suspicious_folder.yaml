@@ -1,6 +1,6 @@
 id: 3b112fad-a587-51e1-a58a-4e73e5b6a513
 name: Script Interpreter Execution From Suspicious Folder
-description: 'Detects a suspicious script execution in temporary folders or folders accessible by environment variables | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/script_interpreter_execution_from_suspicious_folder.yml'
+description: 'Detects a suspicious script execution in temporary folders or folders accessible by environment variables | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/script_interpreter_execution_from_suspicious_folder.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: c508edaa-6839-5e7a-8a00-1fbbe39e5c5e
 name: Network Reconnaissance Activity
-description: 'Detects a set of suspicious network related commands often used in recon stages | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/network_reconnaissance_activity.yml'
+description: 'Detects a set of suspicious network related commands often used in recon stages | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/network_reconnaissance_activity.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

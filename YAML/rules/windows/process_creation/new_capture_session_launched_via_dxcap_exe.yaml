@@ -1,6 +1,6 @@
 id: 49d181bd-7ef2-5b51-a8f1-744e93f71af1
 name: New Capture Session Launched Via DXCap.EXE
-description: 'Detects the execution of "DXCap.EXE" with the "-c" flag, which allows a user to launch any arbitrary binary or windows package through DXCap itself. This can be abused to potentially bypass application whitelisting. - Legitimate execution of dxcap.exe by legitimate user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_capture_session_launched_via_dxcap_exe.yml'
+description: 'Detects the execution of "DXCap.EXE" with the "-c" flag, which allows a user to launch any arbitrary binary or windows package through DXCap itself. This can be abused to potentially bypass application whitelisting. - Legitimate execution of dxcap.exe by legitimate user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_capture_session_launched_via_dxcap_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

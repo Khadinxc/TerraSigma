@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "unc2452_process_creation_patte
   name                       = "unc2452_process_creation_patterns"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UNC2452 Process Creation Patterns"
-  description                = "Detects a specific process creation patterns as seen used by UNC2452 and provided by Microsoft as Microsoft Defender ATP queries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/SolarWinds-Supply-Chain/unc2452_process_creation_patterns.yml"
+  description                = "Detects a specific process creation patterns as seen used by UNC2452 and provided by Microsoft as Microsoft Defender ATP queries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/SolarWinds-Supply-Chain/unc2452_process_creation_patterns.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

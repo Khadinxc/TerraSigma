@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_executable_file_cre
   name                       = "suspicious_executable_file_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Executable File Creation"
-  description                = "Detect creation of suspicious executable file names. Some strings look for suspicious file extensions, others look for filenames that exploit unquoted service paths. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_executable_file_creation.yml"
+  description                = "Detect creation of suspicious executable file names. Some strings look for suspicious file extensions, others look for filenames that exploit unquoted service paths. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_executable_file_creation.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

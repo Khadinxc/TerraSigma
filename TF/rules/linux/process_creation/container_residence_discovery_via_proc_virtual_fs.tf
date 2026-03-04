@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "container_residence_discovery_
   name                       = "container_residence_discovery_via_proc_virtual_fs"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Container Residence Discovery Via Proc Virtual FS"
-  description                = "Detects potential container discovery via listing of certain kernel features in the \"/proc\" virtual filesystem - Legitimate system administrator usage of these commands - Some container tools or deployments may use these techniques natively to determine how they proceed with execution, and will need to be filtered | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/container_residence_discovery_via_proc_virtual_fs.yml"
+  description                = "Detects potential container discovery via listing of certain kernel features in the \"/proc\" virtual filesystem - Legitimate system administrator usage of these commands - Some container tools or deployments may use these techniques natively to determine how they proceed with execution, and will need to be filtered | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/container_residence_discovery_via_proc_virtual_fs.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_lnk_double_extensio
   name                       = "suspicious_lnk_double_extension_file_created"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious LNK Double Extension File Created"
-  description                = "Detects the creation of files with an \"LNK\" as a second extension. This is sometimes used by malware as a method to abuse the fact that Windows hides the \"LNK\" extension by default. - Some tuning is required for other general purpose directories of third party apps | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_lnk_double_extension_file_created.yml"
+  description                = "Detects the creation of files with an \"LNK\" as a second extension. This is sometimes used by malware as a method to abuse the fact that Windows hides the \"LNK\" extension by default. - Some tuning is required for other general purpose directories of third party apps | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_lnk_double_extension_file_created.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

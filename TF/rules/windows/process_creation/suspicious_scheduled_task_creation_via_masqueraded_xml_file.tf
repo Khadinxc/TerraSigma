@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_scheduled_task_crea
   name                       = "suspicious_scheduled_task_creation_via_masqueraded_xml_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Scheduled Task Creation via Masqueraded XML File"
-  description                = "Detects the creation of a scheduled task using the \"-XML\" flag with a file without the '.xml' extension. This behavior could be indicative of potential defense evasion attempt during persistence | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_scheduled_task_creation_via_masqueraded_xml_file.yml"
+  description                = "Detects the creation of a scheduled task using the \"-XML\" flag with a file without the '.xml' extension. This behavior could be indicative of potential defense evasion attempt during persistence | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_scheduled_task_creation_via_masqueraded_xml_file.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

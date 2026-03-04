@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "addinutil_exe_execution_from_u
   name                       = "addinutil_exe_execution_from_uncommon_directory"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "AddinUtil.EXE Execution From Uncommon Directory"
-  description                = "Detects execution of the Add-In deployment cache updating utility (AddInutil.exe) from a non-standard directory. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/addinutil_exe_execution_from_uncommon_directory.yml"
+  description                = "Detects execution of the Add-In deployment cache updating utility (AddInutil.exe) from a non-standard directory. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/addinutil_exe_execution_from_uncommon_directory.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

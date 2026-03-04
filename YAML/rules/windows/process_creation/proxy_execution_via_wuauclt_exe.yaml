@@ -1,6 +1,6 @@
 id: 78d67315-8d31-582c-801c-f7c46271400c
 name: Proxy Execution Via Wuauclt.EXE
-description: 'Detects the use of the Windows Update Client binary (wuauclt.exe) for proxy execution. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proxy_execution_via_wuauclt_exe.yml'
+description: 'Detects the use of the Windows Update Client binary (wuauclt.exe) for proxy execution. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proxy_execution_via_wuauclt_exe.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

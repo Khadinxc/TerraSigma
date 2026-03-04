@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "scripting_commandline_process_
   name                       = "scripting_commandline_process_spawned_regsvr32"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Scripting/CommandLine Process Spawned Regsvr32"
-  description                = "Detects various command line and scripting engines/processes such as \"PowerShell\", \"Wscript\", \"Cmd\", etc. spawning a \"regsvr32\" instance. - Legitimate \".bat\", \".hta\", \".ps1\" or \".vbs\" scripts leverage legitimately often. Apply additional filter and exclusions as necessary - Some legitimate Windows services | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/scripting_commandline_process_spawned_regsvr32.yml"
+  description                = "Detects various command line and scripting engines/processes such as \"PowerShell\", \"Wscript\", \"Cmd\", etc. spawning a \"regsvr32\" instance. - Legitimate \".bat\", \".hta\", \".ps1\" or \".vbs\" scripts leverage legitimately often. Apply additional filter and exclusions as necessary - Some legitimate Windows services | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/scripting_commandline_process_spawned_regsvr32.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

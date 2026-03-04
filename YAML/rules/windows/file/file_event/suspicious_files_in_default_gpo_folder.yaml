@@ -1,6 +1,6 @@
 id: 73ce8d7a-1308-56e8-a05a-7b8946219541
 name: Suspicious Files in Default GPO Folder
-description: 'Detects the creation of copy of suspicious files (EXE/DLL) to the default GPO storage folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_files_in_default_gpo_folder.yml'
+description: 'Detects the creation of copy of suspicious files (EXE/DLL) to the default GPO storage folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_files_in_default_gpo_folder.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

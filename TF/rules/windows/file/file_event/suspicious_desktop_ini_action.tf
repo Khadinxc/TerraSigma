@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_desktop_ini_action"
   name                       = "suspicious_desktop_ini_action"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious desktop.ini Action"
-  description                = "Detects unusual processes accessing desktop.ini, which can be leveraged to alter how Explorer displays a folder's content (i.e. renaming files) without changing them on disk. - Operations performed through Windows SCCM or equivalent - Read only access list authority | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_desktop_ini_action.yml"
+  description                = "Detects unusual processes accessing desktop.ini, which can be leveraged to alter how Explorer displays a folder's content (i.e. renaming files) without changing them on disk. - Operations performed through Windows SCCM or equivalent - Read only access list authority | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_desktop_ini_action.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

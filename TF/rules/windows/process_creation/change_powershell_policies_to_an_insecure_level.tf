@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "change_powershell_policies_to_
   name                       = "change_powershell_policies_to_an_insecure_level"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Change PowerShell Policies to an Insecure Level"
-  description                = "Detects changing the PowerShell script execution policy to a potentially insecure level using the \"-ExecutionPolicy\" flag. - Administrator scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/change_powershell_policies_to_an_insecure_level.yml"
+  description                = "Detects changing the PowerShell script execution policy to a potentially insecure level using the \"-ExecutionPolicy\" flag. - Administrator scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/change_powershell_policies_to_an_insecure_level.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

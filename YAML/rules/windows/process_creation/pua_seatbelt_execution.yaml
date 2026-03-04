@@ -1,6 +1,6 @@
 id: 3359d1d5-8f8a-59d2-ba1d-66127a6a1269
 name: PUA - Seatbelt Execution
-description: 'Detects the execution of the PUA/Recon tool Seatbelt via PE information of command line parameters - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_seatbelt_execution.yml'
+description: 'Detects the execution of the PUA/Recon tool Seatbelt via PE information of command line parameters - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_seatbelt_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

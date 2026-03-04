@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_service_creation_using_sc_
   name                       = "new_service_creation_using_sc_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Service Creation Using Sc.EXE"
-  description                = "Detects the creation of a new service using the \"sc.exe\" utility. - Legitimate administrator or user creates a service for legitimate reasons. - Software installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_service_creation_using_sc_exe.yml"
+  description                = "Detects the creation of a new service using the \"sc.exe\" utility. - Legitimate administrator or user creates a service for legitimate reasons. - Software installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_service_creation_using_sc_exe.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

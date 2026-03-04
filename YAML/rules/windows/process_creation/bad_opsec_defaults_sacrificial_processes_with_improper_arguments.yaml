@@ -1,6 +1,6 @@
 id: e420f97d-ac9b-5001-9654-934306760852
 name: Bad Opsec Defaults Sacrificial Processes With Improper Arguments
-description: 'Detects attackers using tooling with bad opsec defaults. E.g. spawning a sacrificial process to inject a capability into the process without taking into account how the process is normally run. One trivial example of this is using rundll32.exe without arguments as a sacrificial process (default in CS, now highlighted by c2lint), running WerFault without arguments (Kraken - credit am0nsec), and other examples. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/bad_opsec_defaults_sacrificial_processes_with_improper_arguments.yml'
+description: 'Detects attackers using tooling with bad opsec defaults. E.g. spawning a sacrificial process to inject a capability into the process without taking into account how the process is normally run. One trivial example of this is using rundll32.exe without arguments as a sacrificial process (default in CS, now highlighted by c2lint), running WerFault without arguments (Kraken - credit am0nsec), and other examples. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/bad_opsec_defaults_sacrificial_processes_with_improper_arguments.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 32a9fba2-e5ae-5a49-9646-d169f9bbb40d
 name: Renamed PingCastle Binary Execution
-description: 'Detects the execution of a renamed "PingCastle" binary based on the PE metadata fields. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_pingcastle_binary_execution.yml'
+description: 'Detects the execution of a renamed "PingCastle" binary based on the PE metadata fields. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_pingcastle_binary_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

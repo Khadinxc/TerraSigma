@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_actinium_persistence
   name                       = "potential_actinium_persistence_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential ACTINIUM Persistence Activity"
-  description                = "Detects specific process parameters as used by ACTINIUM scheduled task persistence creation. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2022/TA/ACTINIUM/potential_actinium_persistence_activity.yml"
+  description                = "Detects specific process parameters as used by ACTINIUM scheduled task persistence creation. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2022/TA/ACTINIUM/potential_actinium_persistence_activity.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

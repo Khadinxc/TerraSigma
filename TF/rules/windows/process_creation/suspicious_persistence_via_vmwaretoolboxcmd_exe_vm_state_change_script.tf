@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_persistence_via_vmw
   name                       = "suspicious_persistence_via_vmwaretoolboxcmd_exe_vm_state_change_script"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Persistence Via VMwareToolBoxCmd.EXE VM State Change Script"
-  description                = "Detects execution of the \"VMwareToolBoxCmd.exe\" with the \"script\" and \"set\" flag to setup a specific script that's located in a potentially suspicious location to run for a specific VM state | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_persistence_via_vmwaretoolboxcmd_exe_vm_state_change_script.yml"
+  description                = "Detects execution of the \"VMwareToolBoxCmd.exe\" with the \"script\" and \"set\" flag to setup a specific script that's located in a potentially suspicious location to run for a specific VM state | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_persistence_via_vmwaretoolboxcmd_exe_vm_state_change_script.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

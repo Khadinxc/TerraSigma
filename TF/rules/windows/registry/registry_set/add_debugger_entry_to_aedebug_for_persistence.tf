@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "add_debugger_entry_to_aedebug_
   name                       = "add_debugger_entry_to_aedebug_for_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Add Debugger Entry To AeDebug For Persistence"
-  description                = "Detects when an attacker adds a new \"Debugger\" value to the \"AeDebug\" key in order to achieve persistence which will get invoked when an application crashes - Legitimate use of the key to setup a debugger. Which is often the case on developers machines | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/add_debugger_entry_to_aedebug_for_persistence.yml"
+  description                = "Detects when an attacker adds a new \"Debugger\" value to the \"AeDebug\" key in order to achieve persistence which will get invoked when an application crashes - Legitimate use of the key to setup a debugger. Which is often the case on developers machines | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/add_debugger_entry_to_aedebug_for_persistence.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

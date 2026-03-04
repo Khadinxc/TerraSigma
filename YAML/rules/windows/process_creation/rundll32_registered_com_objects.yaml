@@ -1,6 +1,6 @@
 id: 632913b8-d75d-5ce3-8741-c9082da097ba
 name: Rundll32 Registered COM Objects
-description: 'load malicious registered COM objects - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rundll32_registered_com_objects.yml'
+description: 'load malicious registered COM objects - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rundll32_registered_com_objects.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

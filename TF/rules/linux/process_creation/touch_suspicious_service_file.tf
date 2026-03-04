@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "touch_suspicious_service_file"
   name                       = "touch_suspicious_service_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Touch Suspicious Service File"
-  description                = "Detects usage of the \"touch\" process in service file. - Admin changing date of files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/touch_suspicious_service_file.yml"
+  description                = "Detects usage of the \"touch\" process in service file. - Admin changing date of files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/touch_suspicious_service_file.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

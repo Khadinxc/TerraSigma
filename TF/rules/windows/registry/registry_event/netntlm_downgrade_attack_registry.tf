@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "netntlm_downgrade_attack_regis
   name                       = "netntlm_downgrade_attack_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "NetNTLM Downgrade Attack - Registry"
-  description                = "Detects NetNTLM downgrade attack - Services or tools that set the values to more restrictive values | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/netntlm_downgrade_attack_registry.yml"
+  description                = "Detects NetNTLM downgrade attack - Services or tools that set the values to more restrictive values | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/netntlm_downgrade_attack_registry.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

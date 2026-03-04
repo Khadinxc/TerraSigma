@@ -1,6 +1,6 @@
 id: 85ffbf6f-b951-58ab-bed6-dd4fc75482e9
 name: PCRE.NET Package Temp Files
-description: 'Detects processes creating temp files related to PCRE.NET package | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/pcre_net_package_temp_files.yml'
+description: 'Detects processes creating temp files related to PCRE.NET package | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/pcre_net_package_temp_files.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

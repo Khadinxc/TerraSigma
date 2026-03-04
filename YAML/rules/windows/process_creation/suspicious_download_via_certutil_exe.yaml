@@ -1,6 +1,6 @@
 id: 22cc89fa-4123-5436-a808-0b727cce55eb
 name: Suspicious Download Via Certutil.EXE
-description: 'Detects the execution of certutil with certain flags that allow the utility to download files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_download_via_certutil_exe.yml'
+description: 'Detects the execution of certutil with certain flags that allow the utility to download files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_download_via_certutil_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

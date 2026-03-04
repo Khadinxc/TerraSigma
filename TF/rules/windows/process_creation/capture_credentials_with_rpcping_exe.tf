@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "capture_credentials_with_rpcpi
   name                       = "capture_credentials_with_rpcping_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Capture Credentials with Rpcping.exe"
-  description                = "Detects using Rpcping.exe to send a RPC test connection to the target server (-s) and force the NTLM hash to be sent in the process. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/capture_credentials_with_rpcping_exe.yml"
+  description                = "Detects using Rpcping.exe to send a RPC test connection to the target server (-s) and force the NTLM hash to be sent in the process. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/capture_credentials_with_rpcping_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

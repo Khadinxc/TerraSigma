@@ -1,6 +1,6 @@
 id: 1507506a-d2a0-53d9-ac4d-99e2665e14e0
 name: Potential AMSI COM Server Hijacking
-description: 'Detects changes to the AMSI come server registry key in order disable AMSI scanning functionalities. When AMSI attempts to starts its COM component, it will query its registered CLSID and return a non-existent COM server. This causes a load failure and prevents any scanning methods from being accessed, ultimately rendering AMSI useless | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_amsi_com_server_hijacking.yml'
+description: 'Detects changes to the AMSI come server registry key in order disable AMSI scanning functionalities. When AMSI attempts to starts its COM component, it will query its registered CLSID and return a non-existent COM server. This causes a load failure and prevents any scanning methods from being accessed, ultimately rendering AMSI useless | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_amsi_com_server_hijacking.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

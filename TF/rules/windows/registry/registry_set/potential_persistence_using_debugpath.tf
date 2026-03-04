@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_persistence_using_de
   name                       = "potential_persistence_using_debugpath"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Using DebugPath"
-  description                = "Detects potential persistence using Appx DebugPath | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_using_debugpath.yml"
+  description                = "Detects potential persistence using Appx DebugPath | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_using_debugpath.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

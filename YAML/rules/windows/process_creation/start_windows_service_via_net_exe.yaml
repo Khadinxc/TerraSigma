@@ -1,6 +1,6 @@
 id: 24643765-1cbd-5b3e-8c36-e3051f8f76de
 name: Start Windows Service Via Net.EXE
-description: 'Detects the usage of the "net.exe" command to start a service using the "start" flag - Legitimate administrator or user executes a service for legitimate reasons. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/start_windows_service_via_net_exe.yml'
+description: 'Detects the usage of the "net.exe" command to start a service using the "start" flag - Legitimate administrator or user executes a service for legitimate reasons. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/start_windows_service_via_net_exe.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

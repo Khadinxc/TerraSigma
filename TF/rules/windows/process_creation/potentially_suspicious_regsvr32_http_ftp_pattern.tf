@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_regsvr3
   name                       = "potentially_suspicious_regsvr32_http_ftp_pattern"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Regsvr32 HTTP/FTP Pattern"
-  description                = "Detects regsvr32 execution to download/install/register new DLLs that are hosted on Web or FTP servers. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_regsvr32_http_ftp_pattern.yml"
+  description                = "Detects regsvr32 execution to download/install/register new DLLs that are hosted on Web or FTP servers. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_regsvr32_http_ftp_pattern.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

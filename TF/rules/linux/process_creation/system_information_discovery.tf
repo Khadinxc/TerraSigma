@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "system_information_discovery" 
   name                       = "system_information_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "System Information Discovery"
-  description                = "Detects system information discovery commands - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/system_information_discovery.yml"
+  description                = "Detects system information discovery commands - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/system_information_discovery.tf"
   severity                   = "Informational"
   query                      = <<QUERY
 DeviceProcessEvents

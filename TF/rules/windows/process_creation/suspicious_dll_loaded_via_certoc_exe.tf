@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_dll_loaded_via_cert
   name                       = "suspicious_dll_loaded_via_certoc_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious DLL Loaded via CertOC.EXE"
-  description                = "Detects when a user installs certificates by using CertOC.exe to load the target DLL file. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_dll_loaded_via_certoc_exe.yml"
+  description                = "Detects when a user installs certificates by using CertOC.exe to load the target DLL file. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_dll_loaded_via_certoc_exe.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

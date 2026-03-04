@@ -1,6 +1,6 @@
 id: 85a493d2-907c-5f98-aa5d-4b2cafdcfcc5
 name: Potentially Suspicious Child Process Of VsCode
-description: 'Detects uncommon or suspicious child processes spawning from a VsCode "code.exe" process. This could indicate an attempt of persistence via VsCode tasks or terminal profiles. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_child_process_of_vscode.yml'
+description: 'Detects uncommon or suspicious child processes spawning from a VsCode "code.exe" process. This could indicate an attempt of persistence via VsCode tasks or terminal profiles. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_child_process_of_vscode.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

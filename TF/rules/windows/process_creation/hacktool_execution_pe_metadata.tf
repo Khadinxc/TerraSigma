@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_execution_pe_metadata
   name                       = "hacktool_execution_pe_metadata"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Hacktool Execution - PE Metadata"
-  description                = "Detects the execution of different Windows based hacktools via PE metadata (company, product, etc.) even if the files have been renamed - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_execution_pe_metadata.yml"
+  description                = "Detects the execution of different Windows based hacktools via PE metadata (company, product, etc.) even if the files have been renamed - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_execution_pe_metadata.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

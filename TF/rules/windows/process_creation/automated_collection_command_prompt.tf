@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "automated_collection_command_p
   name                       = "automated_collection_command_prompt"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Automated Collection Command Prompt"
-  description                = "Once established within a system or network, an adversary may use automated techniques for collecting internal data. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/automated_collection_command_prompt.yml"
+  description                = "Once established within a system or network, an adversary may use automated techniques for collecting internal data. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/automated_collection_command_prompt.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

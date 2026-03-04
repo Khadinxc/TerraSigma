@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "phishing_pattern_iso_in_archiv
   name                       = "phishing_pattern_iso_in_archive"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Phishing Pattern ISO in Archive"
-  description                = "Detects cases in which an ISO files is opend within an archiver like 7Zip or Winrar, which is a sign of phishing as threat actors put small ISO files in archives as email attachments to bypass certain filters and protective measures (mark of web) - Legitimate cases in which archives contain ISO or IMG files and the user opens the archive and the image via clicking and not extraction | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/phishing_pattern_iso_in_archive.yml"
+  description                = "Detects cases in which an ISO files is opend within an archiver like 7Zip or Winrar, which is a sign of phishing as threat actors put small ISO files in archives as email attachments to bypass certain filters and protective measures (mark of web) - Legitimate cases in which archives contain ISO or IMG files and the user opens the archive and the image via clicking and not extraction | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/phishing_pattern_iso_in_archive.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

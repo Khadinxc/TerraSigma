@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_velociraptor_child_
   name                       = "suspicious_velociraptor_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Velociraptor Child Process"
-  description                = "Detects the suspicious use of the Velociraptor DFIR tool to execute other tools or download additional payloads, as seen in a campaign where it was abused for remote access and to stage further attacks. - Legitimate administrators or incident responders might use Velociraptor to execute scripts or tools. However, the combination of Velociraptor spawning these specific processes with these command lines is suspicious. Tuning may be required to exclude known administrative actions or specific scripts. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_velociraptor_child_process.yml"
+  description                = "Detects the suspicious use of the Velociraptor DFIR tool to execute other tools or download additional payloads, as seen in a campaign where it was abused for remote access and to stage further attacks. - Legitimate administrators or incident responders might use Velociraptor to execute scripts or tools. However, the combination of Velociraptor spawning these specific processes with these command lines is suspicious. Tuning may be required to exclude known administrative actions or specific scripts. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_velociraptor_child_process.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

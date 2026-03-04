@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "psexec_service_execution" {
   name                       = "psexec_service_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PsExec Service Execution"
-  description                = "Detects launch of the PSEXESVC service, which means that this system was the target of a psexec remote execution - Legitimate administrative tasks | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/psexec_service_execution.yml"
+  description                = "Detects launch of the PSEXESVC service, which means that this system was the target of a psexec remote execution - Legitimate administrative tasks | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/psexec_service_execution.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: 83ac1f71-3097-5864-ba89-ed6c51db9602
 name: Suspicious Double Extension Files
-description: 'Detects dropped files with double extensions, which is often used by malware as a method to abuse the fact that Windows hide default extensions by default. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_double_extension_files.yml'
+description: 'Detects dropped files with double extensions, which is often used by malware as a method to abuse the fact that Windows hide default extensions by default. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_double_extension_files.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 9dce467e-c092-5495-b4fa-ab5c077dddfd
 name: Outbound RDP Connections Over Non-Standard Tools
-description: 'Detects Non-Standard tools initiating a connection over port 3389 indicating possible lateral movement. An initial baseline is required before using this utility to exclude third party RDP tooling that you might use. - Third party RDP tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/outbound_rdp_connections_over_non_standard_tools.yml'
+description: 'Detects Non-Standard tools initiating a connection over port 3389 indicating possible lateral movement. An initial baseline is required before using this utility to exclude third party RDP tooling that you might use. - Third party RDP tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/outbound_rdp_connections_over_non_standard_tools.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

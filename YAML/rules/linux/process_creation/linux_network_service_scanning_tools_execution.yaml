@@ -1,6 +1,6 @@
 id: 984bc370-85a6-595f-bcf2-326fd3c14948
 name: Linux Network Service Scanning Tools Execution
-description: 'Detects execution of network scanning and reconnaisance tools. These tools can be used for the enumeration of local or remote network services for example. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_network_service_scanning_tools_execution.yml'
+description: 'Detects execution of network scanning and reconnaisance tools. These tools can be used for the enumeration of local or remote network services for example. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_network_service_scanning_tools_execution.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

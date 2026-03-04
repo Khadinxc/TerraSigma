@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "chmod_suspicious_directory" {
   name                       = "chmod_suspicious_directory"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Chmod Suspicious Directory"
-  description                = "Detects chmod targeting files in abnormal directory paths. - Admin changing file permissions. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/chmod_suspicious_directory.yml"
+  description                = "Detects chmod targeting files in abnormal directory paths. - Admin changing file permissions. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/chmod_suspicious_directory.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

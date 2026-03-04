@@ -1,6 +1,6 @@
 id: 07992ca4-c5a1-5bcb-beb8-35bd316c5bde
 name: Capabilities Discovery - Linux
-description: 'Detects usage of "getcap" binary. This is often used during recon activity to determine potential binaries that can be abused as GTFOBins or other. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/capabilities_discovery_linux.yml'
+description: 'Detects usage of "getcap" binary. This is often used during recon activity to determine potential binaries that can be abused as GTFOBins or other. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/capabilities_discovery_linux.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

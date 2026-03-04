@@ -1,6 +1,6 @@
 id: 3d5ca4fa-872b-5330-838d-809a6d2a8668
 name: System File Execution Location Anomaly
-description: 'Detects the execution of a Windows system binary that is usually located in the system folder from an uncommon location. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/system_file_execution_location_anomaly.yml'
+description: 'Detects the execution of a Windows system binary that is usually located in the system folder from an uncommon location. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/system_file_execution_location_anomaly.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

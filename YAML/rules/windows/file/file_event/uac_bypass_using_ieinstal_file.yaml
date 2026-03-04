@@ -1,6 +1,6 @@
 id: efb8164c-6890-5d01-9261-790ab22910e1
 name: UAC Bypass Using IEInstal - File
-description: 'Detects the pattern of UAC Bypass using IEInstal.exe (UACMe 64) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/uac_bypass_using_ieinstal_file.yml'
+description: 'Detects the pattern of UAC Bypass using IEInstal.exe (UACMe 64) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/uac_bypass_using_ieinstal_file.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

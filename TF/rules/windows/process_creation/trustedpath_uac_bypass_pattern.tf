@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "trustedpath_uac_bypass_pattern
   name                       = "trustedpath_uac_bypass_pattern"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "TrustedPath UAC Bypass Pattern"
-  description                = "Detects indicators of a UAC bypass method by mocking directories | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/trustedpath_uac_bypass_pattern.yml"
+  description                = "Detects indicators of a UAC bypass method by mocking directories | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/trustedpath_uac_bypass_pattern.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

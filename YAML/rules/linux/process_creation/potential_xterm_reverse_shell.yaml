@@ -1,6 +1,6 @@
 id: f5a980e7-b377-5e08-9ede-a944dffba4ad
 name: Potential Xterm Reverse Shell
-description: 'Detects usage of "xterm" as a potential reverse shell tunnel | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potential_xterm_reverse_shell.yml'
+description: 'Detects usage of "xterm" as a potential reverse shell tunnel | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potential_xterm_reverse_shell.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

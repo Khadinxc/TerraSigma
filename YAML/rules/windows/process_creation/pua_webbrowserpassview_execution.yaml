@@ -1,6 +1,6 @@
 id: f005faf1-ce95-5da8-bdab-e8ab70bf5b84
 name: PUA - WebBrowserPassView Execution
-description: 'Detects the execution of WebBrowserPassView.exe. A password recovery tool that reveals the passwords stored by the following Web browsers, Internet Explorer (Version 4.0 - 11.0), Mozilla Firefox (All Versions), Google Chrome, Safari, and Opera - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_webbrowserpassview_execution.yml'
+description: 'Detects the execution of WebBrowserPassView.exe. A password recovery tool that reveals the passwords stored by the following Web browsers, Internet Explorer (Version 4.0 - 11.0), Mozilla Firefox (All Versions), Google Chrome, Safari, and Opera - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_webbrowserpassview_execution.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

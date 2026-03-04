@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "audit_policy_tampering_via_aud
   name                       = "audit_policy_tampering_via_auditpol"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Audit Policy Tampering Via Auditpol"
-  description                = "Threat actors can use auditpol binary to change audit policy configuration to impair detection capability. This can be carried out by selectively disabling/removing certain audit policies as well as restoring a custom policy owned by the threat actor. - Administrator or administrator scripts might leverage the flags mentioned in the detection section. Either way, it should always be monitored | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/audit_policy_tampering_via_auditpol.yml"
+  description                = "Threat actors can use auditpol binary to change audit policy configuration to impair detection capability. This can be carried out by selectively disabling/removing certain audit policies as well as restoring a custom policy owned by the threat actor. - Administrator or administrator scripts might leverage the flags mentioned in the detection section. Either way, it should always be monitored | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/audit_policy_tampering_via_auditpol.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

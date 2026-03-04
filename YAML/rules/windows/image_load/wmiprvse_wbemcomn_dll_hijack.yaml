@@ -1,6 +1,6 @@
 id: 64c57fcd-c4aa-59a3-8db6-e17f1af39ff0
 name: Wmiprvse Wbemcomn DLL Hijack
-description: 'Detects a threat actor creating a file named `wbemcomn.dll` in the `C:\Windows\System32\wbem\` directory over the network and loading it for a WMI DLL Hijack scenario. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/wmiprvse_wbemcomn_dll_hijack.yml'
+description: 'Detects a threat actor creating a file named `wbemcomn.dll` in the `C:\Windows\System32\wbem\` directory over the network and loading it for a WMI DLL Hijack scenario. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/wmiprvse_wbemcomn_dll_hijack.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: d98db0d3-5456-5c9f-a7a8-2bbd9081ca06
 name: HackTool - PowerTool Execution
-description: 'Detects the execution of the tool PowerTool which has the ability to kill a process, delete its process file, unload drivers, and delete the driver files - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_powertool_execution.yml'
+description: 'Detects the execution of the tool PowerTool which has the ability to kill a process, delete its process file, unload drivers, and delete the driver files - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_powertool_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "disable_security_tools" {
   name                       = "disable_security_tools"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disable Security Tools"
-  description                = "Detects disabling security tools - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/disable_security_tools.yml"
+  description                = "Detects disabling security tools - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/disable_security_tools.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

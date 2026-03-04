@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "taidoor_rat_dll_load" {
   name                       = "taidoor_rat_dll_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "TAIDOOR RAT DLL Load"
-  description                = "Detects specific process characteristics of Chinese TAIDOOR RAT malware load | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/TAIDOOR-RAT/taidoor_rat_dll_load.yml"
+  description                = "Detects specific process characteristics of Chinese TAIDOOR RAT malware load | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/TAIDOOR-RAT/taidoor_rat_dll_load.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

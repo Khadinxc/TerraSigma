@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_encoded_powershell_
   name                       = "suspicious_encoded_powershell_command_line"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Encoded PowerShell Command Line"
-  description                = "Detects suspicious powershell process starts with base64 encoded commands (e.g. Emotet) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_encoded_powershell_command_line.yml"
+  description                = "Detects suspicious powershell process starts with base64 encoded commands (e.g. Emotet) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_encoded_powershell_command_line.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

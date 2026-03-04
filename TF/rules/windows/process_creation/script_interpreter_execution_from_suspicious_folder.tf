@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "script_interpreter_execution_f
   name                       = "script_interpreter_execution_from_suspicious_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Script Interpreter Execution From Suspicious Folder"
-  description                = "Detects a suspicious script execution in temporary folders or folders accessible by environment variables | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/script_interpreter_execution_from_suspicious_folder.yml"
+  description                = "Detects a suspicious script execution in temporary folders or folders accessible by environment variables | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/script_interpreter_execution_from_suspicious_folder.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

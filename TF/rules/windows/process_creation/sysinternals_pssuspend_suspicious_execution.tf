@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "sysinternals_pssuspend_suspici
   name                       = "sysinternals_pssuspend_suspicious_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Sysinternals PsSuspend Suspicious Execution"
-  description                = "Detects suspicious execution of Sysinternals PsSuspend, where the utility is used to suspend critical processes such as AV or EDR to bypass defenses - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sysinternals_pssuspend_suspicious_execution.yml"
+  description                = "Detects suspicious execution of Sysinternals PsSuspend, where the utility is used to suspend critical processes such as AV or EDR to bypass defenses - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sysinternals_pssuspend_suspicious_execution.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

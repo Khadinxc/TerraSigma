@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "custom_file_open_handler_execu
   name                       = "custom_file_open_handler_executes_powershell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Custom File Open Handler Executes PowerShell"
-  description                = "Detects the abuse of custom file open handler, executing powershell | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/custom_file_open_handler_executes_powershell.yml"
+  description                = "Detects the abuse of custom file open handler, executing powershell | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/custom_file_open_handler_executes_powershell.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

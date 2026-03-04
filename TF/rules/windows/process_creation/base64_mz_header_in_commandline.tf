@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "base64_mz_header_in_commandlin
   name                       = "base64_mz_header_in_commandline"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Base64 MZ Header In CommandLine"
-  description                = "Detects encoded base64 MZ header in the commandline - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/base64_mz_header_in_commandline.yml"
+  description                = "Detects encoded base64 MZ header in the commandline - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/base64_mz_header_in_commandline.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

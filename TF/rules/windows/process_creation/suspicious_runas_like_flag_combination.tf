@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_runas_like_flag_com
   name                       = "suspicious_runas_like_flag_combination"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious RunAs-Like Flag Combination"
-  description                = "Detects suspicious command line flags that let the user set a target user and command as e.g. seen in PsExec-like tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_runas_like_flag_combination.yml"
+  description                = "Detects suspicious command line flags that let the user set a target user and command as e.g. seen in PsExec-like tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_runas_like_flag_combination.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

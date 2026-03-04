@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "driver_dll_installation_via_od
   name                       = "driver_dll_installation_via_odbcconf_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Driver/DLL Installation Via Odbcconf.EXE"
-  description                = "Detects execution of \"odbcconf\" with \"INSTALLDRIVER\" which installs a new ODBC driver. Attackers abuse this to install and run malicious DLLs. - Legitimate driver DLLs being registered via \"odbcconf\" will generate false positives. Investigate the path of the DLL and its contents to determine if the action is authorized. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/driver_dll_installation_via_odbcconf_exe.yml"
+  description                = "Detects execution of \"odbcconf\" with \"INSTALLDRIVER\" which installs a new ODBC driver. Attackers abuse this to install and run malicious DLLs. - Legitimate driver DLLs being registered via \"odbcconf\" will generate false positives. Investigate the path of the DLL and its contents to determine if the action is authorized. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/driver_dll_installation_via_odbcconf_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_compromised_3cxdeskt
   name                       = "potential_compromised_3cxdesktopapp_update_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Compromised 3CXDesktopApp Update Activity"
-  description                = "Detects the 3CXDesktopApp updater downloading a known compromised version of the 3CXDesktopApp software | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/3CX-Supply-Chain/potential_compromised_3cxdesktopapp_update_activity.yml"
+  description                = "Detects the 3CXDesktopApp updater downloading a known compromised version of the 3CXDesktopApp software | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/3CX-Supply-Chain/potential_compromised_3cxdesktopapp_update_activity.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

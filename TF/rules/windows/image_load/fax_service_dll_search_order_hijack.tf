@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "fax_service_dll_search_order_h
   name                       = "fax_service_dll_search_order_hijack"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Fax Service DLL Search Order Hijack"
-  description                = "The Fax service attempts to load ualapi.dll, which is non-existent. An attacker can then (side)load their own malicious DLL using this service. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/fax_service_dll_search_order_hijack.yml"
+  description                = "The Fax service attempts to load ualapi.dll, which is non-existent. An attacker can then (side)load their own malicious DLL using this service. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/fax_service_dll_search_order_hijack.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

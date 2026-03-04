@@ -1,6 +1,6 @@
 id: 438b8bab-bec6-557d-874c-4e37f7154afc
 name: File Download From IP Based URL Via CertOC.EXE
-description: 'Detects when a user downloads a file from an IP based URL using CertOC.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_from_ip_based_url_via_certoc_exe.yml'
+description: 'Detects when a user downloads a file from an IP based URL using CertOC.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_from_ip_based_url_via_certoc_exe.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

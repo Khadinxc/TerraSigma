@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "time_machine_backup_disabled_v
   name                       = "time_machine_backup_disabled_via_tmutil_macos"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Time Machine Backup Disabled Via Tmutil - MacOS"
-  description                = "Detects disabling of Time Machine (Apple's automated backup utility software) via the native macOS backup utility \"tmutil\". An attacker can use this to prevent backups from occurring. - Legitimate administrator activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/time_machine_backup_disabled_via_tmutil_macos.yml"
+  description                = "Detects disabling of Time Machine (Apple's automated backup utility software) via the native macOS backup utility \"tmutil\". An attacker can use this to prevent backups from occurring. - Legitimate administrator activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/time_machine_backup_disabled_via_tmutil_macos.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

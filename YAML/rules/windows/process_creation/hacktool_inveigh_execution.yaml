@@ -1,6 +1,6 @@
 id: b8bc9ac6-4130-5a84-a47d-2f8318d33291
 name: HackTool - Inveigh Execution
-description: 'Detects the use of Inveigh a cross-platform .NET IPv4/IPv6 machine-in-the-middle tool - Very unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_inveigh_execution.yml'
+description: 'Detects the use of Inveigh a cross-platform .NET IPv4/IPv6 machine-in-the-middle tool - Very unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_inveigh_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

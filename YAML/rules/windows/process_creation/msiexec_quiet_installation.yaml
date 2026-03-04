@@ -1,6 +1,6 @@
 id: 293c84df-83d2-5798-adef-2aee34b299d8
 name: Msiexec Quiet Installation
-description: 'Adversaries may abuse msiexec.exe to proxy execution of malicious payloads. Msiexec.exe is the command-line utility for the Windows Installer and is thus commonly associated with executing installation packages (.msi) - WindowsApps installing updates via the quiet flag | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/msiexec_quiet_installation.yml'
+description: 'Adversaries may abuse msiexec.exe to proxy execution of malicious payloads. Msiexec.exe is the command-line utility for the Windows Installer and is thus commonly associated with executing installation packages (.msi) - WindowsApps installing updates via the quiet flag | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/msiexec_quiet_installation.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

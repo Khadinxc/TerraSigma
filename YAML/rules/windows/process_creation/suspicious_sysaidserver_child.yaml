@@ -1,6 +1,6 @@
 id: 6aaffb72-23f8-5d84-a33d-a6dff31d7886
 name: Suspicious SysAidServer Child
-description: 'Detects suspicious child processes of SysAidServer (as seen in MERCURY threat actor intrusions) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_sysaidserver_child.yml'
+description: 'Detects suspicious child processes of SysAidServer (as seen in MERCURY threat actor intrusions) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_sysaidserver_child.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dns_exfiltration_and_tunneling
   name                       = "dns_exfiltration_and_tunneling_tools_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DNS Exfiltration and Tunneling Tools Execution"
-  description                = "Well-known DNS Exfiltration tools execution - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dns_exfiltration_and_tunneling_tools_execution.yml"
+  description                = "Well-known DNS Exfiltration tools execution - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dns_exfiltration_and_tunneling_tools_execution.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

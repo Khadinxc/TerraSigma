@@ -1,6 +1,6 @@
 id: 2d0d63d4-481a-57aa-b727-22b49483167a
 name: HackTool - Certipy Execution
-description: 'Detects Certipy execution, a tool for Active Directory Certificate Services enumeration and abuse based on PE metadata characteristics and common command line arguments. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_certipy_execution.yml'
+description: 'Detects Certipy execution, a tool for Active Directory Certificate Services enumeration and abuse based on PE metadata characteristics and common command line arguments. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_certipy_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

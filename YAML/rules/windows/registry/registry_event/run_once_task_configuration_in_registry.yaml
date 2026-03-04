@@ -1,6 +1,6 @@
 id: 0afc66b0-8223-5c31-838f-2581bd1662d5
 name: Run Once Task Configuration in Registry
-description: 'Rule to detect the configuration of Run Once registry key. Configured payload can be run by runonce.exe /AlternateShellStartup - Legitimate modification of the registry key by legitimate program | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/run_once_task_configuration_in_registry.yml'
+description: 'Rule to detect the configuration of Run Once registry key. Configured payload can be run by runonce.exe /AlternateShellStartup - Legitimate modification of the registry key by legitimate program | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/run_once_task_configuration_in_registry.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

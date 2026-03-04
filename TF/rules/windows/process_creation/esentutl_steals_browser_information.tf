@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "esentutl_steals_browser_inform
   name                       = "esentutl_steals_browser_information"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Esentutl Steals Browser Information"
-  description                = "One way Qbot steals sensitive information is by extracting browser data from Internet Explorer and Microsoft Edge by using the built-in utility esentutl.exe - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/esentutl_steals_browser_information.yml"
+  description                = "One way Qbot steals sensitive information is by extracting browser data from Internet Explorer and Microsoft Edge by using the built-in utility esentutl.exe - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/esentutl_steals_browser_information.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

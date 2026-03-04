@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_compres
   name                       = "potentially_suspicious_compression_tool_parameters"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Compression Tool Parameters"
-  description                = "Detects potentially suspicious command line arguments of common data compression tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/potentially_suspicious_compression_tool_parameters.yml"
+  description                = "Detects potentially suspicious command line arguments of common data compression tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/potentially_suspicious_compression_tool_parameters.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

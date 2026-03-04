@@ -1,6 +1,6 @@
 id: fe67e290-f430-5e82-b431-dcc67e984e77
 name: Obfuscated IP Via CLI
-description: 'Detects usage of an encoded/obfuscated version of an IP address (hex, octal, etc.) via command line | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/obfuscated_ip_via_cli.yml'
+description: 'Detects usage of an encoded/obfuscated version of an IP address (hex, octal, etc.) via command line | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/obfuscated_ip_via_cli.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "direct_autorun_keys_modificati
   name                       = "direct_autorun_keys_modification"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Direct Autorun Keys Modification"
-  description                = "Detects direct modification of autostart extensibility point (ASEP) in registry using reg.exe. - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reasons. - Legitimate administrator sets up autorun keys for legitimate reasons. - Discord | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/direct_autorun_keys_modification.yml"
+  description                = "Detects direct modification of autostart extensibility point (ASEP) in registry using reg.exe. - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reasons. - Legitimate administrator sets up autorun keys for legitimate reasons. - Discord | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/direct_autorun_keys_modification.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

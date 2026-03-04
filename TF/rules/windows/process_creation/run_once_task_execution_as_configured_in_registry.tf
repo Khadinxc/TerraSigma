@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "run_once_task_execution_as_con
   name                       = "run_once_task_execution_as_configured_in_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Run Once Task Execution as Configured in Registry"
-  description                = "This rule detects the execution of Run Once task as configured in the registry | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/run_once_task_execution_as_configured_in_registry.yml"
+  description                = "This rule detects the execution of Run Once task as configured in the registry | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/run_once_task_execution_as_configured_in_registry.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

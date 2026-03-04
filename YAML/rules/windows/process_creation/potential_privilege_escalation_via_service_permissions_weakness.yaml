@@ -1,6 +1,6 @@
 id: 57d01c8c-b7d1-5d0d-8072-58e969584d00
 name: Potential Privilege Escalation via Service Permissions Weakness
-description: 'Detect modification of services configuration (ImagePath, FailureCommand and ServiceDLL) in registry by processes with Medium integrity level | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_privilege_escalation_via_service_permissions_weakness.yml'
+description: 'Detect modification of services configuration (ImagePath, FailureCommand and ServiceDLL) in registry by processes with Medium integrity level | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_privilege_escalation_via_service_permissions_weakness.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "indirect_inline_command_execut
   name                       = "indirect_inline_command_execution_via_bash_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Indirect Inline Command Execution Via Bash.EXE"
-  description                = "Detects execution of Microsoft bash launcher with the \"-c\" flag. This can be used to potentially bypass defenses and execute Linux or Windows-based binaries directly via bash. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/indirect_inline_command_execution_via_bash_exe.yml"
+  description                = "Detects execution of Microsoft bash launcher with the \"-c\" flag. This can be used to potentially bypass defenses and execute Linux or Windows-based binaries directly via bash. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/indirect_inline_command_execution_via_bash_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

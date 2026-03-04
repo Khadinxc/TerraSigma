@@ -1,6 +1,6 @@
 id: 33e6926e-1c1d-55a9-ab67-722d45397612
 name: Uncommon File Created In Office Startup Folder
-description: 'Detects the creation of a file with an uncommon extension in an Office application startup folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/uncommon_file_created_in_office_startup_folder.yml'
+description: 'Detects the creation of a file with an uncommon extension in an Office application startup folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/uncommon_file_created_in_office_startup_folder.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

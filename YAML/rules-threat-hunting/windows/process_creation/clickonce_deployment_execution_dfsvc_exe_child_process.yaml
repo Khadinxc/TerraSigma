@@ -1,6 +1,6 @@
 id: 54eaf4dc-b19d-5781-b55c-5a19384c6eb4
 name: ClickOnce Deployment Execution - Dfsvc.EXE Child Process
-description: 'Detects child processes of "dfsvc" which indicates a ClickOnce deployment execution. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/clickonce_deployment_execution_dfsvc_exe_child_process.yml'
+description: 'Detects child processes of "dfsvc" which indicates a ClickOnce deployment execution. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/clickonce_deployment_execution_dfsvc_exe_child_process.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

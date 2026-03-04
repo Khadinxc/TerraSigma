@@ -1,6 +1,6 @@
 id: 461b24a4-95bf-5c88-8179-1cb74c662120
 name: ETW Logging Disabled In .NET Processes - Sysmon Registry
-description: 'Potential adversaries stopping ETW providers recording loaded .NET assemblies. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/etw_logging_disabled_in_net_processes_sysmon_registry.yml'
+description: 'Potential adversaries stopping ETW providers recording loaded .NET assemblies. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/etw_logging_disabled_in_net_processes_sysmon_registry.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

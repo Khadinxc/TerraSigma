@@ -1,6 +1,6 @@
 id: 2ab0981f-33a6-5596-97fa-afa21523f521
 name: PUA - Radmin Viewer Utility Execution
-description: 'Detects the execution of Radmin which can be abused by an adversary to remotely control Windows machines | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_radmin_viewer_utility_execution.yml'
+description: 'Detects the execution of Radmin which can be abused by an adversary to remotely control Windows machines | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_radmin_viewer_utility_execution.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

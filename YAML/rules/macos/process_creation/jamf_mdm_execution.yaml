@@ -1,6 +1,6 @@
 id: 23db3fc7-a260-5028-be0d-1c54545e725e
 name: JAMF MDM Execution
-description: 'Detects execution of the "jamf" binary to create user accounts and run commands. For example, the binary can be abused by attackers on the system in order to bypass security controls or remove application control polices. - Legitimate use of the JAMF CLI tool by IT support and administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/jamf_mdm_execution.yml'
+description: 'Detects execution of the "jamf" binary to create user accounts and run commands. For example, the binary can be abused by attackers on the system in order to bypass security controls or remove application control polices. - Legitimate use of the JAMF CLI tool by IT support and administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/jamf_mdm_execution.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

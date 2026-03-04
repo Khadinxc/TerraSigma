@@ -1,6 +1,6 @@
 id: fd5aa660-8013-5771-9d27-72843d595b42
 name: Execute Files with Msdeploy.exe
-description: 'Detects file execution using the msdeploy.exe lolbin - System administrator Usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/execute_files_with_msdeploy_exe.yml'
+description: 'Detects file execution using the msdeploy.exe lolbin - System administrator Usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/execute_files_with_msdeploy_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

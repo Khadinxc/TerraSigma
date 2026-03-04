@@ -1,6 +1,6 @@
 id: b047c2e1-b69a-57bd-85cd-75716f9313b8
 name: Suspicious Deno File Written from Remote Source
-description: 'Detects Deno writing a file from a direct HTTP(s) call and writing to the appdata folder or bringing it''s own malicious DLL. This behavior may indicate an attempt to execute remotely hosted, potentially malicious files through deno. - Legitimate usage of deno to request a file or bring a DLL to a host | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_deno_file_written_from_remote_source.yml'
+description: 'Detects Deno writing a file from a direct HTTP(s) call and writing to the appdata folder or bringing it''s own malicious DLL. This behavior may indicate an attempt to execute remotely hosted, potentially malicious files through deno. - Legitimate usage of deno to request a file or bring a DLL to a host | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_deno_file_written_from_remote_source.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

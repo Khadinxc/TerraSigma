@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "execute_code_with_pester_bat" 
   name                       = "execute_code_with_pester_bat"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Execute Code with Pester.bat"
-  description                = "Detects code execution via Pester.bat (Pester - Powershell Modulte for testing) - Legitimate use of Pester for writing tests for Powershell scripts and modules | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/execute_code_with_pester_bat.yml"
+  description                = "Detects code execution via Pester.bat (Pester - Powershell Modulte for testing) - Legitimate use of Pester for writing tests for Powershell scripts and modules | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/execute_code_with_pester_bat.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

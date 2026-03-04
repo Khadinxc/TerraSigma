@@ -1,6 +1,6 @@
 id: faa5620c-a674-5848-ae42-e28e7c6a3ed8
 name: Potential Vivaldi_elf.DLL Sideloading
-description: 'Detects potential DLL sideloading of "vivaldi_elf.dll" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_vivaldi_elf_dll_sideloading.yml'
+description: 'Detects potential DLL sideloading of "vivaldi_elf.dll" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_vivaldi_elf_dll_sideloading.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

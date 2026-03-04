@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "inline_python_execution_spawn_
   name                       = "inline_python_execution_spawn_shell_via_os_system_library"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Inline Python Execution - Spawn Shell Via OS System Library"
-  description                = "Detects execution of inline Python code via the \"-c\" in order to call the \"system\" function from the \"os\" library, and spawn a shell. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/inline_python_execution_spawn_shell_via_os_system_library.yml"
+  description                = "Detects execution of inline Python code via the \"-c\" in order to call the \"system\" function from the \"os\" library, and spawn a shell. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/inline_python_execution_spawn_shell_via_os_system_library.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

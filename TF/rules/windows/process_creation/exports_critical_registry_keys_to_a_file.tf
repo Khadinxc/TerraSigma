@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "exports_critical_registry_keys
   name                       = "exports_critical_registry_keys_to_a_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Exports Critical Registry Keys To a File"
-  description                = "Detects the export of a crital Registry key to a file. - Dumping hives for legitimate purpouse i.e. backup or forensic investigation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/exports_critical_registry_keys_to_a_file.yml"
+  description                = "Detects the export of a crital Registry key to a file. - Dumping hives for legitimate purpouse i.e. backup or forensic investigation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/exports_critical_registry_keys_to_a_file.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

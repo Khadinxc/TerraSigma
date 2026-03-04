@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_persistence_via_mpno
   name                       = "potential_persistence_via_mpnotify"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Mpnotify"
-  description                = "Detects when an attacker register a new SIP provider for persistence and defense evasion - Might trigger if a legitimate new SIP provider is registered. But this is not a common occurrence in an environment and should be investigated either way | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_mpnotify.yml"
+  description                = "Detects when an attacker register a new SIP provider for persistence and defense evasion - Might trigger if a legitimate new SIP provider is registered. But this is not a common occurrence in an environment and should be investigated either way | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_mpnotify.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

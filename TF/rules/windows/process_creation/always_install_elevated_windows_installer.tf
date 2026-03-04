@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "always_install_elevated_window
   name                       = "always_install_elevated_windows_installer"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Always Install Elevated Windows Installer"
-  description                = "Detects Windows Installer service (msiexec.exe) trying to install MSI packages with SYSTEM privilege - System administrator usage - Anti virus products - WindowsApps located in \"C:\\Program Files\\WindowsApps\\\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/always_install_elevated_windows_installer.yml"
+  description                = "Detects Windows Installer service (msiexec.exe) trying to install MSI packages with SYSTEM privilege - System administrator usage - Anti virus products - WindowsApps located in \"C:\\Program Files\\WindowsApps\\\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/always_install_elevated_windows_installer.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_new_service_creatio
   name                       = "suspicious_new_service_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious New Service Creation"
-  description                = "Detects creation of a new service via \"sc\" command or the powershell \"new-service\" cmdlet with suspicious binary paths - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_new_service_creation.yml"
+  description                = "Detects creation of a new service via \"sc\" command or the powershell \"new-service\" cmdlet with suspicious binary paths - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_new_service_creation.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_execution_of_system
   name                       = "suspicious_execution_of_systeminfo"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Execution of Systeminfo"
-  description                = "Detects usage of the \"systeminfo\" command to retrieve information | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_execution_of_systeminfo.yml"
+  description                = "Detects usage of the \"systeminfo\" command to retrieve information | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_execution_of_systeminfo.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

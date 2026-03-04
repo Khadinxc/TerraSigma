@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "disabled_ie_security_features"
   name                       = "disabled_ie_security_features"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disabled IE Security Features"
-  description                = "Detects command lines that indicate unwanted modifications to registry keys that disable important Internet Explorer security features | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/disabled_ie_security_features.yml"
+  description                = "Detects command lines that indicate unwanted modifications to registry keys that disable important Internet Explorer security features | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/disabled_ie_security_features.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

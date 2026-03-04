@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "tamper_with_sophos_av_registry
   name                       = "tamper_with_sophos_av_registry_keys"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Tamper With Sophos AV Registry Keys"
-  description                = "Detects tamper attempts to sophos av functionality via registry key modification - Some FP may occur when the feature is disabled by the AV itself, you should always investigate if the action was legitimate | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/tamper_with_sophos_av_registry_keys.yml"
+  description                = "Detects tamper attempts to sophos av functionality via registry key modification - Some FP may occur when the feature is disabled by the AV itself, you should always investigate if the action was legitimate | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/tamper_with_sophos_av_registry_keys.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

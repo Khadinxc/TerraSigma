@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "ntds_dit_creation_by_uncommon_
   name                       = "ntds_dit_creation_by_uncommon_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "NTDS.DIT Creation By Uncommon Process"
-  description                = "Detects creation of a file named \"ntds.dit\" (Active Directory Database) by an uncommon process or a process located in a suspicious directory | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/ntds_dit_creation_by_uncommon_process.yml"
+  description                = "Detects creation of a file named \"ntds.dit\" (Active Directory Database) by an uncommon process or a process located in a suspicious directory | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/ntds_dit_creation_by_uncommon_process.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

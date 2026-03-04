@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_nppspy_hacktool_usage
   name                       = "hacktool_nppspy_hacktool_usage"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - NPPSpy Hacktool Usage"
-  description                = "Detects the use of NPPSpy hacktool that stores cleartext passwords of users that logged in to a local file | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/hacktool_nppspy_hacktool_usage.yml"
+  description                = "Detects the use of NPPSpy hacktool that stores cleartext passwords of users that logged in to a local file | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/hacktool_nppspy_hacktool_usage.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "virtualbox_driver_installation
   name                       = "virtualbox_driver_installation_or_starting_of_vms"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Virtualbox Driver Installation or Starting of VMs"
-  description                = "Adversaries can carry out malicious operations using a virtual instance to avoid detection. This rule is built to detect the registration of the Virtualbox driver or start of a Virtualbox VM. - This may have false positives on hosts where Virtualbox is legitimately being used for operations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/virtualbox_driver_installation_or_starting_of_vms.yml"
+  description                = "Adversaries can carry out malicious operations using a virtual instance to avoid detection. This rule is built to detect the registration of the Virtualbox driver or start of a Virtualbox VM. - This may have false positives on hosts where Virtualbox is legitimately being used for operations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/virtualbox_driver_installation_or_starting_of_vms.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

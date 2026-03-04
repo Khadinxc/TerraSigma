@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "scheduled_taskcache_change_by_
   name                       = "scheduled_taskcache_change_by_uncommon_program"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Scheduled TaskCache Change by Uncommon Program"
-  description                = "Monitor the creation of a new key under 'TaskCache' when a new scheduled task is registered by a process that is not svchost.exe, which is suspicious | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/scheduled_taskcache_change_by_uncommon_program.yml"
+  description                = "Monitor the creation of a new key under 'TaskCache' when a new scheduled task is registered by a process that is not svchost.exe, which is suspicious | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/scheduled_taskcache_change_by_uncommon_program.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

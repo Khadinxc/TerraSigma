@@ -1,6 +1,6 @@
 id: a7802af8-2550-54f1-9b37-d7ffc8a68eb2
 name: Terminate Linux Process Via Kill
-description: 'Detects usage of command line tools such as "kill", "pkill" or "killall" to terminate or signal a running process. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/process_creation/terminate_linux_process_via_kill.yml'
+description: 'Detects usage of command line tools such as "kill", "pkill" or "killall" to terminate or signal a running process. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/process_creation/terminate_linux_process_via_kill.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

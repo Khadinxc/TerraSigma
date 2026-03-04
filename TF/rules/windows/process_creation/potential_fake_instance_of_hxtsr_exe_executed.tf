@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_fake_instance_of_hxt
   name                       = "potential_fake_instance_of_hxtsr_exe_executed"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Fake Instance Of Hxtsr.EXE Executed"
-  description                = "HxTsr.exe is a Microsoft compressed executable file called Microsoft Outlook Communications. HxTsr.exe is part of Outlook apps, because it resides in a hidden \"WindowsApps\" subfolder of \"C:\\Program Files\". Any instances of hxtsr.exe not in this folder may be malware camouflaging itself as HxTsr.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_fake_instance_of_hxtsr_exe_executed.yml"
+  description                = "HxTsr.exe is a Microsoft compressed executable file called Microsoft Outlook Communications. HxTsr.exe is part of Outlook apps, because it resides in a hidden \"WindowsApps\" subfolder of \"C:\\Program Files\". Any instances of hxtsr.exe not in this folder may be malware camouflaging itself as HxTsr.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_fake_instance_of_hxtsr_exe_executed.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "linux_remote_system_discovery"
   name                       = "linux_remote_system_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux Remote System Discovery"
-  description                = "Detects the enumeration of other remote systems. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_remote_system_discovery.yml"
+  description                = "Detects the enumeration of other remote systems. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_remote_system_discovery.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

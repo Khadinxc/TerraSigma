@@ -1,6 +1,6 @@
 id: 139a4d63-eda3-514c-8e01-c244b7aab9e4
 name: Arbitrary File Download Via MSEDGE_PROXY.EXE
-description: 'Detects usage of "msedge_proxy.exe" to download arbitrary files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_file_download_via_msedge_proxy_exe.yml'
+description: 'Detects usage of "msedge_proxy.exe" to download arbitrary files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_file_download_via_msedge_proxy_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

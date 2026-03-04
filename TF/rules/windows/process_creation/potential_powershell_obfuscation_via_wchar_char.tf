@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_powershell_obfuscati
   name                       = "potential_powershell_obfuscation_via_wchar_char"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential PowerShell Obfuscation Via WCHAR/CHAR"
-  description                = "Detects suspicious encoded character syntax often used for defense evasion | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_powershell_obfuscation_via_wchar_char.yml"
+  description                = "Detects suspicious encoded character syntax often used for defense evasion | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_powershell_obfuscation_via_wchar_char.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

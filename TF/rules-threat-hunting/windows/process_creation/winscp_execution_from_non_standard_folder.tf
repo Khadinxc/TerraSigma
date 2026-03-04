@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "winscp_execution_from_non_stan
   name                       = "winscp_execution_from_non_standard_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Winscp Execution From Non Standard Folder"
-  description                = "Detects the execution of Winscp from an a non standard folder. This could indicate the execution of Winscp portable. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/winscp_execution_from_non_standard_folder.yml"
+  description                = "Detects the execution of Winscp from an a non standard folder. This could indicate the execution of Winscp portable. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/winscp_execution_from_non_standard_folder.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

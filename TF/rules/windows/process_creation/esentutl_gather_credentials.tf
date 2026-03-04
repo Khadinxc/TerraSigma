@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "esentutl_gather_credentials" {
   name                       = "esentutl_gather_credentials"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Esentutl Gather Credentials"
-  description                = "Conti recommendation to its affiliates to use esentutl to access NTDS dumped file. Trickbot also uses this utilities to get MSEdge info via its module pwgrab. - To be determined | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/esentutl_gather_credentials.yml"
+  description                = "Conti recommendation to its affiliates to use esentutl to access NTDS dumped file. Trickbot also uses this utilities to get MSEdge info via its module pwgrab. - To be determined | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/esentutl_gather_credentials.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: a00fc04f-3965-5bc1-8a75-5315b3f27552
 name: WCE wceaux.dll Access
-description: 'Detects wceaux.dll access while WCE pass-the-hash remote command execution on source host | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/wce_wceaux_dll_access.yml'
+description: 'Detects wceaux.dll access while WCE pass-the-hash remote command execution on source host | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/wce_wceaux_dll_access.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

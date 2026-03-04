@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "powershell_profile_modificatio
   name                       = "powershell_profile_modification"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Profile Modification"
-  description                = "Detects the creation or modification of a powershell profile which could indicate suspicious activity as the profile can be used as a mean of persistence - System administrator creating Powershell profile manually | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/powershell_profile_modification.yml"
+  description                = "Detects the creation or modification of a powershell profile which could indicate suspicious activity as the profile can be used as a mean of persistence - System administrator creating Powershell profile manually | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/powershell_profile_modification.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

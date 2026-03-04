@@ -1,6 +1,6 @@
 id: 87bb13d6-a3d9-5469-a2ab-2884da85f7b6
 name: User Added To Admin Group Via Sysadminctl
-description: 'Detects attempts to create and add an account to the admin group via "sysadminctl" - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/user_added_to_admin_group_via_sysadminctl.yml'
+description: 'Detects attempts to create and add an account to the admin group via "sysadminctl" - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/user_added_to_admin_group_via_sysadminctl.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

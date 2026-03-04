@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_schtasks_schedule_t
   name                       = "suspicious_schtasks_schedule_types"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Schtasks Schedule Types"
-  description                = "Detects scheduled task creations or modification on a suspicious schedule type - Legitimate processes that run at logon. Filter according to your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_schtasks_schedule_types.yml"
+  description                = "Detects scheduled task creations or modification on a suspicious schedule type - Legitimate processes that run at logon. Filter according to your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_schtasks_schedule_types.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: 095d05f4-7824-59a3-8ecc-8ca39d052a54
 name: Potentially Suspicious Ping/Copy Command Combination
-description: 'Detects uncommon and potentially suspicious one-liner command containing both "ping" and "copy" at the same time, which is usually used by malware. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_ping_copy_command_combination.yml'
+description: 'Detects uncommon and potentially suspicious one-liner command containing both "ping" and "copy" at the same time, which is usually used by malware. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_ping_copy_command_combination.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

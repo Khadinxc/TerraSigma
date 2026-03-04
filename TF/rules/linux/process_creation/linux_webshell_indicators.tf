@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "linux_webshell_indicators" {
   name                       = "linux_webshell_indicators"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux Webshell Indicators"
-  description                = "Detects suspicious sub processes of web server processes - Web applications that invoke Linux command line tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_webshell_indicators.yml"
+  description                = "Detects suspicious sub processes of web server processes - Web applications that invoke Linux command line tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_webshell_indicators.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

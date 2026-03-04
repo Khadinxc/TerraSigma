@@ -1,6 +1,6 @@
 id: 2eae3fa0-6841-50cc-b1a1-8f867eb47f05
 name: Potential 7za.DLL Sideloading
-description: 'Detects potential DLL sideloading of "7za.dll" - Legitimate third party application located in "AppData" may leverage this DLL to offer 7z compression functionality and may generate false positives. Apply additional filters as needed. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_7za_dll_sideloading.yml'
+description: 'Detects potential DLL sideloading of "7za.dll" - Legitimate third party application located in "AppData" may leverage this DLL to offer 7z compression functionality and may generate false positives. Apply additional filters as needed. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_7za_dll_sideloading.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

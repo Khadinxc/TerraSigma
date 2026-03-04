@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "powershell_base64_encoded_from
   name                       = "powershell_base64_encoded_frombase64string_cmdlet"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Base64 Encoded FromBase64String Cmdlet"
-  description                = "Detects usage of a base64 encoded \"FromBase64String\" cmdlet in a process command line | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_base64_encoded_frombase64string_cmdlet.yml"
+  description                = "Detects usage of a base64 encoded \"FromBase64String\" cmdlet in a process command line | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_base64_encoded_frombase64string_cmdlet.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: fa66a9c7-1fd7-5d81-b1c7-bbec2de939f1
 name: Suspicious WmiPrvSE Child Process
-description: 'Detects suspicious and uncommon child processes of WmiPrvSE | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_wmiprvse_child_process.yml'
+description: 'Detects suspicious and uncommon child processes of WmiPrvSE | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_wmiprvse_child_process.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

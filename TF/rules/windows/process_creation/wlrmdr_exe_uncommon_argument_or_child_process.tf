@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "wlrmdr_exe_uncommon_argument_o
   name                       = "wlrmdr_exe_uncommon_argument_or_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Wlrmdr.EXE Uncommon Argument Or Child Process"
-  description                = "Detects the execution of \"Wlrmdr.exe\" with the \"-u\" command line flag which allows anything passed to it to be an argument of the ShellExecute API, which would allow an attacker to execute arbitrary binaries. This detection also focuses on any uncommon child processes spawned from \"Wlrmdr.exe\" as a supplement for those that posses \"ParentImage\" telemetry. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wlrmdr_exe_uncommon_argument_or_child_process.yml"
+  description                = "Detects the execution of \"Wlrmdr.exe\" with the \"-u\" command line flag which allows anything passed to it to be an argument of the ShellExecute API, which would allow an attacker to execute arbitrary binaries. This detection also focuses on any uncommon child processes spawned from \"Wlrmdr.exe\" as a supplement for those that posses \"ParentImage\" telemetry. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wlrmdr_exe_uncommon_argument_or_child_process.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

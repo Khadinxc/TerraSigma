@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "windows_internet_hosted_webdav
   name                       = "windows_internet_hosted_webdav_share_mount_via_net_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Internet Hosted WebDav Share Mount Via Net.EXE"
-  description                = "Detects when an internet hosted webdav share is mounted using the \"net.exe\" utility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_internet_hosted_webdav_share_mount_via_net_exe.yml"
+  description                = "Detects when an internet hosted webdav share is mounted using the \"net.exe\" utility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_internet_hosted_webdav_share_mount_via_net_exe.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

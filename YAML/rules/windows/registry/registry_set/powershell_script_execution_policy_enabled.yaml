@@ -1,6 +1,6 @@
 id: 78d8cbeb-f162-50fc-983f-1ff62f66a5ed
 name: PowerShell Script Execution Policy Enabled
-description: 'Detects the enabling of the PowerShell script execution policy. Once enabled, this policy allows scripts to be executed. - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/powershell_script_execution_policy_enabled.yml'
+description: 'Detects the enabling of the PowerShell script execution policy. Once enabled, this policy allows scripts to be executed. - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/powershell_script_execution_policy_enabled.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

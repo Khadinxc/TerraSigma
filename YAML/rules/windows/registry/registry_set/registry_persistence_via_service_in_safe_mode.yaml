@@ -1,6 +1,6 @@
 id: cbe047be-a68b-5156-8250-332ae0a967eb
 name: Registry Persistence via Service in Safe Mode
-description: 'Detects the modification of the registry to allow a driver or service to persist in Safe Mode. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_persistence_via_service_in_safe_mode.yml'
+description: 'Detects the modification of the registry to allow a driver or service to persist in Safe Mode. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_persistence_via_service_in_safe_mode.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "history_file_deletion" {
   name                       = "history_file_deletion"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "History File Deletion"
-  description                = "Detects events in which a history file gets deleted, e.g. the ~/bash_history to remove traces of malicious activity - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/history_file_deletion.yml"
+  description                = "Detects events in which a history file gets deleted, e.g. the ~/bash_history to remove traces of malicious activity - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/history_file_deletion.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

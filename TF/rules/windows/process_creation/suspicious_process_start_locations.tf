@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_process_start_locat
   name                       = "suspicious_process_start_locations"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Process Start Locations"
-  description                = "Detects suspicious process run from unusual locations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_process_start_locations.yml"
+  description                = "Detects suspicious process run from unusual locations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_process_start_locations.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

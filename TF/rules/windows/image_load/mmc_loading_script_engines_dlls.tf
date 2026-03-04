@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "mmc_loading_script_engines_dll
   name                       = "mmc_loading_script_engines_dlls"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "MMC Loading Script Engines DLLs"
-  description                = "Detects when the Microsoft Management Console (MMC) loads the DLL libraries like vbscript, jscript etc which might indicate an attempt to execute malicious scripts within a trusted system process for bypassing application whitelisting or defense evasion. - Legitimate MMC operations or extensions loading these libraries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/mmc_loading_script_engines_dlls.yml"
+  description                = "Detects when the Microsoft Management Console (MMC) loads the DLL libraries like vbscript, jscript etc which might indicate an attempt to execute malicious scripts within a trusted system process for bypassing application whitelisting or defense evasion. - Legitimate MMC operations or extensions loading these libraries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/mmc_loading_script_engines_dlls.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

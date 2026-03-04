@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_process_created_via_taskmg
   name                       = "new_process_created_via_taskmgr_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Process Created Via Taskmgr.EXE"
-  description                = "Detects the creation of a process via the Windows task manager. This might be an attempt to bypass UAC - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_process_created_via_taskmgr_exe.yml"
+  description                = "Detects the creation of a process via the Windows task manager. This might be an attempt to bypass UAC - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_process_created_via_taskmgr_exe.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dll_loaded_via_certoc_exe" {
   name                       = "dll_loaded_via_certoc_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DLL Loaded via CertOC.EXE"
-  description                = "Detects when a user installs certificates by using CertOC.exe to loads the target DLL file. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dll_loaded_via_certoc_exe.yml"
+  description                = "Detects when a user installs certificates by using CertOC.exe to loads the target DLL file. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dll_loaded_via_certoc_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

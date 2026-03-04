@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "powershell_get_clipboard_cmdle
   name                       = "powershell_get_clipboard_cmdlet_via_cli"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Get-Clipboard Cmdlet Via CLI"
-  description                = "Detects usage of the 'Get-Clipboard' cmdlet via CLI | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_get_clipboard_cmdlet_via_cli.yml"
+  description                = "Detects usage of the 'Get-Clipboard' cmdlet via CLI | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_get_clipboard_cmdlet_via_cli.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "procdump_execution" {
   name                       = "procdump_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Procdump Execution"
-  description                = "Detects usage of the SysInternals Procdump utility - Legitimate use of procdump by a developer or administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/procdump_execution.yml"
+  description                = "Detects usage of the SysInternals Procdump utility - Legitimate use of procdump by a developer or administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/procdump_execution.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

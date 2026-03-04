@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "insensitive_subfolder_search_v
   name                       = "insensitive_subfolder_search_via_findstr_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Insensitive Subfolder Search Via Findstr.EXE"
-  description                = "Detects execution of findstr with the \"s\" and \"i\" flags for a \"subfolder\" and \"insensitive\" search respectively. Attackers sometimes leverage this built-in utility to search the system for interesting files or filter through results of commands. - Administrative or software activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/insensitive_subfolder_search_via_findstr_exe.yml"
+  description                = "Detects execution of findstr with the \"s\" and \"i\" flags for a \"subfolder\" and \"insensitive\" search respectively. Attackers sometimes leverage this built-in utility to search the system for interesting files or filter through results of commands. - Administrative or software activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/insensitive_subfolder_search_via_findstr_exe.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

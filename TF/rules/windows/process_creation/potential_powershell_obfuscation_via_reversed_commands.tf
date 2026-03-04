@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_powershell_obfuscati
   name                       = "potential_powershell_obfuscation_via_reversed_commands"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential PowerShell Obfuscation Via Reversed Commands"
-  description                = "Detects the presence of reversed PowerShell commands in the CommandLine. This is often used as a method of obfuscation by attackers - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_powershell_obfuscation_via_reversed_commands.yml"
+  description                = "Detects the presence of reversed PowerShell commands in the CommandLine. This is often used as a method of obfuscation by attackers - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_powershell_obfuscation_via_reversed_commands.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

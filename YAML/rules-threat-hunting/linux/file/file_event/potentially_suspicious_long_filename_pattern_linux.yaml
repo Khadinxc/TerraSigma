@@ -1,6 +1,6 @@
 id: 335bb9b5-05c3-5a9c-b1f2-d8c8051bb6fb
 name: Potentially Suspicious Long Filename Pattern - Linux
-description: 'Detects the creation of files with unusually long filenames (100 or more characters), which may indicate obfuscation techniques used by malware such as VShell. This is a hunting rule to identify potential threats that use long filenames to evade detection. Keep in mind that on a legitimate system, such long filenames can and are common. Run this detection in the context of threat hunting rather than alerting. Adjust the threshold of filename length as needed based on your environment. - Legitimate files with long filenames. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/file/file_event/potentially_suspicious_long_filename_pattern_linux.yml'
+description: 'Detects the creation of files with unusually long filenames (100 or more characters), which may indicate obfuscation techniques used by malware such as VShell. This is a hunting rule to identify potential threats that use long filenames to evade detection. Keep in mind that on a legitimate system, such long filenames can and are common. Run this detection in the context of threat hunting rather than alerting. Adjust the threshold of filename length as needed based on your environment. - Legitimate files with long filenames. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/file/file_event/potentially_suspicious_long_filename_pattern_linux.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

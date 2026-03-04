@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "iso_file_created_within_temp_f
   name                       = "iso_file_created_within_temp_folders"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ISO File Created Within Temp Folders"
-  description                = "Detects the creation of a ISO file in the Outlook temp folder or in the Appdata temp folder. Typical of Qakbot TTP from end-July 2022. - Potential FP by sysadmin opening a zip file containing a legitimate ISO file | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/iso_file_created_within_temp_folders.yml"
+  description                = "Detects the creation of a ISO file in the Outlook temp folder or in the Appdata temp folder. Typical of Qakbot TTP from end-July 2022. - Potential FP by sysadmin opening a zip file containing a legitimate ISO file | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/iso_file_created_within_temp_folders.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

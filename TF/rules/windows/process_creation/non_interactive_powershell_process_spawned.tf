@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "non_interactive_powershell_pro
   name                       = "non_interactive_powershell_process_spawned"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Non Interactive PowerShell Process Spawned"
-  description                = "Detects non-interactive PowerShell activity by looking at the \"powershell\" process with a non-user GUI process such as \"explorer.exe\" as a parent. - Likely. Many admin scripts and tools leverage PowerShell in their BAT or VB scripts which may trigger this rule often. It is best to add additional filters or use this to hunt for anomalies | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/non_interactive_powershell_process_spawned.yml"
+  description                = "Detects non-interactive PowerShell activity by looking at the \"powershell\" process with a non-user GUI process such as \"explorer.exe\" as a parent. - Likely. Many admin scripts and tools leverage PowerShell in their BAT or VB scripts which may trigger this rule often. It is best to add additional filters or use this to hunt for anomalies | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/non_interactive_powershell_process_spawned.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

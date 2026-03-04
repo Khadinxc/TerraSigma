@@ -1,6 +1,6 @@
 id: d98e2190-7f02-522a-a764-f53636980893
 name: PUA - SoftPerfect Netscan Execution
-description: 'Detects usage of SoftPerfect''s "netscan.exe". An application for scanning networks. It is actively used in-the-wild by threat actors to inspect and understand the network architecture of a victim. - Legitimate administrator activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_softperfect_netscan_execution.yml'
+description: 'Detects usage of SoftPerfect''s "netscan.exe". An application for scanning networks. It is actively used in-the-wild by threat actors to inspect and understand the network architecture of a victim. - Legitimate administrator activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_softperfect_netscan_execution.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

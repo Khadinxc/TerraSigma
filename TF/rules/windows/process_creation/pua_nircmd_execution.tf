@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_nircmd_execution" {
   name                       = "pua_nircmd_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - NirCmd Execution"
-  description                = "Detects the use of NirCmd tool for command execution, which could be the result of legitimate administrative activity - Legitimate use by administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_nircmd_execution.yml"
+  description                = "Detects the use of NirCmd tool for command execution, which could be the result of legitimate administrative activity - Legitimate use by administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_nircmd_execution.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

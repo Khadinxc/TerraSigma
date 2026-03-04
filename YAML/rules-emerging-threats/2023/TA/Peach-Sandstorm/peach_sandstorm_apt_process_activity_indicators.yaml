@@ -1,6 +1,6 @@
 id: 05b2e288-17cf-5c62-9214-165b754b3873
 name: Peach Sandstorm APT Process Activity Indicators
-description: 'Detects process creation activity related to Peach Sandstorm APT - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Peach-Sandstorm/peach_sandstorm_apt_process_activity_indicators.yml'
+description: 'Detects process creation activity related to Peach Sandstorm APT - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Peach-Sandstorm/peach_sandstorm_apt_process_activity_indicators.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

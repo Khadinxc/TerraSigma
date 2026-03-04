@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "wusa_exe_executed_by_parent_pr
   name                       = "wusa_exe_executed_by_parent_process_located_in_suspicious_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Wusa.EXE Executed By Parent Process Located In Suspicious Location"
-  description                = "Detects execution of the \"wusa.exe\" (Windows Update Standalone Installer) utility by a parent process that is located in a suspicious location. Attackers could instantiate an instance of \"wusa.exe\" in order to bypass User Account Control (UAC). They can duplicate the access token from \"wusa.exe\" to gain elevated privileges. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wusa_exe_executed_by_parent_process_located_in_suspicious_location.yml"
+  description                = "Detects execution of the \"wusa.exe\" (Windows Update Standalone Installer) utility by a parent process that is located in a suspicious location. Attackers could instantiate an instance of \"wusa.exe\" in order to bypass User Account Control (UAC). They can duplicate the access token from \"wusa.exe\" to gain elevated privileges. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wusa_exe_executed_by_parent_process_located_in_suspicious_location.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

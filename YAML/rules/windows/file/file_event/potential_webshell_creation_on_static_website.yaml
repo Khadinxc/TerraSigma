@@ -1,6 +1,6 @@
 id: 975dcfb7-bad2-54be-92ca-c011dd72884b
 name: Potential Webshell Creation On Static Website
-description: 'Detects the creation of files with certain extensions on a static web site. This can be indicative of potential uploads of a web shell. - Legitimate administrator or developer creating legitimate executable files in a web application folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_webshell_creation_on_static_website.yml'
+description: 'Detects the creation of files with certain extensions on a static web site. This can be indicative of potential uploads of a web shell. - Legitimate administrator or developer creating legitimate executable files in a web application folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_webshell_creation_on_static_website.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

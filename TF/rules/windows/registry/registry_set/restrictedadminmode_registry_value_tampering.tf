@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "restrictedadminmode_registry_v
   name                       = "restrictedadminmode_registry_value_tampering"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "RestrictedAdminMode Registry Value Tampering"
-  description                = "Detects changes to the \"DisableRestrictedAdmin\" registry value in order to disable or enable RestrictedAdmin mode. RestrictedAdmin mode prevents the transmission of reusable credentials to the remote system to which you connect using Remote Desktop. This prevents your credentials from being harvested during the initial connection process if the remote server has been compromise | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/restrictedadminmode_registry_value_tampering.yml"
+  description                = "Detects changes to the \"DisableRestrictedAdmin\" registry value in order to disable or enable RestrictedAdmin mode. RestrictedAdmin mode prevents the transmission of reusable credentials to the remote system to which you connect using Remote Desktop. This prevents your credentials from being harvested during the initial connection process if the remote server has been compromise | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/restrictedadminmode_registry_value_tampering.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

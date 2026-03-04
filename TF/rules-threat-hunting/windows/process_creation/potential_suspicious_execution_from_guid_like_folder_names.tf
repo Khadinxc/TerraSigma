@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_suspicious_execution
   name                       = "potential_suspicious_execution_from_guid_like_folder_names"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Suspicious Execution From GUID Like Folder Names"
-  description                = "Detects potential suspicious execution of a GUID like folder name located in a suspicious location such as %TEMP% as seen being used in IcedID attacks. Use this rule to hunt for potentially suspicious activity stemming from uncommon folders. - Installers are sometimes known for creating temporary folders with GUID like names. Add appropriate filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/potential_suspicious_execution_from_guid_like_folder_names.yml"
+  description                = "Detects potential suspicious execution of a GUID like folder name located in a suspicious location such as %TEMP% as seen being used in IcedID attacks. Use this rule to hunt for potentially suspicious activity stemming from uncommon folders. - Installers are sometimes known for creating temporary folders with GUID like names. Add appropriate filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/potential_suspicious_execution_from_guid_like_folder_names.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

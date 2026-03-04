@@ -1,6 +1,6 @@
 id: edd7f843-bdfe-555f-aacd-f5c5c92f959e
 name: Potential Perl Reverse Shell Execution
-description: 'Detects execution of the perl binary with the "-e" flag and common strings related to potential reverse shell activity - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potential_perl_reverse_shell_execution.yml'
+description: 'Detects execution of the perl binary with the "-e" flag and common strings related to potential reverse shell activity - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potential_perl_reverse_shell_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

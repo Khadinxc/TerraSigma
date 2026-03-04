@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_commandline_obfuscat
   name                       = "potential_commandline_obfuscation_using_escape_characters"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Commandline Obfuscation Using Escape Characters"
-  description                = "Detects potential commandline obfuscation using known escape characters | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_commandline_obfuscation_using_escape_characters.yml"
+  description                = "Detects potential commandline obfuscation using known escape characters | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_commandline_obfuscation_using_escape_characters.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

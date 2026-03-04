@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "ps_exe_renamed_sysinternals_to
   name                       = "ps_exe_renamed_sysinternals_tool"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Ps.exe Renamed SysInternals Tool"
-  description                = "Detects renamed SysInternals tool execution with a binary named ps.exe as used by Dragonfly APT group and documented in TA17-293A report - Renamed SysInternals tool | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Dragonfly/ps_exe_renamed_sysinternals_tool.yml"
+  description                = "Detects renamed SysInternals tool execution with a binary named ps.exe as used by Dragonfly APT group and documented in TA17-293A report - Renamed SysInternals tool | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Dragonfly/ps_exe_renamed_sysinternals_tool.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

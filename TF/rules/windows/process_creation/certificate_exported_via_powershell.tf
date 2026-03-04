@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "certificate_exported_via_power
   name                       = "certificate_exported_via_powershell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Certificate Exported Via PowerShell"
-  description                = "Detects calls to cmdlets that are used to export certificates from the local certificate store. Threat actors were seen abusing this to steal private keys from compromised machines. - Legitimate certificate exports by administrators. Additional filters might be required. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/certificate_exported_via_powershell.yml"
+  description                = "Detects calls to cmdlets that are used to export certificates from the local certificate store. Threat actors were seen abusing this to steal private keys from compromised machines. - Legitimate certificate exports by administrators. Additional filters might be required. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/certificate_exported_via_powershell.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

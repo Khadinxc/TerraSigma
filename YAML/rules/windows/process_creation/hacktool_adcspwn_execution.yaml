@@ -1,6 +1,6 @@
 id: 41b8e470-69d7-57e3-86c2-47f186b00675
 name: HackTool - ADCSPwn Execution
-description: 'Detects command line parameters used by ADCSPwn, a tool to escalate privileges in an active directory network by coercing authenticate from machine accounts and relaying to the certificate service - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_adcspwn_execution.yml'
+description: 'Detects command line parameters used by ADCSPwn, a tool to escalate privileges in an active directory network by coercing authenticate from machine accounts and relaying to the certificate service - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_adcspwn_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

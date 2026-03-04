@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uncommon_system_information_di
   name                       = "uncommon_system_information_discovery_via_wmic_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon System Information Discovery Via Wmic.EXE"
-  description                = "Detects the use of the WMI command-line (WMIC) utility to identify and display various system information, including OS, CPU, GPU, and disk drive names; memory capacity; display resolution; and baseboard, BIOS, and GPU driver products/versions. Some of these commands were used by Aurora Stealer in late 2022/early 2023. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_system_information_discovery_via_wmic_exe.yml"
+  description                = "Detects the use of the WMI command-line (WMIC) utility to identify and display various system information, including OS, CPU, GPU, and disk drive names; memory capacity; display resolution; and baseboard, BIOS, and GPU driver products/versions. Some of these commands were used by Aurora Stealer in late 2022/early 2023. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_system_information_discovery_via_wmic_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

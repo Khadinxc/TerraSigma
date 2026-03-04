@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "add_potential_suspicious_new_d
   name                       = "add_potential_suspicious_new_download_source_to_winget"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Add Potential Suspicious New Download Source To Winget"
-  description                = "Detects usage of winget to add new potentially suspicious download sources | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/add_potential_suspicious_new_download_source_to_winget.yml"
+  description                = "Detects usage of winget to add new potentially suspicious download sources | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/add_potential_suspicious_new_download_source_to_winget.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

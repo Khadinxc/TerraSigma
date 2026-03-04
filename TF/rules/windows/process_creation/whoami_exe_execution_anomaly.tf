@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "whoami_exe_execution_anomaly" 
   name                       = "whoami_exe_execution_anomaly"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Whoami.EXE Execution Anomaly"
-  description                = "Detects the execution of whoami.exe with suspicious parent processes. - Admin activity - Scripts and administrative tools used in the monitored environment - Monitoring activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/whoami_exe_execution_anomaly.yml"
+  description                = "Detects the execution of whoami.exe with suspicious parent processes. - Admin activity - Scripts and administrative tools used in the monitored environment - Monitoring activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/whoami_exe_execution_anomaly.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

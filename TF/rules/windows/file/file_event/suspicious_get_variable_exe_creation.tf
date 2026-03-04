@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_get_variable_exe_cr
   name                       = "suspicious_get_variable_exe_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Get-Variable.exe Creation"
-  description                = "Get-Variable is a valid PowerShell cmdlet WindowsApps is by default in the path where PowerShell is executed. So when the Get-Variable command is issued on PowerShell execution, the system first looks for the Get-Variable executable in the path and executes the malicious binary instead of looking for the PowerShell cmdlet. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_get_variable_exe_creation.yml"
+  description                = "Get-Variable is a valid PowerShell cmdlet WindowsApps is by default in the path where PowerShell is executed. So when the Get-Variable command is issued on PowerShell execution, the system first looks for the Get-Variable executable in the path and executes the malicious binary instead of looking for the PowerShell cmdlet. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_get_variable_exe_creation.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

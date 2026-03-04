@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "capsh_shell_invocation_linux" 
   name                       = "capsh_shell_invocation_linux"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Capsh Shell Invocation - Linux"
-  description                = "Detects the use of the \"capsh\" utility to invoke a shell. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/capsh_shell_invocation_linux.yml"
+  description                = "Detects the use of the \"capsh\" utility to invoke a shell. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/capsh_shell_invocation_linux.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

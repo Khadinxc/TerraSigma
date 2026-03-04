@@ -1,6 +1,6 @@
 id: 07a071fb-0819-5927-8e46-da3c5c9d929e
 name: Enabling COR Profiler Environment Variables
-description: 'Detects .NET Framework CLR and .NET Core CLR "cor_enable_profiling" and "cor_profiler" variables being set and configured. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/enabling_cor_profiler_environment_variables.yml'
+description: 'Detects .NET Framework CLR and .NET Core CLR "cor_enable_profiling" and "cor_profiler" variables being set and configured. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/enabling_cor_profiler_environment_variables.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

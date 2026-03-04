@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "curl_web_request_with_potentia
   name                       = "curl_web_request_with_potential_custom_user_agent"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Curl Web Request With Potential Custom User-Agent"
-  description                = "Detects execution of \"curl.exe\" with a potential custom \"User-Agent\". Attackers can leverage this to download or exfiltrate data via \"curl\" to a domain that only accept specific \"User-Agent\" strings | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/curl_web_request_with_potential_custom_user_agent.yml"
+  description                = "Detects execution of \"curl.exe\" with a potential custom \"User-Agent\". Attackers can leverage this to download or exfiltrate data via \"curl\" to a domain that only accept specific \"User-Agent\" strings | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/curl_web_request_with_potential_custom_user_agent.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: 1ca22382-b9fe-5d62-9e8a-adbceb7d816a
 name: Narrator's Feedback-Hub Persistence
-description: 'Detects abusing Windows 10 Narrator''s Feedback-Hub | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/narrator_s_feedback_hub_persistence.yml'
+description: 'Detects abusing Windows 10 Narrator''s Feedback-Hub | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/narrator_s_feedback_hub_persistence.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

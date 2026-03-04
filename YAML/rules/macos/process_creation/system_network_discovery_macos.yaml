@@ -1,6 +1,6 @@
 id: ab3671cb-d335-5df2-954b-46afe1f80482
 name: System Network Discovery - macOS
-description: 'Detects enumeration of local network configuration - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/system_network_discovery_macos.yml'
+description: 'Detects enumeration of local network configuration - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/system_network_discovery_macos.tf'
 severity: Informational
 queryFrequency: PT1H
 queryPeriod: PT1H

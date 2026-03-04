@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "jscript_compiler_execution" {
   name                       = "jscript_compiler_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "JScript Compiler Execution"
-  description                = "Detects the execution of the \"jsc.exe\" (JScript Compiler). Attacker might abuse this in order to compile JScript files on the fly and bypassing application whitelisting. - Legitimate use to compile JScript by developers. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/jscript_compiler_execution.yml"
+  description                = "Detects the execution of the \"jsc.exe\" (JScript Compiler). Attacker might abuse this in order to compile JScript files on the fly and bypassing application whitelisting. - Legitimate use to compile JScript by developers. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/jscript_compiler_execution.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

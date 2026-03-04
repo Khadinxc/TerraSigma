@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_electro
   name                       = "potentially_suspicious_electron_application_commandline"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Electron Application CommandLine"
-  description                = "Detects potentially suspicious CommandLine of electron apps (teams, discord, slack, etc.). This could be a sign of abuse to proxy execution through a signed binary. - Legitimate usage for debugging purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_electron_application_commandline.yml"
+  description                = "Detects potentially suspicious CommandLine of electron apps (teams, discord, slack, etc.). This could be a sign of abuse to proxy execution through a signed binary. - Legitimate usage for debugging purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_electron_application_commandline.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

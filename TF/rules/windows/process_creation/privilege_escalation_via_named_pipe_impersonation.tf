@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "privilege_escalation_via_named
   name                       = "privilege_escalation_via_named_pipe_impersonation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Privilege Escalation via Named Pipe Impersonation"
-  description                = "Detects a remote file copy attempt to a hidden network share. This may indicate lateral movement or data staging activity. - Other programs that cause these patterns (please report) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/privilege_escalation_via_named_pipe_impersonation.yml"
+  description                = "Detects a remote file copy attempt to a hidden network share. This may indicate lateral movement or data staging activity. - Other programs that cause these patterns (please report) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/privilege_escalation_via_named_pipe_impersonation.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

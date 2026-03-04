@@ -1,6 +1,6 @@
 id: 35474d17-353b-5f11-9f36-37c540006dc5
 name: VBA DLL Loaded Via Office Application
-description: 'Detects VB DLL''s loaded by an office application. Which could indicate the presence of VBA Macros. - Legitimate macro usage. Add the appropriate filter according to your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/vba_dll_loaded_via_office_application.yml'
+description: 'Detects VB DLL''s loaded by an office application. Which could indicate the presence of VBA Macros. - Legitimate macro usage. Add the appropriate filter according to your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/vba_dll_loaded_via_office_application.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

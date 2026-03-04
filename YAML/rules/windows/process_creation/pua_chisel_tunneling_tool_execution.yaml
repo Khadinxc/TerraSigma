@@ -1,6 +1,6 @@
 id: c6492113-45a4-5afc-b41a-14780df14b3a
 name: PUA - Chisel Tunneling Tool Execution
-description: 'Detects usage of the Chisel tunneling tool via the commandline arguments - Some false positives may occur with other tools with similar commandlines | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_chisel_tunneling_tool_execution.yml'
+description: 'Detects usage of the Chisel tunneling tool via the commandline arguments - Some false positives may occur with other tools with similar commandlines | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_chisel_tunneling_tool_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

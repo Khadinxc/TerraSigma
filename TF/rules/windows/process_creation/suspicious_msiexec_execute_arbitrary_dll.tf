@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_msiexec_execute_arb
   name                       = "suspicious_msiexec_execute_arbitrary_dll"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Msiexec Execute Arbitrary DLL"
-  description                = "Adversaries may abuse msiexec.exe to proxy execution of malicious payloads. Msiexec.exe is the command-line utility for the Windows Installer and is thus commonly associated with executing installation packages (.msi) - Legitimate script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_msiexec_execute_arbitrary_dll.yml"
+  description                = "Adversaries may abuse msiexec.exe to proxy execution of malicious payloads. Msiexec.exe is the command-line utility for the Windows Installer and is thus commonly associated with executing installation packages (.msi) - Legitimate script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_msiexec_execute_arbitrary_dll.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: 146021f2-a65c-53ce-9ce5-bf633bed906d
 name: Script Event Consumer Spawning Process
-description: 'Detects a suspicious child process of Script Event Consumer (scrcons.exe). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/script_event_consumer_spawning_process.yml'
+description: 'Detects a suspicious child process of Script Event Consumer (scrcons.exe). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/script_event_consumer_spawning_process.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

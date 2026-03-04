@@ -1,6 +1,6 @@
 id: 40e8830c-180e-5109-8b0c-06dc013dd899
 name: SysKey Registry Keys Access
-description: 'Detects handle requests and access operations to specific registry keys to calculate the SysKey | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/syskey_registry_keys_access.yml'
+description: 'Detects handle requests and access operations to specific registry keys to calculate the SysKey | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/syskey_registry_keys_access.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

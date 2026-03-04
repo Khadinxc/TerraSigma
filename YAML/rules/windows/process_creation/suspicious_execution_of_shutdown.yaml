@@ -1,6 +1,6 @@
 id: 1682428c-c1bd-511a-b0b1-5212c04a110f
 name: Suspicious Execution of Shutdown
-description: 'Use of the commandline to shutdown or reboot windows | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_execution_of_shutdown.yml'
+description: 'Use of the commandline to shutdown or reboot windows | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_execution_of_shutdown.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

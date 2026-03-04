@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uncommon_file_created_in_offic
   name                       = "uncommon_file_created_in_office_startup_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon File Created In Office Startup Folder"
-  description                = "Detects the creation of a file with an uncommon extension in an Office application startup folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/uncommon_file_created_in_office_startup_folder.yml"
+  description                = "Detects the creation of a file with an uncommon extension in an Office application startup folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/uncommon_file_created_in_office_startup_folder.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

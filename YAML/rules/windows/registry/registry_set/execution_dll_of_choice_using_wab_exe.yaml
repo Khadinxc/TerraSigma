@@ -1,6 +1,6 @@
 id: bf0720ad-52b0-51f3-8f85-639699801285
 name: Execution DLL of Choice Using WAB.EXE
-description: 'This rule detects that the path to the DLL written in the registry is different from the default one. Launched WAB.exe tries to load the DLL from Registry. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/execution_dll_of_choice_using_wab_exe.yml'
+description: 'This rule detects that the path to the DLL written in the registry is different from the default one. Launched WAB.exe tries to load the DLL from Registry. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/execution_dll_of_choice_using_wab_exe.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

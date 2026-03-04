@@ -1,6 +1,6 @@
 id: 5c58615e-b21e-5ea2-b5f8-c4107acdd7f0
 name: Uncommon Svchost Command Line Parameter
-description: 'Detects instances of svchost.exe running with an unusual or uncommon command line parameter by excluding known legitimate or common patterns. This could point at a file masquerading as svchost, a process injection, or hollowing of a legitimate svchost instance. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_svchost_command_line_parameter.yml'
+description: 'Detects instances of svchost.exe running with an unusual or uncommon command line parameter by excluding known legitimate or common patterns. This could point at a file masquerading as svchost, a process injection, or hollowing of a legitimate svchost instance. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_svchost_command_line_parameter.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: ac2b0d26-cbb9-59f7-bf0c-b85a038b4020
 name: Sticky Key Like Backdoor Execution
-description: 'Detects the usage and installation of a backdoor that uses an option to register a malicious debugger for built-in tools that are accessible in the login screen - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sticky_key_like_backdoor_execution.yml'
+description: 'Detects the usage and installation of a backdoor that uses an option to register a malicious debugger for built-in tools that are accessible in the login screen - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sticky_key_like_backdoor_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 0a253fe7-9ce2-5897-bee4-86e7a303f973
 name: Potential Persistence Via MyComputer Registry Keys
-description: 'Detects modification to the "Default" value of the "MyComputer" key and subkeys to point to a custom binary that will be launched whenever the associated action is executed (see reference section for example) - Unlikely but if you experience FPs add specific processes and locations you would like to monitor for | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_mycomputer_registry_keys.yml'
+description: 'Detects modification to the "Default" value of the "MyComputer" key and subkeys to point to a custom binary that will be launched whenever the associated action is executed (see reference section for example) - Unlikely but if you experience FPs add specific processes and locations you would like to monitor for | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_mycomputer_registry_keys.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

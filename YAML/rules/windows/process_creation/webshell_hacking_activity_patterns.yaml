@@ -1,6 +1,6 @@
 id: 064a961b-de6f-58fe-8988-f2e5276b4f9e
 name: Webshell Hacking Activity Patterns
-description: 'Detects certain parent child patterns found in cases in which a web shell is used to perform certain credential dumping or exfiltration activities on a compromised system - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/webshell_hacking_activity_patterns.yml'
+description: 'Detects certain parent child patterns found in cases in which a web shell is used to perform certain credential dumping or exfiltration activities on a compromised system - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/webshell_hacking_activity_patterns.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

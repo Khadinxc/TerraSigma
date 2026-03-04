@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "deletion_of_volume_shadow_copi
   name                       = "deletion_of_volume_shadow_copies_via_wmi_with_powershell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Deletion of Volume Shadow Copies via WMI with PowerShell"
-  description                = "Detects deletion of Windows Volume Shadow Copies with PowerShell code and Get-WMIObject. This technique is used by numerous ransomware families such as Sodinokibi/REvil | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/deletion_of_volume_shadow_copies_via_wmi_with_powershell.yml"
+  description                = "Detects deletion of Windows Volume Shadow Copies with PowerShell code and Get-WMIObject. This technique is used by numerous ransomware families such as Sodinokibi/REvil | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/deletion_of_volume_shadow_copies_via_wmi_with_powershell.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

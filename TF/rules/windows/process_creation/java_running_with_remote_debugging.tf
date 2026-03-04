@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "java_running_with_remote_debug
   name                       = "java_running_with_remote_debugging"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Java Running with Remote Debugging"
-  description                = "Detects a JAVA process running with remote debugging allowing more than just localhost to connect | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/java_running_with_remote_debugging.yml"
+  description                = "Detects a JAVA process running with remote debugging allowing more than just localhost to connect | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/java_running_with_remote_debugging.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: 541295f5-eb39-5267-9c6a-f480e0771216
 name: Registry Modification to Hidden File Extension
-description: 'Hides the file extension through modification of the registry - Administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_modification_to_hidden_file_extension.yml'
+description: 'Hides the file extension through modification of the registry - Administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_modification_to_hidden_file_extension.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

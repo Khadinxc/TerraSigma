@@ -1,6 +1,6 @@
 id: a4a334ce-dd0f-5e61-bf33-0219e07eda5f
 name: Winrs Local Command Execution
-description: 'Detects the execution of Winrs.exe where it is used to execute commands locally. Commands executed this way are launched under Winrshost.exe and can represent proxy execution used for defense evasion or lateral movement. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/winrs_local_command_execution.yml'
+description: 'Detects the execution of Winrs.exe where it is used to execute commands locally. Commands executed this way are launched under Winrshost.exe and can represent proxy execution used for defense evasion or lateral movement. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/winrs_local_command_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

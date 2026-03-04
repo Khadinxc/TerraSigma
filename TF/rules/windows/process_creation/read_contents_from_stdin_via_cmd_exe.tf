@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "read_contents_from_stdin_via_c
   name                       = "read_contents_from_stdin_via_cmd_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Read Contents From Stdin Via Cmd.EXE"
-  description                = "Detect the use of \"<\" to read and potentially execute a file via cmd.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/read_contents_from_stdin_via_cmd_exe.yml"
+  description                = "Detect the use of \"<\" to read and potentially execute a file via cmd.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/read_contents_from_stdin_via_cmd_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

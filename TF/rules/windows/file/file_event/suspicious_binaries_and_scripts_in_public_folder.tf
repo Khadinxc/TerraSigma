@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_binaries_and_script
   name                       = "suspicious_binaries_and_scripts_in_public_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Binaries and Scripts in Public Folder"
-  description                = "Detects the creation of a file with a suspicious extension in the public folder, which could indicate potential malicious activity. - Administrators deploying legitimate binaries to public folders. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_binaries_and_scripts_in_public_folder.yml"
+  description                = "Detects the creation of a file with a suspicious extension in the public folder, which could indicate potential malicious activity. - Administrators deploying legitimate binaries to public folders. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_binaries_and_scripts_in_public_folder.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dllhost_exe_initiated_network_
   name                       = "dllhost_exe_initiated_network_connection_to_non_local_ip_address"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Dllhost.EXE Initiated Network Connection To Non-Local IP Address"
-  description                = "Detects Dllhost.EXE initiating a network connection to a non-local IP address. Aside from Microsoft own IP range that needs to be excluded. Network communication from Dllhost will depend entirely on the hosted DLL. An initial baseline is recommended before deployment. - Communication to other corporate systems that use IP addresses from public address spaces | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/dllhost_exe_initiated_network_connection_to_non_local_ip_address.yml"
+  description                = "Detects Dllhost.EXE initiating a network connection to a non-local IP address. Aside from Microsoft own IP range that needs to be excluded. Network communication from Dllhost will depend entirely on the hosted DLL. An initial baseline is recommended before deployment. - Communication to other corporate systems that use IP addresses from public address spaces | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/dllhost_exe_initiated_network_connection_to_non_local_ip_address.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

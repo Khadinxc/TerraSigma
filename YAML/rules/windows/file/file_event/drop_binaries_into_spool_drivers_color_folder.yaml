@@ -1,6 +1,6 @@
 id: 22df2c1f-abee-5491-b303-bcb1c89442b5
 name: Drop Binaries Into Spool Drivers Color Folder
-description: 'Detects the creation of suspcious binary files inside the "\windows\system32\spool\drivers\color\" as seen in the blog referenced below | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/drop_binaries_into_spool_drivers_color_folder.yml'
+description: 'Detects the creation of suspcious binary files inside the "\windows\system32\spool\drivers\color\" as seen in the blog referenced below | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/drop_binaries_into_spool_drivers_color_folder.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

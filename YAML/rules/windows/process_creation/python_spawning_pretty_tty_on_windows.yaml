@@ -1,6 +1,6 @@
 id: 86772f35-4865-5ec1-9f97-edf295f1aad0
 name: Python Spawning Pretty TTY on Windows
-description: 'Detects python spawning a pretty tty | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/python_spawning_pretty_tty_on_windows.yml'
+description: 'Detects python spawning a pretty tty | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/python_spawning_pretty_tty_on_windows.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

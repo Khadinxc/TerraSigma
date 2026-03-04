@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_active_directory_enu
   name                       = "potential_active_directory_enumeration_using_ad_module_proccreation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Active Directory Enumeration Using AD Module - ProcCreation"
-  description                = "Detects usage of the \"Import-Module\" cmdlet to load the \"Microsoft.ActiveDirectory.Management.dl\" DLL. Which is often used by attackers to perform AD enumeration. - Legitimate use of the library for administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_active_directory_enumeration_using_ad_module_proccreation.yml"
+  description                = "Detects usage of the \"Import-Module\" cmdlet to load the \"Microsoft.ActiveDirectory.Management.dl\" DLL. Which is often used by attackers to perform AD enumeration. - Legitimate use of the library for administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_active_directory_enumeration_using_ad_module_proccreation.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "renamed_sysinternals_debugview
   name                       = "renamed_sysinternals_debugview_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed SysInternals DebugView Execution"
-  description                = "Detects suspicious renamed SysInternals DebugView execution | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_sysinternals_debugview_execution.yml"
+  description                = "Detects suspicious renamed SysInternals DebugView execution | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_sysinternals_debugview_execution.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

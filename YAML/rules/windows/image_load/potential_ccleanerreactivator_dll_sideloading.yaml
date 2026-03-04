@@ -1,6 +1,6 @@
 id: efaf537b-9636-5a75-8bbf-c3e442c4a58d
 name: Potential CCleanerReactivator.DLL Sideloading
-description: 'Detects potential DLL sideloading of "CCleanerReactivator.dll" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_ccleanerreactivator_dll_sideloading.yml'
+description: 'Detects potential DLL sideloading of "CCleanerReactivator.dll" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_ccleanerreactivator_dll_sideloading.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

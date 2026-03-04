@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "esxi_system_information_discov
   name                       = "esxi_system_information_discovery_via_esxcli"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ESXi System Information Discovery Via ESXCLI"
-  description                = "Detects execution of the \"esxcli\" command with the \"system\" flag in order to retrieve information about the different component of the system. Such as accounts, modules, NTP, etc. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/esxi_system_information_discovery_via_esxcli.yml"
+  description                = "Detects execution of the \"esxcli\" command with the \"system\" flag in order to retrieve information about the different component of the system. Such as accounts, modules, NTP, etc. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/esxi_system_information_discovery_via_esxcli.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

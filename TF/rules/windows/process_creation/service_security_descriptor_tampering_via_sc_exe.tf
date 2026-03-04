@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "service_security_descriptor_ta
   name                       = "service_security_descriptor_tampering_via_sc_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Service Security Descriptor Tampering Via Sc.EXE"
-  description                = "Detection of sc.exe utility adding a new service with special permission which hides that service. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/service_security_descriptor_tampering_via_sc_exe.yml"
+  description                = "Detection of sc.exe utility adding a new service with special permission which hides that service. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/service_security_descriptor_tampering_via_sc_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

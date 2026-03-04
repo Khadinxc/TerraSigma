@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "raccine_uninstall" {
   name                       = "raccine_uninstall"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Raccine Uninstall"
-  description                = "Detects commands that indicate a Raccine removal from an end system. Raccine is a free ransomware protection tool. - Legitimate deinstallation by administrative staff | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/raccine_uninstall.yml"
+  description                = "Detects commands that indicate a Raccine removal from an end system. Raccine is a free ransomware protection tool. - Legitimate deinstallation by administrative staff | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/raccine_uninstall.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

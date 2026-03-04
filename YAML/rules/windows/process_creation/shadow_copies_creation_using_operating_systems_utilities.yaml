@@ -1,6 +1,6 @@
 id: 0df9b87c-8297-5982-bdcd-237a26023c51
 name: Shadow Copies Creation Using Operating Systems Utilities
-description: 'Shadow Copies creation using operating systems utilities, possible credential access - Legitimate administrator working with shadow copies, access for backup purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/shadow_copies_creation_using_operating_systems_utilities.yml'
+description: 'Shadow Copies creation using operating systems utilities, possible credential access - Legitimate administrator working with shadow copies, access for backup purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/shadow_copies_creation_using_operating_systems_utilities.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

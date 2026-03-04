@@ -1,6 +1,6 @@
 id: c129ec45-2ab1-5dbf-abdd-6b88189ee707
 name: Potential WinAPI Calls Via CommandLine
-description: 'Detects the use of WinAPI Functions via the commandline. As seen used by threat actors via the tool winapiexec - Some legitimate action or applications may use these functions. Investigate further to determine the legitimacy of the activity. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_winapi_calls_via_commandline.yml'
+description: 'Detects the use of WinAPI Functions via the commandline. As seen used by threat actors via the tool winapiexec - Some legitimate action or applications may use these functions. Investigate further to determine the legitimacy of the activity. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_winapi_calls_via_commandline.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

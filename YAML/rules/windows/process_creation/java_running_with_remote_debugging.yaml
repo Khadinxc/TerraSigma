@@ -1,6 +1,6 @@
 id: 8e958bc0-633a-565d-a57f-d54c5e5cde2b
 name: Java Running with Remote Debugging
-description: 'Detects a JAVA process running with remote debugging allowing more than just localhost to connect | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/java_running_with_remote_debugging.yml'
+description: 'Detects a JAVA process running with remote debugging allowing more than just localhost to connect | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/java_running_with_remote_debugging.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

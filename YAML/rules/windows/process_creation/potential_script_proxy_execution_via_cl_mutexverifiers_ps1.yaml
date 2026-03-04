@@ -1,6 +1,6 @@
 id: cd7ac1fe-3bc4-517f-adcb-8cd6d2fa8a5f
 name: Potential Script Proxy Execution Via CL_Mutexverifiers.ps1
-description: 'Detects the use of the Microsoft signed script "CL_mutexverifiers" to proxy the execution of additional PowerShell script commands | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_script_proxy_execution_via_cl_mutexverifiers_ps1.yml'
+description: 'Detects the use of the Microsoft signed script "CL_mutexverifiers" to proxy the execution of additional PowerShell script commands | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_script_proxy_execution_via_cl_mutexverifiers_ps1.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

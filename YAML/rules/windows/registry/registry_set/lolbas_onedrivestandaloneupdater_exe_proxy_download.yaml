@@ -1,6 +1,6 @@
 id: e3c6eb47-5554-52e5-bd31-55244ec3c767
 name: Lolbas OneDriveStandaloneUpdater.exe Proxy Download
-description: 'Detects setting a custom URL for OneDriveStandaloneUpdater.exe to download a file from the Internet without executing any anomalous executables with suspicious arguments. The downloaded file will be in C:\Users\redacted\AppData\Local\Microsoft\OneDrive\StandaloneUpdaterreSignInSettingsConfig.json | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/lolbas_onedrivestandaloneupdater_exe_proxy_download.yml'
+description: 'Detects setting a custom URL for OneDriveStandaloneUpdater.exe to download a file from the Internet without executing any anomalous executables with suspicious arguments. The downloaded file will be in C:\Users\redacted\AppData\Local\Microsoft\OneDrive\StandaloneUpdaterreSignInSettingsConfig.json | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/lolbas_onedrivestandaloneupdater_exe_proxy_download.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

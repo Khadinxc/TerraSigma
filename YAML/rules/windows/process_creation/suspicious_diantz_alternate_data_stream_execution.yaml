@@ -1,6 +1,6 @@
 id: 2b1c76fb-7e91-5790-9684-384e0e52571e
 name: Suspicious Diantz Alternate Data Stream Execution
-description: 'Compress target file into a cab file stored in the Alternate Data Stream (ADS) of the target file. - Very Possible | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_diantz_alternate_data_stream_execution.yml'
+description: 'Compress target file into a cab file stored in the Alternate Data Stream (ADS) of the target file. - Very Possible | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_diantz_alternate_data_stream_execution.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

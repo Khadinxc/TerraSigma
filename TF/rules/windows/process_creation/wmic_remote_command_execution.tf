@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "wmic_remote_command_execution"
   name                       = "wmic_remote_command_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WMIC Remote Command Execution"
-  description                = "Detects the execution of WMIC to query information on a remote system | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wmic_remote_command_execution.yml"
+  description                = "Detects the execution of WMIC to query information on a remote system | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wmic_remote_command_execution.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "winrar_execution_in_non_standa
   name                       = "winrar_execution_in_non_standard_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WinRAR Execution in Non-Standard Folder"
-  description                = "Detects a suspicious WinRAR execution in a folder which is not the default installation folder - Legitimate use of WinRAR in a folder of a software that bundles WinRAR | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/winrar_execution_in_non_standard_folder.yml"
+  description                = "Detects a suspicious WinRAR execution in a folder which is not the default installation folder - Legitimate use of WinRAR in a folder of a software that bundles WinRAR | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/winrar_execution_in_non_standard_folder.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

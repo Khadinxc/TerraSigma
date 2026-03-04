@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "renamed_schtasks_execution" {
   name                       = "renamed_schtasks_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed Schtasks Execution"
-  description                = "Detects the execution of renamed schtasks.exe binary, which is a legitimate Windows utility used for scheduling tasks. One of the very common persistence techniques is schedule malicious tasks using schtasks.exe. Since, it is heavily abused, it is also heavily monitored by security products. To evade detection, threat actors may rename the schtasks.exe binary to schedule their malicious tasks. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_schtasks_execution.yml"
+  description                = "Detects the execution of renamed schtasks.exe binary, which is a legitimate Windows utility used for scheduling tasks. One of the very common persistence techniques is schedule malicious tasks using schtasks.exe. Since, it is heavily abused, it is also heavily monitored by security products. To evade detection, threat actors may rename the schtasks.exe binary to schedule their malicious tasks. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_schtasks_execution.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

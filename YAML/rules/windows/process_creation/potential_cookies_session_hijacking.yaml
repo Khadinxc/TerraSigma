@@ -1,6 +1,6 @@
 id: c58cfa34-6e4d-5495-bd97-279780d536ed
 name: Potential Cookies Session Hijacking
-description: 'Detects execution of "curl.exe" with the "-c" flag in order to save cookie data. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_cookies_session_hijacking.yml'
+description: 'Detects execution of "curl.exe" with the "-c" flag in order to save cookie data. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_cookies_session_hijacking.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

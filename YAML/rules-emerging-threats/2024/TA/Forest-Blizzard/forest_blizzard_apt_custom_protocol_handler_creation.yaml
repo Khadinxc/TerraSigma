@@ -1,6 +1,6 @@
 id: 33b46193-a9f7-540d-aca6-a805a52c9a79
 name: Forest Blizzard APT - Custom Protocol Handler Creation
-description: 'Detects the setting of a custom protocol handler with the name "rogue". Seen being created by Forest Blizzard APT as reported by MSFT. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/forest_blizzard_apt_custom_protocol_handler_creation.yml'
+description: 'Detects the setting of a custom protocol handler with the name "rogue". Seen being created by Forest Blizzard APT as reported by MSFT. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/forest_blizzard_apt_custom_protocol_handler_creation.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

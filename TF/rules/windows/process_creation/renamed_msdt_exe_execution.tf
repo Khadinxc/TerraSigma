@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "renamed_msdt_exe_execution" {
   name                       = "renamed_msdt_exe_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed Msdt.EXE Execution"
-  description                = "Detects the execution of a renamed \"Msdt.exe\" binary - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_msdt_exe_execution.yml"
+  description                = "Detects the execution of a renamed \"Msdt.exe\" binary - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_msdt_exe_execution.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

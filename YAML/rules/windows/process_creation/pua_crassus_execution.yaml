@@ -1,6 +1,6 @@
 id: 6db34c3a-170a-5ab5-a649-f88e5cb00913
 name: PUA - Crassus Execution
-description: 'Detects Crassus, a Windows privilege escalation discovery tool, based on PE metadata characteristics. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_crassus_execution.yml'
+description: 'Detects Crassus, a Windows privilege escalation discovery tool, based on PE metadata characteristics. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_crassus_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

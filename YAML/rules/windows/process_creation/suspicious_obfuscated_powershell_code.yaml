@@ -1,6 +1,6 @@
 id: 3e582cbc-4956-5f52-a34b-98036a8063dd
 name: Suspicious Obfuscated PowerShell Code
-description: 'Detects suspicious UTF16 and base64 encoded and often obfuscated PowerShell code often used in command lines | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_obfuscated_powershell_code.yml'
+description: 'Detects suspicious UTF16 and base64 encoded and often obfuscated PowerShell code often used in command lines | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_obfuscated_powershell_code.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

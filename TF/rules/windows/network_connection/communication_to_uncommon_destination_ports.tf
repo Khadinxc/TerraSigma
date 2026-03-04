@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "communication_to_uncommon_dest
   name                       = "communication_to_uncommon_destination_ports"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Communication To Uncommon Destination Ports"
-  description                = "Detects programs that connect to uncommon destination ports | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/communication_to_uncommon_destination_ports.yml"
+  description                = "Detects programs that connect to uncommon destination ports | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/communication_to_uncommon_destination_ports.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

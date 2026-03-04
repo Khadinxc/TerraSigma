@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_nimgrab_execution" {
   name                       = "pua_nimgrab_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Nimgrab Execution"
-  description                = "Detects the usage of nimgrab, a tool bundled with the Nim programming framework and used for downloading files. - Legitimate use of Nim on a developer systems | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_nimgrab_execution.yml"
+  description                = "Detects the usage of nimgrab, a tool bundled with the Nim programming framework and used for downloading files. - Legitimate use of Nim on a developer systems | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_nimgrab_execution.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

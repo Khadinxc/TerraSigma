@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_mfdetours_dll_sidelo
   name                       = "potential_mfdetours_dll_sideloading"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Mfdetours.DLL Sideloading"
-  description                = "Detects potential DLL sideloading of \"mfdetours.dll\". While using \"mftrace.exe\" it can be abused to attach to an arbitrary process and force load any DLL named \"mfdetours.dll\" from the current directory of execution. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_mfdetours_dll_sideloading.yml"
+  description                = "Detects potential DLL sideloading of \"mfdetours.dll\". While using \"mftrace.exe\" it can be abused to attach to an arbitrary process and force load any DLL named \"mfdetours.dll\" from the current directory of execution. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_mfdetours_dll_sideloading.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

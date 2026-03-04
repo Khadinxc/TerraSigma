@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_execution_of_instal
   name                       = "suspicious_execution_of_installutil_without_log"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Execution of InstallUtil Without Log"
-  description                = "Uses the .NET InstallUtil.exe application in order to execute image without log | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_execution_of_installutil_without_log.yml"
+  description                = "Uses the .NET InstallUtil.exe application in order to execute image without log | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_execution_of_installutil_without_log.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

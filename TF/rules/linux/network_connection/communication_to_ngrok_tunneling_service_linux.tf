@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "communication_to_ngrok_tunneli
   name                       = "communication_to_ngrok_tunneling_service_linux"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Communication To Ngrok Tunneling Service - Linux"
-  description                = "Detects an executable accessing an ngrok tunneling endpoint, which could be a sign of forbidden exfiltration of data exfiltration by malicious actors - Legitimate use of ngrok | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/network_connection/communication_to_ngrok_tunneling_service_linux.yml"
+  description                = "Detects an executable accessing an ngrok tunneling endpoint, which could be a sign of forbidden exfiltration of data exfiltration by malicious actors - Legitimate use of ngrok | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/network_connection/communication_to_ngrok_tunneling_service_linux.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "cmstp_uac_bypass_via_com_objec
   name                       = "cmstp_uac_bypass_via_com_object_access"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "CMSTP UAC Bypass via COM Object Access"
-  description                = "Detects UAC Bypass Attempt Using Microsoft Connection Manager Profile Installer Autoelevate-capable COM Objects (e.g. UACMe ID of 41, 43, 58 or 65) - Legitimate CMSTP use (unlikely in modern enterprise environments) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/cmstp_uac_bypass_via_com_object_access.yml"
+  description                = "Detects UAC Bypass Attempt Using Microsoft Connection Manager Profile Installer Autoelevate-capable COM Objects (e.g. UACMe ID of 41, 43, 58 or 65) - Legitimate CMSTP use (unlikely in modern enterprise environments) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/cmstp_uac_bypass_via_com_object_access.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

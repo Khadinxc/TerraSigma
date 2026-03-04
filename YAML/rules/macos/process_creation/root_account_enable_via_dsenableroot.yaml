@@ -1,6 +1,6 @@
 id: 1d3e54a5-afe8-59bb-8039-17f7cc31539d
 name: Root Account Enable Via Dsenableroot
-description: 'Detects attempts to enable the root account via "dsenableroot" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/root_account_enable_via_dsenableroot.yml'
+description: 'Detects attempts to enable the root account via "dsenableroot" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/root_account_enable_via_dsenableroot.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

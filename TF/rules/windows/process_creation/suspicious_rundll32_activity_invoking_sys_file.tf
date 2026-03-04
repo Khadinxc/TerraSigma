@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_rundll32_activity_i
   name                       = "suspicious_rundll32_activity_invoking_sys_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Rundll32 Activity Invoking Sys File"
-  description                = "Detects suspicious process related to rundll32 based on command line that includes a *.sys file as seen being used by UNC2452 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_rundll32_activity_invoking_sys_file.yml"
+  description                = "Detects suspicious process related to rundll32 based on command line that includes a *.sys file as seen being used by UNC2452 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_rundll32_activity_invoking_sys_file.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "windows_hotfix_updates_reconna
   name                       = "windows_hotfix_updates_reconnaissance_via_wmic_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Hotfix Updates Reconnaissance Via Wmic.EXE"
-  description                = "Detects the execution of wmic with the \"qfe\" flag in order to obtain information about installed hotfix updates on the system. This is often used by pentester and attacker enumeration scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_hotfix_updates_reconnaissance_via_wmic_exe.yml"
+  description                = "Detects the execution of wmic with the \"qfe\" flag in order to obtain information about installed hotfix updates on the system. This is often used by pentester and attacker enumeration scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_hotfix_updates_reconnaissance_via_wmic_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

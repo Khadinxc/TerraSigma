@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_executi
   name                       = "potentially_suspicious_execution_from_tmp_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Execution From Tmp Folder"
-  description                = "Detects a potentially suspicious execution of a process located in the '/tmp/' folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potentially_suspicious_execution_from_tmp_folder.yml"
+  description                = "Detects a potentially suspicious execution of a process located in the '/tmp/' folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potentially_suspicious_execution_from_tmp_folder.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

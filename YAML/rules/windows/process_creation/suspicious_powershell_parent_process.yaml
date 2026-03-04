@@ -1,6 +1,6 @@
 id: f97cca01-dae4-59b8-84bf-48d96c7490bf
 name: Suspicious PowerShell Parent Process
-description: 'Detects a suspicious or uncommon parent processes of PowerShell - Other scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_powershell_parent_process.yml'
+description: 'Detects a suspicious or uncommon parent processes of PowerShell - Other scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_powershell_parent_process.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

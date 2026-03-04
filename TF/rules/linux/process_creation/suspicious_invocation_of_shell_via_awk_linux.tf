@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_invocation_of_shell
   name                       = "suspicious_invocation_of_shell_via_awk_linux"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Invocation of Shell via AWK - Linux"
-  description                = "Detects the execution of \"awk\" or it's sibling commands, to invoke a shell using the system() function. This behavior is commonly associated with attempts to execute arbitrary commands or escalate privileges, potentially leading to unauthorized access or further exploitation. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/suspicious_invocation_of_shell_via_awk_linux.yml"
+  description                = "Detects the execution of \"awk\" or it's sibling commands, to invoke a shell using the system() function. This behavior is commonly associated with attempts to execute arbitrary commands or escalate privileges, potentially leading to unauthorized access or further exploitation. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/suspicious_invocation_of_shell_via_awk_linux.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

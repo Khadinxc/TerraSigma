@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_persistence_via_visu
   name                       = "potential_persistence_via_visual_studio_tools_for_office"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Visual Studio Tools for Office"
-  description                = "Detects persistence via Visual Studio Tools for Office (VSTO) add-ins in Office applications. - Legitimate Addin Installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_visual_studio_tools_for_office.yml"
+  description                = "Detects persistence via Visual Studio Tools for Office (VSTO) add-ins in Office applications. - Legitimate Addin Installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_visual_studio_tools_for_office.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

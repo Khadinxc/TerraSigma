@@ -1,6 +1,6 @@
 id: d2ccaf7a-03f5-5ef0-84ed-5f40728f831f
 name: Network Connection Initiated By AddinUtil.EXE
-description: 'Detects a network connection initiated by the Add-In deployment cache updating utility "AddInutil.exe". This could indicate a potential command and control communication as this tool doesn''t usually initiate network activity. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/network_connection_initiated_by_addinutil_exe.yml'
+description: 'Detects a network connection initiated by the Add-In deployment cache updating utility "AddInutil.exe". This could indicate a potential command and control communication as this tool doesn''t usually initiate network activity. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/network_connection_initiated_by_addinutil_exe.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

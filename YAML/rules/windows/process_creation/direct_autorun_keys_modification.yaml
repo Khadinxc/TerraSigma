@@ -1,6 +1,6 @@
 id: a69f72f4-2bd4-532c-8626-37fd99cd5c56
 name: Direct Autorun Keys Modification
-description: 'Detects direct modification of autostart extensibility point (ASEP) in registry using reg.exe. - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reasons. - Legitimate administrator sets up autorun keys for legitimate reasons. - Discord | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/direct_autorun_keys_modification.yml'
+description: 'Detects direct modification of autostart extensibility point (ASEP) in registry using reg.exe. - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reasons. - Legitimate administrator sets up autorun keys for legitimate reasons. - Discord | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/direct_autorun_keys_modification.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

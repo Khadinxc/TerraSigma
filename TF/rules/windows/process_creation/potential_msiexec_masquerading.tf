@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_msiexec_masquerading
   name                       = "potential_msiexec_masquerading"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential MsiExec Masquerading"
-  description                = "Detects the execution of msiexec.exe from an uncommon directory | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_msiexec_masquerading.yml"
+  description                = "Detects the execution of msiexec.exe from an uncommon directory | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_msiexec_masquerading.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

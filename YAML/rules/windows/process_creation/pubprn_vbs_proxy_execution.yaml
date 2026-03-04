@@ -1,6 +1,6 @@
 id: 0e9c2291-a137-54ef-a106-38fc6d97214c
 name: Pubprn.vbs Proxy Execution
-description: 'Detects the use of the ''Pubprn.vbs'' Microsoft signed script to execute commands. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pubprn_vbs_proxy_execution.yml'
+description: 'Detects the use of the ''Pubprn.vbs'' Microsoft signed script to execute commands. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pubprn_vbs_proxy_execution.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

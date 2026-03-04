@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "whoami_exe_execution_from_priv
   name                       = "whoami_exe_execution_from_privileged_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Whoami.EXE Execution From Privileged Process"
-  description                = "Detects the execution of \"whoami.exe\" by privileged accounts that are often abused by threat actors | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/whoami_exe_execution_from_privileged_process.yml"
+  description                = "Detects the execution of \"whoami.exe\" by privileged accounts that are often abused by threat actors | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/whoami_exe_execution_from_privileged_process.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

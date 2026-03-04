@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_dll_injection_or_exe
   name                       = "potential_dll_injection_or_execution_using_tracker_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential DLL Injection Or Execution Using Tracker.exe"
-  description                = "Detects potential DLL injection and execution using \"Tracker.exe\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_dll_injection_or_execution_using_tracker_exe.yml"
+  description                = "Detects potential DLL injection and execution using \"Tracker.exe\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_dll_injection_or_execution_using_tracker_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

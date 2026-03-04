@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_application_whitelis
   name                       = "potential_application_whitelisting_bypass_via_dnx_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Application Whitelisting Bypass via Dnx.EXE"
-  description                = "Detects the execution of Dnx.EXE. The Dnx utility allows for the execution of C# code. Attackers might abuse this in order to bypass application whitelisting. - Legitimate use of dnx.exe by legitimate user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_application_whitelisting_bypass_via_dnx_exe.yml"
+  description                = "Detects the execution of Dnx.EXE. The Dnx utility allows for the execution of C# code. Attackers might abuse this in order to bypass application whitelisting. - Legitimate use of dnx.exe by legitimate user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_application_whitelisting_bypass_via_dnx_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

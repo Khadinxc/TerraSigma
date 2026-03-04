@@ -1,6 +1,6 @@
 id: e1d0bdde-f621-52bb-8711-a8d43b9d12e5
 name: File Download Via Bitsadmin To A Suspicious Target Folder
-description: 'Detects usage of bitsadmin downloading a file to a suspicious target folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_via_bitsadmin_to_a_suspicious_target_folder.yml'
+description: 'Detects usage of bitsadmin downloading a file to a suspicious target folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_via_bitsadmin_to_a_suspicious_target_folder.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

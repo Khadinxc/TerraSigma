@@ -1,6 +1,6 @@
 id: a582dd6e-a76d-509b-98ec-20bb6084b261
 name: Indirect Command Execution By Program Compatibility Wizard
-description: 'Detect indirect command execution via Program Compatibility Assistant pcwrun.exe - Need to use extra processing with ''unique_count'' / ''filter'' to focus on outliers as opposed to commonly seen artifacts - Legit usage of scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/indirect_command_execution_by_program_compatibility_wizard.yml'
+description: 'Detect indirect command execution via Program Compatibility Assistant pcwrun.exe - Need to use extra processing with ''unique_count'' / ''filter'' to focus on outliers as opposed to commonly seen artifacts - Legit usage of scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/indirect_command_execution_by_program_compatibility_wizard.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

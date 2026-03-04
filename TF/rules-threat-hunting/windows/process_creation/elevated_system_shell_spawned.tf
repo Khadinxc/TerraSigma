@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "elevated_system_shell_spawned"
   name                       = "elevated_system_shell_spawned"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Elevated System Shell Spawned"
-  description                = "Detects when a shell program such as the Windows command prompt or PowerShell is launched with system privileges. Use this rule to hunt for potential suspicious processes. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/elevated_system_shell_spawned.yml"
+  description                = "Detects when a shell program such as the Windows command prompt or PowerShell is launched with system privileges. Use this rule to hunt for potential suspicious processes. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/elevated_system_shell_spawned.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

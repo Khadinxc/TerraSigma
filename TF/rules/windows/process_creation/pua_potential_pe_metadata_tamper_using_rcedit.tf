@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_potential_pe_metadata_tamp
   name                       = "pua_potential_pe_metadata_tamper_using_rcedit"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Potential PE Metadata Tamper Using Rcedit"
-  description                = "Detects the use of rcedit to potentially alter executable PE metadata properties, which could conceal efforts to rename system utilities for defense evasion. - Legitimate use of the tool by administrators or users to update metadata of a binary | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_potential_pe_metadata_tamper_using_rcedit.yml"
+  description                = "Detects the use of rcedit to potentially alter executable PE metadata properties, which could conceal efforts to rename system utilities for defense evasion. - Legitimate use of the tool by administrators or users to update metadata of a binary | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_potential_pe_metadata_tamper_using_rcedit.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

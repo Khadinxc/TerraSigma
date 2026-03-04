@@ -1,6 +1,6 @@
 id: 6d478cff-4f80-5ade-8662-fd7cdb406580
 name: Network Communication With Crypto Mining Pool
-description: 'Detects initiated network connections to crypto mining pools - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/network_communication_with_crypto_mining_pool.yml'
+description: 'Detects initiated network connections to crypto mining pools - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/network_communication_with_crypto_mining_pool.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

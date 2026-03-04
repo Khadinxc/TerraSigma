@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_child_process_of_ve
   name                       = "suspicious_child_process_of_veeam_dabatase"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Child Process Of Veeam Dabatase"
-  description                = "Detects suspicious child processes of the Veeam service process. This could indicate potential RCE or SQL Injection. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_child_process_of_veeam_dabatase.yml"
+  description                = "Detects suspicious child processes of the Veeam service process. This could indicate potential RCE or SQL Injection. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_child_process_of_veeam_dabatase.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

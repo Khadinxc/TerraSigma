@@ -1,6 +1,6 @@
 id: 0699340f-3e04-5e4a-a0e5-52b0b64eec51
 name: HackTool - SharpView Execution
-description: 'Adversaries may look for details about the network configuration and settings of systems they access or through information discovery of remote systems | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_sharpview_execution.yml'
+description: 'Adversaries may look for details about the network configuration and settings of systems they access or through information discovery of remote systems | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_sharpview_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: b97dcc6b-75b1-517a-80a3-af5c94d9b16b
 name: Terminal Server Client Connection History Cleared - Registry
-description: 'Detects the deletion of registry keys containing the MSTSC connection history | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/terminal_server_client_connection_history_cleared_registry.yml'
+description: 'Detects the deletion of registry keys containing the MSTSC connection history | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/terminal_server_client_connection_history_cleared_registry.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

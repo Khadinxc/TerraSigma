@@ -1,6 +1,6 @@
 id: b447af7d-7509-57c0-95d8-6699cc657487
 name: PowerShell Base64 Encoded WMI Classes
-description: 'Detects calls to base64 encoded WMI class such as "Win32_ShadowCopy", "Win32_ScheduledJob", etc. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_base64_encoded_wmi_classes.yml'
+description: 'Detects calls to base64 encoded WMI class such as "Win32_ShadowCopy", "Win32_ScheduledJob", etc. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_base64_encoded_wmi_classes.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

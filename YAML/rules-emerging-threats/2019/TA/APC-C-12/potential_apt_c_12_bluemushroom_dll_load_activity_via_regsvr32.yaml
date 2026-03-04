@@ -1,6 +1,6 @@
 id: 957860ca-ef42-51d7-ad2f-8910c69f6124
 name: Potential APT-C-12 BlueMushroom DLL Load Activity Via Regsvr32
-description: 'Detects potential BlueMushroom DLL loading activity via regsvr32 from AppData Local | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/APC-C-12/potential_apt_c_12_bluemushroom_dll_load_activity_via_regsvr32.yml'
+description: 'Detects potential BlueMushroom DLL loading activity via regsvr32 from AppData Local | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/APC-C-12/potential_apt_c_12_bluemushroom_dll_load_activity_via_regsvr32.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uncommon_extension_shim_databa
   name                       = "uncommon_extension_shim_database_installation_via_sdbinst_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon Extension Shim Database Installation Via Sdbinst.EXE"
-  description                = "Detects installation of a potentially suspicious new shim with an uncommon extension using sdbinst.exe. Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by application shims | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_extension_shim_database_installation_via_sdbinst_exe.yml"
+  description                = "Detects installation of a potentially suspicious new shim with an uncommon extension using sdbinst.exe. Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by application shims | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_extension_shim_database_installation_via_sdbinst_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

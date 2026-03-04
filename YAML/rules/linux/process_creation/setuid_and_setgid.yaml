@@ -1,6 +1,6 @@
 id: e8272d99-db5a-5001-9d1c-f4b361ce5394
 name: Setuid and Setgid
-description: 'Detects suspicious change of file privileges with chown and chmod commands - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/setuid_and_setgid.yml'
+description: 'Detects suspicious change of file privileges with chown and chmod commands - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/setuid_and_setgid.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

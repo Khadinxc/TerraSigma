@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "system_network_connections_dis
   name                       = "system_network_connections_discovery_macos"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "System Network Connections Discovery - MacOs"
-  description                = "Detects usage of system utilities to discover system network connections - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/system_network_connections_discovery_macos.yml"
+  description                = "Detects usage of system utilities to discover system network connections - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/system_network_connections_discovery_macos.tf"
   severity                   = "Informational"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "usage_of_web_request_commands_
   name                       = "usage_of_web_request_commands_and_cmdlets"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Usage Of Web Request Commands And Cmdlets"
-  description                = "Detects the use of various web request commands with commandline tools and Windows PowerShell cmdlets (including aliases) via CommandLine - Use of Get-Command and Get-Help modules to reference Invoke-WebRequest and Start-BitsTransfer. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/usage_of_web_request_commands_and_cmdlets.yml"
+  description                = "Detects the use of various web request commands with commandline tools and Windows PowerShell cmdlets (including aliases) via CommandLine - Use of Get-Command and Get-Help modules to reference Invoke-WebRequest and Start-BitsTransfer. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/usage_of_web_request_commands_and_cmdlets.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

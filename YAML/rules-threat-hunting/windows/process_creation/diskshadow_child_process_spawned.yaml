@@ -1,6 +1,6 @@
 id: 88c704a1-6509-50a8-9a8b-bc164153f2da
 name: Diskshadow Child Process Spawned
-description: 'Detects any child process spawning from "Diskshadow.exe". This could be due to executing Diskshadow in interpreter mode or script mode and using the "exec" flag to launch other applications. - Likely from legitimate usage of Diskshadow in Interpreter mode. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/diskshadow_child_process_spawned.yml'
+description: 'Detects any child process spawning from "Diskshadow.exe". This could be due to executing Diskshadow in interpreter mode or script mode and using the "exec" flag to launch other applications. - Likely from legitimate usage of Diskshadow in Interpreter mode. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/diskshadow_child_process_spawned.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

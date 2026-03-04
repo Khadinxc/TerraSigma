@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uac_bypass_using_net_code_prof
   name                       = "uac_bypass_using_net_code_profiler_on_mmc"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass Using .NET Code Profiler on MMC"
-  description                = "Detects the pattern of UAC Bypass using .NET Code Profiler and mmc.exe DLL hijacking (UACMe 39) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/uac_bypass_using_net_code_profiler_on_mmc.yml"
+  description                = "Detects the pattern of UAC Bypass using .NET Code Profiler and mmc.exe DLL hijacking (UACMe 39) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/uac_bypass_using_net_code_profiler_on_mmc.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

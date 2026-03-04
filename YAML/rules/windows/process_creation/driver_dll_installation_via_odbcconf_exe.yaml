@@ -1,6 +1,6 @@
 id: 117a676a-73b9-5363-b61c-77bb31a7ebbc
 name: Driver/DLL Installation Via Odbcconf.EXE
-description: 'Detects execution of "odbcconf" with "INSTALLDRIVER" which installs a new ODBC driver. Attackers abuse this to install and run malicious DLLs. - Legitimate driver DLLs being registered via "odbcconf" will generate false positives. Investigate the path of the DLL and its contents to determine if the action is authorized. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/driver_dll_installation_via_odbcconf_exe.yml'
+description: 'Detects execution of "odbcconf" with "INSTALLDRIVER" which installs a new ODBC driver. Attackers abuse this to install and run malicious DLLs. - Legitimate driver DLLs being registered via "odbcconf" will generate false positives. Investigate the path of the DLL and its contents to determine if the action is authorized. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/driver_dll_installation_via_odbcconf_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

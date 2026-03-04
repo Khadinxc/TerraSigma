@@ -1,6 +1,6 @@
 id: 518d4384-5b2a-5667-a459-a0de182a3bdf
 name: Suspicious Speech Runtime Binary Child Process
-description: 'Detects suspicious Speech Runtime Binary Execution by monitoring its child processes. Child processes spawned by SpeechRuntime.exe could indicate an attempt for lateral movement via COM & DCOM hijacking. - Unlikely. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_speech_runtime_binary_child_process.yml'
+description: 'Detects suspicious Speech Runtime Binary Execution by monitoring its child processes. Child processes spawned by SpeechRuntime.exe could indicate an attempt for lateral movement via COM & DCOM hijacking. - Unlikely. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_speech_runtime_binary_child_process.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

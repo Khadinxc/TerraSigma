@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "local_groups_discovery_macos" 
   name                       = "local_groups_discovery_macos"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Local Groups Discovery - MacOs"
-  description                = "Detects enumeration of local system groups - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/local_groups_discovery_macos.yml"
+  description                = "Detects enumeration of local system groups - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/local_groups_discovery_macos.tf"
   severity                   = "Informational"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "security_software_discovery_li
   name                       = "security_software_discovery_linux"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Security Software Discovery - Linux"
-  description                = "Detects usage of system utilities (only grep and egrep for now) to discover security software discovery - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/security_software_discovery_linux.yml"
+  description                = "Detects usage of system utilities (only grep and egrep for now) to discover security software discovery - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/security_software_discovery_linux.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_recovery_from_backup_via_
   name                       = "file_recovery_from_backup_via_wbadmin_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Recovery From Backup Via Wbadmin.EXE"
-  description                = "Detects the recovery of files from backups via \"wbadmin.exe\". Attackers can restore sensitive files such as NTDS.DIT or Registry Hives from backups in order to potentially extract credentials. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_recovery_from_backup_via_wbadmin_exe.yml"
+  description                = "Detects the recovery of files from backups via \"wbadmin.exe\". Attackers can restore sensitive files such as NTDS.DIT or Registry Hives from backups in order to potentially extract credentials. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_recovery_from_backup_via_wbadmin_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

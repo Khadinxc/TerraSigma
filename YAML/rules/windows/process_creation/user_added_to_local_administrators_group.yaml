@@ -1,6 +1,6 @@
 id: 1f31323d-2d2e-5123-aefe-580db9542b01
 name: User Added to Local Administrators Group
-description: 'Detects addition of users to the local administrator group via "Net" or "Add-LocalGroupMember". - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/user_added_to_local_administrators_group.yml'
+description: 'Detects addition of users to the local administrator group via "Net" or "Add-LocalGroupMember". - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/user_added_to_local_administrators_group.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

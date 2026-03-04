@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "remote_chm_file_download_execu
   name                       = "remote_chm_file_download_execution_via_hh_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote CHM File Download/Execution Via HH.EXE"
-  description                = "Detects the usage of \"hh.exe\" to execute/download remotely hosted \".chm\" files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_chm_file_download_execution_via_hh_exe.yml"
+  description                = "Detects the usage of \"hh.exe\" to execute/download remotely hosted \".chm\" files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_chm_file_download_execution_via_hh_exe.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

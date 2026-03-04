@@ -1,6 +1,6 @@
 id: 34e658c8-5b62-54d1-9bf2-acbec328f2d7
 name: NTDS.DIT Creation By Uncommon Parent Process
-description: 'Detects creation of a file named "ntds.dit" (Active Directory Database) by an uncommon parent process or directory | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/ntds_dit_creation_by_uncommon_parent_process.yml'
+description: 'Detects creation of a file named "ntds.dit" (Active Directory Database) by an uncommon parent process or directory | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/ntds_dit_creation_by_uncommon_parent_process.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

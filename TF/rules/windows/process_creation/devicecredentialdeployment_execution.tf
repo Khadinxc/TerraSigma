@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "devicecredentialdeployment_exe
   name                       = "devicecredentialdeployment_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DeviceCredentialDeployment Execution"
-  description                = "Detects the execution of DeviceCredentialDeployment to hide a process from view. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/devicecredentialdeployment_execution.yml"
+  description                = "Detects the execution of DeviceCredentialDeployment to hide a process from view. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/devicecredentialdeployment_execution.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

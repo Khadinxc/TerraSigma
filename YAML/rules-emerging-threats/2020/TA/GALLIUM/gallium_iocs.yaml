@@ -1,6 +1,6 @@
 id: 3ef72db3-5765-5c35-81e0-1b12618eee51
 name: GALLIUM IOCs
-description: 'Detects artifacts associated with GALLIUM cyber espionage group as reported by Microsoft Threat Intelligence Center in the December 2019 report. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/GALLIUM/gallium_iocs.yml'
+description: 'Detects artifacts associated with GALLIUM cyber espionage group as reported by Microsoft Threat Intelligence Center in the December 2019 report. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/GALLIUM/gallium_iocs.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

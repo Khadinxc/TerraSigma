@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "remotely_hosted_hta_file_execu
   name                       = "remotely_hosted_hta_file_executed_via_mshta_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remotely Hosted HTA File Executed Via Mshta.EXE"
-  description                = "Detects execution of the \"mshta\" utility with an argument containing the \"http\" keyword, which could indicate that an attacker is executing a remotely hosted malicious hta file | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remotely_hosted_hta_file_executed_via_mshta_exe.yml"
+  description                = "Detects execution of the \"mshta\" utility with an argument containing the \"http\" keyword, which could indicate that an attacker is executing a remotely hosted malicious hta file | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remotely_hosted_hta_file_executed_via_mshta_exe.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_recursive_takeown" 
   name                       = "suspicious_recursive_takeown"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Recursive Takeown"
-  description                = "Adversaries can interact with the DACLs using built-in Windows commands takeown which can grant adversaries higher permissions on specific files and folders - Scripts created by developers and admins - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_recursive_takeown.yml"
+  description                = "Adversaries can interact with the DACLs using built-in Windows commands takeown which can grant adversaries higher permissions on specific files and folders - Scripts created by developers and admins - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_recursive_takeown.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "creation_of_an_executable_by_a
   name                       = "creation_of_an_executable_by_an_executable"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Creation of an Executable by an Executable"
-  description                = "Detects the creation of an executable by another executable. - Software installers - Update utilities - 32bit applications launching their 64bit versions | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/creation_of_an_executable_by_an_executable.yml"
+  description                = "Detects the creation of an executable by another executable. - Software installers - Update utilities - 32bit applications launching their 64bit versions | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/creation_of_an_executable_by_an_executable.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents

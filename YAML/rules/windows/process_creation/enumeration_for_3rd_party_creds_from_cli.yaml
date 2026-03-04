@@ -1,6 +1,6 @@
 id: 07f34f54-41b6-52dd-8d8e-dbb0a94b7981
 name: Enumeration for 3rd Party Creds From CLI
-description: 'Detects processes that query known 3rd party registry keys that holds credentials via commandline | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/enumeration_for_3rd_party_creds_from_cli.yml'
+description: 'Detects processes that query known 3rd party registry keys that holds credentials via commandline | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/enumeration_for_3rd_party_creds_from_cli.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

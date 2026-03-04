@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "add_new_download_source_to_win
   name                       = "add_new_download_source_to_winget"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Add New Download Source To Winget"
-  description                = "Detects usage of winget to add new additional download sources | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/add_new_download_source_to_winget.yml"
+  description                = "Detects usage of winget to add new additional download sources | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/add_new_download_source_to_winget.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

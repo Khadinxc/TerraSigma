@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_powershell_download
   name                       = "suspicious_powershell_download_and_execute_pattern"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious PowerShell Download and Execute Pattern"
-  description                = "Detects suspicious PowerShell download patterns that are often used in malicious scripts, stagers or downloaders (make sure that your backend applies the strings case-insensitive) - Software installers that pull packages from remote systems and execute them | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_powershell_download_and_execute_pattern.yml"
+  description                = "Detects suspicious PowerShell download patterns that are often used in malicious scripts, stagers or downloaders (make sure that your backend applies the strings case-insensitive) - Software installers that pull packages from remote systems and execute them | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_powershell_download_and_execute_pattern.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

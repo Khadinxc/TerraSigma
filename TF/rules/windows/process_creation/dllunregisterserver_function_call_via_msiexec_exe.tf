@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dllunregisterserver_function_c
   name                       = "dllunregisterserver_function_call_via_msiexec_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DllUnregisterServer Function Call Via Msiexec.EXE"
-  description                = "Detects MsiExec loading a DLL and calling its DllUnregisterServer function | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dllunregisterserver_function_call_via_msiexec_exe.yml"
+  description                = "Detects MsiExec loading a DLL and calling its DllUnregisterServer function | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dllunregisterserver_function_call_via_msiexec_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

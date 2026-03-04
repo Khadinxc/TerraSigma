@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_wsudo_suspicious_execution
   name                       = "pua_wsudo_suspicious_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Wsudo Suspicious Execution"
-  description                = "Detects usage of wsudo (Windows Sudo Utility). Which is a tool that let the user execute programs with different permissions (System, Trusted Installer, Administrator...etc) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_wsudo_suspicious_execution.yml"
+  description                = "Detects usage of wsudo (Windows Sudo Utility). Which is a tool that let the user execute programs with different permissions (System, Trusted Installer, Administrator...etc) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_wsudo_suspicious_execution.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

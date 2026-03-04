@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "microsoft_office_trusted_locat
   name                       = "microsoft_office_trusted_location_updated"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Microsoft Office Trusted Location Updated"
-  description                = "Detects changes to the registry keys related to \"Trusted Location\" of Microsoft Office. Attackers might add additional trusted locations to avoid macro security restrictions. - During office installations or setup, trusted locations are added, which will trigger this rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_set/microsoft_office_trusted_location_updated.yml"
+  description                = "Detects changes to the registry keys related to \"Trusted Location\" of Microsoft Office. Attackers might add additional trusted locations to avoid macro security restrictions. - During office installations or setup, trusted locations are added, which will trigger this rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_set/microsoft_office_trusted_location_updated.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

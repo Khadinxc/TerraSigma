@@ -1,6 +1,6 @@
 id: 94e72f94-95ac-58ec-9db9-7345eeb37ca8
 name: Creation of a Local Hidden User Account by Registry
-description: 'Sysmon registry detection of a local hidden user account. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/creation_of_a_local_hidden_user_account_by_registry.yml'
+description: 'Sysmon registry detection of a local hidden user account. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/creation_of_a_local_hidden_user_account_by_registry.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

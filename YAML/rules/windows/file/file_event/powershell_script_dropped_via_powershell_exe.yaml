@@ -1,6 +1,6 @@
 id: 8e7fe966-d26d-5648-a801-ecd9cda70e14
 name: PowerShell Script Dropped Via PowerShell.EXE
-description: 'Detects PowerShell creating a PowerShell file (.ps1). While often times this behavior is benign, sometimes it can be a sign of a dropper script trying to achieve persistence. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/powershell_script_dropped_via_powershell_exe.yml'
+description: 'Detects PowerShell creating a PowerShell file (.ps1). While often times this behavior is benign, sometimes it can be a sign of a dropper script trying to achieve persistence. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/powershell_script_dropped_via_powershell_exe.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

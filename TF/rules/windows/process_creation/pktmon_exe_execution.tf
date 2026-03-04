@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pktmon_exe_execution" {
   name                       = "pktmon_exe_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PktMon.EXE Execution"
-  description                = "Detects execution of PktMon, a tool that captures network packets. - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pktmon_exe_execution.yml"
+  description                = "Detects execution of PktMon, a tool that captures network packets. - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pktmon_exe_execution.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: eb7cafc7-0d34-554e-ab57-1f4253916d05
 name: Remote Access Tool - TacticalRMM Agent Registration to Potentially Attacker-Controlled Server
-description: 'Detects TacticalRMM agent installations where the --api, --auth, and related flags are used on the command line. These parameters configure the agent to connect to a specific RMM server with authentication, client ID, and site ID. This technique could indicate a threat actor attempting to register the agent with an attacker-controlled RMM infrastructure silently. - Legitimate system administrator deploying TacticalRMM | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_access_tool_tacticalrmm_agent_registration_to_potentially_attacker_controlled_server.yml'
+description: 'Detects TacticalRMM agent installations where the --api, --auth, and related flags are used on the command line. These parameters configure the agent to connect to a specific RMM server with authentication, client ID, and site ID. This technique could indicate a threat actor attempting to register the agent with an attacker-controlled RMM infrastructure silently. - Legitimate system administrator deploying TacticalRMM | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_access_tool_tacticalrmm_agent_registration_to_potentially_attacker_controlled_server.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

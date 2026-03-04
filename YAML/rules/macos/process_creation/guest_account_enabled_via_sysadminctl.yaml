@@ -1,6 +1,6 @@
 id: f2cdabe8-d03d-56f7-959a-311b2cafa2af
 name: Guest Account Enabled Via Sysadminctl
-description: 'Detects attempts to enable the guest account using the sysadminctl utility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/guest_account_enabled_via_sysadminctl.yml'
+description: 'Detects attempts to enable the guest account using the sysadminctl utility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/guest_account_enabled_via_sysadminctl.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

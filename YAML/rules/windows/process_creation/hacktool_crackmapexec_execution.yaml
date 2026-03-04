@@ -1,6 +1,6 @@
 id: 214dc7f4-8aab-5219-9f70-c33df5b8f58d
 name: HackTool - CrackMapExec Execution
-description: 'This rule detect common flag combinations used by CrackMapExec in order to detect its use even if the binary has been replaced. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_crackmapexec_execution.yml'
+description: 'This rule detect common flag combinations used by CrackMapExec in order to detect its use even if the binary has been replaced. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_crackmapexec_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

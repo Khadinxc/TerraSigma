@@ -1,6 +1,6 @@
 id: 72d986d5-3825-55a2-ae0e-237cab78bc0f
 name: Copy Passwd Or Shadow From TMP Path
-description: 'Detects when the file "passwd" or "shadow" is copied from tmp path | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/copy_passwd_or_shadow_from_tmp_path.yml'
+description: 'Detects when the file "passwd" or "shadow" is copied from tmp path | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/copy_passwd_or_shadow_from_tmp_path.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

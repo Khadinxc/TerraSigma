@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_persistence_via_plis
   name                       = "potential_persistence_via_plistbuddy"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via PlistBuddy"
-  description                = "Detects potential persistence activity using LaunchAgents or LaunchDaemons via the PlistBuddy utility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/potential_persistence_via_plistbuddy.yml"
+  description                = "Detects potential persistence activity using LaunchAgents or LaunchDaemons via the PlistBuddy utility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/potential_persistence_via_plistbuddy.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

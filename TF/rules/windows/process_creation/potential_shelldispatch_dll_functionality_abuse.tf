@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_shelldispatch_dll_fu
   name                       = "potential_shelldispatch_dll_functionality_abuse"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential ShellDispatch.DLL Functionality Abuse"
-  description                = "Detects potential \"ShellDispatch.dll\" functionality abuse to execute arbitrary binaries via \"ShellExecute\" - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_shelldispatch_dll_functionality_abuse.yml"
+  description                = "Detects potential \"ShellDispatch.dll\" functionality abuse to execute arbitrary binaries via \"ShellExecute\" - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_shelldispatch_dll_functionality_abuse.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

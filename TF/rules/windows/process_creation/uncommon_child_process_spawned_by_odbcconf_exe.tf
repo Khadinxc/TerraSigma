@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uncommon_child_process_spawned
   name                       = "uncommon_child_process_spawned_by_odbcconf_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon Child Process Spawned By Odbcconf.EXE"
-  description                = "Detects an uncommon child process of \"odbcconf.exe\" binary which normally shouldn't have any child processes. - In rare occurrences where \"odbcconf\" crashes. It might spawn a \"werfault\" process - Other child processes will depend on the DLL being registered by actions like \"regsvr\". In case where the DLLs have external calls (which should be rare). Other child processes might spawn and additional filters need to be applied. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_child_process_spawned_by_odbcconf_exe.yml"
+  description                = "Detects an uncommon child process of \"odbcconf.exe\" binary which normally shouldn't have any child processes. - In rare occurrences where \"odbcconf\" crashes. It might spawn a \"werfault\" process - Other child processes will depend on the DLL being registered by actions like \"regsvr\". In case where the DLLs have external calls (which should be rare). Other child processes might spawn and additional filters need to be applied. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_child_process_spawned_by_odbcconf_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

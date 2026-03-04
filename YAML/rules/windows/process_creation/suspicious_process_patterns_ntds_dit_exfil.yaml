@@ -1,6 +1,6 @@
 id: c6bb8ea7-dee2-50d6-9825-957ea580e472
 name: Suspicious Process Patterns NTDS.DIT Exfil
-description: 'Detects suspicious process patterns used in NTDS.DIT exfiltration | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_process_patterns_ntds_dit_exfil.yml'
+description: 'Detects suspicious process patterns used in NTDS.DIT exfiltration | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_process_patterns_ntds_dit_exfil.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

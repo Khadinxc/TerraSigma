@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "renamed_boinc_client_execution
   name                       = "renamed_boinc_client_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed BOINC Client Execution"
-  description                = "Detects the execution of a renamed BOINC binary. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_boinc_client_execution.yml"
+  description                = "Detects the execution of a renamed BOINC binary. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_boinc_client_execution.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

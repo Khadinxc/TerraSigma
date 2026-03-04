@@ -1,6 +1,6 @@
 id: abe35041-d5f5-51be-ba6f-73a615d7b79b
 name: Query Usage To Exfil Data
-description: 'Detects usage of "query.exe" a system binary to exfil information such as "sessions" and "processes" for later use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/query_usage_to_exfil_data.yml'
+description: 'Detects usage of "query.exe" a system binary to exfil information such as "sessions" and "processes" for later use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/query_usage_to_exfil_data.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

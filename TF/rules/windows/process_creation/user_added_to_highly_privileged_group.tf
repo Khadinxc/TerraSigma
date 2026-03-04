@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "user_added_to_highly_privilege
   name                       = "user_added_to_highly_privileged_group"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "User Added To Highly Privileged Group"
-  description                = "Detects addition of users to highly privileged groups via \"Net\" or \"Add-LocalGroupMember\". - Administrative activity that must be investigated | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/user_added_to_highly_privileged_group.yml"
+  description                = "Detects addition of users to highly privileged groups via \"Net\" or \"Add-LocalGroupMember\". - Administrative activity that must be investigated | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/user_added_to_highly_privileged_group.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

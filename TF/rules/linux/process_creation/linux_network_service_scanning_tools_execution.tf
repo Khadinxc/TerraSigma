@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "linux_network_service_scanning
   name                       = "linux_network_service_scanning_tools_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux Network Service Scanning Tools Execution"
-  description                = "Detects execution of network scanning and reconnaisance tools. These tools can be used for the enumeration of local or remote network services for example. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_network_service_scanning_tools_execution.yml"
+  description                = "Detects execution of network scanning and reconnaisance tools. These tools can be used for the enumeration of local or remote network services for example. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_network_service_scanning_tools_execution.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

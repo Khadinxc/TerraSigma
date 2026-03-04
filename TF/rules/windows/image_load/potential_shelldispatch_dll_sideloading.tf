@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_shelldispatch_dll_si
   name                       = "potential_shelldispatch_dll_sideloading"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential ShellDispatch.DLL Sideloading"
-  description                = "Detects potential DLL sideloading of \"ShellDispatch.dll\" - Some installers may trigger some false positives | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_shelldispatch_dll_sideloading.yml"
+  description                = "Detects potential DLL sideloading of \"ShellDispatch.dll\" - Some installers may trigger some false positives | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_shelldispatch_dll_sideloading.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

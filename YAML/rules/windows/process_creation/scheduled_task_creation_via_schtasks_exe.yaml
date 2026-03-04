@@ -1,6 +1,6 @@
 id: feda27dd-fff6-5fd4-8247-76d629ec1733
 name: Scheduled Task Creation Via Schtasks.EXE
-description: 'Detects the creation of scheduled tasks by user accounts via the "schtasks" utility. - Administrative activity - Software installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/scheduled_task_creation_via_schtasks_exe.yml'
+description: 'Detects the creation of scheduled tasks by user accounts via the "schtasks" utility. - Administrative activity - Software installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/scheduled_task_creation_via_schtasks_exe.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

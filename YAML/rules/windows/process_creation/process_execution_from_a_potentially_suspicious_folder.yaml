@@ -1,6 +1,6 @@
 id: 68cf9ea1-2227-59f1-a672-436bc0e455d3
 name: Process Execution From A Potentially Suspicious Folder
-description: 'Detects a potentially suspicious execution from an uncommon folder. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/process_execution_from_a_potentially_suspicious_folder.yml'
+description: 'Detects a potentially suspicious execution from an uncommon folder. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/process_execution_from_a_potentially_suspicious_folder.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

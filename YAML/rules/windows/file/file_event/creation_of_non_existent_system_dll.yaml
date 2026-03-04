@@ -1,6 +1,6 @@
 id: cd352c60-69cf-5140-b2b1-3ce0a7d5c82a
 name: Creation Of Non-Existent System DLL
-description: 'Detects the creation of system DLLs that are usually not present on the system (or at least not in system directories). Usually this technique is used to achieve DLL hijacking. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/creation_of_non_existent_system_dll.yml'
+description: 'Detects the creation of system DLLs that are usually not present on the system (or at least not in system directories). Usually this technique is used to achieve DLL hijacking. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/creation_of_non_existent_system_dll.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

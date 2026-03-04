@@ -1,6 +1,6 @@
 id: 904037ce-af79-54a1-b271-2f07911ffd23
 name: Permission Check Via Accesschk.EXE
-description: 'Detects the usage of the "Accesschk" utility, an access and privilege audit tool developed by SysInternal and often being abused by attacker to verify process privileges - System administrator Usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/permission_check_via_accesschk_exe.yml'
+description: 'Detects the usage of the "Accesschk" utility, an access and privilege audit tool developed by SysInternal and often being abused by attacker to verify process privileges - System administrator Usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/permission_check_via_accesschk_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "creation_of_a_local_hidden_use
   name                       = "creation_of_a_local_hidden_user_account_by_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Creation of a Local Hidden User Account by Registry"
-  description                = "Sysmon registry detection of a local hidden user account. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/creation_of_a_local_hidden_user_account_by_registry.yml"
+  description                = "Sysmon registry detection of a local hidden user account. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/creation_of_a_local_hidden_user_account_by_registry.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

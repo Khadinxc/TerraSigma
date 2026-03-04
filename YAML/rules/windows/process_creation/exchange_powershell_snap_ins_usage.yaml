@@ -1,6 +1,6 @@
 id: f12de8f0-c968-522f-8282-0aae8713e00e
 name: Exchange PowerShell Snap-Ins Usage
-description: 'Detects adding and using Exchange PowerShell snap-ins to export mailbox data. As seen used by HAFNIUM and APT27 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/exchange_powershell_snap_ins_usage.yml'
+description: 'Detects adding and using Exchange PowerShell snap-ins to export mailbox data. As seen used by HAFNIUM and APT27 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/exchange_powershell_snap_ins_usage.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

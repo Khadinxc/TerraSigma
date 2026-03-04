@@ -1,6 +1,6 @@
 id: 7c8f3b7b-bb5b-5817-8491-3fa69db8be64
 name: Suspicious Double Extension File Execution
-description: 'Detects suspicious use of an .exe extension after a non-executable file extension like .pdf.exe, a set of spaces or underlines to cloak the executable file in spear phishing campaigns | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_double_extension_file_execution.yml'
+description: 'Detects suspicious use of an .exe extension after a non-executable file extension like .pdf.exe, a set of spaces or underlines to cloak the executable file in spear phishing campaigns | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_double_extension_file_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

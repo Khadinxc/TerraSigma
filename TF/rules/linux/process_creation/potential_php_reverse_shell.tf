@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_php_reverse_shell" {
   name                       = "potential_php_reverse_shell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential PHP Reverse Shell"
-  description                = "Detects usage of the PHP CLI with the \"-r\" flag which allows it to run inline PHP code. The rule looks for calls to the \"fsockopen\" function which allows the creation of sockets. Attackers often leverage this in combination with functions such as \"exec\" or \"fopen\" to initiate a reverse shell connection. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potential_php_reverse_shell.yml"
+  description                = "Detects usage of the PHP CLI with the \"-r\" flag which allows it to run inline PHP code. The rule looks for calls to the \"fsockopen\" function which allows the creation of sockets. Attackers often leverage this in combination with functions such as \"exec\" or \"fopen\" to initiate a reverse shell connection. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potential_php_reverse_shell.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

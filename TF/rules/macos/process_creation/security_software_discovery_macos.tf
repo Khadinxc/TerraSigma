@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "security_software_discovery_ma
   name                       = "security_software_discovery_macos"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Security Software Discovery - MacOs"
-  description                = "Detects usage of system utilities (only grep for now) to discover security software discovery - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/security_software_discovery_macos.yml"
+  description                = "Detects usage of system utilities (only grep for now) to discover security software discovery - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/security_software_discovery_macos.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

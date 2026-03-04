@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_and_directory_discovery_l
   name                       = "file_and_directory_discovery_linux"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File and Directory Discovery - Linux"
-  description                = "Detects usage of system utilities such as \"find\", \"tree\", \"findmnt\", etc, to discover files, directories and network shares. - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/file_and_directory_discovery_linux.yml"
+  description                = "Detects usage of system utilities such as \"find\", \"tree\", \"findmnt\", etc, to discover files, directories and network shares. - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/file_and_directory_discovery_linux.tf"
   severity                   = "Informational"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_winrm_access_via_evil
   name                       = "hacktool_winrm_access_via_evil_winrm"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - WinRM Access Via Evil-WinRM"
-  description                = "Adversaries may use Valid Accounts to log into a computer using the Remote Desktop Protocol (RDP). The adversary may then perform actions as the logged-on user. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_winrm_access_via_evil_winrm.yml"
+  description                = "Adversaries may use Valid Accounts to log into a computer using the Remote Desktop Protocol (RDP). The adversary may then perform actions as the logged-on user. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_winrm_access_via_evil_winrm.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

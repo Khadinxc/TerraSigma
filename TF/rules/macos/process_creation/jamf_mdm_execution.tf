@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "jamf_mdm_execution" {
   name                       = "jamf_mdm_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "JAMF MDM Execution"
-  description                = "Detects execution of the \"jamf\" binary to create user accounts and run commands. For example, the binary can be abused by attackers on the system in order to bypass security controls or remove application control polices. - Legitimate use of the JAMF CLI tool by IT support and administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/jamf_mdm_execution.yml"
+  description                = "Detects execution of the \"jamf\" binary to create user accounts and run commands. For example, the binary can be abused by attackers on the system in order to bypass security controls or remove application control polices. - Legitimate use of the JAMF CLI tool by IT support and administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/jamf_mdm_execution.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

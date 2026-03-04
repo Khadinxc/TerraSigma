@@ -1,6 +1,6 @@
 id: 281296c8-9c41-5a08-bdcd-a4a87060d792
 name: Copy From VolumeShadowCopy Via Cmd.EXE
-description: 'Detects the execution of the builtin "copy" command that targets a shadow copy (sometimes used to copy registry hives that are in use) - Backup scenarios using the commandline | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/copy_from_volumeshadowcopy_via_cmd_exe.yml'
+description: 'Detects the execution of the builtin "copy" command that targets a shadow copy (sometimes used to copy registry hives that are in use) - Backup scenarios using the commandline | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/copy_from_volumeshadowcopy_via_cmd_exe.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

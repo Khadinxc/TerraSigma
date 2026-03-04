@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_file_created_in_per
   name                       = "suspicious_file_created_in_perflogs"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Created In PerfLogs"
-  description                = "Detects suspicious file based on their extension being created in \"C:\\PerfLogs\\\". Note that this directory mostly contains \".etl\" files - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_file_created_in_perflogs.yml"
+  description                = "Detects suspicious file based on their extension being created in \"C:\\PerfLogs\\\". Note that this directory mostly contains \".etl\" files - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_file_created_in_perflogs.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

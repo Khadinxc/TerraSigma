@@ -1,6 +1,6 @@
 id: 4418ea72-a262-5a83-bf36-3a64162607eb
 name: HackTool - Rubeus Execution
-description: 'Detects the execution of the hacktool Rubeus via PE information of command line parameters - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_rubeus_execution.yml'
+description: 'Detects the execution of the hacktool Rubeus via PE information of command line parameters - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_rubeus_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

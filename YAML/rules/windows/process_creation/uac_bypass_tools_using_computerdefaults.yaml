@@ -1,6 +1,6 @@
 id: 8989b2b1-b54d-5c8b-947a-30fadf614b6b
 name: UAC Bypass Tools Using ComputerDefaults
-description: 'Detects tools such as UACMe used to bypass UAC with computerdefaults.exe (UACMe 59) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uac_bypass_tools_using_computerdefaults.yml'
+description: 'Detects tools such as UACMe used to bypass UAC with computerdefaults.exe (UACMe 59) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uac_bypass_tools_using_computerdefaults.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

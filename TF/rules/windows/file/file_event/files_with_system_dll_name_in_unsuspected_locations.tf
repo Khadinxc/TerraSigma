@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "files_with_system_dll_name_in_
   name                       = "files_with_system_dll_name_in_unsuspected_locations"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Files With System DLL Name In Unsuspected Locations"
-  description                = "Detects the creation of a file with the \".dll\" extension that has the name of a System DLL in uncommon or unsuspected locations. (Outisde of \"System32\", \"SysWOW64\", etc.). It is highly recommended to perform an initial baseline before using this rule in production. - Third party software might bundle specific versions of system DLLs. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/files_with_system_dll_name_in_unsuspected_locations.yml"
+  description                = "Detects the creation of a file with the \".dll\" extension that has the name of a System DLL in uncommon or unsuspected locations. (Outisde of \"System32\", \"SysWOW64\", etc.). It is highly recommended to perform an initial baseline before using this rule in production. - Third party software might bundle specific versions of system DLLs. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/files_with_system_dll_name_in_unsuspected_locations.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

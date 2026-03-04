@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_download_and_execution_vi
   name                       = "file_download_and_execution_via_ieexec_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Download And Execution Via IEExec.EXE"
-  description                = "Detects execution of the IEExec utility to download and execute files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_and_execution_via_ieexec_exe.yml"
+  description                = "Detects execution of the IEExec utility to download and execute files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_and_execution_via_ieexec_exe.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

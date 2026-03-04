@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "created_files_by_microsoft_syn
   name                       = "created_files_by_microsoft_sync_center"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Created Files by Microsoft Sync Center"
-  description                = "This rule detects suspicious files created by Microsoft Sync Center (mobsync) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/created_files_by_microsoft_sync_center.yml"
+  description                = "This rule detects suspicious files created by Microsoft Sync Center (mobsync) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/created_files_by_microsoft_sync_center.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

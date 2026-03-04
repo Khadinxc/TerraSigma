@@ -1,6 +1,6 @@
 id: c2dd592f-0a10-55ce-81ee-dffa670175f8
 name: Communication To LocaltoNet Tunneling Service Initiated - Linux
-description: 'Detects an executable initiating a network connection to "LocaltoNet" tunneling sub-domains. LocaltoNet is a reverse proxy that enables localhost services to be exposed to the Internet. Attackers have been seen to use this service for command-and-control activities to bypass MFA and perimeter controls. - Legitimate use of the LocaltoNet service. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/network_connection/communication_to_localtonet_tunneling_service_initiated_linux.yml'
+description: 'Detects an executable initiating a network connection to "LocaltoNet" tunneling sub-domains. LocaltoNet is a reverse proxy that enables localhost services to be exposed to the Internet. Attackers have been seen to use this service for command-and-control activities to bypass MFA and perimeter controls. - Legitimate use of the LocaltoNet service. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/network_connection/communication_to_localtonet_tunneling_service_initiated_linux.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

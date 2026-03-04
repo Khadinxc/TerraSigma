@@ -1,6 +1,6 @@
 id: 3f9d003c-165a-5bc1-a4ab-38c9b17b6ad6
 name: Potential Iviewers.DLL Sideloading
-description: 'Detects potential DLL sideloading of "iviewers.dll" (OLE/COM Object Interface Viewer) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_iviewers_dll_sideloading.yml'
+description: 'Detects potential DLL sideloading of "iviewers.dll" (OLE/COM Object Interface Viewer) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_iviewers_dll_sideloading.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

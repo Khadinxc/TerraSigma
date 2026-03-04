@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dotnet_clr_dll_loaded_by_scrip
   name                       = "dotnet_clr_dll_loaded_by_scripting_applications"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DotNet CLR DLL Loaded By Scripting Applications"
-  description                = "Detects .NET CLR DLLs being loaded by scripting applications such as wscript or cscript. This could be an indication of potential suspicious execution. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/dotnet_clr_dll_loaded_by_scripting_applications.yml"
+  description                = "Detects .NET CLR DLLs being loaded by scripting applications such as wscript or cscript. This could be an indication of potential suspicious execution. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/dotnet_clr_dll_loaded_by_scripting_applications.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

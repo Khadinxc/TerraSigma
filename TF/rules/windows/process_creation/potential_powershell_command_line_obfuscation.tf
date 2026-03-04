@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_powershell_command_l
   name                       = "potential_powershell_command_line_obfuscation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential PowerShell Command Line Obfuscation"
-  description                = "Detects the PowerShell command lines with special characters - Amazon SSM Document Worker - Windows Defender ATP | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_powershell_command_line_obfuscation.yml"
+  description                = "Detects the PowerShell command lines with special characters - Amazon SSM Document Worker - Windows Defender ATP | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_powershell_command_line_obfuscation.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

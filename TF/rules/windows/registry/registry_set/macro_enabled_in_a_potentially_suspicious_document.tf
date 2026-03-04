@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "macro_enabled_in_a_potentially
   name                       = "macro_enabled_in_a_potentially_suspicious_document"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Macro Enabled In A Potentially Suspicious Document"
-  description                = "Detects registry changes to Office trust records where the path is located in a potentially suspicious location - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/macro_enabled_in_a_potentially_suspicious_document.yml"
+  description                = "Detects registry changes to Office trust records where the path is located in a potentially suspicious location - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/macro_enabled_in_a_potentially_suspicious_document.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -1,6 +1,6 @@
 id: 858cc6c2-1e2a-59bd-89cb-1068343475eb
 name: GAC DLL Loaded Via Office Applications
-description: 'Detects any GAC DLL being loaded by an Office Product - Legitimate macro usage. Add the appropriate filter according to your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/gac_dll_loaded_via_office_applications.yml'
+description: 'Detects any GAC DLL being loaded by an Office Product - Legitimate macro usage. Add the appropriate filter according to your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/gac_dll_loaded_via_office_applications.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

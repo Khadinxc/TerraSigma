@@ -1,6 +1,6 @@
 id: 5172310c-f52c-52d9-83f1-8e3ff0a8aec2
 name: Suspicious Calculator Usage
-description: 'Detects suspicious use of ''calc.exe'' with command line parameters or in a suspicious directory, which is likely caused by some PoC or detection evasion. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_calculator_usage.yml'
+description: 'Detects suspicious use of ''calc.exe'' with command line parameters or in a suspicious directory, which is likely caused by some PoC or detection evasion. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_calculator_usage.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

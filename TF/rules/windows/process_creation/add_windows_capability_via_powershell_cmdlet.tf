@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "add_windows_capability_via_pow
   name                       = "add_windows_capability_via_powershell_cmdlet"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Add Windows Capability Via PowerShell Cmdlet"
-  description                = "Detects usage of the \"Add-WindowsCapability\" cmdlet to add Windows capabilities. Notable capabilities could be \"OpenSSH\" and others. - Legitimate usage of the capabilities by administrators or users. Add additional filters accordingly. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/add_windows_capability_via_powershell_cmdlet.yml"
+  description                = "Detects usage of the \"Add-WindowsCapability\" cmdlet to add Windows capabilities. Notable capabilities could be \"OpenSSH\" and others. - Legitimate usage of the capabilities by administrators or users. Add additional filters accordingly. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/add_windows_capability_via_powershell_cmdlet.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

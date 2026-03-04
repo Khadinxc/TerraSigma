@@ -1,6 +1,6 @@
 id: eed7b44a-7503-57d9-8f1a-2b6ec82245de
 name: HackTool - Bloodhound/Sharphound Execution
-description: 'Detects command line parameters used by Bloodhound and Sharphound hack tools - Other programs that use these command line option and accepts an ''All'' parameter | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_bloodhound_sharphound_execution.yml'
+description: 'Detects command line parameters used by Bloodhound and Sharphound hack tools - Other programs that use these command line option and accepts an ''All'' parameter | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_bloodhound_sharphound_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

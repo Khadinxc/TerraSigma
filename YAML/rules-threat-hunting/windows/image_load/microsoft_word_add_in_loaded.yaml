@@ -1,6 +1,6 @@
 id: 9d34a511-099c-5caf-8ab0-cfb73ca3c530
 name: Microsoft Word Add-In Loaded
-description: 'Detects Microsoft Word loading an Add-In (.wll) file which can be used by threat actors for initial access or persistence. - The rules is only looking for ".wll" loads. So some false positives are expected with legitimate and allowed WLLs. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/microsoft_word_add_in_loaded.yml'
+description: 'Detects Microsoft Word loading an Add-In (.wll) file which can be used by threat actors for initial access or persistence. - The rules is only looking for ".wll" loads. So some false positives are expected with legitimate and allowed WLLs. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/microsoft_word_add_in_loaded.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

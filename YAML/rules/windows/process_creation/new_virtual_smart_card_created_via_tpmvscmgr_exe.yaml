@@ -1,6 +1,6 @@
 id: e058d66d-06bd-53e3-8d6c-53b37a0df78b
 name: New Virtual Smart Card Created Via TpmVscMgr.EXE
-description: 'Detects execution of "Tpmvscmgr.exe" to create a new virtual smart card. - Legitimate usage by an administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_virtual_smart_card_created_via_tpmvscmgr_exe.yml'
+description: 'Detects execution of "Tpmvscmgr.exe" to create a new virtual smart card. - Legitimate usage by an administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_virtual_smart_card_created_via_tpmvscmgr_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

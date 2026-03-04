@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "application_terminated_via_wmi
   name                       = "application_terminated_via_wmic_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Application Terminated Via Wmic.EXE"
-  description                = "Detects calls to the \"terminate\" function via wmic in order to kill an application | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/application_terminated_via_wmic_exe.yml"
+  description                = "Detects calls to the \"terminate\" function via wmic in order to kill an application | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/application_terminated_via_wmic_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

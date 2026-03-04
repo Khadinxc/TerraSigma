@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_disable_system_restor
   name                       = "registry_disable_system_restore"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Registry Disable System Restore"
-  description                = "Detects the modification of the registry to disable a system restore on the computer | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_disable_system_restore.yml"
+  description                = "Detects the modification of the registry to disable a system restore on the computer | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_disable_system_restore.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

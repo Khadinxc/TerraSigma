@@ -1,6 +1,6 @@
 id: 05d475e2-0efe-53f2-ae97-777524722970
 name: PrintBrm ZIP Creation of Extraction
-description: 'Detects the execution of the LOLBIN PrintBrm.exe, which can be used to create or extract ZIP files. PrintBrm.exe should not be run on a normal workstation. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/printbrm_zip_creation_of_extraction.yml'
+description: 'Detects the execution of the LOLBIN PrintBrm.exe, which can be used to create or extract ZIP files. PrintBrm.exe should not be run on a normal workstation. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/printbrm_zip_creation_of_extraction.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

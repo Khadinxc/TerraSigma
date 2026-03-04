@@ -1,6 +1,6 @@
 id: 100b93b6-de7f-5c63-8346-5e1d742462f3
 name: Interactive AT Job
-description: 'Detects an interactive AT job, which may be used as a form of privilege escalation. - Unlikely (at.exe deprecated as of Windows 8) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/interactive_at_job.yml'
+description: 'Detects an interactive AT job, which may be used as a form of privilege escalation. - Unlikely (at.exe deprecated as of Windows 8) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/interactive_at_job.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

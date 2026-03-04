@@ -1,6 +1,6 @@
 id: 8c7a3bda-c151-5971-a2e9-79d70074182e
 name: Potential Obfuscated Ordinal Call Via Rundll32
-description: 'Detects execution of "rundll32" with potential obfuscated ordinal calls | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_obfuscated_ordinal_call_via_rundll32.yml'
+description: 'Detects execution of "rundll32" with potential obfuscated ordinal calls | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_obfuscated_ordinal_call_via_rundll32.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

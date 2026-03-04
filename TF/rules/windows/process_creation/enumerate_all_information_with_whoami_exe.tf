@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "enumerate_all_information_with
   name                       = "enumerate_all_information_with_whoami_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Enumerate All Information With Whoami.EXE"
-  description                = "Detects the execution of \"whoami.exe\" with the \"/all\" flag | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/enumerate_all_information_with_whoami_exe.yml"
+  description                = "Detects the execution of \"whoami.exe\" with the \"/all\" flag | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/enumerate_all_information_with_whoami_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

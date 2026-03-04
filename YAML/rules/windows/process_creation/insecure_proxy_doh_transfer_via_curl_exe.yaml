@@ -1,6 +1,6 @@
 id: f94674e9-33f7-5846-beaa-4190d9b604a2
 name: Insecure Proxy/DOH Transfer Via Curl.EXE
-description: 'Detects execution of "curl.exe" with the "insecure" flag over proxy or DOH. - Access to badly maintained internal or development systems | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/insecure_proxy_doh_transfer_via_curl_exe.yml'
+description: 'Detects execution of "curl.exe" with the "insecure" flag over proxy or DOH. - Access to badly maintained internal or development systems | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/insecure_proxy_doh_transfer_via_curl_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

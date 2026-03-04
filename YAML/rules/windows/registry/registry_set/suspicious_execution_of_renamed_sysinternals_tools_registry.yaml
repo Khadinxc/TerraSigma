@@ -1,6 +1,6 @@
 id: c1de66a9-68be-5a36-88d6-3ea5a6ba66c4
 name: Suspicious Execution Of Renamed Sysinternals Tools - Registry
-description: 'Detects the creation of the "accepteula" key related to the Sysinternals tools being created from executables with the wrong name (e.g. a renamed Sysinternals tool) - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/suspicious_execution_of_renamed_sysinternals_tools_registry.yml'
+description: 'Detects the creation of the "accepteula" key related to the Sysinternals tools being created from executables with the wrong name (e.g. a renamed Sysinternals tool) - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/suspicious_execution_of_renamed_sysinternals_tools_registry.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

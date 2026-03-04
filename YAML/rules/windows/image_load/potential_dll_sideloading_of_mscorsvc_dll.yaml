@@ -1,6 +1,6 @@
 id: 7bd0335b-69f8-5a13-ae1c-4aea5909a065
 name: Potential DLL Sideloading Of MsCorSvc.DLL
-description: 'Detects potential DLL sideloading of "mscorsvc.dll". - Legitimate applications loading their own versions of the DLL mentioned in this rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_dll_sideloading_of_mscorsvc_dll.yml'
+description: 'Detects potential DLL sideloading of "mscorsvc.dll". - Legitimate applications loading their own versions of the DLL mentioned in this rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_dll_sideloading_of_mscorsvc_dll.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: efc06fd1-d2c2-5438-a1f5-751cdff68e3b
 name: Remote Access Tool - ScreenConnect Server Web Shell Execution
-description: 'Detects potential web shell execution from the ScreenConnect server process. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_access_tool_screenconnect_server_web_shell_execution.yml'
+description: 'Detects potential web shell execution from the ScreenConnect server process. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_access_tool_screenconnect_server_web_shell_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

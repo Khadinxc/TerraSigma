@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "chromium_browser_headless_exec
   name                       = "chromium_browser_headless_execution_to_mockbin_like_site"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Chromium Browser Headless Execution To Mockbin Like Site"
-  description                = "Detects the execution of a Chromium based browser process with the \"headless\" flag and a URL pointing to the mockbin.org service (which can be used to exfiltrate data). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/chromium_browser_headless_execution_to_mockbin_like_site.yml"
+  description                = "Detects the execution of a Chromium based browser process with the \"headless\" flag and a URL pointing to the mockbin.org service (which can be used to exfiltrate data). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/chromium_browser_headless_execution_to_mockbin_like_site.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

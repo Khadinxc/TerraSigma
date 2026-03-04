@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "renamed_pingcastle_binary_exec
   name                       = "renamed_pingcastle_binary_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed PingCastle Binary Execution"
-  description                = "Detects the execution of a renamed \"PingCastle\" binary based on the PE metadata fields. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_pingcastle_binary_execution.yml"
+  description                = "Detects the execution of a renamed \"PingCastle\" binary based on the PE metadata fields. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_pingcastle_binary_execution.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

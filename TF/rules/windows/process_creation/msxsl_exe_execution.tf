@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "msxsl_exe_execution" {
   name                       = "msxsl_exe_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Msxsl.EXE Execution"
-  description                = "Detects the execution of the MSXSL utility. This can be used to execute Extensible Stylesheet Language (XSL) files. These files are commonly used to describe the processing and rendering of data within XML files. Adversaries can abuse this functionality to execute arbitrary files while potentially bypassing application whitelisting defenses. - Msxsl is not installed by default and is deprecated, so unlikely on most systems. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/msxsl_exe_execution.yml"
+  description                = "Detects the execution of the MSXSL utility. This can be used to execute Extensible Stylesheet Language (XSL) files. These files are commonly used to describe the processing and rendering of data within XML files. Adversaries can abuse this functionality to execute arbitrary files while potentially bypassing application whitelisting defenses. - Msxsl is not installed by default and is deprecated, so unlikely on most systems. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/msxsl_exe_execution.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

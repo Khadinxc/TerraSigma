@@ -1,6 +1,6 @@
 id: 8f00a41f-f55b-59dd-97ef-983b53bdd2d0
 name: Potentially Suspicious Child Process Of WinRAR.EXE
-description: 'Detects potentially suspicious child processes of WinRAR.exe. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_child_process_of_winrar_exe.yml'
+description: 'Detects potentially suspicious child processes of WinRAR.exe. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_child_process_of_winrar_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

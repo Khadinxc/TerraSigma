@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "disk_image_creation_via_hdiuti
   name                       = "disk_image_creation_via_hdiutil_macos"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disk Image Creation Via Hdiutil - MacOS"
-  description                = "Detects the execution of the hdiutil utility in order to create a disk image. - Legitimate usage of hdiutil by administrators and users. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/disk_image_creation_via_hdiutil_macos.yml"
+  description                = "Detects the execution of the hdiutil utility in order to create a disk image. - Legitimate usage of hdiutil by administrators and users. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/disk_image_creation_via_hdiutil_macos.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

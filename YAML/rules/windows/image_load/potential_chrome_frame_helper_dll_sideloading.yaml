@@ -1,6 +1,6 @@
 id: 41bda9ee-5f2a-533c-9d80-9ce2162c9e1a
 name: Potential Chrome Frame Helper DLL Sideloading
-description: 'Detects potential DLL sideloading of "chrome_frame_helper.dll" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_chrome_frame_helper_dll_sideloading.yml'
+description: 'Detects potential DLL sideloading of "chrome_frame_helper.dll" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_chrome_frame_helper_dll_sideloading.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_unquoted_service_pat
   name                       = "potential_unquoted_service_path_reconnaissance_via_wmic_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Unquoted Service Path Reconnaissance Via Wmic.EXE"
-  description                = "Detects known WMI recon method to look for unquoted service paths using wmic. Often used by pentester and attacker enumeration scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_unquoted_service_path_reconnaissance_via_wmic_exe.yml"
+  description                = "Detects known WMI recon method to look for unquoted service paths using wmic. Often used by pentester and attacker enumeration scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_unquoted_service_path_reconnaissance_via_wmic_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

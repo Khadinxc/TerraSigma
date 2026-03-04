@@ -1,6 +1,6 @@
 id: 4881a6ab-3646-5051-91ad-5cb8b2d01b8b
 name: Forest Blizzard APT - File Creation Activity
-description: 'Detects the creation of specific files inside of ProgramData directory. These files were seen being created by Forest Blizzard as described by MSFT. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/forest_blizzard_apt_file_creation_activity.yml'
+description: 'Detects the creation of specific files inside of ProgramData directory. These files were seen being created by Forest Blizzard as described by MSFT. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/forest_blizzard_apt_file_creation_activity.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

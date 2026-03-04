@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "amsi_dll_load_by_uncommon_proc
   name                       = "amsi_dll_load_by_uncommon_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Amsi.DLL Load By Uncommon Process"
-  description                = "Detects loading of Amsi.dll by uncommon processes - Legitimate third party apps installed in \"ProgramData\" and \"AppData\" might generate some false positives. Apply additional filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/amsi_dll_load_by_uncommon_process.yml"
+  description                = "Detects loading of Amsi.dll by uncommon processes - Legitimate third party apps installed in \"ProgramData\" and \"AppData\" might generate some false positives. Apply additional filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/amsi_dll_load_by_uncommon_process.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceImageLoadEvents

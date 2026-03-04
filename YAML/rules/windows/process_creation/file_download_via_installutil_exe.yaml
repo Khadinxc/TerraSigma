@@ -1,6 +1,6 @@
 id: 9cc8697f-75a9-568e-a83f-573f650582d2
 name: File Download Via InstallUtil.EXE
-description: 'Detects use of .NET InstallUtil.exe in order to download arbitrary files. The files will be written to "%LOCALAPPDATA%\Microsoft\Windows\INetCache\IE\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_via_installutil_exe.yml'
+description: 'Detects use of .NET InstallUtil.exe in order to download arbitrary files. The files will be written to "%LOCALAPPDATA%\Microsoft\Windows\INetCache\IE\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_via_installutil_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

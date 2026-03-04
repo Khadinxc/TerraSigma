@@ -1,6 +1,6 @@
 id: 783e8835-7e76-53dc-b7f7-011c04d41462
 name: Potential Mfdetours.DLL Sideloading
-description: 'Detects potential DLL sideloading of "mfdetours.dll". While using "mftrace.exe" it can be abused to attach to an arbitrary process and force load any DLL named "mfdetours.dll" from the current directory of execution. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_mfdetours_dll_sideloading.yml'
+description: 'Detects potential DLL sideloading of "mfdetours.dll". While using "mftrace.exe" it can be abused to attach to an arbitrary process and force load any DLL named "mfdetours.dll" from the current directory of execution. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_mfdetours_dll_sideloading.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 8d93c261-db34-5ab3-99c7-0522283c62b9
 name: Dynamic .NET Compilation Via Csc.EXE - Hunting
-description: 'Detects execution of "csc.exe" to compile .NET code. Attackers often leverage this to compile code on the fly and use it in other stages. - Many legitimate applications make use of dynamic compilation. Use this rule to hunt for anomalies | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/dynamic_net_compilation_via_csc_exe_hunting.yml'
+description: 'Detects execution of "csc.exe" to compile .NET code. Attackers often leverage this to compile code on the fly and use it in other stages. - Many legitimate applications make use of dynamic compilation. Use this rule to hunt for anomalies | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/dynamic_net_compilation_via_csc_exe_hunting.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

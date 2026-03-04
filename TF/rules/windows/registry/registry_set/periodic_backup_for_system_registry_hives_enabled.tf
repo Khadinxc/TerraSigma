@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "periodic_backup_for_system_reg
   name                       = "periodic_backup_for_system_registry_hives_enabled"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Periodic Backup For System Registry Hives Enabled"
-  description                = "Detects the enabling of the \"EnablePeriodicBackup\" registry value. Once enabled, The OS will backup System registry hives on restarts to the \"C:\\Windows\\System32\\config\\RegBack\" folder. Windows creates a \"RegIdleBackup\" task to manage subsequent backups. Registry backup was a default behavior on Windows and was disabled as of \"Windows 10, version 1803\". - Legitimate need for RegBack feature by administrators. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/periodic_backup_for_system_registry_hives_enabled.yml"
+  description                = "Detects the enabling of the \"EnablePeriodicBackup\" registry value. Once enabled, The OS will backup System registry hives on restarts to the \"C:\\Windows\\System32\\config\\RegBack\" folder. Windows creates a \"RegIdleBackup\" task to manage subsequent backups. Registry backup was a default behavior on Windows and was disabled as of \"Windows 10, version 1803\". - Legitimate need for RegBack feature by administrators. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/periodic_backup_for_system_registry_hives_enabled.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

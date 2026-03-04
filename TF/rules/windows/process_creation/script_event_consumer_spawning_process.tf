@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "script_event_consumer_spawning
   name                       = "script_event_consumer_spawning_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Script Event Consumer Spawning Process"
-  description                = "Detects a suspicious child process of Script Event Consumer (scrcons.exe). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/script_event_consumer_spawning_process.yml"
+  description                = "Detects a suspicious child process of Script Event Consumer (scrcons.exe). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/script_event_consumer_spawning_process.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

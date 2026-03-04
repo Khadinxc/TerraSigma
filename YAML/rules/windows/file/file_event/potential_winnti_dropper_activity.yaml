@@ -1,6 +1,6 @@
 id: 0b084dbd-e4f1-50d2-9fe7-5a294c035981
 name: Potential Winnti Dropper Activity
-description: 'Detects files dropped by Winnti as described in RedMimicry Winnti playbook | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_winnti_dropper_activity.yml'
+description: 'Detects files dropped by Winnti as described in RedMimicry Winnti playbook | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_winnti_dropper_activity.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

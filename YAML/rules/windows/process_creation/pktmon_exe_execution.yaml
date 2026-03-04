@@ -1,6 +1,6 @@
 id: bce731bc-21b3-5adc-9f8c-361043e394b7
 name: PktMon.EXE Execution
-description: 'Detects execution of PktMon, a tool that captures network packets. - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pktmon_exe_execution.yml'
+description: 'Detects execution of PktMon, a tool that captures network packets. - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pktmon_exe_execution.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

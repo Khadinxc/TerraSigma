@@ -1,6 +1,6 @@
 id: 462464f8-0acd-58bf-a541-7af8ff0ded89
 name: Equation Group DLL_U Export Function Load
-description: 'Detects a specific export function name used by one of EquationGroup tools - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/EquationGroup/equation_group_dll_u_export_function_load.yml'
+description: 'Detects a specific export function name used by one of EquationGroup tools - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/EquationGroup/equation_group_dll_u_export_function_load.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

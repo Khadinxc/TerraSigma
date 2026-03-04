@@ -1,6 +1,6 @@
 id: 5631b4e6-dadb-56ea-aaf9-b49a43109685
 name: Remote Access Tool - ScreenConnect Installation Execution
-description: 'Detects ScreenConnect program starts that establish a remote access to a system. - Legitimate use by administrative staff | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_access_tool_screenconnect_installation_execution.yml'
+description: 'Detects ScreenConnect program starts that establish a remote access to a system. - Legitimate use by administrative staff | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_access_tool_screenconnect_installation_execution.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

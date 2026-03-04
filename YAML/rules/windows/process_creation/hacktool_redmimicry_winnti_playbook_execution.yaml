@@ -1,6 +1,6 @@
 id: 7baac9b7-2ef2-515f-99ac-e3aa4bd900ca
 name: HackTool - RedMimicry Winnti Playbook Execution
-description: 'Detects actions caused by the RedMimicry Winnti playbook a automated breach emulations utility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_redmimicry_winnti_playbook_execution.yml'
+description: 'Detects actions caused by the RedMimicry Winnti playbook a automated breach emulations utility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_redmimicry_winnti_playbook_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 1a9b273f-42ae-5f1d-92a5-89319f9b13bb
 name: HackTool - winPEAS Execution
-description: 'WinPEAS is a script that search for possible paths to escalate privileges on Windows hosts. The checks are explained on book.hacktricks.xyz - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_winpeas_execution.yml'
+description: 'WinPEAS is a script that search for possible paths to escalate privileges on Windows hosts. The checks are explained on book.hacktricks.xyz - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_winpeas_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

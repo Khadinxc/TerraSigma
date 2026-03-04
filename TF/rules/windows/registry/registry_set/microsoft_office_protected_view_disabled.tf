@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "microsoft_office_protected_vie
   name                       = "microsoft_office_protected_view_disabled"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Microsoft Office Protected View Disabled"
-  description                = "Detects changes to Microsoft Office protected view registry keys with which the attacker disables this feature. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/microsoft_office_protected_view_disabled.yml"
+  description                = "Detects changes to Microsoft Office protected view registry keys with which the attacker disables this feature. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/microsoft_office_protected_view_disabled.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -1,6 +1,6 @@
 id: 2b6babc5-dd42-5338-b39f-95a90b1918c8
 name: System Integrity Protection (SIP) Disabled
-description: 'Detects the use of csrutil to disable the Configure System Integrity Protection (SIP). This technique is used in post-exploit scenarios. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/system_integrity_protection_sip_disabled.yml'
+description: 'Detects the use of csrutil to disable the Configure System Integrity Protection (SIP). This technique is used in post-exploit scenarios. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/system_integrity_protection_sip_disabled.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 23174386-41cc-5913-88d4-2930a5def386
 name: Suspicious Execution of Hostname
-description: 'Use of hostname to get information | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_execution_of_hostname.yml'
+description: 'Use of hostname to get information | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_execution_of_hostname.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

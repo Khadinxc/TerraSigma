@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_creation_with_color
   name                       = "suspicious_creation_with_colorcpl"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Creation with Colorcpl"
-  description                = "Once executed, colorcpl.exe will copy the arbitrary file to c:\\windows\\system32\\spool\\drivers\\color\\ | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_creation_with_colorcpl.yml"
+  description                = "Once executed, colorcpl.exe will copy the arbitrary file to c:\\windows\\system32\\spool\\drivers\\color\\ | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_creation_with_colorcpl.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

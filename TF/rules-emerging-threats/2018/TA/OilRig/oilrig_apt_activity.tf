@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "oilrig_apt_activity" {
   name                       = "oilrig_apt_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "OilRig APT Activity"
-  description                = "Detects OilRig activity as reported by Nyotron in their March 2018 report - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/OilRig/oilrig_apt_activity.yml"
+  description                = "Detects OilRig activity as reported by Nyotron in their March 2018 report - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/OilRig/oilrig_apt_activity.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "changing_existing_service_imag
   name                       = "changing_existing_service_imagepath_value_via_reg_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Changing Existing Service ImagePath Value Via Reg.EXE"
-  description                = "Adversaries may execute their own malicious payloads by hijacking the Registry entries used by services. Adversaries may use flaws in the permissions for registry to redirect from the originally specified executable to one that they control, in order to launch their own code at Service start. Windows stores local service configuration information in the Registry under HKLM\\SYSTEM\\CurrentControlSet\\Services | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/changing_existing_service_imagepath_value_via_reg_exe.yml"
+  description                = "Adversaries may execute their own malicious payloads by hijacking the Registry entries used by services. Adversaries may use flaws in the permissions for registry to redirect from the originally specified executable to one that they control, in order to launch their own code at Service start. Windows stores local service configuration information in the Registry under HKLM\\SYSTEM\\CurrentControlSet\\Services | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/changing_existing_service_imagepath_value_via_reg_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

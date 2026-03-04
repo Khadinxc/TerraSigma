@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_file_encoded_to_bas
   name                       = "suspicious_file_encoded_to_base64_via_certutil_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Encoded To Base64 Via Certutil.EXE"
-  description                = "Detects the execution of certutil with the \"encode\" flag to encode a file to base64 where the extensions of the file is suspicious | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_file_encoded_to_base64_via_certutil_exe.yml"
+  description                = "Detects the execution of certutil with the \"encode\" flag to encode a file to base64 where the extensions of the file is suspicious | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_file_encoded_to_base64_via_certutil_exe.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

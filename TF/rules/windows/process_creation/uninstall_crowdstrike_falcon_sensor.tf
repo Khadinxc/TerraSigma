@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uninstall_crowdstrike_falcon_s
   name                       = "uninstall_crowdstrike_falcon_sensor"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uninstall Crowdstrike Falcon Sensor"
-  description                = "Adversaries may disable security tools to avoid possible detection of their tools and activities by uninstalling Crowdstrike Falcon - Administrator might leverage the same command line for debugging or other purposes. However this action must be always investigated | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uninstall_crowdstrike_falcon_sensor.yml"
+  description                = "Adversaries may disable security tools to avoid possible detection of their tools and activities by uninstalling Crowdstrike Falcon - Administrator might leverage the same command line for debugging or other purposes. However this action must be always investigated | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uninstall_crowdstrike_falcon_sensor.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

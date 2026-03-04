@@ -1,6 +1,6 @@
 id: c0a60322-58bc-52dc-9258-23bcbbfee3b3
 name: Control Panel Items
-description: 'Detects the malicious use of a control panel item | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/control_panel_items.yml'
+description: 'Detects the malicious use of a control panel item | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/control_panel_items.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

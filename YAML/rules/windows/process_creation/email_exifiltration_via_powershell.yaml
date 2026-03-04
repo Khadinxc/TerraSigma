@@ -1,6 +1,6 @@
 id: 3d738747-653d-5202-b857-4fc7e0b7fa72
 name: Email Exifiltration Via Powershell
-description: 'Detects email exfiltration via powershell cmdlets | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/email_exifiltration_via_powershell.yml'
+description: 'Detects email exfiltration via powershell cmdlets | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/email_exifiltration_via_powershell.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

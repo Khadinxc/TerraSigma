@@ -1,6 +1,6 @@
 id: 432668aa-37de-558c-8cfc-f371cdc01bbe
 name: New Root or CA or AuthRoot Certificate to Store
-description: 'Detects the addition of new root, CA or AuthRoot certificates to the Windows registry | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/new_root_or_ca_or_authroot_certificate_to_store.yml'
+description: 'Detects the addition of new root, CA or AuthRoot certificates to the Windows registry | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/new_root_or_ca_or_authroot_certificate_to_store.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

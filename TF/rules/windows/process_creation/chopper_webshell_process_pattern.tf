@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "chopper_webshell_process_patte
   name                       = "chopper_webshell_process_pattern"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Chopper Webshell Process Pattern"
-  description                = "Detects patterns found in process executions cause by China Chopper like tiny (ASPX) webshells | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/chopper_webshell_process_pattern.yml"
+  description                = "Detects patterns found in process executions cause by China Chopper like tiny (ASPX) webshells | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/chopper_webshell_process_pattern.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

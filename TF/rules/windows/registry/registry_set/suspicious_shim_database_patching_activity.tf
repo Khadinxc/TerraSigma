@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_shim_database_patch
   name                       = "suspicious_shim_database_patching_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Shim Database Patching Activity"
-  description                = "Detects installation of new shim databases that try to patch sections of known processes for potential process injection or persistence. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/suspicious_shim_database_patching_activity.yml"
+  description                = "Detects installation of new shim databases that try to patch sections of known processes for potential process injection or persistence. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/suspicious_shim_database_patching_activity.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

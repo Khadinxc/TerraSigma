@@ -1,6 +1,6 @@
 id: 0254975e-0dca-509b-9f16-42bdedae2330
 name: Potentially Suspicious Volume Shadow Copy Vsstrace.dll Load
-description: 'Detects the image load of VSS DLL by uncommon executables | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potentially_suspicious_volume_shadow_copy_vsstrace_dll_load.yml'
+description: 'Detects the image load of VSS DLL by uncommon executables | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potentially_suspicious_volume_shadow_copy_vsstrace_dll_load.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

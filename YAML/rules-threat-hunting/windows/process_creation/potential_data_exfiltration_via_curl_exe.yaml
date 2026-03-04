@@ -1,6 +1,6 @@
 id: 643d0841-1e87-5bfc-83dc-47d25f1174b7
 name: Potential Data Exfiltration Via Curl.EXE
-description: 'Detects the execution of the "curl" process with "upload" flags. Which might indicate potential data exfiltration - Scripts created by developers and admins | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/potential_data_exfiltration_via_curl_exe.yml'
+description: 'Detects the execution of the "curl" process with "upload" flags. Which might indicate potential data exfiltration - Scripts created by developers and admins | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/potential_data_exfiltration_via_curl_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

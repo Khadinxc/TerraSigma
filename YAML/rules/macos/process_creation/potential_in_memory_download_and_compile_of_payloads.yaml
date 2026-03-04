@@ -1,6 +1,6 @@
 id: 9c7c9a3f-ed6d-5eec-8385-0955047ed4fa
 name: Potential In-Memory Download And Compile Of Payloads
-description: 'Detects potential in-memory downloading and compiling of applets using curl and osacompile as seen used by XCSSET malware | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/potential_in_memory_download_and_compile_of_payloads.yml'
+description: 'Detects potential in-memory downloading and compiling of applets using curl and osacompile as seen used by XCSSET malware | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/potential_in_memory_download_and_compile_of_payloads.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

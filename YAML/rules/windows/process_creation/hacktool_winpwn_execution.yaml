@@ -1,6 +1,6 @@
 id: 267b55b1-6df6-544c-827f-71ed5fca8991
 name: HackTool - WinPwn Execution
-description: 'Detects commandline keywords indicative of potential usge of the tool WinPwn. A tool for Windows and Active Directory reconnaissance and exploitation. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_winpwn_execution.yml'
+description: 'Detects commandline keywords indicative of potential usge of the tool WinPwn. A tool for Windows and Active Directory reconnaissance and exploitation. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_winpwn_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

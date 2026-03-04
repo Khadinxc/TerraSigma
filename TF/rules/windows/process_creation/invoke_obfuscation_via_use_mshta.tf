@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "invoke_obfuscation_via_use_msh
   name                       = "invoke_obfuscation_via_use_mshta"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Invoke-Obfuscation Via Use MSHTA"
-  description                = "Detects Obfuscated Powershell via use MSHTA in Scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/invoke_obfuscation_via_use_mshta.yml"
+  description                = "Detects Obfuscated Powershell via use MSHTA in Scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/invoke_obfuscation_via_use_mshta.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

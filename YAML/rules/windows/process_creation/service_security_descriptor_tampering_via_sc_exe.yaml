@@ -1,6 +1,6 @@
 id: 656a576f-e7c5-58e2-b0a6-265b21f5d330
 name: Service Security Descriptor Tampering Via Sc.EXE
-description: 'Detection of sc.exe utility adding a new service with special permission which hides that service. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/service_security_descriptor_tampering_via_sc_exe.yml'
+description: 'Detection of sc.exe utility adding a new service with special permission which hides that service. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/service_security_descriptor_tampering_via_sc_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

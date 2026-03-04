@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_bginfo_exe_custom_wmi_quer
   name                       = "new_bginfo_exe_custom_wmi_query_registry_configuration"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New BgInfo.EXE Custom WMI Query Registry Configuration"
-  description                = "Detects setting of a new registry value related to BgInfo configuration, which can be abused to execute custom WMI query via \"BgInfo.exe\" - Legitimate WMI query | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/new_bginfo_exe_custom_wmi_query_registry_configuration.yml"
+  description                = "Detects setting of a new registry value related to BgInfo configuration, which can be abused to execute custom WMI query via \"BgInfo.exe\" - Legitimate WMI query | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/new_bginfo_exe_custom_wmi_query_registry_configuration.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

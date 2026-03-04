@@ -1,6 +1,6 @@
 id: 5de6839b-db81-5cc8-b0d5-645855130f99
 name: Wab Execution From Non Default Location
-description: 'Detects execution of wab.exe (Windows Contacts) and Wabmig.exe (Microsoft Address Book Import Tool) from non default locations as seen with bumblebee activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wab_execution_from_non_default_location.yml'
+description: 'Detects execution of wab.exe (Windows Contacts) and Wabmig.exe (Microsoft Address Book Import Tool) from non default locations as seen with bumblebee activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wab_execution_from_non_default_location.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

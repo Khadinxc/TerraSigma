@@ -1,6 +1,6 @@
 id: 45efee21-9d11-507d-bfb8-6246492f9c31
 name: Potential WWlib.DLL Sideloading
-description: 'Detects potential DLL sideloading of "wwlib.dll" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_wwlib_dll_sideloading.yml'
+description: 'Detects potential DLL sideloading of "wwlib.dll" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_wwlib_dll_sideloading.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

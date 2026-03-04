@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_download_upload_acti
   name                       = "potential_download_upload_activity_using_type_command"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Download/Upload Activity Using Type Command"
-  description                = "Detects usage of the \"type\" command to download/upload data from WebDAV server | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_download_upload_activity_using_type_command.yml"
+  description                = "Detects usage of the \"type\" command to download/upload data from WebDAV server | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_download_upload_activity_using_type_command.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

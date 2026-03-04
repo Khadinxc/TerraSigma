@@ -1,6 +1,6 @@
 id: 61b7ef19-1048-506e-b437-55fcbd8f9bba
 name: SOURGUM Actor Behaviours
-description: 'Suspicious behaviours related to an actor tracked by Microsoft as SOURGUM | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/TA/SOURGUM/sourgum_actor_behaviours.yml'
+description: 'Suspicious behaviours related to an actor tracked by Microsoft as SOURGUM | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/TA/SOURGUM/sourgum_actor_behaviours.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

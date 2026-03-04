@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "esxi_account_creation_via_esxc
   name                       = "esxi_account_creation_via_esxcli"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ESXi Account Creation Via ESXCLI"
-  description                = "Detects user account creation on ESXi system via esxcli - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/esxi_account_creation_via_esxcli.yml"
+  description                = "Detects user account creation on ESXi system via esxcli - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/esxi_account_creation_via_esxcli.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

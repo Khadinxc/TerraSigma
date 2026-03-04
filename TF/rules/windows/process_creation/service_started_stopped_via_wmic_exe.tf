@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "service_started_stopped_via_wm
   name                       = "service_started_stopped_via_wmic_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Service Started/Stopped Via Wmic.EXE"
-  description                = "Detects usage of wmic to start or stop a service | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/service_started_stopped_via_wmic_exe.yml"
+  description                = "Detects usage of wmic to start or stop a service | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/service_started_stopped_via_wmic_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

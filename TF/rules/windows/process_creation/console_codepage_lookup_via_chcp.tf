@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "console_codepage_lookup_via_ch
   name                       = "console_codepage_lookup_via_chcp"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Console CodePage Lookup Via CHCP"
-  description                = "Detects use of chcp to look up the system locale value as part of host discovery - During Anaconda update the 'conda.exe' process will eventually execution the 'chcp' command. - Discord was seen using chcp to look up code pages | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/console_codepage_lookup_via_chcp.yml"
+  description                = "Detects use of chcp to look up the system locale value as part of host discovery - During Anaconda update the 'conda.exe' process will eventually execution the 'chcp' command. - Discord was seen using chcp to look up code pages | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/console_codepage_lookup_via_chcp.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: a1557bae-3344-5196-864f-15eb01ac23f9
 name: HackTool - Empire PowerShell UAC Bypass
-description: 'Detects some Empire PowerShell UAC bypass methods | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_empire_powershell_uac_bypass.yml'
+description: 'Detects some Empire PowerShell UAC bypass methods | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_empire_powershell_uac_bypass.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

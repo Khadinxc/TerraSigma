@@ -1,6 +1,6 @@
 id: 81f9fc2f-f66e-5828-a092-d6687d8ebb40
 name: Suspicious Printer Driver Empty Manufacturer
-description: 'Detects a suspicious printer driver installation with an empty Manufacturer value - Alerts on legitimate printer drivers that do not set any more details in the Manufacturer value | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/suspicious_printer_driver_empty_manufacturer.yml'
+description: 'Detects a suspicious printer driver installation with an empty Manufacturer value - Alerts on legitimate printer drivers that do not set any more details in the Manufacturer value | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/suspicious_printer_driver_empty_manufacturer.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

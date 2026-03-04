@@ -1,6 +1,6 @@
 id: 59e4303d-5476-56a0-a850-3f5ee5b912d3
 name: PowerShell as a Service in Registry
-description: 'Detects that a powershell code is written to the registry as a service. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/powershell_as_a_service_in_registry.yml'
+description: 'Detects that a powershell code is written to the registry as a service. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/powershell_as_a_service_in_registry.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

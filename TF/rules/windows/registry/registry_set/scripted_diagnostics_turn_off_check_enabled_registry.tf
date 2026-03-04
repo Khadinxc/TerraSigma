@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "scripted_diagnostics_turn_off_
   name                       = "scripted_diagnostics_turn_off_check_enabled_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Scripted Diagnostics Turn Off Check Enabled - Registry"
-  description                = "Detects enabling TurnOffCheck which can be used to bypass defense of MSDT Follina vulnerability - Administrator actions | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/scripted_diagnostics_turn_off_check_enabled_registry.yml"
+  description                = "Detects enabling TurnOffCheck which can be used to bypass defense of MSDT Follina vulnerability - Administrator actions | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/scripted_diagnostics_turn_off_check_enabled_registry.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -1,6 +1,6 @@
 id: 10c1aff1-272c-563a-b518-9e10ed6cf23e
 name: Service StartupType Change Via PowerShell Set-Service
-description: 'Detects the use of the PowerShell "Set-Service" cmdlet to change the startup type of a service to "disabled" or "manual" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/service_startuptype_change_via_powershell_set_service.yml'
+description: 'Detects the use of the PowerShell "Set-Service" cmdlet to change the startup type of a service to "disabled" or "manual" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/service_startuptype_change_via_powershell_set_service.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

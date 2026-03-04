@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "security_event_logging_disable
   name                       = "security_event_logging_disabled_via_minint_registry_key_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Security Event Logging Disabled via MiniNt Registry Key - Process"
-  description                = "Detects attempts to disable security event logging by adding the `MiniNt` registry key. This key is used to disable the Windows Event Log service, which collects and stores event logs from the operating system and applications. Adversaries may want to disable this service to prevent logging of security events that could be used to detect their activities. - Highly Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/security_event_logging_disabled_via_minint_registry_key_process.yml"
+  description                = "Detects attempts to disable security event logging by adding the `MiniNt` registry key. This key is used to disable the Windows Event Log service, which collects and stores event logs from the operating system and applications. Adversaries may want to disable this service to prevent logging of security events that could be used to detect their activities. - Highly Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/security_event_logging_disabled_via_minint_registry_key_process.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: 608f9e96-084f-5b1a-a9c3-48eb18b37e6b
 name: Suspicious RASdial Activity
-description: 'Detects suspicious process related to rasdial.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_rasdial_activity.yml'
+description: 'Detects suspicious process related to rasdial.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_rasdial_activity.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

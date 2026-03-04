@@ -1,6 +1,6 @@
 id: 1d68e087-b935-5840-8597-34b1aa671789
 name: Potential MSTSC Shadowing Activity
-description: 'Detects RDP session hijacking by using MSTSC shadowing | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_mstsc_shadowing_activity.yml'
+description: 'Detects RDP session hijacking by using MSTSC shadowing | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_mstsc_shadowing_activity.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

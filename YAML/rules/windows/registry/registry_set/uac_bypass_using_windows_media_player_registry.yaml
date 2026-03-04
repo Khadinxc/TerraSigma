@@ -1,6 +1,6 @@
 id: 8531f30d-552d-5287-8d36-9fea66c7b27d
 name: UAC Bypass Using Windows Media Player - Registry
-description: 'Detects the pattern of UAC Bypass using Windows Media Player osksupport.dll (UACMe 32) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/uac_bypass_using_windows_media_player_registry.yml'
+description: 'Detects the pattern of UAC Bypass using Windows Media Player osksupport.dll (UACMe 32) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/uac_bypass_using_windows_media_player_registry.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

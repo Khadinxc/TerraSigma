@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_where_execution" {
   name                       = "suspicious_where_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Where Execution"
-  description                = "Adversaries may enumerate browser bookmarks to learn more about compromised hosts. Browser bookmarks may reveal personal information about users (ex: banking sites, interests, social media, etc.) as well as details about internal network resources such as servers, tools/dashboards, or other related infrastructure. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_where_execution.yml"
+  description                = "Adversaries may enumerate browser bookmarks to learn more about compromised hosts. Browser bookmarks may reveal personal information about users (ex: banking sites, interests, social media, etc.) as well as details about internal network resources such as servers, tools/dashboards, or other related infrastructure. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_where_execution.tf"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "adexplorer_writing_complete_ad
   name                       = "adexplorer_writing_complete_ad_snapshot_into_dat_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ADExplorer Writing Complete AD Snapshot Into .dat File"
-  description                = "Detects the dual use tool ADExplorer writing a complete AD snapshot into a .dat file. This can be used by attackers to extract data for Bloodhound, usernames for password spraying or use the meta data for social engineering. The snapshot doesn't contain password hashes but there have been cases, where administrators put passwords in the comment field. - Legitimate use of ADExplorer by administrators creating .dat snapshots | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/adexplorer_writing_complete_ad_snapshot_into_dat_file.yml"
+  description                = "Detects the dual use tool ADExplorer writing a complete AD snapshot into a .dat file. This can be used by attackers to extract data for Bloodhound, usernames for password spraying or use the meta data for social engineering. The snapshot doesn't contain password hashes but there have been cases, where administrators put passwords in the comment field. - Legitimate use of ADExplorer by administrators creating .dat snapshots | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/adexplorer_writing_complete_ad_snapshot_into_dat_file.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

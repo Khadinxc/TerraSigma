@@ -1,6 +1,6 @@
 id: 0e22df22-acd5-56b4-b4eb-f580321b0007
 name: System Drawing DLL Load
-description: 'Detects processes loading "System.Drawing.ni.dll". This could be an indicator of potential Screen Capture. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/system_drawing_dll_load.yml'
+description: 'Detects processes loading "System.Drawing.ni.dll". This could be an indicator of potential Screen Capture. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/system_drawing_dll_load.tf'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

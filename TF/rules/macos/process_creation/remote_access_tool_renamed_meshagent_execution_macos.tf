@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "remote_access_tool_renamed_mes
   name                       = "remote_access_tool_renamed_meshagent_execution_macos"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Access Tool - Renamed MeshAgent Execution - MacOS"
-  description                = "Detects the execution of a renamed instance of the Remote Monitoring and Management (RMM) tool, MeshAgent. RMM tools such as MeshAgent are commonly utilized by IT administrators for legitimate remote support and system management. However, malicious actors may exploit these tools by renaming them to bypass detection mechanisms, enabling unauthorized access and control over compromised systems. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/remote_access_tool_renamed_meshagent_execution_macos.yml"
+  description                = "Detects the execution of a renamed instance of the Remote Monitoring and Management (RMM) tool, MeshAgent. RMM tools such as MeshAgent are commonly utilized by IT administrators for legitimate remote support and system management. However, malicious actors may exploit these tools by renaming them to bypass detection mechanisms, enabling unauthorized access and control over compromised systems. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/remote_access_tool_renamed_meshagent_execution_macos.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

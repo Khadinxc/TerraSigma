@@ -1,6 +1,6 @@
 id: b9272a2d-cb31-5c26-a61d-f15d127f72a2
 name: Time Machine Backup Disabled Via Tmutil - MacOS
-description: 'Detects disabling of Time Machine (Apple''s automated backup utility software) via the native macOS backup utility "tmutil". An attacker can use this to prevent backups from occurring. - Legitimate administrator activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/time_machine_backup_disabled_via_tmutil_macos.yml'
+description: 'Detects disabling of Time Machine (Apple''s automated backup utility software) via the native macOS backup utility "tmutil". An attacker can use this to prevent backups from occurring. - Legitimate administrator activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/time_machine_backup_disabled_via_tmutil_macos.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

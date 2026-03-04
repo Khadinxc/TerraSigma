@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "use_of_fsharp_interpreters" {
   name                       = "use_of_fsharp_interpreters"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Use of FSharp Interpreters"
-  description                = "Detects the execution of FSharp Interpreters \"FsiAnyCpu.exe\" and \"FSi.exe\" Both can be used for AWL bypass and to execute F# code via scripts or inline. - Legitimate use by a software developer. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_of_fsharp_interpreters.yml"
+  description                = "Detects the execution of FSharp Interpreters \"FsiAnyCpu.exe\" and \"FSi.exe\" Both can be used for AWL bypass and to execute F# code via scripts or inline. - Legitimate use by a software developer. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_of_fsharp_interpreters.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

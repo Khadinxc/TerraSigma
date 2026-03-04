@@ -1,6 +1,6 @@
 id: 6bf0fe3d-8d70-5879-b991-3076ebb085ff
 name: Potential DLL Sideloading Of DBGCORE.DLL
-description: 'Detects DLL sideloading of "dbgcore.dll" - Legitimate applications loading their own versions of the DLL mentioned in this rule | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_dll_sideloading_of_dbgcore_dll.yml'
+description: 'Detects DLL sideloading of "dbgcore.dll" - Legitimate applications loading their own versions of the DLL mentioned in this rule | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_dll_sideloading_of_dbgcore_dll.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

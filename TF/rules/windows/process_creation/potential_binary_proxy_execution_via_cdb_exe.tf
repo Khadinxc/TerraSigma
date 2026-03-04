@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_binary_proxy_executi
   name                       = "potential_binary_proxy_execution_via_cdb_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Binary Proxy Execution Via Cdb.EXE"
-  description                = "Detects usage of \"cdb.exe\" to launch arbitrary processes or commands from a debugger script file - Legitimate use of debugging tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_binary_proxy_execution_via_cdb_exe.yml"
+  description                = "Detects usage of \"cdb.exe\" to launch arbitrary processes or commands from a debugger script file - Legitimate use of debugging tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_binary_proxy_execution_via_cdb_exe.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

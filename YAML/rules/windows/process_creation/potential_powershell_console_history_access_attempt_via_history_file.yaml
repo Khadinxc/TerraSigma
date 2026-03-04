@@ -1,6 +1,6 @@
 id: 9c224f80-0690-529d-9c0c-344a7e2d2858
 name: Potential PowerShell Console History Access Attempt via History File
-description: 'Detects potential access attempts to the PowerShell console history directly via history file (ConsoleHost_history.txt). This can give access to plaintext passwords used in PowerShell commands or used for general reconnaissance. - Legitimate access of the console history file is possible | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_powershell_console_history_access_attempt_via_history_file.yml'
+description: 'Detects potential access attempts to the PowerShell console history directly via history file (ConsoleHost_history.txt). This can give access to plaintext passwords used in PowerShell commands or used for general reconnaissance. - Legitimate access of the console history file is possible | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_powershell_console_history_access_attempt_via_history_file.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_credential_dumping_v
   name                       = "potential_credential_dumping_via_lsass_process_clone"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Credential Dumping Via LSASS Process Clone"
-  description                = "Detects a suspicious LSASS process process clone that could be a sign of credential dumping activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_credential_dumping_via_lsass_process_clone.yml"
+  description                = "Detects a suspicious LSASS process process clone that could be a sign of credential dumping activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_credential_dumping_via_lsass_process_clone.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_provisioning_registr
   name                       = "potential_provisioning_registry_key_abuse_for_binary_proxy_execution_reg"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Provisioning Registry Key Abuse For Binary Proxy Execution - REG"
-  description                = "Detects potential abuse of the provisioning registry key for indirect command execution through \"Provlaunch.exe\". | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_provisioning_registry_key_abuse_for_binary_proxy_execution_reg.yml"
+  description                = "Detects potential abuse of the provisioning registry key for indirect command execution through \"Provlaunch.exe\". | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_provisioning_registry_key_abuse_for_binary_proxy_execution_reg.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

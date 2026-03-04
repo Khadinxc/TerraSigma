@@ -1,6 +1,6 @@
 id: c177cb49-579c-53ca-9923-0ced588d5c57
 name: Mustang Panda Dropper
-description: 'Detects specific process parameters as used by Mustang Panda droppers - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/MustangPanda/mustang_panda_dropper.yml'
+description: 'Detects specific process parameters as used by Mustang Panda droppers - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/MustangPanda/mustang_panda_dropper.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

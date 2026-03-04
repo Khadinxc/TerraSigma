@@ -1,6 +1,6 @@
 id: a95ded6b-c1a6-5d02-b62a-3fe57f2ad774
 name: ESXi Network Configuration Discovery Via ESXCLI
-description: 'Detects execution of the "esxcli" command with the "network" flag in order to retrieve information about the network configuration. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/esxi_network_configuration_discovery_via_esxcli.yml'
+description: 'Detects execution of the "esxcli" command with the "network" flag in order to retrieve information about the network configuration. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/esxi_network_configuration_discovery_via_esxcli.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

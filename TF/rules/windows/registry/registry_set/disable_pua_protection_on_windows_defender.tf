@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "disable_pua_protection_on_wind
   name                       = "disable_pua_protection_on_windows_defender"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disable PUA Protection on Windows Defender"
-  description                = "Detects disabling Windows Defender PUA protection | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/disable_pua_protection_on_windows_defender.yml"
+  description                = "Detects disabling Windows Defender PUA protection | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/disable_pua_protection_on_windows_defender.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

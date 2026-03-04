@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "payload_decoded_and_decrypted_
   name                       = "payload_decoded_and_decrypted_via_built_in_utilities"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Payload Decoded and Decrypted via Built-in Utilities"
-  description                = "Detects when a built-in utility is used to decode and decrypt a payload after a macOS disk image (DMG) is executed. Malware authors may attempt to evade detection and trick users into executing malicious code by encoding and encrypting their payload and placing it in a disk image file. This behavior is consistent with adware or malware families such as Bundlore and Shlayer. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/payload_decoded_and_decrypted_via_built_in_utilities.yml"
+  description                = "Detects when a built-in utility is used to decode and decrypt a payload after a macOS disk image (DMG) is executed. Malware authors may attempt to evade detection and trick users into executing malicious code by encoding and encrypting their payload and placing it in a disk image file. This behavior is consistent with adware or malware families such as Bundlore and Shlayer. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/payload_decoded_and_decrypted_via_built_in_utilities.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

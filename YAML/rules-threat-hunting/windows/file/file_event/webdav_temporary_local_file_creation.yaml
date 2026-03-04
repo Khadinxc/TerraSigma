@@ -1,6 +1,6 @@
 id: fe359503-cc58-51f3-a9d5-33131fcaad5f
 name: WebDAV Temporary Local File Creation
-description: 'Detects the creation of WebDAV temporary files with potentially suspicious extensions - Legitimate use of WebDAV in an environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/webdav_temporary_local_file_creation.yml'
+description: 'Detects the creation of WebDAV temporary files with potentially suspicious extensions - Legitimate use of WebDAV in an environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/webdav_temporary_local_file_creation.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "execution_via_workfolders_exe"
   name                       = "execution_via_workfolders_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Execution via WorkFolders.exe"
-  description                = "Detects using WorkFolders.exe to execute an arbitrary control.exe - Legitimate usage of the uncommon Windows Work Folders feature. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/execution_via_workfolders_exe.yml"
+  description                = "Detects using WorkFolders.exe to execute an arbitrary control.exe - Legitimate usage of the uncommon Windows Work Folders feature. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/execution_via_workfolders_exe.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

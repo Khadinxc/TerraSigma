@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_inveigh_execution" {
   name                       = "hacktool_inveigh_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Inveigh Execution"
-  description                = "Detects the use of Inveigh a cross-platform .NET IPv4/IPv6 machine-in-the-middle tool - Very unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_inveigh_execution.yml"
+  description                = "Detects the use of Inveigh a cross-platform .NET IPv4/IPv6 machine-in-the-middle tool - Very unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_inveigh_execution.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: f7f92de5-f79f-5d13-b087-d45533acee0e
 name: Remote Access Tool - Ammy Admin Agent Execution
-description: 'Detects the execution of the Ammy Admin RMM agent for remote management. - Legitimate use of Ammy Admin RMM agent for remote management by admins. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/remote_access_tool_ammy_admin_agent_execution.yml'
+description: 'Detects the execution of the Ammy Admin RMM agent for remote management. - Legitimate use of Ammy Admin RMM agent for remote management by admins. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/remote_access_tool_ammy_admin_agent_execution.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "eventlog_query_requests_by_bui
   name                       = "eventlog_query_requests_by_builtin_utilities"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "EventLog Query Requests By Builtin Utilities"
-  description                = "Detect attempts to query the contents of the event log using command line utilities. Attackers use this technique in order to look for sensitive information in the logs such as passwords, usernames, IPs, etc. - Legitimate log access by administrators or troubleshooting tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/eventlog_query_requests_by_builtin_utilities.yml"
+  description                = "Detect attempts to query the contents of the event log using command line utilities. Attackers use this technique in order to look for sensitive information in the logs such as passwords, usernames, IPs, etc. - Legitimate log access by administrators or troubleshooting tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/eventlog_query_requests_by_builtin_utilities.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

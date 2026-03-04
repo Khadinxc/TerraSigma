@@ -1,6 +1,6 @@
 id: 4e4604ad-e0a7-5993-9902-67548a5bfa99
 name: Windows Admin Share Mount Via Net.EXE
-description: 'Detects when an admin share is mounted using net.exe - Administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_admin_share_mount_via_net_exe.yml'
+description: 'Detects when an admin share is mounted using net.exe - Administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_admin_share_mount_via_net_exe.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

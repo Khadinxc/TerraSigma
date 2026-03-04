@@ -1,6 +1,6 @@
 id: 93243450-9b13-563f-8815-193f92962692
 name: Suspicious PowerShell IEX Execution Patterns
-description: 'Detects suspicious ways to run Invoke-Execution using IEX alias - Legitimate scripts that use IEX | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_powershell_iex_execution_patterns.yml'
+description: 'Detects suspicious ways to run Invoke-Execution using IEX alias - Legitimate scripts that use IEX | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_powershell_iex_execution_patterns.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

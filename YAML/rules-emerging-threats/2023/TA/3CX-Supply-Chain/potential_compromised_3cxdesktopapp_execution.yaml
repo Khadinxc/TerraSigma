@@ -1,6 +1,6 @@
 id: e5ebc6a2-3e0b-5278-9fa3-8a0a70ccef30
 name: Potential Compromised 3CXDesktopApp Execution
-description: 'Detects execution of known compromised version of 3CXDesktopApp - Legitimate usage of 3CXDesktopApp | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/3CX-Supply-Chain/potential_compromised_3cxdesktopapp_execution.yml'
+description: 'Detects execution of known compromised version of 3CXDesktopApp - Legitimate usage of 3CXDesktopApp | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/3CX-Supply-Chain/potential_compromised_3cxdesktopapp_execution.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

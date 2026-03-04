@@ -1,6 +1,6 @@
 id: 229e04d5-5a78-53fa-9c88-a0faaa6c3a52
 name: Linux Webshell Indicators
-description: 'Detects suspicious sub processes of web server processes - Web applications that invoke Linux command line tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_webshell_indicators.yml'
+description: 'Detects suspicious sub processes of web server processes - Web applications that invoke Linux command line tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_webshell_indicators.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

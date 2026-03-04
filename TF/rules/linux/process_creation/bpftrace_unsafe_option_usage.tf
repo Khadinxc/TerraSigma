@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "bpftrace_unsafe_option_usage" 
   name                       = "bpftrace_unsafe_option_usage"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "BPFtrace Unsafe Option Usage"
-  description                = "Detects the usage of the unsafe bpftrace option - Legitimate usage of the unsafe option | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/bpftrace_unsafe_option_usage.yml"
+  description                = "Detects the usage of the unsafe bpftrace option - Legitimate usage of the unsafe option | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/bpftrace_unsafe_option_usage.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

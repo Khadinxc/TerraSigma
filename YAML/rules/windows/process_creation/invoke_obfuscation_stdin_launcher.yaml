@@ -1,6 +1,6 @@
 id: 491ddeeb-c62f-55d7-bbc0-7173d0c6eb52
 name: Invoke-Obfuscation STDIN+ Launcher
-description: 'Detects Obfuscated use of stdin to execute PowerShell | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/invoke_obfuscation_stdin_launcher.yml'
+description: 'Detects Obfuscated use of stdin to execute PowerShell | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/invoke_obfuscation_stdin_launcher.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

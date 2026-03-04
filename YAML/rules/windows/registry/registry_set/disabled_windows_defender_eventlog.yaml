@@ -1,6 +1,6 @@
 id: 14e1b289-c185-5c57-b15d-c453e037a798
 name: Disabled Windows Defender Eventlog
-description: 'Detects the disabling of the Windows Defender eventlog as seen in relation to Lockbit 3.0 infections - Other Antivirus software installations could cause Windows to disable that eventlog (unknown) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/disabled_windows_defender_eventlog.yml'
+description: 'Detects the disabling of the Windows Defender eventlog as seen in relation to Lockbit 3.0 infections - Other Antivirus software installations could cause Windows to disable that eventlog (unknown) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/disabled_windows_defender_eventlog.tf'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

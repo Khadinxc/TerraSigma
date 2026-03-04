@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "powershell_script_change_permi
   name                       = "powershell_script_change_permission_via_set_acl"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Script Change Permission Via Set-Acl"
-  description                = "Detects PowerShell execution to set the ACL of a file or a folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_script_change_permission_via_set_acl.yml"
+  description                = "Detects PowerShell execution to set the ACL of a file or a folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_script_change_permission_via_set_acl.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

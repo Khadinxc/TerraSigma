@@ -1,6 +1,6 @@
 id: b6c89a8f-48c9-5c9f-8e08-4d4ac87a02d9
 name: Potentially Suspicious Child Process Of ClickOnce Application
-description: 'Detects potentially suspicious child processes of a ClickOnce deployment application | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_child_process_of_clickonce_application.yml'
+description: 'Detects potentially suspicious child processes of a ClickOnce deployment application | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_child_process_of_clickonce_application.tf'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

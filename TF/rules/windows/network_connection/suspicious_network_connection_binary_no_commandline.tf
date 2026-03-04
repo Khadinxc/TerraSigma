@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_network_connection_
   name                       = "suspicious_network_connection_binary_no_commandline"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Network Connection Binary No CommandLine"
-  description                = "Detects suspicious network connections made by a well-known Windows binary run with no command line parameters | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/suspicious_network_connection_binary_no_commandline.yml"
+  description                = "Detects suspicious network connections made by a well-known Windows binary run with no command line parameters | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/suspicious_network_connection_binary_no_commandline.tf"
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents

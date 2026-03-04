@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_advanced_ip_scanner_execut
   name                       = "pua_advanced_ip_scanner_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Advanced IP Scanner Execution"
-  description                = "Detects the use of Advanced IP Scanner. Seems to be a popular tool for ransomware groups. - Legitimate administrative use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_advanced_ip_scanner_execution.yml"
+  description                = "Detects the use of Advanced IP Scanner. Seems to be a popular tool for ransomware groups. - Legitimate administrative use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_advanced_ip_scanner_execution.tf"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
