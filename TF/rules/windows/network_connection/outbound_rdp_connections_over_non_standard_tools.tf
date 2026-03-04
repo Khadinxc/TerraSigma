@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "outbound_rdp_connections_over_
   name                       = "outbound_rdp_connections_over_non_standard_tools"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Outbound RDP Connections Over Non-Standard Tools"
-  description                = "Detects Non-Standard tools initiating a connection over port 3389 indicating possible lateral movement. An initial baseline is required before using this utility to exclude third party RDP tooling that you might use. - Third party RDP tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/outbound_rdp_connections_over_non_standard_tools.tf"
+  description                = "Detects Non-Standard tools initiating a connection over port 3389 indicating possible lateral movement. An initial baseline is required before using this utility to exclude third party RDP tooling that you might use. - Third party RDP tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/outbound_rdp_connections_over_non_standard_tools.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents

@@ -1,6 +1,6 @@
 id: defa3301-c3d1-5d6a-ac49-e2c5933397fb
 name: Diamond Sleet APT Scheduled Task Creation - Registry
-description: 'Detects registry event related to the creation of a scheduled task used by Diamond Sleet APT during exploitation of Team City CVE-2023-42793 vulnerability | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/diamond_sleet_apt_scheduled_task_creation_registry.tf'
+description: 'Detects registry event related to the creation of a scheduled task used by Diamond Sleet APT during exploitation of Team City CVE-2023-42793 vulnerability | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/diamond_sleet_apt_scheduled_task_creation_registry.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

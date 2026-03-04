@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "system_network_connections_dis
   name                       = "system_network_connections_discovery_via_net_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "System Network Connections Discovery Via Net.EXE"
-  description                = "Adversaries may attempt to get a listing of network connections to or from the compromised system they are currently accessing or from remote systems by querying for information over the network. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/system_network_connections_discovery_via_net_exe.tf"
+  description                = "Adversaries may attempt to get a listing of network connections to or from the compromised system they are currently accessing or from remote systems by querying for information over the network. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/system_network_connections_discovery_via_net_exe.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

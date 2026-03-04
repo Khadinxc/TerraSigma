@@ -1,6 +1,6 @@
 id: 6875df1b-9ce5-5763-ba81-b2fcdad8131c
 name: Curl.EXE Execution
-description: 'Detects a curl process start on Windows, which could indicates a file download from a remote location or a simple web request to a remote server - Scripts created by developers and admins - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/curl_exe_execution.tf'
+description: 'Detects a curl process start on Windows, which could indicates a file download from a remote location or a simple web request to a remote server - Scripts created by developers and admins - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/curl_exe_execution.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

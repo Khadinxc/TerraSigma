@@ -1,6 +1,6 @@
 id: 91b9c4fc-be55-51bb-91fc-dc9b4330f93e
 name: Launch Agent/Daemon Execution Via Launchctl
-description: 'Detects the execution of programs as Launch Agents or Launch Daemons using launchctl on macOS. - Legitimate administration activities is expected to trigger false positives. Investigate the command line being passed to determine if the service or launch agent are suspicious. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/launch_agent_daemon_execution_via_launchctl.tf'
+description: 'Detects the execution of programs as Launch Agents or Launch Daemons using launchctl on macOS. - Legitimate administration activities is expected to trigger false positives. Investigate the command line being passed to determine if the service or launch agent are suspicious. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/launch_agent_daemon_execution_via_launchctl.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

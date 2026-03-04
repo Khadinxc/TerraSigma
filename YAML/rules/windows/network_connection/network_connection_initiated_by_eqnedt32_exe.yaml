@@ -1,6 +1,6 @@
 id: aea0a6e2-597a-582e-a984-5050d0a6adbf
 name: Network Connection Initiated By Eqnedt32.EXE
-description: 'Detects network connections from the Equation Editor process "eqnedt32.exe". - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/network_connection_initiated_by_eqnedt32_exe.tf'
+description: 'Detects network connections from the Equation Editor process "eqnedt32.exe". - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/network_connection_initiated_by_eqnedt32_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

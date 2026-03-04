@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "process_access_via_trolleyexpr
   name                       = "process_access_via_trolleyexpress_exclusion"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Process Access via TrolleyExpress Exclusion"
-  description                = "Detects a possible process memory dump that uses the white-listed Citrix TrolleyExpress.exe filename as a way to dump the lsass process memory | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/process_access_via_trolleyexpress_exclusion.tf"
+  description                = "Detects a possible process memory dump that uses the white-listed Citrix TrolleyExpress.exe filename as a way to dump the lsass process memory | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/process_access_via_trolleyexpress_exclusion.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

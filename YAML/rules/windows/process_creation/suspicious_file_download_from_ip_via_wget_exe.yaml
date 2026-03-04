@@ -1,6 +1,6 @@
 id: ab716db5-5a44-576b-a0b1-7ae0ee6a21e8
 name: Suspicious File Download From IP Via Wget.EXE
-description: 'Detects potentially suspicious file downloads directly from IP addresses using Wget.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_file_download_from_ip_via_wget_exe.tf'
+description: 'Detects potentially suspicious file downloads directly from IP addresses using Wget.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_file_download_from_ip_via_wget_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

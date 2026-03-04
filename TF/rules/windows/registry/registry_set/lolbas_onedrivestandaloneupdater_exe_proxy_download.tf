@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "lolbas_onedrivestandaloneupdat
   name                       = "lolbas_onedrivestandaloneupdater_exe_proxy_download"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Lolbas OneDriveStandaloneUpdater.exe Proxy Download"
-  description                = "Detects setting a custom URL for OneDriveStandaloneUpdater.exe to download a file from the Internet without executing any anomalous executables with suspicious arguments. The downloaded file will be in C:\\Users\\redacted\\AppData\\Local\\Microsoft\\OneDrive\\StandaloneUpdaterreSignInSettingsConfig.json | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/lolbas_onedrivestandaloneupdater_exe_proxy_download.tf"
+  description                = "Detects setting a custom URL for OneDriveStandaloneUpdater.exe to download a file from the Internet without executing any anomalous executables with suspicious arguments. The downloaded file will be in C:\\Users\\redacted\\AppData\\Local\\Microsoft\\OneDrive\\StandaloneUpdaterreSignInSettingsConfig.json | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/lolbas_onedrivestandaloneupdater_exe_proxy_download.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -1,6 +1,6 @@
 id: 04ad39d2-8099-5802-810f-03b0b76ec3cf
 name: Access To Chromium Browsers Sensitive Files By Uncommon Applications
-description: 'Detects file access requests to chromium based browser sensitive files by uncommon processes. Could indicate potential attempt of stealing sensitive information. - Antivirus, Anti-Spyware, Anti-Malware Software - Backup software - Legitimate software installed on partitions other than "C:\" - Searching software such as "everything.exe" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/access_to_chromium_browsers_sensitive_files_by_uncommon_applications.tf'
+description: 'Detects file access requests to chromium based browser sensitive files by uncommon processes. Could indicate potential attempt of stealing sensitive information. - Antivirus, Anti-Spyware, Anti-Malware Software - Backup software - Legitimate software installed on partitions other than "C:\" - Searching software such as "everything.exe" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/access_to_chromium_browsers_sensitive_files_by_uncommon_applications.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 65937118-c197-531f-93b2-ea5bec957955
 name: HackTool - Impersonate Execution
-description: 'Detects execution of the Impersonate tool. Which can be used to manipulate tokens on a Windows computers remotely (PsExec/WmiExec) or interactively | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_impersonate_execution.tf'
+description: 'Detects execution of the Impersonate tool. Which can be used to manipulate tokens on a Windows computers remotely (PsExec/WmiExec) or interactively | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_impersonate_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

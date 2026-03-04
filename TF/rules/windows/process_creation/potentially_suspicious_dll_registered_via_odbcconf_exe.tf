@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_dll_reg
   name                       = "potentially_suspicious_dll_registered_via_odbcconf_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious DLL Registered Via Odbcconf.EXE"
-  description                = "Detects execution of \"odbcconf\" with the \"REGSVR\" action where the DLL in question doesn't contain a \".dll\" extension. Which is often used as a method to evade defenses. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_dll_registered_via_odbcconf_exe.tf"
+  description                = "Detects execution of \"odbcconf\" with the \"REGSVR\" action where the DLL in question doesn't contain a \".dll\" extension. Which is often used as a method to evade defenses. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_dll_registered_via_odbcconf_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

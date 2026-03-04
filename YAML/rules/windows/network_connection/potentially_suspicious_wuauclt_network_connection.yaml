@@ -1,6 +1,6 @@
 id: f7bdb396-1958-513a-adfd-704939d900ca
 name: Potentially Suspicious Wuauclt Network Connection
-description: 'Detects the use of the Windows Update Client binary (wuauclt.exe) to proxy execute code and making network connections. One could easily make the DLL spawn a new process and inject to it to proxy the network connection and bypass this rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/potentially_suspicious_wuauclt_network_connection.tf'
+description: 'Detects the use of the Windows Update Client binary (wuauclt.exe) to proxy execute code and making network connections. One could easily make the DLL spawn a new process and inject to it to proxy the network connection and bypass this rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/potentially_suspicious_wuauclt_network_connection.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

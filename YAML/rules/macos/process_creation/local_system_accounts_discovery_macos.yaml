@@ -1,6 +1,6 @@
 id: 440b740c-6cb6-560e-b163-39ba8076cd92
 name: Local System Accounts Discovery - MacOs
-description: 'Detects enumeration of local systeam accounts on MacOS - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/local_system_accounts_discovery_macos.tf'
+description: 'Detects enumeration of local systeam accounts on MacOS - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/local_system_accounts_discovery_macos.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

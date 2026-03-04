@@ -1,6 +1,6 @@
 id: 4416181b-c398-50ce-b730-0349eec7084f
 name: Suspicious Microsoft Office Child Process
-description: 'Detects a suspicious process spawning from one of the Microsoft Office suite products (Word, Excel, PowerPoint, Publisher, Visio, etc.) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_microsoft_office_child_process.tf'
+description: 'Detects a suspicious process spawning from one of the Microsoft Office suite products (Word, Excel, PowerPoint, Publisher, Visio, etc.) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_microsoft_office_child_process.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

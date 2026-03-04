@@ -1,6 +1,6 @@
 id: 475ba5a1-4fae-5886-ad89-ccdeb1a97c8d
 name: Hidden Powershell in Link File Pattern
-description: 'Detects events that appear when a user click on a link file with a powershell command in it - Legitimate commands in .lnk files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hidden_powershell_in_link_file_pattern.tf'
+description: 'Detects events that appear when a user click on a link file with a powershell command in it - Legitimate commands in .lnk files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hidden_powershell_in_link_file_pattern.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

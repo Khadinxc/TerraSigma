@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_advancedrun_suspicious_exe
   name                       = "pua_advancedrun_suspicious_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - AdvancedRun Suspicious Execution"
-  description                = "Detects the execution of AdvancedRun utility in the context of the TrustedInstaller, SYSTEM, Local Service or Network Service accounts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_advancedrun_suspicious_execution.tf"
+  description                = "Detects the execution of AdvancedRun utility in the context of the TrustedInstaller, SYSTEM, Local Service or Network Service accounts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_advancedrun_suspicious_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

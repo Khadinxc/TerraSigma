@@ -1,6 +1,6 @@
 id: 1ec99a8d-e2d4-5d6d-9dd3-e2cc752b8c3e
 name: Potential File Extension Spoofing Using Right-to-Left Override
-description: 'Detects suspicious filenames that contain a right-to-left override character and a potentially spoofed file extensions. - Filenames that contains scriptures such as arabic or hebrew might make use of this character | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_file_extension_spoofing_using_right_to_left_override.tf'
+description: 'Detects suspicious filenames that contain a right-to-left override character and a potentially spoofed file extensions. - Filenames that contains scriptures such as arabic or hebrew might make use of this character | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_file_extension_spoofing_using_right_to_left_override.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

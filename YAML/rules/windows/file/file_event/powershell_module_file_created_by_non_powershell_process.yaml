@@ -1,6 +1,6 @@
 id: 6027f6f6-1731-5bed-980a-8acfcc5d8317
 name: PowerShell Module File Created By Non-PowerShell Process
-description: 'Detects the creation of a new PowerShell module ".psm1", ".psd1", ".dll", ".ps1", etc. by a non-PowerShell process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/powershell_module_file_created_by_non_powershell_process.tf'
+description: 'Detects the creation of a new PowerShell module ".psm1", ".psd1", ".dll", ".ps1", etc. by a non-PowerShell process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/powershell_module_file_created_by_non_powershell_process.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

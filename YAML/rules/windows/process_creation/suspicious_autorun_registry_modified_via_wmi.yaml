@@ -1,6 +1,6 @@
 id: 065dde4a-5003-5659-8364-1a1d6ade6354
 name: Suspicious Autorun Registry Modified via WMI
-description: 'Detects suspicious activity where the WMIC process is used to create an autorun registry entry via reg.exe, which is often indicative of persistence mechanisms employed by malware. - Legitimate administrative activity or software installations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_autorun_registry_modified_via_wmi.tf'
+description: 'Detects suspicious activity where the WMIC process is used to create an autorun registry entry via reg.exe, which is often indicative of persistence mechanisms employed by malware. - Legitimate administrative activity or software installations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_autorun_registry_modified_via_wmi.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

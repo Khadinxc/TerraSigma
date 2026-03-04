@@ -1,6 +1,6 @@
 id: 5685ecdf-f6d5-5388-b6f0-23e551427ac2
 name: OneNote.EXE Execution of Malicious Embedded Scripts
-description: 'Detects the execution of malicious OneNote documents that contain embedded scripts. When a user clicks on a OneNote attachment and then on the malicious link inside the ".one" file, it exports and executes the malicious embedded script from specific directories. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/onenote_exe_execution_of_malicious_embedded_scripts.tf'
+description: 'Detects the execution of malicious OneNote documents that contain embedded scripts. When a user clicks on a OneNote attachment and then on the malicious link inside the ".one" file, it exports and executes the malicious embedded script from specific directories. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/onenote_exe_execution_of_malicious_embedded_scripts.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

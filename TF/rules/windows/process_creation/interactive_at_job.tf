@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "interactive_at_job" {
   name                       = "interactive_at_job"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Interactive AT Job"
-  description                = "Detects an interactive AT job, which may be used as a form of privilege escalation. - Unlikely (at.exe deprecated as of Windows 8) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/interactive_at_job.tf"
+  description                = "Detects an interactive AT job, which may be used as a form of privilege escalation. - Unlikely (at.exe deprecated as of Windows 8) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/interactive_at_job.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

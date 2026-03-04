@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_dll_sideloading_via_
   name                       = "potential_dll_sideloading_via_jsschhlp"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential DLL Sideloading Via JsSchHlp"
-  description                = "Detects potential DLL sideloading using JUSTSYSTEMS Japanese word processor | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_dll_sideloading_via_jsschhlp.tf"
+  description                = "Detects potential DLL sideloading using JUSTSYSTEMS Japanese word processor | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_dll_sideloading_via_jsschhlp.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

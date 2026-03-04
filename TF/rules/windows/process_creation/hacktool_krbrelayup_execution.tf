@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_krbrelayup_execution"
   name                       = "hacktool_krbrelayup_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - KrbRelayUp Execution"
-  description                = "Detects KrbRelayUp used to perform a universal no-fix local privilege escalation in Windows domain environments where LDAP signing is not enforced - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_krbrelayup_execution.tf"
+  description                = "Detects KrbRelayUp used to perform a universal no-fix local privilege escalation in Windows domain environments where LDAP signing is not enforced - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_krbrelayup_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

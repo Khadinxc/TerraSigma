@@ -1,6 +1,6 @@
 id: a2ddc1f1-4a7a-52dd-9cd7-304a94293c66
 name: Remove Immutable File Attribute
-description: 'Detects usage of the ''chattr'' utility to remove immutable file attribute. - Administrator interacting with immutable files (e.g. for instance backups). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/remove_immutable_file_attribute.tf'
+description: 'Detects usage of the ''chattr'' utility to remove immutable file attribute. - Administrator interacting with immutable files (e.g. for instance backups). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/remove_immutable_file_attribute.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

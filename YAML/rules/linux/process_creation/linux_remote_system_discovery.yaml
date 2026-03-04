@@ -1,6 +1,6 @@
 id: 26694ce9-8cd6-55ea-90c0-cf5a87049f90
 name: Linux Remote System Discovery
-description: 'Detects the enumeration of other remote systems. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_remote_system_discovery.tf'
+description: 'Detects the enumeration of other remote systems. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_remote_system_discovery.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

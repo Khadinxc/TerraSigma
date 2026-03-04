@@ -1,6 +1,6 @@
 id: faf924f8-eec5-5ca6-a70c-b4f51442efbc
 name: Suspicious Non-Browser Network Communication With Google API
-description: 'Detects a non-browser process interacting with the Google API which could indicate the use of a covert C2 such as Google Sheet C2 (GC2-sheet) - Legitimate applications communicating with the "googleapis.com" endpoints that are not already in the exclusion list. This is environmental dependent and requires further testing and tuning. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/suspicious_non_browser_network_communication_with_google_api.tf'
+description: 'Detects a non-browser process interacting with the Google API which could indicate the use of a covert C2 such as Google Sheet C2 (GC2-sheet) - Legitimate applications communicating with the "googleapis.com" endpoints that are not already in the exclusion list. This is environmental dependent and requires further testing and tuning. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/suspicious_non_browser_network_communication_with_google_api.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

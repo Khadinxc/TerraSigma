@@ -1,6 +1,6 @@
 id: baf5c74b-e18d-50bc-999e-4742f1839e6d
 name: Suspicious Group And Account Reconnaissance Activity Using Net.EXE
-description: 'Detects suspicious reconnaissance command line activity on Windows systems using Net.EXE Check if the user that executed the commands is suspicious (e.g. service accounts, LOCAL_SYSTEM) - Inventory tool runs - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_group_and_account_reconnaissance_activity_using_net_exe.tf'
+description: 'Detects suspicious reconnaissance command line activity on Windows systems using Net.EXE Check if the user that executed the commands is suspicious (e.g. service accounts, LOCAL_SYSTEM) - Inventory tool runs - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_group_and_account_reconnaissance_activity_using_net_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

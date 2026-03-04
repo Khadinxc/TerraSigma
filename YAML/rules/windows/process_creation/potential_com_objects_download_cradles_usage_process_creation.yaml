@@ -1,6 +1,6 @@
 id: 740e067f-41b3-5b95-8662-3adaa29c8391
 name: Potential COM Objects Download Cradles Usage - Process Creation
-description: 'Detects usage of COM objects that can be abused to download files in PowerShell by CLSID - Legitimate use of the library | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_com_objects_download_cradles_usage_process_creation.tf'
+description: 'Detects usage of COM objects that can be abused to download files in PowerShell by CLSID - Legitimate use of the library | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_com_objects_download_cradles_usage_process_creation.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

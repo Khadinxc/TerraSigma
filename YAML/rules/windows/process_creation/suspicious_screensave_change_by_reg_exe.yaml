@@ -1,6 +1,6 @@
 id: 2c8a2d5f-e66b-5ebe-bd5f-1dd063bbdc6a
 name: Suspicious ScreenSave Change by Reg.exe
-description: 'Adversaries may establish persistence by executing malicious content triggered by user inactivity. Screensavers are programs that execute after a configurable time of user inactivity and consist of Portable Executable (PE) files with a .scr file extension - GPO | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_screensave_change_by_reg_exe.tf'
+description: 'Adversaries may establish persistence by executing malicious content triggered by user inactivity. Screensavers are programs that execute after a configurable time of user inactivity and consist of Portable Executable (PE) files with a .scr file extension - GPO | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_screensave_change_by_reg_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

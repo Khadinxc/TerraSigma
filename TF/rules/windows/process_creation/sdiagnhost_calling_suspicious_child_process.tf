@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "sdiagnhost_calling_suspicious_
   name                       = "sdiagnhost_calling_suspicious_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Sdiagnhost Calling Suspicious Child Process"
-  description                = "Detects sdiagnhost.exe calling a suspicious child process (e.g. used in exploits for Follina / CVE-2022-30190) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sdiagnhost_calling_suspicious_child_process.tf"
+  description                = "Detects sdiagnhost.exe calling a suspicious child process (e.g. used in exploits for Follina / CVE-2022-30190) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sdiagnhost_calling_suspicious_child_process.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: d2af841a-a425-52d1-b9b5-d616b87a5b5e
 name: Curl Web Request With Potential Custom User-Agent
-description: 'Detects execution of "curl.exe" with a potential custom "User-Agent". Attackers can leverage this to download or exfiltrate data via "curl" to a domain that only accept specific "User-Agent" strings | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/curl_web_request_with_potential_custom_user_agent.tf'
+description: 'Detects execution of "curl.exe" with a potential custom "User-Agent". Attackers can leverage this to download or exfiltrate data via "curl" to a domain that only accept specific "User-Agent" strings | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/curl_web_request_with_potential_custom_user_agent.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

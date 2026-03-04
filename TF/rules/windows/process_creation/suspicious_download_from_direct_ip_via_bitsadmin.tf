@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_download_from_direc
   name                       = "suspicious_download_from_direct_ip_via_bitsadmin"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Download From Direct IP Via Bitsadmin"
-  description                = "Detects usage of bitsadmin downloading a file using an URL that contains an IP | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_download_from_direct_ip_via_bitsadmin.tf"
+  description                = "Detects usage of bitsadmin downloading a file using an URL that contains an IP | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_download_from_direct_ip_via_bitsadmin.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

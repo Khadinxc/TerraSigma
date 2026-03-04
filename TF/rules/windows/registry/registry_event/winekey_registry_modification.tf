@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "winekey_registry_modification"
   name                       = "winekey_registry_modification"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WINEKEY Registry Modification"
-  description                = "Detects potential malicious modification of run keys by winekey or team9 backdoor | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/winekey_registry_modification.tf"
+  description                = "Detects potential malicious modification of run keys by winekey or team9 backdoor | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/winekey_registry_modification.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

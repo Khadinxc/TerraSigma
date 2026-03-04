@@ -1,6 +1,6 @@
 id: 046543d9-9794-5ab5-9391-00dc9f1686bd
 name: Suspicious TSCON Start as SYSTEM
-description: 'Detects a tscon.exe start as LOCAL SYSTEM | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_tscon_start_as_system.tf'
+description: 'Detects a tscon.exe start as LOCAL SYSTEM | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_tscon_start_as_system.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

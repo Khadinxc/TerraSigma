@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_rundll32_execution_
   name                       = "suspicious_rundll32_execution_with_image_extension"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Rundll32 Execution With Image Extension"
-  description                = "Detects the execution of Rundll32.exe with DLL files masquerading as image files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_rundll32_execution_with_image_extension.tf"
+  description                = "Detects the execution of Rundll32.exe with DLL files masquerading as image files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_rundll32_execution_with_image_extension.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "macos_remote_system_discovery"
   name                       = "macos_remote_system_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Macos Remote System Discovery"
-  description                = "Detects the enumeration of other remote systems. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/macos_remote_system_discovery.tf"
+  description                = "Detects the enumeration of other remote systems. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/macos_remote_system_discovery.yml"
   severity                   = "Informational"
   query                      = <<QUERY
 DeviceProcessEvents

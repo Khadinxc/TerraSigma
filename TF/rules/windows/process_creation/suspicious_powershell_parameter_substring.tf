@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_powershell_paramete
   name                       = "suspicious_powershell_parameter_substring"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious PowerShell Parameter Substring"
-  description                = "Detects suspicious PowerShell invocation with a parameter substring | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_powershell_parameter_substring.tf"
+  description                = "Detects suspicious PowerShell invocation with a parameter substring | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_powershell_parameter_substring.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

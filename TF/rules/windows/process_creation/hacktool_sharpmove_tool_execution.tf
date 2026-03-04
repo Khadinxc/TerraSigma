@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_sharpmove_tool_execut
   name                       = "hacktool_sharpmove_tool_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - SharpMove Tool Execution"
-  description                = "Detects the execution of SharpMove, a .NET utility performing multiple tasks such as \"Task Creation\", \"SCM\" query, VBScript execution using WMI via its PE metadata and command line options. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_sharpmove_tool_execution.tf"
+  description                = "Detects the execution of SharpMove, a .NET utility performing multiple tasks such as \"Task Creation\", \"SCM\" query, VBScript execution using WMI via its PE metadata and command line options. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_sharpmove_tool_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

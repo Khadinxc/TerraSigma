@@ -1,6 +1,6 @@
 id: d52fdbbc-99e6-5587-a885-e854712c6f43
 name: Shell Open Registry Keys Manipulation
-description: 'Detects the shell open key manipulation (exefile and ms-settings) used for persistence and the pattern of UAC Bypass using fodhelper.exe, computerdefaults.exe, slui.exe via registry keys (e.g. UACMe 33 or 62) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/shell_open_registry_keys_manipulation.tf'
+description: 'Detects the shell open key manipulation (exefile and ms-settings) used for persistence and the pattern of UAC Bypass using fodhelper.exe, computerdefaults.exe, slui.exe via registry keys (e.g. UACMe 33 or 62) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/shell_open_registry_keys_manipulation.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

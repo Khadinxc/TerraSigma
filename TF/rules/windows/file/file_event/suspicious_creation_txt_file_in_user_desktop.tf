@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_creation_txt_file_i
   name                       = "suspicious_creation_txt_file_in_user_desktop"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Creation TXT File in User Desktop"
-  description                = "Ransomware create txt file in the user Desktop | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_creation_txt_file_in_user_desktop.tf"
+  description                = "Ransomware create txt file in the user Desktop | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_creation_txt_file_in_user_desktop.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

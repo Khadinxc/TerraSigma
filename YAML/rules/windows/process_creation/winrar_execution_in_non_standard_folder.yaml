@@ -1,6 +1,6 @@
 id: 63976810-4980-5486-8477-308d69783495
 name: WinRAR Execution in Non-Standard Folder
-description: 'Detects a suspicious WinRAR execution in a folder which is not the default installation folder - Legitimate use of WinRAR in a folder of a software that bundles WinRAR | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/winrar_execution_in_non_standard_folder.tf'
+description: 'Detects a suspicious WinRAR execution in a folder which is not the default installation folder - Legitimate use of WinRAR in a folder of a software that bundles WinRAR | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/winrar_execution_in_non_standard_folder.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "visual_basic_command_line_comp
   name                       = "visual_basic_command_line_compiler_usage"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Visual Basic Command Line Compiler Usage"
-  description                = "Detects successful code compilation via Visual Basic Command Line Compiler that utilizes Windows Resource to Object Converter. - Utilization of this tool should not be seen in enterprise environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/visual_basic_command_line_compiler_usage.tf"
+  description                = "Detects successful code compilation via Visual Basic Command Line Compiler that utilizes Windows Resource to Object Converter. - Utilization of this tool should not be seen in enterprise environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/visual_basic_command_line_compiler_usage.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

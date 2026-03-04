@@ -1,6 +1,6 @@
 id: 81f4a9ff-902d-518f-8b10-3e0aa7eb20eb
 name: Microsoft Sync Center Suspicious Network Connections
-description: 'Detects suspicious connections from Microsoft Sync Center to non-private IPs. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/microsoft_sync_center_suspicious_network_connections.tf'
+description: 'Detects suspicious connections from Microsoft Sync Center to non-private IPs. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/microsoft_sync_center_suspicious_network_connections.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

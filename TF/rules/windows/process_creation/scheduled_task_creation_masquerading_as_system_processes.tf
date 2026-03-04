@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "scheduled_task_creation_masque
   name                       = "scheduled_task_creation_masquerading_as_system_processes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Scheduled Task Creation Masquerading as System Processes"
-  description                = "Detects the creation of scheduled tasks that involve system processes, which may indicate malicious actors masquerading as or abusing these processes to execute payloads or maintain persistence. - Legitimate system administration tasks scheduling trusted system processes. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/scheduled_task_creation_masquerading_as_system_processes.tf"
+  description                = "Detects the creation of scheduled tasks that involve system processes, which may indicate malicious actors masquerading as or abusing these processes to execute payloads or maintain persistence. - Legitimate system administration tasks scheduling trusted system processes. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/scheduled_task_creation_masquerading_as_system_processes.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

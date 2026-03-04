@@ -1,6 +1,6 @@
 id: 902ef22a-b91e-52e2-a591-2cc3cb172560
 name: Atbroker Registry Change
-description: 'Detects creation/modification of Assistive Technology applications and persistence with usage of ''at'' - Creation of non-default, legitimate at usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/atbroker_registry_change.tf'
+description: 'Detects creation/modification of Assistive Technology applications and persistence with usage of ''at'' - Creation of non-default, legitimate at usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/atbroker_registry_change.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

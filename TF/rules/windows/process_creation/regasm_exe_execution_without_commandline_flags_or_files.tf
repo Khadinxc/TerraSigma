@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "regasm_exe_execution_without_c
   name                       = "regasm_exe_execution_without_commandline_flags_or_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "RegAsm.EXE Execution Without CommandLine Flags or Files"
-  description                = "Detects the execution of \"RegAsm.exe\" without a commandline flag or file, which might indicate potential process injection activity. Usually \"RegAsm.exe\" should point to a dedicated DLL file or call the help with the \"/?\" flag. - Legitimate use of Regasm by developers. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/regasm_exe_execution_without_commandline_flags_or_files.tf"
+  description                = "Detects the execution of \"RegAsm.exe\" without a commandline flag or file, which might indicate potential process injection activity. Usually \"RegAsm.exe\" should point to a dedicated DLL file or call the help with the \"/?\" flag. - Legitimate use of Regasm by developers. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/regasm_exe_execution_without_commandline_flags_or_files.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

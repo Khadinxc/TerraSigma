@@ -1,6 +1,6 @@
 id: aa9f3e85-9dd6-5439-ab9c-3da7bb9da10a
 name: Suspicious Process Start Locations
-description: 'Detects suspicious process run from unusual locations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_process_start_locations.tf'
+description: 'Detects suspicious process run from unusual locations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_process_start_locations.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

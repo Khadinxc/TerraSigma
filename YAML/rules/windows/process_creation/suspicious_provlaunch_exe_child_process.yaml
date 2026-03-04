@@ -1,6 +1,6 @@
 id: 082098cb-275e-50c9-ab49-fa23db6ba329
 name: Suspicious Provlaunch.EXE Child Process
-description: 'Detects suspicious child processes of "provlaunch.exe" which might indicate potential abuse to proxy execution. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_provlaunch_exe_child_process.tf'
+description: 'Detects suspicious child processes of "provlaunch.exe" which might indicate potential abuse to proxy execution. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_provlaunch_exe_child_process.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

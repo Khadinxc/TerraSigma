@@ -1,6 +1,6 @@
 id: 064ce3d6-88a5-5790-9cbf-d49d0c99a73e
 name: Greenbug Espionage Group Indicators
-description: 'Detects tools and process executions used by Greenbug in their May 2020 campaign as reported by Symantec - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Greenbug/greenbug_espionage_group_indicators.tf'
+description: 'Detects tools and process executions used by Greenbug in their May 2020 campaign as reported by Symantec - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Greenbug/greenbug_espionage_group_indicators.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

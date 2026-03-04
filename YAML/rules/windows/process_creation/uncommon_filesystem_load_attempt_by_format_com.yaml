@@ -1,6 +1,6 @@
 id: 7e223b99-0b0f-5c13-b844-bb3d7084e0b4
 name: Uncommon FileSystem Load Attempt By Format.com
-description: 'Detects the execution of format.com with an uncommon filesystem selection that could indicate a defense evasion activity in which "format.com" is used to load malicious DLL files or other programs. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_filesystem_load_attempt_by_format_com.tf'
+description: 'Detects the execution of format.com with an uncommon filesystem selection that could indicate a defense evasion activity in which "format.com" is used to load malicious DLL files or other programs. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_filesystem_load_attempt_by_format_com.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

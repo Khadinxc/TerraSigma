@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "copy_from_volumeshadowcopy_via
   name                       = "copy_from_volumeshadowcopy_via_cmd_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Copy From VolumeShadowCopy Via Cmd.EXE"
-  description                = "Detects the execution of the builtin \"copy\" command that targets a shadow copy (sometimes used to copy registry hives that are in use) - Backup scenarios using the commandline | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/copy_from_volumeshadowcopy_via_cmd_exe.tf"
+  description                = "Detects the execution of the builtin \"copy\" command that targets a shadow copy (sometimes used to copy registry hives that are in use) - Backup scenarios using the commandline | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/copy_from_volumeshadowcopy_via_cmd_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

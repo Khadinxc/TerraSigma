@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_process_created_via
   name                       = "suspicious_process_created_via_wmic_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Process Created Via Wmic.EXE"
-  description                = "Detects WMIC executing \"process call create\" with suspicious calls to processes such as \"rundll32\", \"regsrv32\", etc. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_process_created_via_wmic_exe.tf"
+  description                = "Detects WMIC executing \"process call create\" with suspicious calls to processes such as \"rundll32\", \"regsrv32\", etc. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_process_created_via_wmic_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: 4e891e27-acc2-5e45-a88f-ae3d56cdb63b
 name: Cmd Launched with Hidden Start Flags to Suspicious Targets
-description: 'Detects cmd.exe executing commands with the "start" utility using "/b" (no window) or "/min" (minimized) flags. To reduce false positives from standard background tasks, detection is restricted to scenarios where the target is a known script extension or located in suspicious temporary/public directories. This technique was observed in Chaos, DarkSide, and Emotet malware campaigns. - Legitimate administrative scripts running from temporary folders. - Niche software updaters utilizing hidden batch files in ProgramData. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/cmd_launched_with_hidden_start_flags_to_suspicious_targets.tf'
+description: 'Detects cmd.exe executing commands with the "start" utility using "/b" (no window) or "/min" (minimized) flags. To reduce false positives from standard background tasks, detection is restricted to scenarios where the target is a known script extension or located in suspicious temporary/public directories. This technique was observed in Chaos, DarkSide, and Emotet malware campaigns. - Legitimate administrative scripts running from temporary folders. - Niche software updaters utilizing hidden batch files in ProgramData. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/cmd_launched_with_hidden_start_flags_to_suspicious_targets.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

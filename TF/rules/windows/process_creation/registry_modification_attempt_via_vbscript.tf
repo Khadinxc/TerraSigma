@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_modification_attempt_
   name                       = "registry_modification_attempt_via_vbscript"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Registry Modification Attempt Via VBScript"
-  description                = "Detects attempts to modify the registry using VBScript's CreateObject(\"Wscript.shell\") and RegWrite methods via common LOLBINs. It could be an attempt to modify the registry for persistence without using straightforward methods like regedit.exe, reg.exe, or PowerShell. Threat Actors may use this technique to evade detection by security solutions that monitor for direct registry modifications through traditional tools. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/registry_modification_attempt_via_vbscript.tf"
+  description                = "Detects attempts to modify the registry using VBScript's CreateObject(\"Wscript.shell\") and RegWrite methods via common LOLBINs. It could be an attempt to modify the registry for persistence without using straightforward methods like regedit.exe, reg.exe, or PowerShell. Threat Actors may use this technique to evade detection by security solutions that monitor for direct registry modifications through traditional tools. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/registry_modification_attempt_via_vbscript.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

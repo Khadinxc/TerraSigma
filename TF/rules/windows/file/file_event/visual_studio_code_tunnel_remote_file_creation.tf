@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "visual_studio_code_tunnel_remo
   name                       = "visual_studio_code_tunnel_remote_file_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Visual Studio Code Tunnel Remote File Creation"
-  description                = "Detects the creation of file by the \"node.exe\" process in the \".vscode-server\" directory. Could be a sign of remote file creation via VsCode tunnel feature | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/visual_studio_code_tunnel_remote_file_creation.tf"
+  description                = "Detects the creation of file by the \"node.exe\" process in the \".vscode-server\" directory. Could be a sign of remote file creation via VsCode tunnel feature | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/visual_studio_code_tunnel_remote_file_creation.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

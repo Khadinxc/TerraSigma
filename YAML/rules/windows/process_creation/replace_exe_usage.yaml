@@ -1,6 +1,6 @@
 id: aa9acae3-c91b-5470-9ccb-35c6235aee02
 name: Replace.exe Usage
-description: 'Detects the use of Replace.exe which can be used to replace file with another file | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/replace_exe_usage.tf'
+description: 'Detects the use of Replace.exe which can be used to replace file with another file | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/replace_exe_usage.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

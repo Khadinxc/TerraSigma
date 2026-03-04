@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "terminal_server_client_connect
   name                       = "terminal_server_client_connection_history_cleared_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Terminal Server Client Connection History Cleared - Registry"
-  description                = "Detects the deletion of registry keys containing the MSTSC connection history | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/terminal_server_client_connection_history_cleared_registry.tf"
+  description                = "Detects the deletion of registry keys containing the MSTSC connection history | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/terminal_server_client_connection_history_cleared_registry.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

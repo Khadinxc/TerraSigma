@@ -1,6 +1,6 @@
 id: 5c6b4d44-042b-5d2e-8455-9394b22322bf
 name: Suspicious Remote Child Process From Outlook
-description: 'Detects a suspicious child process spawning from Outlook where the image is located in a remote location (SMB/WebDav shares). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_remote_child_process_from_outlook.tf'
+description: 'Detects a suspicious child process spawning from Outlook where the image is located in a remote location (SMB/WebDav shares). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_remote_child_process_from_outlook.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

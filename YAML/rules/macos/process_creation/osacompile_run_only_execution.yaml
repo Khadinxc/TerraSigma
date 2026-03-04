@@ -1,6 +1,6 @@
 id: 7098b8fb-2e4c-5f1a-9d92-9e867c4d6201
 name: OSACompile Run-Only Execution
-description: 'Detects potential suspicious run-only executions compiled using OSACompile | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/osacompile_run_only_execution.tf'
+description: 'Detects potential suspicious run-only executions compiled using OSACompile | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/osacompile_run_only_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

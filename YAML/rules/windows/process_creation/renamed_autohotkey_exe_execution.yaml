@@ -1,6 +1,6 @@
 id: bd30104d-752f-558c-bf78-54a78887d7d7
 name: Renamed AutoHotkey.EXE Execution
-description: 'Detects execution of a renamed autohotkey.exe binary based on PE metadata fields | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_autohotkey_exe_execution.tf'
+description: 'Detects execution of a renamed autohotkey.exe binary based on PE metadata fields | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_autohotkey_exe_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

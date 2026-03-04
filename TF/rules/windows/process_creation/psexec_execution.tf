@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "psexec_execution" {
   name                       = "psexec_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Psexec Execution"
-  description                = "Detects user accept agreement execution in psexec commandline - Administrative scripts. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/psexec_execution.tf"
+  description                = "Detects user accept agreement execution in psexec commandline - Administrative scripts. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/psexec_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

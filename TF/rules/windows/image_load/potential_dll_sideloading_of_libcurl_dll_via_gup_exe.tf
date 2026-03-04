@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_dll_sideloading_of_l
   name                       = "potential_dll_sideloading_of_libcurl_dll_via_gup_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential DLL Sideloading Of Libcurl.DLL Via GUP.EXE"
-  description                = "Detects potential DLL sideloading of \"libcurl.dll\" by the \"gup.exe\" process from an uncommon location | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_dll_sideloading_of_libcurl_dll_via_gup_exe.tf"
+  description                = "Detects potential DLL sideloading of \"libcurl.dll\" by the \"gup.exe\" process from an uncommon location | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_dll_sideloading_of_libcurl_dll_via_gup_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

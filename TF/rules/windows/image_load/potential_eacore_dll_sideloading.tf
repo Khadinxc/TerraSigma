@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_eacore_dll_sideloadi
   name                       = "potential_eacore_dll_sideloading"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential EACore.DLL Sideloading"
-  description                = "Detects potential DLL sideloading of \"EACore.dll\" - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_eacore_dll_sideloading.tf"
+  description                = "Detects potential DLL sideloading of \"EACore.dll\" - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_eacore_dll_sideloading.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

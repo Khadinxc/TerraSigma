@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_download_with_headless_br
   name                       = "file_download_with_headless_browser"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Download with Headless Browser"
-  description                = "Detects execution of chromium based browser in headless mode using the \"dump-dom\" command line to download files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_with_headless_browser.tf"
+  description                = "Detects execution of chromium based browser in headless mode using the \"dump-dom\" command line to download files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_with_headless_browser.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

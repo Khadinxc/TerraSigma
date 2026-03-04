@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_vsls_agent_command_
   name                       = "suspicious_vsls_agent_command_with_agentextensionpath_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Vsls-Agent Command With AgentExtensionPath Load"
-  description                = "Detects Microsoft Visual Studio vsls-agent.exe lolbin execution with a suspicious library load using the --agentExtensionPath parameter | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_vsls_agent_command_with_agentextensionpath_load.tf"
+  description                = "Detects Microsoft Visual Studio vsls-agent.exe lolbin execution with a suspicious library load using the --agentExtensionPath parameter | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_vsls_agent_command_with_agentextensionpath_load.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

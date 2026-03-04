@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "use_of_openconsole" {
   name                       = "use_of_openconsole"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Use of OpenConsole"
-  description                = "Detects usage of OpenConsole binary as a LOLBIN to launch other binaries to bypass application Whitelisting - Legitimate use by an administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_of_openconsole.tf"
+  description                = "Detects usage of OpenConsole binary as a LOLBIN to launch other binaries to bypass application Whitelisting - Legitimate use by an administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_of_openconsole.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

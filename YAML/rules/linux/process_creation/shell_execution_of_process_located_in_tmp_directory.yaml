@@ -1,6 +1,6 @@
 id: a69b0f79-057a-587b-afde-bb97680dd0fc
 name: Shell Execution Of Process Located In Tmp Directory
-description: 'Detects execution of shells from a parent process located in a temporary (/tmp) directory | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/shell_execution_of_process_located_in_tmp_directory.tf'
+description: 'Detects execution of shells from a parent process located in a temporary (/tmp) directory | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/shell_execution_of_process_located_in_tmp_directory.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

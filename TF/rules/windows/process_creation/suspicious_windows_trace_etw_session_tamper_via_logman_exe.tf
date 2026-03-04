@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_windows_trace_etw_s
   name                       = "suspicious_windows_trace_etw_session_tamper_via_logman_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Windows Trace ETW Session Tamper Via Logman.EXE"
-  description                = "Detects the execution of \"logman\" utility in order to disable or delete Windows trace sessions - Legitimate deactivation by administrative staff - Installer tools that disable services, e.g. before log collection agent installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_windows_trace_etw_session_tamper_via_logman_exe.tf"
+  description                = "Detects the execution of \"logman\" utility in order to disable or delete Windows trace sessions - Legitimate deactivation by administrative staff - Installer tools that disable services, e.g. before log collection agent installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_windows_trace_etw_session_tamper_via_logman_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

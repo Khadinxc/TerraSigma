@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_shell_s
   name                       = "potentially_suspicious_shell_script_creation_in_profile_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Shell Script Creation in Profile Folder"
-  description                = "Detects the creation of shell scripts under the \"profile.d\" path. - Legitimate shell scripts in the \"profile.d\" directory could be common in your environment. Apply additional filter accordingly via \"image\", by adding specific filenames you \"trust\" or by correlating it with other events. - Regular file creation during system update or software installation by the package manager | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/potentially_suspicious_shell_script_creation_in_profile_folder.tf"
+  description                = "Detects the creation of shell scripts under the \"profile.d\" path. - Legitimate shell scripts in the \"profile.d\" directory could be common in your environment. Apply additional filter accordingly via \"image\", by adding specific filenames you \"trust\" or by correlating it with other events. - Regular file creation during system update or software installation by the package manager | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/potentially_suspicious_shell_script_creation_in_profile_folder.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents

@@ -1,6 +1,6 @@
 id: d579a2cb-0501-5806-aad5-75bd45fd0c2a
 name: Rundll32 Spawned Via Explorer.EXE
-description: 'Detects execution of "rundll32.exe" with a parent process of Explorer.exe. This has been observed by variants of Raspberry Robin, as first reported by Red Canary. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rundll32_spawned_via_explorer_exe.tf'
+description: 'Detects execution of "rundll32.exe" with a parent process of Explorer.exe. This has been observed by variants of Raspberry Robin, as first reported by Red Canary. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rundll32_spawned_via_explorer_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

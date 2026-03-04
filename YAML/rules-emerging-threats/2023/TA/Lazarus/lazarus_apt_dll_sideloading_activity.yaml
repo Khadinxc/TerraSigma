@@ -1,6 +1,6 @@
 id: 491e7708-1ed1-5133-ac14-f04c94f9251b
 name: Lazarus APT DLL Sideloading Activity
-description: 'Detects sideloading of trojanized DLLs used in Lazarus APT campaign in the case of a Spanish aerospace company - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lazarus/lazarus_apt_dll_sideloading_activity.tf'
+description: 'Detects sideloading of trojanized DLLs used in Lazarus APT campaign in the case of a Spanish aerospace company - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lazarus/lazarus_apt_dll_sideloading_activity.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

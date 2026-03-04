@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "ntds_exfiltration_filename_pat
   name                       = "ntds_exfiltration_filename_patterns"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "NTDS Exfiltration Filename Patterns"
-  description                = "Detects creation of files with specific name patterns seen used in various tools that export the NTDS.DIT for exfiltration. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/ntds_exfiltration_filename_patterns.tf"
+  description                = "Detects creation of files with specific name patterns seen used in various tools that export the NTDS.DIT for exfiltration. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/ntds_exfiltration_filename_patterns.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_adcspwn_execution" {
   name                       = "hacktool_adcspwn_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - ADCSPwn Execution"
-  description                = "Detects command line parameters used by ADCSPwn, a tool to escalate privileges in an active directory network by coercing authenticate from machine accounts and relaying to the certificate service - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_adcspwn_execution.tf"
+  description                = "Detects command line parameters used by ADCSPwn, a tool to escalate privileges in an active directory network by coercing authenticate from machine accounts and relaying to the certificate service - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_adcspwn_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

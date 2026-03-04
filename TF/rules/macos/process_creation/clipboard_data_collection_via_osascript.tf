@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "clipboard_data_collection_via_
   name                       = "clipboard_data_collection_via_osascript"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Clipboard Data Collection Via OSAScript"
-  description                = "Detects possible collection of data from the clipboard via execution of the osascript binary - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/clipboard_data_collection_via_osascript.tf"
+  description                = "Detects possible collection of data from the clipboard via execution of the osascript binary - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/clipboard_data_collection_via_osascript.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

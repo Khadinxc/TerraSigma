@@ -1,6 +1,6 @@
 id: 4503c517-8557-5977-8566-aa88902b350f
 name: ISO File Created Within Temp Folders
-description: 'Detects the creation of a ISO file in the Outlook temp folder or in the Appdata temp folder. Typical of Qakbot TTP from end-July 2022. - Potential FP by sysadmin opening a zip file containing a legitimate ISO file | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/iso_file_created_within_temp_folders.tf'
+description: 'Detects the creation of a ISO file in the Outlook temp folder or in the Appdata temp folder. Typical of Qakbot TTP from end-July 2022. - Potential FP by sysadmin opening a zip file containing a legitimate ISO file | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/iso_file_created_within_temp_folders.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

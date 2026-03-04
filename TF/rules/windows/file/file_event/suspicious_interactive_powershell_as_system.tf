@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_interactive_powersh
   name                       = "suspicious_interactive_powershell_as_system"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Interactive PowerShell as SYSTEM"
-  description                = "Detects the creation of files that indicator an interactive use of PowerShell in the SYSTEM user context - Administrative activity - PowerShell scripts running as SYSTEM user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_interactive_powershell_as_system.tf"
+  description                = "Detects the creation of files that indicator an interactive use of PowerShell in the SYSTEM user context - Administrative activity - PowerShell scripts running as SYSTEM user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_interactive_powershell_as_system.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

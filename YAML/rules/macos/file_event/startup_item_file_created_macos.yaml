@@ -1,6 +1,6 @@
 id: d8c0162f-a85f-5f1e-a027-bb7f0edce58b
 name: Startup Item File Created - MacOS
-description: 'Detects the creation of a startup item plist file, that automatically get executed at boot initialization to establish persistence. Adversaries may use startup items automatically executed at boot initialization to establish persistence. Startup items execute during the final phase of the boot process and contain shell scripts or other executable files along with configuration information used by the system to determine the execution order for all startup items. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/file_event/startup_item_file_created_macos.tf'
+description: 'Detects the creation of a startup item plist file, that automatically get executed at boot initialization to establish persistence. Adversaries may use startup items automatically executed at boot initialization to establish persistence. Startup items execute during the final phase of the boot process and contain shell scripts or other executable files along with configuration information used by the system to determine the execution order for all startup items. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/file_event/startup_item_file_created_macos.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

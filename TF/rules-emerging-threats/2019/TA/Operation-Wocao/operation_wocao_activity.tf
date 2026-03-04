@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "operation_wocao_activity" {
   name                       = "operation_wocao_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Operation Wocao Activity"
-  description                = "Detects activity mentioned in Operation Wocao report - Administrators that use checkadmin.exe tool to enumerate local administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/Operation-Wocao/operation_wocao_activity.tf"
+  description                = "Detects activity mentioned in Operation Wocao report - Administrators that use checkadmin.exe tool to enumerate local administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/Operation-Wocao/operation_wocao_activity.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_webshell_creation_on
   name                       = "potential_webshell_creation_on_static_website"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Webshell Creation On Static Website"
-  description                = "Detects the creation of files with certain extensions on a static web site. This can be indicative of potential uploads of a web shell. - Legitimate administrator or developer creating legitimate executable files in a web application folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_webshell_creation_on_static_website.tf"
+  description                = "Detects the creation of files with certain extensions on a static web site. This can be indicative of potential uploads of a web shell. - Legitimate administrator or developer creating legitimate executable files in a web application folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_webshell_creation_on_static_website.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

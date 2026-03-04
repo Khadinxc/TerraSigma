@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "arbitrary_shell_command_execut
   name                       = "arbitrary_shell_command_execution_via_settingcontent_ms"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Arbitrary Shell Command Execution Via Settingcontent-Ms"
-  description                = "The .SettingContent-ms file type was introduced in Windows 10 and allows a user to create \"shortcuts\" to various Windows 10 setting pages. These files are simply XML and contain paths to various Windows 10 settings binaries. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_shell_command_execution_via_settingcontent_ms.tf"
+  description                = "The .SettingContent-ms file type was introduced in Windows 10 and allows a user to create \"shortcuts\" to various Windows 10 setting pages. These files are simply XML and contain paths to various Windows 10 settings binaries. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_shell_command_execution_via_settingcontent_ms.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

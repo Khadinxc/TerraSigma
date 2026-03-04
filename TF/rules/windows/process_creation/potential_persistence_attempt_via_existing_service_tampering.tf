@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_persistence_attempt_
   name                       = "potential_persistence_attempt_via_existing_service_tampering"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Attempt Via Existing Service Tampering"
-  description                = "Detects the modification of an existing service in order to execute an arbitrary payload when the service is started or killed as a potential method for persistence. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_persistence_attempt_via_existing_service_tampering.tf"
+  description                = "Detects the modification of an existing service in order to execute an arbitrary payload when the service is started or killed as a potential method for persistence. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_persistence_attempt_via_existing_service_tampering.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "operator_bloopers_cobalt_strik
   name                       = "operator_bloopers_cobalt_strike_modules"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Operator Bloopers Cobalt Strike Modules"
-  description                = "Detects Cobalt Strike module/commands accidentally entered in CMD shell | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/operator_bloopers_cobalt_strike_modules.tf"
+  description                = "Detects Cobalt Strike module/commands accidentally entered in CMD shell | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/operator_bloopers_cobalt_strike_modules.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

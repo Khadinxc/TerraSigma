@@ -1,6 +1,6 @@
 id: 1cb9f792-1bad-5f79-8a52-5029c6ac6959
 name: Import New Module Via PowerShell CommandLine
-description: 'Detects usage of the "Import-Module" cmdlet in order to add new Cmdlets to the current PowerShell session - Depending on the environement, many legitimate scripts will import modules inline. This rule is targeted for hunting purposes. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/import_new_module_via_powershell_commandline.tf'
+description: 'Detects usage of the "Import-Module" cmdlet in order to add new Cmdlets to the current PowerShell session - Depending on the environement, many legitimate scripts will import modules inline. This rule is targeted for hunting purposes. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/import_new_module_via_powershell_commandline.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

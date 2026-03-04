@@ -1,6 +1,6 @@
 id: 25780424-bbee-588d-8dc0-0bfd04c56679
 name: Time Machine Backup Deletion Attempt Via Tmutil - MacOS
-description: 'Detects deletion attempts of MacOS Time Machine backups via the native backup utility "tmutil". An adversary may perform this action before launching a ransonware attack to prevent the victim from restoring their files. - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/time_machine_backup_deletion_attempt_via_tmutil_macos.tf'
+description: 'Detects deletion attempts of MacOS Time Machine backups via the native backup utility "tmutil". An adversary may perform this action before launching a ransonware attack to prevent the victim from restoring their files. - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/time_machine_backup_deletion_attempt_via_tmutil_macos.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

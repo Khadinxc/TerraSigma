@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_usage_of_shellexec_
   name                       = "suspicious_usage_of_shellexec_rundll"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Usage Of ShellExec_RunDLL"
-  description                = "Detects suspicious usage of the ShellExec_RunDLL function to launch other commands as seen in the the raspberry-robin attack | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_usage_of_shellexec_rundll.tf"
+  description                = "Detects suspicious usage of the ShellExec_RunDLL function to launch other commands as seen in the the raspberry-robin attack | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_usage_of_shellexec_rundll.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

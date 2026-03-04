@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_file_execution_from
   name                       = "suspicious_file_execution_from_internet_hosted_webdav_share"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Execution From Internet Hosted WebDav Share"
-  description                = "Detects the execution of the \"net use\" command to mount a WebDAV server and then immediately execute some content in it. As seen being used in malicious LNK files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_file_execution_from_internet_hosted_webdav_share.tf"
+  description                = "Detects the execution of the \"net use\" command to mount a WebDAV server and then immediately execute some content in it. As seen being used in malicious LNK files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_file_execution_from_internet_hosted_webdav_share.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "clear_linux_logs" {
   name                       = "clear_linux_logs"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Clear Linux Logs"
-  description                = "Detects attempts to clear logs on the system. Adversaries may clear system logs to hide evidence of an intrusion - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/clear_linux_logs.tf"
+  description                = "Detects attempts to clear logs on the system. Adversaries may clear system logs to hide evidence of an intrusion - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/clear_linux_logs.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

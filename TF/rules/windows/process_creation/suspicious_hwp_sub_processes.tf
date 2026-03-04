@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_hwp_sub_processes" 
   name                       = "suspicious_hwp_sub_processes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious HWP Sub Processes"
-  description                = "Detects suspicious Hangul Word Processor (Hanword) sub processes that could indicate an exploitation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_hwp_sub_processes.tf"
+  description                = "Detects suspicious Hangul Word Processor (Hanword) sub processes that could indicate an exploitation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_hwp_sub_processes.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "running_chrome_vpn_extensions_
   name                       = "running_chrome_vpn_extensions_via_the_registry_2_vpn_extension"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Running Chrome VPN Extensions via the Registry 2 VPN Extension"
-  description                = "Running Chrome VPN Extensions via the Registry install 2 vpn extension | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/running_chrome_vpn_extensions_via_the_registry_2_vpn_extension.tf"
+  description                = "Running Chrome VPN Extensions via the Registry install 2 vpn extension | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/running_chrome_vpn_extensions_via_the_registry_2_vpn_extension.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

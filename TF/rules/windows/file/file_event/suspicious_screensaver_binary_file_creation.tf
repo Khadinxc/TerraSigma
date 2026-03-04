@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_screensaver_binary_
   name                       = "suspicious_screensaver_binary_file_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Screensaver Binary File Creation"
-  description                = "Adversaries may establish persistence by executing malicious content triggered by user inactivity. Screensavers are programs that execute after a configurable time of user inactivity and consist of Portable Executable (PE) files with a .scr file extension | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_screensaver_binary_file_creation.tf"
+  description                = "Adversaries may establish persistence by executing malicious content triggered by user inactivity. Screensavers are programs that execute after a configurable time of user inactivity and consist of Portable Executable (PE) files with a .scr file extension | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_screensaver_binary_file_creation.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

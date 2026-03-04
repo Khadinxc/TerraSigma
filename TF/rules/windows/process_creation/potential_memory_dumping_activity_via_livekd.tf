@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_memory_dumping_activ
   name                       = "potential_memory_dumping_activity_via_livekd"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Memory Dumping Activity Via LiveKD"
-  description                = "Detects execution of LiveKD based on PE metadata or image name - Administration and debugging activity (must be investigated) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_memory_dumping_activity_via_livekd.tf"
+  description                = "Detects execution of LiveKD based on PE metadata or image name - Administration and debugging activity (must be investigated) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_memory_dumping_activity_via_livekd.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

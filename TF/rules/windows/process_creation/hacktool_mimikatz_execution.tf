@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_mimikatz_execution" {
   name                       = "hacktool_mimikatz_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Mimikatz Execution"
-  description                = "Detection well-known mimikatz command line arguments - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_mimikatz_execution.tf"
+  description                = "Detection well-known mimikatz command line arguments - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_mimikatz_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

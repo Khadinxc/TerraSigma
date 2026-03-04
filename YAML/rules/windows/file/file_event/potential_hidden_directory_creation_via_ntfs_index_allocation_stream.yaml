@@ -1,6 +1,6 @@
 id: 25647cfa-3d0d-5003-93de-bce7b5cfffa6
 name: Potential Hidden Directory Creation Via NTFS INDEX_ALLOCATION Stream
-description: 'Detects the creation of hidden file/folder with the "::$index_allocation" stream. Which can be used as a technique to prevent access to folder and files from tooling such as "explorer.exe" and "powershell.exe" - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_hidden_directory_creation_via_ntfs_index_allocation_stream.tf'
+description: 'Detects the creation of hidden file/folder with the "::$index_allocation" stream. Which can be used as a technique to prevent access to folder and files from tooling such as "explorer.exe" and "powershell.exe" - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_hidden_directory_creation_via_ntfs_index_allocation_stream.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

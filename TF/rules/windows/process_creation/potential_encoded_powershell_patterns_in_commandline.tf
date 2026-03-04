@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_encoded_powershell_p
   name                       = "potential_encoded_powershell_patterns_in_commandline"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Encoded PowerShell Patterns In CommandLine"
-  description                = "Detects specific combinations of encoding methods in PowerShell via the commandline | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_encoded_powershell_patterns_in_commandline.tf"
+  description                = "Detects specific combinations of encoding methods in PowerShell via the commandline | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_encoded_powershell_patterns_in_commandline.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

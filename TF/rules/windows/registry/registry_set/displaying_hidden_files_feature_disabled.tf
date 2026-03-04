@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "displaying_hidden_files_featur
   name                       = "displaying_hidden_files_feature_disabled"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Displaying Hidden Files Feature Disabled"
-  description                = "Detects modifications to the \"Hidden\" and \"ShowSuperHidden\" explorer registry values in order to disable showing of hidden files and system files. This technique is abused by several malware families to hide their files from normal users. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/displaying_hidden_files_feature_disabled.tf"
+  description                = "Detects modifications to the \"Hidden\" and \"ShowSuperHidden\" explorer registry values in order to disable showing of hidden files and system files. This technique is abused by several malware families to hide their files from normal users. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/displaying_hidden_files_feature_disabled.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

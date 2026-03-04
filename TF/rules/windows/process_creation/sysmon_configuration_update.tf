@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "sysmon_configuration_update" {
   name                       = "sysmon_configuration_update"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Sysmon Configuration Update"
-  description                = "Detects updates to Sysmon's configuration. Attackers might update or replace the Sysmon configuration with a bare bone one to avoid monitoring without shutting down the service completely - Legitimate administrators might use this command to update Sysmon configuration. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sysmon_configuration_update.tf"
+  description                = "Detects updates to Sysmon's configuration. Attackers might update or replace the Sysmon configuration with a bare bone one to avoid monitoring without shutting down the service completely - Legitimate administrators might use this command to update Sysmon configuration. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sysmon_configuration_update.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

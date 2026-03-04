@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uac_bypass_using_event_viewer_
   name                       = "uac_bypass_using_event_viewer_recentviews"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass Using Event Viewer RecentViews"
-  description                = "Detects the pattern of UAC Bypass using Event Viewer RecentViews | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uac_bypass_using_event_viewer_recentviews.tf"
+  description                = "Detects the pattern of UAC Bypass using Event Viewer RecentViews | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uac_bypass_using_event_viewer_recentviews.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

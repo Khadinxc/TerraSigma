@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "disable_privacy_settings_exper
   name                       = "disable_privacy_settings_experience_in_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disable Privacy Settings Experience in Registry"
-  description                = "Detects registry modifications that disable Privacy Settings Experience - Legitimate admin script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/disable_privacy_settings_experience_in_registry.tf"
+  description                = "Detects registry modifications that disable Privacy Settings Experience - Legitimate admin script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/disable_privacy_settings_experience_in_registry.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

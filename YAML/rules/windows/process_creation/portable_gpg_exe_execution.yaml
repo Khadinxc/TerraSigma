@@ -1,6 +1,6 @@
 id: 6c1a96b3-39ec-5f2c-b948-2f05b7965955
 name: Portable Gpg.EXE Execution
-description: 'Detects the execution of "gpg.exe" from uncommon location. Often used by ransomware and loaders to decrypt/encrypt data. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/portable_gpg_exe_execution.tf'
+description: 'Detects the execution of "gpg.exe" from uncommon location. Often used by ransomware and loaders to decrypt/encrypt data. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/portable_gpg_exe_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

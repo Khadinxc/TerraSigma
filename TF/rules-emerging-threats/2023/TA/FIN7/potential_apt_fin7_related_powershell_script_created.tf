@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_apt_fin7_related_pow
   name                       = "potential_apt_fin7_related_powershell_script_created"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential APT FIN7 Related PowerShell Script Created"
-  description                = "Detects PowerShell script file creation with specific name or suffix which was seen being used often by FIN7 PowerShell scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/FIN7/potential_apt_fin7_related_powershell_script_created.tf"
+  description                = "Detects PowerShell script file creation with specific name or suffix which was seen being used often by FIN7 PowerShell scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/FIN7/potential_apt_fin7_related_powershell_script_created.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

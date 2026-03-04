@@ -1,6 +1,6 @@
 id: 30161754-8e15-5f64-afd9-3ed4cc399a02
 name: Hijack Legit RDP Session to Move Laterally
-description: 'Detects the usage of tsclient share to place a backdoor on the RDP source machine''s startup folder - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/hijack_legit_rdp_session_to_move_laterally.tf'
+description: 'Detects the usage of tsclient share to place a backdoor on the RDP source machine''s startup folder - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/hijack_legit_rdp_session_to_move_laterally.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

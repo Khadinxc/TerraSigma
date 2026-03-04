@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "powershell_base64_encoded_invo
   name                       = "powershell_base64_encoded_invoke_keyword"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Base64 Encoded Invoke Keyword"
-  description                = "Detects UTF-8 and UTF-16 Base64 encoded powershell 'Invoke-' calls | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_base64_encoded_invoke_keyword.tf"
+  description                = "Detects UTF-8 and UTF-16 Base64 encoded powershell 'Invoke-' calls | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_base64_encoded_invoke_keyword.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

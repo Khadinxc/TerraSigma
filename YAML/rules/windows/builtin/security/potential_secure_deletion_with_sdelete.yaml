@@ -1,6 +1,6 @@
 id: d6aa57bf-04fe-5af5-91a2-064154651428
 name: Potential Secure Deletion with SDelete
-description: 'Detects files that have extensions commonly seen while SDelete is used to wipe files. - Legitimate usage of SDelete - Files that are interacted with that have these extensions legitimately | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/potential_secure_deletion_with_sdelete.tf'
+description: 'Detects files that have extensions commonly seen while SDelete is used to wipe files. - Legitimate usage of SDelete - Files that are interacted with that have these extensions legitimately | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/potential_secure_deletion_with_sdelete.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

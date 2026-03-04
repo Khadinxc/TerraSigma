@@ -1,6 +1,6 @@
 id: bdd5e959-017e-51cd-a77f-f053e1044562
 name: Odbcconf.EXE Suspicious DLL Location
-description: 'Detects execution of "odbcconf" where the path of the DLL being registered is located in a potentially suspicious location. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/odbcconf_exe_suspicious_dll_location.tf'
+description: 'Detects execution of "odbcconf" where the path of the DLL being registered is located in a potentially suspicious location. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/odbcconf_exe_suspicious_dll_location.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

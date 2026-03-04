@@ -1,6 +1,6 @@
 id: 9301e2f6-9e27-552e-af35-50ddeee8a8c1
 name: Potential ACTINIUM Persistence Activity
-description: 'Detects specific process parameters as used by ACTINIUM scheduled task persistence creation. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2022/TA/ACTINIUM/potential_actinium_persistence_activity.tf'
+description: 'Detects specific process parameters as used by ACTINIUM scheduled task persistence creation. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2022/TA/ACTINIUM/potential_actinium_persistence_activity.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "vim_gtfobin_abuse_linux" {
   name                       = "vim_gtfobin_abuse_linux"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Vim GTFOBin Abuse - Linux"
-  description                = "Detects the use of \"vim\" and it's siblings commands to execute a shell or proxy commands. Such behavior may be associated with privilege escalation, unauthorized command execution, or to break out from restricted environments. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/vim_gtfobin_abuse_linux.tf"
+  description                = "Detects the use of \"vim\" and it's siblings commands to execute a shell or proxy commands. Such behavior may be associated with privilege escalation, unauthorized command execution, or to break out from restricted environments. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/vim_gtfobin_abuse_linux.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

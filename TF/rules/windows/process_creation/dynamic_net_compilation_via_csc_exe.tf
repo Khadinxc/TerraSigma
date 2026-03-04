@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dynamic_net_compilation_via_cs
   name                       = "dynamic_net_compilation_via_csc_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Dynamic .NET Compilation Via Csc.EXE"
-  description                = "Detects execution of \"csc.exe\" to compile .NET code. Attackers often leverage this to compile code on the fly and use it in other stages. - Legitimate software from program files - https://twitter.com/gN3mes1s/status/1206874118282448897 - Legitimate Microsoft software - https://twitter.com/gabriele_pippi/status/1206907900268072962 - Ansible | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dynamic_net_compilation_via_csc_exe.tf"
+  description                = "Detects execution of \"csc.exe\" to compile .NET code. Attackers often leverage this to compile code on the fly and use it in other stages. - Legitimate software from program files - https://twitter.com/gN3mes1s/status/1206874118282448897 - Legitimate Microsoft software - https://twitter.com/gabriele_pippi/status/1206907900268072962 - Ansible | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dynamic_net_compilation_via_csc_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

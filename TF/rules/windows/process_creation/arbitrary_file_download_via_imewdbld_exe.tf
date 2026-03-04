@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "arbitrary_file_download_via_im
   name                       = "arbitrary_file_download_via_imewdbld_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Arbitrary File Download Via IMEWDBLD.EXE"
-  description                = "Detects usage of \"IMEWDBLD.exe\" to download arbitrary files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_file_download_via_imewdbld_exe.tf"
+  description                = "Detects usage of \"IMEWDBLD.exe\" to download arbitrary files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_file_download_via_imewdbld_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

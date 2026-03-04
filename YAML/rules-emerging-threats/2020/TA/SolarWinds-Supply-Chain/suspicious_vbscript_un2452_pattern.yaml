@@ -1,6 +1,6 @@
 id: 0c712b4d-05fb-5280-83ba-63d888202cc9
 name: Suspicious VBScript UN2452 Pattern
-description: 'Detects suspicious inline VBScript keywords as used by UNC2452 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/SolarWinds-Supply-Chain/suspicious_vbscript_un2452_pattern.tf'
+description: 'Detects suspicious inline VBScript keywords as used by UNC2452 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/SolarWinds-Supply-Chain/suspicious_vbscript_un2452_pattern.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

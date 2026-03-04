@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "wab_execution_from_non_default
   name                       = "wab_execution_from_non_default_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Wab Execution From Non Default Location"
-  description                = "Detects execution of wab.exe (Windows Contacts) and Wabmig.exe (Microsoft Address Book Import Tool) from non default locations as seen with bumblebee activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wab_execution_from_non_default_location.tf"
+  description                = "Detects execution of wab.exe (Windows Contacts) and Wabmig.exe (Microsoft Address Book Import Tool) from non default locations as seen with bumblebee activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wab_execution_from_non_default_location.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

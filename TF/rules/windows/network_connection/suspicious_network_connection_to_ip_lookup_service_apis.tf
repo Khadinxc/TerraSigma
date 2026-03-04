@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_network_connection_
   name                       = "suspicious_network_connection_to_ip_lookup_service_apis"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Network Connection to IP Lookup Service APIs"
-  description                = "Detects external IP address lookups by non-browser processes via services such as \"api.ipify.org\". This could be indicative of potential post compromise internet test activity. - Legitimate use of the external websites for troubleshooting or network monitoring | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/suspicious_network_connection_to_ip_lookup_service_apis.tf"
+  description                = "Detects external IP address lookups by non-browser processes via services such as \"api.ipify.org\". This could be indicative of potential post compromise internet test activity. - Legitimate use of the external websites for troubleshooting or network monitoring | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/suspicious_network_connection_to_ip_lookup_service_apis.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

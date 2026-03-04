@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "unusual_parent_process_for_cmd
   name                       = "unusual_parent_process_for_cmd_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Unusual Parent Process For Cmd.EXE"
-  description                = "Detects suspicious parent process for cmd.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/unusual_parent_process_for_cmd_exe.tf"
+  description                = "Detects suspicious parent process for cmd.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/unusual_parent_process_for_cmd_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

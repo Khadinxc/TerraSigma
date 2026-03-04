@@ -1,6 +1,6 @@
 id: ca5d5020-eebc-51a5-a5d5-88b65ed70b14
 name: Potential SMB Relay Attack Tool Execution
-description: 'Detects different hacktools used for relay attacks on Windows for privilege escalation - Legitimate files with these rare hacktool names | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_smb_relay_attack_tool_execution.tf'
+description: 'Detects different hacktools used for relay attacks on Windows for privilege escalation - Legitimate files with these rare hacktool names | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_smb_relay_attack_tool_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

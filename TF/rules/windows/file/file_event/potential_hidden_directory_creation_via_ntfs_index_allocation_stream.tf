@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_hidden_directory_cre
   name                       = "potential_hidden_directory_creation_via_ntfs_index_allocation_stream"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Hidden Directory Creation Via NTFS INDEX_ALLOCATION Stream"
-  description                = "Detects the creation of hidden file/folder with the \"::$index_allocation\" stream. Which can be used as a technique to prevent access to folder and files from tooling such as \"explorer.exe\" and \"powershell.exe\" - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_hidden_directory_creation_via_ntfs_index_allocation_stream.tf"
+  description                = "Detects the creation of hidden file/folder with the \"::$index_allocation\" stream. Which can be used as a technique to prevent access to folder and files from tooling such as \"explorer.exe\" and \"powershell.exe\" - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_hidden_directory_creation_via_ntfs_index_allocation_stream.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

@@ -1,6 +1,6 @@
 id: 7e5de6f1-887a-5d4b-b1d4-fade155123b9
 name: Potential Ruby Reverse Shell
-description: 'Detects execution of ruby with the "-e" flag and calls to "socket" related functions. This could be an indication of a potential attempt to setup a reverse shell | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potential_ruby_reverse_shell.tf'
+description: 'Detects execution of ruby with the "-e" flag and calls to "socket" related functions. This could be an indication of a potential attempt to setup a reverse shell | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potential_ruby_reverse_shell.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_decryption_using_gpg4win"
   name                       = "file_decryption_using_gpg4win"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Decryption Using Gpg4win"
-  description                = "Detects usage of Gpg4win to decrypt files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_decryption_using_gpg4win.tf"
+  description                = "Detects usage of Gpg4win to decrypt files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_decryption_using_gpg4win.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

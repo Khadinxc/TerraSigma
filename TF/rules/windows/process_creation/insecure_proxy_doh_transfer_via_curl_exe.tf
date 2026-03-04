@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "insecure_proxy_doh_transfer_vi
   name                       = "insecure_proxy_doh_transfer_via_curl_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Insecure Proxy/DOH Transfer Via Curl.EXE"
-  description                = "Detects execution of \"curl.exe\" with the \"insecure\" flag over proxy or DOH. - Access to badly maintained internal or development systems | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/insecure_proxy_doh_transfer_via_curl_exe.tf"
+  description                = "Detects execution of \"curl.exe\" with the \"insecure\" flag over proxy or DOH. - Access to badly maintained internal or development systems | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/insecure_proxy_doh_transfer_via_curl_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

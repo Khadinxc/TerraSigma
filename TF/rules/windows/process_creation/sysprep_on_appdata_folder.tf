@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "sysprep_on_appdata_folder" {
   name                       = "sysprep_on_appdata_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Sysprep on AppData Folder"
-  description                = "Detects suspicious sysprep process start with AppData folder as target (as used by Trojan Syndicasec in Thrip report by Symantec) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sysprep_on_appdata_folder.tf"
+  description                = "Detects suspicious sysprep process start with AppData folder as target (as used by Trojan Syndicasec in Thrip report by Symantec) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sysprep_on_appdata_folder.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "msexchange_transport_agent_ins
   name                       = "msexchange_transport_agent_installation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "MSExchange Transport Agent Installation"
-  description                = "Detects the Installation of a Exchange Transport Agent - Legitimate installations of exchange TransportAgents. AssemblyPath is a good indicator for this. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/msexchange_transport_agent_installation.tf"
+  description                = "Detects the Installation of a Exchange Transport Agent - Legitimate installations of exchange TransportAgents. AssemblyPath is a good indicator for this. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/msexchange_transport_agent_installation.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

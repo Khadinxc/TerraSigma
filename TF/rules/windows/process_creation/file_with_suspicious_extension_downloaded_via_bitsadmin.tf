@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_with_suspicious_extension
   name                       = "file_with_suspicious_extension_downloaded_via_bitsadmin"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File With Suspicious Extension Downloaded Via Bitsadmin"
-  description                = "Detects usage of bitsadmin downloading a file with a suspicious extension | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_with_suspicious_extension_downloaded_via_bitsadmin.tf"
+  description                = "Detects usage of bitsadmin downloading a file with a suspicious extension | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_with_suspicious_extension_downloaded_via_bitsadmin.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_dll_sideloading_usin
   name                       = "potential_dll_sideloading_using_coregen_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential DLL Sideloading Using Coregen.exe"
-  description                = "Detect usage of the \"coregen.exe\" (Microsoft CoreCLR Native Image Generator) binary to sideload arbitrary DLLs. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_dll_sideloading_using_coregen_exe.tf"
+  description                = "Detect usage of the \"coregen.exe\" (Microsoft CoreCLR Native Image Generator) binary to sideload arbitrary DLLs. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_dll_sideloading_using_coregen_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

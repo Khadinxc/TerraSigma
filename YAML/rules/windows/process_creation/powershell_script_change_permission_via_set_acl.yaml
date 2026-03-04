@@ -1,6 +1,6 @@
 id: f7c1be09-3c0a-5d10-85de-16b99171a550
 name: PowerShell Script Change Permission Via Set-Acl
-description: 'Detects PowerShell execution to set the ACL of a file or a folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_script_change_permission_via_set_acl.tf'
+description: 'Detects PowerShell execution to set the ACL of a file or a folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_script_change_permission_via_set_acl.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

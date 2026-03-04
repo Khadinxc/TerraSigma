@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_outlook_macro_creat
   name                       = "suspicious_outlook_macro_created"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Outlook Macro Created"
-  description                = "Detects the creation of a macro file for Outlook. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_outlook_macro_created.tf"
+  description                = "Detects the creation of a macro file for Outlook. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_outlook_macro_created.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

@@ -1,6 +1,6 @@
 id: eef19dad-6a0d-53fe-9c37-78e8e07d4d4c
 name: Potentially Suspicious Desktop Background Change Using Reg.EXE
-description: 'Detects the execution of "reg.exe" to alter registry keys that would replace the user''s desktop background. This is a common technique used by malware to change the desktop background to a ransom note or other image. - Administrative scripts that change the desktop background to a company logo or other image. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_desktop_background_change_using_reg_exe.tf'
+description: 'Detects the execution of "reg.exe" to alter registry keys that would replace the user''s desktop background. This is a common technique used by malware to change the desktop background to a ransom note or other image. - Administrative scripts that change the desktop background to a company logo or other image. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_desktop_background_change_using_reg_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_crassus_execution" {
   name                       = "pua_crassus_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Crassus Execution"
-  description                = "Detects Crassus, a Windows privilege escalation discovery tool, based on PE metadata characteristics. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_crassus_execution.tf"
+  description                = "Detects Crassus, a Windows privilege escalation discovery tool, based on PE metadata characteristics. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_crassus_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

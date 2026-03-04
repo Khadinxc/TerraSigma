@@ -1,6 +1,6 @@
 id: 40c6a55e-9520-5a96-8d0d-9c0b54a9f654
 name: Potential Linux Process Code Injection Via DD Utility
-description: 'Detects the injection of code by overwriting the memory map of a Linux process using the "dd" Linux command. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potential_linux_process_code_injection_via_dd_utility.tf'
+description: 'Detects the injection of code by overwriting the memory map of a Linux process using the "dd" Linux command. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potential_linux_process_code_injection_via_dd_utility.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

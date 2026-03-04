@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_diantz_alternate_da
   name                       = "suspicious_diantz_alternate_data_stream_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Diantz Alternate Data Stream Execution"
-  description                = "Compress target file into a cab file stored in the Alternate Data Stream (ADS) of the target file. - Very Possible | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_diantz_alternate_data_stream_execution.tf"
+  description                = "Compress target file into a cab file stored in the Alternate Data Stream (ADS) of the target file. - Very Possible | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_diantz_alternate_data_stream_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

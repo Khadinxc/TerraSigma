@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "remote_access_tool_anydesk_pip
   name                       = "remote_access_tool_anydesk_piped_password_via_cli"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Access Tool - AnyDesk Piped Password Via CLI"
-  description                = "Detects piping the password to an anydesk instance via CMD and the '--set-password' flag. - Legitimate piping of the password to anydesk - Some FP could occur with similar tools that uses the same command line '--set-password' | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_access_tool_anydesk_piped_password_via_cli.tf"
+  description                = "Detects piping the password to an anydesk instance via CMD and the '--set-password' flag. - Legitimate piping of the password to anydesk - Some FP could occur with similar tools that uses the same command line '--set-password' | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_access_tool_anydesk_piped_password_via_cli.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

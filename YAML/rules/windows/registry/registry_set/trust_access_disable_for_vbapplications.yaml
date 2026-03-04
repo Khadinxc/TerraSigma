@@ -1,6 +1,6 @@
 id: 30ac93dd-ed97-5e18-9ed6-e64bcd2998e8
 name: Trust Access Disable For VBApplications
-description: 'Detects registry changes to Microsoft Office "AccessVBOM" to a value of "1" which disables trust access for VBA on the victim machine and lets attackers execute malicious macros without any Microsoft Office warnings. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/trust_access_disable_for_vbapplications.tf'
+description: 'Detects registry changes to Microsoft Office "AccessVBOM" to a value of "1" which disables trust access for VBA on the victim machine and lets attackers execute malicious macros without any Microsoft Office warnings. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/trust_access_disable_for_vbapplications.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

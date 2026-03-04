@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "lsass_process_reconnaissance_v
   name                       = "lsass_process_reconnaissance_via_findstr_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "LSASS Process Reconnaissance Via Findstr.EXE"
-  description                = "Detects findstring commands that include the keyword lsass, which indicates recon actviity for the LSASS process PID | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/lsass_process_reconnaissance_via_findstr_exe.tf"
+  description                = "Detects findstring commands that include the keyword lsass, which indicates recon actviity for the LSASS process PID | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/lsass_process_reconnaissance_via_findstr_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

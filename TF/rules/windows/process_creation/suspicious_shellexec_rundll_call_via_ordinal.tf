@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_shellexec_rundll_ca
   name                       = "suspicious_shellexec_rundll_call_via_ordinal"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious ShellExec_RunDLL Call Via Ordinal"
-  description                = "Detects suspicious call to the \"ShellExec_RunDLL\" exported function of SHELL32.DLL through the ordinal number to launch other commands. Adversary might only use the ordinal number in order to bypass existing detection that alert on usage of ShellExec_RunDLL on CommandLine. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_shellexec_rundll_call_via_ordinal.tf"
+  description                = "Detects suspicious call to the \"ShellExec_RunDLL\" exported function of SHELL32.DLL through the ordinal number to launch other commands. Adversary might only use the ordinal number in order to bypass existing detection that alert on usage of ShellExec_RunDLL on CommandLine. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_shellexec_rundll_call_via_ordinal.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

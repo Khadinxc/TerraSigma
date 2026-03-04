@@ -1,6 +1,6 @@
 id: 862e3018-e5e3-5b4a-be42-60b7b269527b
 name: Explorer NOUACCHECK Flag
-description: 'Detects suspicious starts of explorer.exe that use the /NOUACCHECK flag that allows to run all sub processes of that newly started explorer.exe without any UAC checks - Domain Controller User Logon - Unknown how many legitimate software products use that method | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/explorer_nouaccheck_flag.tf'
+description: 'Detects suspicious starts of explorer.exe that use the /NOUACCHECK flag that allows to run all sub processes of that newly started explorer.exe without any UAC checks - Domain Controller User Logon - Unknown how many legitimate software products use that method | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/explorer_nouaccheck_flag.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

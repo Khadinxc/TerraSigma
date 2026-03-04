@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "findstr_launching_lnk_file" {
   name                       = "findstr_launching_lnk_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Findstr Launching .lnk File"
-  description                = "Detects usage of findstr to identify and execute a lnk file as seen within the HHS redirect attack | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/findstr_launching_lnk_file.tf"
+  description                = "Detects usage of findstr to identify and execute a lnk file as seen within the HHS redirect attack | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/findstr_launching_lnk_file.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

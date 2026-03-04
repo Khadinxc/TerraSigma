@@ -1,6 +1,6 @@
 id: bd10a403-11c4-5a44-b8e7-59b1e5de49cc
 name: Usage Of Web Request Commands And Cmdlets
-description: 'Detects the use of various web request commands with commandline tools and Windows PowerShell cmdlets (including aliases) via CommandLine - Use of Get-Command and Get-Help modules to reference Invoke-WebRequest and Start-BitsTransfer. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/usage_of_web_request_commands_and_cmdlets.tf'
+description: 'Detects the use of various web request commands with commandline tools and Windows PowerShell cmdlets (including aliases) via CommandLine - Use of Get-Command and Get-Help modules to reference Invoke-WebRequest and Start-BitsTransfer. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/usage_of_web_request_commands_and_cmdlets.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

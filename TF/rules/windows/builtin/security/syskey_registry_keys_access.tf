@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "syskey_registry_keys_access" {
   name                       = "syskey_registry_keys_access"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "SysKey Registry Keys Access"
-  description                = "Detects handle requests and access operations to specific registry keys to calculate the SysKey | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/syskey_registry_keys_access.tf"
+  description                = "Detects handle requests and access operations to specific registry keys to calculate the SysKey | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/syskey_registry_keys_access.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

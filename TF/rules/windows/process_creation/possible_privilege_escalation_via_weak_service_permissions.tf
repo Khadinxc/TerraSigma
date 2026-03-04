@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "possible_privilege_escalation_
   name                       = "possible_privilege_escalation_via_weak_service_permissions"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Possible Privilege Escalation via Weak Service Permissions"
-  description                = "Detection of sc.exe utility spawning by user with Medium integrity level to change service ImagePath or FailureCommand | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/possible_privilege_escalation_via_weak_service_permissions.tf"
+  description                = "Detection of sc.exe utility spawning by user with Medium integrity level to change service ImagePath or FailureCommand | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/possible_privilege_escalation_via_weak_service_permissions.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

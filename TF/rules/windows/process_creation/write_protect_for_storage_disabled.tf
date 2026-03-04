@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "write_protect_for_storage_disa
   name                       = "write_protect_for_storage_disabled"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Write Protect For Storage Disabled"
-  description                = "Detects applications trying to modify the registry in order to disable any write-protect property for storage devices. This could be a precursor to a ransomware attack and has been an observed technique used by cypherpunk group. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/write_protect_for_storage_disabled.tf"
+  description                = "Detects applications trying to modify the registry in order to disable any write-protect property for storage devices. This could be a precursor to a ransomware attack and has been an observed technique used by cypherpunk group. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/write_protect_for_storage_disabled.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

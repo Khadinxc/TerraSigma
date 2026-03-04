@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "lazarus_apt_dll_sideloading_ac
   name                       = "lazarus_apt_dll_sideloading_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Lazarus APT DLL Sideloading Activity"
-  description                = "Detects sideloading of trojanized DLLs used in Lazarus APT campaign in the case of a Spanish aerospace company - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lazarus/lazarus_apt_dll_sideloading_activity.tf"
+  description                = "Detects sideloading of trojanized DLLs used in Lazarus APT campaign in the case of a Spanish aerospace company - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lazarus/lazarus_apt_dll_sideloading_activity.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

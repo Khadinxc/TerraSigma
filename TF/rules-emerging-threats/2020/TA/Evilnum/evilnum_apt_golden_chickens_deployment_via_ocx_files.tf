@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "evilnum_apt_golden_chickens_de
   name                       = "evilnum_apt_golden_chickens_deployment_via_ocx_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "EvilNum APT Golden Chickens Deployment Via OCX Files"
-  description                = "Detects Golden Chickens deployment method as used by Evilnum and described in ESET July 2020 report | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Evilnum/evilnum_apt_golden_chickens_deployment_via_ocx_files.tf"
+  description                = "Detects Golden Chickens deployment method as used by Evilnum and described in ESET July 2020 report | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Evilnum/evilnum_apt_golden_chickens_deployment_via_ocx_files.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

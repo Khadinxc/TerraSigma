@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_ransomware_or_unauth
   name                       = "potential_ransomware_or_unauthorized_mbr_tampering_via_bcdedit_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Ransomware or Unauthorized MBR Tampering Via Bcdedit.EXE"
-  description                = "Detects potential malicious and unauthorized usage of bcdedit.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_ransomware_or_unauthorized_mbr_tampering_via_bcdedit_exe.tf"
+  description                = "Detects potential malicious and unauthorized usage of bcdedit.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_ransomware_or_unauthorized_mbr_tampering_via_bcdedit_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

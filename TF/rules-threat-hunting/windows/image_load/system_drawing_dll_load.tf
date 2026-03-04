@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "system_drawing_dll_load" {
   name                       = "system_drawing_dll_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "System Drawing DLL Load"
-  description                = "Detects processes loading \"System.Drawing.ni.dll\". This could be an indicator of potential Screen Capture. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/system_drawing_dll_load.tf"
+  description                = "Detects processes loading \"System.Drawing.ni.dll\". This could be an indicator of potential Screen Capture. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/system_drawing_dll_load.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceImageLoadEvents

@@ -1,6 +1,6 @@
 id: fd20fea4-a1b4-5382-b920-516aa4590957
 name: Hacktool Execution - PE Metadata
-description: 'Detects the execution of different Windows based hacktools via PE metadata (company, product, etc.) even if the files have been renamed - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_execution_pe_metadata.tf'
+description: 'Detects the execution of different Windows based hacktools via PE metadata (company, product, etc.) even if the files have been renamed - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_execution_pe_metadata.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

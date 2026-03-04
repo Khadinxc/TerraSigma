@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "unusual_file_deletion_by_dns_e
   name                       = "unusual_file_deletion_by_dns_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Unusual File Deletion by Dns.exe"
-  description                = "Detects an unexpected file being deleted by dns.exe which my indicate activity related to remote code execution or other forms of exploitation as seen in CVE-2020-1350 (SigRed) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/unusual_file_deletion_by_dns_exe.tf"
+  description                = "Detects an unexpected file being deleted by dns.exe which my indicate activity related to remote code execution or other forms of exploitation as seen in CVE-2020-1350 (SigRed) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/unusual_file_deletion_by_dns_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

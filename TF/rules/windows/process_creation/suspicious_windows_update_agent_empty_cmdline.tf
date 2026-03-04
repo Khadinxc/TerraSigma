@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_windows_update_agen
   name                       = "suspicious_windows_update_agent_empty_cmdline"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Windows Update Agent Empty Cmdline"
-  description                = "Detects suspicious Windows Update Agent activity in which a wuauclt.exe process command line doesn't contain any command line flags | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_windows_update_agent_empty_cmdline.tf"
+  description                = "Detects suspicious Windows Update Agent activity in which a wuauclt.exe process command line doesn't contain any command line flags | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_windows_update_agent_empty_cmdline.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

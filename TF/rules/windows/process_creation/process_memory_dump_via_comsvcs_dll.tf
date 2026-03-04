@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "process_memory_dump_via_comsvc
   name                       = "process_memory_dump_via_comsvcs_dll"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Process Memory Dump Via Comsvcs.DLL"
-  description                = "Detects a process memory dump via \"comsvcs.dll\" using rundll32, covering multiple different techniques (ordinal, minidump function, etc.) - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/process_memory_dump_via_comsvcs_dll.tf"
+  description                = "Detects a process memory dump via \"comsvcs.dll\" using rundll32, covering multiple different techniques (ordinal, minidump function, etc.) - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/process_memory_dump_via_comsvcs_dll.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

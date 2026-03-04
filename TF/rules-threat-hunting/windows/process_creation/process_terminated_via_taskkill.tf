@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "process_terminated_via_taskkil
   name                       = "process_terminated_via_taskkill"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Process Terminated Via Taskkill"
-  description                = "Detects execution of \"taskkill.exe\" in order to stop a service or a process. Look for suspicious parents executing this command in order to hunt for potential malicious activity. Attackers might leverage this in order to conduct data destruction or data encrypted for impact on the data stores of services like Exchange and SQL Server. - Expected FP with some processes using this techniques to terminate one of their processes during installations and updates | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/process_terminated_via_taskkill.tf"
+  description                = "Detects execution of \"taskkill.exe\" in order to stop a service or a process. Look for suspicious parents executing this command in order to hunt for potential malicious activity. Attackers might leverage this in order to conduct data destruction or data encrypted for impact on the data stores of services like Exchange and SQL Server. - Expected FP with some processes using this techniques to terminate one of their processes during installations and updates | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/process_terminated_via_taskkill.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

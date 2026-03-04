@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_desktopimgdownldr_c
   name                       = "suspicious_desktopimgdownldr_command"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Desktopimgdownldr Command"
-  description                = "Detects a suspicious Microsoft desktopimgdownldr execution with parameters used to download files from the Internet | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_desktopimgdownldr_command.tf"
+  description                = "Detects a suspicious Microsoft desktopimgdownldr execution with parameters used to download files from the Internet | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_desktopimgdownldr_command.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

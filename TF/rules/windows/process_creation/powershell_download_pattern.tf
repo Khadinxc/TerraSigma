@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "powershell_download_pattern" {
   name                       = "powershell_download_pattern"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Download Pattern"
-  description                = "Detects a Powershell process that contains download commands in its command line string | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_download_pattern.tf"
+  description                = "Detects a Powershell process that contains download commands in its command line string | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_download_pattern.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

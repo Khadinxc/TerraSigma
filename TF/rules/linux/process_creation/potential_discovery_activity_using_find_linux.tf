@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_discovery_activity_u
   name                       = "potential_discovery_activity_using_find_linux"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Discovery Activity Using Find - Linux"
-  description                = "Detects usage of \"find\" binary in a suspicious manner to perform discovery | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potential_discovery_activity_using_find_linux.tf"
+  description                = "Detects usage of \"find\" binary in a suspicious manner to perform discovery | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potential_discovery_activity_using_find_linux.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

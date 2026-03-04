@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uncommon_file_created_by_notep
   name                       = "uncommon_file_created_by_notepad_updater_gup_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon File Created by Notepad++ Updater Gup.EXE"
-  description                = "Detects when the Notepad++ updater (gup.exe) creates files in suspicious or uncommon locations. This could indicate potential exploitation of the updater component to deliver unwanted malware or unwarranted files. - Custom or portable Notepad++ installations in non-standard directories. - Legitimate update processes creating temporary files in unexpected locations. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/uncommon_file_created_by_notepad_updater_gup_exe.tf"
+  description                = "Detects when the Notepad++ updater (gup.exe) creates files in suspicious or uncommon locations. This could indicate potential exploitation of the updater component to deliver unwanted malware or unwarranted files. - Custom or portable Notepad++ installations in non-standard directories. - Legitimate update processes creating temporary files in unexpected locations. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/uncommon_file_created_by_notepad_updater_gup_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

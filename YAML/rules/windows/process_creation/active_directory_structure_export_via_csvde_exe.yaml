@@ -1,6 +1,6 @@
 id: e2768752-9335-5fa8-beab-2e9469174dfb
 name: Active Directory Structure Export Via Csvde.EXE
-description: 'Detects the execution of "csvde.exe" in order to export organizational Active Directory structure. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/active_directory_structure_export_via_csvde_exe.tf'
+description: 'Detects the execution of "csvde.exe" in order to export organizational Active Directory structure. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/active_directory_structure_export_via_csvde_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

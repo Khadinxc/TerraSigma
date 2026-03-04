@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "group_membership_reconnaissanc
   name                       = "group_membership_reconnaissance_via_whoami_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Group Membership Reconnaissance Via Whoami.EXE"
-  description                = "Detects the execution of whoami.exe with the /group command line flag to show group membership for the current user, account type, security identifiers (SID), and attributes. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/group_membership_reconnaissance_via_whoami_exe.tf"
+  description                = "Detects the execution of whoami.exe with the /group command line flag to show group membership for the current user, account type, security identifiers (SID), and attributes. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/group_membership_reconnaissance_via_whoami_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

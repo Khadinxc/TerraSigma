@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "communication_to_ngrok_tunneli
   name                       = "communication_to_ngrok_tunneling_service_initiated"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Communication To Ngrok Tunneling Service Initiated"
-  description                = "Detects an executable initiating a network connection to \"ngrok\" tunneling domains. Attackers were seen using this \"ngrok\" in order to store their second stage payloads and malware. While communication with such domains can be legitimate, often times is a sign of either data exfiltration by malicious actors or additional download. - Legitimate use of the ngrok service. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/communication_to_ngrok_tunneling_service_initiated.tf"
+  description                = "Detects an executable initiating a network connection to \"ngrok\" tunneling domains. Attackers were seen using this \"ngrok\" in order to store their second stage payloads and malware. While communication with such domains can be legitimate, often times is a sign of either data exfiltration by malicious actors or additional download. - Legitimate use of the ngrok service. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/communication_to_ngrok_tunneling_service_initiated.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "indirect_command_execution_fro
   name                       = "indirect_command_execution_from_script_file_via_bash_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Indirect Command Execution From Script File Via Bash.EXE"
-  description                = "Detects execution of Microsoft bash launcher without any flags to execute the content of a bash script directly. This can be used to potentially bypass defenses and execute Linux or Windows-based binaries directly via bash. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/indirect_command_execution_from_script_file_via_bash_exe.tf"
+  description                = "Detects execution of Microsoft bash launcher without any flags to execute the content of a bash script directly. This can be used to potentially bypass defenses and execute Linux or Windows-based binaries directly via bash. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/indirect_command_execution_from_script_file_via_bash_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

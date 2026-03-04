@@ -1,6 +1,6 @@
 id: 952ed2d5-a7c8-5217-bfd5-5087b2270b6e
 name: Nohup Execution
-description: 'Detects usage of nohup which could be leveraged by an attacker to keep a process running or break out from restricted environments - Administrators or installed processes that leverage nohup | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/nohup_execution.tf'
+description: 'Detects usage of nohup which could be leveraged by an attacker to keep a process running or break out from restricted environments - Administrators or installed processes that leverage nohup | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/nohup_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

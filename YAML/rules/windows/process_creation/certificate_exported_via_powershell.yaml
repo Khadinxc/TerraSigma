@@ -1,6 +1,6 @@
 id: 5f15384d-fb8f-5c8c-881c-49d05e025497
 name: Certificate Exported Via PowerShell
-description: 'Detects calls to cmdlets that are used to export certificates from the local certificate store. Threat actors were seen abusing this to steal private keys from compromised machines. - Legitimate certificate exports by administrators. Additional filters might be required. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/certificate_exported_via_powershell.tf'
+description: 'Detects calls to cmdlets that are used to export certificates from the local certificate store. Threat actors were seen abusing this to steal private keys from compromised machines. - Legitimate certificate exports by administrators. Additional filters might be required. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/certificate_exported_via_powershell.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

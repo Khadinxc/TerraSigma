@@ -1,6 +1,6 @@
 id: c59ffe8e-5152-585f-9805-dbea47853f60
 name: ESXi VM Kill Via ESXCLI
-description: 'Detects execution of the "esxcli" command with the "vm" and "kill" flag in order to kill/shutdown a specific VM. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/esxi_vm_kill_via_esxcli.tf'
+description: 'Detects execution of the "esxcli" command with the "vm" and "kill" flag in order to kill/shutdown a specific VM. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/esxi_vm_kill_via_esxcli.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

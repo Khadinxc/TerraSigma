@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "microsoft_excel_add_in_loaded_
   name                       = "microsoft_excel_add_in_loaded_from_uncommon_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Microsoft Excel Add-In Loaded From Uncommon Location"
-  description                = "Detects Microsoft Excel loading an Add-In (.xll) file from an uncommon location - Some tuning might be required to allow or remove certain locations used by the rule if you consider them as safe locations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/microsoft_excel_add_in_loaded_from_uncommon_location.tf"
+  description                = "Detects Microsoft Excel loading an Add-In (.xll) file from an uncommon location - Some tuning might be required to allow or remove certain locations used by the rule if you consider them as safe locations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/microsoft_excel_add_in_loaded_from_uncommon_location.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

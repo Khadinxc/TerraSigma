@@ -1,6 +1,6 @@
 id: a7b801e4-c73a-54f5-b375-bfd14ffe9863
 name: Remote File Download Via Desktopimgdownldr Utility
-description: 'Detects the desktopimgdownldr utility being used to download a remote file. An adversary may use desktopimgdownldr to download arbitrary files as an alternative to certutil. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_file_download_via_desktopimgdownldr_utility.tf'
+description: 'Detects the desktopimgdownldr utility being used to download a remote file. An adversary may use desktopimgdownldr to download arbitrary files as an alternative to certutil. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_file_download_via_desktopimgdownldr_utility.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

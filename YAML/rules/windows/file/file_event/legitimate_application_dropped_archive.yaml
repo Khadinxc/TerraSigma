@@ -1,6 +1,6 @@
 id: 4aa7bfbd-4034-54df-89e4-b9f540964e3e
 name: Legitimate Application Dropped Archive
-description: 'Detects programs on a Windows system that should not write an archive to disk | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/legitimate_application_dropped_archive.tf'
+description: 'Detects programs on a Windows system that should not write an archive to disk | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/legitimate_application_dropped_archive.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

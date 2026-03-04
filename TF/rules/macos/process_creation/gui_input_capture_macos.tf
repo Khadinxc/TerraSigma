@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "gui_input_capture_macos" {
   name                       = "gui_input_capture_macos"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "GUI Input Capture - macOS"
-  description                = "Detects attempts to use system dialog prompts to capture user credentials - Legitimate administration tools and activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/gui_input_capture_macos.tf"
+  description                = "Detects attempts to use system dialog prompts to capture user credentials - Legitimate administration tools and activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/gui_input_capture_macos.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

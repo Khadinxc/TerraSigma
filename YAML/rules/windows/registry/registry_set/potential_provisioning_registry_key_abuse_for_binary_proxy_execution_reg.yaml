@@ -1,6 +1,6 @@
 id: 7989b47d-efbe-5184-8994-fefd41e588f2
 name: Potential Provisioning Registry Key Abuse For Binary Proxy Execution - REG
-description: 'Detects potential abuse of the provisioning registry key for indirect command execution through "Provlaunch.exe". | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_provisioning_registry_key_abuse_for_binary_proxy_execution_reg.tf'
+description: 'Detects potential abuse of the provisioning registry key for indirect command execution through "Provlaunch.exe". | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_provisioning_registry_key_abuse_for_binary_proxy_execution_reg.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "private_keys_reconnaissance_vi
   name                       = "private_keys_reconnaissance_via_commandline_tools"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Private Keys Reconnaissance Via CommandLine Tools"
-  description                = "Adversaries may search for private key certificate files on compromised systems for insecurely stored credential | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/private_keys_reconnaissance_via_commandline_tools.tf"
+  description                = "Adversaries may search for private key certificate files on compromised systems for insecurely stored credential | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/private_keys_reconnaissance_via_commandline_tools.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: 4f33537a-2ea5-50f6-9d97-cf0835972d7a
 name: PUA - Ngrok Execution
-description: 'Detects the use of Ngrok, a utility used for port forwarding and tunneling, often used by threat actors to make local protected services publicly available. Involved domains are bin.equinox.io for download and *.ngrok.io for connections. - Another tool that uses the command line switches of Ngrok - Ngrok http 3978 (https://learn.microsoft.com/en-us/azure/bot-service/bot-service-debug-channel-ngrok?view=azure-bot-service-4.0) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_ngrok_execution.tf'
+description: 'Detects the use of Ngrok, a utility used for port forwarding and tunneling, often used by threat actors to make local protected services publicly available. Involved domains are bin.equinox.io for download and *.ngrok.io for connections. - Another tool that uses the command line switches of Ngrok - Ngrok http 3978 (https://learn.microsoft.com/en-us/azure/bot-service/bot-service-debug-channel-ngrok?view=azure-bot-service-4.0) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_ngrok_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

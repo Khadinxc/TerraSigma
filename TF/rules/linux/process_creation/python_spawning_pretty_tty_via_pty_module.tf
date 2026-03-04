@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "python_spawning_pretty_tty_via
   name                       = "python_spawning_pretty_tty_via_pty_module"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Python Spawning Pretty TTY Via PTY Module"
-  description                = "Detects a python process calling to the PTY module in order to spawn a pretty tty which could be indicative of potential reverse shell activity. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/python_spawning_pretty_tty_via_pty_module.tf"
+  description                = "Detects a python process calling to the PTY module in order to spawn a pretty tty which could be indicative of potential reverse shell activity. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/python_spawning_pretty_tty_via_pty_module.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "xbap_execution_from_uncommon_l
   name                       = "xbap_execution_from_uncommon_locations_via_presentationhost_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "XBAP Execution From Uncommon Locations Via PresentationHost.EXE"
-  description                = "Detects the execution of \".xbap\" (Browser Applications) files via PresentationHost.EXE from an uncommon location. These files can be abused to run malicious \".xbap\" files any bypass AWL - Legitimate \".xbap\" being executed via \"PresentationHost\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/xbap_execution_from_uncommon_locations_via_presentationhost_exe.tf"
+  description                = "Detects the execution of \".xbap\" (Browser Applications) files via PresentationHost.EXE from an uncommon location. These files can be abused to run malicious \".xbap\" files any bypass AWL - Legitimate \".xbap\" being executed via \"PresentationHost\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/xbap_execution_from_uncommon_locations_via_presentationhost_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

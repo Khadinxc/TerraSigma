@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uac_bypass_abusing_winsat_path
   name                       = "uac_bypass_abusing_winsat_path_parsing_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass Abusing Winsat Path Parsing - File"
-  description                = "Detects the pattern of UAC Bypass using a path parsing issue in winsat.exe (UACMe 52) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/uac_bypass_abusing_winsat_path_parsing_file.tf"
+  description                = "Detects the pattern of UAC Bypass using a path parsing issue in winsat.exe (UACMe 52) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/uac_bypass_abusing_winsat_path_parsing_file.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

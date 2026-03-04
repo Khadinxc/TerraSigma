@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_empiremonkey_activit
   name                       = "potential_empiremonkey_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential EmpireMonkey Activity"
-  description                = "Detects potential EmpireMonkey APT activity - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/EmpireMonkey/potential_empiremonkey_activity.tf"
+  description                = "Detects potential EmpireMonkey APT activity - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/EmpireMonkey/potential_empiremonkey_activity.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

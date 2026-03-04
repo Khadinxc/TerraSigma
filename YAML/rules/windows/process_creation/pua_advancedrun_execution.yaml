@@ -1,6 +1,6 @@
 id: 503525e9-a6a8-55ad-8e63-f2f276c1b4e2
 name: PUA - AdvancedRun Execution
-description: 'Detects the execution of AdvancedRun utility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_advancedrun_execution.tf'
+description: 'Detects the execution of AdvancedRun utility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_advancedrun_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "access_to_windows_credential_h
   name                       = "access_to_windows_credential_history_file_by_uncommon_applications"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Access To Windows Credential History File By Uncommon Applications"
-  description                = "Detects file access requests to the Windows Credential History File by an uncommon application. This can be a sign of credential stealing. Example case would be usage of mimikatz \"dpapi::credhist\" function | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/access_to_windows_credential_history_file_by_uncommon_applications.tf"
+  description                = "Detects file access requests to the Windows Credential History File by an uncommon application. This can be a sign of credential stealing. Example case would be usage of mimikatz \"dpapi::credhist\" function | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/access_to_windows_credential_history_file_by_uncommon_applications.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

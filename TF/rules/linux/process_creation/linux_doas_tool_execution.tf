@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "linux_doas_tool_execution" {
   name                       = "linux_doas_tool_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux Doas Tool Execution"
-  description                = "Detects the doas tool execution in linux host platform. This utility tool allow standard users to perform tasks as root, the same way sudo does. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_doas_tool_execution.tf"
+  description                = "Detects the doas tool execution in linux host platform. This utility tool allow standard users to perform tasks as root, the same way sudo does. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_doas_tool_execution.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

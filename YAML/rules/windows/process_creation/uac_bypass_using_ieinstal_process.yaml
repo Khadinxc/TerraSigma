@@ -1,6 +1,6 @@
 id: 9d2816bb-60a6-52f1-b98c-e125e7a50acb
 name: UAC Bypass Using IEInstal - Process
-description: 'Detects the pattern of UAC Bypass using IEInstal.exe (UACMe 64) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uac_bypass_using_ieinstal_process.tf'
+description: 'Detects the pattern of UAC Bypass using IEInstal.exe (UACMe 64) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uac_bypass_using_ieinstal_process.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

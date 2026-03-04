@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "tunneling_tool_execution" {
   name                       = "tunneling_tool_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Tunneling Tool Execution"
-  description                = "Detects the execution of well known tools that can be abused for data exfiltration and tunneling. - Legitimate administrators using one of these tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/tunneling_tool_execution.tf"
+  description                = "Detects the execution of well known tools that can be abused for data exfiltration and tunneling. - Legitimate administrators using one of these tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/tunneling_tool_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

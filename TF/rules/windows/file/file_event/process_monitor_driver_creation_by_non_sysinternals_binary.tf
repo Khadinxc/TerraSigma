@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "process_monitor_driver_creatio
   name                       = "process_monitor_driver_creation_by_non_sysinternals_binary"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Process Monitor Driver Creation By Non-Sysinternals Binary"
-  description                = "Detects creation of the Process Monitor driver by processes other than Process Monitor (procmon) itself. - Some false positives may occur with legitimate renamed process monitor binaries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/process_monitor_driver_creation_by_non_sysinternals_binary.tf"
+  description                = "Detects creation of the Process Monitor driver by processes other than Process Monitor (procmon) itself. - Some false positives may occur with legitimate renamed process monitor binaries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/process_monitor_driver_creation_by_non_sysinternals_binary.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

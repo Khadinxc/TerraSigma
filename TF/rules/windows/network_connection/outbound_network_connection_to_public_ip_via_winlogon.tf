@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "outbound_network_connection_to
   name                       = "outbound_network_connection_to_public_ip_via_winlogon"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Outbound Network Connection To Public IP Via Winlogon"
-  description                = "Detects a \"winlogon.exe\" process that initiate network communications with public IP addresses - Communication to other corporate systems that use IP addresses from public address spaces | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/outbound_network_connection_to_public_ip_via_winlogon.tf"
+  description                = "Detects a \"winlogon.exe\" process that initiate network communications with public IP addresses - Communication to other corporate systems that use IP addresses from public address spaces | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/outbound_network_connection_to_public_ip_via_winlogon.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_powershell_iex_exec
   name                       = "suspicious_powershell_iex_execution_patterns"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious PowerShell IEX Execution Patterns"
-  description                = "Detects suspicious ways to run Invoke-Execution using IEX alias - Legitimate scripts that use IEX | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_powershell_iex_execution_patterns.tf"
+  description                = "Detects suspicious ways to run Invoke-Execution using IEX alias - Legitimate scripts that use IEX | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_powershell_iex_execution_patterns.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

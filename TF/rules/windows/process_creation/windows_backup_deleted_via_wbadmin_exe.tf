@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "windows_backup_deleted_via_wba
   name                       = "windows_backup_deleted_via_wbadmin_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Backup Deleted Via Wbadmin.EXE"
-  description                = "Detects the deletion of backups or system state backups via \"wbadmin.exe\". This technique is used by numerous ransomware families and actors. This may only be successful on server platforms that have Windows Backup enabled. - Legitimate backup activity from administration scripts and software. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_backup_deleted_via_wbadmin_exe.tf"
+  description                = "Detects the deletion of backups or system state backups via \"wbadmin.exe\". This technique is used by numerous ransomware families and actors. This may only be successful on server platforms that have Windows Backup enabled. - Legitimate backup activity from administration scripts and software. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_backup_deleted_via_wbadmin_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

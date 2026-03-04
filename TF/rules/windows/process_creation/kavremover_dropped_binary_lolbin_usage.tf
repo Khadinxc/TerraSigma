@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "kavremover_dropped_binary_lolb
   name                       = "kavremover_dropped_binary_lolbin_usage"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Kavremover Dropped Binary LOLBIN Usage"
-  description                = "Detects the execution of a signed binary dropped by Kaspersky Lab Products Remover (kavremover) which can be abused as a LOLBIN to execute arbitrary commands and binaries. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/kavremover_dropped_binary_lolbin_usage.tf"
+  description                = "Detects the execution of a signed binary dropped by Kaspersky Lab Products Remover (kavremover) which can be abused as a LOLBIN to execute arbitrary commands and binaries. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/kavremover_dropped_binary_lolbin_usage.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "greedy_file_deletion_using_del
   name                       = "greedy_file_deletion_using_del"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Greedy File Deletion Using Del"
-  description                = "Detects execution of the \"del\" builtin command to remove files using greedy/wildcard expression. This is often used by malware to delete content of folders that perhaps contains the initial malware infection or to delete evidence. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/greedy_file_deletion_using_del.tf"
+  description                = "Detects execution of the \"del\" builtin command to remove files using greedy/wildcard expression. This is often used by malware to delete content of folders that perhaps contains the initial malware infection or to delete evidence. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/greedy_file_deletion_using_del.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

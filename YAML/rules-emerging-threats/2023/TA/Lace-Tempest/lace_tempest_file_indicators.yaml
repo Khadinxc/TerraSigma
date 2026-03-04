@@ -1,6 +1,6 @@
 id: c15082a0-4fbe-5dc2-9dfb-b6b3def22891
 name: Lace Tempest File Indicators
-description: 'Detects PowerShell script file creation with specific names or suffixes which was seen being used often in PowerShell scripts by FIN7 - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lace-Tempest/lace_tempest_file_indicators.tf'
+description: 'Detects PowerShell script file creation with specific names or suffixes which was seen being used often in PowerShell scripts by FIN7 - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lace-Tempest/lace_tempest_file_indicators.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_quarks_pwdump_executi
   name                       = "hacktool_quarks_pwdump_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Quarks PwDump Execution"
-  description                = "Detects usage of the Quarks PwDump tool via commandline arguments - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_quarks_pwdump_execution.tf"
+  description                = "Detects usage of the Quarks PwDump tool via commandline arguments - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_quarks_pwdump_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

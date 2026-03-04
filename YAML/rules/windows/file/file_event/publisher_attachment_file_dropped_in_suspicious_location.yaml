@@ -1,6 +1,6 @@
 id: 0de93435-a01f-5d8a-aaf0-fd4ca35dec54
 name: Publisher Attachment File Dropped In Suspicious Location
-description: 'Detects creation of files with the ".pub" extension in suspicious or uncommon locations. This could be a sign of attackers abusing Publisher documents - Legitimate usage of ".pub" files from those locations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/publisher_attachment_file_dropped_in_suspicious_location.tf'
+description: 'Detects creation of files with the ".pub" extension in suspicious or uncommon locations. This could be a sign of attackers abusing Publisher documents - Legitimate usage of ".pub" files from those locations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/publisher_attachment_file_dropped_in_suspicious_location.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

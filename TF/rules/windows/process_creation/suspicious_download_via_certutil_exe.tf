@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_download_via_certut
   name                       = "suspicious_download_via_certutil_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Download Via Certutil.EXE"
-  description                = "Detects the execution of certutil with certain flags that allow the utility to download files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_download_via_certutil_exe.tf"
+  description                = "Detects the execution of certutil with certain flags that allow the utility to download files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_download_via_certutil_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

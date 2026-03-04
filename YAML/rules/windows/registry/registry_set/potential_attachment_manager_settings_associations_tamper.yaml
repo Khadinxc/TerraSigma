@@ -1,6 +1,6 @@
 id: 95c20f62-46e1-5127-b81e-af4aed85ecb5
 name: Potential Attachment Manager Settings Associations Tamper
-description: 'Detects tampering with attachment manager settings policies associations to lower the default file type risks (See reference for more information) - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_attachment_manager_settings_associations_tamper.tf'
+description: 'Detects tampering with attachment manager settings policies associations to lower the default file type risks (See reference for more information) - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_attachment_manager_settings_associations_tamper.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

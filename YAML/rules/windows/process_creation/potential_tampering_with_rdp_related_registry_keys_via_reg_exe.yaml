@@ -1,6 +1,6 @@
 id: 567db18e-5d3e-5456-b505-39c3e38bd021
 name: Potential Tampering With RDP Related Registry Keys Via Reg.EXE
-description: 'Detects the execution of "reg.exe" for enabling/disabling the RDP service on the host by tampering with the ''CurrentControlSet\Control\Terminal Server'' values | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_tampering_with_rdp_related_registry_keys_via_reg_exe.tf'
+description: 'Detects the execution of "reg.exe" for enabling/disabling the RDP service on the host by tampering with the ''CurrentControlSet\Control\Terminal Server'' values | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_tampering_with_rdp_related_registry_keys_via_reg_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

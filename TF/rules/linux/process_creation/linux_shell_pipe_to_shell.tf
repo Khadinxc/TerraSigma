@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "linux_shell_pipe_to_shell" {
   name                       = "linux_shell_pipe_to_shell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux Shell Pipe to Shell"
-  description                = "Detects suspicious process command line that starts with a shell that executes something and finally gets piped into another shell - Legitimate software that uses these patterns | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_shell_pipe_to_shell.tf"
+  description                = "Detects suspicious process command line that starts with a shell that executes something and finally gets piped into another shell - Legitimate software that uses these patterns | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_shell_pipe_to_shell.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

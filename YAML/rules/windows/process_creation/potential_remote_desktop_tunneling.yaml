@@ -1,6 +1,6 @@
 id: bfc3cf1e-90c5-56fa-a8fc-162fee3d1354
 name: Potential Remote Desktop Tunneling
-description: 'Detects potential use of an SSH utility to establish RDP over a reverse SSH Tunnel. This can be used by attackers to enable routing of network packets that would otherwise not reach their intended destination. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_remote_desktop_tunneling.tf'
+description: 'Detects potential use of an SSH utility to establish RDP over a reverse SSH Tunnel. This can be used by attackers to enable routing of network packets that would otherwise not reach their intended destination. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_remote_desktop_tunneling.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

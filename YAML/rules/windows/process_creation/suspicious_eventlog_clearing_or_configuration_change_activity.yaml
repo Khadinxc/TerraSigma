@@ -1,6 +1,6 @@
 id: 5c2f6c69-c911-59fa-9258-72815a025e72
 name: Suspicious Eventlog Clearing or Configuration Change Activity
-description: 'Detects the clearing or configuration tampering of EventLog using utilities such as "wevtutil", "powershell" and "wmic". This technique were seen used by threat actors and ransomware strains in order to evade defenses. - Admin activity - Scripts and administrative tools used in the monitored environment - Maintenance activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_eventlog_clearing_or_configuration_change_activity.tf'
+description: 'Detects the clearing or configuration tampering of EventLog using utilities such as "wevtutil", "powershell" and "wmic". This technique were seen used by threat actors and ransomware strains in order to evade defenses. - Admin activity - Scripts and administrative tools used in the monitored environment - Maintenance activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_eventlog_clearing_or_configuration_change_activity.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

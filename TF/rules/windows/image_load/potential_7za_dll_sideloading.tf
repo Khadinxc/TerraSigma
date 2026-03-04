@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_7za_dll_sideloading"
   name                       = "potential_7za_dll_sideloading"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential 7za.DLL Sideloading"
-  description                = "Detects potential DLL sideloading of \"7za.dll\" - Legitimate third party application located in \"AppData\" may leverage this DLL to offer 7z compression functionality and may generate false positives. Apply additional filters as needed. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_7za_dll_sideloading.tf"
+  description                = "Detects potential DLL sideloading of \"7za.dll\" - Legitimate third party application located in \"AppData\" may leverage this DLL to offer 7z compression functionality and may generate false positives. Apply additional filters as needed. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_7za_dll_sideloading.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceImageLoadEvents

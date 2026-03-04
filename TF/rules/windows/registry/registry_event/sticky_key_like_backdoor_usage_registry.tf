@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "sticky_key_like_backdoor_usage
   name                       = "sticky_key_like_backdoor_usage_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Sticky Key Like Backdoor Usage - Registry"
-  description                = "Detects the usage and installation of a backdoor that uses an option to register a malicious debugger for built-in tools that are accessible in the login screen - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/sticky_key_like_backdoor_usage_registry.tf"
+  description                = "Detects the usage and installation of a backdoor that uses an option to register a malicious debugger for built-in tools that are accessible in the login screen - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/sticky_key_like_backdoor_usage_registry.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

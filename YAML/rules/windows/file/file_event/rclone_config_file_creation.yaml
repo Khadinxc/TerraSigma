@@ -1,6 +1,6 @@
 id: 720d0904-0b96-5469-9901-9b17629b735a
 name: Rclone Config File Creation
-description: 'Detects Rclone config files being created - Legitimate Rclone usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/rclone_config_file_creation.tf'
+description: 'Detects Rclone config files being created - Legitimate Rclone usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/rclone_config_file_creation.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

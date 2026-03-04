@@ -1,6 +1,6 @@
 id: 59317759-49c3-529f-8f39-07113da7a36b
 name: Rundll32 Execution Without Parameters
-description: 'Detects rundll32 execution without parameters as observed when running Metasploit windows/smb/psexec exploit module | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rundll32_execution_without_parameters.tf'
+description: 'Detects rundll32 execution without parameters as observed when running Metasploit windows/smb/psexec exploit module | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rundll32_execution_without_parameters.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 42e33cc1-b72c-55a9-b395-6198e1430834
 name: Potential Ransomware or Unauthorized MBR Tampering Via Bcdedit.EXE
-description: 'Detects potential malicious and unauthorized usage of bcdedit.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_ransomware_or_unauthorized_mbr_tampering_via_bcdedit_exe.tf'
+description: 'Detects potential malicious and unauthorized usage of bcdedit.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_ransomware_or_unauthorized_mbr_tampering_via_bcdedit_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

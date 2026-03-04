@@ -1,6 +1,6 @@
 id: e5f49e94-a6a2-506e-8f40-8b8fc7f41152
 name: PowerShell Get-Process LSASS
-description: 'Detects a "Get-Process" cmdlet and it''s aliases on lsass process, which is in almost all cases a sign of malicious activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_get_process_lsass.tf'
+description: 'Detects a "Get-Process" cmdlet and it''s aliases on lsass process, which is in almost all cases a sign of malicious activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_get_process_lsass.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

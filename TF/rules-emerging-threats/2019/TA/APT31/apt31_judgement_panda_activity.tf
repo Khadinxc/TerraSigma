@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "apt31_judgement_panda_activity
   name                       = "apt31_judgement_panda_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "APT31 Judgement Panda Activity"
-  description                = "Detects APT31 Judgement Panda activity as described in the Crowdstrike 2019 Global Threat Report - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/APT31/apt31_judgement_panda_activity.tf"
+  description                = "Detects APT31 Judgement Panda activity as described in the Crowdstrike 2019 Global Threat Report - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/APT31/apt31_judgement_panda_activity.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_persistence_via_even
   name                       = "potential_persistence_via_event_viewer_events_asp"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Event Viewer Events.asp"
-  description                = "Detects potential registry persistence technique using the Event Viewer \"Events.asp\" technique | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_event_viewer_events_asp.tf"
+  description                = "Detects potential registry persistence technique using the Event Viewer \"Events.asp\" technique | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_event_viewer_events_asp.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

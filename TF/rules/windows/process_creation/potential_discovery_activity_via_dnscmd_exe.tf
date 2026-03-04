@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_discovery_activity_v
   name                       = "potential_discovery_activity_via_dnscmd_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Discovery Activity Via Dnscmd.EXE"
-  description                = "Detects an attempt to leverage dnscmd.exe to enumerate the DNS zones of a domain. DNS zones used to host the DNS records for a particular domain. - Legitimate administration use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_discovery_activity_via_dnscmd_exe.tf"
+  description                = "Detects an attempt to leverage dnscmd.exe to enumerate the DNS zones of a domain. DNS zones used to host the DNS records for a particular domain. - Legitimate administration use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_discovery_activity_via_dnscmd_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

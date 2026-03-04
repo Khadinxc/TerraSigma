@@ -1,6 +1,6 @@
 id: f1347adc-3558-53fc-aff5-68262a7f5833
 name: Registry Explorer Policy Modification
-description: 'Detects registry modifications that disable internal tools or functions in explorer (malware like Agent Tesla uses this technique) - Legitimate admin script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_explorer_policy_modification.tf'
+description: 'Detects registry modifications that disable internal tools or functions in explorer (malware like Agent Tesla uses this technique) - Legitimate admin script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_explorer_policy_modification.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

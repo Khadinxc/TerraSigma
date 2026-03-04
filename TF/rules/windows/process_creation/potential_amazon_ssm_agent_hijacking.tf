@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_amazon_ssm_agent_hij
   name                       = "potential_amazon_ssm_agent_hijacking"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Amazon SSM Agent Hijacking"
-  description                = "Detects potential Amazon SSM agent hijack attempts as outlined in the Mitiga research report. - Legitimate activity of system administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_amazon_ssm_agent_hijacking.tf"
+  description                = "Detects potential Amazon SSM agent hijack attempts as outlined in the Mitiga research report. - Legitimate activity of system administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_amazon_ssm_agent_hijacking.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

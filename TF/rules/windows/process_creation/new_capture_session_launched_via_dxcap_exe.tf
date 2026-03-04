@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_capture_session_launched_v
   name                       = "new_capture_session_launched_via_dxcap_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Capture Session Launched Via DXCap.EXE"
-  description                = "Detects the execution of \"DXCap.EXE\" with the \"-c\" flag, which allows a user to launch any arbitrary binary or windows package through DXCap itself. This can be abused to potentially bypass application whitelisting. - Legitimate execution of dxcap.exe by legitimate user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_capture_session_launched_via_dxcap_exe.tf"
+  description                = "Detects the execution of \"DXCap.EXE\" with the \"-c\" flag, which allows a user to launch any arbitrary binary or windows package through DXCap itself. This can be abused to potentially bypass application whitelisting. - Legitimate execution of dxcap.exe by legitimate user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_capture_session_launched_via_dxcap_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

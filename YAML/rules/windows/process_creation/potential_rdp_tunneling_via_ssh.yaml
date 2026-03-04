@@ -1,6 +1,6 @@
 id: 066b027a-a2b8-593f-a23e-f867928762a7
 name: Potential RDP Tunneling Via SSH
-description: 'Execution of ssh.exe to perform data exfiltration and tunneling through RDP | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_rdp_tunneling_via_ssh.tf'
+description: 'Execution of ssh.exe to perform data exfiltration and tunneling through RDP | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_rdp_tunneling_via_ssh.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 21588ffe-0abb-5fff-bda4-e450837fc53c
 name: Suspicious Reg Add Open Command
-description: 'Threat actors performed dumping of SAM, SECURITY and SYSTEM registry hives using DelegateExecute key | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_reg_add_open_command.tf'
+description: 'Threat actors performed dumping of SAM, SECURITY and SYSTEM registry hives using DelegateExecute key | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_reg_add_open_command.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

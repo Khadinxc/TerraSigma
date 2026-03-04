@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_tampering_by_potentia
   name                       = "registry_tampering_by_potentially_suspicious_processes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Registry Tampering by Potentially Suspicious Processes"
-  description                = "Detects suspicious registry modifications made by suspicious processes such as script engine processes such as WScript, or CScript etc. These processes are rarely used for legitimate registry modifications, and their activity may indicate an attempt to modify the registry without using standard tools like regedit.exe or reg.exe, potentially for evasion and persistence. - Some legitimate admin or install scripts may use these processes for registry modifications. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_tampering_by_potentially_suspicious_processes.tf"
+  description                = "Detects suspicious registry modifications made by suspicious processes such as script engine processes such as WScript, or CScript etc. These processes are rarely used for legitimate registry modifications, and their activity may indicate an attempt to modify the registry without using standard tools like regedit.exe or reg.exe, potentially for evasion and persistence. - Some legitimate admin or install scripts may use these processes for registry modifications. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_tampering_by_potentially_suspicious_processes.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_filename_with_embed
   name                       = "suspicious_filename_with_embedded_base64_commands"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Filename with Embedded Base64 Commands"
-  description                = "Detects files with specially crafted filenames that embed Base64-encoded bash payloads designed to execute when processed by shell scripts. These filenames exploit shell interpretation quirks to trigger hidden commands, a technique observed in VShell malware campaigns. - Legitimate files with similar naming patterns (very unlikely). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/suspicious_filename_with_embedded_base64_commands.tf"
+  description                = "Detects files with specially crafted filenames that embed Base64-encoded bash payloads designed to execute when processed by shell scripts. These filenames exploit shell interpretation quirks to trigger hidden commands, a technique observed in VShell malware campaigns. - Legitimate files with similar naming patterns (very unlikely). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/suspicious_filename_with_embedded_base64_commands.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

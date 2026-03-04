@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_perl_reverse_shell_e
   name                       = "potential_perl_reverse_shell_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Perl Reverse Shell Execution"
-  description                = "Detects execution of the perl binary with the \"-e\" flag and common strings related to potential reverse shell activity - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potential_perl_reverse_shell_execution.tf"
+  description                = "Detects execution of the perl binary with the \"-e\" flag and common strings related to potential reverse shell activity - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potential_perl_reverse_shell_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

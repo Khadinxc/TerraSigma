@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_soaphound_execution" 
   name                       = "hacktool_soaphound_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - SOAPHound Execution"
-  description                = "Detects the execution of SOAPHound, a .NET tool for collecting Active Directory data, using specific command-line arguments that may indicate an attempt to extract sensitive AD information. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_soaphound_execution.tf"
+  description                = "Detects the execution of SOAPHound, a .NET tool for collecting Active Directory data, using specific command-line arguments that may indicate an attempt to extract sensitive AD information. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_soaphound_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

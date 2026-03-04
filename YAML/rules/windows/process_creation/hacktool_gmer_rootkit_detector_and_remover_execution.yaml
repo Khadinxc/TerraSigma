@@ -1,6 +1,6 @@
 id: 3bf4a7b4-7356-5092-b295-3f053c1b3376
 name: HackTool - GMER Rootkit Detector and Remover Execution
-description: 'Detects the execution GMER tool based on image and hash fields. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_gmer_rootkit_detector_and_remover_execution.tf'
+description: 'Detects the execution GMER tool based on image and hash fields. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_gmer_rootkit_detector_and_remover_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

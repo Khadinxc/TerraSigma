@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "atbroker_registry_change" {
   name                       = "atbroker_registry_change"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Atbroker Registry Change"
-  description                = "Detects creation/modification of Assistive Technology applications and persistence with usage of 'at' - Creation of non-default, legitimate at usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/atbroker_registry_change.tf"
+  description                = "Detects creation/modification of Assistive Technology applications and persistence with usage of 'at' - Creation of non-default, legitimate at usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/atbroker_registry_change.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

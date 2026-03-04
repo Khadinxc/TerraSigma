@@ -1,6 +1,6 @@
 id: 54160eb4-a688-5281-9c97-60ace1610a38
 name: Potentially Suspicious Cabinet File Expansion
-description: 'Detects the expansion or decompression of cabinet files from potentially suspicious or uncommon locations, e.g. seen in Iranian MeteorExpress related attacks - System administrator Usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_cabinet_file_expansion.tf'
+description: 'Detects the expansion or decompression of cabinet files from potentially suspicious or uncommon locations, e.g. seen in Iranian MeteorExpress related attacks - System administrator Usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_cabinet_file_expansion.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

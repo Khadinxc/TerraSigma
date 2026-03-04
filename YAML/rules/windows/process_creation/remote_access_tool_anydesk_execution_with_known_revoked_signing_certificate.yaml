@@ -1,6 +1,6 @@
 id: 31c38116-8907-5a33-abe9-4f1e1282e675
 name: Remote Access Tool - AnyDesk Execution With Known Revoked Signing Certificate
-description: 'Detects the execution of an AnyDesk binary with a version prior to 8.0.8. Prior to version 8.0.8, the Anydesk application used a signing certificate that got compromised by threat actors. Use this rule to detect instances of older versions of Anydesk using the compromised certificate This is recommended in order to avoid attackers leveraging the certificate and signing their binaries to bypass detections. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_access_tool_anydesk_execution_with_known_revoked_signing_certificate.tf'
+description: 'Detects the execution of an AnyDesk binary with a version prior to 8.0.8. Prior to version 8.0.8, the Anydesk application used a signing certificate that got compromised by threat actors. Use this rule to detect instances of older versions of Anydesk using the compromised certificate This is recommended in order to avoid attackers leveraging the certificate and signing their binaries to bypass detections. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_access_tool_anydesk_execution_with_known_revoked_signing_certificate.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

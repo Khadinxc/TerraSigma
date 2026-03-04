@@ -1,6 +1,6 @@
 id: 5d42488e-4575-5287-b541-e2762eedbfa0
 name: Rundll32 UNC Path Execution
-description: 'Detects rundll32 execution where the DLL is located on a remote location (share) - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rundll32_unc_path_execution.tf'
+description: 'Detects rundll32 execution where the DLL is located on a remote location (share) - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rundll32_unc_path_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

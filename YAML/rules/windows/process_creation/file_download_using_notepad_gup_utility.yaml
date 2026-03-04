@@ -1,6 +1,6 @@
 id: 7a799db1-73e1-5658-85a0-db1dcc94cb24
 name: File Download Using Notepad++ GUP Utility
-description: 'Detects execution of the Notepad++ updater (gup) from a process other than Notepad++ to download files. - Other parent processes other than notepad++ using GUP that are not currently identified | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_using_notepad_gup_utility.tf'
+description: 'Detects execution of the Notepad++ updater (gup) from a process other than Notepad++ to download files. - Other parent processes other than notepad++ using GUP that are not currently identified | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_using_notepad_gup_utility.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

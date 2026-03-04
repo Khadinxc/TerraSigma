@@ -1,6 +1,6 @@
 id: cc74949a-392c-5f4e-8767-01189ea28bf8
 name: ScreenSaver Registry Key Set
-description: 'Detects registry key established after masqueraded .scr file execution using Rundll32 through desk.cpl - Legitimate use of screen saver | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/screensaver_registry_key_set.tf'
+description: 'Detects registry key established after masqueraded .scr file execution using Rundll32 through desk.cpl - Legitimate use of screen saver | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/screensaver_registry_key_set.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

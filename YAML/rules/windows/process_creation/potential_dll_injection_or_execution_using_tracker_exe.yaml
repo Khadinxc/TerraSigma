@@ -1,6 +1,6 @@
 id: 1473409a-690e-583f-ad93-599c5cf0cdd4
 name: Potential DLL Injection Or Execution Using Tracker.exe
-description: 'Detects potential DLL injection and execution using "Tracker.exe" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_dll_injection_or_execution_using_tracker_exe.tf'
+description: 'Detects potential DLL injection and execution using "Tracker.exe" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_dll_injection_or_execution_using_tracker_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

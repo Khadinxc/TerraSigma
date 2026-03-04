@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_rasdial_activity" {
   name                       = "suspicious_rasdial_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious RASdial Activity"
-  description                = "Detects suspicious process related to rasdial.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_rasdial_activity.tf"
+  description                = "Detects suspicious process related to rasdial.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_rasdial_activity.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

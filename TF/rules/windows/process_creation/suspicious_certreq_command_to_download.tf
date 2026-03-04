@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_certreq_command_to_
   name                       = "suspicious_certreq_command_to_download"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious CertReq Command to Download"
-  description                = "Detects a suspicious CertReq execution downloading a file. This behavior is often used by attackers to download additional payloads or configuration files. Certreq is a built-in Windows utility used to request and retrieve certificates from a certification authority (CA). However, it can be abused by threat actors for malicious purposes. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_certreq_command_to_download.tf"
+  description                = "Detects a suspicious CertReq execution downloading a file. This behavior is often used by attackers to download additional payloads or configuration files. Certreq is a built-in Windows utility used to request and retrieve certificates from a certification authority (CA). However, it can be abused by threat actors for malicious purposes. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_certreq_command_to_download.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

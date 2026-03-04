@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "powershell_inline_execution_fr
   name                       = "powershell_inline_execution_from_a_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Powershell Inline Execution From A File"
-  description                = "Detects inline execution of PowerShell code from a file | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_inline_execution_from_a_file.tf"
+  description                = "Detects inline execution of PowerShell code from a file | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_inline_execution_from_a_file.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

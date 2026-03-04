@@ -1,6 +1,6 @@
 id: 6146cde8-627f-5cef-8605-4edac300caa3
 name: Leviathan Registry Key Activity
-description: 'Detects registry key used by Leviathan APT in Malaysian focused campaign | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Leviathan/leviathan_registry_key_activity.tf'
+description: 'Detects registry key used by Leviathan APT in Malaysian focused campaign | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Leviathan/leviathan_registry_key_activity.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

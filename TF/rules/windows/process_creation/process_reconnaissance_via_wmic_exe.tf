@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "process_reconnaissance_via_wmi
   name                       = "process_reconnaissance_via_wmic_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Process Reconnaissance Via Wmic.EXE"
-  description                = "Detects the execution of \"wmic\" with the \"process\" flag, which adversary might use to list processes running on the compromised host or list installed software hotfixes and patches. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/process_reconnaissance_via_wmic_exe.tf"
+  description                = "Detects the execution of \"wmic\" with the \"process\" flag, which adversary might use to list processes running on the compromised host or list installed software hotfixes and patches. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/process_reconnaissance_via_wmic_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

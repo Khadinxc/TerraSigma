@@ -1,6 +1,6 @@
 id: 6fd18f7c-b374-5c6a-8f36-f9228e6bf4fb
 name: Potential Persistence Via Visual Studio Tools for Office
-description: 'Detects persistence via Visual Studio Tools for Office (VSTO) add-ins in Office applications. - Legitimate Addin Installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_visual_studio_tools_for_office.tf'
+description: 'Detects persistence via Visual Studio Tools for Office (VSTO) add-ins in Office applications. - Legitimate Addin Installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_visual_studio_tools_for_office.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

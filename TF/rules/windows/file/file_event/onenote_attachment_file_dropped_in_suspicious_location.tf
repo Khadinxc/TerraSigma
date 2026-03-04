@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "onenote_attachment_file_droppe
   name                       = "onenote_attachment_file_dropped_in_suspicious_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "OneNote Attachment File Dropped In Suspicious Location"
-  description                = "Detects creation of files with the \".one\"/\".onepkg\" extension in suspicious or uncommon locations. This could be a sign of attackers abusing OneNote attachments - Legitimate usage of \".one\" or \".onepkg\" files from those locations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/onenote_attachment_file_dropped_in_suspicious_location.tf"
+  description                = "Detects creation of files with the \".one\"/\".onepkg\" extension in suspicious or uncommon locations. This could be a sign of attackers abusing OneNote attachments - Legitimate usage of \".one\" or \".onepkg\" files from those locations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/onenote_attachment_file_dropped_in_suspicious_location.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

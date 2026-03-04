@@ -1,6 +1,6 @@
 id: 862451c3-295c-562b-9d66-20c5a48dd8ce
 name: Suspicious Tasklist Discovery Command
-description: 'Adversaries may attempt to get information about running processes on a system. Information obtained could be used to gain an understanding of common software/applications running on systems within the network - Likely from users, administrator and different internal and third party applications. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/suspicious_tasklist_discovery_command.tf'
+description: 'Adversaries may attempt to get information about running processes on a system. Information obtained could be used to gain an understanding of common software/applications running on systems within the network - Likely from users, administrator and different internal and third party applications. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/suspicious_tasklist_discovery_command.yml'
 severity: Informational
 queryFrequency: PT1H
 queryPeriod: PT1H

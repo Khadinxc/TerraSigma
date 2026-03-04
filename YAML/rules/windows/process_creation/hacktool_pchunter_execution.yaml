@@ -1,6 +1,6 @@
 id: 696e7271-0380-5bcd-9488-9cc38cae65bd
 name: HackTool - PCHunter Execution
-description: 'Detects suspicious use of PCHunter, a tool like Process Hacker to view and manipulate processes, kernel options and other low level stuff - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_pchunter_execution.tf'
+description: 'Detects suspicious use of PCHunter, a tool like Process Hacker to view and manipulate processes, kernel options and other low level stuff - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_pchunter_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

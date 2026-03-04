@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "powershell_defender_exclusion"
   name                       = "powershell_defender_exclusion"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Powershell Defender Exclusion"
-  description                = "Detects requests to exclude files, folders or processes from Antivirus scanning using PowerShell cmdlets - Possible Admin Activity - Other Cmdlets that may use the same parameters | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_defender_exclusion.tf"
+  description                = "Detects requests to exclude files, folders or processes from Antivirus scanning using PowerShell cmdlets - Possible Admin Activity - Other Cmdlets that may use the same parameters | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_defender_exclusion.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

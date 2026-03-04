@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "tasks_folder_evasion" {
   name                       = "tasks_folder_evasion"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Tasks Folder Evasion"
-  description                = "The Tasks folder in system32 and syswow64 are globally writable paths. Adversaries can take advantage of this and load or influence any script hosts or ANY .NET Application in Tasks to load and execute a custom assembly into cscript, wscript, regsvr32, mshta, eventvwr | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/tasks_folder_evasion.tf"
+  description                = "The Tasks folder in system32 and syswow64 are globally writable paths. Adversaries can take advantage of this and load or influence any script hosts or ANY .NET Application in Tasks to load and execute a custom assembly into cscript, wscript, regsvr32, mshta, eventvwr | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/tasks_folder_evasion.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

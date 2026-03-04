@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_empire_powershell_uac
   name                       = "hacktool_empire_powershell_uac_bypass"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Empire PowerShell UAC Bypass"
-  description                = "Detects some Empire PowerShell UAC bypass methods | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_empire_powershell_uac_bypass.tf"
+  description                = "Detects some Empire PowerShell UAC bypass methods | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_empire_powershell_uac_bypass.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

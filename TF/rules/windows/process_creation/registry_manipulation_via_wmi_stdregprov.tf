@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_manipulation_via_wmi_
   name                       = "registry_manipulation_via_wmi_stdregprov"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Registry Manipulation via WMI Stdregprov"
-  description                = "Detects the usage of wmic.exe to manipulate Windows registry via the WMI StdRegProv class. This behaviour could be potentially suspicious because it uses an alternative method to modify registry keys instead of legitimate registry tools like reg.exe or regedit.exe. Attackers specifically choose this technique to evade detection and bypass security monitoring focused on traditional registry modification commands. - Legitimate administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/registry_manipulation_via_wmi_stdregprov.tf"
+  description                = "Detects the usage of wmic.exe to manipulate Windows registry via the WMI StdRegProv class. This behaviour could be potentially suspicious because it uses an alternative method to modify registry keys instead of legitimate registry tools like reg.exe or regedit.exe. Attackers specifically choose this technique to evade detection and bypass security monitoring focused on traditional registry modification commands. - Legitimate administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/registry_manipulation_via_wmi_stdregprov.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: b32496ac-0288-5bf2-91f4-9655eb056182
 name: PUA - AdFind Suspicious Execution
-description: 'Detects AdFind execution with common flags seen used during attacks - Legitimate admin activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_adfind_suspicious_execution.tf'
+description: 'Detects AdFind execution with common flags seen used during attacks - Legitimate admin activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_adfind_suspicious_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

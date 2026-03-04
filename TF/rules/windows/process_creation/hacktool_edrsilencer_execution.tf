@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_edrsilencer_execution
   name                       = "hacktool_edrsilencer_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - EDRSilencer Execution"
-  description                = "Detects the execution of EDRSilencer, a tool that leverages Windows Filtering Platform (WFP) to block Endpoint Detection and Response (EDR) agents from reporting security events to the server based on PE metadata information. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_edrsilencer_execution.tf"
+  description                = "Detects the execution of EDRSilencer, a tool that leverages Windows Filtering Platform (WFP) to block Endpoint Detection and Response (EDR) agents from reporting security events to the server based on PE metadata information. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_edrsilencer_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

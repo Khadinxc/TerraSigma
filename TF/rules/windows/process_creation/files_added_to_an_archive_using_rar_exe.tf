@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "files_added_to_an_archive_usin
   name                       = "files_added_to_an_archive_using_rar_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Files Added To An Archive Using Rar.EXE"
-  description                = "Detects usage of \"rar\" to add files to an archive for potential compression. An adversary may compress data (e.g. sensitive documents) that is collected prior to exfiltration in order to make it portable and minimize the amount of data sent over the network. - Highly likely if rar is a default archiver in the monitored environment. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/files_added_to_an_archive_using_rar_exe.tf"
+  description                = "Detects usage of \"rar\" to add files to an archive for potential compression. An adversary may compress data (e.g. sensitive documents) that is collected prior to exfiltration in order to make it portable and minimize the amount of data sent over the network. - Highly likely if rar is a default archiver in the monitored environment. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/files_added_to_an_archive_using_rar_exe.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

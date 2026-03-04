@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_loading_of_dbgcore_
   name                       = "suspicious_loading_of_dbgcore_dbghelp_dlls_from_uncommon_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Loading of Dbgcore/Dbghelp DLLs from Uncommon Location"
-  description                = "Detects loading of dbgcore.dll or dbghelp.dll from uncommon locations such as user directories. These DLLs contain the MiniDumpWriteDump function, which can be abused for credential dumping purposes or in some cases for evading EDR/AV detection by suspending processes. - Possibly during software installation or update processes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/suspicious_loading_of_dbgcore_dbghelp_dlls_from_uncommon_location.tf"
+  description                = "Detects loading of dbgcore.dll or dbghelp.dll from uncommon locations such as user directories. These DLLs contain the MiniDumpWriteDump function, which can be abused for credential dumping purposes or in some cases for evading EDR/AV detection by suspending processes. - Possibly during software installation or update processes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/suspicious_loading_of_dbgcore_dbghelp_dlls_from_uncommon_location.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

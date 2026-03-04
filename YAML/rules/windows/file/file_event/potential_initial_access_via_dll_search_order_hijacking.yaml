@@ -1,6 +1,6 @@
 id: db621a29-e50a-5bd3-a807-7e400108821d
 name: Potential Initial Access via DLL Search Order Hijacking
-description: 'Detects attempts to create a DLL file to a known desktop application dependencies folder such as Slack, Teams or OneDrive and by an unusual process. This may indicate an attempt to load a malicious module via DLL search order hijacking. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_initial_access_via_dll_search_order_hijacking.tf'
+description: 'Detects attempts to create a DLL file to a known desktop application dependencies folder such as Slack, Teams or OneDrive and by an unusual process. This may indicate an attempt to load a malicious module via DLL search order hijacking. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_initial_access_via_dll_search_order_hijacking.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

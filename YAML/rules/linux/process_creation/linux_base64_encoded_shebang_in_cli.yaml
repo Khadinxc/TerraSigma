@@ -1,6 +1,6 @@
 id: d1cc132c-acf1-575f-ad3b-cf8f8aa7fe80
 name: Linux Base64 Encoded Shebang In CLI
-description: 'Detects the presence of a base64 version of the shebang in the commandline, which could indicate a malicious payload about to be decoded - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_base64_encoded_shebang_in_cli.tf'
+description: 'Detects the presence of a base64 version of the shebang in the commandline, which could indicate a malicious payload about to be decoded - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_base64_encoded_shebang_in_cli.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

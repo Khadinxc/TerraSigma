@@ -1,6 +1,6 @@
 id: 80ac9ec5-9dd9-528a-b164-bf15f7cddc8b
 name: PUA - TruffleHog Execution
-description: 'Detects execution of TruffleHog, a tool used to search for secrets in different platforms like Git, Jira, Slack, SharePoint, etc. that could be used maliciously. While it is a legitimate tool, intended for use in CI pipelines and security assessments, It was observed in the Shai-Hulud malware campaign targeting npm packages to steal sensitive information. - Legitimate use of TruffleHog by security teams or developers. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_trufflehog_execution.tf'
+description: 'Detects execution of TruffleHog, a tool used to search for secrets in different platforms like Git, Jira, Slack, SharePoint, etc. that could be used maliciously. While it is a legitimate tool, intended for use in CI pipelines and security assessments, It was observed in the Shai-Hulud malware campaign targeting npm packages to steal sensitive information. - Legitimate use of TruffleHog by security teams or developers. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_trufflehog_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

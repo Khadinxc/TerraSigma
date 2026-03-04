@@ -1,6 +1,6 @@
 id: fb3645b5-93bd-5a43-a29c-c2bb29a73e84
 name: HackTool - Inveigh Execution Artefacts
-description: 'Detects the presence and execution of Inveigh via dropped artefacts - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/hacktool_inveigh_execution_artefacts.tf'
+description: 'Detects the presence and execution of Inveigh via dropped artefacts - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/hacktool_inveigh_execution_artefacts.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

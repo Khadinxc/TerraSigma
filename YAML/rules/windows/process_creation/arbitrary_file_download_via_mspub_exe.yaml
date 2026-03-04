@@ -1,6 +1,6 @@
 id: ab381856-e7c7-578e-9495-b5b02887dfa8
 name: Arbitrary File Download Via MSPUB.EXE
-description: 'Detects usage of "MSPUB" (Microsoft Publisher) to download arbitrary files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_file_download_via_mspub_exe.tf'
+description: 'Detects usage of "MSPUB" (Microsoft Publisher) to download arbitrary files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_file_download_via_mspub_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

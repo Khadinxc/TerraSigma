@@ -1,6 +1,6 @@
 id: 1ec880c5-4133-5485-b60a-0939772df172
 name: ADS Zone.Identifier Deleted
-description: 'Detects the deletion of the "Zone.Identifier" ADS. Attackers can leverage this in order to bypass security restrictions that make use of the ADS such as Microsoft Office apps. - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_delete/ads_zone_identifier_deleted.tf'
+description: 'Detects the deletion of the "Zone.Identifier" ADS. Attackers can leverage this in order to bypass security restrictions that make use of the ADS such as Microsoft Office apps. - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_delete/ads_zone_identifier_deleted.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 62301e23-2030-5f00-a3ba-a1df55dbfbb1
 name: Ufw Force Stop Using Ufw-Init
-description: 'Detects attempts to force stop the ufw using ufw-init - Network administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/ufw_force_stop_using_ufw_init.tf'
+description: 'Detects attempts to force stop the ufw using ufw-init - Network administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/ufw_force_stop_using_ufw_init.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: f685583a-d233-5a75-8706-d5b334ecc44b
 name: Potential Arbitrary Code Execution Via Node.EXE
-description: 'Detects the execution node.exe which is shipped with multiple software such as VMware, Adobe...etc. In order to execute arbitrary code. For example to establish reverse shell as seen in Log4j attacks...etc - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_arbitrary_code_execution_via_node_exe.tf'
+description: 'Detects the execution node.exe which is shipped with multiple software such as VMware, Adobe...etc. In order to execute arbitrary code. For example to establish reverse shell as seen in Log4j attacks...etc - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_arbitrary_code_execution_via_node_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

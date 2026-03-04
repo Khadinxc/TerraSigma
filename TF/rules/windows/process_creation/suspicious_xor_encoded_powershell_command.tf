@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_xor_encoded_powersh
   name                       = "suspicious_xor_encoded_powershell_command"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious XOR Encoded PowerShell Command"
-  description                = "Detects presence of a potentially xor encoded powershell command | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_xor_encoded_powershell_command.tf"
+  description                = "Detects presence of a potentially xor encoded powershell command | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_xor_encoded_powershell_command.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

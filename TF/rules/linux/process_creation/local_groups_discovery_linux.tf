@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "local_groups_discovery_linux" 
   name                       = "local_groups_discovery_linux"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Local Groups Discovery - Linux"
-  description                = "Detects enumeration of local system groups. Adversaries may attempt to find local system groups and permission settings - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/local_groups_discovery_linux.tf"
+  description                = "Detects enumeration of local system groups. Adversaries may attempt to find local system groups and permission settings - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/local_groups_discovery_linux.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

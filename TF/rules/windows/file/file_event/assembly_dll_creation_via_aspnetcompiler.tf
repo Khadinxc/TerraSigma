@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "assembly_dll_creation_via_aspn
   name                       = "assembly_dll_creation_via_aspnetcompiler"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Assembly DLL Creation Via AspNetCompiler"
-  description                = "Detects the creation of new DLL assembly files by \"aspnet_compiler.exe\", which could be a sign of \"aspnet_compiler\" abuse to proxy execution through a build provider. - Legitimate assembly compilation using a build provider | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/assembly_dll_creation_via_aspnetcompiler.tf"
+  description                = "Detects the creation of new DLL assembly files by \"aspnet_compiler.exe\", which could be a sign of \"aspnet_compiler\" abuse to proxy execution through a build provider. - Legitimate assembly compilation using a build provider | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/assembly_dll_creation_via_aspnetcompiler.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

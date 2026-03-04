@@ -1,6 +1,6 @@
 id: 1694d525-5fef-54fb-91de-63362e495590
 name: Suspicious Creation TXT File in User Desktop
-description: 'Ransomware create txt file in the user Desktop | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_creation_txt_file_in_user_desktop.tf'
+description: 'Ransomware create txt file in the user Desktop | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_creation_txt_file_in_user_desktop.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

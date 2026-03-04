@@ -1,6 +1,6 @@
 id: ff4105bb-cdf0-5a49-ba55-997bf535d575
 name: Non-privileged Usage of Reg or Powershell
-description: 'Search for usage of reg or Powershell by non-privileged users to modify service configuration in registry | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/non_privileged_usage_of_reg_or_powershell.tf'
+description: 'Search for usage of reg or Powershell by non-privileged users to modify service configuration in registry | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/non_privileged_usage_of_reg_or_powershell.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 02890c59-40a0-5ae7-8dad-e2e3814c8495
 name: Suspicious XOR Encoded PowerShell Command
-description: 'Detects presence of a potentially xor encoded powershell command | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_xor_encoded_powershell_command.tf'
+description: 'Detects presence of a potentially xor encoded powershell command | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_xor_encoded_powershell_command.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

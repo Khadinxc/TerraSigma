@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pcre_net_package_image_load" {
   name                       = "pcre_net_package_image_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PCRE.NET Package Image Load"
-  description                = "Detects processes loading modules related to PCRE.NET package | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/pcre_net_package_image_load.tf"
+  description                = "Detects processes loading modules related to PCRE.NET package | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/pcre_net_package_image_load.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_file_download_from_
   name                       = "suspicious_file_download_from_file_sharing_domain_via_wget_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Download From File Sharing Domain Via Wget.EXE"
-  description                = "Detects potentially suspicious file downloads from file sharing domains using wget.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_file_download_from_file_sharing_domain_via_wget_exe.tf"
+  description                = "Detects potentially suspicious file downloads from file sharing domains using wget.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_file_download_from_file_sharing_domain_via_wget_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

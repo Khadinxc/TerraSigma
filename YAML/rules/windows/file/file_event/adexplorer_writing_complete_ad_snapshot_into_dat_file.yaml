@@ -1,6 +1,6 @@
 id: e203a1d2-71e4-5033-9e1a-9239e19244f8
 name: ADExplorer Writing Complete AD Snapshot Into .dat File
-description: 'Detects the dual use tool ADExplorer writing a complete AD snapshot into a .dat file. This can be used by attackers to extract data for Bloodhound, usernames for password spraying or use the meta data for social engineering. The snapshot doesn''t contain password hashes but there have been cases, where administrators put passwords in the comment field. - Legitimate use of ADExplorer by administrators creating .dat snapshots | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/adexplorer_writing_complete_ad_snapshot_into_dat_file.tf'
+description: 'Detects the dual use tool ADExplorer writing a complete AD snapshot into a .dat file. This can be used by attackers to extract data for Bloodhound, usernames for password spraying or use the meta data for social engineering. The snapshot doesn''t contain password hashes but there have been cases, where administrators put passwords in the comment field. - Legitimate use of ADExplorer by administrators creating .dat snapshots | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/adexplorer_writing_complete_ad_snapshot_into_dat_file.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

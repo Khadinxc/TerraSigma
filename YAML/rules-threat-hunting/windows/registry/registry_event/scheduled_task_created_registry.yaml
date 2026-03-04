@@ -1,6 +1,6 @@
 id: aac95de8-178f-5001-adf8-50e0ca2dd8ea
 name: Scheduled Task Created - Registry
-description: 'Detects the creation of a scheduled task via Registry keys. - Likely as this is a normal behaviour on Windows | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_event/scheduled_task_created_registry.tf'
+description: 'Detects the creation of a scheduled task via Registry keys. - Likely as this is a normal behaviour on Windows | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_event/scheduled_task_created_registry.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uac_bypass_using_ieinstal_proc
   name                       = "uac_bypass_using_ieinstal_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass Using IEInstal - Process"
-  description                = "Detects the pattern of UAC Bypass using IEInstal.exe (UACMe 64) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uac_bypass_using_ieinstal_process.tf"
+  description                = "Detects the pattern of UAC Bypass using IEInstal.exe (UACMe 64) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uac_bypass_using_ieinstal_process.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

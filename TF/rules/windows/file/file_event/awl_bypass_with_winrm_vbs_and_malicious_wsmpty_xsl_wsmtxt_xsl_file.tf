@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "awl_bypass_with_winrm_vbs_and_
   name                       = "awl_bypass_with_winrm_vbs_and_malicious_wsmpty_xsl_wsmtxt_xsl_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "AWL Bypass with Winrm.vbs and Malicious WsmPty.xsl/WsmTxt.xsl - File"
-  description                = "Detects execution of attacker-controlled WsmPty.xsl or WsmTxt.xsl via winrm.vbs and copied cscript.exe (can be renamed) - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/awl_bypass_with_winrm_vbs_and_malicious_wsmpty_xsl_wsmtxt_xsl_file.tf"
+  description                = "Detects execution of attacker-controlled WsmPty.xsl or WsmTxt.xsl via winrm.vbs and copied cscript.exe (can be renamed) - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/awl_bypass_with_winrm_vbs_and_malicious_wsmpty_xsl_wsmtxt_xsl_file.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

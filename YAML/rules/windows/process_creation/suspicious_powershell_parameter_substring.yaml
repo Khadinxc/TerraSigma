@@ -1,6 +1,6 @@
 id: 5339e354-bfc2-58ed-8e8c-890abc66c30c
 name: Suspicious PowerShell Parameter Substring
-description: 'Detects suspicious PowerShell invocation with a parameter substring | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_powershell_parameter_substring.tf'
+description: 'Detects suspicious PowerShell invocation with a parameter substring | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_powershell_parameter_substring.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

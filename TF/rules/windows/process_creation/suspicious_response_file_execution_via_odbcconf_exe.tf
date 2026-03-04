@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_response_file_execu
   name                       = "suspicious_response_file_execution_via_odbcconf_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Response File Execution Via Odbcconf.EXE"
-  description                = "Detects execution of \"odbcconf\" with the \"-f\" flag in order to load a response file with a non-\".rsp\" extension. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_response_file_execution_via_odbcconf_exe.tf"
+  description                = "Detects execution of \"odbcconf\" with the \"-f\" flag in order to load a response file with a non-\".rsp\" extension. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_response_file_execution_via_odbcconf_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

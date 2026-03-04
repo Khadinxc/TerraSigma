@@ -1,6 +1,6 @@
 id: 2bfd23a6-56ae-5a80-8cc1-465108f15a53
 name: HackTool - Certify Execution
-description: 'Detects Certify a tool for Active Directory certificate abuse based on PE metadata characteristics and common command line arguments. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_certify_execution.tf'
+description: 'Detects Certify a tool for Active Directory certificate abuse based on PE metadata characteristics and common command line arguments. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_certify_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

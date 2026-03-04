@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dns_over_https_enabled_by_regi
   name                       = "dns_over_https_enabled_by_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DNS-over-HTTPS Enabled by Registry"
-  description                = "Detects when a user enables DNS-over-HTTPS. This can be used to hide internet activity or be used to hide the process of exfiltrating data. With this enabled organization will lose visibility into data such as query type, response and originating IP that are used to determine bad actors. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/dns_over_https_enabled_by_registry.tf"
+  description                = "Detects when a user enables DNS-over-HTTPS. This can be used to hide internet activity or be used to hide the process of exfiltrating data. With this enabled organization will lose visibility into data such as query type, response and originating IP that are used to determine bad actors. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/dns_over_https_enabled_by_registry.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

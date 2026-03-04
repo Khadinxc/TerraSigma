@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "teamviewer_log_file_deleted" {
   name                       = "teamviewer_log_file_deleted"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "TeamViewer Log File Deleted"
-  description                = "Detects the deletion of the TeamViewer log files which may indicate an attempt to destroy forensic evidence | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/teamviewer_log_file_deleted.tf"
+  description                = "Detects the deletion of the TeamViewer log files which may indicate an attempt to destroy forensic evidence | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/teamviewer_log_file_deleted.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents

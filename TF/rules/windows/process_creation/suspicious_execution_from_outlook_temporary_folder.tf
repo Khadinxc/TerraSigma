@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_execution_from_outl
   name                       = "suspicious_execution_from_outlook_temporary_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Execution From Outlook Temporary Folder"
-  description                = "Detects a suspicious program execution in Outlook temp folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_execution_from_outlook_temporary_folder.tf"
+  description                = "Detects a suspicious program execution in Outlook temp folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_execution_from_outlook_temporary_folder.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "legitimate_application_dropped
   name                       = "legitimate_application_dropped_executable"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Legitimate Application Dropped Executable"
-  description                = "Detects programs on a Windows system that should not write executables to disk | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/legitimate_application_dropped_executable.tf"
+  description                = "Detects programs on a Windows system that should not write executables to disk | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/legitimate_application_dropped_executable.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

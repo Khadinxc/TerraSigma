@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "removal_of_amsi_provider_regis
   name                       = "removal_of_amsi_provider_registry_keys"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Removal Of AMSI Provider Registry Keys"
-  description                = "Detects the deletion of AMSI provider registry key entries in HKLM\\Software\\Microsoft\\AMSI. This technique could be used by an attacker in order to disable AMSI inspection. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/removal_of_amsi_provider_registry_keys.tf"
+  description                = "Detects the deletion of AMSI provider registry key entries in HKLM\\Software\\Microsoft\\AMSI. This technique could be used by an attacker in order to disable AMSI inspection. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/removal_of_amsi_provider_registry_keys.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

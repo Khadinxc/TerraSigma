@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_download_via_windows_defe
   name                       = "file_download_via_windows_defender_mpcmprun_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Download Via Windows Defender MpCmpRun.EXE"
-  description                = "Detects the use of Windows Defender MpCmdRun.EXE to download files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_via_windows_defender_mpcmprun_exe.tf"
+  description                = "Detects the use of Windows Defender MpCmdRun.EXE to download files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_via_windows_defender_mpcmprun_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

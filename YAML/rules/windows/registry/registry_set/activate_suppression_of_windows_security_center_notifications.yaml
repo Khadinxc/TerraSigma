@@ -1,6 +1,6 @@
 id: 69c2fac9-720a-5807-958d-27723108e9c9
 name: Activate Suppression of Windows Security Center Notifications
-description: 'Detect set Notification_Suppress to 1 to disable the Windows security center notification | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/activate_suppression_of_windows_security_center_notifications.tf'
+description: 'Detect set Notification_Suppress to 1 to disable the Windows security center notification | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/activate_suppression_of_windows_security_center_notifications.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 7561c8dd-6a78-5066-a6c5-821b94baf84f
 name: New Kernel Driver Via SC.EXE
-description: 'Detects creation of a new service (kernel driver) with the type "kernel" - Rare legitimate installation of kernel drivers via sc.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_kernel_driver_via_sc_exe.tf'
+description: 'Detects creation of a new service (kernel driver) with the type "kernel" - Rare legitimate installation of kernel drivers via sc.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_kernel_driver_via_sc_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

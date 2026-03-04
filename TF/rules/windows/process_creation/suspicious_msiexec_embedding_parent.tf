@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_msiexec_embedding_p
   name                       = "suspicious_msiexec_embedding_parent"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious MsiExec Embedding Parent"
-  description                = "Adversaries may abuse msiexec.exe to proxy the execution of malicious payloads | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_msiexec_embedding_parent.tf"
+  description                = "Adversaries may abuse msiexec.exe to proxy the execution of malicious payloads | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_msiexec_embedding_parent.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

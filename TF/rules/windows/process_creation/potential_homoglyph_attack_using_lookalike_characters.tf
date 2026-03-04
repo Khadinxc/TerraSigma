@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_homoglyph_attack_usi
   name                       = "potential_homoglyph_attack_using_lookalike_characters"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Homoglyph Attack Using Lookalike Characters"
-  description                = "Detects the presence of unicode characters which are homoglyphs, or identical in appearance, to ASCII letter characters. This is used as an obfuscation and masquerading techniques. Only \"perfect\" homoglyphs are included; these are characters that are indistinguishable from ASCII characters and thus may make excellent candidates for homoglyph attack characters. - Commandlines with legitimate Cyrillic text; will likely require tuning (or not be usable) in countries where these alphabets are in use. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_homoglyph_attack_using_lookalike_characters.tf"
+  description                = "Detects the presence of unicode characters which are homoglyphs, or identical in appearance, to ASCII letter characters. This is used as an obfuscation and masquerading techniques. Only \"perfect\" homoglyphs are included; these are characters that are indistinguishable from ASCII characters and thus may make excellent candidates for homoglyph attack characters. - Commandlines with legitimate Cyrillic text; will likely require tuning (or not be usable) in countries where these alphabets are in use. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_homoglyph_attack_using_lookalike_characters.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

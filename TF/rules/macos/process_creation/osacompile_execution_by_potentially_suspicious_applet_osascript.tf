@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "osacompile_execution_by_potent
   name                       = "osacompile_execution_by_potentially_suspicious_applet_osascript"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Osacompile Execution By Potentially Suspicious Applet/Osascript"
-  description                = "Detects potential suspicious applet or osascript executing \"osacompile\". | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/osacompile_execution_by_potentially_suspicious_applet_osascript.tf"
+  description                = "Detects potential suspicious applet or osascript executing \"osacompile\". | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/osacompile_execution_by_potentially_suspicious_applet_osascript.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

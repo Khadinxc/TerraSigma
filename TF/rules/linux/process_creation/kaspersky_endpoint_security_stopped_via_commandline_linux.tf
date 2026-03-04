@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "kaspersky_endpoint_security_st
   name                       = "kaspersky_endpoint_security_stopped_via_commandline_linux"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Kaspersky Endpoint Security Stopped Via CommandLine - Linux"
-  description                = "Detects execution of the Kaspersky init.d stop script on Linux systems either directly or via systemctl. This activity may indicate a manual interruption of the antivirus service by an administrator, or it could be a sign of potential tampering or evasion attempts by malicious actors. - System administrator manually stopping Kaspersky services | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/kaspersky_endpoint_security_stopped_via_commandline_linux.tf"
+  description                = "Detects execution of the Kaspersky init.d stop script on Linux systems either directly or via systemctl. This activity may indicate a manual interruption of the antivirus service by an administrator, or it could be a sign of potential tampering or evasion attempts by malicious actors. - System administrator manually stopping Kaspersky services | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/kaspersky_endpoint_security_stopped_via_commandline_linux.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

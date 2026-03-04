@@ -1,6 +1,6 @@
 id: f76b0cb2-fd16-53ba-9de6-b26c6f0af13e
 name: Disable Microsoft Defender Firewall via Registry
-description: 'Adversaries may disable or modify system firewalls in order to bypass controls limiting network usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/disable_microsoft_defender_firewall_via_registry.tf'
+description: 'Adversaries may disable or modify system firewalls in order to bypass controls limiting network usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/disable_microsoft_defender_firewall_via_registry.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

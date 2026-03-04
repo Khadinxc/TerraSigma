@@ -1,6 +1,6 @@
 id: 35c42c8f-4e81-5d50-a8d1-4a489ee48f76
 name: PSEXEC Remote Execution File Artefact
-description: 'Detects creation of the PSEXEC key file. Which is created anytime a PsExec command is executed. It gets written to the file system and will be recorded in the USN Journal on the target system - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/psexec_remote_execution_file_artefact.tf'
+description: 'Detects creation of the PSEXEC key file. Which is created anytime a PsExec command is executed. It gets written to the file system and will be recorded in the USN Journal on the target system - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/psexec_remote_execution_file_artefact.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

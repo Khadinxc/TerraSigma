@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "crashcontrol_crashdump_disable
   name                       = "crashcontrol_crashdump_disabled"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "CrashControl CrashDump Disabled"
-  description                = "Detects disabling the CrashDump per registry (as used by HermeticWiper) - Legitimate disabling of crashdumps | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/crashcontrol_crashdump_disabled.tf"
+  description                = "Detects disabling the CrashDump per registry (as used by HermeticWiper) - Legitimate disabling of crashdumps | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/crashcontrol_crashdump_disabled.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

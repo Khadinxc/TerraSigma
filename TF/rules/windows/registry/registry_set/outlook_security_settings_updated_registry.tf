@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "outlook_security_settings_upda
   name                       = "outlook_security_settings_updated_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Outlook Security Settings Updated - Registry"
-  description                = "Detects changes to the registry values related to outlook security settings - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/outlook_security_settings_updated_registry.tf"
+  description                = "Detects changes to the registry values related to outlook security settings - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/outlook_security_settings_updated_registry.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

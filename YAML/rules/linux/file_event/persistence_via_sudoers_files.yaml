@@ -1,6 +1,6 @@
 id: e9bd3e31-d364-56e0-a6b2-9388f8dd180c
 name: Persistence Via Sudoers Files
-description: 'Detects creation of sudoers file or files in "sudoers.d" directory which can be used a potential method to persiste privileges for a specific user. - Creation of legitimate files in sudoers.d folder part of administrator work | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/persistence_via_sudoers_files.tf'
+description: 'Detects creation of sudoers file or files in "sudoers.d" directory which can be used a potential method to persiste privileges for a specific user. - Creation of legitimate files in sudoers.d folder part of administrator work | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/persistence_via_sudoers_files.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

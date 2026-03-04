@@ -1,6 +1,6 @@
 id: 37290aad-9db2-5671-a131-f74b0198cc70
 name: UAC Bypass Using Disk Cleanup
-description: 'Detects the pattern of UAC Bypass using scheduled tasks and variable expansion of cleanmgr.exe (UACMe 34) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uac_bypass_using_disk_cleanup.tf'
+description: 'Detects the pattern of UAC Bypass using scheduled tasks and variable expansion of cleanmgr.exe (UACMe 34) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uac_bypass_using_disk_cleanup.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

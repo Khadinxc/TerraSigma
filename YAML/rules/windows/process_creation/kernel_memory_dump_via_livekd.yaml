@@ -1,6 +1,6 @@
 id: 65a41c27-488d-5620-b2ac-639f4ea5af6c
 name: Kernel Memory Dump Via LiveKD
-description: 'Detects execution of LiveKD with the "-m" flag to potentially dump the kernel memory - Unlikely in production environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/kernel_memory_dump_via_livekd.tf'
+description: 'Detects execution of LiveKD with the "-m" flag to potentially dump the kernel memory - Unlikely in production environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/kernel_memory_dump_via_livekd.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

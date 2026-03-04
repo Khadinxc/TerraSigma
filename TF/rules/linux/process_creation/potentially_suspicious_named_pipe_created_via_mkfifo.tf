@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_named_p
   name                       = "potentially_suspicious_named_pipe_created_via_mkfifo"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Named Pipe Created Via Mkfifo"
-  description                = "Detects the creation of a new named pipe using the \"mkfifo\" utility in a potentially suspicious location | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potentially_suspicious_named_pipe_created_via_mkfifo.tf"
+  description                = "Detects the creation of a new named pipe using the \"mkfifo\" utility in a potentially suspicious location | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potentially_suspicious_named_pipe_created_via_mkfifo.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

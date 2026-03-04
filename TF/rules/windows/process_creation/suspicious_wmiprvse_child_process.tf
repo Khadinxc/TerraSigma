@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_wmiprvse_child_proc
   name                       = "suspicious_wmiprvse_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious WmiPrvSE Child Process"
-  description                = "Detects suspicious and uncommon child processes of WmiPrvSE | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_wmiprvse_child_process.tf"
+  description                = "Detects suspicious and uncommon child processes of WmiPrvSE | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_wmiprvse_child_process.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

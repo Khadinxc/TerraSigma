@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "user_discovery_and_export_via_
   name                       = "user_discovery_and_export_via_get_aduser_cmdlet"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "User Discovery And Export Via Get-ADUser Cmdlet"
-  description                = "Detects usage of the Get-ADUser cmdlet to collect user information and output it to a file - Legitimate admin scripts may use the same technique, it's better to exclude specific computers or users who execute these commands or scripts often | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/user_discovery_and_export_via_get_aduser_cmdlet.tf"
+  description                = "Detects usage of the Get-ADUser cmdlet to collect user information and output it to a file - Legitimate admin scripts may use the same technique, it's better to exclude specific computers or users who execute these commands or scripts often | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/user_discovery_and_export_via_get_aduser_cmdlet.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "execution_of_non_existing_file
   name                       = "execution_of_non_existing_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Execution Of Non-Existing File"
-  description                = "Checks whether the image specified in a process creation event is not a full, absolute path (caused by process ghosting or other unorthodox methods to start a process) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/execution_of_non_existing_file.tf"
+  description                = "Checks whether the image specified in a process creation event is not a full, absolute path (caused by process ghosting or other unorthodox methods to start a process) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/execution_of_non_existing_file.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_persistence_via_logo
   name                       = "potential_persistence_via_logon_scripts_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Logon Scripts - Registry"
-  description                = "Detects creation of \"UserInitMprLogonScript\" registry value which can be used as a persistence method by malicious actors - Investigate the contents of the \"UserInitMprLogonScript\" value to determine of the added script is legitimate | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_logon_scripts_registry.tf"
+  description                = "Detects creation of \"UserInitMprLogonScript\" registry value which can be used as a persistence method by malicious actors - Investigate the contents of the \"UserInitMprLogonScript\" value to determine of the added script is legitimate | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_logon_scripts_registry.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

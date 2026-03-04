@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "scheduled_cron_task_job_linux"
   name                       = "scheduled_cron_task_job_linux"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Scheduled Cron Task/Job - Linux"
-  description                = "Detects abuse of the cron utility to perform task scheduling for initial or recurring execution of malicious code. Detection will focus on crontab jobs uploaded from the tmp folder. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/scheduled_cron_task_job_linux.tf"
+  description                = "Detects abuse of the cron utility to perform task scheduling for initial or recurring execution of malicious code. Detection will focus on crontab jobs uploaded from the tmp folder. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/scheduled_cron_task_job_linux.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

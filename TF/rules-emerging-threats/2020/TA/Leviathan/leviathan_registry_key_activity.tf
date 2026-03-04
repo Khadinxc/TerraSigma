@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "leviathan_registry_key_activit
   name                       = "leviathan_registry_key_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Leviathan Registry Key Activity"
-  description                = "Detects registry key used by Leviathan APT in Malaysian focused campaign | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Leviathan/leviathan_registry_key_activity.tf"
+  description                = "Detects registry key used by Leviathan APT in Malaysian focused campaign | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Leviathan/leviathan_registry_key_activity.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "run_powershell_script_from_ads
   name                       = "run_powershell_script_from_ads"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Run PowerShell Script from ADS"
-  description                = "Detects PowerShell script execution from Alternate Data Stream (ADS) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/run_powershell_script_from_ads.tf"
+  description                = "Detects PowerShell script execution from Alternate Data Stream (ADS) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/run_powershell_script_from_ads.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

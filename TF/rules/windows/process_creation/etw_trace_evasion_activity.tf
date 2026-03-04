@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "etw_trace_evasion_activity" {
   name                       = "etw_trace_evasion_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ETW Trace Evasion Activity"
-  description                = "Detects command line activity that tries to clear or disable any ETW trace log which could be a sign of logging evasion. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/etw_trace_evasion_activity.tf"
+  description                = "Detects command line activity that tries to clear or disable any ETW trace log which could be a sign of logging evasion. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/etw_trace_evasion_activity.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_azure_browser_sso_ab
   name                       = "potential_azure_browser_sso_abuse"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Azure Browser SSO Abuse"
-  description                = "Detects abusing Azure Browser SSO by requesting OAuth 2.0 refresh tokens for an Azure-AD-authenticated Windows user (i.e. the machine is joined to Azure AD and a user logs in with their Azure AD account) wanting to perform SSO authentication in the browser. An attacker can use this to authenticate to Azure AD in a browser as that user. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_azure_browser_sso_abuse.tf"
+  description                = "Detects abusing Azure Browser SSO by requesting OAuth 2.0 refresh tokens for an Azure-AD-authenticated Windows user (i.e. the machine is joined to Azure AD and a user logs in with their Azure AD account) wanting to perform SSO authentication in the browser. An attacker can use this to authenticate to Azure AD in a browser as that user. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_azure_browser_sso_abuse.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceImageLoadEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_kernel_driver_via_sc_exe" 
   name                       = "new_kernel_driver_via_sc_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Kernel Driver Via SC.EXE"
-  description                = "Detects creation of a new service (kernel driver) with the type \"kernel\" - Rare legitimate installation of kernel drivers via sc.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_kernel_driver_via_sc_exe.tf"
+  description                = "Detects creation of a new service (kernel driver) with the type \"kernel\" - Rare legitimate installation of kernel drivers via sc.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_kernel_driver_via_sc_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

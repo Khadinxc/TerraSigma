@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_git_clone_linux" {
   name                       = "suspicious_git_clone_linux"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Git Clone - Linux"
-  description                = "Detects execution of \"git\" in order to clone a remote repository that contain suspicious keywords which might be suspicious | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/suspicious_git_clone_linux.tf"
+  description                = "Detects execution of \"git\" in order to clone a remote repository that contain suspicious keywords which might be suspicious | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/suspicious_git_clone_linux.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

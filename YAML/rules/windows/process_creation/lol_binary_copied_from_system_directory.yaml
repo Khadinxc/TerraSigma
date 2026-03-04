@@ -1,6 +1,6 @@
 id: 38c18e15-0126-566f-aa0b-684f25fc1067
 name: LOL-Binary Copied From System Directory
-description: 'Detects a suspicious copy operation that tries to copy a known LOLBIN from system (System32, SysWOW64, WinSxS) directories to another on disk in order to bypass detections based on locations. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/lol_binary_copied_from_system_directory.tf'
+description: 'Detects a suspicious copy operation that tries to copy a known LOLBIN from system (System32, SysWOW64, WinSxS) directories to another on disk in order to bypass detections based on locations. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/lol_binary_copied_from_system_directory.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

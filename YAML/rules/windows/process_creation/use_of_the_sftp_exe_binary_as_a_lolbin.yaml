@@ -1,6 +1,6 @@
 id: ba02a36c-74d0-5786-a3ba-a2ef320486b9
 name: Use Of The SFTP.EXE Binary As A LOLBIN
-description: 'Detects the usage of the "sftp.exe" binary as a LOLBIN by abusing the "-D" flag | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_of_the_sftp_exe_binary_as_a_lolbin.tf'
+description: 'Detects the usage of the "sftp.exe" binary as a LOLBIN by abusing the "-D" flag | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_of_the_sftp_exe_binary_as_a_lolbin.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

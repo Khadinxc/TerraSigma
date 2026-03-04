@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "delete_defender_scan_shellex_c
   name                       = "delete_defender_scan_shellex_context_menu_registry_key"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Delete Defender Scan ShellEx Context Menu Registry Key"
-  description                = "Detects deletion of registry key that adds 'Scan with Defender' option in context menu. Attackers may use this to make it harder for users to scan files that are suspicious. - Unlikely as this weakens defenses and normally would not be done even if using another AV. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/delete_defender_scan_shellex_context_menu_registry_key.tf"
+  description                = "Detects deletion of registry key that adds 'Scan with Defender' option in context menu. Attackers may use this to make it harder for users to scan files that are suspicious. - Unlikely as this weakens defenses and normally would not be done even if using another AV. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/delete_defender_scan_shellex_context_menu_registry_key.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

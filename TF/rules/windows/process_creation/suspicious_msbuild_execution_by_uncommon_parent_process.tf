@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_msbuild_execution_b
   name                       = "suspicious_msbuild_execution_by_uncommon_parent_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Msbuild Execution By Uncommon Parent Process"
-  description                = "Detects suspicious execution of 'Msbuild.exe' by a uncommon parent process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_msbuild_execution_by_uncommon_parent_process.tf"
+  description                = "Detects suspicious execution of 'Msbuild.exe' by a uncommon parent process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_msbuild_execution_by_uncommon_parent_process.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

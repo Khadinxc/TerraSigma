@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "lol_binary_copied_from_system_
   name                       = "lol_binary_copied_from_system_directory"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "LOL-Binary Copied From System Directory"
-  description                = "Detects a suspicious copy operation that tries to copy a known LOLBIN from system (System32, SysWOW64, WinSxS) directories to another on disk in order to bypass detections based on locations. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/lol_binary_copied_from_system_directory.tf"
+  description                = "Detects a suspicious copy operation that tries to copy a known LOLBIN from system (System32, SysWOW64, WinSxS) directories to another on disk in order to bypass detections based on locations. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/lol_binary_copied_from_system_directory.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

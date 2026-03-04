@@ -1,6 +1,6 @@
 id: 90e6488d-3ed6-5726-b483-7713347d5943
 name: File In Suspicious Location Encoded To Base64 Via Certutil.EXE
-description: 'Detects the execution of certutil with the "encode" flag to encode a file to base64 where the files are located in potentially suspicious locations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_in_suspicious_location_encoded_to_base64_via_certutil_exe.tf'
+description: 'Detects the execution of certutil with the "encode" flag to encode a file to base64 where the files are located in potentially suspicious locations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_in_suspicious_location_encoded_to_base64_via_certutil_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

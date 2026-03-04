@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_suspicious_windows_f
   name                       = "potential_suspicious_windows_feature_enabled_proccreation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Suspicious Windows Feature Enabled - ProcCreation"
-  description                = "Detects usage of the built-in PowerShell cmdlet \"Enable-WindowsOptionalFeature\" used as a Deployment Image Servicing and Management tool. Similar to DISM.exe, this cmdlet is used to enumerate, install, uninstall, configure, and update features and packages in Windows images - Legitimate usage of the features listed in the rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_suspicious_windows_feature_enabled_proccreation.tf"
+  description                = "Detects usage of the built-in PowerShell cmdlet \"Enable-WindowsOptionalFeature\" used as a Deployment Image Servicing and Management tool. Similar to DISM.exe, this cmdlet is used to enumerate, install, uninstall, configure, and update features and packages in Windows images - Legitimate usage of the features listed in the rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_suspicious_windows_feature_enabled_proccreation.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

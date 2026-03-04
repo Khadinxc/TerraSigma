@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "nohup_execution" {
   name                       = "nohup_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Nohup Execution"
-  description                = "Detects usage of nohup which could be leveraged by an attacker to keep a process running or break out from restricted environments - Administrators or installed processes that leverage nohup | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/nohup_execution.tf"
+  description                = "Detects usage of nohup which could be leveraged by an attacker to keep a process running or break out from restricted environments - Administrators or installed processes that leverage nohup | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/nohup_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

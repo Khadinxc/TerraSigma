@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "obfuscated_ip_download_activit
   name                       = "obfuscated_ip_download_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Obfuscated IP Download Activity"
-  description                = "Detects use of an encoded/obfuscated version of an IP address (hex, octal...) in an URL combined with a download command | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/obfuscated_ip_download_activity.tf"
+  description                = "Detects use of an encoded/obfuscated version of an IP address (hex, octal...) in an URL combined with a download command | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/obfuscated_ip_download_activity.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

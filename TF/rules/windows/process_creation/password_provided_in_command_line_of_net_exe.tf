@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "password_provided_in_command_l
   name                       = "password_provided_in_command_line_of_net_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Password Provided In Command Line Of Net.EXE"
-  description                = "Detects a when net.exe is called with a password in the command line | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/password_provided_in_command_line_of_net_exe.tf"
+  description                = "Detects a when net.exe is called with a password in the command line | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/password_provided_in_command_line_of_net_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

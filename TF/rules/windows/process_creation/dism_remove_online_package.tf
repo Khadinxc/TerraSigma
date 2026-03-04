@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dism_remove_online_package" {
   name                       = "dism_remove_online_package"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Dism Remove Online Package"
-  description                = "Deployment Image Servicing and Management tool. DISM is used to enumerate, install, uninstall, configure, and update features and packages in Windows images - Legitimate script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dism_remove_online_package.tf"
+  description                = "Deployment Image Servicing and Management tool. DISM is used to enumerate, install, uninstall, configure, and update features and packages in Windows images - Legitimate script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dism_remove_online_package.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

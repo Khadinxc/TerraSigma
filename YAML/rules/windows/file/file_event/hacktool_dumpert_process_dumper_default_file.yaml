@@ -1,6 +1,6 @@
 id: bbed6b13-0e22-5e1d-b0b5-d2aec3b22247
 name: HackTool - Dumpert Process Dumper Default File
-description: 'Detects the creation of the default dump file used by Outflank Dumpert tool. A process dumper, which dumps the lsass process memory - Very unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/hacktool_dumpert_process_dumper_default_file.tf'
+description: 'Detects the creation of the default dump file used by Outflank Dumpert tool. A process dumper, which dumps the lsass process memory - Very unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/hacktool_dumpert_process_dumper_default_file.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

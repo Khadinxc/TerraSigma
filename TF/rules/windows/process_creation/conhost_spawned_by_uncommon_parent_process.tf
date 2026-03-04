@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "conhost_spawned_by_uncommon_pa
   name                       = "conhost_spawned_by_uncommon_parent_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Conhost Spawned By Uncommon Parent Process"
-  description                = "Detects when the Console Window Host (conhost.exe) process is spawned by an uncommon parent process, which could be indicative of potential code injection activity. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/conhost_spawned_by_uncommon_parent_process.tf"
+  description                = "Detects when the Console Window Host (conhost.exe) process is spawned by an uncommon parent process, which could be indicative of potential code injection activity. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/conhost_spawned_by_uncommon_parent_process.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

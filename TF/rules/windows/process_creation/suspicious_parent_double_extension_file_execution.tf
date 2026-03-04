@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_parent_double_exten
   name                       = "suspicious_parent_double_extension_file_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Parent Double Extension File Execution"
-  description                = "Detect execution of suspicious double extension files in ParentCommandLine | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_parent_double_extension_file_execution.tf"
+  description                = "Detect execution of suspicious double extension files in ParentCommandLine | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_parent_double_extension_file_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_webbrowserpassview_executi
   name                       = "pua_webbrowserpassview_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - WebBrowserPassView Execution"
-  description                = "Detects the execution of WebBrowserPassView.exe. A password recovery tool that reveals the passwords stored by the following Web browsers, Internet Explorer (Version 4.0 - 11.0), Mozilla Firefox (All Versions), Google Chrome, Safari, and Opera - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_webbrowserpassview_execution.tf"
+  description                = "Detects the execution of WebBrowserPassView.exe. A password recovery tool that reveals the passwords stored by the following Web browsers, Internet Explorer (Version 4.0 - 11.0), Mozilla Firefox (All Versions), Google Chrome, Safari, and Opera - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_webbrowserpassview_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

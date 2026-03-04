@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "curl_usage_on_linux" {
   name                       = "curl_usage_on_linux"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Curl Usage on Linux"
-  description                = "Detects a curl process start on linux, which indicates a file download from a remote location or a simple web request to a remote server - Scripts created by developers and admins - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/curl_usage_on_linux.tf"
+  description                = "Detects a curl process start on linux, which indicates a file download from a remote location or a simple web request to a remote server - Scripts created by developers and admins - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/curl_usage_on_linux.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

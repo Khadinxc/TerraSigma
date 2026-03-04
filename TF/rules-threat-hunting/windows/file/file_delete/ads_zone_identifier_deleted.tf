@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "ads_zone_identifier_deleted" {
   name                       = "ads_zone_identifier_deleted"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ADS Zone.Identifier Deleted"
-  description                = "Detects the deletion of the \"Zone.Identifier\" ADS. Attackers can leverage this in order to bypass security restrictions that make use of the ADS such as Microsoft Office apps. - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_delete/ads_zone_identifier_deleted.tf"
+  description                = "Detects the deletion of the \"Zone.Identifier\" ADS. Attackers can leverage this in order to bypass security restrictions that make use of the ADS such as Microsoft Office apps. - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_delete/ads_zone_identifier_deleted.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents

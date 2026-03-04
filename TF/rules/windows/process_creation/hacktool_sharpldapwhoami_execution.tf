@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_sharpldapwhoami_execu
   name                       = "hacktool_sharpldapwhoami_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - SharpLdapWhoami Execution"
-  description                = "Detects SharpLdapWhoami, a whoami alternative that queries the LDAP service on a domain controller - Programs that use the same command line flags | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_sharpldapwhoami_execution.tf"
+  description                = "Detects SharpLdapWhoami, a whoami alternative that queries the LDAP service on a domain controller - Programs that use the same command line flags | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_sharpldapwhoami_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

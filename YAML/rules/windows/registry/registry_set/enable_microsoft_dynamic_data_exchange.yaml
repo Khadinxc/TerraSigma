@@ -1,6 +1,6 @@
 id: 5c65ddab-b484-5cee-8a35-00f87a35b7d1
 name: Enable Microsoft Dynamic Data Exchange
-description: 'Enable Dynamic Data Exchange protocol (DDE) in all supported editions of Microsoft Word or Excel. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/enable_microsoft_dynamic_data_exchange.tf'
+description: 'Enable Dynamic Data Exchange protocol (DDE) in all supported editions of Microsoft Word or Excel. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/enable_microsoft_dynamic_data_exchange.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

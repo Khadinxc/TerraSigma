@@ -1,6 +1,6 @@
 id: 3040af4c-c8f7-5aee-950e-c1b292b36074
 name: Powershell Defender Disable Scan Feature
-description: 'Detects requests to disable Microsoft Defender features using PowerShell commands - Possible administrative activity - Other Cmdlets that may use the same parameters | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_defender_disable_scan_feature.tf'
+description: 'Detects requests to disable Microsoft Defender features using PowerShell commands - Possible administrative activity - Other Cmdlets that may use the same parameters | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_defender_disable_scan_feature.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

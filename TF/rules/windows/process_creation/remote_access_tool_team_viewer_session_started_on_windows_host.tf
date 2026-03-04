@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "remote_access_tool_team_viewer
   name                       = "remote_access_tool_team_viewer_session_started_on_windows_host"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Access Tool - Team Viewer Session Started On Windows Host"
-  description                = "Detects the command line executed when TeamViewer starts a session started by a remote host. Once a connection has been started, an investigator can verify the connection details by viewing the \"incoming_connections.txt\" log file in the TeamViewer folder. - Legitimate usage of TeamViewer | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_access_tool_team_viewer_session_started_on_windows_host.tf"
+  description                = "Detects the command line executed when TeamViewer starts a session started by a remote host. Once a connection has been started, an investigator can verify the connection details by viewing the \"incoming_connections.txt\" log file in the TeamViewer folder. - Legitimate usage of TeamViewer | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_access_tool_team_viewer_session_started_on_windows_host.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

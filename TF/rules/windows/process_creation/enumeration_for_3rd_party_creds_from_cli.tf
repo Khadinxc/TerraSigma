@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "enumeration_for_3rd_party_cred
   name                       = "enumeration_for_3rd_party_creds_from_cli"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Enumeration for 3rd Party Creds From CLI"
-  description                = "Detects processes that query known 3rd party registry keys that holds credentials via commandline | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/enumeration_for_3rd_party_creds_from_cli.tf"
+  description                = "Detects processes that query known 3rd party registry keys that holds credentials via commandline | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/enumeration_for_3rd_party_creds_from_cli.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

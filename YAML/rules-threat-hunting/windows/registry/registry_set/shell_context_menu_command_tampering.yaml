@@ -1,6 +1,6 @@
 id: 6fcaade7-8f51-5569-a037-c169f514e4a2
 name: Shell Context Menu Command Tampering
-description: 'Detects changes to shell context menu commands. Use this rule to hunt for potential anomalies and suspicious shell commands. - Likely from new software installation suggesting to add context menu items. Such as "PowerShell", "Everything", "Git", etc. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_set/shell_context_menu_command_tampering.tf'
+description: 'Detects changes to shell context menu commands. Use this rule to hunt for potential anomalies and suspicious shell commands. - Likely from new software installation suggesting to add context menu items. Such as "PowerShell", "Everything", "Git", etc. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_set/shell_context_menu_command_tampering.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

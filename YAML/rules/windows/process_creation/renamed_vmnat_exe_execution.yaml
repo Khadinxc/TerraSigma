@@ -1,6 +1,6 @@
 id: 64cea132-b57a-5a80-b7f4-4764773cfa09
 name: Renamed Vmnat.exe Execution
-description: 'Detects renamed vmnat.exe or portable version that can be used for DLL side-loading | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_vmnat_exe_execution.tf'
+description: 'Detects renamed vmnat.exe or portable version that can be used for DLL side-loading | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_vmnat_exe_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

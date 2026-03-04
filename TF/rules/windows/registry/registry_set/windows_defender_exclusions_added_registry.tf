@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "windows_defender_exclusions_ad
   name                       = "windows_defender_exclusions_added_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Defender Exclusions Added - Registry"
-  description                = "Detects the Setting of Windows Defender Exclusions - Administrator actions | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/windows_defender_exclusions_added_registry.tf"
+  description                = "Detects the Setting of Windows Defender Exclusions - Administrator actions | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/windows_defender_exclusions_added_registry.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

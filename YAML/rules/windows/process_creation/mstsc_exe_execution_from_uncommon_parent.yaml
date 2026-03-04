@@ -1,6 +1,6 @@
 id: 26251671-e4d9-53ba-97df-894c0e255ea8
 name: Mstsc.EXE Execution From Uncommon Parent
-description: 'Detects potential RDP connection via Mstsc using a local ".rdp" file located in suspicious locations. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/mstsc_exe_execution_from_uncommon_parent.tf'
+description: 'Detects potential RDP connection via Mstsc using a local ".rdp" file located in suspicious locations. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/mstsc_exe_execution_from_uncommon_parent.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

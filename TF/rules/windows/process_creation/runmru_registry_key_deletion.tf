@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "runmru_registry_key_deletion" 
   name                       = "runmru_registry_key_deletion"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "RunMRU Registry Key Deletion"
-  description                = "Detects deletion of the RunMRU registry key, which stores the history of commands executed via the Run dialog. In the clickfix techniques, the phishing lures instruct users to open a run dialog through (Win + R) and execute malicious commands. Adversaries may delete this key to cover their tracks after executing commands. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/runmru_registry_key_deletion.tf"
+  description                = "Detects deletion of the RunMRU registry key, which stores the history of commands executed via the Run dialog. In the clickfix techniques, the phishing lures instruct users to open a run dialog through (Win + R) and execute malicious commands. Adversaries may delete this key to cover their tracks after executing commands. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/runmru_registry_key_deletion.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

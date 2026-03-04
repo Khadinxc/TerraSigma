@@ -1,6 +1,6 @@
 id: 37502a5e-1ab7-5c7a-b832-fb4e14d72000
 name: HackTool - Htran/NATBypass Execution
-description: 'Detects executable names or flags used by Htran or Htran-like tools (e.g. NATBypass) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_htran_natbypass_execution.tf'
+description: 'Detects executable names or flags used by Htran or Htran-like tools (e.g. NATBypass) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_htran_natbypass_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

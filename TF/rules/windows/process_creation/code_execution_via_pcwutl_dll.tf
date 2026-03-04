@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "code_execution_via_pcwutl_dll"
   name                       = "code_execution_via_pcwutl_dll"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Code Execution via Pcwutl.dll"
-  description                = "Detects launch of executable by calling the LaunchApplication function from pcwutl.dll library. - Use of Program Compatibility Troubleshooter Helper | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/code_execution_via_pcwutl_dll.tf"
+  description                = "Detects launch of executable by calling the LaunchApplication function from pcwutl.dll library. - Use of Program Compatibility Troubleshooter Helper | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/code_execution_via_pcwutl_dll.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_winnti_dropper_activ
   name                       = "potential_winnti_dropper_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Winnti Dropper Activity"
-  description                = "Detects files dropped by Winnti as described in RedMimicry Winnti playbook | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_winnti_dropper_activity.tf"
+  description                = "Detects files dropped by Winnti as described in RedMimicry Winnti playbook | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_winnti_dropper_activity.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hidden_powershell_in_link_file
   name                       = "hidden_powershell_in_link_file_pattern"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Hidden Powershell in Link File Pattern"
-  description                = "Detects events that appear when a user click on a link file with a powershell command in it - Legitimate commands in .lnk files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hidden_powershell_in_link_file_pattern.tf"
+  description                = "Detects events that appear when a user click on a link file with a powershell command in it - Legitimate commands in .lnk files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hidden_powershell_in_link_file_pattern.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

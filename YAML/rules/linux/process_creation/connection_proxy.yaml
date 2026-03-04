@@ -1,6 +1,6 @@
 id: d28c962a-7b16-5dba-98ca-44fd8fe5c4d3
 name: Connection Proxy
-description: 'Detects setting proxy configuration - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/connection_proxy.tf'
+description: 'Detects setting proxy configuration - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/connection_proxy.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

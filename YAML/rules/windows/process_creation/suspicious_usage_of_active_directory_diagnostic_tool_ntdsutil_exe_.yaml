@@ -1,6 +1,6 @@
 id: 9264be74-2043-59a2-8430-76b6a7ef212a
 name: Suspicious Usage Of Active Directory Diagnostic Tool (ntdsutil.exe)
-description: 'Detects execution of ntdsutil.exe to perform different actions such as restoring snapshots...etc. - Legitimate usage to restore snapshots - Legitimate admin activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_usage_of_active_directory_diagnostic_tool_ntdsutil_exe_.tf'
+description: 'Detects execution of ntdsutil.exe to perform different actions such as restoring snapshots...etc. - Legitimate usage to restore snapshots - Legitimate admin activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_usage_of_active_directory_diagnostic_tool_ntdsutil_exe_.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

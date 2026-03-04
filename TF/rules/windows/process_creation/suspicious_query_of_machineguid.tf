@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_query_of_machinegui
   name                       = "suspicious_query_of_machineguid"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Query of MachineGUID"
-  description                = "Use of reg to get MachineGuid information | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_query_of_machineguid.tf"
+  description                = "Use of reg to get MachineGuid information | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_query_of_machineguid.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

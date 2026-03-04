@@ -1,6 +1,6 @@
 id: dcc5e6c0-af7a-5807-b95b-1b3207493e1a
 name: File And SubFolder Enumeration Via Dir Command
-description: 'Detects usage of the "dir" command part of Windows CMD with the "/S" command line flag in order to enumerate files in a specified directory and all subdirectories. - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_and_subfolder_enumeration_via_dir_command.tf'
+description: 'Detects usage of the "dir" command part of Windows CMD with the "/S" command line flag in order to enumerate files in a specified directory and all subdirectories. - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_and_subfolder_enumeration_via_dir_command.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

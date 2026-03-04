@@ -1,6 +1,6 @@
 id: 75cb7ea0-ac55-5f2e-9afb-87b487f67d3c
 name: Scheduled Task/Job At
-description: 'Detects the use of at/atd which are utilities that are used to schedule tasks. They are often abused by adversaries to maintain persistence or to perform task scheduling for initial or recurring execution of malicious code - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/scheduled_task_job_at.tf'
+description: 'Detects the use of at/atd which are utilities that are used to schedule tasks. They are often abused by adversaries to maintain persistence or to perform task scheduling for initial or recurring execution of malicious code - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/scheduled_task_job_at.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

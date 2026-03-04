@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_data_exfiltration_vi
   name                       = "potential_data_exfiltration_via_curl_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Data Exfiltration Via Curl.EXE"
-  description                = "Detects the execution of the \"curl\" process with \"upload\" flags. Which might indicate potential data exfiltration - Scripts created by developers and admins | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/potential_data_exfiltration_via_curl_exe.tf"
+  description                = "Detects the execution of the \"curl\" process with \"upload\" flags. Which might indicate potential data exfiltration - Scripts created by developers and admins | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/potential_data_exfiltration_via_curl_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

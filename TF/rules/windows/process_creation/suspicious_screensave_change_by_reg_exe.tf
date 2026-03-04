@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_screensave_change_b
   name                       = "suspicious_screensave_change_by_reg_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious ScreenSave Change by Reg.exe"
-  description                = "Adversaries may establish persistence by executing malicious content triggered by user inactivity. Screensavers are programs that execute after a configurable time of user inactivity and consist of Portable Executable (PE) files with a .scr file extension - GPO | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_screensave_change_by_reg_exe.tf"
+  description                = "Adversaries may establish persistence by executing malicious content triggered by user inactivity. Screensavers are programs that execute after a configurable time of user inactivity and consist of Portable Executable (PE) files with a .scr file extension - GPO | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_screensave_change_by_reg_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: 930e33ec-26f7-579e-a4ec-1580543ce8c4
 name: Potential DCOM InternetExplorer.Application DLL Hijack - Image Load
-description: 'Detects potential DLL hijack of "iertutil.dll" found in the DCOM InternetExplorer.Application Class | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_dcom_internetexplorer_application_dll_hijack_image_load.tf'
+description: 'Detects potential DLL hijack of "iertutil.dll" found in the DCOM InternetExplorer.Application Class | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_dcom_internetexplorer_application_dll_hijack_image_load.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

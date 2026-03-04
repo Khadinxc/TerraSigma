@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uefi_persistence_via_wpbbin_fi
   name                       = "uefi_persistence_via_wpbbin_filecreation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UEFI Persistence Via Wpbbin - FileCreation"
-  description                = "Detects creation of a file named \"wpbbin\" in the \"%systemroot%\\system32\\\" directory. Which could be indicative of UEFI based persistence method - Legitimate usage of the file by hardware manufacturer such as lenovo (Thanks @0gtweet for the tip) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/uefi_persistence_via_wpbbin_filecreation.tf"
+  description                = "Detects creation of a file named \"wpbbin\" in the \"%systemroot%\\system32\\\" directory. Which could be indicative of UEFI based persistence method - Legitimate usage of the file by hardware manufacturer such as lenovo (Thanks @0gtweet for the tip) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/uefi_persistence_via_wpbbin_filecreation.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

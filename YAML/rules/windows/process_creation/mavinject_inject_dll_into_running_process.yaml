@@ -1,6 +1,6 @@
 id: d6992872-a5ca-594a-8ee6-2a01c9daee86
 name: Mavinject Inject DLL Into Running Process
-description: 'Detects process injection using the signed Windows tool "Mavinject" via the "INJECTRUNNING" flag | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/mavinject_inject_dll_into_running_process.tf'
+description: 'Detects process injection using the signed Windows tool "Mavinject" via the "INJECTRUNNING" flag | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/mavinject_inject_dll_into_running_process.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

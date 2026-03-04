@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "control_panel_items" {
   name                       = "control_panel_items"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Control Panel Items"
-  description                = "Detects the malicious use of a control panel item | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/control_panel_items.tf"
+  description                = "Detects the malicious use of a control panel item | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/control_panel_items.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

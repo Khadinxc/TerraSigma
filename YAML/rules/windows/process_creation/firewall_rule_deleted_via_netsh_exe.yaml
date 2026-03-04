@@ -1,6 +1,6 @@
 id: 7df4bddd-5e88-55c3-931b-81493e644641
 name: Firewall Rule Deleted Via Netsh.EXE
-description: 'Detects the removal of a port or application rule in the Windows Firewall configuration using netsh - Legitimate administration activity - Software installations and removal | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/firewall_rule_deleted_via_netsh_exe.tf'
+description: 'Detects the removal of a port or application rule in the Windows Firewall configuration using netsh - Legitimate administration activity - Software installations and removal | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/firewall_rule_deleted_via_netsh_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

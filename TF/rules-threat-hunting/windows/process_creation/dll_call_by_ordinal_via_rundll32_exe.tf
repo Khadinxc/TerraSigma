@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dll_call_by_ordinal_via_rundll
   name                       = "dll_call_by_ordinal_via_rundll32_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DLL Call by Ordinal Via Rundll32.EXE"
-  description                = "Detects calls of DLLs exports by ordinal numbers via rundll32.dll. - Windows control panel elements have been identified as source (mmc). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/dll_call_by_ordinal_via_rundll32_exe.tf"
+  description                = "Detects calls of DLLs exports by ordinal numbers via rundll32.dll. - Windows control panel elements have been identified as source (mmc). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/dll_call_by_ordinal_via_rundll32_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

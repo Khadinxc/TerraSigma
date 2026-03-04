@@ -1,6 +1,6 @@
 id: 4ea929f3-0f74-5a7b-a8a9-452260653959
 name: Suspicious Invocation of Shell via AWK - Linux
-description: 'Detects the execution of "awk" or it''s sibling commands, to invoke a shell using the system() function. This behavior is commonly associated with attempts to execute arbitrary commands or escalate privileges, potentially leading to unauthorized access or further exploitation. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/suspicious_invocation_of_shell_via_awk_linux.tf'
+description: 'Detects the execution of "awk" or it''s sibling commands, to invoke a shell using the system() function. This behavior is commonly associated with attempts to execute arbitrary commands or escalate privileges, potentially leading to unauthorized access or further exploitation. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/suspicious_invocation_of_shell_via_awk_linux.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

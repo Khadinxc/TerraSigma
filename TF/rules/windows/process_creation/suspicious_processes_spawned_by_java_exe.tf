@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_processes_spawned_b
   name                       = "suspicious_processes_spawned_by_java_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Processes Spawned by Java.EXE"
-  description                = "Detects suspicious processes spawned from a Java host process which could indicate a sign of exploitation (e.g. log4j) - Legitimate calls to system binaries - Company specific internal usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_processes_spawned_by_java_exe.tf"
+  description                = "Detects suspicious processes spawned from a Java host process which could indicate a sign of exploitation (e.g. log4j) - Legitimate calls to system binaries - Company specific internal usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_processes_spawned_by_java_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

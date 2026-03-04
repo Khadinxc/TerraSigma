@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_hydra_password_brutef
   name                       = "hacktool_hydra_password_bruteforce_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Hydra Password Bruteforce Execution"
-  description                = "Detects command line parameters used by Hydra password guessing hack tool - Software that uses the caret encased keywords PASS and USER in its command line | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_hydra_password_bruteforce_execution.tf"
+  description                = "Detects command line parameters used by Hydra password guessing hack tool - Software that uses the caret encased keywords PASS and USER in its command line | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_hydra_password_bruteforce_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

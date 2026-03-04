@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_non_browser_network
   name                       = "suspicious_non_browser_network_communication_with_telegram_api"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Non-Browser Network Communication With Telegram API"
-  description                = "Detects an a non-browser process interacting with the Telegram API which could indicate use of a covert C2 - Legitimate applications communicating with the Telegram API e.g. web browsers not in the exclusion list, app with an RSS  etc. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/suspicious_non_browser_network_communication_with_telegram_api.tf"
+  description                = "Detects an a non-browser process interacting with the Telegram API which could indicate use of a covert C2 - Legitimate applications communicating with the Telegram API e.g. web browsers not in the exclusion list, app with an RSS  etc. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/suspicious_non_browser_network_communication_with_telegram_api.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "session_manager_autorun_keys_m
   name                       = "session_manager_autorun_keys_modification"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Session Manager Autorun Keys Modification"
-  description                = "Detects modification of autostart extensibility point (ASEP) in registry. - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reason - Legitimate administrator sets up autorun keys for legitimate reason | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/session_manager_autorun_keys_modification.tf"
+  description                = "Detects modification of autostart extensibility point (ASEP) in registry. - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reason - Legitimate administrator sets up autorun keys for legitimate reason | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/session_manager_autorun_keys_modification.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

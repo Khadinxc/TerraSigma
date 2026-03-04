@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "modification_of_ie_registry_se
   name                       = "modification_of_ie_registry_settings"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Modification of IE Registry Settings"
-  description                = "Detects modification of the registry settings used for Internet Explorer and other Windows components that use these settings. An attacker can abuse this registry key to add a domain to the trusted sites Zone or insert JavaScript for persistence | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/modification_of_ie_registry_settings.tf"
+  description                = "Detects modification of the registry settings used for Internet Explorer and other Windows components that use these settings. An attacker can abuse this registry key to add a domain to the trusted sites Zone or insert JavaScript for persistence | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/modification_of_ie_registry_settings.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceRegistryEvents

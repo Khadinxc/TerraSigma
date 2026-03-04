@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_persistence_via_outl
   name                       = "potential_persistence_via_outlook_today_page"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Outlook Today Page"
-  description                = "Detects potential persistence activity via outlook today page. An attacker can set a custom page to execute arbitrary code and link to it via the registry values \"URL\" and \"UserDefinedUrl\". | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_outlook_today_page.tf"
+  description                = "Detects potential persistence activity via outlook today page. An attacker can set a custom page to execute arbitrary code and link to it via the registry values \"URL\" and \"UserDefinedUrl\". | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_outlook_today_page.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

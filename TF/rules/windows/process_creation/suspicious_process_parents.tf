@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_process_parents" {
   name                       = "suspicious_process_parents"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Process Parents"
-  description                = "Detects suspicious parent processes that should not have any children or should only have a single possible child program | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_process_parents.tf"
+  description                = "Detects suspicious parent processes that should not have any children or should only have a single possible child program | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_process_parents.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "files_with_system_process_name
   name                       = "files_with_system_process_name_in_unsuspected_locations"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Files With System Process Name In Unsuspected Locations"
-  description                = "Detects the creation of an executable with a system process name in folders other than the system ones (System32, SysWOW64, etc.). It is highly recommended to perform an initial baseline before using this rule in production. - System processes copied outside their default folders for testing purposes - Third party software naming their software with the same names as the processes mentioned here | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/files_with_system_process_name_in_unsuspected_locations.tf"
+  description                = "Detects the creation of an executable with a system process name in folders other than the system ones (System32, SysWOW64, etc.). It is highly recommended to perform an initial baseline before using this rule in production. - System processes copied outside their default folders for testing purposes - Third party software naming their software with the same names as the processes mentioned here | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/files_with_system_process_name_in_unsuspected_locations.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

@@ -1,6 +1,6 @@
 id: e987732b-541f-5894-bbb1-0bde789ab68d
 name: HybridConnectionManager Service Installation - Registry
-description: 'Detects the installation of the Azure Hybrid Connection Manager service to allow remote code execution from Azure function. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/hybridconnectionmanager_service_installation_registry.tf'
+description: 'Detects the installation of the Azure Hybrid Connection Manager service to allow remote code execution from Azure function. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/hybridconnectionmanager_service_installation_registry.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

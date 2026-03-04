@@ -1,6 +1,6 @@
 id: 8b7f3b12-5f8c-5688-8972-5f90588dedac
 name: Non Interactive PowerShell Process Spawned
-description: 'Detects non-interactive PowerShell activity by looking at the "powershell" process with a non-user GUI process such as "explorer.exe" as a parent. - Likely. Many admin scripts and tools leverage PowerShell in their BAT or VB scripts which may trigger this rule often. It is best to add additional filters or use this to hunt for anomalies | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/non_interactive_powershell_process_spawned.tf'
+description: 'Detects non-interactive PowerShell activity by looking at the "powershell" process with a non-user GUI process such as "explorer.exe" as a parent. - Likely. Many admin scripts and tools leverage PowerShell in their BAT or VB scripts which may trigger this rule often. It is best to add additional filters or use this to hunt for anomalies | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/non_interactive_powershell_process_spawned.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

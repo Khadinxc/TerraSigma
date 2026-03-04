@@ -1,6 +1,6 @@
 id: fea2cbaa-ef15-5c9e-8bf6-65613cb8ad4e
 name: HackTool - Typical HiveNightmare SAM File Export
-description: 'Detects files written by the different tools that exploit HiveNightmare - Files that accidentally contain these strings | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/hacktool_typical_hivenightmare_sam_file_export.tf'
+description: 'Detects files written by the different tools that exploit HiveNightmare - Files that accidentally contain these strings | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/hacktool_typical_hivenightmare_sam_file_export.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

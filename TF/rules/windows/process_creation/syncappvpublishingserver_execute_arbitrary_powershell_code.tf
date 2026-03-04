@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "syncappvpublishingserver_execu
   name                       = "syncappvpublishingserver_execute_arbitrary_powershell_code"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "SyncAppvPublishingServer Execute Arbitrary PowerShell Code"
-  description                = "Executes arbitrary PowerShell code using SyncAppvPublishingServer.exe. - App-V clients | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/syncappvpublishingserver_execute_arbitrary_powershell_code.tf"
+  description                = "Executes arbitrary PowerShell code using SyncAppvPublishingServer.exe. - App-V clients | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/syncappvpublishingserver_execute_arbitrary_powershell_code.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

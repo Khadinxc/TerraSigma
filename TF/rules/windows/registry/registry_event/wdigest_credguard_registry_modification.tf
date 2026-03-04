@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "wdigest_credguard_registry_mod
   name                       = "wdigest_credguard_registry_modification"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Wdigest CredGuard Registry Modification"
-  description                = "Detects potential malicious modification of the property value of IsCredGuardEnabled from HKLM:\\SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\WDigest to disable Cred Guard on a system. This is usually used with UseLogonCredential to manipulate the caching credentials. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/wdigest_credguard_registry_modification.tf"
+  description                = "Detects potential malicious modification of the property value of IsCredGuardEnabled from HKLM:\\SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\WDigest to disable Cred Guard on a system. This is usually used with UseLogonCredential to manipulate the caching credentials. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/wdigest_credguard_registry_modification.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

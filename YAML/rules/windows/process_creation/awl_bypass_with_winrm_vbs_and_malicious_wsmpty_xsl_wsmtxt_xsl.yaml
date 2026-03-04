@@ -1,6 +1,6 @@
 id: 138f83c1-2f55-5d92-9f4d-16d0d3900cf4
 name: AWL Bypass with Winrm.vbs and Malicious WsmPty.xsl/WsmTxt.xsl
-description: 'Detects execution of attacker-controlled WsmPty.xsl or WsmTxt.xsl via winrm.vbs and copied cscript.exe (can be renamed) - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/awl_bypass_with_winrm_vbs_and_malicious_wsmpty_xsl_wsmtxt_xsl.tf'
+description: 'Detects execution of attacker-controlled WsmPty.xsl or WsmTxt.xsl via winrm.vbs and copied cscript.exe (can be renamed) - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/awl_bypass_with_winrm_vbs_and_malicious_wsmpty_xsl_wsmtxt_xsl.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

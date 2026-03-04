@@ -1,6 +1,6 @@
 id: 4f1b82f0-9c70-56f9-892d-b6090b6d2c6b
 name: Path To Screensaver Binary Modified
-description: 'Detects value modification of registry key containing path to binary used as screensaver. - Legitimate modification of screensaver | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/path_to_screensaver_binary_modified.tf'
+description: 'Detects value modification of registry key containing path to binary used as screensaver. - Legitimate modification of screensaver | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/path_to_screensaver_binary_modified.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

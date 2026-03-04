@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_russian_apt_credenti
   name                       = "potential_russian_apt_credential_theft_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Russian APT Credential Theft Activity"
-  description                = "Detects Russian group activity as described in Global Threat Report 2019 by Crowdstrike - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/Bear-APT-Activity/potential_russian_apt_credential_theft_activity.tf"
+  description                = "Detects Russian group activity as described in Global Threat Report 2019 by Crowdstrike - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/Bear-APT-Activity/potential_russian_apt_credential_theft_activity.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

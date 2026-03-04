@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "visual_studio_code_tunnel_shel
   name                       = "visual_studio_code_tunnel_shell_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Visual Studio Code Tunnel Shell Execution"
-  description                = "Detects the execution of a shell (powershell, bash, wsl...) via Visual Studio Code tunnel. Attackers can abuse this functionality to establish a C2 channel and execute arbitrary commands on the system. - Legitimate use of Visual Studio Code tunnel and running code from there | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/visual_studio_code_tunnel_shell_execution.tf"
+  description                = "Detects the execution of a shell (powershell, bash, wsl...) via Visual Studio Code tunnel. Attackers can abuse this functionality to establish a C2 channel and execute arbitrary commands on the system. - Legitimate use of Visual Studio Code tunnel and running code from there | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/visual_studio_code_tunnel_shell_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

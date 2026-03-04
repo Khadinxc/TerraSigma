@@ -1,6 +1,6 @@
 id: 5d45f5b4-c179-593f-a4b4-19337cb61b27
 name: Local Groups Discovery - Linux
-description: 'Detects enumeration of local system groups. Adversaries may attempt to find local system groups and permission settings - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/local_groups_discovery_linux.tf'
+description: 'Detects enumeration of local system groups. Adversaries may attempt to find local system groups and permission settings - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/local_groups_discovery_linux.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

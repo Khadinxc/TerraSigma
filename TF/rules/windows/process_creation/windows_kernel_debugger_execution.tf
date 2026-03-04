@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "windows_kernel_debugger_execut
   name                       = "windows_kernel_debugger_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Kernel Debugger Execution"
-  description                = "Detects execution of the Windows Kernel Debugger \"kd.exe\". - Rare occasions of legitimate cases where kernel debugging is necessary in production. Investigation is required | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_kernel_debugger_execution.tf"
+  description                = "Detects execution of the Windows Kernel Debugger \"kd.exe\". - Rare occasions of legitimate cases where kernel debugging is necessary in production. Investigation is required | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_kernel_debugger_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

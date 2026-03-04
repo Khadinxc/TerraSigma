@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "disable_internal_tools_or_feat
   name                       = "disable_internal_tools_or_feature_in_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disable Internal Tools or Feature in Registry"
-  description                = "Detects registry modifications that change features of internal Windows tools (malware like Agent Tesla uses this technique) - Legitimate admin script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/disable_internal_tools_or_feature_in_registry.tf"
+  description                = "Detects registry modifications that change features of internal Windows tools (malware like Agent Tesla uses this technique) - Legitimate admin script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/disable_internal_tools_or_feature_in_registry.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

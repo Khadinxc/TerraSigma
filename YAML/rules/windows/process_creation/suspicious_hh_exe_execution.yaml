@@ -1,6 +1,6 @@
 id: 85f8826b-10a2-5ba9-9571-cd8c23977a10
 name: Suspicious HH.EXE Execution
-description: 'Detects a suspicious execution of a Microsoft HTML Help (HH.exe) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_hh_exe_execution.tf'
+description: 'Detects a suspicious execution of a Microsoft HTML Help (HH.exe) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_hh_exe_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

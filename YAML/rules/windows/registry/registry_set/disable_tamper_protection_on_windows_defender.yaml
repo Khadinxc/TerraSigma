@@ -1,6 +1,6 @@
 id: d1c63ba5-c7f1-5cea-803e-710eb391900c
 name: Disable Tamper Protection on Windows Defender
-description: 'Detects disabling Windows Defender Tamper Protection | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/disable_tamper_protection_on_windows_defender.tf'
+description: 'Detects disabling Windows Defender Tamper Protection | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/disable_tamper_protection_on_windows_defender.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 8dd138a6-86df-56e0-94ca-871d35d7ca4c
 name: Outlook EnableUnsafeClientMailRules Setting Enabled - Registry
-description: 'Detects an attacker trying to enable the outlook security setting "EnableUnsafeClientMailRules" which allows outlook to run applications or execute macros | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/outlook_enableunsafeclientmailrules_setting_enabled_registry.tf'
+description: 'Detects an attacker trying to enable the outlook security setting "EnableUnsafeClientMailRules" which allows outlook to run applications or execute macros | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/outlook_enableunsafeclientmailrules_setting_enabled_registry.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

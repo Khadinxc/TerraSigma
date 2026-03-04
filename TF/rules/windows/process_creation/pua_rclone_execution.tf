@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_rclone_execution" {
   name                       = "pua_rclone_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Rclone Execution"
-  description                = "Detects execution of RClone utility for exfiltration as used by various ransomwares strains like REvil, Conti, FiveHands, etc | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_rclone_execution.tf"
+  description                = "Detects execution of RClone utility for exfiltration as used by various ransomwares strains like REvil, Conti, FiveHands, etc | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_rclone_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

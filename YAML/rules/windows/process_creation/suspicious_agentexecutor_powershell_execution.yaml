@@ -1,6 +1,6 @@
 id: 798230f7-b41e-543f-949b-78cd81e09658
 name: Suspicious AgentExecutor PowerShell Execution
-description: 'Detects execution of the AgentExecutor.exe binary. Which can be abused as a LOLBIN to execute powershell scripts with the ExecutionPolicy "Bypass" or any binary named "powershell.exe" located in the path provided by 6th positional argument | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_agentexecutor_powershell_execution.tf'
+description: 'Detects execution of the AgentExecutor.exe binary. Which can be abused as a LOLBIN to execute powershell scripts with the ExecutionPolicy "Bypass" or any binary named "powershell.exe" located in the path provided by 6th positional argument | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_agentexecutor_powershell_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

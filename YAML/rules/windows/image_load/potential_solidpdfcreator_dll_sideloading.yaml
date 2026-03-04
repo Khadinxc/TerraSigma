@@ -1,6 +1,6 @@
 id: ea941e82-fce9-5dc1-9981-4aa4c92574c3
 name: Potential SolidPDFCreator.DLL Sideloading
-description: 'Detects potential DLL sideloading of "SolidPDFCreator.dll" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_solidpdfcreator_dll_sideloading.tf'
+description: 'Detects potential DLL sideloading of "SolidPDFCreator.dll" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_solidpdfcreator_dll_sideloading.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

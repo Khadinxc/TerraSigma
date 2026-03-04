@@ -1,6 +1,6 @@
 id: c01cab14-7d7a-5a93-9df1-7018ed0412e7
 name: Renamed SysInternals DebugView Execution
-description: 'Detects suspicious renamed SysInternals DebugView execution | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_sysinternals_debugview_execution.tf'
+description: 'Detects suspicious renamed SysInternals DebugView execution | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_sysinternals_debugview_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

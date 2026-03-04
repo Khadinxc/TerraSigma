@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "kernel_memory_dump_via_livekd"
   name                       = "kernel_memory_dump_via_livekd"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Kernel Memory Dump Via LiveKD"
-  description                = "Detects execution of LiveKD with the \"-m\" flag to potentially dump the kernel memory - Unlikely in production environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/kernel_memory_dump_via_livekd.tf"
+  description                = "Detects execution of LiveKD with the \"-m\" flag to potentially dump the kernel memory - Unlikely in production environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/kernel_memory_dump_via_livekd.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_activescripteventconsumer_
   name                       = "new_activescripteventconsumer_created_via_wmic_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New ActiveScriptEventConsumer Created Via Wmic.EXE"
-  description                = "Detects WMIC executions in which an event consumer gets created. This could be used to establish persistence - Legitimate software creating script event consumers | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_activescripteventconsumer_created_via_wmic_exe.tf"
+  description                = "Detects WMIC executions in which an event consumer gets created. This could be used to establish persistence - Legitimate software creating script event consumers | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_activescripteventconsumer_created_via_wmic_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

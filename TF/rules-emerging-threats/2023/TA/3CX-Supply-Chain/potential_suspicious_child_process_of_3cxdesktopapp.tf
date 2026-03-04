@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_suspicious_child_pro
   name                       = "potential_suspicious_child_process_of_3cxdesktopapp"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Suspicious Child Process Of 3CXDesktopApp"
-  description                = "Detects potential suspicious child processes of \"3CXDesktopApp.exe\". Which could be related to the 3CXDesktopApp supply chain compromise | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/3CX-Supply-Chain/potential_suspicious_child_process_of_3cxdesktopapp.tf"
+  description                = "Detects potential suspicious child processes of \"3CXDesktopApp.exe\". Which could be related to the 3CXDesktopApp supply chain compromise | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/3CX-Supply-Chain/potential_suspicious_child_process_of_3cxdesktopapp.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

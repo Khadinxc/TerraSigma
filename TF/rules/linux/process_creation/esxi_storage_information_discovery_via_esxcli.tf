@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "esxi_storage_information_disco
   name                       = "esxi_storage_information_discovery_via_esxcli"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ESXi Storage Information Discovery Via ESXCLI"
-  description                = "Detects execution of the \"esxcli\" command with the \"storage\" flag in order to retrieve information about the storage status and other related information. Seen used by malware such as DarkSide and LockBit. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/esxi_storage_information_discovery_via_esxcli.tf"
+  description                = "Detects execution of the \"esxcli\" command with the \"storage\" flag in order to retrieve information about the storage status and other related information. Seen used by malware such as DarkSide and LockBit. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/esxi_storage_information_discovery_via_esxcli.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: ef8089e1-a825-5e5a-aa4a-6dea212a3f14
 name: NTDS.DIT Creation By Uncommon Process
-description: 'Detects creation of a file named "ntds.dit" (Active Directory Database) by an uncommon process or a process located in a suspicious directory | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/ntds_dit_creation_by_uncommon_process.tf'
+description: 'Detects creation of a file named "ntds.dit" (Active Directory Database) by an uncommon process or a process located in a suspicious directory | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/ntds_dit_creation_by_uncommon_process.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

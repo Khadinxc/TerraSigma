@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "printbrm_zip_creation_of_extra
   name                       = "printbrm_zip_creation_of_extraction"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PrintBrm ZIP Creation of Extraction"
-  description                = "Detects the execution of the LOLBIN PrintBrm.exe, which can be used to create or extract ZIP files. PrintBrm.exe should not be run on a normal workstation. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/printbrm_zip_creation_of_extraction.tf"
+  description                = "Detects the execution of the LOLBIN PrintBrm.exe, which can be used to create or extract ZIP files. PrintBrm.exe should not be run on a normal workstation. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/printbrm_zip_creation_of_extraction.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

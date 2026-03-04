@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "import_new_module_via_powershe
   name                       = "import_new_module_via_powershell_commandline"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Import New Module Via PowerShell CommandLine"
-  description                = "Detects usage of the \"Import-Module\" cmdlet in order to add new Cmdlets to the current PowerShell session - Depending on the environement, many legitimate scripts will import modules inline. This rule is targeted for hunting purposes. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/import_new_module_via_powershell_commandline.tf"
+  description                = "Detects usage of the \"Import-Module\" cmdlet in order to add new Cmdlets to the current PowerShell session - Depending on the environement, many legitimate scripts will import modules inline. This rule is targeted for hunting purposes. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/import_new_module_via_powershell_commandline.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

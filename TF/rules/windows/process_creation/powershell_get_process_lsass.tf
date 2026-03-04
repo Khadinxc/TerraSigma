@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "powershell_get_process_lsass" 
   name                       = "powershell_get_process_lsass"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Get-Process LSASS"
-  description                = "Detects a \"Get-Process\" cmdlet and it's aliases on lsass process, which is in almost all cases a sign of malicious activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_get_process_lsass.tf"
+  description                = "Detects a \"Get-Process\" cmdlet and it's aliases on lsass process, which is in almost all cases a sign of malicious activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_get_process_lsass.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

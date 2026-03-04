@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_configuration_and_se
   name                       = "potential_configuration_and_service_reconnaissance_via_reg_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Configuration And Service Reconnaissance Via Reg.EXE"
-  description                = "Detects the usage of \"reg.exe\" in order to query reconnaissance information from the registry. Adversaries may interact with the Windows registry to gather information about credentials, the system, configuration, and installed software. - Discord | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_configuration_and_service_reconnaissance_via_reg_exe.tf"
+  description                = "Detects the usage of \"reg.exe\" in order to query reconnaissance information from the registry. Adversaries may interact with the Windows registry to gather information about credentials, the system, configuration, and installed software. - Discord | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_configuration_and_service_reconnaissance_via_reg_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

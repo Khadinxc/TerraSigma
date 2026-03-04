@@ -1,6 +1,6 @@
 id: 2bb16f74-a080-56e5-8b03-18837e126c84
 name: Potential Persistence Via Netsh Helper DLL - Registry
-description: 'Detects changes to the Netsh registry key to add a new DLL value. This change might be an indication of a potential persistence attempt by adding a malicious Netsh helper - Legitimate helper added by different programs and the OS | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_netsh_helper_dll_registry.tf'
+description: 'Detects changes to the Netsh registry key to add a new DLL value. This change might be an indication of a potential persistence attempt by adding a malicious Netsh helper - Legitimate helper added by different programs and the OS | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_netsh_helper_dll_registry.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

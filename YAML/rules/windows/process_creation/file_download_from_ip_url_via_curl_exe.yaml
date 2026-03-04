@@ -1,6 +1,6 @@
 id: d9b4790f-68d8-5081-8976-bb13a849f0a4
 name: File Download From IP URL Via Curl.EXE
-description: 'Detects file downloads directly from IP address URL using curl.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_from_ip_url_via_curl_exe.tf'
+description: 'Detects file downloads directly from IP address URL using curl.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_from_ip_url_via_curl_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

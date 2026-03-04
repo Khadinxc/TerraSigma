@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_ssh_tunnel_persisten
   name                       = "potential_ssh_tunnel_persistence_install_using_a_scheduled_task"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential SSH Tunnel Persistence Install Using A Scheduled Task"
-  description                = "Detects the creation of new scheduled tasks via commandline, using Schtasks.exe. This rule detects tasks creating that call OpenSSH, which may indicate the creation of reverse SSH tunnel to the attacker's server. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_ssh_tunnel_persistence_install_using_a_scheduled_task.tf"
+  description                = "Detects the creation of new scheduled tasks via commandline, using Schtasks.exe. This rule detects tasks creating that call OpenSSH, which may indicate the creation of reverse SSH tunnel to the attacker's server. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_ssh_tunnel_persistence_install_using_a_scheduled_task.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

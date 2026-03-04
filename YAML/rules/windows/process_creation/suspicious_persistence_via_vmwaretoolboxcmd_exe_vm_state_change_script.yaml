@@ -1,6 +1,6 @@
 id: 4acba1e0-0d93-52d6-a1bf-ca947f1b54bb
 name: Suspicious Persistence Via VMwareToolBoxCmd.EXE VM State Change Script
-description: 'Detects execution of the "VMwareToolBoxCmd.exe" with the "script" and "set" flag to setup a specific script that''s located in a potentially suspicious location to run for a specific VM state | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_persistence_via_vmwaretoolboxcmd_exe_vm_state_change_script.tf'
+description: 'Detects execution of the "VMwareToolBoxCmd.exe" with the "script" and "set" flag to setup a specific script that''s located in a potentially suspicious location to run for a specific VM state | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_persistence_via_vmwaretoolboxcmd_exe_vm_state_change_script.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

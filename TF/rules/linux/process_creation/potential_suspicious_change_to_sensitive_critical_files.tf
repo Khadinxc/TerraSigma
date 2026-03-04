@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_suspicious_change_to
   name                       = "potential_suspicious_change_to_sensitive_critical_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Suspicious Change To Sensitive/Critical Files"
-  description                = "Detects changes of sensitive and critical files. Monitors files that you don't expect to change without planning on Linux system. - Some false positives are to be expected on user or administrator machines. Apply additional filters as needed. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potential_suspicious_change_to_sensitive_critical_files.tf"
+  description                = "Detects changes of sensitive and critical files. Monitors files that you don't expect to change without planning on Linux system. - Some false positives are to be expected on user or administrator machines. Apply additional filters as needed. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potential_suspicious_change_to_sensitive_critical_files.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

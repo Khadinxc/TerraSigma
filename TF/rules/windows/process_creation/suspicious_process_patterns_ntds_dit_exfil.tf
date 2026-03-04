@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_process_patterns_nt
   name                       = "suspicious_process_patterns_ntds_dit_exfil"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Process Patterns NTDS.DIT Exfil"
-  description                = "Detects suspicious process patterns used in NTDS.DIT exfiltration | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_process_patterns_ntds_dit_exfil.tf"
+  description                = "Detects suspicious process patterns used in NTDS.DIT exfiltration | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_process_patterns_ntds_dit_exfil.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

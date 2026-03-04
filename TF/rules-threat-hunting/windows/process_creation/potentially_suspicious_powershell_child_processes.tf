@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_powersh
   name                       = "potentially_suspicious_powershell_child_processes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious PowerShell Child Processes"
-  description                = "Detects potentially suspicious child processes spawned by PowerShell. Use this rule to hunt for potential anomalies initiating from PowerShell scripts and commands. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/potentially_suspicious_powershell_child_processes.tf"
+  description                = "Detects potentially suspicious child processes spawned by PowerShell. Use this rule to hunt for potential anomalies initiating from PowerShell scripts and commands. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/potentially_suspicious_powershell_child_processes.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

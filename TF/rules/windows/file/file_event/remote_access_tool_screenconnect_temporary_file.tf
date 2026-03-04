@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "remote_access_tool_screenconne
   name                       = "remote_access_tool_screenconnect_temporary_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Access Tool - ScreenConnect Temporary File"
-  description                = "Detects the creation of files in a specific location by ScreenConnect RMM. ScreenConnect has feature to remotely execute binaries on a target machine. These binaries will be dropped to \":\\Users\\<username>\\Documents\\ConnectWiseControl\\Temp\\\" before execution. - Legitimate use of ScreenConnect | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/remote_access_tool_screenconnect_temporary_file.tf"
+  description                = "Detects the creation of files in a specific location by ScreenConnect RMM. ScreenConnect has feature to remotely execute binaries on a target machine. These binaries will be dropped to \":\\Users\\<username>\\Documents\\ConnectWiseControl\\Temp\\\" before execution. - Legitimate use of ScreenConnect | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/remote_access_tool_screenconnect_temporary_file.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "import_powershell_modules_from
   name                       = "import_powershell_modules_from_suspicious_directories_proccreation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Import PowerShell Modules From Suspicious Directories - ProcCreation"
-  description                = "Detects powershell scripts that import modules from suspicious directories | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/import_powershell_modules_from_suspicious_directories_proccreation.tf"
+  description                = "Detects powershell scripts that import modules from suspicious directories | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/import_powershell_modules_from_suspicious_directories_proccreation.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

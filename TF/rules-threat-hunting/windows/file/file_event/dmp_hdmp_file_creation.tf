@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dmp_hdmp_file_creation" {
   name                       = "dmp_hdmp_file_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DMP/HDMP File Creation"
-  description                = "Detects the creation of a file with the \".dmp\"/\".hdmp\" extension. Often created by software during a crash. Memory dumps can sometimes contain sensitive information such as credentials. It's best to determine the source of the crash. - Likely during crashes of software | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/dmp_hdmp_file_creation.tf"
+  description                = "Detects the creation of a file with the \".dmp\"/\".hdmp\" extension. Often created by software during a crash. Memory dumps can sometimes contain sensitive information such as credentials. It's best to determine the source of the crash. - Likely during crashes of software | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/dmp_hdmp_file_creation.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents

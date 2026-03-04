@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "mmc20_lateral_movement" {
   name                       = "mmc20_lateral_movement"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "MMC20 Lateral Movement"
-  description                = "Detects MMC20.Application Lateral Movement; specifically looks for the spawning of the parent MMC.exe with a command line of \"-Embedding\" as a child of svchost.exe - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/mmc20_lateral_movement.tf"
+  description                = "Detects MMC20.Application Lateral Movement; specifically looks for the spawning of the parent MMC.exe with a command line of \"-Embedding\" as a child of svchost.exe - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/mmc20_lateral_movement.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

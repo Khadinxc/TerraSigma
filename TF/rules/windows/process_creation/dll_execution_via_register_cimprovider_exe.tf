@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dll_execution_via_register_cim
   name                       = "dll_execution_via_register_cimprovider_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DLL Execution Via Register-cimprovider.exe"
-  description                = "Detects using register-cimprovider.exe to execute arbitrary dll file. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dll_execution_via_register_cimprovider_exe.tf"
+  description                = "Detects using register-cimprovider.exe to execute arbitrary dll file. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dll_execution_via_register_cimprovider_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

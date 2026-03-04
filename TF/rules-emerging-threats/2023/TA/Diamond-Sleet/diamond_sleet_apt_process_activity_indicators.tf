@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "diamond_sleet_apt_process_acti
   name                       = "diamond_sleet_apt_process_activity_indicators"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Diamond Sleet APT Process Activity Indicators"
-  description                = "Detects process creation activity indicators related to Diamond Sleet APT - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/diamond_sleet_apt_process_activity_indicators.tf"
+  description                = "Detects process creation activity indicators related to Diamond Sleet APT - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/diamond_sleet_apt_process_activity_indicators.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

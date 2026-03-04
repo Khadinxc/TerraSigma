@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "bypass_uac_via_cmstp" {
   name                       = "bypass_uac_via_cmstp"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Bypass UAC via CMSTP"
-  description                = "Detect commandline usage of Microsoft Connection Manager Profile Installer (cmstp.exe) to install specially formatted local .INF files - Legitimate use of cmstp.exe utility by legitimate user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/bypass_uac_via_cmstp.tf"
+  description                = "Detect commandline usage of Microsoft Connection Manager Profile Installer (cmstp.exe) to install specially formatted local .INF files - Legitimate use of cmstp.exe utility by legitimate user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/bypass_uac_via_cmstp.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

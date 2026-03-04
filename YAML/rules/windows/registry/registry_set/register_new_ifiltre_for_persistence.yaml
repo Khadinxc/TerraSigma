@@ -1,6 +1,6 @@
 id: 09edd7dc-5372-5981-a3b2-cbea21f1c936
 name: Register New IFiltre For Persistence
-description: 'Detects when an attacker registers a new IFilter for an extension. Microsoft Windows Search uses filters to extract the content of items for inclusion in a full-text index. You can extend Windows Search to index new or proprietary file types by writing filters to extract the content, and property handlers to extract the properties of files. - Legitimate registration of IFilters by the OS or software | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/register_new_ifiltre_for_persistence.tf'
+description: 'Detects when an attacker registers a new IFilter for an extension. Microsoft Windows Search uses filters to extract the content of items for inclusion in a full-text index. You can extend Windows Search to index new or proprietary file types by writing filters to extract the content, and property handlers to extract the properties of files. - Legitimate registration of IFilters by the OS or software | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/register_new_ifiltre_for_persistence.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

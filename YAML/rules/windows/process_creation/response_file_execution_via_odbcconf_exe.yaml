@@ -1,6 +1,6 @@
 id: 95ff7125-be01-5499-bfbd-79c70633f9f0
 name: Response File Execution Via Odbcconf.EXE
-description: 'Detects execution of "odbcconf" with the "-f" flag in order to load a response file which might contain a malicious action. - The rule is looking for any usage of response file, which might generate false positive when this function is used legitimately. Investigate the contents of the ".rsp" file to determine if it is malicious and apply additional filters if necessary. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/response_file_execution_via_odbcconf_exe.tf'
+description: 'Detects execution of "odbcconf" with the "-f" flag in order to load a response file which might contain a malicious action. - The rule is looking for any usage of response file, which might generate false positive when this function is used legitimately. Investigate the contents of the ".rsp" file to determine if it is malicious and apply additional filters if necessary. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/response_file_execution_via_odbcconf_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

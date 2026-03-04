@@ -1,6 +1,6 @@
 id: e9e26a0f-506b-505e-995a-3dd108a71a68
 name: Always Install Elevated Windows Installer
-description: 'Detects Windows Installer service (msiexec.exe) trying to install MSI packages with SYSTEM privilege - System administrator usage - Anti virus products - WindowsApps located in "C:\Program Files\WindowsApps\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/always_install_elevated_windows_installer.tf'
+description: 'Detects Windows Installer service (msiexec.exe) trying to install MSI packages with SYSTEM privilege - System administrator usage - Anti virus products - WindowsApps located in "C:\Program Files\WindowsApps\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/always_install_elevated_windows_installer.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

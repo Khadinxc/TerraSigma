@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "macos_emond_launch_daemon" {
   name                       = "macos_emond_launch_daemon"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "MacOS Emond Launch Daemon"
-  description                = "Detects additions to the Emond Launch Daemon that adversaries may use to gain persistence and elevate privileges. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/file_event/macos_emond_launch_daemon.tf"
+  description                = "Detects additions to the Emond Launch Daemon that adversaries may use to gain persistence and elevate privileges. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/file_event/macos_emond_launch_daemon.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

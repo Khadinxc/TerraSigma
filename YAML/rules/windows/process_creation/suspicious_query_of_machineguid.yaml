@@ -1,6 +1,6 @@
 id: 9225b61c-7b37-5b8e-ace5-2af336ae4957
 name: Suspicious Query of MachineGUID
-description: 'Use of reg to get MachineGuid information | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_query_of_machineguid.tf'
+description: 'Use of reg to get MachineGuid information | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_query_of_machineguid.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 535faccd-d60d-53ea-ab5c-733d9fc3ac85
 name: PUA - PingCastle Execution
-description: 'Detects the execution of PingCastle, a tool designed to quickly assess the Active Directory security level. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_pingcastle_execution.tf'
+description: 'Detects the execution of PingCastle, a tool designed to quickly assess the Active Directory security level. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_pingcastle_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

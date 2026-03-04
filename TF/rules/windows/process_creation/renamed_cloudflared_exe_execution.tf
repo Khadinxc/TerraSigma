@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "renamed_cloudflared_exe_execut
   name                       = "renamed_cloudflared_exe_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed Cloudflared.EXE Execution"
-  description                = "Detects the execution of a renamed \"cloudflared\" binary. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_cloudflared_exe_execution.tf"
+  description                = "Detects the execution of a renamed \"cloudflared\" binary. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_cloudflared_exe_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

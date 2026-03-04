@@ -1,6 +1,6 @@
 id: 23a2eda8-8b34-5543-aa6a-41b9906069a5
 name: Linux Crypto Mining Indicators
-description: 'Detects command line parameters or strings often used by crypto miners - Legitimate use of crypto miners | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_crypto_mining_indicators.tf'
+description: 'Detects command line parameters or strings often used by crypto miners - Legitimate use of crypto miners | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_crypto_mining_indicators.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

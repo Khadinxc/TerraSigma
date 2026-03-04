@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "vscode_powershell_profile_modi
   name                       = "vscode_powershell_profile_modification"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "VsCode Powershell Profile Modification"
-  description                = "Detects the creation or modification of a vscode related powershell profile which could indicate suspicious activity as the profile can be used as a mean of persistence - Legitimate use of the profile by developers or administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/vscode_powershell_profile_modification.tf"
+  description                = "Detects the creation or modification of a vscode related powershell profile which could indicate suspicious activity as the profile can be used as a mean of persistence - Legitimate use of the profile by developers or administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/vscode_powershell_profile_modification.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

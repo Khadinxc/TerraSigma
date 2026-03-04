@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "windows_defender_context_menu_
   name                       = "windows_defender_context_menu_removed"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Defender Context Menu Removed"
-  description                = "Detects the use of reg.exe or PowerShell to delete the Windows Defender context menu handler registry keys. This action removes the \"Scan with Microsoft Defender\" option from the right-click menu for files, directories, and drives. Attackers may use this technique to hinder manual, on-demand scans and reduce the visibility of the security product. - May be part of a system customization or \"debloating\" script, but this is highly unusual in a managed corporate environment. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_defender_context_menu_removed.tf"
+  description                = "Detects the use of reg.exe or PowerShell to delete the Windows Defender context menu handler registry keys. This action removes the \"Scan with Microsoft Defender\" option from the right-click menu for files, directories, and drives. Attackers may use this technique to hinder manual, on-demand scans and reduce the visibility of the security product. - May be part of a system customization or \"debloating\" script, but this is highly unusual in a managed corporate environment. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_defender_context_menu_removed.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

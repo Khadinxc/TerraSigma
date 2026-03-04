@@ -1,6 +1,6 @@
 id: e1d762fe-3afe-5ee0-837b-be27e5e7f0c9
 name: Remote PowerShell Session Host Process (WinRM)
-description: 'Detects remote PowerShell sections by monitoring for wsmprovhost (WinRM host process) as a parent or child process (sign of an active PowerShell remote session). - Legitimate usage of remote Powershell, e.g. for monitoring purposes. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_powershell_session_host_process_winrm_.tf'
+description: 'Detects remote PowerShell sections by monitoring for wsmprovhost (WinRM host process) as a parent or child process (sign of an active PowerShell remote session). - Legitimate usage of remote Powershell, e.g. for monitoring purposes. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_powershell_session_host_process_winrm_.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

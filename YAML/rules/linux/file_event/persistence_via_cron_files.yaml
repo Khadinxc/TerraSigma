@@ -1,6 +1,6 @@
 id: 603c9774-f390-5ab8-86a5-04e781d48fbb
 name: Persistence Via Cron Files
-description: 'Detects creation of cron file or files in Cron directories which could indicates potential persistence. - Any legitimate cron file. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/persistence_via_cron_files.tf'
+description: 'Detects creation of cron file or files in Cron directories which could indicates potential persistence. - Any legitimate cron file. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/persistence_via_cron_files.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

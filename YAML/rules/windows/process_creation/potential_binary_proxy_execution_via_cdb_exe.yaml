@@ -1,6 +1,6 @@
 id: 95f08641-8a55-55d9-bad1-7329c44cd8ce
 name: Potential Binary Proxy Execution Via Cdb.EXE
-description: 'Detects usage of "cdb.exe" to launch arbitrary processes or commands from a debugger script file - Legitimate use of debugging tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_binary_proxy_execution_via_cdb_exe.tf'
+description: 'Detects usage of "cdb.exe" to launch arbitrary processes or commands from a debugger script file - Legitimate use of debugging tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_binary_proxy_execution_via_cdb_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

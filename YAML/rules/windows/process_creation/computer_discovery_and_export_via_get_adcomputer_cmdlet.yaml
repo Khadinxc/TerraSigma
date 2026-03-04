@@ -1,6 +1,6 @@
 id: 88e9cd96-270e-55b2-ad9b-14386066b0bb
 name: Computer Discovery And Export Via Get-ADComputer Cmdlet
-description: 'Detects usage of the Get-ADComputer cmdlet to collect computer information and output it to a file - Legitimate admin scripts may use the same technique, it''s better to exclude specific computers or users who execute these commands or scripts often | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/computer_discovery_and_export_via_get_adcomputer_cmdlet.tf'
+description: 'Detects usage of the Get-ADComputer cmdlet to collect computer information and output it to a file - Legitimate admin scripts may use the same technique, it''s better to exclude specific computers or users who execute these commands or scripts often | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/computer_discovery_and_export_via_get_adcomputer_cmdlet.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

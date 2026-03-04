@@ -1,6 +1,6 @@
 id: 3d1ae1e7-90f5-512c-9ac6-f871c41b57c3
 name: Potential ShellDispatch.DLL Functionality Abuse
-description: 'Detects potential "ShellDispatch.dll" functionality abuse to execute arbitrary binaries via "ShellExecute" - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_shelldispatch_dll_functionality_abuse.tf'
+description: 'Detects potential "ShellDispatch.dll" functionality abuse to execute arbitrary binaries via "ShellExecute" - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_shelldispatch_dll_functionality_abuse.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

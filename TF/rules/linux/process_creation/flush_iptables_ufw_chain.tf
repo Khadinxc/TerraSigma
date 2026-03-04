@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "flush_iptables_ufw_chain" {
   name                       = "flush_iptables_ufw_chain"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Flush Iptables Ufw Chain"
-  description                = "Detect use of iptables to flush all firewall rules, tables and chains and allow all network traffic - Network administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/flush_iptables_ufw_chain.tf"
+  description                = "Detect use of iptables to flush all firewall rules, tables and chains and allow all network traffic - Network administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/flush_iptables_ufw_chain.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

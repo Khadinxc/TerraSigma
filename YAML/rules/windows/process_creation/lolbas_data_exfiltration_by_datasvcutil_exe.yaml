@@ -1,6 +1,6 @@
 id: b3d80920-9d1b-5fae-9648-b26b4f19285c
 name: LOLBAS Data Exfiltration by DataSvcUtil.exe
-description: 'Detects when a user performs data exfiltration by using DataSvcUtil.exe - DataSvcUtil.exe being used may be performed by a system administrator. - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment. - DataSvcUtil.exe being executed from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/lolbas_data_exfiltration_by_datasvcutil_exe.tf'
+description: 'Detects when a user performs data exfiltration by using DataSvcUtil.exe - DataSvcUtil.exe being used may be performed by a system administrator. - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment. - DataSvcUtil.exe being executed from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/lolbas_data_exfiltration_by_datasvcutil_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_odbc_driver_registered" {
   name                       = "new_odbc_driver_registered"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New ODBC Driver Registered"
-  description                = "Detects the registration of a new ODBC driver. - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/new_odbc_driver_registered.tf"
+  description                = "Detects the registration of a new ODBC driver. - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/new_odbc_driver_registered.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceRegistryEvents

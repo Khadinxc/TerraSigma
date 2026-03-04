@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "windows_credential_manager_acc
   name                       = "windows_credential_manager_access_via_vaultcmd"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Credential Manager Access via VaultCmd"
-  description                = "List credentials currently stored in Windows Credential Manager via the native Windows utility vaultcmd.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_credential_manager_access_via_vaultcmd.tf"
+  description                = "List credentials currently stored in Windows Credential Manager via the native Windows utility vaultcmd.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_credential_manager_access_via_vaultcmd.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

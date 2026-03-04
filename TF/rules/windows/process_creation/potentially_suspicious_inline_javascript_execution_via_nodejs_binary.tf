@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_inline_
   name                       = "potentially_suspicious_inline_javascript_execution_via_nodejs_binary"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Inline JavaScript Execution via NodeJS Binary"
-  description                = "Detects potentially suspicious inline JavaScript execution using Node.js with specific keywords in the command line. - Legitimate scripts using Node.js with these modules | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_inline_javascript_execution_via_nodejs_binary.tf"
+  description                = "Detects potentially suspicious inline JavaScript execution using Node.js with specific keywords in the command line. - Legitimate scripts using Node.js with these modules | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_inline_javascript_execution_via_nodejs_binary.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_printer_driver_empt
   name                       = "suspicious_printer_driver_empty_manufacturer"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Printer Driver Empty Manufacturer"
-  description                = "Detects a suspicious printer driver installation with an empty Manufacturer value - Alerts on legitimate printer drivers that do not set any more details in the Manufacturer value | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/suspicious_printer_driver_empty_manufacturer.tf"
+  description                = "Detects a suspicious printer driver installation with an empty Manufacturer value - Alerts on legitimate printer drivers that do not set any more details in the Manufacturer value | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/suspicious_printer_driver_empty_manufacturer.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

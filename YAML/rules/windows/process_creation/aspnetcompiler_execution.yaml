@@ -1,6 +1,6 @@
 id: 5840e96a-ffdd-5faf-a468-e0dc5d199bb1
 name: AspNetCompiler Execution
-description: 'Detects execution of "aspnet_compiler.exe" which can be abused to compile and execute C# code. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/aspnetcompiler_execution.tf'
+description: 'Detects execution of "aspnet_compiler.exe" which can be abused to compile and execute C# code. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/aspnetcompiler_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

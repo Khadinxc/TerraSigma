@@ -1,6 +1,6 @@
 id: 4ded6425-79f6-576f-9eea-396fd31b9bcd
 name: Execution From Webserver Root Folder
-description: 'Detects a program executing from a web server root folder. Use this rule to hunt for potential interesting activity such as webshell or backdoors - Various applications - Tools that include ping or nslookup command invocations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/execution_from_webserver_root_folder.tf'
+description: 'Detects a program executing from a web server root folder. Use this rule to hunt for potential interesting activity such as webshell or backdoors - Various applications - Tools that include ping or nslookup command invocations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/execution_from_webserver_root_folder.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

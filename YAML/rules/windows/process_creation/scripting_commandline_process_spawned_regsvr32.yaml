@@ -1,6 +1,6 @@
 id: 134b564e-d138-5ef1-aca9-fbf5e31d75c1
 name: Scripting/CommandLine Process Spawned Regsvr32
-description: 'Detects various command line and scripting engines/processes such as "PowerShell", "Wscript", "Cmd", etc. spawning a "regsvr32" instance. - Legitimate ".bat", ".hta", ".ps1" or ".vbs" scripts leverage legitimately often. Apply additional filter and exclusions as necessary - Some legitimate Windows services | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/scripting_commandline_process_spawned_regsvr32.tf'
+description: 'Detects various command line and scripting engines/processes such as "PowerShell", "Wscript", "Cmd", etc. spawning a "regsvr32" instance. - Legitimate ".bat", ".hta", ".ps1" or ".vbs" scripts leverage legitimately often. Apply additional filter and exclusions as necessary - Some legitimate Windows services | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/scripting_commandline_process_spawned_regsvr32.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

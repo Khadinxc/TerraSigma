@@ -1,6 +1,6 @@
 id: addfdc56-8898-5fb9-a361-785d8f354eb1
 name: Use of W32tm as Timer
-description: 'When configured with suitable command line arguments, w32tm can act as a delay mechanism - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_of_w32tm_as_timer.tf'
+description: 'When configured with suitable command line arguments, w32tm can act as a delay mechanism - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_of_w32tm_as_timer.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

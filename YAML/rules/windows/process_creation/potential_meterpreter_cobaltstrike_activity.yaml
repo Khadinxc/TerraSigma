@@ -1,6 +1,6 @@
 id: 1251f7d7-69e1-55d8-9da7-c84c93f59591
 name: Potential Meterpreter/CobaltStrike Activity
-description: 'Detects the use of getsystem Meterpreter/Cobalt Strike command by detecting a specific service starting - Commandlines containing components like cmd accidentally - Jobs and services started with cmd | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_meterpreter_cobaltstrike_activity.tf'
+description: 'Detects the use of getsystem Meterpreter/Cobalt Strike command by detecting a specific service starting - Commandlines containing components like cmd accidentally - Jobs and services started with cmd | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_meterpreter_cobaltstrike_activity.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

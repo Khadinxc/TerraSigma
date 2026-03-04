@@ -1,6 +1,6 @@
 id: 9a4a11b7-e2c0-537c-964f-210ec4e94092
 name: Suspicious File Downloaded From File-Sharing Website Via Certutil.EXE
-description: 'Detects the execution of certutil with certain flags that allow the utility to download files from file-sharing websites. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_file_downloaded_from_file_sharing_website_via_certutil_exe.tf'
+description: 'Detects the execution of certutil with certain flags that allow the utility to download files from file-sharing websites. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_file_downloaded_from_file_sharing_website_via_certutil_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

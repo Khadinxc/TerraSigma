@@ -1,6 +1,6 @@
 id: 084681d7-a797-5126-b402-088737f6d940
 name: Potentially Suspicious Child Processes Spawned by ConHost
-description: 'Detects suspicious child processes related to Windows Shell utilities spawned by `conhost.exe`, which could indicate malicious activity using trusted system components. - Legitimate administrative tasks using `conhost.exe` to spawn child processes such as `cmd.exe`, `powershell.exe`, or `regsvr32.exe`. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_child_processes_spawned_by_conhost.tf'
+description: 'Detects suspicious child processes related to Windows Shell utilities spawned by `conhost.exe`, which could indicate malicious activity using trusted system components. - Legitimate administrative tasks using `conhost.exe` to spawn child processes such as `cmd.exe`, `powershell.exe`, or `regsvr32.exe`. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_child_processes_spawned_by_conhost.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

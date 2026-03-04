@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_ping_co
   name                       = "potentially_suspicious_ping_copy_command_combination"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Ping/Copy Command Combination"
-  description                = "Detects uncommon and potentially suspicious one-liner command containing both \"ping\" and \"copy\" at the same time, which is usually used by malware. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_ping_copy_command_combination.tf"
+  description                = "Detects uncommon and potentially suspicious one-liner command containing both \"ping\" and \"copy\" at the same time, which is usually used by malware. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_ping_copy_command_combination.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

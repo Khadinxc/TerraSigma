@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "remote_access_tool_screenconne
   name                       = "remote_access_tool_screenconnect_remote_command_execution_hunting"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Access Tool - ScreenConnect Remote Command Execution - Hunting"
-  description                = "Detects remote binary or command execution via the ScreenConnect Service. Use this rule in order to hunt for potentially anomalous executions originating from ScreenConnect - Legitimate commands launched from ScreenConnect will also trigger this rule. Look for anomalies. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/remote_access_tool_screenconnect_remote_command_execution_hunting.tf"
+  description                = "Detects remote binary or command execution via the ScreenConnect Service. Use this rule in order to hunt for potentially anomalous executions originating from ScreenConnect - Legitimate commands launched from ScreenConnect will also trigger this rule. Look for anomalies. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/remote_access_tool_screenconnect_remote_command_execution_hunting.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "linux_setgid_capability_set_on
   name                       = "linux_setgid_capability_set_on_a_binary_via_setcap_utility"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux Setgid Capability Set on a Binary via Setcap Utility"
-  description                = "Detects the use of the 'setcap' utility to set the 'setgid' capability (cap_setgid) on a binary file. This capability allows a non privileged process to make arbitrary manipulations of group IDs (GIDs), including setting its current GID to a value that would otherwise be restricted (i.e. GID 0, the root group). This behavior can be used by adversaries to backdoor a binary in order to escalate privileges again in the future if needed. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_setgid_capability_set_on_a_binary_via_setcap_utility.tf"
+  description                = "Detects the use of the 'setcap' utility to set the 'setgid' capability (cap_setgid) on a binary file. This capability allows a non privileged process to make arbitrary manipulations of group IDs (GIDs), including setting its current GID to a value that would otherwise be restricted (i.e. GID 0, the root group). This behavior can be used by adversaries to backdoor a binary in order to escalate privileges again in the future if needed. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_setgid_capability_set_on_a_binary_via_setcap_utility.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

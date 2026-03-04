@@ -1,6 +1,6 @@
 id: c8c5df87-05cf-5ab4-8487-297c319dd7a2
 name: Suspicious Regsvr32 Execution From Remote Share
-description: 'Detects REGSVR32.exe to execute DLL hosted on remote shares | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_regsvr32_execution_from_remote_share.tf'
+description: 'Detects REGSVR32.exe to execute DLL hosted on remote shares | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_regsvr32_execution_from_remote_share.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

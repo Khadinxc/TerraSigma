@@ -1,6 +1,6 @@
 id: 741c6f30-06c7-50ed-a608-b664e7575f24
 name: HackTool - CrackMapExec File Indicators
-description: 'Detects file creation events with filename patterns used by CrackMapExec. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/hacktool_crackmapexec_file_indicators.tf'
+description: 'Detects file creation events with filename patterns used by CrackMapExec. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/hacktool_crackmapexec_file_indicators.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

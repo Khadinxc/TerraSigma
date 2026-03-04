@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "utilityfunctions_ps1_proxy_dll
   name                       = "utilityfunctions_ps1_proxy_dll"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UtilityFunctions.ps1 Proxy Dll"
-  description                = "Detects the use of a Microsoft signed script executing a managed DLL with PowerShell. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/utilityfunctions_ps1_proxy_dll.tf"
+  description                = "Detects the use of a Microsoft signed script executing a managed DLL with PowerShell. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/utilityfunctions_ps1_proxy_dll.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

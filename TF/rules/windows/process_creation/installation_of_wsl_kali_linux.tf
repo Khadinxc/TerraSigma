@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "installation_of_wsl_kali_linux
   name                       = "installation_of_wsl_kali_linux"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Installation of WSL Kali-Linux"
-  description                = "Detects installation of Kali Linux distribution through Windows Subsystem for Linux (WSL). Attackers may use Kali Linux WSL to leverage its penetration testing tools and capabilities for malicious purposes. - Legitimate installation or usage of Kali Linux WSL by administrators or security teams | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/installation_of_wsl_kali_linux.tf"
+  description                = "Detects installation of Kali Linux distribution through Windows Subsystem for Linux (WSL). Attackers may use Kali Linux WSL to leverage its penetration testing tools and capabilities for malicious purposes. - Legitimate installation or usage of Kali Linux WSL by administrators or security teams | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/installation_of_wsl_kali_linux.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

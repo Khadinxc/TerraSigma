@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "windows_hypervisor_enforced_co
   name                       = "windows_hypervisor_enforced_code_integrity_disabled"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Hypervisor Enforced Code Integrity Disabled"
-  description                = "Detects changes to the HypervisorEnforcedCodeIntegrity registry key and the \"Enabled\" value being set to 0 in order to disable the Hypervisor Enforced Code Integrity feature. This allows an attacker to load unsigned and untrusted code to be run in the kernel - Legitimate system administration tasks that require disabling HVCI for troubleshooting purposes when certain drivers or applications are incompatible with it. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/windows_hypervisor_enforced_code_integrity_disabled.tf"
+  description                = "Detects changes to the HypervisorEnforcedCodeIntegrity registry key and the \"Enabled\" value being set to 0 in order to disable the Hypervisor Enforced Code Integrity feature. This allows an attacker to load unsigned and untrusted code to be run in the kernel - Legitimate system administration tasks that require disabling HVCI for troubleshooting purposes when certain drivers or applications are incompatible with it. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/windows_hypervisor_enforced_code_integrity_disabled.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

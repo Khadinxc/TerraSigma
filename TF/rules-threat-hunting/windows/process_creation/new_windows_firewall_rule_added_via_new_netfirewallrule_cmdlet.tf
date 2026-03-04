@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_windows_firewall_rule_adde
   name                       = "new_windows_firewall_rule_added_via_new_netfirewallrule_cmdlet"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Windows Firewall Rule Added Via New-NetFirewallRule Cmdlet"
-  description                = "Detects calls to the \"New-NetFirewallRule\" cmdlet from PowerShell in order to add a new firewall rule with an \"Allow\" action. - Administrator script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/new_windows_firewall_rule_added_via_new_netfirewallrule_cmdlet.tf"
+  description                = "Detects calls to the \"New-NetFirewallRule\" cmdlet from PowerShell in order to add a new firewall rule with an \"Allow\" action. - Administrator script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/new_windows_firewall_rule_added_via_new_netfirewallrule_cmdlet.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

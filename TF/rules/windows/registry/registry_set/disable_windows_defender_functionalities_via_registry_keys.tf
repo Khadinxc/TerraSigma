@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "disable_windows_defender_funct
   name                       = "disable_windows_defender_functionalities_via_registry_keys"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disable Windows Defender Functionalities Via Registry Keys"
-  description                = "Detects when attackers or tools disable Windows Defender functionalities via the Windows registry - Administrator actions via the Windows Defender interface - Third party Antivirus | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/disable_windows_defender_functionalities_via_registry_keys.tf"
+  description                = "Detects when attackers or tools disable Windows Defender functionalities via the Windows registry - Administrator actions via the Windows Defender interface - Third party Antivirus | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/disable_windows_defender_functionalities_via_registry_keys.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

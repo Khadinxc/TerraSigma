@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_arbitrary_command_ex
   name                       = "potential_arbitrary_command_execution_via_ftp_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Arbitrary Command Execution Via FTP.EXE"
-  description                = "Detects execution of \"ftp.exe\" script with the \"-s\" or \"/s\" flag and any child processes ran by \"ftp.exe\". | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_arbitrary_command_execution_via_ftp_exe.tf"
+  description                = "Detects execution of \"ftp.exe\" script with the \"-s\" or \"/s\" flag and any child processes ran by \"ftp.exe\". | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_arbitrary_command_execution_via_ftp_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

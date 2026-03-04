@@ -1,6 +1,6 @@
 id: 8d41394c-7e50-51ab-a8c7-0522e29dc268
 name: Code Execution via Pcwutl.dll
-description: 'Detects launch of executable by calling the LaunchApplication function from pcwutl.dll library. - Use of Program Compatibility Troubleshooter Helper | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/code_execution_via_pcwutl_dll.tf'
+description: 'Detects launch of executable by calling the LaunchApplication function from pcwutl.dll library. - Use of Program Compatibility Troubleshooter Helper | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/code_execution_via_pcwutl_dll.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

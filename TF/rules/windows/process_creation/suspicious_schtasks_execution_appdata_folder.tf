@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_schtasks_execution_
   name                       = "suspicious_schtasks_execution_appdata_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Schtasks Execution AppData Folder"
-  description                = "Detects the creation of a schtask that executes a file from C:\\Users\\<USER>\\AppData\\Local | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_schtasks_execution_appdata_folder.tf"
+  description                = "Detects the creation of a schtask that executes a file from C:\\Users\\<USER>\\AppData\\Local | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_schtasks_execution_appdata_folder.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

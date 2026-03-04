@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_suspicious_powershel
   name                       = "potential_suspicious_powershell_module_file_created"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Suspicious PowerShell Module File Created"
-  description                = "Detects the creation of a new PowerShell module in the first folder of the module directory structure \"\\WindowsPowerShell\\Modules\\malware\\malware.psm1\". This is somewhat an uncommon practice as legitimate modules often includes a version folder. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_suspicious_powershell_module_file_created.tf"
+  description                = "Detects the creation of a new PowerShell module in the first folder of the module directory structure \"\\WindowsPowerShell\\Modules\\malware\\malware.psm1\". This is somewhat an uncommon practice as legitimate modules often includes a version folder. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_suspicious_powershell_module_file_created.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

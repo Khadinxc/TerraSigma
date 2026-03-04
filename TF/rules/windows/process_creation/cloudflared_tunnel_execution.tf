@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "cloudflared_tunnel_execution" 
   name                       = "cloudflared_tunnel_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Cloudflared Tunnel Execution"
-  description                = "Detects execution of the \"cloudflared\" tool to connect back to a tunnel. This was seen used by threat actors to maintain persistence and remote access to compromised networks. - Legitimate usage of Cloudflared tunnel. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/cloudflared_tunnel_execution.tf"
+  description                = "Detects execution of the \"cloudflared\" tool to connect back to a tunnel. This was seen used by threat actors to maintain persistence and remote access to compromised networks. - Legitimate usage of Cloudflared tunnel. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/cloudflared_tunnel_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

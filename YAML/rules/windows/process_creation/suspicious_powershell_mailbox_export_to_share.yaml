@@ -1,6 +1,6 @@
 id: b356dc20-ac35-53a9-9986-4e8ed0dc712d
 name: Suspicious PowerShell Mailbox Export to Share
-description: 'Detects usage of the powerShell New-MailboxExportRequest Cmdlet to exports a mailbox to a remote or local share, as used in ProxyShell exploitations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_powershell_mailbox_export_to_share.tf'
+description: 'Detects usage of the powerShell New-MailboxExportRequest Cmdlet to exports a mailbox to a remote or local share, as used in ProxyShell exploitations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_powershell_mailbox_export_to_share.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

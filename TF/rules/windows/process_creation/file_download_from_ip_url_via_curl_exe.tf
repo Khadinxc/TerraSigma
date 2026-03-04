@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_download_from_ip_url_via_
   name                       = "file_download_from_ip_url_via_curl_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Download From IP URL Via Curl.EXE"
-  description                = "Detects file downloads directly from IP address URL using curl.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_from_ip_url_via_curl_exe.tf"
+  description                = "Detects file downloads directly from IP address URL using curl.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_from_ip_url_via_curl_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

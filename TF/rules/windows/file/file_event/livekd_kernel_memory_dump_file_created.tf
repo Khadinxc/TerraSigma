@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "livekd_kernel_memory_dump_file
   name                       = "livekd_kernel_memory_dump_file_created"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "LiveKD Kernel Memory Dump File Created"
-  description                = "Detects the creation of a file that has the same name as the default LiveKD kernel memory dump. - In rare occasions administrators might leverage LiveKD to perform live kernel debugging. This should not be allowed on production systems. Investigate and apply additional filters where necessary. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/livekd_kernel_memory_dump_file_created.tf"
+  description                = "Detects the creation of a file that has the same name as the default LiveKD kernel memory dump. - In rare occasions administrators might leverage LiveKD to perform live kernel debugging. This should not be allowed on production systems. Investigate and apply additional filters where necessary. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/livekd_kernel_memory_dump_file_created.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

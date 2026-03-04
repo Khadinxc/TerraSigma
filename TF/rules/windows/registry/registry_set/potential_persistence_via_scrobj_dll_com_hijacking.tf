@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_persistence_via_scro
   name                       = "potential_persistence_via_scrobj_dll_com_hijacking"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Scrobj.dll COM Hijacking"
-  description                = "Detect use of scrobj.dll as this DLL looks for the ScriptletURL key to get the location of the script to execute - Legitimate use of the dll. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_scrobj_dll_com_hijacking.tf"
+  description                = "Detect use of scrobj.dll as this DLL looks for the ScriptletURL key to get the location of the script to execute - Legitimate use of the dll. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_scrobj_dll_com_hijacking.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

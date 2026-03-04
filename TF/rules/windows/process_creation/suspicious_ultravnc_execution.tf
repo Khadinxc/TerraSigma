@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_ultravnc_execution"
   name                       = "suspicious_ultravnc_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious UltraVNC Execution"
-  description                = "Detects suspicious UltraVNC command line flag combination that indicate a auto reconnect upon execution, e.g. startup (as seen being used by Gamaredon threat group) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_ultravnc_execution.tf"
+  description                = "Detects suspicious UltraVNC command line flag combination that indicate a auto reconnect upon execution, e.g. startup (as seen being used by Gamaredon threat group) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_ultravnc_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

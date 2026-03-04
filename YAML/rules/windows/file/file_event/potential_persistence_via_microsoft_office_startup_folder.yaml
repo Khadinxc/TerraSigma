@@ -1,6 +1,6 @@
 id: 28d67ae4-6340-5368-84d9-4f6b5963622d
 name: Potential Persistence Via Microsoft Office Startup Folder
-description: 'Detects creation of Microsoft Office files inside of one of the default startup folders in order to achieve persistence. - Loading a user environment from a backup or a domain controller - Synchronization of templates | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_persistence_via_microsoft_office_startup_folder.tf'
+description: 'Detects creation of Microsoft Office files inside of one of the default startup folders in order to achieve persistence. - Loading a user environment from a backup or a domain controller - Synchronization of templates | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_persistence_via_microsoft_office_startup_folder.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

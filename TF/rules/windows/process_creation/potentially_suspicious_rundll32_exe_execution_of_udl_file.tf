@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_rundll3
   name                       = "potentially_suspicious_rundll32_exe_execution_of_udl_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Rundll32.EXE Execution of UDL File"
-  description                = "Detects the execution of rundll32.exe with the oledb32.dll library to open a UDL file. Threat actors can abuse this technique as a phishing vector to capture authentication credentials or other sensitive data. - UDL files serve as a convenient and flexible tool for managing and testing database connections in various development and administrative scenarios. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_rundll32_exe_execution_of_udl_file.tf"
+  description                = "Detects the execution of rundll32.exe with the oledb32.dll library to open a UDL file. Threat actors can abuse this technique as a phishing vector to capture authentication credentials or other sensitive data. - UDL files serve as a convenient and flexible tool for managing and testing database connections in various development and administrative scenarios. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_rundll32_exe_execution_of_udl_file.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

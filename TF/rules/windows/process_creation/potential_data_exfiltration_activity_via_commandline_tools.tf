@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_data_exfiltration_ac
   name                       = "potential_data_exfiltration_activity_via_commandline_tools"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Data Exfiltration Activity Via CommandLine Tools"
-  description                = "Detects the use of various CLI utilities exfiltrating data via web requests - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_data_exfiltration_activity_via_commandline_tools.tf"
+  description                = "Detects the use of various CLI utilities exfiltrating data via web requests - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_data_exfiltration_activity_via_commandline_tools.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

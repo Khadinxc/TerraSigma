@@ -1,6 +1,6 @@
 id: a5383593-5dec-543e-9246-24b4ded4fa1b
 name: Potential Privilege Escalation Using Symlink Between Osk and Cmd
-description: 'Detects the creation of a symbolic link between "cmd.exe" and the accessibility on-screen keyboard binary (osk.exe) using "mklink". This technique provides an elevated command prompt to the user from the login screen without the need to log in. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_privilege_escalation_using_symlink_between_osk_and_cmd.tf'
+description: 'Detects the creation of a symbolic link between "cmd.exe" and the accessibility on-screen keyboard binary (osk.exe) using "mklink". This technique provides an elevated command prompt to the user from the login screen without the need to log in. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_privilege_escalation_using_symlink_between_osk_and_cmd.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

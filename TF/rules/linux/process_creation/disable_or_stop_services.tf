@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "disable_or_stop_services" {
   name                       = "disable_or_stop_services"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disable Or Stop Services"
-  description                = "Detects the usage of utilities such as 'systemctl', 'service'...etc to stop or disable tools and services - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/disable_or_stop_services.tf"
+  description                = "Detects the usage of utilities such as 'systemctl', 'service'...etc to stop or disable tools and services - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/disable_or_stop_services.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

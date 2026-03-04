@@ -1,6 +1,6 @@
 id: 0329e0c2-d821-588d-933f-8a97bbeecd75
 name: SyncAppvPublishingServer VBS Execute Arbitrary PowerShell Code
-description: 'Executes arbitrary PowerShell code using SyncAppvPublishingServer.vbs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/syncappvpublishingserver_vbs_execute_arbitrary_powershell_code.tf'
+description: 'Executes arbitrary PowerShell code using SyncAppvPublishingServer.vbs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/syncappvpublishingserver_vbs_execute_arbitrary_powershell_code.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

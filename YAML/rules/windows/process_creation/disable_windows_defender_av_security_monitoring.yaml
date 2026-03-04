@@ -1,6 +1,6 @@
 id: e9a85fae-5131-507e-8dc4-1eb24434c612
 name: Disable Windows Defender AV Security Monitoring
-description: 'Detects attackers attempting to disable Windows Defender using Powershell - Minimal, for some older versions of dev tools, such as pycharm, developers were known to sometimes disable Windows Defender to improve performance, but this generally is not considered a good security practice. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/disable_windows_defender_av_security_monitoring.tf'
+description: 'Detects attackers attempting to disable Windows Defender using Powershell - Minimal, for some older versions of dev tools, such as pycharm, developers were known to sometimes disable Windows Defender to improve performance, but this generally is not considered a good security practice. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/disable_windows_defender_av_security_monitoring.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

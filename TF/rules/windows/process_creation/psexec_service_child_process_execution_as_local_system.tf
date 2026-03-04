@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "psexec_service_child_process_e
   name                       = "psexec_service_child_process_execution_as_local_system"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PsExec Service Child Process Execution as LOCAL SYSTEM"
-  description                = "Detects suspicious launch of the PSEXESVC service on this system and a sub process run as LOCAL_SYSTEM (-s), which means that someone remotely started a command on this system running it with highest privileges and not only the privileges of the login user account (e.g. the administrator account) - Users that debug Microsoft Intune issues using the commands mentioned in the official documentation; see https://learn.microsoft.com/en-us/mem/intune/apps/intune-management-extension | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/psexec_service_child_process_execution_as_local_system.tf"
+  description                = "Detects suspicious launch of the PSEXESVC service on this system and a sub process run as LOCAL_SYSTEM (-s), which means that someone remotely started a command on this system running it with highest privileges and not only the privileges of the login user account (e.g. the administrator account) - Users that debug Microsoft Intune issues using the commands mentioned in the official documentation; see https://learn.microsoft.com/en-us/mem/intune/apps/intune-management-extension | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/psexec_service_child_process_execution_as_local_system.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

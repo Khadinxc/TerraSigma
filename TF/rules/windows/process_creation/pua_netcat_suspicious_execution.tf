@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_netcat_suspicious_executio
   name                       = "pua_netcat_suspicious_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Netcat Suspicious Execution"
-  description                = "Detects execution of Netcat. Adversaries may use a non-application layer protocol for communication between host and C2 server or among infected hosts within a network - Legitimate ncat use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_netcat_suspicious_execution.tf"
+  description                = "Detects execution of Netcat. Adversaries may use a non-application layer protocol for communication between host and C2 server or among infected hosts within a network - Legitimate ncat use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_netcat_suspicious_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

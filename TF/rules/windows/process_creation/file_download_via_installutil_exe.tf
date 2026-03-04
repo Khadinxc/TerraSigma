@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_download_via_installutil_
   name                       = "file_download_via_installutil_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Download Via InstallUtil.EXE"
-  description                = "Detects use of .NET InstallUtil.exe in order to download arbitrary files. The files will be written to \"%LOCALAPPDATA%\\Microsoft\\Windows\\INetCache\\IE\\\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_via_installutil_exe.tf"
+  description                = "Detects use of .NET InstallUtil.exe in order to download arbitrary files. The files will be written to \"%LOCALAPPDATA%\\Microsoft\\Windows\\INetCache\\IE\\\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_via_installutil_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

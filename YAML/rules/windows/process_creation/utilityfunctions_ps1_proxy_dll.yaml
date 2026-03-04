@@ -1,6 +1,6 @@
 id: 5cdd98c0-0c2b-5e07-9c3a-e80d932ec217
 name: UtilityFunctions.ps1 Proxy Dll
-description: 'Detects the use of a Microsoft signed script executing a managed DLL with PowerShell. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/utilityfunctions_ps1_proxy_dll.tf'
+description: 'Detects the use of a Microsoft signed script executing a managed DLL with PowerShell. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/utilityfunctions_ps1_proxy_dll.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

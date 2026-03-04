@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_program_location_wh
   name                       = "suspicious_program_location_whitelisted_in_firewall_via_netsh_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Program Location Whitelisted In Firewall Via Netsh.EXE"
-  description                = "Detects Netsh command execution that whitelists a program located in a suspicious location in the Windows Firewall | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_program_location_whitelisted_in_firewall_via_netsh_exe.tf"
+  description                = "Detects Netsh command execution that whitelists a program located in a suspicious location in the Windows Firewall | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_program_location_whitelisted_in_firewall_via_netsh_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

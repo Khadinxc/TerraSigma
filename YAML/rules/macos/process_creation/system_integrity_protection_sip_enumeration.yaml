@@ -1,6 +1,6 @@
 id: 5baf0a6c-8255-53e8-ad41-71ba2b117acc
 name: System Integrity Protection (SIP) Enumeration
-description: 'Detects the use of csrutil to view the Configure System Integrity Protection (SIP) status. This technique is used in post-exploit scenarios. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/system_integrity_protection_sip_enumeration.tf'
+description: 'Detects the use of csrutil to view the Configure System Integrity Protection (SIP) status. This technique is used in post-exploit scenarios. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/system_integrity_protection_sip_enumeration.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

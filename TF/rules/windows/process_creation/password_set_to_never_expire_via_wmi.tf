@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "password_set_to_never_expire_v
   name                       = "password_set_to_never_expire_via_wmi"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Password Set to Never Expire via WMI"
-  description                = "Detects the use of wmic.exe to modify user account settings and explicitly disable password expiration. - Legitimate administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/password_set_to_never_expire_via_wmi.tf"
+  description                = "Detects the use of wmic.exe to modify user account settings and explicitly disable password expiration. - Legitimate administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/password_set_to_never_expire_via_wmi.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

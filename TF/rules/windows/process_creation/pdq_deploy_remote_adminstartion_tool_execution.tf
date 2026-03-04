@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pdq_deploy_remote_adminstartio
   name                       = "pdq_deploy_remote_adminstartion_tool_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PDQ Deploy Remote Adminstartion Tool Execution"
-  description                = "Detect use of PDQ Deploy remote admin tool - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pdq_deploy_remote_adminstartion_tool_execution.tf"
+  description                = "Detect use of PDQ Deploy remote admin tool - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pdq_deploy_remote_adminstartion_tool_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

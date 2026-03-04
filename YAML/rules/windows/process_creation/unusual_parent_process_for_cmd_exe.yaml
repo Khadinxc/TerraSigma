@@ -1,6 +1,6 @@
 id: ee299baf-2d60-50e2-9b8b-41474b02324c
 name: Unusual Parent Process For Cmd.EXE
-description: 'Detects suspicious parent process for cmd.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/unusual_parent_process_for_cmd_exe.tf'
+description: 'Detects suspicious parent process for cmd.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/unusual_parent_process_for_cmd_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

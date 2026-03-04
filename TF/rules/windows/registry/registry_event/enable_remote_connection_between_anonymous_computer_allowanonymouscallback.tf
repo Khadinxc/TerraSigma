@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "enable_remote_connection_betwe
   name                       = "enable_remote_connection_between_anonymous_computer_allowanonymouscallback"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Enable Remote Connection Between Anonymous Computer - AllowAnonymousCallback"
-  description                = "Detects enabling of the \"AllowAnonymousCallback\" registry value, which allows a remote connection between computers that do not have a trust relationship. - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/enable_remote_connection_between_anonymous_computer_allowanonymouscallback.tf"
+  description                = "Detects enabling of the \"AllowAnonymousCallback\" registry value, which allows a remote connection between computers that do not have a trust relationship. - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/enable_remote_connection_between_anonymous_computer_allowanonymouscallback.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

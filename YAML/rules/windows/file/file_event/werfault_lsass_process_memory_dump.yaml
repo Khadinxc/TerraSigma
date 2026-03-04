@@ -1,6 +1,6 @@
 id: 18ee9080-af37-5fc1-99a5-0e250c473ac4
 name: WerFault LSASS Process Memory Dump
-description: 'Detects WerFault creating a dump file with a name that indicates that the dump file could be an LSASS process memory, which contains user credentials | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/werfault_lsass_process_memory_dump.tf'
+description: 'Detects WerFault creating a dump file with a name that indicates that the dump file could be an LSASS process memory, which contains user credentials | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/werfault_lsass_process_memory_dump.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: abef5b07-f5fa-5838-9fff-41a05fb63dc3
 name: PUA - Adidnsdump Execution
-description: 'This tool enables enumeration and exporting of all DNS records in the zone for recon purposes of internal networks Python 3 and python.exe must be installed, Usee to Query/modify DNS records for Active Directory integrated DNS via LDAP | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_adidnsdump_execution.tf'
+description: 'This tool enables enumeration and exporting of all DNS records in the zone for recon purposes of internal networks Python 3 and python.exe must be installed, Usee to Query/modify DNS records for Active Directory integrated DNS via LDAP | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_adidnsdump_execution.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

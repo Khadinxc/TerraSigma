@@ -1,6 +1,6 @@
 id: 37d8935c-7834-5dcd-a77f-cee96e3e1e57
 name: RDP Port Forwarding Rule Added Via Netsh.EXE
-description: 'Detects the execution of netsh to configure a port forwarding of port 3389 (RDP) rule - Legitimate administration activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rdp_port_forwarding_rule_added_via_netsh_exe.tf'
+description: 'Detects the execution of netsh to configure a port forwarding of port 3389 (RDP) rule - Legitimate administration activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rdp_port_forwarding_rule_added_via_netsh_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

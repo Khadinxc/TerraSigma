@@ -1,6 +1,6 @@
 id: 110ccd9d-2a82-5b84-9388-16a8365fb995
 name: MacOS Scripting Interpreter AppleScript
-description: 'Detects execution of AppleScript of the macOS scripting language AppleScript. - Application installers might contain scripts as part of the installation process. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/macos_scripting_interpreter_applescript.tf'
+description: 'Detects execution of AppleScript of the macOS scripting language AppleScript. - Application installers might contain scripts as part of the installation process. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/macos_scripting_interpreter_applescript.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

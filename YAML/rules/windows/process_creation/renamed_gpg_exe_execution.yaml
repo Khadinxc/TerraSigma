@@ -1,6 +1,6 @@
 id: f773ebfc-6d22-57fa-b131-e8fdf3c7456c
 name: Renamed Gpg.EXE Execution
-description: 'Detects the execution of a renamed "gpg.exe". Often used by ransomware and loaders to decrypt/encrypt data. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_gpg_exe_execution.tf'
+description: 'Detects the execution of a renamed "gpg.exe". Often used by ransomware and loaders to decrypt/encrypt data. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_gpg_exe_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

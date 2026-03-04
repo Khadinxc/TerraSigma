@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dll_load_via_lsass" {
   name                       = "dll_load_via_lsass"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DLL Load via LSASS"
-  description                = "Detects a method to load DLL via LSASS process using an undocumented Registry key | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/dll_load_via_lsass.tf"
+  description                = "Detects a method to load DLL via LSASS process using an undocumented Registry key | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/dll_load_via_lsass.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

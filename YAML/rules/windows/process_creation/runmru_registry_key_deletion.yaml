@@ -1,6 +1,6 @@
 id: ed6ea818-6126-55ee-8474-94ecb46fe8b0
 name: RunMRU Registry Key Deletion
-description: 'Detects deletion of the RunMRU registry key, which stores the history of commands executed via the Run dialog. In the clickfix techniques, the phishing lures instruct users to open a run dialog through (Win + R) and execute malicious commands. Adversaries may delete this key to cover their tracks after executing commands. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/runmru_registry_key_deletion.tf'
+description: 'Detects deletion of the RunMRU registry key, which stores the history of commands executed via the Run dialog. In the clickfix techniques, the phishing lures instruct users to open a run dialog through (Win + R) and execute malicious commands. Adversaries may delete this key to cover their tracks after executing commands. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/runmru_registry_key_deletion.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

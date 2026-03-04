@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "python_function_execution_secu
   name                       = "python_function_execution_security_warning_disabled_in_excel"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Python Function Execution Security Warning Disabled In Excel"
-  description                = "Detects changes to the registry value \"PythonFunctionWarnings\" that would prevent any warnings or alerts from showing when Python functions are about to be executed. Threat actors could run malicious code through the new Microsoft Excel feature that allows Python to run within the spreadsheet. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/python_function_execution_security_warning_disabled_in_excel.tf"
+  description                = "Detects changes to the registry value \"PythonFunctionWarnings\" that would prevent any warnings or alerts from showing when Python functions are about to be executed. Threat actors could run malicious code through the new Microsoft Excel feature that allows Python to run within the spreadsheet. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/python_function_execution_security_warning_disabled_in_excel.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

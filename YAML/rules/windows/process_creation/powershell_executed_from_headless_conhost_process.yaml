@@ -1,6 +1,6 @@
 id: 2c779a68-7df6-5a48-ade5-35690b424208
 name: Powershell Executed From Headless ConHost Process
-description: 'Detects the use of powershell commands from headless ConHost window. The "--headless" flag hides the windows from the user upon execution. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_executed_from_headless_conhost_process.tf'
+description: 'Detects the use of powershell commands from headless ConHost window. The "--headless" flag hides the windows from the user upon execution. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_executed_from_headless_conhost_process.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

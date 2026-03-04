@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_encryption_decryption_via
   name                       = "file_encryption_decryption_via_gpg4win_from_suspicious_locations"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Encryption/Decryption Via Gpg4win From Suspicious Locations"
-  description                = "Detects usage of Gpg4win to encrypt/decrypt files located in potentially suspicious locations. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_encryption_decryption_via_gpg4win_from_suspicious_locations.tf"
+  description                = "Detects usage of Gpg4win to encrypt/decrypt files located in potentially suspicious locations. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_encryption_decryption_via_gpg4win_from_suspicious_locations.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: 24c999a2-4417-5fcc-b61c-a1f0ba5ac890
 name: Sysprep on AppData Folder
-description: 'Detects suspicious sysprep process start with AppData folder as target (as used by Trojan Syndicasec in Thrip report by Symantec) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sysprep_on_appdata_folder.tf'
+description: 'Detects suspicious sysprep process start with AppData folder as target (as used by Trojan Syndicasec in Thrip report by Symantec) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sysprep_on_appdata_folder.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

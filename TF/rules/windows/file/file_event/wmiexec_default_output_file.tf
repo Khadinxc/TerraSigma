@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "wmiexec_default_output_file" {
   name                       = "wmiexec_default_output_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Wmiexec Default Output File"
-  description                = "Detects the creation of the default output filename used by the wmiexec tool - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/wmiexec_default_output_file.tf"
+  description                = "Detects the creation of the default output filename used by the wmiexec tool - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/wmiexec_default_output_file.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

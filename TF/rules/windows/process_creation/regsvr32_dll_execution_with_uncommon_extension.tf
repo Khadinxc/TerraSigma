@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "regsvr32_dll_execution_with_un
   name                       = "regsvr32_dll_execution_with_uncommon_extension"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Regsvr32 DLL Execution With Uncommon Extension"
-  description                = "Detects a \"regsvr32\" execution where the DLL doesn't contain a common file extension. - Other legitimate extensions currently not in the list either from third party or specific Windows components. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/regsvr32_dll_execution_with_uncommon_extension.tf"
+  description                = "Detects a \"regsvr32\" execution where the DLL doesn't contain a common file extension. - Other legitimate extensions currently not in the list either from third party or specific Windows components. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/regsvr32_dll_execution_with_uncommon_extension.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "shell_invocation_via_env_comma
   name                       = "shell_invocation_via_env_command_linux"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Shell Invocation via Env Command - Linux"
-  description                = "Detects the use of the env command to invoke a shell. This may indicate an attempt to bypass restricted environments, escalate privileges, or execute arbitrary commands. - Github operations such as ghe-backup | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/shell_invocation_via_env_command_linux.tf"
+  description                = "Detects the use of the env command to invoke a shell. This may indicate an attempt to bypass restricted environments, escalate privileges, or execute arbitrary commands. - Github operations such as ghe-backup | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/shell_invocation_via_env_command_linux.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

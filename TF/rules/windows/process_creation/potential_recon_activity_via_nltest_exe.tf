@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_recon_activity_via_n
   name                       = "potential_recon_activity_via_nltest_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Recon Activity Via Nltest.EXE"
-  description                = "Detects nltest commands that can be used for information discovery - Legitimate administration use but user and host must be investigated | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_recon_activity_via_nltest_exe.tf"
+  description                = "Detects nltest commands that can be used for information discovery - Legitimate administration use but user and host must be investigated | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_recon_activity_via_nltest_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

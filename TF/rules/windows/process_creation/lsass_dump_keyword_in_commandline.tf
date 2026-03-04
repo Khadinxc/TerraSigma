@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "lsass_dump_keyword_in_commandl
   name                       = "lsass_dump_keyword_in_commandline"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "LSASS Dump Keyword In CommandLine"
-  description                = "Detects the presence of the keywords \"lsass\" and \".dmp\" in the commandline, which could indicate a potential attempt to dump or create a dump of the lsass process. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/lsass_dump_keyword_in_commandline.tf"
+  description                = "Detects the presence of the keywords \"lsass\" and \".dmp\" in the commandline, which could indicate a potential attempt to dump or create a dump of the lsass process. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/lsass_dump_keyword_in_commandline.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

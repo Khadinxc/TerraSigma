@@ -1,6 +1,6 @@
 id: 6252c7ac-b562-5335-95c8-a220764507f1
 name: Suspicious Runscripthelper.exe
-description: 'Detects execution of powershell scripts via Runscripthelper.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_runscripthelper_exe.tf'
+description: 'Detects execution of powershell scripts via Runscripthelper.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_runscripthelper_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

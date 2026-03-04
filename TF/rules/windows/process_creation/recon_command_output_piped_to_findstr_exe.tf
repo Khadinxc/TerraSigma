@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "recon_command_output_piped_to_
   name                       = "recon_command_output_piped_to_findstr_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Recon Command Output Piped To Findstr.EXE"
-  description                = "Detects the execution of a potential recon command where the results are piped to \"findstr\". This is meant to trigger on inline calls of \"cmd.exe\" via the \"/c\" or \"/k\" for example. Attackers often time use this technique to extract specific information they require in their reconnaissance phase. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/recon_command_output_piped_to_findstr_exe.tf"
+  description                = "Detects the execution of a potential recon command where the results are piped to \"findstr\". This is meant to trigger on inline calls of \"cmd.exe\" via the \"/c\" or \"/k\" for example. Attackers often time use this technique to extract specific information they require in their reconnaissance phase. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/recon_command_output_piped_to_findstr_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

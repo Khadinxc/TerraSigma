@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "advanced_ip_scanner_file_event
   name                       = "advanced_ip_scanner_file_event"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Advanced IP Scanner - File Event"
-  description                = "Detects the use of Advanced IP Scanner. Seems to be a popular tool for ransomware groups. - Legitimate administrative use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/advanced_ip_scanner_file_event.tf"
+  description                = "Detects the use of Advanced IP Scanner. Seems to be a popular tool for ransomware groups. - Legitimate administrative use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/advanced_ip_scanner_file_event.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

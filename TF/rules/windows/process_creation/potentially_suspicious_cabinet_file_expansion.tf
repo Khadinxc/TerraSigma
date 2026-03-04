@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_cabinet
   name                       = "potentially_suspicious_cabinet_file_expansion"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Cabinet File Expansion"
-  description                = "Detects the expansion or decompression of cabinet files from potentially suspicious or uncommon locations, e.g. seen in Iranian MeteorExpress related attacks - System administrator Usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_cabinet_file_expansion.tf"
+  description                = "Detects the expansion or decompression of cabinet files from potentially suspicious or uncommon locations, e.g. seen in Iranian MeteorExpress related attacks - System administrator Usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_cabinet_file_expansion.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

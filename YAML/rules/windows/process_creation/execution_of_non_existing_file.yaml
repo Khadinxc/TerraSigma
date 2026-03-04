@@ -1,6 +1,6 @@
 id: e1db8bbd-76ee-5f93-b24f-3f015b6d9c7d
 name: Execution Of Non-Existing File
-description: 'Checks whether the image specified in a process creation event is not a full, absolute path (caused by process ghosting or other unorthodox methods to start a process) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/execution_of_non_existing_file.tf'
+description: 'Checks whether the image specified in a process creation event is not a full, absolute path (caused by process ghosting or other unorthodox methods to start a process) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/execution_of_non_existing_file.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

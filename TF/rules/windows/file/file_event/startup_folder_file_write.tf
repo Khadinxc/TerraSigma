@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "startup_folder_file_write" {
   name                       = "startup_folder_file_write"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Startup Folder File Write"
-  description                = "A General detection for files being created in the Windows startup directory. This could be an indicator of persistence. - FP could be caused by legitimate application writing shortcuts for example. This folder should always be inspected to make sure that all the files in there are legitimate | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/startup_folder_file_write.tf"
+  description                = "A General detection for files being created in the Windows startup directory. This could be an indicator of persistence. - FP could be caused by legitimate application writing shortcuts for example. This folder should always be inspected to make sure that all the files in there are legitimate | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/startup_folder_file_write.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

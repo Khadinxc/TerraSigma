@@ -1,6 +1,6 @@
 id: 7b60d75b-624f-5cef-bad0-0387b953f405
 name: Renamed Jusched.EXE Execution
-description: 'Detects the execution of a renamed "jusched.exe" as seen used by the cobalt group | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_jusched_exe_execution.tf'
+description: 'Detects the execution of a renamed "jusched.exe" as seen used by the cobalt group | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_jusched_exe_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "rdp_port_forwarding_rule_added
   name                       = "rdp_port_forwarding_rule_added_via_netsh_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "RDP Port Forwarding Rule Added Via Netsh.EXE"
-  description                = "Detects the execution of netsh to configure a port forwarding of port 3389 (RDP) rule - Legitimate administration activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rdp_port_forwarding_rule_added_via_netsh_exe.tf"
+  description                = "Detects the execution of netsh to configure a port forwarding of port 3389 (RDP) rule - Legitimate administration activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rdp_port_forwarding_rule_added_via_netsh_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

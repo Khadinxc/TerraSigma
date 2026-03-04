@@ -1,6 +1,6 @@
 id: 6b4f830e-f460-5659-8735-23e0444e86e5
 name: Files Added To An Archive Using Rar.EXE
-description: 'Detects usage of "rar" to add files to an archive for potential compression. An adversary may compress data (e.g. sensitive documents) that is collected prior to exfiltration in order to make it portable and minimize the amount of data sent over the network. - Highly likely if rar is a default archiver in the monitored environment. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/files_added_to_an_archive_using_rar_exe.tf'
+description: 'Detects usage of "rar" to add files to an archive for potential compression. An adversary may compress data (e.g. sensitive documents) that is collected prior to exfiltration in order to make it portable and minimize the amount of data sent over the network. - Highly likely if rar is a default archiver in the monitored environment. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/files_added_to_an_archive_using_rar_exe.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

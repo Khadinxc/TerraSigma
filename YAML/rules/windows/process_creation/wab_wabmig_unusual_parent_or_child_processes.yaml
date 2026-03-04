@@ -1,6 +1,6 @@
 id: 88276e2d-dabf-5393-a147-2a12f7e94f73
 name: Wab/Wabmig Unusual Parent Or Child Processes
-description: 'Detects unusual parent or children of the wab.exe (Windows Contacts) and Wabmig.exe (Microsoft Address Book Import Tool) processes as seen being used with bumblebee activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wab_wabmig_unusual_parent_or_child_processes.tf'
+description: 'Detects unusual parent or children of the wab.exe (Windows Contacts) and Wabmig.exe (Microsoft Address Book Import Tool) processes as seen being used with bumblebee activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wab_wabmig_unusual_parent_or_child_processes.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

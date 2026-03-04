@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_msexchangemailboxre
   name                       = "suspicious_msexchangemailboxreplication_aspx_write"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious MSExchangeMailboxReplication ASPX Write"
-  description                = "Detects suspicious activity in which the MSExchangeMailboxReplication process writes .asp and .apsx files to disk, which could be a sign of ProxyShell exploitation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_msexchangemailboxreplication_aspx_write.tf"
+  description                = "Detects suspicious activity in which the MSExchangeMailboxReplication process writes .asp and .apsx files to disk, which could be a sign of ProxyShell exploitation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_msexchangemailboxreplication_aspx_write.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

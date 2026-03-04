@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_usage_of_for_loop_w
   name                       = "suspicious_usage_of_for_loop_with_recursive_directory_search_in_cmd"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Usage of For Loop with Recursive Directory Search in CMD"
-  description                = "Detects suspicious usage of the cmd.exe 'for /f' loop combined with the 'tokens=' parameter and a recursive directory listing. This pattern may indicate an attempt to discover and execute system binaries dynamically, for example powershell, a technique sometimes used by attackers to evade detection. This behavior has been observed in various malicious lnk files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_usage_of_for_loop_with_recursive_directory_search_in_cmd.tf"
+  description                = "Detects suspicious usage of the cmd.exe 'for /f' loop combined with the 'tokens=' parameter and a recursive directory listing. This pattern may indicate an attempt to discover and execute system binaries dynamically, for example powershell, a technique sometimes used by attackers to evade detection. This behavior has been observed in various malicious lnk files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_usage_of_for_loop_with_recursive_directory_search_in_cmd.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "livekd_driver_creation" {
   name                       = "livekd_driver_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "LiveKD Driver Creation"
-  description                = "Detects the creation of the LiveKD driver, which is used for live kernel debugging - Legitimate usage of LiveKD for debugging purposes will also trigger this | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/livekd_driver_creation.tf"
+  description                = "Detects the creation of the LiveKD driver, which is used for live kernel debugging - Legitimate usage of LiveKD for debugging purposes will also trigger this | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/livekd_driver_creation.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

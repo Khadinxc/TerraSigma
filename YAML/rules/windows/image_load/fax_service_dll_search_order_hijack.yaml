@@ -1,6 +1,6 @@
 id: 8fc98a80-d5f8-55f7-b387-06d67bfd99e7
 name: Fax Service DLL Search Order Hijack
-description: 'The Fax service attempts to load ualapi.dll, which is non-existent. An attacker can then (side)load their own malicious DLL using this service. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/fax_service_dll_search_order_hijack.tf'
+description: 'The Fax service attempts to load ualapi.dll, which is non-existent. An attacker can then (side)load their own malicious DLL using this service. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/fax_service_dll_search_order_hijack.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

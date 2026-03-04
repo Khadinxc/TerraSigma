@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "bloodhound_collection_files" {
   name                       = "bloodhound_collection_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "BloodHound Collection Files"
-  description                = "Detects default file names outputted by the BloodHound collection tool SharpHound - Some false positives may arise in some environment and this may require some tuning. Add additional filters or reduce level depending on the level of noise | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/bloodhound_collection_files.tf"
+  description                = "Detects default file names outputted by the BloodHound collection tool SharpHound - Some false positives may arise in some environment and this may require some tuning. Add additional filters or reduce level depending on the level of noise | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/bloodhound_collection_files.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

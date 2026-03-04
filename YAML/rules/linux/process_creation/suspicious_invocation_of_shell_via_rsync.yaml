@@ -1,6 +1,6 @@
 id: 4fc703ac-87f5-5e6e-b467-b7cc4c062540
 name: Suspicious Invocation of Shell via Rsync
-description: 'Detects the execution of a shell as sub process of "rsync" without the expected command line flag "-e" being used, which could be an indication of exploitation as described in CVE-2024-12084. This behavior is commonly associated with attempts to execute arbitrary commands or escalate privileges, potentially leading to unauthorized access or further exploitation. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/suspicious_invocation_of_shell_via_rsync.tf'
+description: 'Detects the execution of a shell as sub process of "rsync" without the expected command line flag "-e" being used, which could be an indication of exploitation as described in CVE-2024-12084. This behavior is commonly associated with attempts to execute arbitrary commands or escalate privileges, potentially leading to unauthorized access or further exploitation. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/suspicious_invocation_of_shell_via_rsync.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

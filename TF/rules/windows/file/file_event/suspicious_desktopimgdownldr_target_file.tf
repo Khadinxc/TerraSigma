@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_desktopimgdownldr_t
   name                       = "suspicious_desktopimgdownldr_target_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Desktopimgdownldr Target File"
-  description                = "Detects a suspicious Microsoft desktopimgdownldr file creation that stores a file to a suspicious location or contains a file with a suspicious extension | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_desktopimgdownldr_target_file.tf"
+  description                = "Detects a suspicious Microsoft desktopimgdownldr file creation that stores a file to a suspicious location or contains a file with a suspicious extension | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_desktopimgdownldr_target_file.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

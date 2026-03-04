@@ -1,6 +1,6 @@
 id: 174d30bb-3d9f-599d-9b20-e16b4d442c80
 name: PUA - Suspicious ActiveDirectory Enumeration Via AdFind.EXE
-description: 'Detects active directory enumeration activity using known AdFind CLI flags - Authorized administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_suspicious_activedirectory_enumeration_via_adfind_exe.tf'
+description: 'Detects active directory enumeration activity using known AdFind CLI flags - Authorized administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_suspicious_activedirectory_enumeration_via_adfind_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

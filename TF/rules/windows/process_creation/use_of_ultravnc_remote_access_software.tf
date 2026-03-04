@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "use_of_ultravnc_remote_access_
   name                       = "use_of_ultravnc_remote_access_software"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Use of UltraVNC Remote Access Software"
-  description                = "An adversary may use legitimate desktop support and remote access software,to establish an interactive command and control channel to target systems within networks - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_of_ultravnc_remote_access_software.tf"
+  description                = "An adversary may use legitimate desktop support and remote access software,to establish an interactive command and control channel to target systems within networks - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_of_ultravnc_remote_access_software.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

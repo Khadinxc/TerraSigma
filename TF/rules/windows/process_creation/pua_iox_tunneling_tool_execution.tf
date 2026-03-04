@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_iox_tunneling_tool_executi
   name                       = "pua_iox_tunneling_tool_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA- IOX Tunneling Tool Execution"
-  description                = "Detects the use of IOX - a tool for port forwarding and intranet proxy purposes - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_iox_tunneling_tool_execution.tf"
+  description                = "Detects the use of IOX - a tool for port forwarding and intranet proxy purposes - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_iox_tunneling_tool_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

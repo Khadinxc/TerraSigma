@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "disable_windows_security_cente
   name                       = "disable_windows_security_center_notifications"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disable Windows Security Center Notifications"
-  description                = "Detect set UseActionCenterExperience to 0 to disable the Windows security center notification | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/disable_windows_security_center_notifications.tf"
+  description                = "Detect set UseActionCenterExperience to 0 to disable the Windows security center notification | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/disable_windows_security_center_notifications.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

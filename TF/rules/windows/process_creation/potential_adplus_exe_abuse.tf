@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_adplus_exe_abuse" {
   name                       = "potential_adplus_exe_abuse"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Adplus.EXE Abuse"
-  description                = "Detects execution of \"AdPlus.exe\", a binary that is part of the Windows SDK that can be used as a LOLBIN in order to dump process memory and execute arbitrary commands. - Legitimate usage of Adplus for debugging purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_adplus_exe_abuse.tf"
+  description                = "Detects execution of \"AdPlus.exe\", a binary that is part of the Windows SDK that can be used as a LOLBIN in order to dump process memory and execute arbitrary commands. - Legitimate usage of Adplus for debugging purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_adplus_exe_abuse.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

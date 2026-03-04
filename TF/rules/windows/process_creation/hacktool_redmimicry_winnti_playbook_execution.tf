@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_redmimicry_winnti_pla
   name                       = "hacktool_redmimicry_winnti_playbook_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - RedMimicry Winnti Playbook Execution"
-  description                = "Detects actions caused by the RedMimicry Winnti playbook a automated breach emulations utility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_redmimicry_winnti_playbook_execution.tf"
+  description                = "Detects actions caused by the RedMimicry Winnti playbook a automated breach emulations utility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_redmimicry_winnti_playbook_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_persistence_via_micr
   name                       = "potential_persistence_via_microsoft_office_add_in"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Microsoft Office Add-In"
-  description                = "Detects potential persistence activity via startup add-ins that load when Microsoft Office starts (.wll/.xll are simply .dll fit for Word or Excel). - Legitimate add-ins | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_persistence_via_microsoft_office_add_in.tf"
+  description                = "Detects potential persistence activity via startup add-ins that load when Microsoft Office starts (.wll/.xll are simply .dll fit for Word or Excel). - Legitimate add-ins | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_persistence_via_microsoft_office_add_in.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

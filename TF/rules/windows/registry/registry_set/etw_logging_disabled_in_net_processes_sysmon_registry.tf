@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "etw_logging_disabled_in_net_pr
   name                       = "etw_logging_disabled_in_net_processes_sysmon_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ETW Logging Disabled In .NET Processes - Sysmon Registry"
-  description                = "Potential adversaries stopping ETW providers recording loaded .NET assemblies. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/etw_logging_disabled_in_net_processes_sysmon_registry.tf"
+  description                = "Potential adversaries stopping ETW providers recording loaded .NET assemblies. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/etw_logging_disabled_in_net_processes_sysmon_registry.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

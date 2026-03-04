@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "veeambackup_database_credentia
   name                       = "veeambackup_database_credentials_dump_via_sqlcmd_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "VeeamBackup Database Credentials Dump Via Sqlcmd.EXE"
-  description                = "Detects dump of credentials in VeeamBackup dbo | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/veeambackup_database_credentials_dump_via_sqlcmd_exe.tf"
+  description                = "Detects dump of credentials in VeeamBackup dbo | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/veeambackup_database_credentials_dump_via_sqlcmd_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: ec11cc5b-d1b1-544b-99a0-7b0620948040
 name: HackTool - QuarksPwDump Dump File
-description: 'Detects a dump file written by QuarksPwDump password dumper | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/hacktool_quarkspwdump_dump_file.tf'
+description: 'Detects a dump file written by QuarksPwDump password dumper | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/hacktool_quarkspwdump_dump_file.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

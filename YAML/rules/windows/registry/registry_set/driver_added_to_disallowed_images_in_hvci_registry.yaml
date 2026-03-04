@@ -1,6 +1,6 @@
 id: cee655ec-1c9c-576a-97fb-0de102edc154
 name: Driver Added To Disallowed Images In HVCI - Registry
-description: 'Detects changes to the "HVCIDisallowedImages" registry value to potentially add a driver to the list, in order to prevent it from loading. - Legitimate usage of this key would also trigger this. Investigate the driver being added and make sure its intended | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/driver_added_to_disallowed_images_in_hvci_registry.tf'
+description: 'Detects changes to the "HVCIDisallowedImages" registry value to potentially add a driver to the list, in order to prevent it from loading. - Legitimate usage of this key would also trigger this. Investigate the driver being added and make sure its intended | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/driver_added_to_disallowed_images_in_hvci_registry.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

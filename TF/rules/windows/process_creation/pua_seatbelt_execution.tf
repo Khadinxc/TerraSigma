@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_seatbelt_execution" {
   name                       = "pua_seatbelt_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Seatbelt Execution"
-  description                = "Detects the execution of the PUA/Recon tool Seatbelt via PE information of command line parameters - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_seatbelt_execution.tf"
+  description                = "Detects the execution of the PUA/Recon tool Seatbelt via PE information of command line parameters - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_seatbelt_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

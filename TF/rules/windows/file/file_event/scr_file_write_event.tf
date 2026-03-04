@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "scr_file_write_event" {
   name                       = "scr_file_write_event"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "SCR File Write Event"
-  description                = "Detects the creation of screensaver files (.scr) outside of system folders. Attackers may execute an application as an \".SCR\" file using \"rundll32.exe desk.cpl,InstallScreenSaver\" for example. - The installation of new screen savers by third party software | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/scr_file_write_event.tf"
+  description                = "Detects the creation of screensaver files (.scr) outside of system folders. Attackers may execute an application as an \".SCR\" file using \"rundll32.exe desk.cpl,InstallScreenSaver\" for example. - The installation of new screen savers by third party software | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/scr_file_write_event.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

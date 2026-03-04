@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "visual_studio_nodejstools_pres
   name                       = "visual_studio_nodejstools_pressanykey_renamed_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Visual Studio NodejsTools PressAnyKey Renamed Execution"
-  description                = "Detects renamed execution of \"Microsoft.NodejsTools.PressAnyKey.exe\", which can be abused as a LOLBIN to execute arbitrary binaries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/visual_studio_nodejstools_pressanykey_renamed_execution.tf"
+  description                = "Detects renamed execution of \"Microsoft.NodejsTools.PressAnyKey.exe\", which can be abused as a LOLBIN to execute arbitrary binaries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/visual_studio_nodejstools_pressanykey_renamed_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

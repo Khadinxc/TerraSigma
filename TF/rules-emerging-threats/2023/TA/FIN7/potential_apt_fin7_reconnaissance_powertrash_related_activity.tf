@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_apt_fin7_reconnaissa
   name                       = "potential_apt_fin7_reconnaissance_powertrash_related_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential APT FIN7 Reconnaissance/POWERTRASH Related Activity"
-  description                = "Detects specific command line execution used by FIN7 as reported by WithSecureLabs for reconnaissance and POWERTRASH execution - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/FIN7/potential_apt_fin7_reconnaissance_powertrash_related_activity.tf"
+  description                = "Detects specific command line execution used by FIN7 as reported by WithSecureLabs for reconnaissance and POWERTRASH execution - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/FIN7/potential_apt_fin7_reconnaissance_powertrash_related_activity.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

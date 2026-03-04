@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dynamic_csharp_compile_artefac
   name                       = "dynamic_csharp_compile_artefact"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Dynamic CSharp Compile Artefact"
-  description                = "When C# is compiled dynamically, a .cmdline file will be created as a part of the process. Certain processes are not typically observed compiling C# code, but can do so without touching disk. This can be used to unpack a payload for execution | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/dynamic_csharp_compile_artefact.tf"
+  description                = "When C# is compiled dynamically, a .cmdline file will be created as a part of the process. Certain processes are not typically observed compiling C# code, but can do so without touching disk. This can be used to unpack a payload for execution | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/dynamic_csharp_compile_artefact.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents

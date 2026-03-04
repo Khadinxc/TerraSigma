@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_child_process_of_sq
   name                       = "suspicious_child_process_of_sql_server"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Child Process Of SQL Server"
-  description                = "Detects suspicious child processes of the SQLServer process. This could indicate potential RCE or SQL Injection. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_child_process_of_sql_server.tf"
+  description                = "Detects suspicious child processes of the SQLServer process. This could indicate potential RCE or SQL Injection. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_child_process_of_sql_server.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

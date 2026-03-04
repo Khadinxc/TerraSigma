@@ -1,6 +1,6 @@
 id: 3c22a719-ef2e-542b-8986-28bdf7bbcef0
 name: QuickAssist Execution
-description: 'Detects the execution of Microsoft Quick Assist tool "QuickAssist.exe". This utility can be used by attackers to gain remote access. - Legitimate use of Quick Assist in the environment. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/quickassist_execution.tf'
+description: 'Detects the execution of Microsoft Quick Assist tool "QuickAssist.exe". This utility can be used by attackers to gain remote access. - Legitimate use of Quick Assist in the environment. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/quickassist_execution.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

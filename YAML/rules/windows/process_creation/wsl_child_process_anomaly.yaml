@@ -1,6 +1,6 @@
 id: d5b5148d-4fb6-57cf-8391-0de11533b85a
 name: WSL Child Process Anomaly
-description: 'Detects uncommon or suspicious child processes spawning from a WSL process. This could indicate an attempt to evade parent/child relationship detections or persistence attempts via cron using WSL | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wsl_child_process_anomaly.tf'
+description: 'Detects uncommon or suspicious child processes spawning from a WSL process. This could indicate an attempt to evade parent/child relationship detections or persistence attempts via cron using WSL | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wsl_child_process_anomaly.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 3ac1b4f1-a884-550d-806f-e65791c91b17
 name: Potential PSFactoryBuffer COM Hijacking
-description: 'Detects changes to the PSFactory COM InProcServer32 registry. This technique was used by RomCom to create persistence storing a malicious DLL. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_psfactorybuffer_com_hijacking.tf'
+description: 'Detects changes to the PSFactory COM InProcServer32 registry. This technique was used by RomCom to create persistence storing a malicious DLL. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_psfactorybuffer_com_hijacking.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

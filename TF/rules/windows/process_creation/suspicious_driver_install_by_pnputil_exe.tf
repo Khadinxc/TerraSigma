@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_driver_install_by_p
   name                       = "suspicious_driver_install_by_pnputil_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Driver Install by pnputil.exe"
-  description                = "Detects when a possible suspicious driver is being installed via pnputil.exe lolbin - Pnputil.exe being used may be performed by a system administrator. - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment. - Pnputil.exe being executed from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_driver_install_by_pnputil_exe.tf"
+  description                = "Detects when a possible suspicious driver is being installed via pnputil.exe lolbin - Pnputil.exe being used may be performed by a system administrator. - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment. - Pnputil.exe being executed from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_driver_install_by_pnputil_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: dcca7a17-403a-566f-9efe-47134f0d4a64
 name: Enable LM Hash Storage - ProcCreation
-description: 'Detects changes to the "NoLMHash" registry value in order to allow Windows to store LM Hashes. By setting this registry value to "0" (DWORD), Windows will be allowed to store a LAN manager hash of your password in Active Directory and local SAM databases. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/enable_lm_hash_storage_proccreation.tf'
+description: 'Detects changes to the "NoLMHash" registry value in order to allow Windows to store LM Hashes. By setting this registry value to "0" (DWORD), Windows will be allowed to store a LAN manager hash of your password in Active Directory and local SAM databases. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/enable_lm_hash_storage_proccreation.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

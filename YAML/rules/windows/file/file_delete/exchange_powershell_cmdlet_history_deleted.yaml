@@ -1,6 +1,6 @@
 id: 5d969d90-e670-5cc4-b96a-af1bc339ada4
 name: Exchange PowerShell Cmdlet History Deleted
-description: 'Detects the deletion of the Exchange PowerShell cmdlet History logs which may indicate an attempt to destroy forensic evidence - Possible FP during log rotation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/exchange_powershell_cmdlet_history_deleted.tf'
+description: 'Detects the deletion of the Exchange PowerShell cmdlet History logs which may indicate an attempt to destroy forensic evidence - Possible FP during log rotation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/exchange_powershell_cmdlet_history_deleted.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

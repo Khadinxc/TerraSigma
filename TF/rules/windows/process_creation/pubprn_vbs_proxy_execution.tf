@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pubprn_vbs_proxy_execution" {
   name                       = "pubprn_vbs_proxy_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Pubprn.vbs Proxy Execution"
-  description                = "Detects the use of the 'Pubprn.vbs' Microsoft signed script to execute commands. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pubprn_vbs_proxy_execution.tf"
+  description                = "Detects the use of the 'Pubprn.vbs' Microsoft signed script to execute commands. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pubprn_vbs_proxy_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

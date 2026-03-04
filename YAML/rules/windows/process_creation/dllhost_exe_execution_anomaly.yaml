@@ -1,6 +1,6 @@
 id: 315b2c77-e946-5a06-9f35-4cfaebd78c72
 name: Dllhost.EXE Execution Anomaly
-description: 'Detects a "dllhost" process spawning with no commandline arguments which is very rare to happen and could indicate process injection activity or malware mimicking similar system processes. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dllhost_exe_execution_anomaly.tf'
+description: 'Detects a "dllhost" process spawning with no commandline arguments which is very rare to happen and could indicate process injection activity or malware mimicking similar system processes. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dllhost_exe_execution_anomaly.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

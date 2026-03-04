@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_vboxdrvinst_exe_par
   name                       = "suspicious_vboxdrvinst_exe_parameters"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious VBoxDrvInst.exe Parameters"
-  description                = "Detect VBoxDrvInst.exe run with parameters allowing processing INF file. This allows to create values in the registry and install drivers. For example one could use this technique to obtain persistence via modifying one of Run or RunOnce registry keys - Legitimate use of VBoxDrvInst.exe utility by VirtualBox Guest Additions installation process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_vboxdrvinst_exe_parameters.tf"
+  description                = "Detect VBoxDrvInst.exe run with parameters allowing processing INF file. This allows to create values in the registry and install drivers. For example one could use this technique to obtain persistence via modifying one of Run or RunOnce registry keys - Legitimate use of VBoxDrvInst.exe utility by VirtualBox Guest Additions installation process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_vboxdrvinst_exe_parameters.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

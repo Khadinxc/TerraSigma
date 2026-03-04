@@ -1,6 +1,6 @@
 id: 7b0b1089-50cd-5e82-91ba-aa1cfa4b3693
 name: HackTool - DInjector PowerShell Cradle Execution
-description: 'Detects the use of the Dinject PowerShell cradle based on the specific flags - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_dinjector_powershell_cradle_execution.tf'
+description: 'Detects the use of the Dinject PowerShell cradle based on the specific flags - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_dinjector_powershell_cradle_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

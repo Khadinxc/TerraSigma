@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "use_of_wfc_exe" {
   name                       = "use_of_wfc_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Use of Wfc.exe"
-  description                = "The Workflow Command-line Compiler can be used for AWL bypass and is listed in Microsoft's recommended block rules. - Legitimate use by a software developer | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_of_wfc_exe.tf"
+  description                = "The Workflow Command-line Compiler can be used for AWL bypass and is listed in Microsoft's recommended block rules. - Legitimate use by a software developer | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_of_wfc_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

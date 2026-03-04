@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "invoke_obfuscation_compress_ob
   name                       = "invoke_obfuscation_compress_obfuscation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Invoke-Obfuscation COMPRESS OBFUSCATION"
-  description                = "Detects Obfuscated Powershell via COMPRESS OBFUSCATION | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/invoke_obfuscation_compress_obfuscation.tf"
+  description                = "Detects Obfuscated Powershell via COMPRESS OBFUSCATION | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/invoke_obfuscation_compress_obfuscation.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

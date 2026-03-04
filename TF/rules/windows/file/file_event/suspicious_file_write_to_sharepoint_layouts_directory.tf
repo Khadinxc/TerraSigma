@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_file_write_to_share
   name                       = "suspicious_file_write_to_sharepoint_layouts_directory"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Write to SharePoint Layouts Directory"
-  description                = "Detects suspicious file writes to SharePoint layouts directory which could indicate webshell activity or post-exploitation. This behavior has been observed in the exploitation of SharePoint vulnerabilities such as CVE-2025-49704, CVE-2025-49706 or CVE-2025-53770. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_file_write_to_sharepoint_layouts_directory.tf"
+  description                = "Detects suspicious file writes to SharePoint layouts directory which could indicate webshell activity or post-exploitation. This behavior has been observed in the exploitation of SharePoint vulnerabilities such as CVE-2025-49704, CVE-2025-49706 or CVE-2025-53770. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_file_write_to_sharepoint_layouts_directory.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

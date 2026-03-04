@@ -1,6 +1,6 @@
 id: 1144c33e-98e3-5001-9dd5-2442017d59c5
 name: RemoteFXvGPUDisablement Abuse Via AtomicTestHarnesses
-description: 'Detects calls to the AtomicTestHarnesses "Invoke-ATHRemoteFXvGPUDisablementCommand" which is designed to abuse the "RemoteFXvGPUDisablement.exe" binary to run custom PowerShell code via module load-order hijacking. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remotefxvgpudisablement_abuse_via_atomictestharnesses.tf'
+description: 'Detects calls to the AtomicTestHarnesses "Invoke-ATHRemoteFXvGPUDisablementCommand" which is designed to abuse the "RemoteFXvGPUDisablement.exe" binary to run custom PowerShell code via module load-order hijacking. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remotefxvgpudisablement_abuse_via_atomictestharnesses.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

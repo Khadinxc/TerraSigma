@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "rebuild_performance_counter_va
   name                       = "rebuild_performance_counter_values_via_lodctr_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Rebuild Performance Counter Values Via Lodctr.EXE"
-  description                = "Detects the execution of \"lodctr.exe\" to rebuild the performance counter registry values. This can be abused by attackers by providing a malicious config file to overwrite performance counter configuration to confuse and evade monitoring and security solutions. - Legitimate usage by an administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rebuild_performance_counter_values_via_lodctr_exe.tf"
+  description                = "Detects the execution of \"lodctr.exe\" to rebuild the performance counter registry values. This can be abused by attackers by providing a malicious config file to overwrite performance counter configuration to confuse and evade monitoring and security solutions. - Legitimate usage by an administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rebuild_performance_counter_values_via_lodctr_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

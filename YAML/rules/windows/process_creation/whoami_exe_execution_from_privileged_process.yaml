@@ -1,6 +1,6 @@
 id: 2ac5c387-3a8d-5dec-8b5e-de24196056ee
 name: Whoami.EXE Execution From Privileged Process
-description: 'Detects the execution of "whoami.exe" by privileged accounts that are often abused by threat actors | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/whoami_exe_execution_from_privileged_process.tf'
+description: 'Detects the execution of "whoami.exe" by privileged accounts that are often abused by threat actors | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/whoami_exe_execution_from_privileged_process.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

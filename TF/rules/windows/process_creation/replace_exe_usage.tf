@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "replace_exe_usage" {
   name                       = "replace_exe_usage"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Replace.exe Usage"
-  description                = "Detects the use of Replace.exe which can be used to replace file with another file | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/replace_exe_usage.tf"
+  description                = "Detects the use of Replace.exe which can be used to replace file with another file | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/replace_exe_usage.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

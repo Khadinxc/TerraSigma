@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_child_p
   name                       = "potentially_suspicious_child_process_of_clickonce_application"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Child Process Of ClickOnce Application"
-  description                = "Detects potentially suspicious child processes of a ClickOnce deployment application | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_child_process_of_clickonce_application.tf"
+  description                = "Detects potentially suspicious child processes of a ClickOnce deployment application | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_child_process_of_clickonce_application.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

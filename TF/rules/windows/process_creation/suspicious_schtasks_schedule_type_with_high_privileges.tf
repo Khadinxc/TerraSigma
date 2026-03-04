@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_schtasks_schedule_t
   name                       = "suspicious_schtasks_schedule_type_with_high_privileges"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Schtasks Schedule Type With High Privileges"
-  description                = "Detects scheduled task creations or modification to be run with high privileges on a suspicious schedule type - Some installers were seen using this method of creation unfortunately. Filter them in your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_schtasks_schedule_type_with_high_privileges.tf"
+  description                = "Detects scheduled task creations or modification to be run with high privileges on a suspicious schedule type - Some installers were seen using this method of creation unfortunately. Filter them in your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_schtasks_schedule_type_with_high_privileges.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: 2d8280a4-8597-5727-867d-1c7392454dd9
 name: Potentially Suspicious Execution From Tmp Folder
-description: 'Detects a potentially suspicious execution of a process located in the ''/tmp/'' folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potentially_suspicious_execution_from_tmp_folder.tf'
+description: 'Detects a potentially suspicious execution of a process located in the ''/tmp/'' folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potentially_suspicious_execution_from_tmp_folder.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

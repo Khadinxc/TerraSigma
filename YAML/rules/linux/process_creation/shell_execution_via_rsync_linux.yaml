@@ -1,6 +1,6 @@
 id: bfa73fb3-ea39-52a9-b0a5-a73a9401a596
 name: Shell Execution via Rsync - Linux
-description: 'Detects the use of the "rsync" utility to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or to break out from restricted environments. - Legitimate cases in which "rsync" is used to execute a shell | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/shell_execution_via_rsync_linux.tf'
+description: 'Detects the use of the "rsync" utility to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or to break out from restricted environments. - Legitimate cases in which "rsync" is used to execute a shell | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/shell_execution_via_rsync_linux.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

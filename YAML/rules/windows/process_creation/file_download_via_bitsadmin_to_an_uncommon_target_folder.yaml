@@ -1,6 +1,6 @@
 id: 315f3334-2b67-540d-9c02-b094656736d6
 name: File Download Via Bitsadmin To An Uncommon Target Folder
-description: 'Detects usage of bitsadmin downloading a file to uncommon target folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_via_bitsadmin_to_an_uncommon_target_folder.tf'
+description: 'Detects usage of bitsadmin downloading a file to uncommon target folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_via_bitsadmin_to_an_uncommon_target_folder.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "remote_access_tool_ammy_admin_
   name                       = "remote_access_tool_ammy_admin_agent_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Access Tool - Ammy Admin Agent Execution"
-  description                = "Detects the execution of the Ammy Admin RMM agent for remote management. - Legitimate use of Ammy Admin RMM agent for remote management by admins. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/remote_access_tool_ammy_admin_agent_execution.tf"
+  description                = "Detects the execution of the Ammy Admin RMM agent for remote management. - Legitimate use of Ammy Admin RMM agent for remote management by admins. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/remote_access_tool_ammy_admin_agent_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

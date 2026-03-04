@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "compressed_file_creation_via_t
   name                       = "compressed_file_creation_via_tar_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Compressed File Creation Via Tar.EXE"
-  description                = "Detects execution of \"tar.exe\" in order to create a compressed file. Adversaries may abuse various utilities to compress or encrypt data before exfiltration. - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/compressed_file_creation_via_tar_exe.tf"
+  description                = "Detects execution of \"tar.exe\" in order to create a compressed file. Adversaries may abuse various utilities to compress or encrypt data before exfiltration. - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/compressed_file_creation_via_tar_exe.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

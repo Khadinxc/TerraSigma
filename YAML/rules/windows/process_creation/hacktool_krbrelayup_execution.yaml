@@ -1,6 +1,6 @@
 id: 4dc49baf-7995-501c-a1f0-54b967395837
 name: HackTool - KrbRelayUp Execution
-description: 'Detects KrbRelayUp used to perform a universal no-fix local privilege escalation in Windows domain environments where LDAP signing is not enforced - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_krbrelayup_execution.tf'
+description: 'Detects KrbRelayUp used to perform a universal no-fix local privilege escalation in Windows domain environments where LDAP signing is not enforced - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_krbrelayup_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

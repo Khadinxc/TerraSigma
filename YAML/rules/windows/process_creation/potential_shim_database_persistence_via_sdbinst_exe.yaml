@@ -1,6 +1,6 @@
 id: 5efd62f7-cd03-5e17-ac26-4b0d1f2a05ff
 name: Potential Shim Database Persistence via Sdbinst.EXE
-description: 'Detects installation of a new shim using sdbinst.exe. Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by application shims | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_shim_database_persistence_via_sdbinst_exe.tf'
+description: 'Detects installation of a new shim using sdbinst.exe. Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by application shims | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_shim_database_persistence_via_sdbinst_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

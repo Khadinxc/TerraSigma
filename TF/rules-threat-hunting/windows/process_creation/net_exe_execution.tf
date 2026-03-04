@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_exe_execution" {
   name                       = "net_exe_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Net.EXE Execution"
-  description                = "Detects execution of \"Net.EXE\". - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/net_exe_execution.tf"
+  description                = "Detects execution of \"Net.EXE\". - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/net_exe_execution.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

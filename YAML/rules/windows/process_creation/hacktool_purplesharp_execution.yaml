@@ -1,6 +1,6 @@
 id: e902af14-a489-566f-8464-6ea94b0f7d7e
 name: HackTool - PurpleSharp Execution
-description: 'Detects the execution of the PurpleSharp adversary simulation tool - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_purplesharp_execution.tf'
+description: 'Detects the execution of the PurpleSharp adversary simulation tool - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_purplesharp_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

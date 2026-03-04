@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "local_accounts_discovery" {
   name                       = "local_accounts_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Local Accounts Discovery"
-  description                = "Local accounts, System Owner/User discovery using operating systems utilities - Legitimate administrator or user enumerates local users for legitimate reason | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/local_accounts_discovery.tf"
+  description                = "Local accounts, System Owner/User discovery using operating systems utilities - Legitimate administrator or user enumerates local users for legitimate reason | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/local_accounts_discovery.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

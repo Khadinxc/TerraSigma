@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_processes_spawned_b
   name                       = "suspicious_processes_spawned_by_winrm"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Processes Spawned by WinRM"
-  description                = "Detects suspicious processes including shells spawnd from WinRM host process - Legitimate WinRM usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_processes_spawned_by_winrm.tf"
+  description                = "Detects suspicious processes including shells spawnd from WinRM host process - Legitimate WinRM usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_processes_spawned_by_winrm.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: 5f1725ee-c3c4-5e70-9b0b-16144d432e8e
 name: Shell Execution via Nice - Linux
-description: 'Detects the use of the "nice" utility to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or to break out from restricted environments. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/shell_execution_via_nice_linux.tf'
+description: 'Detects the use of the "nice" utility to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or to break out from restricted environments. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/shell_execution_via_nice_linux.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

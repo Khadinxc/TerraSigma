@@ -1,6 +1,6 @@
 id: 6bd91bfb-e9eb-5367-af75-a3601e1d6e71
 name: Windows Processes Suspicious Parent Directory
-description: 'Detect suspicious parent processes of well-known Windows processes - Some security products seem to spawn these | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_processes_suspicious_parent_directory.tf'
+description: 'Detect suspicious parent processes of well-known Windows processes - Some security products seem to spawn these | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_processes_suspicious_parent_directory.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

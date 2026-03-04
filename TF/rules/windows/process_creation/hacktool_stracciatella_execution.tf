@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_stracciatella_executi
   name                       = "hacktool_stracciatella_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Stracciatella Execution"
-  description                = "Detects Stracciatella which executes a Powershell runspace from within C# (aka SharpPick technique) with AMSI, ETW and Script Block Logging disabled based on PE metadata characteristics. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_stracciatella_execution.tf"
+  description                = "Detects Stracciatella which executes a Powershell runspace from within C# (aka SharpPick technique) with AMSI, ETW and Script Block Logging disabled based on PE metadata characteristics. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_stracciatella_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

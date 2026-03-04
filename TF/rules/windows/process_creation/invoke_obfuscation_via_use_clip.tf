@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "invoke_obfuscation_via_use_cli
   name                       = "invoke_obfuscation_via_use_clip"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Invoke-Obfuscation Via Use Clip"
-  description                = "Detects Obfuscated Powershell via use Clip.exe in Scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/invoke_obfuscation_via_use_clip.tf"
+  description                = "Detects Obfuscated Powershell via use Clip.exe in Scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/invoke_obfuscation_via_use_clip.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

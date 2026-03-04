@@ -1,6 +1,6 @@
 id: c267c456-7424-50dc-af3c-c1365a00543b
 name: Suspicious Plink Port Forwarding
-description: 'Detects suspicious Plink tunnel port forwarding to a local port - Administrative activity using a remote port forwarding to a local port | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_plink_port_forwarding.tf'
+description: 'Detects suspicious Plink tunnel port forwarding to a local port - Administrative activity using a remote port forwarding to a local port | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_plink_port_forwarding.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

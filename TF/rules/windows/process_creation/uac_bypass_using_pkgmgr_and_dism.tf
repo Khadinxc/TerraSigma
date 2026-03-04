@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uac_bypass_using_pkgmgr_and_di
   name                       = "uac_bypass_using_pkgmgr_and_dism"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass Using PkgMgr and DISM"
-  description                = "Detects the pattern of UAC Bypass using pkgmgr.exe and dism.exe (UACMe 23) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uac_bypass_using_pkgmgr_and_dism.tf"
+  description                = "Detects the pattern of UAC Bypass using pkgmgr.exe and dism.exe (UACMe 23) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uac_bypass_using_pkgmgr_and_dism.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

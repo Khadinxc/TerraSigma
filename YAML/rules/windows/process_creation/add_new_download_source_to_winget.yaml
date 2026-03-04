@@ -1,6 +1,6 @@
 id: a5167022-cb10-5649-90c9-57614c90cd71
 name: Add New Download Source To Winget
-description: 'Detects usage of winget to add new additional download sources | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/add_new_download_source_to_winget.tf'
+description: 'Detects usage of winget to add new additional download sources | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/add_new_download_source_to_winget.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

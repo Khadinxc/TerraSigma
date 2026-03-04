@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "mercury_apt_activity" {
   name                       = "mercury_apt_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "MERCURY APT Activity"
-  description                = "Detects suspicious command line patterns seen being used by MERCURY APT | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2022/TA/MERCURY/mercury_apt_activity.tf"
+  description                = "Detects suspicious command line patterns seen being used by MERCURY APT | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2022/TA/MERCURY/mercury_apt_activity.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

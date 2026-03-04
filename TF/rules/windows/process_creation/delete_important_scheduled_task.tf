@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "delete_important_scheduled_tas
   name                       = "delete_important_scheduled_task"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Delete Important Scheduled Task"
-  description                = "Detects when adversaries stop services or processes by deleting their respective scheduled tasks in order to conduct data destructive activities - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/delete_important_scheduled_task.tf"
+  description                = "Detects when adversaries stop services or processes by deleting their respective scheduled tasks in order to conduct data destructive activities - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/delete_important_scheduled_task.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

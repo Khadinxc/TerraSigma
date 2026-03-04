@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_bginfo_exe_custom_vbscript
   name                       = "new_bginfo_exe_custom_vbscript_registry_configuration"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New BgInfo.EXE Custom VBScript Registry Configuration"
-  description                = "Detects setting of a new registry value related to BgInfo configuration, which can be abused to execute custom VBScript via \"BgInfo.exe\" - Legitimate VBScript | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/new_bginfo_exe_custom_vbscript_registry_configuration.tf"
+  description                = "Detects setting of a new registry value related to BgInfo configuration, which can be abused to execute custom VBScript via \"BgInfo.exe\" - Legitimate VBScript | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/new_bginfo_exe_custom_vbscript_registry_configuration.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

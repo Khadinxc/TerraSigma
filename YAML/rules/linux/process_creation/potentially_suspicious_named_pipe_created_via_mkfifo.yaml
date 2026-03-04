@@ -1,6 +1,6 @@
 id: 322f8e49-79d8-56c7-aead-7738c4979b3c
 name: Potentially Suspicious Named Pipe Created Via Mkfifo
-description: 'Detects the creation of a new named pipe using the "mkfifo" utility in a potentially suspicious location | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potentially_suspicious_named_pipe_created_via_mkfifo.tf'
+description: 'Detects the creation of a new named pipe using the "mkfifo" utility in a potentially suspicious location | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potentially_suspicious_named_pipe_created_via_mkfifo.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

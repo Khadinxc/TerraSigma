@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "unc2452_powershell_pattern" {
   name                       = "unc2452_powershell_pattern"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UNC2452 PowerShell Pattern"
-  description                = "Detects a specific PowerShell command line pattern used by the UNC2452 actors as mentioned in Microsoft and Symantec reports - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/SolarWinds-Supply-Chain/unc2452_powershell_pattern.tf"
+  description                = "Detects a specific PowerShell command line pattern used by the UNC2452 actors as mentioned in Microsoft and Symantec reports - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/SolarWinds-Supply-Chain/unc2452_powershell_pattern.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

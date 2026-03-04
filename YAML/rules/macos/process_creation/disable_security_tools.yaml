@@ -1,6 +1,6 @@
 id: f0ee2747-a7b4-5d1e-a8cc-490749fc6b05
 name: Disable Security Tools
-description: 'Detects disabling security tools - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/disable_security_tools.tf'
+description: 'Detects disabling security tools - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/disable_security_tools.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

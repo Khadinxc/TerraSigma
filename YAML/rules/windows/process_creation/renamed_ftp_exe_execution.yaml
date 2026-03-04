@@ -1,6 +1,6 @@
 id: 5d34bde5-5fbf-55a6-9efc-f61ba0694955
 name: Renamed FTP.EXE Execution
-description: 'Detects the execution of a renamed "ftp.exe" binary based on the PE metadata fields | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_ftp_exe_execution.tf'
+description: 'Detects the execution of a renamed "ftp.exe" binary based on the PE metadata fields | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_ftp_exe_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

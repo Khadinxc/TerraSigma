@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "office_application_startup_off
   name                       = "office_application_startup_office_test"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Office Application Startup - Office Test"
-  description                = "Detects the addition of office test registry that allows a user to specify an arbitrary DLL that will be executed every time an Office application is started - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/office_application_startup_office_test.tf"
+  description                = "Detects the addition of office test registry that allows a user to specify an arbitrary DLL that will be executed every time an Office application is started - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/office_application_startup_office_test.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

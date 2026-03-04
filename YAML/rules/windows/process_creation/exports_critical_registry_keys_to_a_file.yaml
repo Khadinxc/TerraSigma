@@ -1,6 +1,6 @@
 id: 75822275-7a21-5a1d-91cc-1d99d6b1e139
 name: Exports Critical Registry Keys To a File
-description: 'Detects the export of a crital Registry key to a file. - Dumping hives for legitimate purpouse i.e. backup or forensic investigation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/exports_critical_registry_keys_to_a_file.tf'
+description: 'Detects the export of a crital Registry key to a file. - Dumping hives for legitimate purpouse i.e. backup or forensic investigation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/exports_critical_registry_keys_to_a_file.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

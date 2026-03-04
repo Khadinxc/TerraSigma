@@ -1,6 +1,6 @@
 id: db3a148d-5bf3-5962-b431-c5f82f648817
 name: Inline Python Execution - Spawn Shell Via OS System Library
-description: 'Detects execution of inline Python code via the "-c" in order to call the "system" function from the "os" library, and spawn a shell. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/inline_python_execution_spawn_shell_via_os_system_library.tf'
+description: 'Detects execution of inline Python code via the "-c" in order to call the "system" function from the "os" library, and spawn a shell. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/inline_python_execution_spawn_shell_via_os_system_library.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

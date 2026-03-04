@@ -1,6 +1,6 @@
 id: 9a5b723d-d7f7-56b3-b341-240ae9ef3c11
 name: Remote Access Tool - Team Viewer Session Started On Linux Host
-description: 'Detects the command line executed when TeamViewer starts a session started by a remote host. Once a connection has been started, an investigator can verify the connection details by viewing the "incoming_connections.txt" log file in the TeamViewer folder. - Legitimate usage of TeamViewer | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/remote_access_tool_team_viewer_session_started_on_linux_host.tf'
+description: 'Detects the command line executed when TeamViewer starts a session started by a remote host. Once a connection has been started, an investigator can verify the connection details by viewing the "incoming_connections.txt" log file in the TeamViewer folder. - Legitimate usage of TeamViewer | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/remote_access_tool_team_viewer_session_started_on_linux_host.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

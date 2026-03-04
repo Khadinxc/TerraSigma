@@ -1,6 +1,6 @@
 id: e5441d68-e2fa-5b79-8d03-d42a92372d27
 name: UAC Bypass via Event Viewer
-description: 'Detects UAC bypass method using Windows event viewer | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/uac_bypass_via_event_viewer.tf'
+description: 'Detects UAC bypass method using Windows event viewer | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/uac_bypass_via_event_viewer.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

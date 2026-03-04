@@ -1,6 +1,6 @@
 id: 498b086c-b66f-51de-ba27-a75015ccb21d
 name: Suspicious Rundll32 Execution With Image Extension
-description: 'Detects the execution of Rundll32.exe with DLL files masquerading as image files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_rundll32_execution_with_image_extension.tf'
+description: 'Detects the execution of Rundll32.exe with DLL files masquerading as image files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_rundll32_execution_with_image_extension.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

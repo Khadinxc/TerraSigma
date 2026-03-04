@@ -1,6 +1,6 @@
 id: 578422b2-d2bf-59e8-93a6-bbe769fc77f5
 name: Forfiles.EXE Child Process Masquerading
-description: 'Detects the execution of "forfiles" from a non-default location, in order to potentially spawn a custom "cmd.exe" from the current working directory. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/forfiles_exe_child_process_masquerading.tf'
+description: 'Detects the execution of "forfiles" from a non-default location, in order to potentially spawn a custom "cmd.exe" from the current working directory. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/forfiles_exe_child_process_masquerading.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

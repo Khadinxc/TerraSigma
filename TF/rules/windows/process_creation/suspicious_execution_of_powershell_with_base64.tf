@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_execution_of_powers
   name                       = "suspicious_execution_of_powershell_with_base64"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Execution of Powershell with Base64"
-  description                = "Commandline to launch powershell with a base64 payload | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_execution_of_powershell_with_base64.tf"
+  description                = "Commandline to launch powershell with a base64 payload | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_execution_of_powershell_with_base64.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

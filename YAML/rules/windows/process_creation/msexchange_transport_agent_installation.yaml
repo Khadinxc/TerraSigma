@@ -1,6 +1,6 @@
 id: e845cb1b-2c8c-5d09-bb53-5bd2a5066334
 name: MSExchange Transport Agent Installation
-description: 'Detects the Installation of a Exchange Transport Agent - Legitimate installations of exchange TransportAgents. AssemblyPath is a good indicator for this. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/msexchange_transport_agent_installation.tf'
+description: 'Detects the Installation of a Exchange Transport Agent - Legitimate installations of exchange TransportAgents. AssemblyPath is a good indicator for this. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/msexchange_transport_agent_installation.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

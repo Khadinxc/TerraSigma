@@ -1,6 +1,6 @@
 id: 901eba5a-ebcf-5a59-8a37-17ef7c614493
 name: Microsoft Workflow Compiler Execution
-description: 'Detects the execution of Microsoft Workflow Compiler, which may permit the execution of arbitrary unsigned code. - Legitimate MWC use (unlikely in modern enterprise environments) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/microsoft_workflow_compiler_execution.tf'
+description: 'Detects the execution of Microsoft Workflow Compiler, which may permit the execution of arbitrary unsigned code. - Legitimate MWC use (unlikely in modern enterprise environments) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/microsoft_workflow_compiler_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

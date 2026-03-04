@@ -1,6 +1,6 @@
 id: faec1158-aae9-5683-96cf-e1c4dae08873
 name: ADS Zone.Identifier Deleted By Uncommon Application
-description: 'Detects the deletion of the "Zone.Identifier" ADS by an uncommon process. Attackers can leverage this in order to bypass security restrictions that make use of the ADS such as Microsoft Office apps. - Other third party applications not listed. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/ads_zone_identifier_deleted_by_uncommon_application.tf'
+description: 'Detects the deletion of the "Zone.Identifier" ADS by an uncommon process. Attackers can leverage this in order to bypass security restrictions that make use of the ADS such as Microsoft Office apps. - Other third party applications not listed. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/ads_zone_identifier_deleted_by_uncommon_application.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

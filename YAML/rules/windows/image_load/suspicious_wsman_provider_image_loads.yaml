@@ -1,6 +1,6 @@
 id: dbd33f5e-e50f-5c2d-9afb-501be10b95a7
 name: Suspicious WSMAN Provider Image Loads
-description: 'Detects signs of potential use of the WSMAN provider from uncommon processes locally and remote execution. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/suspicious_wsman_provider_image_loads.tf'
+description: 'Detects signs of potential use of the WSMAN provider from uncommon processes locally and remote execution. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/suspicious_wsman_provider_image_loads.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

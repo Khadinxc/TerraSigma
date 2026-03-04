@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "set_files_as_system_files_usin
   name                       = "set_files_as_system_files_using_attrib_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Set Files as System Files Using Attrib.EXE"
-  description                = "Detects the execution of \"attrib\" with the \"+s\" flag to mark files as system files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/set_files_as_system_files_using_attrib_exe.tf"
+  description                = "Detects the execution of \"attrib\" with the \"+s\" flag to mark files as system files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/set_files_as_system_files_using_attrib_exe.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

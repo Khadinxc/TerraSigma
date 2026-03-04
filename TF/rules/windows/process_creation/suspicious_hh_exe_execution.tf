@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_hh_exe_execution" {
   name                       = "suspicious_hh_exe_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious HH.EXE Execution"
-  description                = "Detects a suspicious execution of a Microsoft HTML Help (HH.exe) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_hh_exe_execution.tf"
+  description                = "Detects a suspicious execution of a Microsoft HTML Help (HH.exe) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_hh_exe_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

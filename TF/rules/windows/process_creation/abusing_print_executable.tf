@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "abusing_print_executable" {
   name                       = "abusing_print_executable"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Abusing Print Executable"
-  description                = "Attackers can use print.exe for remote file copy | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/abusing_print_executable.tf"
+  description                = "Attackers can use print.exe for remote file copy | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/abusing_print_executable.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

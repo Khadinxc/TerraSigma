@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "winlogon_notify_key_logon_pers
   name                       = "winlogon_notify_key_logon_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Winlogon Notify Key Logon Persistence"
-  description                = "Adversaries may abuse features of Winlogon to execute DLLs and/or executables when a user logs in. Winlogon.exe is a Windows component responsible for actions at logon/logoff as well as the secure attention sequence (SAS) triggered by Ctrl-Alt-Delete. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/winlogon_notify_key_logon_persistence.tf"
+  description                = "Adversaries may abuse features of Winlogon to execute DLLs and/or executables when a user logs in. Winlogon.exe is a Windows component responsible for actions at logon/logoff as well as the secure attention sequence (SAS) triggered by Ctrl-Alt-Delete. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/winlogon_notify_key_logon_persistence.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

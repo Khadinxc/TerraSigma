@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_sharpwsus_wsuspendu_e
   name                       = "hacktool_sharpwsus_wsuspendu_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - SharpWSUS/WSUSpendu Execution"
-  description                = "Detects the execution of SharpWSUS or WSUSpendu, utilities that allow for lateral movement through WSUS. Windows Server Update Services (WSUS) is a critical component of Windows systems and is frequently configured in a way that allows an attacker to circumvent internal networking limitations. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_sharpwsus_wsuspendu_execution.tf"
+  description                = "Detects the execution of SharpWSUS or WSUSpendu, utilities that allow for lateral movement through WSUS. Windows Server Update Services (WSUS) is a critical component of Windows systems and is frequently configured in a way that allows an attacker to circumvent internal networking limitations. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_sharpwsus_wsuspendu_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

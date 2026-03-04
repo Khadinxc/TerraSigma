@@ -1,6 +1,6 @@
 id: dea53514-3d6d-575e-afca-63a93ffb865e
 name: Potential DCOM InternetExplorer.Application DLL Hijack
-description: 'Detects potential DLL hijack of "iertutil.dll" found in the DCOM InternetExplorer.Application Class over the network | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_dcom_internetexplorer_application_dll_hijack.tf'
+description: 'Detects potential DLL hijack of "iertutil.dll" found in the DCOM InternetExplorer.Application Class over the network | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_dcom_internetexplorer_application_dll_hijack.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

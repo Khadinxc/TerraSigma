@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_ntlm_authentication
   name                       = "suspicious_ntlm_authentication_on_the_printer_spooler_service"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious NTLM Authentication on the Printer Spooler Service"
-  description                = "Detects a privilege elevation attempt by coercing NTLM authentication on the Printer Spooler service | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_ntlm_authentication_on_the_printer_spooler_service.tf"
+  description                = "Detects a privilege elevation attempt by coercing NTLM authentication on the Printer Spooler service | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_ntlm_authentication_on_the_printer_spooler_service.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

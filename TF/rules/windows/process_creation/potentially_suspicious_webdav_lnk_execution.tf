@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_webdav_
   name                       = "potentially_suspicious_webdav_lnk_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious WebDAV LNK Execution"
-  description                = "Detects possible execution via LNK file accessed on a WebDAV server. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_webdav_lnk_execution.tf"
+  description                = "Detects possible execution via LNK file accessed on a WebDAV server. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_webdav_lnk_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

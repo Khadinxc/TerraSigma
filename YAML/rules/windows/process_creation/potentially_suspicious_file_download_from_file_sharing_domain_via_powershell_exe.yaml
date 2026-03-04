@@ -1,6 +1,6 @@
 id: ee480574-715b-5721-801d-c0761e683b4c
 name: Potentially Suspicious File Download From File Sharing Domain Via PowerShell.EXE
-description: 'Detects potentially suspicious file downloads from file sharing domains using PowerShell.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_file_download_from_file_sharing_domain_via_powershell_exe.tf'
+description: 'Detects potentially suspicious file downloads from file sharing domains using PowerShell.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_file_download_from_file_sharing_domain_via_powershell_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

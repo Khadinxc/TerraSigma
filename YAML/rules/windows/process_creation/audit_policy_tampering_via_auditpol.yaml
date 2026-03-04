@@ -1,6 +1,6 @@
 id: 83952de3-4701-5f9e-ad54-9d3db59f7aab
 name: Audit Policy Tampering Via Auditpol
-description: 'Threat actors can use auditpol binary to change audit policy configuration to impair detection capability. This can be carried out by selectively disabling/removing certain audit policies as well as restoring a custom policy owned by the threat actor. - Administrator or administrator scripts might leverage the flags mentioned in the detection section. Either way, it should always be monitored | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/audit_policy_tampering_via_auditpol.tf'
+description: 'Threat actors can use auditpol binary to change audit policy configuration to impair detection capability. This can be carried out by selectively disabling/removing certain audit policies as well as restoring a custom policy owned by the threat actor. - Administrator or administrator scripts might leverage the flags mentioned in the detection section. Either way, it should always be monitored | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/audit_policy_tampering_via_auditpol.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

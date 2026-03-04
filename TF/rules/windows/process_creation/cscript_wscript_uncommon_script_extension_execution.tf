@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "cscript_wscript_uncommon_scrip
   name                       = "cscript_wscript_uncommon_script_extension_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Cscript/Wscript Uncommon Script Extension Execution"
-  description                = "Detects Wscript/Cscript executing a file with an uncommon (i.e. non-script) extension | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/cscript_wscript_uncommon_script_extension_execution.tf"
+  description                = "Detects Wscript/Cscript executing a file with an uncommon (i.e. non-script) extension | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/cscript_wscript_uncommon_script_extension_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

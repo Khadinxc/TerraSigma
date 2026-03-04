@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_rundll32_execution_w
   name                       = "potential_rundll32_execution_with_dll_stored_in_ads"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Rundll32 Execution With DLL Stored In ADS"
-  description                = "Detects execution of rundll32 where the DLL being called is stored in an Alternate Data Stream (ADS). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_rundll32_execution_with_dll_stored_in_ads.tf"
+  description                = "Detects execution of rundll32 where the DLL being called is stored in an Alternate Data Stream (ADS). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_rundll32_execution_with_dll_stored_in_ads.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

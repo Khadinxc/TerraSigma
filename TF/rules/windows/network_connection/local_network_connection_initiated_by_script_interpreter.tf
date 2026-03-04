@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "local_network_connection_initi
   name                       = "local_network_connection_initiated_by_script_interpreter"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Local Network Connection Initiated By Script Interpreter"
-  description                = "Detects a script interpreter (Wscript/Cscript) initiating a local network connection to download or execute a script hosted on a shared folder. - Legitimate scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/local_network_connection_initiated_by_script_interpreter.tf"
+  description                = "Detects a script interpreter (Wscript/Cscript) initiating a local network connection to download or execute a script hosted on a shared folder. - Legitimate scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/local_network_connection_initiated_by_script_interpreter.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

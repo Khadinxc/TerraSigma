@@ -1,6 +1,6 @@
 id: 2cbf61ec-95dc-5775-8978-a2b1f0685a0f
 name: Linux Package Uninstall
-description: 'Detects linux package removal using builtin tools such as "yum", "apt", "apt-get" or "dpkg". - Administrator or administrator scripts might delete packages for several reasons (debugging, troubleshooting). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_package_uninstall.tf'
+description: 'Detects linux package removal using builtin tools such as "yum", "apt", "apt-get" or "dpkg". - Administrator or administrator scripts might delete packages for several reasons (debugging, troubleshooting). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_package_uninstall.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

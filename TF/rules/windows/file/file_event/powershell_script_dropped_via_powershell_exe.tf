@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "powershell_script_dropped_via_
   name                       = "powershell_script_dropped_via_powershell_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Script Dropped Via PowerShell.EXE"
-  description                = "Detects PowerShell creating a PowerShell file (.ps1). While often times this behavior is benign, sometimes it can be a sign of a dropper script trying to achieve persistence. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/powershell_script_dropped_via_powershell_exe.tf"
+  description                = "Detects PowerShell creating a PowerShell file (.ps1). While often times this behavior is benign, sometimes it can be a sign of a dropper script trying to achieve persistence. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/powershell_script_dropped_via_powershell_exe.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents

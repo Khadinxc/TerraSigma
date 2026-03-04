@@ -1,6 +1,6 @@
 id: a7396073-97d2-5521-914f-9a4ac16ed5f8
 name: Silenttrinity Stager Msbuild Activity
-description: 'Detects a possible remote connections to Silenttrinity c2 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/silenttrinity_stager_msbuild_activity.tf'
+description: 'Detects a possible remote connections to Silenttrinity c2 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/silenttrinity_stager_msbuild_activity.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

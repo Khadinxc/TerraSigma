@@ -1,6 +1,6 @@
 id: dcfbb773-d600-548a-8a44-53870714abfa
 name: Suspicious Advpack Call Via Rundll32.EXE
-description: 'Detects execution of "rundll32" calling "advpack.dll" with potential obfuscated ordinal calls in order to leverage the "RegisterOCX" function - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_advpack_call_via_rundll32_exe.tf'
+description: 'Detects execution of "rundll32" calling "advpack.dll" with potential obfuscated ordinal calls in order to leverage the "RegisterOCX" function - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_advpack_call_via_rundll32_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

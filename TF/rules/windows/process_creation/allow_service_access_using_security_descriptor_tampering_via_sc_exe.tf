@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "allow_service_access_using_sec
   name                       = "allow_service_access_using_security_descriptor_tampering_via_sc_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Allow Service Access Using Security Descriptor Tampering Via Sc.EXE"
-  description                = "Detects suspicious DACL modifications to allow access to a service from a suspicious trustee. This can be used to override access restrictions set by previous ACLs. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/allow_service_access_using_security_descriptor_tampering_via_sc_exe.tf"
+  description                = "Detects suspicious DACL modifications to allow access to a service from a suspicious trustee. This can be used to override access restrictions set by previous ACLs. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/allow_service_access_using_security_descriptor_tampering_via_sc_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: fdd80628-294f-5e44-afde-0fc6ee9c0d39
 name: Windows Terminal Profile Settings Modification By Uncommon Process
-description: 'Detects the creation or modification of the Windows Terminal Profile settings file "settings.json" by an uncommon process. - Some false positives may occur with admin scripts that set WT settings. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/windows_terminal_profile_settings_modification_by_uncommon_process.tf'
+description: 'Detects the creation or modification of the Windows Terminal Profile settings file "settings.json" by an uncommon process. - Some false positives may occur with admin scripts that set WT settings. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/windows_terminal_profile_settings_modification_by_uncommon_process.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

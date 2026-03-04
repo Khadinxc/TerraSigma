@@ -1,6 +1,6 @@
 id: 075d20d3-0d7c-5856-bfba-128287c3ff63
 name: HackTool - F-Secure C3 Load by Rundll32
-description: 'F-Secure C3 produces DLLs with a default exported StartNodeRelay function. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_f_secure_c3_load_by_rundll32.tf'
+description: 'F-Secure C3 produces DLLs with a default exported StartNodeRelay function. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_f_secure_c3_load_by_rundll32.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

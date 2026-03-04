@@ -1,6 +1,6 @@
 id: d9f0207e-6b2e-533c-b3dc-dd1c2ebd2ea7
 name: HH.EXE Execution
-description: 'Detects the execution of "hh.exe" to open ".chm" files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hh_exe_execution.tf'
+description: 'Detects the execution of "hh.exe" to open ".chm" files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hh_exe_execution.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

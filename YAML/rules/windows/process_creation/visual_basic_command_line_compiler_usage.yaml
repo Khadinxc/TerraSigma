@@ -1,6 +1,6 @@
 id: 2c7ee238-f858-5943-bded-dd42bc71eaab
 name: Visual Basic Command Line Compiler Usage
-description: 'Detects successful code compilation via Visual Basic Command Line Compiler that utilizes Windows Resource to Object Converter. - Utilization of this tool should not be seen in enterprise environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/visual_basic_command_line_compiler_usage.tf'
+description: 'Detects successful code compilation via Visual Basic Command Line Compiler that utilizes Windows Resource to Object Converter. - Utilization of this tool should not be seen in enterprise environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/visual_basic_command_line_compiler_usage.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

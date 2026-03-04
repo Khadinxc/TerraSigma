@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_com_object_hijacking
   name                       = "potential_com_object_hijacking_via_treatas_subkey_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential COM Object Hijacking Via TreatAs Subkey - Registry"
-  description                = "Detects COM object hijacking via TreatAs subkey - Maybe some system utilities in rare cases use linking keys for backward compatibility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_com_object_hijacking_via_treatas_subkey_registry.tf"
+  description                = "Detects COM object hijacking via TreatAs subkey - Maybe some system utilities in rare cases use linking keys for backward compatibility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_com_object_hijacking_via_treatas_subkey_registry.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

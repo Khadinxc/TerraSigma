@@ -1,6 +1,6 @@
 id: 93215aab-beac-5df0-bca8-f1a00dbf7510
 name: Python Inline Command Execution
-description: 'Detects execution of python using the "-c" flag. This is could be used as a way to launch a reverse shell or execute live python code. - Python libraries that use a flag starting with "-c". Filter according to your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/python_inline_command_execution.tf'
+description: 'Detects execution of python using the "-c" flag. This is could be used as a way to launch a reverse shell or execute live python code. - Python libraries that use a flag starting with "-c". Filter according to your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/python_inline_command_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

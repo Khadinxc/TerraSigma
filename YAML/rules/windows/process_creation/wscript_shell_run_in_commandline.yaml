@@ -1,6 +1,6 @@
 id: 12e89538-3707-5d05-8601-8694579f5b99
 name: Wscript Shell Run In CommandLine
-description: 'Detects the presence of the keywords "Wscript", "Shell" and "Run" in the command, which could indicate a suspicious activity - Inline scripting can be used by some rare third party applications or administrators. Investigate and apply additional filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wscript_shell_run_in_commandline.tf'
+description: 'Detects the presence of the keywords "Wscript", "Shell" and "Run" in the command, which could indicate a suspicious activity - Inline scripting can be used by some rare third party applications or administrators. Investigate and apply additional filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wscript_shell_run_in_commandline.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

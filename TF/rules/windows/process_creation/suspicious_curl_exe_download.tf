@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_curl_exe_download" 
   name                       = "suspicious_curl_exe_download"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Curl.EXE Download"
-  description                = "Detects a suspicious curl process start on Windows and outputs the requested document to a local file | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_curl_exe_download.tf"
+  description                = "Detects a suspicious curl process start on Windows and outputs the requested document to a local file | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_curl_exe_download.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

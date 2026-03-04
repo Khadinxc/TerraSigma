@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "remote_access_tool_potential_m
   name                       = "remote_access_tool_potential_meshagent_execution_macos"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Access Tool - Potential MeshAgent Execution - MacOS"
-  description                = "Detects potential execution of MeshAgent which is a tool used for remote access. Historical data shows that threat actors rename MeshAgent binary to evade detection. Matching command lines with the '--meshServiceName' argument can indicate that the MeshAgent is being used for remote access. - Environments that legitimately use MeshAgent | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/remote_access_tool_potential_meshagent_execution_macos.tf"
+  description                = "Detects potential execution of MeshAgent which is a tool used for remote access. Historical data shows that threat actors rename MeshAgent binary to evade detection. Matching command lines with the '--meshServiceName' argument can indicate that the MeshAgent is being used for remote access. - Environments that legitimately use MeshAgent | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/remote_access_tool_potential_meshagent_execution_macos.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

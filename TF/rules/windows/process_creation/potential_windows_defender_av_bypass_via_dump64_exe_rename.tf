@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_windows_defender_av_
   name                       = "potential_windows_defender_av_bypass_via_dump64_exe_rename"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Windows Defender AV Bypass Via Dump64.EXE Rename"
-  description                = "Detects when a user is potentially trying to bypass the Windows Defender AV by renaming a tool to dump64.exe and placing it in the Visual Studio folder. Currently the rule is covering only usage of procdump but other utilities can be added in order to increase coverage. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_windows_defender_av_bypass_via_dump64_exe_rename.tf"
+  description                = "Detects when a user is potentially trying to bypass the Windows Defender AV by renaming a tool to dump64.exe and placing it in the Visual Studio folder. Currently the rule is covering only usage of procdump but other utilities can be added in order to increase coverage. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_windows_defender_av_bypass_via_dump64_exe_rename.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

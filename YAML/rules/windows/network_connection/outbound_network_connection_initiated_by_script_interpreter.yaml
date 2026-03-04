@@ -1,6 +1,6 @@
 id: 7589c78a-0e85-561c-87b0-85a80c57dbe5
 name: Outbound Network Connection Initiated By Script Interpreter
-description: 'Detects a script interpreter wscript/cscript opening a network connection to a non-local network. Adversaries may use script to download malicious payloads. - Legitimate scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/outbound_network_connection_initiated_by_script_interpreter.tf'
+description: 'Detects a script interpreter wscript/cscript opening a network connection to a non-local network. Adversaries may use script to download malicious payloads. - Legitimate scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/outbound_network_connection_initiated_by_script_interpreter.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

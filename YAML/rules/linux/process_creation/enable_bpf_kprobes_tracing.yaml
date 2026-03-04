@@ -1,6 +1,6 @@
 id: ecaea638-58d7-5b0d-9c27-0d4cbf3d69e0
 name: Enable BPF Kprobes Tracing
-description: 'Detects common command used to enable bpf kprobes tracing | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/enable_bpf_kprobes_tracing.tf'
+description: 'Detects common command used to enable bpf kprobes tracing | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/enable_bpf_kprobes_tracing.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

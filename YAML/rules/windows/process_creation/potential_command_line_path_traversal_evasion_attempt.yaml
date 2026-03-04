@@ -1,6 +1,6 @@
 id: e7d5e492-5b48-5739-9e8c-b456ef66809e
 name: Potential Command Line Path Traversal Evasion Attempt
-description: 'Detects potential evasion or obfuscation attempts using bogus path traversal via the commandline - Google Drive - Citrix | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_command_line_path_traversal_evasion_attempt.tf'
+description: 'Detects potential evasion or obfuscation attempts using bogus path traversal via the commandline - Google Drive - Citrix | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_command_line_path_traversal_evasion_attempt.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

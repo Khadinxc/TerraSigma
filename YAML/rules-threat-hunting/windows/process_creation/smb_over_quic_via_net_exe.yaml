@@ -1,6 +1,6 @@
 id: 0c6dbd72-5de7-539e-a5d1-0c12b952b2ff
 name: SMB over QUIC Via Net.EXE
-description: 'Detects the mounting of Windows SMB shares over QUIC, which can be an unexpected event in some enterprise environments. - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/smb_over_quic_via_net_exe.tf'
+description: 'Detects the mounting of Windows SMB shares over QUIC, which can be an unexpected event in some enterprise environments. - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/smb_over_quic_via_net_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

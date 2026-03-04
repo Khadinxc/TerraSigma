@@ -1,6 +1,6 @@
 id: 76f0919a-04f2-503e-b978-b2edb8467f59
 name: Uncommon One Time Only Scheduled Task At 00:00
-description: 'Detects scheduled task creation events that include suspicious actions, and is run once at 00:00 - Software installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_one_time_only_scheduled_task_at_00_00.tf'
+description: 'Detects scheduled task creation events that include suspicious actions, and is run once at 00:00 - Software installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_one_time_only_scheduled_task_at_00_00.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

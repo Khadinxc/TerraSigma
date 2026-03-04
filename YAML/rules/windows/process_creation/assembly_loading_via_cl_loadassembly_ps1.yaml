@@ -1,6 +1,6 @@
 id: 66e27ec8-c809-595c-81d2-693acfe62d7e
 name: Assembly Loading Via CL_LoadAssembly.ps1
-description: 'Detects calls to "LoadAssemblyFromPath" or "LoadAssemblyFromNS" that are part of the "CL_LoadAssembly.ps1" script. This can be abused to load different assemblies and bypass App locker controls. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/assembly_loading_via_cl_loadassembly_ps1.tf'
+description: 'Detects calls to "LoadAssemblyFromPath" or "LoadAssemblyFromNS" that are part of the "CL_LoadAssembly.ps1" script. This can be abused to load different assemblies and bypass App locker controls. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/assembly_loading_via_cl_loadassembly_ps1.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

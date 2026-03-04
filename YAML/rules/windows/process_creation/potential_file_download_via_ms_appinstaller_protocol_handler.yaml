@@ -1,6 +1,6 @@
 id: 6039d50d-c11e-5914-877b-3668ad86dc27
 name: Potential File Download Via MS-AppInstaller Protocol Handler
-description: 'Detects usage of the "ms-appinstaller" protocol handler via command line to potentially download arbitrary files via AppInstaller.EXE The downloaded files are temporarly stored in ":\Users\%username%\AppData\Local\Packages\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\AC\INetCache\<RANDOM-8-CHAR-DIRECTORY>" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_file_download_via_ms_appinstaller_protocol_handler.tf'
+description: 'Detects usage of the "ms-appinstaller" protocol handler via command line to potentially download arbitrary files via AppInstaller.EXE The downloaded files are temporarly stored in ":\Users\%username%\AppData\Local\Packages\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\AC\INetCache\<RANDOM-8-CHAR-DIRECTORY>" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_file_download_via_ms_appinstaller_protocol_handler.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

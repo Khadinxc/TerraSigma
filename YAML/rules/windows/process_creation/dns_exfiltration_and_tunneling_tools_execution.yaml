@@ -1,6 +1,6 @@
 id: f40de2d2-623d-57eb-ba13-73b374918635
 name: DNS Exfiltration and Tunneling Tools Execution
-description: 'Well-known DNS Exfiltration tools execution - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dns_exfiltration_and_tunneling_tools_execution.tf'
+description: 'Well-known DNS Exfiltration tools execution - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dns_exfiltration_and_tunneling_tools_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

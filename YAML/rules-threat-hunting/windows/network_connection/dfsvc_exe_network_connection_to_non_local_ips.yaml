@@ -1,6 +1,6 @@
 id: 3ea6240a-4423-5d19-a9f7-76152dd8e077
 name: Dfsvc.EXE Network Connection To Non-Local IPs
-description: 'Detects network connections from "dfsvc.exe" used to handled ClickOnce applications to non-local IPs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/dfsvc_exe_network_connection_to_non_local_ips.tf'
+description: 'Detects network connections from "dfsvc.exe" used to handled ClickOnce applications to non-local IPs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/dfsvc_exe_network_connection_to_non_local_ips.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

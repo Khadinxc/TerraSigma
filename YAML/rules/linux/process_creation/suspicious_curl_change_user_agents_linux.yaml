@@ -1,6 +1,6 @@
 id: eff73dc5-2a20-5fb6-a12f-9225d310f28e
 name: Suspicious Curl Change User Agents - Linux
-description: 'Detects a suspicious curl process start on linux with set useragent options - Scripts created by developers and admins - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/suspicious_curl_change_user_agents_linux.tf'
+description: 'Detects a suspicious curl process start on linux with set useragent options - Scripts created by developers and admins - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/suspicious_curl_change_user_agents_linux.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

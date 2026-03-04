@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_electron_applicatio
   name                       = "suspicious_electron_application_child_processes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Electron Application Child Processes"
-  description                = "Detects suspicious child processes of electron apps (teams, discord, slack, etc.). This could be a potential sign of \".asar\" file tampering (See reference section for more information) or binary execution proxy through specific CLI arguments (see related rule) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_electron_application_child_processes.tf"
+  description                = "Detects suspicious child processes of electron apps (teams, discord, slack, etc.). This could be a potential sign of \".asar\" file tampering (See reference section for more information) or binary execution proxy through specific CLI arguments (see related rule) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_electron_application_child_processes.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

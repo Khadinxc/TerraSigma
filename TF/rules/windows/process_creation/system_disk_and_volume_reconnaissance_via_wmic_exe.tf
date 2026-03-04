@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "system_disk_and_volume_reconna
   name                       = "system_disk_and_volume_reconnaissance_via_wmic_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "System Disk And Volume Reconnaissance Via Wmic.EXE"
-  description                = "An adversary might use WMI to discover information about the system, such as the volume name, size, free space, and other disk information. This can be done using the 'wmic' command-line utility and has been observed being used by threat actors such as Volt Typhoon. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/system_disk_and_volume_reconnaissance_via_wmic_exe.tf"
+  description                = "An adversary might use WMI to discover information about the system, such as the volume name, size, free space, and other disk information. This can be done using the 'wmic' command-line utility and has been observed being used by threat actors such as Volt Typhoon. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/system_disk_and_volume_reconnaissance_via_wmic_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

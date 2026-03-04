@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_commandline_path_tra
   name                       = "potential_commandline_path_traversal_via_cmd_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential CommandLine Path Traversal Via Cmd.EXE"
-  description                = "Detects potential path traversal attempt via cmd.exe. Could indicate possible command/argument confusion/hijacking - Java tools are known to produce false-positive when loading libraries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_commandline_path_traversal_via_cmd_exe.tf"
+  description                = "Detects potential path traversal attempt via cmd.exe. Could indicate possible command/argument confusion/hijacking - Java tools are known to produce false-positive when loading libraries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_commandline_path_traversal_via_cmd_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

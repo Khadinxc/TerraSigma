@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "rdp_sensitive_settings_changed
   name                       = "rdp_sensitive_settings_changed_to_zero"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "RDP Sensitive Settings Changed to Zero"
-  description                = "Detects tampering of RDP Terminal Service/Server sensitive settings. Such as allowing unauthorized users access to a system via the 'fAllowUnsolicited' or enabling RDP via 'fDenyTSConnections', etc. - Some of the keys mentioned here could be modified by an administrator while setting group policy (it should be investigated either way) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/rdp_sensitive_settings_changed_to_zero.tf"
+  description                = "Detects tampering of RDP Terminal Service/Server sensitive settings. Such as allowing unauthorized users access to a system via the 'fAllowUnsolicited' or enabling RDP via 'fDenyTSConnections', etc. - Some of the keys mentioned here could be modified by an administrator while setting group policy (it should be investigated either way) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/rdp_sensitive_settings_changed_to_zero.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

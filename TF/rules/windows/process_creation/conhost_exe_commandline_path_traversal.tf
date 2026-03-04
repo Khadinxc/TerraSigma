@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "conhost_exe_commandline_path_t
   name                       = "conhost_exe_commandline_path_traversal"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Conhost.exe CommandLine Path Traversal"
-  description                = "detects the usage of path traversal in conhost.exe indicating possible command/argument confusion/hijacking - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/conhost_exe_commandline_path_traversal.tf"
+  description                = "detects the usage of path traversal in conhost.exe indicating possible command/argument confusion/hijacking - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/conhost_exe_commandline_path_traversal.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

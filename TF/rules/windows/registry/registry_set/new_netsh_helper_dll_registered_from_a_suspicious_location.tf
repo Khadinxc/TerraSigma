@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_netsh_helper_dll_registere
   name                       = "new_netsh_helper_dll_registered_from_a_suspicious_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Netsh Helper DLL Registered From A Suspicious Location"
-  description                = "Detects changes to the Netsh registry key to add a new DLL value that is located on a suspicious location. This change might be an indication of a potential persistence attempt by adding a malicious Netsh helper | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/new_netsh_helper_dll_registered_from_a_suspicious_location.tf"
+  description                = "Detects changes to the Netsh registry key to add a new DLL value that is located on a suspicious location. This change might be an indication of a potential persistence attempt by adding a malicious Netsh helper | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/new_netsh_helper_dll_registered_from_a_suspicious_location.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

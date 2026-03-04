@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_initial_access_via_d
   name                       = "potential_initial_access_via_dll_search_order_hijacking"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Initial Access via DLL Search Order Hijacking"
-  description                = "Detects attempts to create a DLL file to a known desktop application dependencies folder such as Slack, Teams or OneDrive and by an unusual process. This may indicate an attempt to load a malicious module via DLL search order hijacking. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_initial_access_via_dll_search_order_hijacking.tf"
+  description                = "Detects attempts to create a DLL file to a known desktop application dependencies folder such as Slack, Teams or OneDrive and by an unusual process. This may indicate an attempt to load a malicious module via DLL search order hijacking. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_initial_access_via_dll_search_order_hijacking.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

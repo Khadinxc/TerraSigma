@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dllhost_exe_execution_anomaly"
   name                       = "dllhost_exe_execution_anomaly"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Dllhost.EXE Execution Anomaly"
-  description                = "Detects a \"dllhost\" process spawning with no commandline arguments which is very rare to happen and could indicate process injection activity or malware mimicking similar system processes. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dllhost_exe_execution_anomaly.tf"
+  description                = "Detects a \"dllhost\" process spawning with no commandline arguments which is very rare to happen and could indicate process injection activity or malware mimicking similar system processes. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dllhost_exe_execution_anomaly.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

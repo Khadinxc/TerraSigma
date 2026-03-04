@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "clfs_sys_loaded_by_process_loc
   name                       = "clfs_sys_loaded_by_process_located_in_a_potential_suspicious_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Clfs.SYS Loaded By Process Located In a Potential Suspicious Location"
-  description                = "Detects Clfs.sys being loaded by a process running from a potentially suspicious location. Clfs.sys is loaded as part of many CVEs exploits that targets Common Log File. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/clfs_sys_loaded_by_process_located_in_a_potential_suspicious_location.tf"
+  description                = "Detects Clfs.sys being loaded by a process running from a potentially suspicious location. Clfs.sys is loaded as part of many CVEs exploits that targets Common Log File. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/clfs_sys_loaded_by_process_located_in_a_potential_suspicious_location.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

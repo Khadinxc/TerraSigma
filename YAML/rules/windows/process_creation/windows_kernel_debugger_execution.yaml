@@ -1,6 +1,6 @@
 id: 81ebf9a4-afa2-5ebd-a353-a5496226691b
 name: Windows Kernel Debugger Execution
-description: 'Detects execution of the Windows Kernel Debugger "kd.exe". - Rare occasions of legitimate cases where kernel debugging is necessary in production. Investigation is required | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_kernel_debugger_execution.tf'
+description: 'Detects execution of the Windows Kernel Debugger "kd.exe". - Rare occasions of legitimate cases where kernel debugging is necessary in production. Investigation is required | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_kernel_debugger_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

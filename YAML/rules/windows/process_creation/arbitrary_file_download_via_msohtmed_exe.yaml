@@ -1,6 +1,6 @@
 id: 2129f1ee-f8f8-508a-ad8f-f085bad0cb25
 name: Arbitrary File Download Via MSOHTMED.EXE
-description: 'Detects usage of "MSOHTMED" to download arbitrary files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_file_download_via_msohtmed_exe.tf'
+description: 'Detects usage of "MSOHTMED" to download arbitrary files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_file_download_via_msohtmed_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

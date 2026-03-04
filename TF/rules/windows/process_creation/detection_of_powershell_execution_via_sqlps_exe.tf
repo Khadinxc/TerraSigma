@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "detection_of_powershell_execut
   name                       = "detection_of_powershell_execution_via_sqlps_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Detection of PowerShell Execution via Sqlps.exe"
-  description                = "This rule detects execution of a PowerShell code through the sqlps.exe utility, which is included in the standard set of utilities supplied with the MSSQL Server. Script blocks are not logged in this case, so this utility helps to bypass protection mechanisms based on the analysis of these logs. - Direct PS command execution through SQLPS.exe is uncommon, childprocess sqlps.exe spawned by sqlagent.exe is a legitimate action. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/detection_of_powershell_execution_via_sqlps_exe.tf"
+  description                = "This rule detects execution of a PowerShell code through the sqlps.exe utility, which is included in the standard set of utilities supplied with the MSSQL Server. Script blocks are not logged in this case, so this utility helps to bypass protection mechanisms based on the analysis of these logs. - Direct PS command execution through SQLPS.exe is uncommon, childprocess sqlps.exe spawned by sqlagent.exe is a legitimate action. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/detection_of_powershell_execution_via_sqlps_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

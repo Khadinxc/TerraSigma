@@ -1,6 +1,6 @@
 id: 7292a566-2791-588e-9d14-181a90eb0b8c
 name: PUA - Netcat Suspicious Execution
-description: 'Detects execution of Netcat. Adversaries may use a non-application layer protocol for communication between host and C2 server or among infected hosts within a network - Legitimate ncat use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_netcat_suspicious_execution.tf'
+description: 'Detects execution of Netcat. Adversaries may use a non-application layer protocol for communication between host and C2 server or among infected hosts within a network - Legitimate ncat use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_netcat_suspicious_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

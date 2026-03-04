@@ -1,6 +1,6 @@
 id: 5a78404f-c766-5e49-851b-36a1bdf858cb
 name: Potential EmpireMonkey Activity
-description: 'Detects potential EmpireMonkey APT activity - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/EmpireMonkey/potential_empiremonkey_activity.tf'
+description: 'Detects potential EmpireMonkey APT activity - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/EmpireMonkey/potential_empiremonkey_activity.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

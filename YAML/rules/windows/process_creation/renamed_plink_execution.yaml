@@ -1,6 +1,6 @@
 id: 293d368a-3506-597e-a7b7-b36b01ae2f9c
 name: Renamed Plink Execution
-description: 'Detects the execution of a renamed version of the Plink binary | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_plink_execution.tf'
+description: 'Detects the execution of a renamed version of the Plink binary | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_plink_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

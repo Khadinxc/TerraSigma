@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_pypykatz_credentials_
   name                       = "hacktool_pypykatz_credentials_dumping_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Pypykatz Credentials Dumping Activity"
-  description                = "Detects the usage of \"pypykatz\" to obtain stored credentials. Adversaries may attempt to extract credential material from the Security Account Manager (SAM) database through Windows registry where the SAM database is stored | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_pypykatz_credentials_dumping_activity.tf"
+  description                = "Detects the usage of \"pypykatz\" to obtain stored credentials. Adversaries may attempt to extract credential material from the Security Account Manager (SAM) database through Windows registry where the SAM database is stored | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_pypykatz_credentials_dumping_activity.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

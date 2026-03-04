@@ -1,6 +1,6 @@
 id: 88d33e58-da16-5d6c-bfeb-4a5a809bacb1
 name: Potential Persistence Via Microsoft Office Add-In
-description: 'Detects potential persistence activity via startup add-ins that load when Microsoft Office starts (.wll/.xll are simply .dll fit for Word or Excel). - Legitimate add-ins | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_persistence_via_microsoft_office_add_in.tf'
+description: 'Detects potential persistence activity via startup add-ins that load when Microsoft Office starts (.wll/.xll are simply .dll fit for Word or Excel). - Legitimate add-ins | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_persistence_via_microsoft_office_add_in.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

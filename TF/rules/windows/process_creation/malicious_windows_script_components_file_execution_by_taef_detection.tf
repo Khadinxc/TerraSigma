@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "malicious_windows_script_compo
   name                       = "malicious_windows_script_components_file_execution_by_taef_detection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Malicious Windows Script Components File Execution by TAEF Detection"
-  description                = "Windows Test Authoring and Execution Framework (TAEF) framework allows you to run automation by executing tests files written on different languages (C, C#, Microsoft COM Scripting interfaces Adversaries may execute malicious code (such as WSC file with VBScript, dll and so on) directly by running te.exe - It's not an uncommon to use te.exe directly to execute legal TAEF tests | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/malicious_windows_script_components_file_execution_by_taef_detection.tf"
+  description                = "Windows Test Authoring and Execution Framework (TAEF) framework allows you to run automation by executing tests files written on different languages (C, C#, Microsoft COM Scripting interfaces Adversaries may execute malicious code (such as WSC file with VBScript, dll and so on) directly by running te.exe - It's not an uncommon to use te.exe directly to execute legal TAEF tests | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/malicious_windows_script_components_file_execution_by_taef_detection.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

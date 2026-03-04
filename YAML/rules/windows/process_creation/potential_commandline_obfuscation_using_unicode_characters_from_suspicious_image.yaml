@@ -1,6 +1,6 @@
 id: 9d82451a-7f3e-5d11-a005-4e52e426edde
 name: Potential CommandLine Obfuscation Using Unicode Characters From Suspicious Image
-description: 'Detects potential commandline obfuscation using unicode characters. Adversaries may attempt to make an executable or file difficult to discover or analyze by encrypting, encoding, or otherwise obfuscating its contents on the system or in transit. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_commandline_obfuscation_using_unicode_characters_from_suspicious_image.tf'
+description: 'Detects potential commandline obfuscation using unicode characters. Adversaries may attempt to make an executable or file difficult to discover or analyze by encrypting, encoding, or otherwise obfuscating its contents on the system or in transit. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_commandline_obfuscation_using_unicode_characters_from_suspicious_image.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

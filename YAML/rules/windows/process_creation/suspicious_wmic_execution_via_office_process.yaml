@@ -1,6 +1,6 @@
 id: 6def4d8c-683b-50bd-ac18-26611e63599d
 name: Suspicious WMIC Execution Via Office Process
-description: 'Office application called wmic to proxye execution through a LOLBIN process. This is often used to break suspicious parent-child chain (Office app spawns LOLBin). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_wmic_execution_via_office_process.tf'
+description: 'Office application called wmic to proxye execution through a LOLBIN process. This is often used to break suspicious parent-child chain (Office app spawns LOLBin). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_wmic_execution_via_office_process.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "rar_usage_with_password_and_co
   name                       = "rar_usage_with_password_and_compression_level"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Rar Usage with Password and Compression Level"
-  description                = "Detects the use of rar.exe, on the command line, to create an archive with password protection or with a specific compression level. This is pretty indicative of malicious actions. - Legitimate use of Winrar command line version - Other command line tools, that use these flags | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rar_usage_with_password_and_compression_level.tf"
+  description                = "Detects the use of rar.exe, on the command line, to create an archive with password protection or with a specific compression level. This is pretty indicative of malicious actions. - Legitimate use of Winrar command line version - Other command line tools, that use these flags | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rar_usage_with_password_and_compression_level.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

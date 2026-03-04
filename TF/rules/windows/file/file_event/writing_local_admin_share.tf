@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "writing_local_admin_share" {
   name                       = "writing_local_admin_share"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Writing Local Admin Share"
-  description                = "Aversaries may use to interact with a remote network share using Server Message Block (SMB). This technique is used by post-exploitation frameworks. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/writing_local_admin_share.tf"
+  description                = "Aversaries may use to interact with a remote network share using Server Message Block (SMB). This technique is used by post-exploitation frameworks. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/writing_local_admin_share.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

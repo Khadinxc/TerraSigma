@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "sqlite_firefox_profile_data_db
   name                       = "sqlite_firefox_profile_data_db_access"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "SQLite Firefox Profile Data DB Access"
-  description                = "Detect usage of the \"sqlite\" binary to query databases in Firefox and other Gecko-based browsers for potential data stealing. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sqlite_firefox_profile_data_db_access.tf"
+  description                = "Detect usage of the \"sqlite\" binary to query databases in Firefox and other Gecko-based browsers for potential data stealing. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sqlite_firefox_profile_data_db_access.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

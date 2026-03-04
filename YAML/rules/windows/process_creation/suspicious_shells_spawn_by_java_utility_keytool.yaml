@@ -1,6 +1,6 @@
 id: 5fd574ce-73c3-5372-87c3-7a2868330185
 name: Suspicious Shells Spawn by Java Utility Keytool
-description: 'Detects suspicious shell spawn from Java utility keytool process (e.g. adselfservice plus exploitation) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_shells_spawn_by_java_utility_keytool.tf'
+description: 'Detects suspicious shell spawn from Java utility keytool process (e.g. adselfservice plus exploitation) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_shells_spawn_by_java_utility_keytool.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

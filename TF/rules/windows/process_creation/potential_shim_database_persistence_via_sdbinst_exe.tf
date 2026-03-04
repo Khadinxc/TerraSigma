@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_shim_database_persis
   name                       = "potential_shim_database_persistence_via_sdbinst_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Shim Database Persistence via Sdbinst.EXE"
-  description                = "Detects installation of a new shim using sdbinst.exe. Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by application shims | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_shim_database_persistence_via_sdbinst_exe.tf"
+  description                = "Detects installation of a new shim using sdbinst.exe. Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by application shims | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_shim_database_persistence_via_sdbinst_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

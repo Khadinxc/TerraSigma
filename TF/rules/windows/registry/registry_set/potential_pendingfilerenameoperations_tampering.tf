@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_pendingfilerenameope
   name                       = "potential_pendingfilerenameoperations_tampering"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential PendingFileRenameOperations Tampering"
-  description                = "Detect changes to the \"PendingFileRenameOperations\" registry key from uncommon or suspicious images locations to stage currently used files for rename or deletion after reboot. - Installers and updaters may set currently in use files for rename or deletion after a reboot. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_pendingfilerenameoperations_tampering.tf"
+  description                = "Detect changes to the \"PendingFileRenameOperations\" registry key from uncommon or suspicious images locations to stage currently used files for rename or deletion after reboot. - Installers and updaters may set currently in use files for rename or deletion after a reboot. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_pendingfilerenameoperations_tampering.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

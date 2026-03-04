@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_mshta_exe_execution
   name                       = "suspicious_mshta_exe_execution_patterns"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Mshta.EXE Execution Patterns"
-  description                = "Detects suspicious mshta process execution patterns | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_mshta_exe_execution_patterns.tf"
+  description                = "Detects suspicious mshta process execution patterns | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_mshta_exe_execution_patterns.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

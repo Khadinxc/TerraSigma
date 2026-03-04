@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "lolbin_runexehelper_use_as_pro
   name                       = "lolbin_runexehelper_use_as_proxy"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Lolbin Runexehelper Use As Proxy"
-  description                = "Detect usage of the \"runexehelper.exe\" binary as a proxy to launch other programs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/lolbin_runexehelper_use_as_proxy.tf"
+  description                = "Detect usage of the \"runexehelper.exe\" binary as a proxy to launch other programs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/lolbin_runexehelper_use_as_proxy.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

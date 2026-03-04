@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "wmi_persistence_script_event_c
   name                       = "wmi_persistence_script_event_consumer_file_write"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WMI Persistence - Script Event Consumer File Write"
-  description                = "Detects file writes of WMI script event consumer - Dell Power Manager (C:\\Program Files\\Dell\\PowerManager\\DpmPowerPlanSetup.exe) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/wmi_persistence_script_event_consumer_file_write.tf"
+  description                = "Detects file writes of WMI script event consumer - Dell Power Manager (C:\\Program Files\\Dell\\PowerManager\\DpmPowerPlanSetup.exe) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/wmi_persistence_script_event_consumer_file_write.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

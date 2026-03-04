@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_powertool_execution" 
   name                       = "hacktool_powertool_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - PowerTool Execution"
-  description                = "Detects the execution of the tool PowerTool which has the ability to kill a process, delete its process file, unload drivers, and delete the driver files - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_powertool_execution.tf"
+  description                = "Detects the execution of the tool PowerTool which has the ability to kill a process, delete its process file, unload drivers, and delete the driver files - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_powertool_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

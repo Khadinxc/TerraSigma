@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "defrag_deactivation" {
   name                       = "defrag_deactivation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Defrag Deactivation"
-  description                = "Detects the deactivation and disabling of the Scheduled defragmentation task as seen by Slingshot APT group | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/Slingshot/defrag_deactivation.tf"
+  description                = "Detects the deactivation and disabling of the Scheduled defragmentation task as seen by Slingshot APT group | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/Slingshot/defrag_deactivation.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

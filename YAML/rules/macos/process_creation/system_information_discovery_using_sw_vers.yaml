@@ -1,6 +1,6 @@
 id: 305665e0-a17a-55c6-93db-17c3c3be3ab9
 name: System Information Discovery Using sw_vers
-description: 'Detects the use of "sw_vers" for system information discovery - Legitimate administrative activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/system_information_discovery_using_sw_vers.tf'
+description: 'Detects the use of "sw_vers" for system information discovery - Legitimate administrative activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/system_information_discovery_using_sw_vers.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

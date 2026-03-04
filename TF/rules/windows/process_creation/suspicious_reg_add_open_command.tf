@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_reg_add_open_comman
   name                       = "suspicious_reg_add_open_command"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Reg Add Open Command"
-  description                = "Threat actors performed dumping of SAM, SECURITY and SYSTEM registry hives using DelegateExecute key | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_reg_add_open_command.tf"
+  description                = "Threat actors performed dumping of SAM, SECURITY and SYSTEM registry hives using DelegateExecute key | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_reg_add_open_command.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

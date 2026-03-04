@@ -1,6 +1,6 @@
 id: 64322d45-9e44-51e0-9584-41a917a6b4dd
 name: Msxsl.EXE Execution
-description: 'Detects the execution of the MSXSL utility. This can be used to execute Extensible Stylesheet Language (XSL) files. These files are commonly used to describe the processing and rendering of data within XML files. Adversaries can abuse this functionality to execute arbitrary files while potentially bypassing application whitelisting defenses. - Msxsl is not installed by default and is deprecated, so unlikely on most systems. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/msxsl_exe_execution.tf'
+description: 'Detects the execution of the MSXSL utility. This can be used to execute Extensible Stylesheet Language (XSL) files. These files are commonly used to describe the processing and rendering of data within XML files. Adversaries can abuse this functionality to execute arbitrary files while potentially bypassing application whitelisting defenses. - Msxsl is not installed by default and is deprecated, so unlikely on most systems. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/msxsl_exe_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

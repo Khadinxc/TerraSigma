@@ -1,6 +1,6 @@
 id: c89bc779-ffdb-5c11-b69e-0015154cf08d
 name: ESXi Syslog Configuration Change Via ESXCLI
-description: 'Detects changes to the ESXi syslog configuration via "esxcli" - Legitimate administrative activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/esxi_syslog_configuration_change_via_esxcli.tf'
+description: 'Detects changes to the ESXi syslog configuration via "esxcli" - Legitimate administrative activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/esxi_syslog_configuration_change_via_esxcli.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

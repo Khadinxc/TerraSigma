@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_ccleanerreactivator_
   name                       = "potential_ccleanerreactivator_dll_sideloading"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential CCleanerReactivator.DLL Sideloading"
-  description                = "Detects potential DLL sideloading of \"CCleanerReactivator.dll\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_ccleanerreactivator_dll_sideloading.tf"
+  description                = "Detects potential DLL sideloading of \"CCleanerReactivator.dll\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_ccleanerreactivator_dll_sideloading.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

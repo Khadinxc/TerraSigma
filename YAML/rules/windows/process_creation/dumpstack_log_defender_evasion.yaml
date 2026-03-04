@@ -1,6 +1,6 @@
 id: fd521157-3665-5b49-9f22-de3810a25c6a
 name: DumpStack.log Defender Evasion
-description: 'Detects the use of the filename DumpStack.log to evade Microsoft Defender | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dumpstack_log_defender_evasion.tf'
+description: 'Detects the use of the filename DumpStack.log to evade Microsoft Defender | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dumpstack_log_defender_evasion.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

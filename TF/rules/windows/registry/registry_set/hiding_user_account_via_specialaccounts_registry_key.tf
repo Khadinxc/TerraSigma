@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hiding_user_account_via_specia
   name                       = "hiding_user_account_via_specialaccounts_registry_key"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Hiding User Account Via SpecialAccounts Registry Key"
-  description                = "Detects modifications to the registry key \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\SpecialAccounts\\Userlist\" where the value is set to \"0\" in order to hide user account from being listed on the logon screen. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/hiding_user_account_via_specialaccounts_registry_key.tf"
+  description                = "Detects modifications to the registry key \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\SpecialAccounts\\Userlist\" where the value is set to \"0\" in order to hide user account from being listed on the logon screen. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/hiding_user_account_via_specialaccounts_registry_key.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

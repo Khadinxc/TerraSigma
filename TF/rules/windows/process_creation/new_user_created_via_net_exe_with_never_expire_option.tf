@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_user_created_via_net_exe_w
   name                       = "new_user_created_via_net_exe_with_never_expire_option"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New User Created Via Net.EXE With Never Expire Option"
-  description                = "Detects creation of local users via the net.exe command with the option \"never expire\" - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_user_created_via_net_exe_with_never_expire_option.tf"
+  description                = "Detects creation of local users via the net.exe command with the option \"never expire\" - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_user_created_via_net_exe_with_never_expire_option.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

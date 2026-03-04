@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "regsvr32_execution_from_highly
   name                       = "regsvr32_execution_from_highly_suspicious_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Regsvr32 Execution From Highly Suspicious Location"
-  description                = "Detects execution of regsvr32 where the DLL is located in a highly suspicious locations - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/regsvr32_execution_from_highly_suspicious_location.tf"
+  description                = "Detects execution of regsvr32 where the DLL is located in a highly suspicious locations - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/regsvr32_execution_from_highly_suspicious_location.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

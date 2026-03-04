@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_chisel_tunneling_tool_exec
   name                       = "pua_chisel_tunneling_tool_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Chisel Tunneling Tool Execution"
-  description                = "Detects usage of the Chisel tunneling tool via the commandline arguments - Some false positives may occur with other tools with similar commandlines | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_chisel_tunneling_tool_execution.tf"
+  description                = "Detects usage of the Chisel tunneling tool via the commandline arguments - Some false positives may occur with other tools with similar commandlines | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_chisel_tunneling_tool_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

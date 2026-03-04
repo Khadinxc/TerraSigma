@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "user_added_to_local_administra
   name                       = "user_added_to_local_administrators_group"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "User Added to Local Administrators Group"
-  description                = "Detects addition of users to the local administrator group via \"Net\" or \"Add-LocalGroupMember\". - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/user_added_to_local_administrators_group.tf"
+  description                = "Detects addition of users to the local administrator group via \"Net\" or \"Add-LocalGroupMember\". - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/user_added_to_local_administrators_group.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

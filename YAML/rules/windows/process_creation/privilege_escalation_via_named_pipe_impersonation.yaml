@@ -1,6 +1,6 @@
 id: cac7a08f-3ded-577d-8b05-e4bb8e2e58a9
 name: Privilege Escalation via Named Pipe Impersonation
-description: 'Detects a remote file copy attempt to a hidden network share. This may indicate lateral movement or data staging activity. - Other programs that cause these patterns (please report) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/privilege_escalation_via_named_pipe_impersonation.tf'
+description: 'Detects a remote file copy attempt to a hidden network share. This may indicate lateral movement or data staging activity. - Other programs that cause these patterns (please report) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/privilege_escalation_via_named_pipe_impersonation.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

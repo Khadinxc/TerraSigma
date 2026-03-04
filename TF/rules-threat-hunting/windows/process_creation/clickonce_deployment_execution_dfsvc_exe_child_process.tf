@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "clickonce_deployment_execution
   name                       = "clickonce_deployment_execution_dfsvc_exe_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ClickOnce Deployment Execution - Dfsvc.EXE Child Process"
-  description                = "Detects child processes of \"dfsvc\" which indicates a ClickOnce deployment execution. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/clickonce_deployment_execution_dfsvc_exe_child_process.tf"
+  description                = "Detects child processes of \"dfsvc\" which indicates a ClickOnce deployment execution. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/clickonce_deployment_execution_dfsvc_exe_child_process.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

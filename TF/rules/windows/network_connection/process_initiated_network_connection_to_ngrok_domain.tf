@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "process_initiated_network_conn
   name                       = "process_initiated_network_connection_to_ngrok_domain"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Process Initiated Network Connection To Ngrok Domain"
-  description                = "Detects an executable initiating a network connection to \"ngrok\" domains. Attackers were seen using this \"ngrok\" in order to store their second stage payloads and malware. While communication with such domains can be legitimate, often times is a sign of either data exfiltration by malicious actors or additional download. - Legitimate use of the ngrok service. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/process_initiated_network_connection_to_ngrok_domain.tf"
+  description                = "Detects an executable initiating a network connection to \"ngrok\" domains. Attackers were seen using this \"ngrok\" in order to store their second stage payloads and malware. While communication with such domains can be legitimate, often times is a sign of either data exfiltration by malicious actors or additional download. - Legitimate use of the ngrok service. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/process_initiated_network_connection_to_ngrok_domain.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents

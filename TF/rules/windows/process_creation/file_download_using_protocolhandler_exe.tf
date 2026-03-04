@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_download_using_protocolha
   name                       = "file_download_using_protocolhandler_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Download Using ProtocolHandler.exe"
-  description                = "Detects usage of \"ProtocolHandler\" to download files. Downloaded files will be located in the cache folder (for example - %LOCALAPPDATA%\\Microsoft\\Windows\\INetCache\\IE) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_using_protocolhandler_exe.tf"
+  description                = "Detects usage of \"ProtocolHandler\" to download files. Downloaded files will be located in the cache folder (for example - %LOCALAPPDATA%\\Microsoft\\Windows\\INetCache\\IE) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_using_protocolhandler_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

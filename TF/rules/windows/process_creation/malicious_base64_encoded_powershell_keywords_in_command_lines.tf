@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "malicious_base64_encoded_power
   name                       = "malicious_base64_encoded_powershell_keywords_in_command_lines"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Malicious Base64 Encoded PowerShell Keywords in Command Lines"
-  description                = "Detects base64 encoded strings used in hidden malicious PowerShell command lines | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/malicious_base64_encoded_powershell_keywords_in_command_lines.tf"
+  description                = "Detects base64 encoded strings used in hidden malicious PowerShell command lines | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/malicious_base64_encoded_powershell_keywords_in_command_lines.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

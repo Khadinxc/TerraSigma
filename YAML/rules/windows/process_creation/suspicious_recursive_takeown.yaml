@@ -1,6 +1,6 @@
 id: b19ae8c0-e6e8-5bba-a3eb-a90479b16476
 name: Suspicious Recursive Takeown
-description: 'Adversaries can interact with the DACLs using built-in Windows commands takeown which can grant adversaries higher permissions on specific files and folders - Scripts created by developers and admins - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_recursive_takeown.tf'
+description: 'Adversaries can interact with the DACLs using built-in Windows commands takeown which can grant adversaries higher permissions on specific files and folders - Scripts created by developers and admins - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_recursive_takeown.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

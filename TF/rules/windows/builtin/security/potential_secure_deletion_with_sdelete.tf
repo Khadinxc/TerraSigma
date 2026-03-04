@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_secure_deletion_with
   name                       = "potential_secure_deletion_with_sdelete"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Secure Deletion with SDelete"
-  description                = "Detects files that have extensions commonly seen while SDelete is used to wipe files. - Legitimate usage of SDelete - Files that are interacted with that have these extensions legitimately | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/potential_secure_deletion_with_sdelete.tf"
+  description                = "Detects files that have extensions commonly seen while SDelete is used to wipe files. - Legitimate usage of SDelete - Files that are interacted with that have these extensions legitimately | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/potential_secure_deletion_with_sdelete.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

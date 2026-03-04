@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "internet_explorer_disablefirst
   name                       = "internet_explorer_disablefirstruncustomize_enabled"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Internet Explorer DisableFirstRunCustomize Enabled"
-  description                = "Detects changes to the Internet Explorer \"DisableFirstRunCustomize\" value, which prevents Internet Explorer from running the first run wizard the first time a user starts the browser after installing Internet Explorer or Windows. - As this is controlled by group policy as well as user settings. Some false positives may occur. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/internet_explorer_disablefirstruncustomize_enabled.tf"
+  description                = "Detects changes to the Internet Explorer \"DisableFirstRunCustomize\" value, which prevents Internet Explorer from running the first run wizard the first time a user starts the browser after installing Internet Explorer or Windows. - As this is controlled by group policy as well as user settings. Some false positives may occur. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/internet_explorer_disablefirstruncustomize_enabled.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

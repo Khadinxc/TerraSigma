@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "wsl_kali_linux_usage" {
   name                       = "wsl_kali_linux_usage"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WSL Kali-Linux Usage"
-  description                = "Detects the use of Kali Linux through Windows Subsystem for Linux - Legitimate installation or usage of Kali Linux WSL by administrators or security teams | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wsl_kali_linux_usage.tf"
+  description                = "Detects the use of Kali Linux through Windows Subsystem for Linux - Legitimate installation or usage of Kali Linux WSL by administrators or security teams | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wsl_kali_linux_usage.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

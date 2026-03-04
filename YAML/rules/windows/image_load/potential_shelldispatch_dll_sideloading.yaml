@@ -1,6 +1,6 @@
 id: ee8d0a19-9cfe-547c-ba12-5fad451211a3
 name: Potential ShellDispatch.DLL Sideloading
-description: 'Detects potential DLL sideloading of "ShellDispatch.dll" - Some installers may trigger some false positives | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_shelldispatch_dll_sideloading.tf'
+description: 'Detects potential DLL sideloading of "ShellDispatch.dll" - Some installers may trigger some false positives | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_shelldispatch_dll_sideloading.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

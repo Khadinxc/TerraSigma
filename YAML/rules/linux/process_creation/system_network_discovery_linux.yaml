@@ -1,6 +1,6 @@
 id: 1404dedb-f95a-5a0d-8517-07adb7c27aa8
 name: System Network Discovery - Linux
-description: 'Detects enumeration of local network configuration - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/system_network_discovery_linux.tf'
+description: 'Detects enumeration of local network configuration - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/system_network_discovery_linux.yml'
 severity: Informational
 queryFrequency: PT1H
 queryPeriod: PT1H

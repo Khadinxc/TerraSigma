@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "arbitrary_file_download_via_ms
   name                       = "arbitrary_file_download_via_msedge_proxy_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Arbitrary File Download Via MSEDGE_PROXY.EXE"
-  description                = "Detects usage of \"msedge_proxy.exe\" to download arbitrary files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_file_download_via_msedge_proxy_exe.tf"
+  description                = "Detects usage of \"msedge_proxy.exe\" to download arbitrary files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_file_download_via_msedge_proxy_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

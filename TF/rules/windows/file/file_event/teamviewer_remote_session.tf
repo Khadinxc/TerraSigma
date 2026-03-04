@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "teamviewer_remote_session" {
   name                       = "teamviewer_remote_session"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "TeamViewer Remote Session"
-  description                = "Detects the creation of log files during a TeamViewer remote session - Legitimate uses of TeamViewer in an organisation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/teamviewer_remote_session.tf"
+  description                = "Detects the creation of log files during a TeamViewer remote session - Legitimate uses of TeamViewer in an organisation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/teamviewer_remote_session.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

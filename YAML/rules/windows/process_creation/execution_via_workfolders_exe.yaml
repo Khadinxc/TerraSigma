@@ -1,6 +1,6 @@
 id: 088ee024-ca7d-5d70-a675-75d578ec08c4
 name: Execution via WorkFolders.exe
-description: 'Detects using WorkFolders.exe to execute an arbitrary control.exe - Legitimate usage of the uncommon Windows Work Folders feature. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/execution_via_workfolders_exe.tf'
+description: 'Detects using WorkFolders.exe to execute an arbitrary control.exe - Legitimate usage of the uncommon Windows Work Folders feature. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/execution_via_workfolders_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

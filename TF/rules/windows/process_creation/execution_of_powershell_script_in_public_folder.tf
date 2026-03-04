@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "execution_of_powershell_script
   name                       = "execution_of_powershell_script_in_public_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Execution of Powershell Script in Public Folder"
-  description                = "This rule detects execution of PowerShell scripts located in the \"C:\\Users\\Public\" folder - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/execution_of_powershell_script_in_public_folder.tf"
+  description                = "This rule detects execution of PowerShell scripts located in the \"C:\\Users\\Public\" folder - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/execution_of_powershell_script_in_public_folder.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

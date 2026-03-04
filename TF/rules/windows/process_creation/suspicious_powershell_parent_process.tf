@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_powershell_parent_p
   name                       = "suspicious_powershell_parent_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious PowerShell Parent Process"
-  description                = "Detects a suspicious or uncommon parent processes of PowerShell - Other scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_powershell_parent_process.tf"
+  description                = "Detects a suspicious or uncommon parent processes of PowerShell - Other scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_powershell_parent_process.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

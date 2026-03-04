@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "python_webserver_execution_lin
   name                       = "python_webserver_execution_linux"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Python WebServer Execution - Linux"
-  description                = "Detects the execution of Python web servers via command line interface (CLI). After gaining access to target systems, adversaries may use Python's built-in HTTP server modules to quickly establish a web server without requiring additional software. This technique is commonly used in post-exploitation scenarios as it provides a simple method for transferring files between the compromised host and attacker-controlled systems. - Testing or development activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/python_webserver_execution_linux.tf"
+  description                = "Detects the execution of Python web servers via command line interface (CLI). After gaining access to target systems, adversaries may use Python's built-in HTTP server modules to quickly establish a web server without requiring additional software. This technique is commonly used in post-exploitation scenarios as it provides a simple method for transferring files between the compromised host and attacker-controlled systems. - Testing or development activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/python_webserver_execution_linux.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

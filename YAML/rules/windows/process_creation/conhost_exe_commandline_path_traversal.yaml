@@ -1,6 +1,6 @@
 id: a2517a8e-814e-5e67-8145-709790b797fa
 name: Conhost.exe CommandLine Path Traversal
-description: 'detects the usage of path traversal in conhost.exe indicating possible command/argument confusion/hijacking - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/conhost_exe_commandline_path_traversal.tf'
+description: 'detects the usage of path traversal in conhost.exe indicating possible command/argument confusion/hijacking - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/conhost_exe_commandline_path_traversal.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

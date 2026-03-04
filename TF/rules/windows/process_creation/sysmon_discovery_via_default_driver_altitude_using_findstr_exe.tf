@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "sysmon_discovery_via_default_d
   name                       = "sysmon_discovery_via_default_driver_altitude_using_findstr_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Sysmon Discovery Via Default Driver Altitude Using Findstr.EXE"
-  description                = "Detects usage of \"findstr\" with the argument \"385201\". Which could indicate potential discovery of an installed Sysinternals Sysmon service using the default driver altitude (even if the name is changed). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sysmon_discovery_via_default_driver_altitude_using_findstr_exe.tf"
+  description                = "Detects usage of \"findstr\" with the argument \"385201\". Which could indicate potential discovery of an installed Sysinternals Sysmon service using the default driver altitude (even if the name is changed). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sysmon_discovery_via_default_driver_altitude_using_findstr_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

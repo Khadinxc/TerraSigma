@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "esentutl_volume_shadow_copy_se
   name                       = "esentutl_volume_shadow_copy_service_keys"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Esentutl Volume Shadow Copy Service Keys"
-  description                = "Detects the volume shadow copy service initialization and processing via esentutl. Registry keys such as HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\VSS\\\\Diag\\\\VolSnap\\\\Volume are captured. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/esentutl_volume_shadow_copy_service_keys.tf"
+  description                = "Detects the volume shadow copy service initialization and processing via esentutl. Registry keys such as HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\VSS\\\\Diag\\\\VolSnap\\\\Volume are captured. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/esentutl_volume_shadow_copy_service_keys.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

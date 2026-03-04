@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "exchange_powershell_snap_ins_u
   name                       = "exchange_powershell_snap_ins_usage"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Exchange PowerShell Snap-Ins Usage"
-  description                = "Detects adding and using Exchange PowerShell snap-ins to export mailbox data. As seen used by HAFNIUM and APT27 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/exchange_powershell_snap_ins_usage.tf"
+  description                = "Detects adding and using Exchange PowerShell snap-ins to export mailbox data. As seen used by HAFNIUM and APT27 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/exchange_powershell_snap_ins_usage.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

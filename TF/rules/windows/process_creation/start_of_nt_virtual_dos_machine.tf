@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "start_of_nt_virtual_dos_machin
   name                       = "start_of_nt_virtual_dos_machine"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Start of NT Virtual DOS Machine"
-  description                = "Ntvdm.exe allows the execution of 16-bit Windows applications on 32-bit Windows operating systems, as well as the execution of both 16-bit and 32-bit DOS applications - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/start_of_nt_virtual_dos_machine.tf"
+  description                = "Ntvdm.exe allows the execution of 16-bit Windows applications on 32-bit Windows operating systems, as well as the execution of both 16-bit and 32-bit DOS applications - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/start_of_nt_virtual_dos_machine.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

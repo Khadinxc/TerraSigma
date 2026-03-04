@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "decode_base64_encoded_text_mac
   name                       = "decode_base64_encoded_text_macos"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Decode Base64 Encoded Text -MacOs"
-  description                = "Detects usage of base64 utility to decode arbitrary base64-encoded text - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/decode_base64_encoded_text_macos.tf"
+  description                = "Detects usage of base64 utility to decode arbitrary base64-encoded text - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/decode_base64_encoded_text_macos.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "network_connection_initiated_t
   name                       = "network_connection_initiated_to_devtunnels_domain"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Network Connection Initiated To DevTunnels Domain"
-  description                = "Detects network connections to Devtunnels domains initiated by a process on a system. Attackers can abuse that feature to establish a reverse shell or persistence on a machine. - Legitimate use of Devtunnels will also trigger this. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/network_connection_initiated_to_devtunnels_domain.tf"
+  description                = "Detects network connections to Devtunnels domains initiated by a process on a system. Attackers can abuse that feature to establish a reverse shell or persistence on a machine. - Legitimate use of Devtunnels will also trigger this. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/network_connection_initiated_to_devtunnels_domain.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

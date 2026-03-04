@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "finger_exe_execution" {
   name                       = "finger_exe_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Finger.EXE Execution"
-  description                = "Detects execution of the \"finger.exe\" utility. Finger.EXE or \"TCPIP Finger Command\" is an old utility that is still present on modern Windows installation. It Displays information about users on a specified remote computer (typically a UNIX computer) that is running the finger service or daemon. Due to the old nature of this utility and the rareness of machines having the finger service. Any execution of \"finger.exe\" can be considered \"suspicious\" and worth investigating. - Admin activity (unclear what they do nowadays with finger.exe) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/finger_exe_execution.tf"
+  description                = "Detects execution of the \"finger.exe\" utility. Finger.EXE or \"TCPIP Finger Command\" is an old utility that is still present on modern Windows installation. It Displays information about users on a specified remote computer (typically a UNIX computer) that is running the finger service or daemon. Due to the old nature of this utility and the rareness of machines having the finger service. Any execution of \"finger.exe\" can be considered \"suspicious\" and worth investigating. - Admin activity (unclear what they do nowadays with finger.exe) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/finger_exe_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: ef82e3c5-eaa1-5651-9802-d3c99efcbf6a
 name: Using SettingSyncHost.exe as LOLBin
-description: 'Detects using SettingSyncHost.exe to run hijacked binary | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/using_settingsynchost_exe_as_lolbin.tf'
+description: 'Detects using SettingSyncHost.exe to run hijacked binary | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/using_settingsynchost_exe_as_lolbin.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

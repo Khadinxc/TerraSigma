@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_privilege_escalation
   name                       = "potential_privilege_escalation_via_service_permissions_weakness"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Privilege Escalation via Service Permissions Weakness"
-  description                = "Detect modification of services configuration (ImagePath, FailureCommand and ServiceDLL) in registry by processes with Medium integrity level | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_privilege_escalation_via_service_permissions_weakness.tf"
+  description                = "Detect modification of services configuration (ImagePath, FailureCommand and ServiceDLL) in registry by processes with Medium integrity level | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_privilege_escalation_via_service_permissions_weakness.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

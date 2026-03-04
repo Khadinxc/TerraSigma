@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "arbitrary_file_download_via_gf
   name                       = "arbitrary_file_download_via_gfxdownloadwrapper_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Arbitrary File Download Via GfxDownloadWrapper.EXE"
-  description                = "Detects execution of GfxDownloadWrapper.exe with a URL as an argument to download file. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_file_download_via_gfxdownloadwrapper_exe.tf"
+  description                = "Detects execution of GfxDownloadWrapper.exe with a URL as an argument to download file. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_file_download_via_gfxdownloadwrapper_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

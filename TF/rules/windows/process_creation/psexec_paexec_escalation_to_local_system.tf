@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "psexec_paexec_escalation_to_lo
   name                       = "psexec_paexec_escalation_to_local_system"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PsExec/PAExec Escalation to LOCAL SYSTEM"
-  description                = "Detects suspicious commandline flags used by PsExec and PAExec to escalate a command line to LOCAL_SYSTEM rights - Admins that use PsExec or PAExec to escalate to the SYSTEM account for maintenance purposes (rare) - Users that debug Microsoft Intune issues using the commands mentioned in the official documentation; see https://learn.microsoft.com/en-us/mem/intune/apps/intune-management-extension | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/psexec_paexec_escalation_to_local_system.tf"
+  description                = "Detects suspicious commandline flags used by PsExec and PAExec to escalate a command line to LOCAL_SYSTEM rights - Admins that use PsExec or PAExec to escalate to the SYSTEM account for maintenance purposes (rare) - Users that debug Microsoft Intune issues using the commands mentioned in the official documentation; see https://learn.microsoft.com/en-us/mem/intune/apps/intune-management-extension | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/psexec_paexec_escalation_to_local_system.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

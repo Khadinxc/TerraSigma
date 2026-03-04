@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_executi
   name                       = "potentially_suspicious_execution_of_regasm_regsvcs_with_uncommon_extension"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Execution Of Regasm/Regsvcs With Uncommon Extension"
-  description                = "Detects potentially suspicious execution of the Regasm/Regsvcs utilities with an uncommon extension. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_execution_of_regasm_regsvcs_with_uncommon_extension.tf"
+  description                = "Detects potentially suspicious execution of the Regasm/Regsvcs utilities with an uncommon extension. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_execution_of_regasm_regsvcs_with_uncommon_extension.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

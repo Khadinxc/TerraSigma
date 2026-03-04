@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "winrar_compressing_dump_files"
   name                       = "winrar_compressing_dump_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Winrar Compressing Dump Files"
-  description                = "Detects execution of WinRAR in order to compress a file with a \".dmp\"/\".dump\" extension, which could be a step in a process of dump file exfiltration. - Legitimate use of WinRAR with a command line in which \".dmp\" or \".dump\" appears accidentally - Legitimate use of WinRAR to compress WER \".dmp\" files for troubleshooting | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/winrar_compressing_dump_files.tf"
+  description                = "Detects execution of WinRAR in order to compress a file with a \".dmp\"/\".dump\" extension, which could be a step in a process of dump file exfiltration. - Legitimate use of WinRAR with a command line in which \".dmp\" or \".dump\" appears accidentally - Legitimate use of WinRAR to compress WER \".dmp\" files for troubleshooting | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/winrar_compressing_dump_files.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -1,6 +1,6 @@
 id: 627e0308-aba7-5886-a2db-af3fb2e9ce86
 name: Port Forwarding Activity Via SSH.EXE
-description: 'Detects port forwarding activity via SSH.exe - Administrative activity using a remote port forwarding to a local port | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/port_forwarding_activity_via_ssh_exe.tf'
+description: 'Detects port forwarding activity via SSH.exe - Administrative activity using a remote port forwarding to a local port | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/port_forwarding_activity_via_ssh_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

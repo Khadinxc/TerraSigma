@@ -1,6 +1,6 @@
 id: 03b7d749-1bf2-55af-af74-e043790aeb42
 name: Split A File Into Pieces
-description: 'Detection use of the command "split" to split files into parts and possible transfer. - Legitimate administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/split_a_file_into_pieces.tf'
+description: 'Detection use of the command "split" to split files into parts and possible transfer. - Legitimate administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/split_a_file_into_pieces.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

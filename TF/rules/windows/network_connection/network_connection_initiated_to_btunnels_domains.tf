@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "network_connection_initiated_t
   name                       = "network_connection_initiated_to_btunnels_domains"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Network Connection Initiated To BTunnels Domains"
-  description                = "Detects network connections to BTunnels domains initiated by a process on the system. Attackers can abuse that feature to establish a reverse shell or persistence on a machine. - Legitimate use of BTunnels will also trigger this. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/network_connection_initiated_to_btunnels_domains.tf"
+  description                = "Detects network connections to BTunnels domains initiated by a process on the system. Attackers can abuse that feature to establish a reverse shell or persistence on a machine. - Legitimate use of BTunnels will also trigger this. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/network_connection_initiated_to_btunnels_domains.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

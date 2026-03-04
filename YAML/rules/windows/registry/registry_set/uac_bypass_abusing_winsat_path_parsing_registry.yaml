@@ -1,6 +1,6 @@
 id: 9ff3b2ed-8638-5adf-8a1b-6691f1ed2570
 name: UAC Bypass Abusing Winsat Path Parsing - Registry
-description: 'Detects the pattern of UAC Bypass using a path parsing issue in winsat.exe (UACMe 52) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/uac_bypass_abusing_winsat_path_parsing_registry.tf'
+description: 'Detects the pattern of UAC Bypass using a path parsing issue in winsat.exe (UACMe 52) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/uac_bypass_abusing_winsat_path_parsing_registry.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

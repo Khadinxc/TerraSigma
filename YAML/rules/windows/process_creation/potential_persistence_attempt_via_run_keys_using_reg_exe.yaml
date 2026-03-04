@@ -1,6 +1,6 @@
 id: 502d7043-36f6-5b7d-9a05-c5002089afa5
 name: Potential Persistence Attempt Via Run Keys Using Reg.EXE
-description: 'Detects suspicious command line reg.exe tool adding key to RUN key in Registry - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reasons. - Legitimate administrator sets up autorun keys for legitimate reasons. - Discord | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_persistence_attempt_via_run_keys_using_reg_exe.tf'
+description: 'Detects suspicious command line reg.exe tool adding key to RUN key in Registry - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reasons. - Legitimate administrator sets up autorun keys for legitimate reasons. - Discord | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_persistence_attempt_via_run_keys_using_reg_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

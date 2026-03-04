@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_securityxploded_execu
   name                       = "hacktool_securityxploded_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - SecurityXploded Execution"
-  description                = "Detects the execution of SecurityXploded Tools - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_securityxploded_execution.tf"
+  description                = "Detects the execution of SecurityXploded Tools - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_securityxploded_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

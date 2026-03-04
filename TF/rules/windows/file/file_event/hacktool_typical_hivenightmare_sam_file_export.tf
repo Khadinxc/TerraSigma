@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_typical_hivenightmare
   name                       = "hacktool_typical_hivenightmare_sam_file_export"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Typical HiveNightmare SAM File Export"
-  description                = "Detects files written by the different tools that exploit HiveNightmare - Files that accidentally contain these strings | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/hacktool_typical_hivenightmare_sam_file_export.tf"
+  description                = "Detects files written by the different tools that exploit HiveNightmare - Files that accidentally contain these strings | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/hacktool_typical_hivenightmare_sam_file_export.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

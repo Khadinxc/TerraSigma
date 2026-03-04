@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "copying_sensitive_files_with_c
   name                       = "copying_sensitive_files_with_credential_data"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Copying Sensitive Files with Credential Data"
-  description                = "Files with well-known filenames (sensitive files with credential data) copying - Copying sensitive files for legitimate use (eg. backup) or forensic investigation by legitimate incident responder or forensic investigator. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/copying_sensitive_files_with_credential_data.tf"
+  description                = "Files with well-known filenames (sensitive files with credential data) copying - Copying sensitive files for legitimate use (eg. backup) or forensic investigation by legitimate incident responder or forensic investigator. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/copying_sensitive_files_with_credential_data.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

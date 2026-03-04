@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "rundll32_registered_com_object
   name                       = "rundll32_registered_com_objects"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Rundll32 Registered COM Objects"
-  description                = "load malicious registered COM objects - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rundll32_registered_com_objects.tf"
+  description                = "load malicious registered COM objects - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rundll32_registered_com_objects.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

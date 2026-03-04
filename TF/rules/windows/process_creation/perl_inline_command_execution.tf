@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "perl_inline_command_execution"
   name                       = "perl_inline_command_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Perl Inline Command Execution"
-  description                = "Detects execution of perl using the \"-e\"/\"-E\" flags. This is could be used as a way to launch a reverse shell or execute live perl code. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/perl_inline_command_execution.tf"
+  description                = "Detects execution of perl using the \"-e\"/\"-E\" flags. This is could be used as a way to launch a reverse shell or execute live perl code. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/perl_inline_command_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

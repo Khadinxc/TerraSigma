@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "add_port_monitor_persistence_i
   name                       = "add_port_monitor_persistence_in_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Add Port Monitor Persistence in Registry"
-  description                = "Adversaries may use port monitors to run an attacker supplied DLL during system boot for persistence or privilege escalation. A port monitor can be set through the AddMonitor API call to set a DLL to be loaded at startup. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/add_port_monitor_persistence_in_registry.tf"
+  description                = "Adversaries may use port monitors to run an attacker supplied DLL during system boot for persistence or privilege escalation. A port monitor can be set through the AddMonitor API call to set a DLL to be loaded at startup. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/add_port_monitor_persistence_in_registry.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uac_bypass_via_wsreset" {
   name                       = "uac_bypass_via_wsreset"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass Via Wsreset"
-  description                = "Unfixed method for UAC bypass from Windows 10. WSReset.exe file associated with the Windows Store. It will run a binary file contained in a low-privilege registry. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/uac_bypass_via_wsreset.tf"
+  description                = "Unfixed method for UAC bypass from Windows 10. WSReset.exe file associated with the Windows Store. It will run a binary file contained in a low-privilege registry. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/uac_bypass_via_wsreset.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

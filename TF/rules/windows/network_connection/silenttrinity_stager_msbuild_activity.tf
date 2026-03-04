@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "silenttrinity_stager_msbuild_a
   name                       = "silenttrinity_stager_msbuild_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Silenttrinity Stager Msbuild Activity"
-  description                = "Detects a possible remote connections to Silenttrinity c2 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/silenttrinity_stager_msbuild_activity.tf"
+  description                = "Detects a possible remote connections to Silenttrinity c2 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/silenttrinity_stager_msbuild_activity.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents

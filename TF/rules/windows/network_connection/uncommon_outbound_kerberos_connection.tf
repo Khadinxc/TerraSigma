@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uncommon_outbound_kerberos_con
   name                       = "uncommon_outbound_kerberos_connection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon Outbound Kerberos Connection"
-  description                = "Detects uncommon outbound network activity via Kerberos default port indicating possible lateral movement or first stage PrivEsc via delegation. - Web Browsers and third party application might generate similar activity. An initial baseline is required. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/uncommon_outbound_kerberos_connection.tf"
+  description                = "Detects uncommon outbound network activity via Kerberos default port indicating possible lateral movement or first stage PrivEsc via delegation. - Web Browsers and third party application might generate similar activity. An initial baseline is required. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/uncommon_outbound_kerberos_connection.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

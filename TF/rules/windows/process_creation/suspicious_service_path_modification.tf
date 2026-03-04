@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_service_path_modifi
   name                       = "suspicious_service_path_modification"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Service Path Modification"
-  description                = "Detects service path modification via the \"sc\" binary to a suspicious command or path - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_service_path_modification.tf"
+  description                = "Detects service path modification via the \"sc\" binary to a suspicious command or path - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_service_path_modification.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
