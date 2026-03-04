@@ -33,7 +33,7 @@ jobs:
 
       - name: Clone Sigma2KQL repository
         run: |
-          git clone --depth 1 --branch master https://github.com/Khadinxc/Sigma2KQL.git
+          git clone --depth 1 --branch main https://github.com/Khadinxc/Sigma2KQL.git
           echo "Cloned Sigma2KQL repository (latest commit: $(git -C Sigma2KQL rev-parse --short HEAD))"
 
       - name: Copy KQL files to working directory
