@@ -1,6 +1,6 @@
 id: 5ac99bd3-bf3f-5b21-9873-f645f4aedf07
 name: Potential Crypto Mining Activity
-description: Detects command line parameters or strings often used by crypto miners - Legitimate use of crypto miners - Some build frameworks
+description: 'Detects command line parameters or strings often used by crypto miners - Legitimate use of crypto miners - Some build frameworks | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_crypto_mining_activity.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

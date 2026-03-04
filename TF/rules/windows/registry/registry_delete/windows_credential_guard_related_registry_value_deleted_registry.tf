@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "windows_credential_guard_relat
   name                       = "windows_credential_guard_related_registry_value_deleted_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Credential Guard Related Registry Value Deleted - Registry"
-  description                = "Detects attempts to disable Windows Credential Guard by deleting registry values. Credential Guard uses virtualization-based security to isolate secrets so that only privileged system software can access them. Adversaries may disable Credential Guard to gain access to sensitive credentials stored in the system, such as NTLM hashes and Kerberos tickets, which can be used for lateral movement and privilege escalation. - Unlikely"
+  description                = "Detects attempts to disable Windows Credential Guard by deleting registry values. Credential Guard uses virtualization-based security to isolate secrets so that only privileged system software can access them. Adversaries may disable Credential Guard to gain access to sensitive credentials stored in the system, such as NTLM hashes and Kerberos tickets, which can be used for lateral movement and privilege escalation. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/windows_credential_guard_related_registry_value_deleted_registry.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

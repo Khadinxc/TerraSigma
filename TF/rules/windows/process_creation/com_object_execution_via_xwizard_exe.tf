@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "com_object_execution_via_xwiza
   name                       = "com_object_execution_via_xwizard_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "COM Object Execution via Xwizard.EXE"
-  description                = "Detects the execution of Xwizard tool with the \"RunWizard\" flag and a GUID like argument. This utility can be abused in order to run custom COM object created in the registry."
+  description                = "Detects the execution of Xwizard tool with the \"RunWizard\" flag and a GUID like argument. This utility can be abused in order to run custom COM object created in the registry. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/com_object_execution_via_xwizard_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_crackmapexec_file_ind
   name                       = "hacktool_crackmapexec_file_indicators"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - CrackMapExec File Indicators"
-  description                = "Detects file creation events with filename patterns used by CrackMapExec."
+  description                = "Detects file creation events with filename patterns used by CrackMapExec. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/hacktool_crackmapexec_file_indicators.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

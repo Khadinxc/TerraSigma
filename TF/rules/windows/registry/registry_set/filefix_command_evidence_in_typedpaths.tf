@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "filefix_command_evidence_in_ty
   name                       = "filefix_command_evidence_in_typedpaths"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "FileFix - Command Evidence in TypedPaths"
-  description                = "Detects commonly-used chained commands and strings in the most recent 'url' value of the 'TypedPaths' key, which could be indicative of a user being targeted by the FileFix technique."
+  description                = "Detects commonly-used chained commands and strings in the most recent 'url' value of the 'TypedPaths' key, which could be indicative of a user being targeted by the FileFix technique. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/filefix_command_evidence_in_typedpaths.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_in_suspicious_location_en
   name                       = "file_in_suspicious_location_encoded_to_base64_via_certutil_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File In Suspicious Location Encoded To Base64 Via Certutil.EXE"
-  description                = "Detects the execution of certutil with the \"encode\" flag to encode a file to base64 where the files are located in potentially suspicious locations"
+  description                = "Detects the execution of certutil with the \"encode\" flag to encode a file to base64 where the files are located in potentially suspicious locations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_in_suspicious_location_encoded_to_base64_via_certutil_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

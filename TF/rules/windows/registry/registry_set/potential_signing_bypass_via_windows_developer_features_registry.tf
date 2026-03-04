@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_signing_bypass_via_w
   name                       = "potential_signing_bypass_via_windows_developer_features_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Signing Bypass Via Windows Developer Features - Registry"
-  description                = "Detects when the enablement of developer features such as \"Developer Mode\" or \"Application Sideloading\". Which allows the user to install untrusted packages."
+  description                = "Detects when the enablement of developer features such as \"Developer Mode\" or \"Application Sideloading\". Which allows the user to install untrusted packages. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_signing_bypass_via_windows_developer_features_registry.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

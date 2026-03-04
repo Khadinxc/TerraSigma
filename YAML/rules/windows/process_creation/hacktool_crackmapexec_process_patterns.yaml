@@ -1,6 +1,6 @@
 id: dfe0a285-ed7c-5ddb-b3c7-24d28f25372e
 name: HackTool - CrackMapExec Process Patterns
-description: Detects suspicious process patterns found in logs when CrackMapExec is used
+description: 'Detects suspicious process patterns found in logs when CrackMapExec is used | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_crackmapexec_process_patterns.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

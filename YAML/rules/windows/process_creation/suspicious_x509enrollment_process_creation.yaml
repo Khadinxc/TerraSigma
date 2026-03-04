@@ -1,6 +1,6 @@
 id: 020a90d3-91c4-5db1-b778-a1af1c00de57
 name: Suspicious X509Enrollment - Process Creation
-description: Detect use of X509Enrollment - Legitimate administrative script
+description: 'Detect use of X509Enrollment - Legitimate administrative script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_x509enrollment_process_creation.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

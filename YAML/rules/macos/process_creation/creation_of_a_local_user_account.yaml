@@ -1,6 +1,6 @@
 id: 7f51716e-34da-5522-b019-db37010b1b7d
 name: Creation Of A Local User Account
-description: Detects the creation of a new user account. Such accounts may be used for persistence that do not require persistent remote access tools to be deployed on the system. - Legitimate administration activities
+description: 'Detects the creation of a new user account. Such accounts may be used for persistence that do not require persistent remote access tools to be deployed on the system. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/creation_of_a_local_user_account.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

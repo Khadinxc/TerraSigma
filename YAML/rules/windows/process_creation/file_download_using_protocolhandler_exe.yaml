@@ -1,6 +1,6 @@
 id: 87082759-1f77-5c3a-aa32-9641e3626f64
 name: File Download Using ProtocolHandler.exe
-description: Detects usage of "ProtocolHandler" to download files. Downloaded files will be located in the cache folder (for example - %LOCALAPPDATA%\Microsoft\Windows\INetCache\IE)
+description: 'Detects usage of "ProtocolHandler" to download files. Downloaded files will be located in the cache folder (for example - %LOCALAPPDATA%\Microsoft\Windows\INetCache\IE) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_using_protocolhandler_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

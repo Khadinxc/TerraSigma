@@ -1,6 +1,6 @@
 id: e706f657-6fb8-5d09-8c40-04da1153f4d3
 name: File Download via CertOC.EXE
-description: Detects when a user downloads a file by using CertOC.exe
+description: 'Detects when a user downloads a file by using CertOC.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_via_certoc_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

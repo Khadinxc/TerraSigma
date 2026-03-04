@@ -1,6 +1,6 @@
 id: 412bd95e-774b-51fe-b341-d36808f6d287
 name: Tamper Windows Defender Remove-MpPreference
-description: Detects attempts to remove Windows Defender configurations using the 'MpPreference' cmdlet - Legitimate PowerShell scripts
+description: 'Detects attempts to remove Windows Defender configurations using the ''MpPreference'' cmdlet - Legitimate PowerShell scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/tamper_windows_defender_remove_mppreference.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

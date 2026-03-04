@@ -1,6 +1,6 @@
 id: 5e444f8a-7c58-5ab6-991f-6ce845e63c3f
 name: ShimCache Flush
-description: Detects actions that clear the local ShimCache and remove forensic evidence
+description: 'Detects actions that clear the local ShimCache and remove forensic evidence | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/shimcache_flush.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

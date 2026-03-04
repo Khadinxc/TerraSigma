@@ -1,6 +1,6 @@
 id: b2e15332-c5af-50d6-9acf-c4d203e45c93
 name: Suspicious Child Process of Notepad++ Updater - GUP.Exe
-description: Detects suspicious child process creation by the Notepad++ updater process (gup.exe). This could indicate potential exploitation of the updater component to deliver unwanted malware. - Unlikely
+description: 'Detects suspicious child process creation by the Notepad++ updater process (gup.exe). This could indicate potential exploitation of the updater component to deliver unwanted malware. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_child_process_of_notepad_updater_gup_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -27,10 +27,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

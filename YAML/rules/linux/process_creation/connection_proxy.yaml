@@ -1,6 +1,6 @@
 id: d28c962a-7b16-5dba-98ca-44fd8fe5c4d3
 name: Connection Proxy
-description: Detects setting proxy configuration - Legitimate administration activities
+description: 'Detects setting proxy configuration - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/connection_proxy.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

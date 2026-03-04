@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "backup_files_deleted" {
   name                       = "backup_files_deleted"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Backup Files Deleted"
-  description                = "Detects deletion of files with extensions often used for backup files. Adversaries may delete or remove built-in operating system data and turn off services designed to aid in the recovery of a corrupted system to prevent recovery. - Legitimate usage"
+  description                = "Detects deletion of files with extensions often used for backup files. Adversaries may delete or remove built-in operating system data and turn off services designed to aid in the recovery of a corrupted system to prevent recovery. - Legitimate usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/backup_files_deleted.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

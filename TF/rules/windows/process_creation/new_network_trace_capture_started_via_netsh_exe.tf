@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_network_trace_capture_star
   name                       = "new_network_trace_capture_started_via_netsh_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Network Trace Capture Started Via Netsh.EXE"
-  description                = "Detects the execution of netsh with the \"trace\" flag in order to start a network capture - Legitimate administration activity"
+  description                = "Detects the execution of netsh with the \"trace\" flag in order to start a network capture - Legitimate administration activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_network_trace_capture_started_via_netsh_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

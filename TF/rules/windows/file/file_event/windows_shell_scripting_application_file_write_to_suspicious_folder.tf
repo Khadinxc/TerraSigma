@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "windows_shell_scripting_applic
   name                       = "windows_shell_scripting_application_file_write_to_suspicious_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Shell/Scripting Application File Write to Suspicious Folder"
-  description                = "Detects Windows shells and scripting applications that write files to suspicious folders"
+  description                = "Detects Windows shells and scripting applications that write files to suspicious folders | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/windows_shell_scripting_application_file_write_to_suspicious_folder.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

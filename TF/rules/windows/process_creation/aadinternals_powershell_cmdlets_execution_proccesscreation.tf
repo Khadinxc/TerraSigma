@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "aadinternals_powershell_cmdlet
   name                       = "aadinternals_powershell_cmdlets_execution_proccesscreation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "AADInternals PowerShell Cmdlets Execution - ProccessCreation"
-  description                = "Detects ADDInternals Cmdlet execution. A tool for administering Azure AD and Office 365. Which can be abused by threat actors to attack Azure AD or Office 365. - Legitimate use of the library for administrative activity"
+  description                = "Detects ADDInternals Cmdlet execution. A tool for administering Azure AD and Office 365. Which can be abused by threat actors to attack Azure AD or Office 365. - Legitimate use of the library for administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/aadinternals_powershell_cmdlets_execution_proccesscreation.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

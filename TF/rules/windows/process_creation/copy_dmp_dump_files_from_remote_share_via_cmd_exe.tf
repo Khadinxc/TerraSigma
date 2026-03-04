@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "copy_dmp_dump_files_from_remot
   name                       = "copy_dmp_dump_files_from_remote_share_via_cmd_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Copy .DMP/.DUMP Files From Remote Share Via Cmd.EXE"
-  description                = "Detects usage of the copy builtin cmd command to copy files with the \".dmp\"/\".dump\" extension from a remote share"
+  description                = "Detects usage of the copy builtin cmd command to copy files with the \".dmp\"/\".dump\" extension from a remote share | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/copy_dmp_dump_files_from_remote_share_via_cmd_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

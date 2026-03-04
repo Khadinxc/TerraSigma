@@ -1,6 +1,6 @@
 id: 5323afc8-7144-5b68-9bd2-8d2a31ce525b
 name: Suspicious Mshta.EXE Execution Patterns
-description: Detects suspicious mshta process execution patterns
+description: 'Detects suspicious mshta process execution patterns | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_mshta_exe_execution_patterns.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

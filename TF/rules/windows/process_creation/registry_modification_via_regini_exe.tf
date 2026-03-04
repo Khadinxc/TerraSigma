@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_modification_via_regi
   name                       = "registry_modification_via_regini_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Registry Modification Via Regini.EXE"
-  description                = "Detects the execution of regini.exe which can be used to modify registry keys, the changes are imported from one or more text files. - Legitimate modification of keys"
+  description                = "Detects the execution of regini.exe which can be used to modify registry keys, the changes are imported from one or more text files. - Legitimate modification of keys | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/registry_modification_via_regini_exe.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "cloudflared_tunnel_connections
   name                       = "cloudflared_tunnel_connections_cleanup"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Cloudflared Tunnel Connections Cleanup"
-  description                = "Detects execution of the \"cloudflared\" tool with the tunnel \"cleanup\" flag in order to cleanup tunnel connections. - Legitimate usage of Cloudflared."
+  description                = "Detects execution of the \"cloudflared\" tool with the tunnel \"cleanup\" flag in order to cleanup tunnel connections. - Legitimate usage of Cloudflared. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/cloudflared_tunnel_connections_cleanup.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

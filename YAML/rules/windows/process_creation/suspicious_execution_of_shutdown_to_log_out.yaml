@@ -1,6 +1,6 @@
 id: 977494e4-6a71-514e-8567-e41569d0742f
 name: Suspicious Execution of Shutdown to Log Out
-description: Detects the rare use of the command line tool shutdown to logoff a user
+description: 'Detects the rare use of the command line tool shutdown to logoff a user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_execution_of_shutdown_to_log_out.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

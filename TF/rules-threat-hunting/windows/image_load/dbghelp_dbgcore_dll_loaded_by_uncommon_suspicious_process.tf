@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dbghelp_dbgcore_dll_loaded_by_
   name                       = "dbghelp_dbgcore_dll_loaded_by_uncommon_suspicious_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Dbghelp/Dbgcore DLL Loaded By Uncommon/Suspicious Process"
-  description                = "Detects the load of dbghelp/dbgcore DLL by a potentially uncommon or potentially suspicious process. The Dbghelp and Dbgcore DLLs export functions that allow for the dump of process memory. Tools like ProcessHacker, Task Manager and some attacker tradecraft use the MiniDumpWriteDump API found in dbghelp.dll or dbgcore.dll. As an example, SilentTrynity C2 Framework has a module that leverages this API to dump the contents of Lsass.exe and transfer it over the network back to the attacker's machine. Keep in mind that many legitimate Windows processes and services might load the aforementioned DLLs for debugging or other related purposes. Investigate the CommandLine and the Image location of the process loading the DLL. - Debugging scripts might leverage this DLL in order to dump process memory for further analysis."
+  description                = "Detects the load of dbghelp/dbgcore DLL by a potentially uncommon or potentially suspicious process. The Dbghelp and Dbgcore DLLs export functions that allow for the dump of process memory. Tools like ProcessHacker, Task Manager and some attacker tradecraft use the MiniDumpWriteDump API found in dbghelp.dll or dbgcore.dll. As an example, SilentTrynity C2 Framework has a module that leverages this API to dump the contents of Lsass.exe and transfer it over the network back to the attacker's machine. Keep in mind that many legitimate Windows processes and services might load the aforementioned DLLs for debugging or other related purposes. Investigate the CommandLine and the Image location of the process loading the DLL. - Debugging scripts might leverage this DLL in order to dump process memory for further analysis. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/dbghelp_dbgcore_dll_loaded_by_uncommon_suspicious_process.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

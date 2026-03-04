@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "process_memory_dump_via_rdrlea
   name                       = "process_memory_dump_via_rdrleakdiag_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Process Memory Dump via RdrLeakDiag.EXE"
-  description                = "Detects the use of the Microsoft Windows Resource Leak Diagnostic tool \"rdrleakdiag.exe\" to dump process memory - Unlikely"
+  description                = "Detects the use of the Microsoft Windows Resource Leak Diagnostic tool \"rdrleakdiag.exe\" to dump process memory - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/process_memory_dump_via_rdrleakdiag_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

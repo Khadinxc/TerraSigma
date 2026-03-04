@@ -1,6 +1,6 @@
 id: 694f678a-099f-53f6-8e49-c735c3a2b8ae
 name: WSF/JSE/JS/VBA/VBE File Execution Via Cscript/Wscript
-description: Detects script file execution (.js, .jse, .vba, .vbe, .vbs, .wsf) by Wscript/Cscript - Some additional tuning is required. It is recommended to add the user profile path in CommandLine if it is getting too noisy.
+description: 'Detects script file execution (.js, .jse, .vba, .vbe, .vbs, .wsf) by Wscript/Cscript - Some additional tuning is required. It is recommended to add the user profile path in CommandLine if it is getting too noisy. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/wsf_jse_js_vba_vbe_file_execution_via_cscript_wscript.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

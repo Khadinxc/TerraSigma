@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "service_binary_in_suspicious_f
   name                       = "service_binary_in_suspicious_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Service Binary in Suspicious Folder"
-  description                = "Detect the creation of a service with a service binary located in a suspicious directory"
+  description                = "Detect the creation of a service with a service binary located in a suspicious directory | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/service_binary_in_suspicious_folder.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

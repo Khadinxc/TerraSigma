@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "winsxs_executable_file_creatio
   name                       = "winsxs_executable_file_creation_by_non_system_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WinSxS Executable File Creation By Non-System Process"
-  description                = "Detects the creation of binaries in the WinSxS folder by non-system processes"
+  description                = "Detects the creation of binaries in the WinSxS folder by non-system processes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/winsxs_executable_file_creation_by_non_system_process.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

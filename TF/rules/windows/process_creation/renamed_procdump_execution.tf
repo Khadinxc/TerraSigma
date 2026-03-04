@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "renamed_procdump_execution" {
   name                       = "renamed_procdump_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed ProcDump Execution"
-  description                = "Detects the execution of a renamed ProcDump executable. This often done by attackers or malware in order to evade defensive mechanisms. - Procdump illegally bundled with legitimate software. - Administrators who rename binaries (should be investigated)."
+  description                = "Detects the execution of a renamed ProcDump executable. This often done by attackers or malware in order to evade defensive mechanisms. - Procdump illegally bundled with legitimate software. - Administrators who rename binaries (should be investigated). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_procdump_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

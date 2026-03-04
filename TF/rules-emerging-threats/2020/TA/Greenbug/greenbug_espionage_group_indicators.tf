@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "greenbug_espionage_group_indic
   name                       = "greenbug_espionage_group_indicators"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Greenbug Espionage Group Indicators"
-  description                = "Detects tools and process executions used by Greenbug in their May 2020 campaign as reported by Symantec - Unlikely"
+  description                = "Detects tools and process executions used by Greenbug in their May 2020 campaign as reported by Symantec - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Greenbug/greenbug_espionage_group_indicators.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

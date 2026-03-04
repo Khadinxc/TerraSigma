@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_wmic_execution_via_
   name                       = "suspicious_wmic_execution_via_office_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious WMIC Execution Via Office Process"
-  description                = "Office application called wmic to proxye execution through a LOLBIN process. This is often used to break suspicious parent-child chain (Office app spawns LOLBin)."
+  description                = "Office application called wmic to proxye execution through a LOLBIN process. This is often used to break suspicious parent-child chain (Office app spawns LOLBin). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_wmic_execution_via_office_process.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

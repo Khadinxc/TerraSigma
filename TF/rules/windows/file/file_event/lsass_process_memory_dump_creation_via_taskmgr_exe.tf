@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "lsass_process_memory_dump_crea
   name                       = "lsass_process_memory_dump_creation_via_taskmgr_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "LSASS Process Memory Dump Creation Via Taskmgr.EXE"
-  description                = "Detects the creation of an \"lsass.dmp\" file by the taskmgr process. This indicates a manual dumping of the LSASS.exe process memory using Windows Task Manager. - Rare case of troubleshooting by an administrator or support that has to be investigated regardless"
+  description                = "Detects the creation of an \"lsass.dmp\" file by the taskmgr process. This indicates a manual dumping of the LSASS.exe process memory using Windows Task Manager. - Rare case of troubleshooting by an administrator or support that has to be investigated regardless | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/lsass_process_memory_dump_creation_via_taskmgr_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

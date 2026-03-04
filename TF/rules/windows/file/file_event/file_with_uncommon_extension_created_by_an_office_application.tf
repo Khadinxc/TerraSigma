@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_with_uncommon_extension_c
   name                       = "file_with_uncommon_extension_created_by_an_office_application"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File With Uncommon Extension Created By An Office Application"
-  description                = "Detects the creation of files with an executable or script extension by an Office application."
+  description                = "Detects the creation of files with an executable or script extension by an Office application. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_with_uncommon_extension_created_by_an_office_application.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

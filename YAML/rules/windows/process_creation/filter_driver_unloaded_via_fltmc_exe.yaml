@@ -1,6 +1,6 @@
 id: 67384bf8-8688-577a-964e-b5f830012163
 name: Filter Driver Unloaded Via Fltmc.EXE
-description: Detect filter driver unloading activity via fltmc.exe
+description: 'Detect filter driver unloading activity via fltmc.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/filter_driver_unloaded_via_fltmc_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

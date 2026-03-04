@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_key_manager_access"
   name                       = "suspicious_key_manager_access"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Key Manager Access"
-  description                = "Detects the invocation of the Stored User Names and Passwords dialogue (Key Manager) - Administrative activity"
+  description                = "Detects the invocation of the Stored User Names and Passwords dialogue (Key Manager) - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_key_manager_access.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

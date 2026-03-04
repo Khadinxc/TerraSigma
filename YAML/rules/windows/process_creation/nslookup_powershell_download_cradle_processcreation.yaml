@@ -1,6 +1,6 @@
 id: 2ccb98c9-6517-5a9d-b036-588c2cf0ea51
 name: Nslookup PowerShell Download Cradle - ProcessCreation
-description: Detects suspicious powershell download cradle using nslookup. This cradle uses nslookup to extract payloads from DNS records
+description: 'Detects suspicious powershell download cradle using nslookup. This cradle uses nslookup to extract payloads from DNS records | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/nslookup_powershell_download_cradle_processcreation.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

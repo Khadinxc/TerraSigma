@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "password_protected_compressed_
   name                       = "password_protected_compressed_file_extraction_via_7zip"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Password Protected Compressed File Extraction Via 7Zip"
-  description                = "Detects usage of 7zip utilities (7z.exe, 7za.exe and 7zr.exe) to extract password protected zip files. - Legitimate activity is expected since extracting files with a password can be common in some environment."
+  description                = "Detects usage of 7zip utilities (7z.exe, 7za.exe and 7zr.exe) to extract password protected zip files. - Legitimate activity is expected since extracting files with a password can be common in some environment. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/password_protected_compressed_file_extraction_via_7zip.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

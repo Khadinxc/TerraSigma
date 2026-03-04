@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "csexec_service_file_creation" 
   name                       = "csexec_service_file_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "CSExec Service File Creation"
-  description                = "Detects default CSExec service filename which indicates CSExec service installation and execution"
+  description                = "Detects default CSExec service filename which indicates CSExec service installation and execution | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/csexec_service_file_creation.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

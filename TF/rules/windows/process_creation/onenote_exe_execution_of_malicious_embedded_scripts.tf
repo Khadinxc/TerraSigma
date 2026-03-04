@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "onenote_exe_execution_of_malic
   name                       = "onenote_exe_execution_of_malicious_embedded_scripts"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "OneNote.EXE Execution of Malicious Embedded Scripts"
-  description                = "Detects the execution of malicious OneNote documents that contain embedded scripts. When a user clicks on a OneNote attachment and then on the malicious link inside the \".one\" file, it exports and executes the malicious embedded script from specific directories. - Unlikely"
+  description                = "Detects the execution of malicious OneNote documents that contain embedded scripts. When a user clicks on a OneNote attachment and then on the malicious link inside the \".one\" file, it exports and executes the malicious embedded script from specific directories. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/onenote_exe_execution_of_malicious_embedded_scripts.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

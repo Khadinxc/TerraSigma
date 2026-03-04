@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "c_il_code_compilation_via_ilas
   name                       = "c_il_code_compilation_via_ilasm_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "C# IL Code Compilation Via Ilasm.EXE"
-  description                = "Detects the use of \"Ilasm.EXE\" in order to compile C# intermediate (IL) code to EXE or DLL."
+  description                = "Detects the use of \"Ilasm.EXE\" in order to compile C# intermediate (IL) code to EXE or DLL. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/c_il_code_compilation_via_ilasm_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

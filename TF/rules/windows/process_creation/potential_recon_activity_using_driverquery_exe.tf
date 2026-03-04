@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_recon_activity_using
   name                       = "potential_recon_activity_using_driverquery_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Recon Activity Using DriverQuery.EXE"
-  description                = "Detect usage of the \"driverquery\" utility to perform reconnaissance on installed drivers - Legitimate usage by some scripts might trigger this as well"
+  description                = "Detect usage of the \"driverquery\" utility to perform reconnaissance on installed drivers - Legitimate usage by some scripts might trigger this as well | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_recon_activity_using_driverquery_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

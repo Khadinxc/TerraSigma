@@ -1,6 +1,6 @@
 id: 5888d8d2-b705-58cb-917e-3523d30ec266
 name: Sysinternals PsSuspend Suspicious Execution
-description: Detects suspicious execution of Sysinternals PsSuspend, where the utility is used to suspend critical processes such as AV or EDR to bypass defenses - Unlikely
+description: 'Detects suspicious execution of Sysinternals PsSuspend, where the utility is used to suspend critical processes such as AV or EDR to bypass defenses - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sysinternals_pssuspend_suspicious_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

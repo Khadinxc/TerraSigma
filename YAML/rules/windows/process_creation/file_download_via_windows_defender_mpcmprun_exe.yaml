@@ -1,6 +1,6 @@
 id: 139ab74d-aa5e-5e19-9e7f-03284e0e510a
 name: File Download Via Windows Defender MpCmpRun.EXE
-description: Detects the use of Windows Defender MpCmdRun.EXE to download files
+description: 'Detects the use of Windows Defender MpCmdRun.EXE to download files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_via_windows_defender_mpcmprun_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -1,6 +1,6 @@
 id: 04c7a89e-ea38-5ee3-9224-63638abcc06d
 name: Outbound Network Connection Initiated By Microsoft Dialer
-description: Detects outbound network connection initiated by Microsoft Dialer. The Microsoft Dialer, also known as Phone Dialer, is a built-in utility application included in various versions of the Microsoft Windows operating system. Its primary function is to provide users with a graphical interface for managing phone calls via a modem or a phone line connected to the computer. This is an outdated process in the current conext of it's usage and is a common target for info stealers for process injection, and is used to make C2 connections, common example is "Rhadamanthys" - In Modern Windows systems, unable to see legitimate usage of this process, However, if an organization has legitimate purpose for this there can be false positives.
+description: 'Detects outbound network connection initiated by Microsoft Dialer. The Microsoft Dialer, also known as Phone Dialer, is a built-in utility application included in various versions of the Microsoft Windows operating system. Its primary function is to provide users with a graphical interface for managing phone calls via a modem or a phone line connected to the computer. This is an outdated process in the current conext of it''s usage and is a common target for info stealers for process injection, and is used to make C2 connections, common example is "Rhadamanthys" - In Modern Windows systems, unable to see legitimate usage of this process, However, if an organization has legitimate purpose for this there can be false positives. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/outbound_network_connection_initiated_by_microsoft_dialer.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

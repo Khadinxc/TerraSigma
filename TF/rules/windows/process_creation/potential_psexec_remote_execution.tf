@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_psexec_remote_execut
   name                       = "potential_psexec_remote_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential PsExec Remote Execution"
-  description                = "Detects potential psexec command that initiate execution on a remote systems via common commandline flags used by the utility"
+  description                = "Detects potential psexec command that initiate execution on a remote systems via common commandline flags used by the utility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_psexec_remote_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

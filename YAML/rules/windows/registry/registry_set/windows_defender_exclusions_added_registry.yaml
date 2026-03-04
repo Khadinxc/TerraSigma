@@ -1,6 +1,6 @@
 id: 4a631435-dc45-589c-b2ca-6c931629f6a7
 name: Windows Defender Exclusions Added - Registry
-description: Detects the Setting of Windows Defender Exclusions - Administrator actions
+description: 'Detects the Setting of Windows Defender Exclusions - Administrator actions | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/windows_defender_exclusions_added_registry.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

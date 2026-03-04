@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_tscon_start_as_syst
   name                       = "suspicious_tscon_start_as_system"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious TSCON Start as SYSTEM"
-  description                = "Detects a tscon.exe start as LOCAL SYSTEM"
+  description                = "Detects a tscon.exe start as LOCAL SYSTEM | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_tscon_start_as_system.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

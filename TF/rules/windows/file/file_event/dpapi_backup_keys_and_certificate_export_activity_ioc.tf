@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dpapi_backup_keys_and_certific
   name                       = "dpapi_backup_keys_and_certificate_export_activity_ioc"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DPAPI Backup Keys And Certificate Export Activity IOC"
-  description                = "Detects file names with specific patterns seen generated and used by tools such as Mimikatz and DSInternals related to exported or stolen DPAPI backup keys and certificates. - Unlikely"
+  description                = "Detects file names with specific patterns seen generated and used by tools such as Mimikatz and DSInternals related to exported or stolen DPAPI backup keys and certificates. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/dpapi_backup_keys_and_certificate_export_activity_ioc.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

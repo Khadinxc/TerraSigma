@@ -1,6 +1,6 @@
 id: dfed66b0-c19f-58ec-a88a-a43c7a32ed43
 name: System Information Discovery Via Wmic.EXE
-description: Detects the use of the WMI command-line (WMIC) utility to identify and display various system information, including OS, CPU, GPU, disk drive names, memory capacity, display resolution, baseboard, BIOS, and GPU driver products/versions. - VMWare Tools serviceDiscovery scripts
+description: 'Detects the use of the WMI command-line (WMIC) utility to identify and display various system information, including OS, CPU, GPU, disk drive names, memory capacity, display resolution, baseboard, BIOS, and GPU driver products/versions. - VMWare Tools serviceDiscovery scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/system_information_discovery_via_wmic_exe.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

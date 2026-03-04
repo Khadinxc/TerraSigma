@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_scheduled_task_crea
   name                       = "suspicious_scheduled_task_creation_involving_temp_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Scheduled Task Creation Involving Temp Folder"
-  description                = "Detects the creation of scheduled tasks that involves a temporary folder and runs only once - Administrative activity - Software installation"
+  description                = "Detects the creation of scheduled tasks that involves a temporary folder and runs only once - Administrative activity - Software installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_scheduled_task_creation_involving_temp_folder.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

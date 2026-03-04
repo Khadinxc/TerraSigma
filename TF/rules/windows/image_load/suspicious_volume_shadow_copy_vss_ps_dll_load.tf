@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_volume_shadow_copy_
   name                       = "suspicious_volume_shadow_copy_vss_ps_dll_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Volume Shadow Copy VSS_PS.dll Load"
-  description                = "Detects the image load of vss_ps.dll by uncommon executables. This DLL is used by the Volume Shadow Copy Service (VSS) to manage shadow copies of files and volumes. It is often abused by attackers to delete or manipulate shadow copies, which can hinder forensic investigations and data recovery efforts. The fact that it is loaded by processes that are not typically associated with VSS operations can indicate suspicious activity."
+  description                = "Detects the image load of vss_ps.dll by uncommon executables. This DLL is used by the Volume Shadow Copy Service (VSS) to manage shadow copies of files and volumes. It is often abused by attackers to delete or manipulate shadow copies, which can hinder forensic investigations and data recovery efforts. The fact that it is loaded by processes that are not typically associated with VSS operations can indicate suspicious activity. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/suspicious_volume_shadow_copy_vss_ps_dll_load.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_browser_data_stealin
   name                       = "potential_browser_data_stealing"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Browser Data Stealing"
-  description                = "Adversaries may acquire credentials from web browsers by reading files specific to the target browser. Web browsers commonly save credentials such as website usernames and passwords so that they do not need to be entered manually in the future. Web browsers typically store the credentials in an encrypted format within a credential store."
+  description                = "Adversaries may acquire credentials from web browsers by reading files specific to the target browser. Web browsers commonly save credentials such as website usernames and passwords so that they do not need to be entered manually in the future. Web browsers typically store the credentials in an encrypted format within a credential store. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_browser_data_stealing.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

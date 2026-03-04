@@ -1,6 +1,6 @@
 id: b60b7aa4-c5d7-5c39-9062-23dca0cc1383
 name: Uncommon Child Process Spawned By Odbcconf.EXE
-description: Detects an uncommon child process of "odbcconf.exe" binary which normally shouldn't have any child processes. - In rare occurrences where "odbcconf" crashes. It might spawn a "werfault" process - Other child processes will depend on the DLL being registered by actions like "regsvr". In case where the DLLs have external calls (which should be rare). Other child processes might spawn and additional filters need to be applied.
+description: 'Detects an uncommon child process of "odbcconf.exe" binary which normally shouldn''t have any child processes. - In rare occurrences where "odbcconf" crashes. It might spawn a "werfault" process - Other child processes will depend on the DLL being registered by actions like "regsvr". In case where the DLLs have external calls (which should be rare). Other child processes might spawn and additional filters need to be applied. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_child_process_spawned_by_odbcconf_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

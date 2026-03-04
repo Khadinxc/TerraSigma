@@ -1,6 +1,6 @@
 id: 06e9daf2-e293-515f-8cb1-adcba76d2ab3
 name: Triple Cross eBPF Rootkit Default Persistence
-description: Detects the creation of "ebpfbackdoor" files in both "cron.d" and "sudoers.d" directories. Which both are related to the TripleCross persistence method - Unlikely
+description: 'Detects the creation of "ebpfbackdoor" files in both "cron.d" and "sudoers.d" directories. Which both are related to the TripleCross persistence method - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/triple_cross_ebpf_rootkit_default_persistence.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -27,10 +27,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

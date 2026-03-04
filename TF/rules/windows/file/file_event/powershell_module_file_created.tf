@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "powershell_module_file_created
   name                       = "powershell_module_file_created"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Module File Created"
-  description                = "Detects the creation of a new PowerShell module \".psm1\", \".psd1\", \".dll\", \".ps1\", etc. - Likely"
+  description                = "Detects the creation of a new PowerShell module \".psm1\", \".psd1\", \".dll\", \".ps1\", etc. - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/powershell_module_file_created.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "cmstp_execution_registry_event
   name                       = "cmstp_execution_registry_event"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "CMSTP Execution Registry Event"
-  description                = "Detects various indicators of Microsoft Connection Manager Profile Installer execution - Legitimate CMSTP use (unlikely in modern enterprise environments)"
+  description                = "Detects various indicators of Microsoft Connection Manager Profile Installer execution - Legitimate CMSTP use (unlikely in modern enterprise environments) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/cmstp_execution_registry_event.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

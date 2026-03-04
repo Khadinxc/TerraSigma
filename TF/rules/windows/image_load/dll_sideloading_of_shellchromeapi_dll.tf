@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dll_sideloading_of_shellchrome
   name                       = "dll_sideloading_of_shellchromeapi_dll"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DLL Sideloading Of ShellChromeAPI.DLL"
-  description                = "Detects processes loading the non-existent DLL \"ShellChromeAPI\". One known example is the \"DeviceEnroller\" binary in combination with the \"PhoneDeepLink\" flag tries to load this DLL. Adversaries can drop their own renamed DLL and execute it via DeviceEnroller.exe using this parameter"
+  description                = "Detects processes loading the non-existent DLL \"ShellChromeAPI\". One known example is the \"DeviceEnroller\" binary in combination with the \"PhoneDeepLink\" flag tries to load this DLL. Adversaries can drop their own renamed DLL and execute it via DeviceEnroller.exe using this parameter | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/dll_sideloading_of_shellchromeapi_dll.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_filefix_execution_p
   name                       = "suspicious_filefix_execution_pattern"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious FileFix Execution Pattern"
-  description                = "Detects suspicious FileFix execution patterns where users are tricked into running malicious commands through browser file upload dialog manipulation. This attack typically begins when users visit malicious websites impersonating legitimate services or news platforms, which may display fake CAPTCHA challenges or direct instructions to open file explorer and paste clipboard content. The clipboard content usually contains commands that download and execute malware, such as information stealing tools. - Legitimate use of PowerShell or other utilities launched from browser extensions or automation tools"
+  description                = "Detects suspicious FileFix execution patterns where users are tricked into running malicious commands through browser file upload dialog manipulation. This attack typically begins when users visit malicious websites impersonating legitimate services or news platforms, which may display fake CAPTCHA challenges or direct instructions to open file explorer and paste clipboard content. The clipboard content usually contains commands that download and execute malware, such as information stealing tools. - Legitimate use of PowerShell or other utilities launched from browser extensions or automation tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_filefix_execution_pattern.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

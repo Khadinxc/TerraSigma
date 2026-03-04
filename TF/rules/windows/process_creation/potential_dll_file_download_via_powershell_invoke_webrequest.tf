@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_dll_file_download_vi
   name                       = "potential_dll_file_download_via_powershell_invoke_webrequest"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential DLL File Download Via PowerShell Invoke-WebRequest"
-  description                = "Detects potential DLL files being downloaded using the PowerShell Invoke-WebRequest or Invoke-RestMethod cmdlets."
+  description                = "Detects potential DLL files being downloaded using the PowerShell Invoke-WebRequest or Invoke-RestMethod cmdlets. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_dll_file_download_via_powershell_invoke_webrequest.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

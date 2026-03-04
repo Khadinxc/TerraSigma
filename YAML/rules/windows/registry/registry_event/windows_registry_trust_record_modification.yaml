@@ -1,6 +1,6 @@
 id: 4097e9b5-9fbf-5ee5-94db-fec98051391a
 name: Windows Registry Trust Record Modification
-description: Alerts on trust record modification within the registry, indicating usage of macros - This will alert on legitimate macro usage as well, additional tuning is required
+description: 'Alerts on trust record modification within the registry, indicating usage of macros - This will alert on legitimate macro usage as well, additional tuning is required | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/windows_registry_trust_record_modification.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

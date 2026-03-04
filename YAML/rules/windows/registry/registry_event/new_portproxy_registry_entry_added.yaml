@@ -1,6 +1,6 @@
 id: d2fa52af-9185-500f-85d5-a42e8ff42077
 name: New PortProxy Registry Entry Added
-description: Detects the modification of the PortProxy registry key which is used for port forwarding. - WSL2 network bridge PowerShell script used for WSL/Kubernetes/Docker (e.g. https://github.com/microsoft/WSL/issues/4150#issuecomment-504209723) - Synergy Software KVM (https://symless.com/synergy)
+description: 'Detects the modification of the PortProxy registry key which is used for port forwarding. - WSL2 network bridge PowerShell script used for WSL/Kubernetes/Docker (e.g. https://github.com/microsoft/WSL/issues/4150#issuecomment-504209723) - Synergy Software KVM (https://symless.com/synergy) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/new_portproxy_registry_entry_added.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

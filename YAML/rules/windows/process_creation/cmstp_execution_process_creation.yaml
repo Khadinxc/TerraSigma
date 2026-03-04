@@ -1,6 +1,6 @@
 id: 3b8c8921-4d2d-56a7-8b4f-f578ff3b9b34
 name: CMSTP Execution Process Creation
-description: Detects various indicators of Microsoft Connection Manager Profile Installer execution - Legitimate CMSTP use (unlikely in modern enterprise environments)
+description: 'Detects various indicators of Microsoft Connection Manager Profile Installer execution - Legitimate CMSTP use (unlikely in modern enterprise environments) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/cmstp_execution_process_creation.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

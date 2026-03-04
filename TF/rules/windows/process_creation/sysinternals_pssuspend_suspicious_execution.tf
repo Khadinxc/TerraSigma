@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "sysinternals_pssuspend_suspici
   name                       = "sysinternals_pssuspend_suspicious_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Sysinternals PsSuspend Suspicious Execution"
-  description                = "Detects suspicious execution of Sysinternals PsSuspend, where the utility is used to suspend critical processes such as AV or EDR to bypass defenses - Unlikely"
+  description                = "Detects suspicious execution of Sysinternals PsSuspend, where the utility is used to suspend critical processes such as AV or EDR to bypass defenses - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sysinternals_pssuspend_suspicious_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

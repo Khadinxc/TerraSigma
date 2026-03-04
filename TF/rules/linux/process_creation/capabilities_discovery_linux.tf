@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "capabilities_discovery_linux" 
   name                       = "capabilities_discovery_linux"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Capabilities Discovery - Linux"
-  description                = "Detects usage of \"getcap\" binary. This is often used during recon activity to determine potential binaries that can be abused as GTFOBins or other."
+  description                = "Detects usage of \"getcap\" binary. This is often used during recon activity to determine potential binaries that can be abused as GTFOBins or other. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/capabilities_discovery_linux.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

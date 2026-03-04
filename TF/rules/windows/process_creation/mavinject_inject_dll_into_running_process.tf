@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "mavinject_inject_dll_into_runn
   name                       = "mavinject_inject_dll_into_running_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Mavinject Inject DLL Into Running Process"
-  description                = "Detects process injection using the signed Windows tool \"Mavinject\" via the \"INJECTRUNNING\" flag"
+  description                = "Detects process injection using the signed Windows tool \"Mavinject\" via the \"INJECTRUNNING\" flag | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/mavinject_inject_dll_into_running_process.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

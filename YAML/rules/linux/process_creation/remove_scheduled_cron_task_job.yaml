@@ -1,6 +1,6 @@
 id: 29d11354-fe59-5dfc-b408-0d6a8ebf3c21
 name: Remove Scheduled Cron Task/Job
-description: Detects usage of the 'crontab' utility to remove the current crontab. This is a common occurrence where cryptocurrency miners compete against each other by removing traces of other miners to hijack the maximum amount of resources possible
+description: 'Detects usage of the ''crontab'' utility to remove the current crontab. This is a common occurrence where cryptocurrency miners compete against each other by removing traces of other miners to hijack the maximum amount of resources possible | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/remove_scheduled_cron_task_job.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

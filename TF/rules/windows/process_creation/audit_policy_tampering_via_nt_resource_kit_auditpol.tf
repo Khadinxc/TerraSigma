@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "audit_policy_tampering_via_nt_
   name                       = "audit_policy_tampering_via_nt_resource_kit_auditpol"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Audit Policy Tampering Via NT Resource Kit Auditpol"
-  description                = "Threat actors can use an older version of the auditpol binary available inside the NT resource kit to change audit policy configuration to impair detection capability. This can be carried out by selectively disabling/removing certain audit policies as well as restoring a custom policy owned by the threat actor. - The old auditpol utility isn't available by default on recent versions of Windows as it was replaced by a newer version. The FP rate should be very low except for tools that use a similar flag structure"
+  description                = "Threat actors can use an older version of the auditpol binary available inside the NT resource kit to change audit policy configuration to impair detection capability. This can be carried out by selectively disabling/removing certain audit policies as well as restoring a custom policy owned by the threat actor. - The old auditpol utility isn't available by default on recent versions of Windows as it was replaced by a newer version. The FP rate should be very low except for tools that use a similar flag structure | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/audit_policy_tampering_via_nt_resource_kit_auditpol.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

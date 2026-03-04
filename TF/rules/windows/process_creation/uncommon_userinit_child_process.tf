@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uncommon_userinit_child_proces
   name                       = "uncommon_userinit_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon Userinit Child Process"
-  description                = "Detects uncommon \"userinit.exe\" child processes, which could be a sign of uncommon shells or login scripts used for persistence. - Legitimate logon scripts or custom shells may trigger false positives. Apply additional filters accordingly."
+  description                = "Detects uncommon \"userinit.exe\" child processes, which could be a sign of uncommon shells or login scripts used for persistence. - Legitimate logon scripts or custom shells may trigger false positives. Apply additional filters accordingly. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_userinit_child_process.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

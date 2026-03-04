@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "service_registry_key_deleted_v
   name                       = "service_registry_key_deleted_via_reg_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Service Registry Key Deleted Via Reg.EXE"
-  description                = "Detects execution of \"reg.exe\" commands with the \"delete\" flag on services registry key. Often used by attacker to remove AV software services - Unlikely"
+  description                = "Detects execution of \"reg.exe\" commands with the \"delete\" flag on services registry key. Often used by attacker to remove AV software services - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/service_registry_key_deleted_via_reg_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

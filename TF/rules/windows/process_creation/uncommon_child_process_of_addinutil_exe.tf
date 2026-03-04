@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uncommon_child_process_of_addi
   name                       = "uncommon_child_process_of_addinutil_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon Child Process Of AddinUtil.EXE"
-  description                = "Detects uncommon child processes of the Add-In deployment cache updating utility (AddInutil.exe) which could be a sign of potential abuse of the binary to proxy execution via a custom Addins.Store payload."
+  description                = "Detects uncommon child processes of the Add-In deployment cache updating utility (AddInutil.exe) which could be a sign of potential abuse of the binary to proxy execution via a custom Addins.Store payload. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_child_process_of_addinutil_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

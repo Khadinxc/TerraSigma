@@ -1,6 +1,6 @@
 id: e1d1ba83-7005-59a9-a37f-581aa805dc0d
 name: Devtoolslauncher.exe Executes Specified Binary
-description: The Devtoolslauncher.exe executes other binary - Legitimate use of devtoolslauncher.exe by legitimate user
+description: 'The Devtoolslauncher.exe executes other binary - Legitimate use of devtoolslauncher.exe by legitimate user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/devtoolslauncher_exe_executes_specified_binary.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

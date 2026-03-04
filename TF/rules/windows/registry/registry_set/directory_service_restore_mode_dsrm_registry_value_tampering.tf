@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "directory_service_restore_mode
   name                       = "directory_service_restore_mode_dsrm_registry_value_tampering"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Directory Service Restore Mode(DSRM) Registry Value Tampering"
-  description                = "Detects changes to \"DsrmAdminLogonBehavior\" registry value. During a Domain Controller (DC) promotion, administrators create a Directory Services Restore Mode (DSRM) local administrator account with a password that rarely changes. The DSRM account is an “Administrator” account that logs in with the DSRM mode when the server is booting up to restore AD backups or recover the server from a failure. Attackers could abuse DSRM account to maintain their persistence and access to the organization's Active Directory. If the \"DsrmAdminLogonBehavior\" value is set to \"0\", the administrator account can only be used if the DC starts in DSRM. If the \"DsrmAdminLogonBehavior\" value is set to \"1\", the administrator account can only be used if the local AD DS service is stopped. If the \"DsrmAdminLogonBehavior\" value is set to \"2\", the administrator account can always be used."
+  description                = "Detects changes to \"DsrmAdminLogonBehavior\" registry value. During a Domain Controller (DC) promotion, administrators create a Directory Services Restore Mode (DSRM) local administrator account with a password that rarely changes. The DSRM account is an “Administrator” account that logs in with the DSRM mode when the server is booting up to restore AD backups or recover the server from a failure. Attackers could abuse DSRM account to maintain their persistence and access to the organization's Active Directory. If the \"DsrmAdminLogonBehavior\" value is set to \"0\", the administrator account can only be used if the DC starts in DSRM. If the \"DsrmAdminLogonBehavior\" value is set to \"1\", the administrator account can only be used if the local AD DS service is stopped. If the \"DsrmAdminLogonBehavior\" value is set to \"2\", the administrator account can always be used. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/directory_service_restore_mode_dsrm_registry_value_tampering.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

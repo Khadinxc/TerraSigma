@@ -1,6 +1,6 @@
 id: 74469a81-bdf3-5db4-93db-b5848fe8d9ac
 name: RDP to HTTP or HTTPS Target Ports
-description: Detects svchost hosting RDP termsvcs communicating to target systems on TCP port 80 or 443
+description: 'Detects svchost hosting RDP termsvcs communicating to target systems on TCP port 80 or 443 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/rdp_to_http_or_https_target_ports.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -1,6 +1,6 @@
 id: 5ccdaf36-40d0-5870-ac27-c27bdae5390e
 name: Potential Binary Or Script Dropper Via PowerShell
-description: Detects PowerShell creating a binary executable or a script file.
+description: 'Detects PowerShell creating a binary executable or a script file. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_binary_or_script_dropper_via_powershell.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

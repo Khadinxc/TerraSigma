@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "exports_registry_key_to_a_file
   name                       = "exports_registry_key_to_a_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Exports Registry Key To a File"
-  description                = "Detects the export of the target Registry key to a file. - Legitimate export of keys"
+  description                = "Detects the export of the target Registry key to a file. - Legitimate export of keys | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/exports_registry_key_to_a_file.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

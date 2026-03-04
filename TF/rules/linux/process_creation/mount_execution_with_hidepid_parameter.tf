@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "mount_execution_with_hidepid_p
   name                       = "mount_execution_with_hidepid_parameter"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Mount Execution With Hidepid Parameter"
-  description                = "Detects execution of the \"mount\" command with \"hidepid\" parameter to make invisible processes to other users from the system"
+  description                = "Detects execution of the \"mount\" command with \"hidepid\" parameter to make invisible processes to other users from the system | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/mount_execution_with_hidepid_parameter.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

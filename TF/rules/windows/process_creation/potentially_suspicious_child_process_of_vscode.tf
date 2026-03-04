@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_child_p
   name                       = "potentially_suspicious_child_process_of_vscode"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Child Process Of VsCode"
-  description                = "Detects uncommon or suspicious child processes spawning from a VsCode \"code.exe\" process. This could indicate an attempt of persistence via VsCode tasks or terminal profiles."
+  description                = "Detects uncommon or suspicious child processes spawning from a VsCode \"code.exe\" process. This could indicate an attempt of persistence via VsCode tasks or terminal profiles. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_child_process_of_vscode.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

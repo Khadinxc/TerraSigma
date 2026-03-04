@@ -1,6 +1,6 @@
 id: c8cfe36b-7a52-530b-8a5b-ae2c9a4ec8a8
 name: Execution of Powershell Script in Public Folder
-description: This rule detects execution of PowerShell scripts located in the "C:\Users\Public" folder - Unlikely
+description: 'This rule detects execution of PowerShell scripts located in the "C:\Users\Public" folder - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/execution_of_powershell_script_in_public_folder.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

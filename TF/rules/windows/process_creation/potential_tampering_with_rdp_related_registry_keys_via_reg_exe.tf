@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_tampering_with_rdp_r
   name                       = "potential_tampering_with_rdp_related_registry_keys_via_reg_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Tampering With RDP Related Registry Keys Via Reg.EXE"
-  description                = "Detects the execution of \"reg.exe\" for enabling/disabling the RDP service on the host by tampering with the 'CurrentControlSet\\Control\\Terminal Server' values"
+  description                = "Detects the execution of \"reg.exe\" for enabling/disabling the RDP service on the host by tampering with the 'CurrentControlSet\\Control\\Terminal Server' values | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_tampering_with_rdp_related_registry_keys_via_reg_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

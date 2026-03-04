@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_remote_desktop_connection_
   name                       = "new_remote_desktop_connection_initiated_via_mstsc_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Remote Desktop Connection Initiated Via Mstsc.EXE"
-  description                = "Detects the usage of \"mstsc.exe\" with the \"/v\" flag to initiate a connection to a remote server. Adversaries may use valid accounts to log into a computer using the Remote Desktop Protocol (RDP). The adversary may then perform actions as the logged-on user. - WSL (Windows Sub System For Linux)"
+  description                = "Detects the usage of \"mstsc.exe\" with the \"/v\" flag to initiate a connection to a remote server. Adversaries may use valid accounts to log into a computer using the Remote Desktop Protocol (RDP). The adversary may then perform actions as the logged-on user. - WSL (Windows Sub System For Linux) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_remote_desktop_connection_initiated_via_mstsc_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

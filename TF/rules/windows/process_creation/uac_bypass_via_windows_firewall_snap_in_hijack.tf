@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uac_bypass_via_windows_firewal
   name                       = "uac_bypass_via_windows_firewall_snap_in_hijack"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass via Windows Firewall Snap-In Hijack"
-  description                = "Detects attempts to bypass User Account Control (UAC) by hijacking the Microsoft Management Console (MMC) Windows Firewall snap-in"
+  description                = "Detects attempts to bypass User Account Control (UAC) by hijacking the Microsoft Management Console (MMC) Windows Firewall snap-in | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uac_bypass_via_windows_firewall_snap_in_hijack.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

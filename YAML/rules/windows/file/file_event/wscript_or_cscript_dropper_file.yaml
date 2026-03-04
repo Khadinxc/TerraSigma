@@ -1,6 +1,6 @@
 id: 1ced80e7-4a6a-5542-99de-6c5ede7ec7ef
 name: WScript or CScript Dropper - File
-description: Detects a file ending in jse, vbe, js, vba, vbs written by cscript.exe or wscript.exe
+description: 'Detects a file ending in jse, vbe, js, vba, vbs written by cscript.exe or wscript.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/wscript_or_cscript_dropper_file.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

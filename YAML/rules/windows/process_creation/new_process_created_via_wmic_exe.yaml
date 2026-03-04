@@ -1,6 +1,6 @@
 id: a98ba1b2-4ed8-50fb-865d-359fb7aeeb61
 name: New Process Created Via Wmic.EXE
-description: Detects new process creation using WMIC via the "process call create" flag
+description: 'Detects new process creation using WMIC via the "process call create" flag | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_process_created_via_wmic_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

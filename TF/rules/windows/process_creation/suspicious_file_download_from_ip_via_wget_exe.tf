@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_file_download_from_
   name                       = "suspicious_file_download_from_ip_via_wget_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Download From IP Via Wget.EXE"
-  description                = "Detects potentially suspicious file downloads directly from IP addresses using Wget.exe"
+  description                = "Detects potentially suspicious file downloads directly from IP addresses using Wget.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_file_download_from_ip_via_wget_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

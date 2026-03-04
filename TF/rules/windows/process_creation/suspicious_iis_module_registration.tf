@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_iis_module_registra
   name                       = "suspicious_iis_module_registration"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious IIS Module Registration"
-  description                = "Detects a suspicious IIS module registration as described in Microsoft threat report on IIS backdoors - Administrative activity"
+  description                = "Detects a suspicious IIS module registration as described in Microsoft threat report on IIS backdoors - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_iis_module_registration.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

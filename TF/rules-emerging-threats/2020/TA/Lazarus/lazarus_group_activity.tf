@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "lazarus_group_activity" {
   name                       = "lazarus_group_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Lazarus Group Activity"
-  description                = "Detects different process execution behaviors as described in various threat reports on Lazarus group activity - Unlikely"
+  description                = "Detects different process execution behaviors as described in various threat reports on Lazarus group activity - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Lazarus/lazarus_group_activity.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: 8f457501-c724-550c-8434-38ef44a0f8c2
 name: Disable Windows Event Logging Via Registry
-description: Detects tampering with the "Enabled" registry key in order to disable Windows logging of a Windows event channel - Rare falsepositives may occur from legitimate administrators disabling specific event log for troubleshooting
+description: 'Detects tampering with the "Enabled" registry key in order to disable Windows logging of a Windows event channel - Rare falsepositives may occur from legitimate administrators disabling specific event log for troubleshooting | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/disable_windows_event_logging_via_registry.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

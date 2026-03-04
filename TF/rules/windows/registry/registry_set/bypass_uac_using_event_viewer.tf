@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "bypass_uac_using_event_viewer"
   name                       = "bypass_uac_using_event_viewer"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Bypass UAC Using Event Viewer"
-  description                = "Bypasses User Account Control using Event Viewer and a relevant Windows Registry modification"
+  description                = "Bypasses User Account Control using Event Viewer and a relevant Windows Registry modification | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/bypass_uac_using_event_viewer.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

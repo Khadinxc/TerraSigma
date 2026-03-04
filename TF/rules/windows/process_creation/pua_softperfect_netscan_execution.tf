@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_softperfect_netscan_execut
   name                       = "pua_softperfect_netscan_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - SoftPerfect Netscan Execution"
-  description                = "Detects usage of SoftPerfect's \"netscan.exe\". An application for scanning networks. It is actively used in-the-wild by threat actors to inspect and understand the network architecture of a victim. - Legitimate administrator activity"
+  description                = "Detects usage of SoftPerfect's \"netscan.exe\". An application for scanning networks. It is actively used in-the-wild by threat actors to inspect and understand the network architecture of a victim. - Legitimate administrator activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_softperfect_netscan_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

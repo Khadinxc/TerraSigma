@@ -1,6 +1,6 @@
 id: 0f196377-ec75-54ab-9d97-483e4c234832
 name: Potential Persistence Via Outlook LoadMacroProviderOnBoot Setting
-description: Detects the modification of Outlook setting "LoadMacroProviderOnBoot" which if enabled allows the automatic loading of any configured VBA project/module
+description: 'Detects the modification of Outlook setting "LoadMacroProviderOnBoot" which if enabled allows the automatic loading of any configured VBA project/module | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_outlook_loadmacroprovideronboot_setting.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -28,10 +28,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

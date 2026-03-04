@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "html_file_opened_from_download
   name                       = "html_file_opened_from_download_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HTML File Opened From Download Folder"
-  description                = "Detects web browser process opening an HTML file from a user's Downloads folder. This behavior is could be associated with phishing attacks where threat actors send HTML attachments to users. When a user opens such an attachment, it can lead to the execution of malicious scripts or the download of malware. During investigation, analyze the HTML file for embedded scripts or links, check for any subsequent downloads or process executions, and investigate the source of the email or message containing the attachment. - Opening any HTML file located in users directories via a browser process will trigger this."
+  description                = "Detects web browser process opening an HTML file from a user's Downloads folder. This behavior is could be associated with phishing attacks where threat actors send HTML attachments to users. When a user opens such an attachment, it can lead to the execution of malicious scripts or the download of malware. During investigation, analyze the HTML file for embedded scripts or links, check for any subsequent downloads or process executions, and investigate the source of the email or message containing the attachment. - Opening any HTML file located in users directories via a browser process will trigger this. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/html_file_opened_from_download_folder.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

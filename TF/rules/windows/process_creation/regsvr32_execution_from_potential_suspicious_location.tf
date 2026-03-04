@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "regsvr32_execution_from_potent
   name                       = "regsvr32_execution_from_potential_suspicious_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Regsvr32 Execution From Potential Suspicious Location"
-  description                = "Detects execution of regsvr32 where the DLL is located in a potentially suspicious location. - Some installers might execute \"regsvr32\" with DLLs located in %TEMP% or in %PROGRAMDATA%. Apply additional filters if necessary."
+  description                = "Detects execution of regsvr32 where the DLL is located in a potentially suspicious location. - Some installers might execute \"regsvr32\" with DLLs located in %TEMP% or in %PROGRAMDATA%. Apply additional filters if necessary. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/regsvr32_execution_from_potential_suspicious_location.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

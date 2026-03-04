@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "docker_container_discovery_via
   name                       = "docker_container_discovery_via_dockerenv_listing"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Docker Container Discovery Via Dockerenv Listing"
-  description                = "Detects listing or file reading of \".dockerenv\" which can be a sing of potential container discovery - Legitimate system administrator usage of these commands - Some container tools or deployments may use these techniques natively to determine how they proceed with execution, and will need to be filtered"
+  description                = "Detects listing or file reading of \".dockerenv\" which can be a sing of potential container discovery - Legitimate system administrator usage of these commands - Some container tools or deployments may use these techniques natively to determine how they proceed with execution, and will need to be filtered | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/docker_container_discovery_via_dockerenv_listing.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

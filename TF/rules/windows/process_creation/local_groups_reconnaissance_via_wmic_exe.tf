@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "local_groups_reconnaissance_vi
   name                       = "local_groups_reconnaissance_via_wmic_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Local Groups Reconnaissance Via Wmic.EXE"
-  description                = "Detects the execution of \"wmic\" with the \"group\" flag. Adversaries may attempt to find local system groups and permission settings. The knowledge of local system permission groups can help adversaries determine which groups exist and which users belong to a particular group. Adversaries may use this information to determine which users have elevated permissions, such as the users found within the local administrators group."
+  description                = "Detects the execution of \"wmic\" with the \"group\" flag. Adversaries may attempt to find local system groups and permission settings. The knowledge of local system permission groups can help adversaries determine which groups exist and which users belong to a particular group. Adversaries may use this information to determine which users have elevated permissions, such as the users found within the local administrators group. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/local_groups_reconnaissance_via_wmic_exe.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

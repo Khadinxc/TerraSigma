@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "renamed_createdump_utility_exe
   name                       = "renamed_createdump_utility_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed CreateDump Utility Execution"
-  description                = "Detects uses of a renamed legitimate createdump.exe LOLOBIN utility to dump process memory - Command lines that use the same flags"
+  description                = "Detects uses of a renamed legitimate createdump.exe LOLOBIN utility to dump process memory - Command lines that use the same flags | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_createdump_utility_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

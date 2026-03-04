@@ -1,6 +1,6 @@
 id: ab9201a9-c076-589f-85f5-805373e14af8
 name: Suspicious Execution From Outlook Temporary Folder
-description: Detects a suspicious program execution in Outlook temp folder
+description: 'Detects a suspicious program execution in Outlook temp folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_execution_from_outlook_temporary_folder.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

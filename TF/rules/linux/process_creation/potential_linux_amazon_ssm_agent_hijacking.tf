@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_linux_amazon_ssm_age
   name                       = "potential_linux_amazon_ssm_agent_hijacking"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Linux Amazon SSM Agent Hijacking"
-  description                = "Detects potential Amazon SSM agent hijack attempts as outlined in the Mitiga research report. - Legitimate activity of system administrators"
+  description                = "Detects potential Amazon SSM agent hijack attempts as outlined in the Mitiga research report. - Legitimate activity of system administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potential_linux_amazon_ssm_agent_hijacking.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

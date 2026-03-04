@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_startup_folder_pers
   name                       = "suspicious_startup_folder_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Startup Folder Persistence"
-  description                = "Detects the creation of potentially malicious script and executable files in Windows startup folders, which is a common persistence technique used by threat actors. These files (.ps1, .vbs, .js, .bat, etc.) are automatically executed when a user logs in, making the Startup folder an attractive target for attackers. This technique is frequently observed in malvertising campaigns and malware distribution where attackers attempt to maintain long-term access to compromised systems. - Rare legitimate usage of some of the extensions mentioned in the rule"
+  description                = "Detects the creation of potentially malicious script and executable files in Windows startup folders, which is a common persistence technique used by threat actors. These files (.ps1, .vbs, .js, .bat, etc.) are automatically executed when a user logs in, making the Startup folder an attractive target for attackers. This technique is frequently observed in malvertising campaigns and malware distribution where attackers attempt to maintain long-term access to compromised systems. - Rare legitimate usage of some of the extensions mentioned in the rule | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_startup_folder_persistence.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

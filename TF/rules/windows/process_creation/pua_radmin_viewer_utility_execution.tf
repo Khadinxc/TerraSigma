@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_radmin_viewer_utility_exec
   name                       = "pua_radmin_viewer_utility_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Radmin Viewer Utility Execution"
-  description                = "Detects the execution of Radmin which can be abused by an adversary to remotely control Windows machines"
+  description                = "Detects the execution of Radmin which can be abused by an adversary to remotely control Windows machines | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_radmin_viewer_utility_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

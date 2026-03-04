@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "office_macro_file_creation_fro
   name                       = "office_macro_file_creation_from_suspicious_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Office Macro File Creation From Suspicious Process"
-  description                = "Detects the creation of a office macro file from a a suspicious process"
+  description                = "Detects the creation of a office macro file from a a suspicious process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/office_macro_file_creation_from_suspicious_process.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "esxi_vsan_information_discover
   name                       = "esxi_vsan_information_discovery_via_esxcli"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ESXi VSAN Information Discovery Via ESXCLI"
-  description                = "Detects execution of the \"esxcli\" command with the \"vsan\" flag in order to retrieve information about virtual storage. Seen used by malware such as DarkSide. - Legitimate administration activities"
+  description                = "Detects execution of the \"esxcli\" command with the \"vsan\" flag in order to retrieve information about virtual storage. Seen used by malware such as DarkSide. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/esxi_vsan_information_discovery_via_esxcli.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

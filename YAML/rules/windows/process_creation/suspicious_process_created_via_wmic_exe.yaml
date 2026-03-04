@@ -1,6 +1,6 @@
 id: 9d999f91-e93e-52ce-92d3-52ee1058dbd6
 name: Suspicious Process Created Via Wmic.EXE
-description: Detects WMIC executing "process call create" with suspicious calls to processes such as "rundll32", "regsrv32", etc.
+description: 'Detects WMIC executing "process call create" with suspicious calls to processes such as "rundll32", "regsrv32", etc. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_process_created_via_wmic_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

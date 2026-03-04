@@ -1,6 +1,6 @@
 id: bad169ed-2436-521d-8cc2-74b5b2aeae40
 name: Suspicious Git Clone
-description: Detects execution of "git" in order to clone a remote repository that contain suspicious keywords which might be suspicious
+description: 'Detects execution of "git" in order to clone a remote repository that contain suspicious keywords which might be suspicious | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_git_clone.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

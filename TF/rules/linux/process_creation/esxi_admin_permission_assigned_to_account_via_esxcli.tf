@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "esxi_admin_permission_assigned
   name                       = "esxi_admin_permission_assigned_to_account_via_esxcli"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ESXi Admin Permission Assigned To Account Via ESXCLI"
-  description                = "Detects execution of the \"esxcli\" command with the \"system\" and \"permission\" flags in order to assign admin permissions to an account. - Legitimate administration activities"
+  description                = "Detects execution of the \"esxcli\" command with the \"system\" and \"permission\" flags in order to assign admin permissions to an account. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/esxi_admin_permission_assigned_to_account_via_esxcli.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

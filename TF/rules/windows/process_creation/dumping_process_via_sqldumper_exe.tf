@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dumping_process_via_sqldumper_
   name                       = "dumping_process_via_sqldumper_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Dumping Process via Sqldumper.exe"
-  description                = "Detects process dump via legitimate sqldumper.exe binary - Legitimate MSSQL Server actions"
+  description                = "Detects process dump via legitimate sqldumper.exe binary - Legitimate MSSQL Server actions | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dumping_process_via_sqldumper_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

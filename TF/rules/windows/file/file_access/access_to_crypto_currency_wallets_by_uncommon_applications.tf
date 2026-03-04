@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "access_to_crypto_currency_wall
   name                       = "access_to_crypto_currency_wallets_by_uncommon_applications"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Access To Crypto Currency Wallets By Uncommon Applications"
-  description                = "Detects file access requests to crypto currency files by uncommon processes. Could indicate potential attempt of crypto currency wallet stealing. - Antivirus, Anti-Spyware, Anti-Malware Software - Backup software - Legitimate software installed on partitions other than \"C:\\\" - Searching software such as \"everything.exe\""
+  description                = "Detects file access requests to crypto currency files by uncommon processes. Could indicate potential attempt of crypto currency wallet stealing. - Antivirus, Anti-Spyware, Anti-Malware Software - Backup software - Legitimate software installed on partitions other than \"C:\\\" - Searching software such as \"everything.exe\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/access_to_crypto_currency_wallets_by_uncommon_applications.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

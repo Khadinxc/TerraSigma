@@ -1,6 +1,6 @@
 id: 5f622b41-3004-535e-885c-e40a22964a10
 name: RDP Sensitive Settings Changed to Zero
-description: Detects tampering of RDP Terminal Service/Server sensitive settings. Such as allowing unauthorized users access to a system via the 'fAllowUnsolicited' or enabling RDP via 'fDenyTSConnections', etc. - Some of the keys mentioned here could be modified by an administrator while setting group policy (it should be investigated either way)
+description: 'Detects tampering of RDP Terminal Service/Server sensitive settings. Such as allowing unauthorized users access to a system via the ''fAllowUnsolicited'' or enabling RDP via ''fDenyTSConnections'', etc. - Some of the keys mentioned here could be modified by an administrator while setting group policy (it should be investigated either way) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/rdp_sensitive_settings_changed_to_zero.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

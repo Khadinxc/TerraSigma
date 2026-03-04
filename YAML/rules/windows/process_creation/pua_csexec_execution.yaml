@@ -1,6 +1,6 @@
 id: a3dd1c4e-cf66-55c7-9814-4b6aa0877420
 name: PUA - CsExec Execution
-description: Detects the use of the lesser known remote execution tool named CsExec a PsExec alternative
+description: 'Detects the use of the lesser known remote execution tool named CsExec a PsExec alternative | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_csexec_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

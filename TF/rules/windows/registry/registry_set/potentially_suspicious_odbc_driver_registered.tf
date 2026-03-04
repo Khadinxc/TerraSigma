@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_odbc_dr
   name                       = "potentially_suspicious_odbc_driver_registered"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious ODBC Driver Registered"
-  description                = "Detects the registration of a new ODBC driver where the driver is located in a potentially suspicious location - Unlikely"
+  description                = "Detects the registration of a new ODBC driver where the driver is located in a potentially suspicious location - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potentially_suspicious_odbc_driver_registered.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

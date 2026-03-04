@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "access_to_potentially_sensitiv
   name                       = "access_to_potentially_sensitive_sysvol_files_by_uncommon_applications"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Access To Potentially Sensitive Sysvol Files By Uncommon Applications"
-  description                = "Detects file access requests to potentially sensitive files hosted on the Windows Sysvol share."
+  description                = "Detects file access requests to potentially sensitive files hosted on the Windows Sysvol share. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/access_to_potentially_sensitive_sysvol_files_by_uncommon_applications.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

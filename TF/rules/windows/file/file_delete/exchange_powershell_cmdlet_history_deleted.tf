@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "exchange_powershell_cmdlet_his
   name                       = "exchange_powershell_cmdlet_history_deleted"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Exchange PowerShell Cmdlet History Deleted"
-  description                = "Detects the deletion of the Exchange PowerShell cmdlet History logs which may indicate an attempt to destroy forensic evidence - Possible FP during log rotation"
+  description                = "Detects the deletion of the Exchange PowerShell cmdlet History logs which may indicate an attempt to destroy forensic evidence - Possible FP during log rotation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/exchange_powershell_cmdlet_history_deleted.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

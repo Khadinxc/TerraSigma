@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "powershell_module_file_created
   name                       = "powershell_module_file_created_by_non_powershell_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Module File Created By Non-PowerShell Process"
-  description                = "Detects the creation of a new PowerShell module \".psm1\", \".psd1\", \".dll\", \".ps1\", etc. by a non-PowerShell process"
+  description                = "Detects the creation of a new PowerShell module \".psm1\", \".psd1\", \".dll\", \".ps1\", etc. by a non-PowerShell process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/powershell_module_file_created_by_non_powershell_process.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

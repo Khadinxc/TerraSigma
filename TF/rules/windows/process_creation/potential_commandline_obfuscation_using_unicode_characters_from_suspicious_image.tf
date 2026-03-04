@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_commandline_obfuscat
   name                       = "potential_commandline_obfuscation_using_unicode_characters_from_suspicious_image"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential CommandLine Obfuscation Using Unicode Characters From Suspicious Image"
-  description                = "Detects potential commandline obfuscation using unicode characters. Adversaries may attempt to make an executable or file difficult to discover or analyze by encrypting, encoding, or otherwise obfuscating its contents on the system or in transit."
+  description                = "Detects potential commandline obfuscation using unicode characters. Adversaries may attempt to make an executable or file difficult to discover or analyze by encrypting, encoding, or otherwise obfuscating its contents on the system or in transit. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_commandline_obfuscation_using_unicode_characters_from_suspicious_image.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

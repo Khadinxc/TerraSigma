@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_decoded_from_base64_hex_v
   name                       = "file_decoded_from_base64_hex_via_certutil_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Decoded From Base64/Hex Via Certutil.EXE"
-  description                = "Detects the execution of certutil with either the \"decode\" or \"decodehex\" flags to decode base64 or hex encoded files. This can be abused by attackers to decode an encoded payload before execution"
+  description                = "Detects the execution of certutil with either the \"decode\" or \"decodehex\" flags to decode base64 or hex encoded files. This can be abused by attackers to decode an encoded payload before execution | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_decoded_from_base64_hex_via_certutil_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

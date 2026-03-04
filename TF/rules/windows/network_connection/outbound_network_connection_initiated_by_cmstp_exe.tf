@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "outbound_network_connection_in
   name                       = "outbound_network_connection_initiated_by_cmstp_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Outbound Network Connection Initiated By Cmstp.EXE"
-  description                = "Detects a network connection initiated by Cmstp.EXE Its uncommon for \"cmstp.exe\" to initiate an outbound network connection. Investigate the source of such requests to determine if they are malicious."
+  description                = "Detects a network connection initiated by Cmstp.EXE Its uncommon for \"cmstp.exe\" to initiate an outbound network connection. Investigate the source of such requests to determine if they are malicious. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/outbound_network_connection_initiated_by_cmstp_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

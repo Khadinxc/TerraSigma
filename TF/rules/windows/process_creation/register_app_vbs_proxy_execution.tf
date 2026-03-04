@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "register_app_vbs_proxy_executi
   name                       = "register_app_vbs_proxy_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "REGISTER_APP.VBS Proxy Execution"
-  description                = "Detects the use of a Microsoft signed script 'REGISTER_APP.VBS' to register a VSS/VDS Provider as a COM+ application. - Legitimate usage of the script. Always investigate what's being registered to confirm if it's benign"
+  description                = "Detects the use of a Microsoft signed script 'REGISTER_APP.VBS' to register a VSS/VDS Provider as a COM+ application. - Legitimate usage of the script. Always investigate what's being registered to confirm if it's benign | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/register_app_vbs_proxy_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

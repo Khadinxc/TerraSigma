@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "imports_registry_key_from_an_a
   name                       = "imports_registry_key_from_an_ads"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Imports Registry Key From an ADS"
-  description                = "Detects the import of a alternate datastream to the registry with regedit.exe."
+  description                = "Detects the import of a alternate datastream to the registry with regedit.exe. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/imports_registry_key_from_an_ads.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

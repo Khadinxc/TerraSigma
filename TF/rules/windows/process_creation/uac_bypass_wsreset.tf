@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uac_bypass_wsreset" {
   name                       = "uac_bypass_wsreset"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass WSReset"
-  description                = "Detects the pattern of UAC Bypass via WSReset usable by default sysmon-config"
+  description                = "Detects the pattern of UAC Bypass via WSReset usable by default sysmon-config | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uac_bypass_wsreset.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

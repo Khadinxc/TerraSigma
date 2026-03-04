@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_tampering_with_secur
   name                       = "potential_tampering_with_security_products_via_wmic"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Tampering With Security Products Via WMIC"
-  description                = "Detects uninstallation or termination of security products using the WMIC utility - Legitimate administration"
+  description                = "Detects uninstallation or termination of security products using the WMIC utility - Legitimate administration | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_tampering_with_security_products_via_wmic.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

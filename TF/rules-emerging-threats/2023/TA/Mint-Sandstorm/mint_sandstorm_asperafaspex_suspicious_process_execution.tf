@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "mint_sandstorm_asperafaspex_su
   name                       = "mint_sandstorm_asperafaspex_suspicious_process_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Mint Sandstorm - AsperaFaspex Suspicious Process Execution"
-  description                = "Detects suspicious execution from AsperaFaspex as seen used by Mint Sandstorm - Unlikely"
+  description                = "Detects suspicious execution from AsperaFaspex as seen used by Mint Sandstorm - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Mint-Sandstorm/mint_sandstorm_asperafaspex_suspicious_process_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

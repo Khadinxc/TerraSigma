@@ -1,6 +1,6 @@
 id: f096980a-a43f-50ba-86ec-31d583250fbe
 name: Renamed Cloudflared.EXE Execution
-description: Detects the execution of a renamed "cloudflared" binary.
+description: 'Detects the execution of a renamed "cloudflared" binary. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_cloudflared_exe_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

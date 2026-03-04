@@ -1,6 +1,6 @@
 id: 8dec3994-268b-54a4-9989-ea0107b1cb17
 name: File Explorer Folder Opened Using Explorer Folder Shortcut Via Shell
-description: Detects the initial execution of "cmd.exe" which spawns "explorer.exe" with the appropriate command line arguments for opening the "My Computer" folder.
+description: 'Detects the initial execution of "cmd.exe" which spawns "explorer.exe" with the appropriate command line arguments for opening the "My Computer" folder. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_explorer_folder_opened_using_explorer_folder_shortcut_via_shell.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

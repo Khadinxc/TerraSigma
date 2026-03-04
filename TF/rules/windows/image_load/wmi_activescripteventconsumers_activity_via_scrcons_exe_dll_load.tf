@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "wmi_activescripteventconsumers
   name                       = "wmi_activescripteventconsumers_activity_via_scrcons_exe_dll_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WMI ActiveScriptEventConsumers Activity Via Scrcons.EXE DLL Load"
-  description                = "Detects signs of the WMI script host process \"scrcons.exe\" loading scripting DLLs which could indicates WMI ActiveScriptEventConsumers EventConsumers activity. - Legitimate event consumers - Dell computers on some versions register an event consumer that is known to cause false positives when brightness is changed by the corresponding keyboard button"
+  description                = "Detects signs of the WMI script host process \"scrcons.exe\" loading scripting DLLs which could indicates WMI ActiveScriptEventConsumers EventConsumers activity. - Legitimate event consumers - Dell computers on some versions register an event consumer that is known to cause false positives when brightness is changed by the corresponding keyboard button | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/wmi_activescripteventconsumers_activity_via_scrcons_exe_dll_load.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

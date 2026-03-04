@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "wmiprvse_spawned_a_process" {
   name                       = "wmiprvse_spawned_a_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WmiPrvSE Spawned A Process"
-  description                = "Detects WmiPrvSE spawning a process"
+  description                = "Detects WmiPrvSE spawning a process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wmiprvse_spawned_a_process.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

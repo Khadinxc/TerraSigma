@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "microsoft_sync_center_suspicio
   name                       = "microsoft_sync_center_suspicious_network_connections"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Microsoft Sync Center Suspicious Network Connections"
-  description                = "Detects suspicious connections from Microsoft Sync Center to non-private IPs."
+  description                = "Detects suspicious connections from Microsoft Sync Center to non-private IPs. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/microsoft_sync_center_suspicious_network_connections.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: 09db28b4-3aac-5b50-afa9-1b5da9fbdaba
 name: Potential Persistence Attempt Via Existing Service Tampering
-description: Detects the modification of an existing service in order to execute an arbitrary payload when the service is started or killed as a potential method for persistence.
+description: 'Detects the modification of an existing service in order to execute an arbitrary payload when the service is started or killed as a potential method for persistence. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_persistence_attempt_via_existing_service_tampering.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -27,10 +27,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "arbitrary_file_download_via_pr
   name                       = "arbitrary_file_download_via_presentationhost_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Arbitrary File Download Via PresentationHost.EXE"
-  description                = "Detects usage of \"PresentationHost\" which is a utility that runs \".xbap\" (Browser Applications) files to download arbitrary files"
+  description                = "Detects usage of \"PresentationHost\" which is a utility that runs \".xbap\" (Browser Applications) files to download arbitrary files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_file_download_via_presentationhost_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

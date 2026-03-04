@@ -1,6 +1,6 @@
 id: 5499d507-d377-553b-a8b7-26068a4e3db1
 name: Suspicious File Creation Activity From Fake Recycle.Bin Folder
-description: Detects file write event from/to a fake recycle bin folder that is often used as a staging directory for malware
+description: 'Detects file write event from/to a fake recycle bin folder that is often used as a staging directory for malware | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_file_creation_activity_from_fake_recycle_bin_folder.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -23,10 +23,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

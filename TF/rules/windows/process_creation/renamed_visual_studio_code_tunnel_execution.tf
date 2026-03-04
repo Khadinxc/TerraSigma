@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "renamed_visual_studio_code_tun
   name                       = "renamed_visual_studio_code_tunnel_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed Visual Studio Code Tunnel Execution"
-  description                = "Detects renamed Visual Studio Code tunnel execution. Attackers can abuse this functionality to establish a C2 channel"
+  description                = "Detects renamed Visual Studio Code tunnel execution. Attackers can abuse this functionality to establish a C2 channel | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_visual_studio_code_tunnel_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

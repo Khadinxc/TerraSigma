@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "security_tools_keyword_lookup_
   name                       = "security_tools_keyword_lookup_via_findstr_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Security Tools Keyword Lookup Via Findstr.EXE"
-  description                = "Detects execution of \"findstr\" to search for common names of security tools. Attackers often pipe the results of recon commands such as \"tasklist\" or \"whoami\" to \"findstr\" in order to filter out the results. This detection focuses on the keywords that the attacker might use as a filter."
+  description                = "Detects execution of \"findstr\" to search for common names of security tools. Attackers often pipe the results of recon commands such as \"tasklist\" or \"whoami\" to \"findstr\" in order to filter out the results. This detection focuses on the keywords that the attacker might use as a filter. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/security_tools_keyword_lookup_via_findstr_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

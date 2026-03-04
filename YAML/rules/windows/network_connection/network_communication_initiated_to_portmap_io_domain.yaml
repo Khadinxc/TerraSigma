@@ -1,6 +1,6 @@
 id: e6ace84e-e1e1-586a-a8b0-deb1b9dcbac5
 name: Network Communication Initiated To Portmap.IO Domain
-description: Detects an executable accessing the portmap.io domain, which could be a sign of forbidden C2 traffic or data exfiltration by malicious actors - Legitimate use of portmap.io domains
+description: 'Detects an executable accessing the portmap.io domain, which could be a sign of forbidden C2 traffic or data exfiltration by malicious actors - Legitimate use of portmap.io domains | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/network_communication_initiated_to_portmap_io_domain.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

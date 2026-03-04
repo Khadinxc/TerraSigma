@@ -1,6 +1,6 @@
 id: 11a772e0-5c99-5cfa-b916-90f9c481fadf
 name: Disable Windows IIS HTTP Logging
-description: Disables HTTP logging on a Windows IIS web server as seen by Threat Group 3390 (Bronze Union)
+description: 'Disables HTTP logging on a Windows IIS web server as seen by Threat Group 3390 (Bronze Union) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/disable_windows_iis_http_logging.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

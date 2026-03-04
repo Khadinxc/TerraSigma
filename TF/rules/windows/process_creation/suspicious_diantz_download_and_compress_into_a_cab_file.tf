@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_diantz_download_and
   name                       = "suspicious_diantz_download_and_compress_into_a_cab_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Diantz Download and Compress Into a CAB File"
-  description                = "Download and compress a remote file and store it in a cab file on local machine."
+  description                = "Download and compress a remote file and store it in a cab file on local machine. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_diantz_download_and_compress_into_a_cab_file.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

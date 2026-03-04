@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "microsoft_word_add_in_loaded" 
   name                       = "microsoft_word_add_in_loaded"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Microsoft Word Add-In Loaded"
-  description                = "Detects Microsoft Word loading an Add-In (.wll) file which can be used by threat actors for initial access or persistence. - The rules is only looking for \".wll\" loads. So some false positives are expected with legitimate and allowed WLLs."
+  description                = "Detects Microsoft Word loading an Add-In (.wll) file which can be used by threat actors for initial access or persistence. - The rules is only looking for \".wll\" loads. So some false positives are expected with legitimate and allowed WLLs. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/microsoft_word_add_in_loaded.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

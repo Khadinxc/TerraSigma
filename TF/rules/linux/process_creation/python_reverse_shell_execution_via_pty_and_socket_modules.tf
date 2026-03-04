@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "python_reverse_shell_execution
   name                       = "python_reverse_shell_execution_via_pty_and_socket_modules"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Python Reverse Shell Execution Via PTY And Socket Modules"
-  description                = "Detects the execution of python with calls to the socket and pty module in order to connect and spawn a potential reverse shell."
+  description                = "Detects the execution of python with calls to the socket and pty module in order to connect and spawn a potential reverse shell. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/python_reverse_shell_execution_via_pty_and_socket_modules.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

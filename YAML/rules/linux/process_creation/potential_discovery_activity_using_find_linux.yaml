@@ -1,6 +1,6 @@
 id: 09cd0d48-62c5-56ca-8ccf-5c16531bc1ce
 name: Potential Discovery Activity Using Find - Linux
-description: Detects usage of "find" binary in a suspicious manner to perform discovery
+description: 'Detects usage of "find" binary in a suspicious manner to perform discovery | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potential_discovery_activity_using_find_linux.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

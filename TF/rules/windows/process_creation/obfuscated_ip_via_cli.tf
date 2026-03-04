@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "obfuscated_ip_via_cli" {
   name                       = "obfuscated_ip_via_cli"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Obfuscated IP Via CLI"
-  description                = "Detects usage of an encoded/obfuscated version of an IP address (hex, octal, etc.) via command line"
+  description                = "Detects usage of an encoded/obfuscated version of an IP address (hex, octal, etc.) via command line | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/obfuscated_ip_via_cli.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_netcat_reverse_shell
   name                       = "potential_netcat_reverse_shell_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Netcat Reverse Shell Execution"
-  description                = "Detects execution of netcat with the \"-e\" flag followed by common shells. This could be a sign of a potential reverse shell setup. - Unlikely"
+  description                = "Detects execution of netcat with the \"-e\" flag followed by common shells. This could be a sign of a potential reverse shell setup. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potential_netcat_reverse_shell_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

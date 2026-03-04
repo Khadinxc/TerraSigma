@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "com_hijacking_via_treatas" {
   name                       = "com_hijacking_via_treatas"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "COM Hijacking via TreatAs"
-  description                = "Detect modification of TreatAs key to enable \"rundll32.exe -sta\" command - Legitimate use"
+  description                = "Detect modification of TreatAs key to enable \"rundll32.exe -sta\" command - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/com_hijacking_via_treatas.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

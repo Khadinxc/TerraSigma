@@ -1,6 +1,6 @@
 id: 30a8bbc6-af2f-5d39-8cfe-f1e7bca603cb
 name: Disabled IE Security Features
-description: Detects command lines that indicate unwanted modifications to registry keys that disable important Internet Explorer security features
+description: 'Detects command lines that indicate unwanted modifications to registry keys that disable important Internet Explorer security features | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/disabled_ie_security_features.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

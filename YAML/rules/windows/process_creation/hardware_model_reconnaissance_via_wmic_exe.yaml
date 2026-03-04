@@ -1,6 +1,6 @@
 id: 5fd8d0d6-2a25-5448-8f03-22985fdc1457
 name: Hardware Model Reconnaissance Via Wmic.EXE
-description: Detects the execution of WMIC with the "csproduct" which is used to obtain information such as hardware models and vendor information
+description: 'Detects the execution of WMIC with the "csproduct" which is used to obtain information such as hardware models and vendor information | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hardware_model_reconnaissance_via_wmic_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

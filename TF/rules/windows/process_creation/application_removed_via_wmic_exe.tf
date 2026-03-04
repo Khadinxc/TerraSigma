@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "application_removed_via_wmic_e
   name                       = "application_removed_via_wmic_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Application Removed Via Wmic.EXE"
-  description                = "Detects the removal or uninstallation of an application via \"Wmic.EXE\"."
+  description                = "Detects the removal or uninstallation of an application via \"Wmic.EXE\". | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/application_removed_via_wmic_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

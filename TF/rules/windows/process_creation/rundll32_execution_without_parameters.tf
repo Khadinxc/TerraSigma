@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "rundll32_execution_without_par
   name                       = "rundll32_execution_without_parameters"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Rundll32 Execution Without Parameters"
-  description                = "Detects rundll32 execution without parameters as observed when running Metasploit windows/smb/psexec exploit module"
+  description                = "Detects rundll32 execution without parameters as observed when running Metasploit windows/smb/psexec exploit module | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rundll32_execution_without_parameters.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

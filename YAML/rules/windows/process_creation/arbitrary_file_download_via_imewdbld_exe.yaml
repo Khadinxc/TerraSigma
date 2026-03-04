@@ -1,6 +1,6 @@
 id: da82c04d-9fd2-5897-9477-8b5c4e47f308
 name: Arbitrary File Download Via IMEWDBLD.EXE
-description: Detects usage of "IMEWDBLD.exe" to download arbitrary files
+description: 'Detects usage of "IMEWDBLD.exe" to download arbitrary files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_file_download_via_imewdbld_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

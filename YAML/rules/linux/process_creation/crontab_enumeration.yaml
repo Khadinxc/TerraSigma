@@ -1,6 +1,6 @@
 id: 1b399091-0811-5737-8ac7-32c7f1f000ba
 name: Crontab Enumeration
-description: Detects usage of crontab to list the tasks of the user - Legitimate use of crontab
+description: 'Detects usage of crontab to list the tasks of the user - Legitimate use of crontab | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/crontab_enumeration.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -1,6 +1,6 @@
 id: 2e29911b-7dc3-5a77-a84a-67e1b88d19b4
 name: DLL Load via LSASS
-description: Detects a method to load DLL via LSASS process using an undocumented Registry key
+description: 'Detects a method to load DLL via LSASS process using an undocumented Registry key | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/dll_load_via_lsass.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

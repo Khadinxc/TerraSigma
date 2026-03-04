@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_workstation_locking
   name                       = "suspicious_workstation_locking_via_rundll32"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Workstation Locking via Rundll32"
-  description                = "Detects a suspicious call to the user32.dll function that locks the user workstation - Scripts or links on the user desktop used to lock the workstation instead of Windows+L or the menu option"
+  description                = "Detects a suspicious call to the user32.dll function that locks the user workstation - Scripts or links on the user desktop used to lock the workstation instead of Windows+L or the menu option | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_workstation_locking_via_rundll32.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

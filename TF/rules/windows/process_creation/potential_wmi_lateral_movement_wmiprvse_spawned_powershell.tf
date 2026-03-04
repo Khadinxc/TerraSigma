@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_wmi_lateral_movement
   name                       = "potential_wmi_lateral_movement_wmiprvse_spawned_powershell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential WMI Lateral Movement WmiPrvSE Spawned PowerShell"
-  description                = "Detects Powershell as a child of the WmiPrvSE process. Which could be a sign of lateral movement via WMI. - AppvClient - CCM - WinRM"
+  description                = "Detects Powershell as a child of the WmiPrvSE process. Which could be a sign of lateral movement via WMI. - AppvClient - CCM - WinRM | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_wmi_lateral_movement_wmiprvse_spawned_powershell.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

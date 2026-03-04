@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "renamed_vmnat_exe_execution" {
   name                       = "renamed_vmnat_exe_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed Vmnat.exe Execution"
-  description                = "Detects renamed vmnat.exe or portable version that can be used for DLL side-loading"
+  description                = "Detects renamed vmnat.exe or portable version that can be used for DLL side-loading | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_vmnat_exe_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

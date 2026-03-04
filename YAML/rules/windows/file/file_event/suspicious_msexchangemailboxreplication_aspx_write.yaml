@@ -1,6 +1,6 @@
 id: eea61b36-6755-55db-a4cb-99adeeae60e1
 name: Suspicious MSExchangeMailboxReplication ASPX Write
-description: Detects suspicious activity in which the MSExchangeMailboxReplication process writes .asp and .apsx files to disk, which could be a sign of ProxyShell exploitation
+description: 'Detects suspicious activity in which the MSExchangeMailboxReplication process writes .asp and .apsx files to disk, which could be a sign of ProxyShell exploitation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_msexchangemailboxreplication_aspx_write.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

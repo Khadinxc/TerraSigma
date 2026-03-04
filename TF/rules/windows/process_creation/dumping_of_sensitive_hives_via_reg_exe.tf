@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dumping_of_sensitive_hives_via
   name                       = "dumping_of_sensitive_hives_via_reg_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Dumping of Sensitive Hives Via Reg.EXE"
-  description                = "Detects the usage of \"reg.exe\" in order to dump sensitive registry hives. This includes SAM, SYSTEM and SECURITY hives. - Dumping hives for legitimate purpouse i.e. backup or forensic investigation"
+  description                = "Detects the usage of \"reg.exe\" in order to dump sensitive registry hives. This includes SAM, SYSTEM and SECURITY hives. - Dumping hives for legitimate purpouse i.e. backup or forensic investigation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dumping_of_sensitive_hives_via_reg_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

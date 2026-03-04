@@ -1,6 +1,6 @@
 id: aaab284f-ec4b-52ee-a727-69dead60af12
 name: MMC Loading Script Engines DLLs
-description: Detects when the Microsoft Management Console (MMC) loads the DLL libraries like vbscript, jscript etc which might indicate an attempt to execute malicious scripts within a trusted system process for bypassing application whitelisting or defense evasion. - Legitimate MMC operations or extensions loading these libraries
+description: 'Detects when the Microsoft Management Console (MMC) loads the DLL libraries like vbscript, jscript etc which might indicate an attempt to execute malicious scripts within a trusted system process for bypassing application whitelisting or defense evasion. - Legitimate MMC operations or extensions loading these libraries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/mmc_loading_script_engines_dlls.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

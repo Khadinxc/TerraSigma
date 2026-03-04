@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "rdp_over_reverse_ssh_tunnel" {
   name                       = "rdp_over_reverse_ssh_tunnel"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "RDP Over Reverse SSH Tunnel"
-  description                = "Detects svchost hosting RDP termsvcs communicating with the loopback address and on TCP port 3389"
+  description                = "Detects svchost hosting RDP termsvcs communicating with the loopback address and on TCP port 3389 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/rdp_over_reverse_ssh_tunnel.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

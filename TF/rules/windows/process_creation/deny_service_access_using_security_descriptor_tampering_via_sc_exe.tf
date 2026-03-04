@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "deny_service_access_using_secu
   name                       = "deny_service_access_using_security_descriptor_tampering_via_sc_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Deny Service Access Using Security Descriptor Tampering Via Sc.EXE"
-  description                = "Detects suspicious DACL modifications to deny access to a service that affects critical trustees. This can be used to hide services or make them unstoppable."
+  description                = "Detects suspicious DACL modifications to deny access to a service that affects critical trustees. This can be used to hide services or make them unstoppable. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/deny_service_access_using_security_descriptor_tampering_via_sc_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

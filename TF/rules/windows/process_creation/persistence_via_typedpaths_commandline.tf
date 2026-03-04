@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "persistence_via_typedpaths_com
   name                       = "persistence_via_typedpaths_commandline"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Persistence Via TypedPaths - CommandLine"
-  description                = "Detects modification addition to the 'TypedPaths' key in the user or admin registry via the commandline. Which might indicate persistence attempt"
+  description                = "Detects modification addition to the 'TypedPaths' key in the user or admin registry via the commandline. Which might indicate persistence attempt | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/persistence_via_typedpaths_commandline.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

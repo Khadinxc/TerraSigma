@@ -1,6 +1,6 @@
 id: 83f79ef5-eaf0-5d3b-a833-fe09b802ec9c
 name: MMC Executing Files with Reversed Extensions Using RTLO Abuse
-description: Detects malicious behavior where the MMC utility (`mmc.exe`) executes files with reversed extensions caused by Right-to-Left Override (RLO) abuse, disguising them as document formats. - Legitimate administrative actions using MMC to execute misnamed `.msc` files. - Unconventional but non-malicious usage of RLO or reversed extensions.
+description: 'Detects malicious behavior where the MMC utility (`mmc.exe`) executes files with reversed extensions caused by Right-to-Left Override (RLO) abuse, disguising them as document formats. - Legitimate administrative actions using MMC to execute misnamed `.msc` files. - Unconventional but non-malicious usage of RLO or reversed extensions. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/mmc_executing_files_with_reversed_extensions_using_rtlo_abuse.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -27,10 +27,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

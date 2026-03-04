@@ -1,6 +1,6 @@
 id: cfa602c5-ca03-5ac9-a0b2-95cf19bfe4b1
 name: PowerShell Base64 Encoded Reflective Assembly Load
-description: Detects base64 encoded .NET reflective loading of Assembly - Unlikely
+description: 'Detects base64 encoded .NET reflective loading of Assembly - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_base64_encoded_reflective_assembly_load.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -27,10 +27,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

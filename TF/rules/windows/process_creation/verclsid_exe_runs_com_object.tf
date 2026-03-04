@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "verclsid_exe_runs_com_object" 
   name                       = "verclsid_exe_runs_com_object"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Verclsid.exe Runs COM Object"
-  description                = "Detects when verclsid.exe is used to run COM object via GUID"
+  description                = "Detects when verclsid.exe is used to run COM object via GUID | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/verclsid_exe_runs_com_object.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

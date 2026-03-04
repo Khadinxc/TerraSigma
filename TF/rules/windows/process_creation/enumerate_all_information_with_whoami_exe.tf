@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "enumerate_all_information_with
   name                       = "enumerate_all_information_with_whoami_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Enumerate All Information With Whoami.EXE"
-  description                = "Detects the execution of \"whoami.exe\" with the \"/all\" flag"
+  description                = "Detects the execution of \"whoami.exe\" with the \"/all\" flag | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/enumerate_all_information_with_whoami_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

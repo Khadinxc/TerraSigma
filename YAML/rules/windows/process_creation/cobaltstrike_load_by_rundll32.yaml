@@ -1,6 +1,6 @@
 id: 32e5102d-e1c9-5a59-8bfe-236db2950b1d
 name: CobaltStrike Load by Rundll32
-description: Rundll32 can be use by Cobalt Strike with StartW function to load DLLs from the command line.
+description: 'Rundll32 can be use by Cobalt Strike with StartW function to load DLLs from the command line. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/cobaltstrike_load_by_rundll32.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

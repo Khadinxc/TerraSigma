@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "msiexec_exe_initiated_network_
   name                       = "msiexec_exe_initiated_network_connection_over_http"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Msiexec.EXE Initiated Network Connection Over HTTP"
-  description                = "Detects a network connection initiated by an \"Msiexec.exe\" process over port 80 or 443. Adversaries might abuse \"msiexec.exe\" to install and execute remotely hosted packages. Use this rule to hunt for potentially anomalous or suspicious communications. - Likely"
+  description                = "Detects a network connection initiated by an \"Msiexec.exe\" process over port 80 or 443. Adversaries might abuse \"msiexec.exe\" to install and execute remotely hosted packages. Use this rule to hunt for potentially anomalous or suspicious communications. - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/msiexec_exe_initiated_network_connection_over_http.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceNetworkEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

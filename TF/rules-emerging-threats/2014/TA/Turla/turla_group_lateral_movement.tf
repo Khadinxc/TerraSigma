@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "turla_group_lateral_movement" 
   name                       = "turla_group_lateral_movement"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Turla Group Lateral Movement"
-  description                = "Detects automated lateral movement by Turla group"
+  description                = "Detects automated lateral movement by Turla group | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2014/TA/Turla/turla_group_lateral_movement.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "group_has_been_deleted_via_gro
   name                       = "group_has_been_deleted_via_groupdel"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Group Has Been Deleted Via Groupdel"
-  description                = "Detects execution of the \"groupdel\" binary. Which is used to delete a group. This is sometimes abused by threat actors in order to cover their tracks - Legitimate administrator activities"
+  description                = "Detects execution of the \"groupdel\" binary. Which is used to delete a group. This is sometimes abused by threat actors in order to cover their tracks - Legitimate administrator activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/group_has_been_deleted_via_groupdel.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

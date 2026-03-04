@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "run_powershell_script_from_red
   name                       = "run_powershell_script_from_redirected_input_stream"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Run PowerShell Script from Redirected Input Stream"
-  description                = "Detects PowerShell script execution via input stream redirect"
+  description                = "Detects PowerShell script execution via input stream redirect | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/run_powershell_script_from_redirected_input_stream.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

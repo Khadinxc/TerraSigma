@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "remotefxvgpudisablement_abuse_
   name                       = "remotefxvgpudisablement_abuse_via_atomictestharnesses"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "RemoteFXvGPUDisablement Abuse Via AtomicTestHarnesses"
-  description                = "Detects calls to the AtomicTestHarnesses \"Invoke-ATHRemoteFXvGPUDisablementCommand\" which is designed to abuse the \"RemoteFXvGPUDisablement.exe\" binary to run custom PowerShell code via module load-order hijacking."
+  description                = "Detects calls to the AtomicTestHarnesses \"Invoke-ATHRemoteFXvGPUDisablementCommand\" which is designed to abuse the \"RemoteFXvGPUDisablement.exe\" binary to run custom PowerShell code via module load-order hijacking. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remotefxvgpudisablement_abuse_via_atomictestharnesses.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

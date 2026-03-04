@@ -1,6 +1,6 @@
 id: 42098478-dc19-59d8-81ff-a869c890dd61
 name: Potential Unquoted Service Path Reconnaissance Via Wmic.EXE
-description: Detects known WMI recon method to look for unquoted service paths using wmic. Often used by pentester and attacker enumeration scripts
+description: 'Detects known WMI recon method to look for unquoted service paths using wmic. Often used by pentester and attacker enumeration scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_unquoted_service_path_reconnaissance_via_wmic_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

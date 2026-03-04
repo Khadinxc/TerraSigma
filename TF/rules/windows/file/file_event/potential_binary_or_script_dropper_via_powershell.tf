@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_binary_or_script_dro
   name                       = "potential_binary_or_script_dropper_via_powershell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Binary Or Script Dropper Via PowerShell"
-  description                = "Detects PowerShell creating a binary executable or a script file."
+  description                = "Detects PowerShell creating a binary executable or a script file. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_binary_or_script_dropper_via_powershell.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

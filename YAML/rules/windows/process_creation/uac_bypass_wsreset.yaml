@@ -1,6 +1,6 @@
 id: 50bca19e-4bbe-5f32-9351-83e2df462038
 name: UAC Bypass WSReset
-description: Detects the pattern of UAC Bypass via WSReset usable by default sysmon-config
+description: 'Detects the pattern of UAC Bypass via WSReset usable by default sysmon-config | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uac_bypass_wsreset.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

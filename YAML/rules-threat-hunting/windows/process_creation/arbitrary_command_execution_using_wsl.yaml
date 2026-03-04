@@ -1,6 +1,6 @@
 id: 1cbdba80-768a-557a-9abf-70aa4aef6c6b
 name: Arbitrary Command Execution Using WSL
-description: Detects potential abuse of Windows Subsystem for Linux (WSL) binary as a Living of the Land binary in order to execute arbitrary Linux or Windows commands. - Automation and orchestration scripts may use this method to execute scripts etc. - Legitimate use by Windows to kill processes opened via WSL (example VsCode WSL server)
+description: 'Detects potential abuse of Windows Subsystem for Linux (WSL) binary as a Living of the Land binary in order to execute arbitrary Linux or Windows commands. - Automation and orchestration scripts may use this method to execute scripts etc. - Legitimate use by Windows to kill processes opened via WSL (example VsCode WSL server) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/arbitrary_command_execution_using_wsl.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

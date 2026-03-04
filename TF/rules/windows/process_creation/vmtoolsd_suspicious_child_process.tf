@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "vmtoolsd_suspicious_child_proc
   name                       = "vmtoolsd_suspicious_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "VMToolsd Suspicious Child Process"
-  description                = "Detects suspicious child process creations of VMware Tools process which may indicate persistence setup - Legitimate use by VM administrator"
+  description                = "Detects suspicious child process creations of VMware Tools process which may indicate persistence setup - Legitimate use by VM administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/vmtoolsd_suspicious_child_process.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

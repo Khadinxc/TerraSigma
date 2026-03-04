@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_execution_of_hostna
   name                       = "suspicious_execution_of_hostname"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Execution of Hostname"
-  description                = "Use of hostname to get information"
+  description                = "Use of hostname to get information | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_execution_of_hostname.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

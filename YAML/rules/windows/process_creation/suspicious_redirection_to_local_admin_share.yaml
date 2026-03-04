@@ -1,6 +1,6 @@
 id: 0bf4c4ee-be45-53bc-a330-8fb6cf41115d
 name: Suspicious Redirection to Local Admin Share
-description: Detects a suspicious output redirection to the local admins share, this technique is often found in malicious scripts or hacktool stagers
+description: 'Detects a suspicious output redirection to the local admins share, this technique is often found in malicious scripts or hacktool stagers | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_redirection_to_local_admin_share.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

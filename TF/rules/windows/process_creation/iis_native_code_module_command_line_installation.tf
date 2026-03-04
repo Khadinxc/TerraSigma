@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "iis_native_code_module_command
   name                       = "iis_native_code_module_command_line_installation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "IIS Native-Code Module Command Line Installation"
-  description                = "Detects suspicious IIS native-code module installations via command line - Unknown as it may vary from organisation to organisation how admins use to install IIS modules"
+  description                = "Detects suspicious IIS native-code module installations via command line - Unknown as it may vary from organisation to organisation how admins use to install IIS modules | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/iis_native_code_module_command_line_installation.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

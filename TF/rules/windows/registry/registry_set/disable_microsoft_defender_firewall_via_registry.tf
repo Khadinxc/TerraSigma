@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "disable_microsoft_defender_fir
   name                       = "disable_microsoft_defender_firewall_via_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disable Microsoft Defender Firewall via Registry"
-  description                = "Adversaries may disable or modify system firewalls in order to bypass controls limiting network usage"
+  description                = "Adversaries may disable or modify system firewalls in order to bypass controls limiting network usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/disable_microsoft_defender_firewall_via_registry.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

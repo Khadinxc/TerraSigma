@@ -1,6 +1,6 @@
 id: 5c9307ef-73f5-58e4-b90e-57f84bcb5832
 name: Execute Code with Pester.bat as Parent
-description: Detects code execution via Pester.bat (Pester - Powershell Modulte for testing) - Legitimate use of Pester for writing tests for Powershell scripts and modules
+description: 'Detects code execution via Pester.bat (Pester - Powershell Modulte for testing) - Legitimate use of Pester for writing tests for Powershell scripts and modules | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/execute_code_with_pester_bat_as_parent.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

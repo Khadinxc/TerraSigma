@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_gobrat_file_discover
   name                       = "potential_gobrat_file_discovery_via_grep"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential GobRAT File Discovery Via Grep"
-  description                = "Detects the use of grep to discover specific files created by the GobRAT malware"
+  description                = "Detects the use of grep to discover specific files created by the GobRAT malware | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potential_gobrat_file_discovery_via_grep.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

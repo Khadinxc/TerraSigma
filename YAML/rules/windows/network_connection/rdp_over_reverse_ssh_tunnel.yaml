@@ -1,6 +1,6 @@
 id: c5fbd2ec-2a9e-5531-b267-6b78ee1c4ccb
 name: RDP Over Reverse SSH Tunnel
-description: Detects svchost hosting RDP termsvcs communicating with the loopback address and on TCP port 3389
+description: 'Detects svchost hosting RDP termsvcs communicating with the loopback address and on TCP port 3389 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/rdp_over_reverse_ssh_tunnel.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

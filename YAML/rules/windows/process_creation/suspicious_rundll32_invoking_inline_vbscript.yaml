@@ -1,6 +1,6 @@
 id: cbb06f6a-544e-52df-901b-442c0098e234
 name: Suspicious Rundll32 Invoking Inline VBScript
-description: Detects suspicious process related to rundll32 based on command line that invokes inline VBScript as seen being used by UNC2452
+description: 'Detects suspicious process related to rundll32 based on command line that invokes inline VBScript as seen being used by UNC2452 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_rundll32_invoking_inline_vbscript.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

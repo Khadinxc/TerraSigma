@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "mshtml_dll_runhtmlapplication_
   name                       = "mshtml_dll_runhtmlapplication_suspicious_usage"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Mshtml.DLL RunHTMLApplication Suspicious Usage"
-  description                = "Detects execution of commands that leverage the \"mshtml.dll\" RunHTMLApplication export to run arbitrary code via different protocol handlers (vbscript, javascript, file, http...) - Unlikely"
+  description                = "Detects execution of commands that leverage the \"mshtml.dll\" RunHTMLApplication export to run arbitrary code via different protocol handlers (vbscript, javascript, file, http...) - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/mshtml_dll_runhtmlapplication_suspicious_usage.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

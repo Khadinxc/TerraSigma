@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_privilege_escalation
   name                       = "potential_privilege_escalation_attempt_via_exe_local_technique"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Privilege Escalation Attempt Via .Exe.Local Technique"
-  description                = "Detects potential privilege escalation attempt via the creation of the \"*.Exe.Local\" folder inside the \"System32\" directory in order to sideload \"comctl32.dll\""
+  description                = "Detects potential privilege escalation attempt via the creation of the \"*.Exe.Local\" folder inside the \"System32\" directory in order to sideload \"comctl32.dll\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_privilege_escalation_attempt_via_exe_local_technique.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

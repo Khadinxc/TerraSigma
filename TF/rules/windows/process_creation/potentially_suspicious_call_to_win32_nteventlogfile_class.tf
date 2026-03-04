@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_call_to
   name                       = "potentially_suspicious_call_to_win32_nteventlogfile_class"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Call To Win32_NTEventlogFile Class"
-  description                = "Detects usage of the WMI class \"Win32_NTEventlogFile\" in a potentially suspicious way (delete, backup, change permissions, etc.) from a PowerShell script"
+  description                = "Detects usage of the WMI class \"Win32_NTEventlogFile\" in a potentially suspicious way (delete, backup, change permissions, etc.) from a PowerShell script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_call_to_win32_nteventlogfile_class.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: 1b01d770-4d37-5e95-867a-89cb390e0b77
 name: New File Exclusion Added To Time Machine Via Tmutil - MacOS
-description: Detects the addition of a new file or path exclusion to MacOS Time Machine via the "tmutil" utility. An adversary could exclude a path from Time Machine backups to prevent certain files from being backed up. - Legitimate administrator activity
+description: 'Detects the addition of a new file or path exclusion to MacOS Time Machine via the "tmutil" utility. An adversary could exclude a path from Time Machine backups to prevent certain files from being backed up. - Legitimate administrator activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/new_file_exclusion_added_to_time_machine_via_tmutil_macos.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

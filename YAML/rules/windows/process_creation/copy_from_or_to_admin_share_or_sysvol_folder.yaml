@@ -1,6 +1,6 @@
 id: dc34c745-bb31-59f1-85f5-544d65d0f053
 name: Copy From Or To Admin Share Or Sysvol Folder
-description: Detects a copy command or a copy utility execution to or from an Admin share or remote - Administrative scripts
+description: 'Detects a copy command or a copy utility execution to or from an Admin share or remote - Administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/copy_from_or_to_admin_share_or_sysvol_folder.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -28,10 +28,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

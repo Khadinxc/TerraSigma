@@ -1,6 +1,6 @@
 id: 25e805cf-f7bf-5c68-b2cc-25f6134df519
 name: LSASS Process Memory Dump Files
-description: Detects creation of files with names used by different memory dumping tools to create a memory dump of the LSASS process memory, which contains user credentials.
+description: 'Detects creation of files with names used by different memory dumping tools to create a memory dump of the LSASS process memory, which contains user credentials. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/lsass_process_memory_dump_files.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

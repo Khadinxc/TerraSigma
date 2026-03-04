@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "use_short_name_path_in_image" 
   name                       = "use_short_name_path_in_image"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Use Short Name Path in Image"
-  description                = "Detect use of the Windows 8.3 short name. Which could be used as a method to avoid Image detection - Applications could use this notation occasionally which might generate some false positives. In that case Investigate the parent and child process."
+  description                = "Detect use of the Windows 8.3 short name. Which could be used as a method to avoid Image detection - Applications could use this notation occasionally which might generate some false positives. In that case Investigate the parent and child process. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_short_name_path_in_image.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

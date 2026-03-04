@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "ntds_dit_created" {
   name                       = "ntds_dit_created"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "NTDS.DIT Created"
-  description                = "Detects creation of a file named \"ntds.dit\" (Active Directory Database)"
+  description                = "Detects creation of a file named \"ntds.dit\" (Active Directory Database) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/ntds_dit_created.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

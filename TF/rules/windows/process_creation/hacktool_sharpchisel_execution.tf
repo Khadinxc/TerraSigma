@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_sharpchisel_execution
   name                       = "hacktool_sharpchisel_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - SharpChisel Execution"
-  description                = "Detects usage of the Sharp Chisel via the commandline arguments - Unlikely"
+  description                = "Detects usage of the Sharp Chisel via the commandline arguments - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_sharpchisel_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

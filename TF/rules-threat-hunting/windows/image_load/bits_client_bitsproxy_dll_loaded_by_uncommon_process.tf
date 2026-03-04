@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "bits_client_bitsproxy_dll_load
   name                       = "bits_client_bitsproxy_dll_loaded_by_uncommon_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "BITS Client BitsProxy DLL Loaded By Uncommon Process"
-  description                = "Detects an uncommon process loading the \"BitsProxy.dll\". This DLL is used when the BITS COM instance or API is used. This detection can be used to hunt for uncommon processes loading this DLL in your environment. Which may indicate potential suspicious activity occurring. - Allowed binaries in the environment that do BITS Jobs"
+  description                = "Detects an uncommon process loading the \"BitsProxy.dll\". This DLL is used when the BITS COM instance or API is used. This detection can be used to hunt for uncommon processes loading this DLL in your environment. Which may indicate potential suspicious activity occurring. - Allowed binaries in the environment that do BITS Jobs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/bits_client_bitsproxy_dll_loaded_by_uncommon_process.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

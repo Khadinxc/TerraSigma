@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_pchunter_execution" {
   name                       = "hacktool_pchunter_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - PCHunter Execution"
-  description                = "Detects suspicious use of PCHunter, a tool like Process Hacker to view and manipulate processes, kernel options and other low level stuff - Unlikely"
+  description                = "Detects suspicious use of PCHunter, a tool like Process Hacker to view and manipulate processes, kernel options and other low level stuff - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_pchunter_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "vba_dll_loaded_via_office_appl
   name                       = "vba_dll_loaded_via_office_application"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "VBA DLL Loaded Via Office Application"
-  description                = "Detects VB DLL's loaded by an office application. Which could indicate the presence of VBA Macros. - Legitimate macro usage. Add the appropriate filter according to your environment"
+  description                = "Detects VB DLL's loaded by an office application. Which could indicate the presence of VBA Macros. - Legitimate macro usage. Add the appropriate filter according to your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/vba_dll_loaded_via_office_application.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "remote_access_tool_anydesk_sil
   name                       = "remote_access_tool_anydesk_silent_installation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Access Tool - AnyDesk Silent Installation"
-  description                = "Detects AnyDesk Remote Desktop silent installation. Which can be used by attackers to gain remote access. - Legitimate deployment of AnyDesk"
+  description                = "Detects AnyDesk Remote Desktop silent installation. Which can be used by attackers to gain remote access. - Legitimate deployment of AnyDesk | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_access_tool_anydesk_silent_installation.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

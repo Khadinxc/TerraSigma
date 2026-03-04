@@ -1,6 +1,6 @@
 id: c81b79d2-6012-5a1d-9b50-df6b1989ab6c
 name: Potential Persistence Via Scrobj.dll COM Hijacking
-description: Detect use of scrobj.dll as this DLL looks for the ScriptletURL key to get the location of the script to execute - Legitimate use of the dll.
+description: 'Detect use of scrobj.dll as this DLL looks for the ScriptletURL key to get the location of the script to execute - Legitimate use of the dll. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_scrobj_dll_com_hijacking.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

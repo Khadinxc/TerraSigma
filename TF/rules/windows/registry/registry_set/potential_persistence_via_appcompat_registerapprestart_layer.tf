@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_persistence_via_appc
   name                       = "potential_persistence_via_appcompat_registerapprestart_layer"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via AppCompat RegisterAppRestart Layer"
-  description                = "Detects the setting of the REGISTERAPPRESTART compatibility layer on an application. This compatibility layer allows an application to register for restart using the \"RegisterApplicationRestart\" API. This can be potentially abused as a persistence mechanism. - Legitimate applications making use of this feature for compatibility reasons"
+  description                = "Detects the setting of the REGISTERAPPRESTART compatibility layer on an application. This compatibility layer allows an application to register for restart using the \"RegisterApplicationRestart\" API. This can be potentially abused as a persistence mechanism. - Legitimate applications making use of this feature for compatibility reasons | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_appcompat_registerapprestart_layer.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

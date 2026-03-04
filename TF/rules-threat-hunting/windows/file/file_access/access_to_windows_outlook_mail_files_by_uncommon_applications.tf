@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "access_to_windows_outlook_mail
   name                       = "access_to_windows_outlook_mail_files_by_uncommon_applications"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Access To Windows Outlook Mail Files By Uncommon Applications"
-  description                = "Detects file access requests to Windows Outlook Mail by uncommon processes. Could indicate potential attempt of credential stealing. Requires heavy baselining before usage - Antivirus, Anti-Spyware, Anti-Malware Software - Backup software - Legitimate software installed on partitions other than \"C:\\\" - Searching software such as \"everything.exe\""
+  description                = "Detects file access requests to Windows Outlook Mail by uncommon processes. Could indicate potential attempt of credential stealing. Requires heavy baselining before usage - Antivirus, Anti-Spyware, Anti-Malware Software - Backup software - Legitimate software installed on partitions other than \"C:\\\" - Searching software such as \"everything.exe\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/access_to_windows_outlook_mail_files_by_uncommon_applications.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

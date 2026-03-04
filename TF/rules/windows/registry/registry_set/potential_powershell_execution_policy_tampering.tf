@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_powershell_execution
   name                       = "potential_powershell_execution_policy_tampering"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential PowerShell Execution Policy Tampering"
-  description                = "Detects changes to the PowerShell execution policy in order to bypass signing requirements for script execution"
+  description                = "Detects changes to the PowerShell execution policy in order to bypass signing requirements for script execution | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_powershell_execution_policy_tampering.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

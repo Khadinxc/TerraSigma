@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hypervisor_enforced_paging_tra
   name                       = "hypervisor_enforced_paging_translation_disabled"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Hypervisor Enforced Paging Translation Disabled"
-  description                = "Detects changes to the \"DisableHypervisorEnforcedPagingTranslation\" registry value. Where the it is set to \"1\" in order to disable the Hypervisor Enforced Paging Translation feature."
+  description                = "Detects changes to the \"DisableHypervisorEnforcedPagingTranslation\" registry value. Where the it is set to \"1\" in order to disable the Hypervisor Enforced Paging Translation feature. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/hypervisor_enforced_paging_translation_disabled.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

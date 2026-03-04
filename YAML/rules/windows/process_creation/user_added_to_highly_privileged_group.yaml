@@ -1,6 +1,6 @@
 id: 457e62f9-81f9-57a0-8a33-df83ccf08259
 name: User Added To Highly Privileged Group
-description: Detects addition of users to highly privileged groups via "Net" or "Add-LocalGroupMember". - Administrative activity that must be investigated
+description: 'Detects addition of users to highly privileged groups via "Net" or "Add-LocalGroupMember". - Administrative activity that must be investigated | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/user_added_to_highly_privileged_group.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

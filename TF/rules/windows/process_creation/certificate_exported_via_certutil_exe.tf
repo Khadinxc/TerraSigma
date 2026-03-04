@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "certificate_exported_via_certu
   name                       = "certificate_exported_via_certutil_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Certificate Exported Via Certutil.EXE"
-  description                = "Detects the execution of the certutil with the \"exportPFX\" flag which allows the utility to export certificates. - There legitimate reasons to export certificates. Investigate the activity to determine if it's benign"
+  description                = "Detects the execution of the certutil with the \"exportPFX\" flag which allows the utility to export certificates. - There legitimate reasons to export certificates. Investigate the activity to determine if it's benign | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/certificate_exported_via_certutil_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "windows_amsi_related_registry_
   name                       = "windows_amsi_related_registry_tampering_via_commandline"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows AMSI Related Registry Tampering Via CommandLine"
-  description                = "Detects tampering of AMSI (Anti-Malware Scan Interface) related registry values via command line tools such as reg.exe or PowerShell. AMSI provides a generic interface for applications and services to integrate with antimalware products. Adversaries may disable AMSI to evade detection of malicious scripts and code execution."
+  description                = "Detects tampering of AMSI (Anti-Malware Scan Interface) related registry values via command line tools such as reg.exe or PowerShell. AMSI provides a generic interface for applications and services to integrate with antimalware products. Adversaries may disable AMSI to evade detection of malicious scripts and code execution. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_amsi_related_registry_tampering_via_commandline.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

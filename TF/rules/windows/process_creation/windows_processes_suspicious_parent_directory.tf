@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "windows_processes_suspicious_p
   name                       = "windows_processes_suspicious_parent_directory"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Processes Suspicious Parent Directory"
-  description                = "Detect suspicious parent processes of well-known Windows processes - Some security products seem to spawn these"
+  description                = "Detect suspicious parent processes of well-known Windows processes - Some security products seem to spawn these | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_processes_suspicious_parent_directory.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

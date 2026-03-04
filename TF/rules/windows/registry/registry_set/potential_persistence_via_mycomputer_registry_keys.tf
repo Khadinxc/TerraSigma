@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_persistence_via_myco
   name                       = "potential_persistence_via_mycomputer_registry_keys"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via MyComputer Registry Keys"
-  description                = "Detects modification to the \"Default\" value of the \"MyComputer\" key and subkeys to point to a custom binary that will be launched whenever the associated action is executed (see reference section for example) - Unlikely but if you experience FPs add specific processes and locations you would like to monitor for"
+  description                = "Detects modification to the \"Default\" value of the \"MyComputer\" key and subkeys to point to a custom binary that will be launched whenever the associated action is executed (see reference section for example) - Unlikely but if you experience FPs add specific processes and locations you would like to monitor for | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_mycomputer_registry_keys.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

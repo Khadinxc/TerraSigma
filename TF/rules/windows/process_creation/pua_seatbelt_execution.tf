@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_seatbelt_execution" {
   name                       = "pua_seatbelt_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Seatbelt Execution"
-  description                = "Detects the execution of the PUA/Recon tool Seatbelt via PE information of command line parameters - Unlikely"
+  description                = "Detects the execution of the PUA/Recon tool Seatbelt via PE information of command line parameters - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_seatbelt_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

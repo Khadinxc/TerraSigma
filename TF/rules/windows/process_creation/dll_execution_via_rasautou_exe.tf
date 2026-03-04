@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dll_execution_via_rasautou_exe
   name                       = "dll_execution_via_rasautou_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DLL Execution via Rasautou.exe"
-  description                = "Detects using Rasautou.exe for loading arbitrary .DLL specified in -d option and executes the export specified in -p. - Unlikely"
+  description                = "Detects using Rasautou.exe for loading arbitrary .DLL specified in -d option and executes the export specified in -p. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dll_execution_via_rasautou_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_remote_child_proces
   name                       = "suspicious_remote_child_process_from_outlook"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Remote Child Process From Outlook"
-  description                = "Detects a suspicious child process spawning from Outlook where the image is located in a remote location (SMB/WebDav shares)."
+  description                = "Detects a suspicious child process spawning from Outlook where the image is located in a remote location (SMB/WebDav shares). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_remote_child_process_from_outlook.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

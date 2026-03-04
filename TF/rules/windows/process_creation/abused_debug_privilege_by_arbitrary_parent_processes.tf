@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "abused_debug_privilege_by_arbi
   name                       = "abused_debug_privilege_by_arbitrary_parent_processes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Abused Debug Privilege by Arbitrary Parent Processes"
-  description                = "Detection of unusual child processes by different system processes"
+  description                = "Detection of unusual child processes by different system processes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/abused_debug_privilege_by_arbitrary_parent_processes.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

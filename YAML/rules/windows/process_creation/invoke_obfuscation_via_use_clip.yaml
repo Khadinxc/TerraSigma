@@ -1,6 +1,6 @@
 id: 31a6c4c0-c804-5f81-9291-510e56defa74
 name: Invoke-Obfuscation Via Use Clip
-description: Detects Obfuscated Powershell via use Clip.exe in Scripts
+description: 'Detects Obfuscated Powershell via use Clip.exe in Scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/invoke_obfuscation_via_use_clip.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

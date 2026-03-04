@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "named_pipe_created_via_mkfifo"
   name                       = "named_pipe_created_via_mkfifo"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Named Pipe Created Via Mkfifo"
-  description                = "Detects the creation of a new named pipe using the \"mkfifo\" utility"
+  description                = "Detects the creation of a new named pipe using the \"mkfifo\" utility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/named_pipe_created_via_mkfifo.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

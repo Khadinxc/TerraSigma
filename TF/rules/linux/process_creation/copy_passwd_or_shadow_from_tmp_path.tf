@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "copy_passwd_or_shadow_from_tmp
   name                       = "copy_passwd_or_shadow_from_tmp_path"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Copy Passwd Or Shadow From TMP Path"
-  description                = "Detects when the file \"passwd\" or \"shadow\" is copied from tmp path"
+  description                = "Detects when the file \"passwd\" or \"shadow\" is copied from tmp path | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/copy_passwd_or_shadow_from_tmp_path.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

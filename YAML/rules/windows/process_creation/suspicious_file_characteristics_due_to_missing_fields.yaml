@@ -1,6 +1,6 @@
 id: a656de78-58b9-58e9-9ea4-8b9fd82b1b28
 name: Suspicious File Characteristics Due to Missing Fields
-description: Detects Executables in the Downloads folder without FileVersion,Description,Product,Company likely created with py2exe
+description: 'Detects Executables in the Downloads folder without FileVersion,Description,Product,Company likely created with py2exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_file_characteristics_due_to_missing_fields.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

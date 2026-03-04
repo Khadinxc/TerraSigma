@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "remote_file_download_via_finds
   name                       = "remote_file_download_via_findstr_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote File Download Via Findstr.EXE"
-  description                = "Detects execution of \"findstr\" with specific flags and a remote share path. This specific set of CLI flags would allow \"findstr\" to download the content of the file located on the remote share as described in the LOLBAS entry."
+  description                = "Detects execution of \"findstr\" with specific flags and a remote share path. This specific set of CLI flags would allow \"findstr\" to download the content of the file located on the remote share as described in the LOLBAS entry. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_file_download_via_findstr_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

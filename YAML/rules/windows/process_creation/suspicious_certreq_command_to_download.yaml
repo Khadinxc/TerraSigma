@@ -1,6 +1,6 @@
 id: 50c3bab0-d13e-57e9-b99f-c8f6202f2135
 name: Suspicious CertReq Command to Download
-description: Detects a suspicious CertReq execution downloading a file. This behavior is often used by attackers to download additional payloads or configuration files. Certreq is a built-in Windows utility used to request and retrieve certificates from a certification authority (CA). However, it can be abused by threat actors for malicious purposes. - Unlikely
+description: 'Detects a suspicious CertReq execution downloading a file. This behavior is often used by attackers to download additional payloads or configuration files. Certreq is a built-in Windows utility used to request and retrieve certificates from a certification authority (CA). However, it can be abused by threat actors for malicious purposes. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_certreq_command_to_download.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

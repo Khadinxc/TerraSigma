@@ -1,6 +1,6 @@
 id: e0eda321-e198-5041-8b2c-2fd881ba9eb7
 name: Potential DLL Sideloading Via VMware Xfer
-description: Detects loading of a DLL by the VMware Xfer utility from the non-default directory which may be an attempt to sideload arbitrary DLL - Unlikely
+description: 'Detects loading of a DLL by the VMware Xfer utility from the non-default directory which may be an attempt to sideload arbitrary DLL - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_dll_sideloading_via_vmware_xfer.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

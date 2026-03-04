@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "adsi_cache_file_creation_by_un
   name                       = "adsi_cache_file_creation_by_uncommon_tool"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ADSI-Cache File Creation By Uncommon Tool"
-  description                = "Detects the creation of an \"Active Directory Schema Cache File\" (.sch) file by an uncommon tool. - Other legimate tools, which do ADSI (LDAP) operations, e.g. any remoting activity by MMC, Powershell, Windows etc."
+  description                = "Detects the creation of an \"Active Directory Schema Cache File\" (.sch) file by an uncommon tool. - Other legimate tools, which do ADSI (LDAP) operations, e.g. any remoting activity by MMC, Powershell, Windows etc. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/adsi_cache_file_creation_by_uncommon_tool.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

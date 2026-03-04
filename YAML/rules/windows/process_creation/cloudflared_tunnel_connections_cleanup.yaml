@@ -1,6 +1,6 @@
 id: 760eb9b7-aa40-56d2-8e8c-32fede61099a
 name: Cloudflared Tunnel Connections Cleanup
-description: Detects execution of the "cloudflared" tool with the tunnel "cleanup" flag in order to cleanup tunnel connections. - Legitimate usage of Cloudflared.
+description: 'Detects execution of the "cloudflared" tool with the tunnel "cleanup" flag in order to cleanup tunnel connections. - Legitimate usage of Cloudflared. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/cloudflared_tunnel_connections_cleanup.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

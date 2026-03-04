@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "enabling_cor_profiler_environm
   name                       = "enabling_cor_profiler_environment_variables"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Enabling COR Profiler Environment Variables"
-  description                = "Detects .NET Framework CLR and .NET Core CLR \"cor_enable_profiling\" and \"cor_profiler\" variables being set and configured."
+  description                = "Detects .NET Framework CLR and .NET Core CLR \"cor_enable_profiling\" and \"cor_profiler\" variables being set and configured. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/enabling_cor_profiler_environment_variables.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

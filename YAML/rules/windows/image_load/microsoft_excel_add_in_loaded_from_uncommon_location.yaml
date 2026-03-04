@@ -1,6 +1,6 @@
 id: bf6d624f-87cd-593a-adce-5089fa1ef484
 name: Microsoft Excel Add-In Loaded From Uncommon Location
-description: Detects Microsoft Excel loading an Add-In (.xll) file from an uncommon location - Some tuning might be required to allow or remove certain locations used by the rule if you consider them as safe locations
+description: 'Detects Microsoft Excel loading an Add-In (.xll) file from an uncommon location - Some tuning might be required to allow or remove certain locations used by the rule if you consider them as safe locations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/microsoft_excel_add_in_loaded_from_uncommon_location.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

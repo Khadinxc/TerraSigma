@@ -1,6 +1,6 @@
 id: 0d81f226-2c43-5f21-9988-3d561497bb5a
 name: Add DisallowRun Execution to Registry
-description: Detect set DisallowRun to 1 to prevent user running specific computer program
+description: 'Detect set DisallowRun to 1 to prevent user running specific computer program | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/add_disallowrun_execution_to_registry.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

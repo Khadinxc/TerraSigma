@@ -1,6 +1,6 @@
 id: 2e2fa7a8-1e96-522b-ae59-d6cc35f24c5b
 name: Base64 MZ Header In CommandLine
-description: Detects encoded base64 MZ header in the commandline - Unlikely
+description: 'Detects encoded base64 MZ header in the commandline - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/base64_mz_header_in_commandline.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

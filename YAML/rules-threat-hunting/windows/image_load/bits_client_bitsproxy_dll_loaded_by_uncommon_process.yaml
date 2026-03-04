@@ -1,6 +1,6 @@
 id: ea4e3699-231b-55d0-aff3-632d0b38e1bc
 name: BITS Client BitsProxy DLL Loaded By Uncommon Process
-description: Detects an uncommon process loading the "BitsProxy.dll". This DLL is used when the BITS COM instance or API is used. This detection can be used to hunt for uncommon processes loading this DLL in your environment. Which may indicate potential suspicious activity occurring. - Allowed binaries in the environment that do BITS Jobs
+description: 'Detects an uncommon process loading the "BitsProxy.dll". This DLL is used when the BITS COM instance or API is used. This detection can be used to hunt for uncommon processes loading this DLL in your environment. Which may indicate potential suspicious activity occurring. - Allowed binaries in the environment that do BITS Jobs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/bits_client_bitsproxy_dll_loaded_by_uncommon_process.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

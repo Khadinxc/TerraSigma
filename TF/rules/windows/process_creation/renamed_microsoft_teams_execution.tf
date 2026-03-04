@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "renamed_microsoft_teams_execut
   name                       = "renamed_microsoft_teams_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed Microsoft Teams Execution"
-  description                = "Detects the execution of a renamed Microsoft Teams binary."
+  description                = "Detects the execution of a renamed Microsoft Teams binary. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_microsoft_teams_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: 23a6569f-a1af-5116-bb99-199ec36ba75c
 name: File or Folder Permissions Modifications
-description: Detects a file or folder's permissions being modified or tampered with. - Users interacting with the files on their own (unlikely unless privileged users). - Dynatrace app
+description: 'Detects a file or folder''s permissions being modified or tampered with. - Users interacting with the files on their own (unlikely unless privileged users). - Dynatrace app | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/file_or_folder_permissions_modifications.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -1,6 +1,6 @@
 id: 5a163277-6714-5119-ae5e-e790164bddcb
 name: Cloudflared Quick Tunnel Execution
-description: Detects creation of an ad-hoc Cloudflare Quick Tunnel, which can be used to tunnel local services such as HTTP, RDP, SSH and SMB. The free TryCloudflare Quick Tunnel will generate a random subdomain on trycloudflare[.]com, following a call to api[.]trycloudflare[.]com. The tool has been observed in use by threat groups including Akira ransomware. - Legitimate usage of Cloudflare Quick Tunnel
+description: 'Detects creation of an ad-hoc Cloudflare Quick Tunnel, which can be used to tunnel local services such as HTTP, RDP, SSH and SMB. The free TryCloudflare Quick Tunnel will generate a random subdomain on trycloudflare[.]com, following a call to api[.]trycloudflare[.]com. The tool has been observed in use by threat groups including Akira ransomware. - Legitimate usage of Cloudflare Quick Tunnel | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/cloudflared_quick_tunnel_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

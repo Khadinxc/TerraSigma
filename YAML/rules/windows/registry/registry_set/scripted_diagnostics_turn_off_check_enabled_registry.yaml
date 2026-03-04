@@ -1,6 +1,6 @@
 id: 5ec12670-f439-56ba-b1c4-e417268b9a24
 name: Scripted Diagnostics Turn Off Check Enabled - Registry
-description: Detects enabling TurnOffCheck which can be used to bypass defense of MSDT Follina vulnerability - Administrator actions
+description: 'Detects enabling TurnOffCheck which can be used to bypass defense of MSDT Follina vulnerability - Administrator actions | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/scripted_diagnostics_turn_off_check_enabled_registry.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

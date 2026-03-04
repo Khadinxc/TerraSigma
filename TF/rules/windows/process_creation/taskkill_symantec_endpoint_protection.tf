@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "taskkill_symantec_endpoint_pro
   name                       = "taskkill_symantec_endpoint_protection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Taskkill Symantec Endpoint Protection"
-  description                = "Detects one of the possible scenarios for disabling Symantec Endpoint Protection. Symantec Endpoint Protection antivirus software services incorrectly implement the protected service mechanism. As a result, the NT AUTHORITY/SYSTEM user can execute the taskkill /im command several times ccSvcHst.exe /f, thereby killing the process belonging to the service, and thus shutting down the service."
+  description                = "Detects one of the possible scenarios for disabling Symantec Endpoint Protection. Symantec Endpoint Protection antivirus software services incorrectly implement the protected service mechanism. As a result, the NT AUTHORITY/SYSTEM user can execute the taskkill /im command several times ccSvcHst.exe /f, thereby killing the process belonging to the service, and thus shutting down the service. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/taskkill_symantec_endpoint_protection.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

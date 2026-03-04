@@ -1,6 +1,6 @@
 id: ebf711df-493c-5647-bcc8-7877615c103f
 name: PUA - Sysinternals Tools Execution - Registry
-description: Detects the execution of some potentially unwanted tools such as PsExec, Procdump, etc. (part of the Sysinternals suite) via the creation of the "accepteula" registry key. - Legitimate use of SysInternals tools. Filter the legitimate paths used in your environment
+description: 'Detects the execution of some potentially unwanted tools such as PsExec, Procdump, etc. (part of the Sysinternals suite) via the creation of the "accepteula" registry key. - Legitimate use of SysInternals tools. Filter the legitimate paths used in your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/pua_sysinternals_tools_execution_registry.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

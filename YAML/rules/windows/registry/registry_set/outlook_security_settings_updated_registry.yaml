@@ -1,6 +1,6 @@
 id: 89636030-c16a-5849-b99a-7e8e87cc72a1
 name: Outlook Security Settings Updated - Registry
-description: Detects changes to the registry values related to outlook security settings - Administrative activity
+description: 'Detects changes to the registry values related to outlook security settings - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/outlook_security_settings_updated_registry.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

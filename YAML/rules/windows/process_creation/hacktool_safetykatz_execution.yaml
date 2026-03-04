@@ -1,6 +1,6 @@
 id: 637eae0c-3525-5153-8a1e-24f87b6e6698
 name: HackTool - SafetyKatz Execution
-description: Detects the execution of the hacktool SafetyKatz via PE information and default Image name - Unlikely
+description: 'Detects the execution of the hacktool SafetyKatz via PE information and default Image name - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_safetykatz_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

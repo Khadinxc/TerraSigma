@@ -1,6 +1,6 @@
 id: e1808623-b9c1-56cd-8bad-d042830eb39c
 name: Scheduled Task Executing Payload from Registry
-description: Detects the creation of a schtasks that potentially executes a payload stored in the Windows Registry using PowerShell.
+description: 'Detects the creation of a schtasks that potentially executes a payload stored in the Windows Registry using PowerShell. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/scheduled_task_executing_payload_from_registry.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -27,10 +27,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

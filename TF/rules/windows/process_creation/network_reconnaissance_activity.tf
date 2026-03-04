@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "network_reconnaissance_activit
   name                       = "network_reconnaissance_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Network Reconnaissance Activity"
-  description                = "Detects a set of suspicious network related commands often used in recon stages"
+  description                = "Detects a set of suspicious network related commands often used in recon stages | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/network_reconnaissance_activity.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: 3ea5a500-27e2-5d00-b42d-4477a39a96ea
 name: Suspicious Encoded And Obfuscated Reflection Assembly Load Function Call
-description: Detects suspicious base64 encoded and obfuscated "LOAD" keyword used in .NET "reflection.assembly" - Unlikely
+description: 'Detects suspicious base64 encoded and obfuscated "LOAD" keyword used in .NET "reflection.assembly" - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_encoded_and_obfuscated_reflection_assembly_load_function_call.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

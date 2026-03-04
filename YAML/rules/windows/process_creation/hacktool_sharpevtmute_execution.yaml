@@ -1,6 +1,6 @@
 id: 92d7904f-99dd-5bb5-859c-ad852a70e556
 name: HackTool - SharpEvtMute Execution
-description: Detects the use of SharpEvtHook, a tool that tampers with the Windows event logs
+description: 'Detects the use of SharpEvtHook, a tool that tampers with the Windows event logs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_sharpevtmute_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

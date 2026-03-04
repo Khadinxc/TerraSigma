@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "shell_execution_gcc_linux" {
   name                       = "shell_execution_gcc_linux"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Shell Execution GCC  - Linux"
-  description                = "Detects the use of the \"gcc\" utility to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or to break out from restricted environments."
+  description                = "Detects the use of the \"gcc\" utility to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or to break out from restricted environments. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/shell_execution_gcc_linux.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

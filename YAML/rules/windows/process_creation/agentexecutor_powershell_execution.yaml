@@ -1,6 +1,6 @@
 id: 5dab13f5-f3fc-519d-9f7d-d0d4e4da7f50
 name: AgentExecutor PowerShell Execution
-description: Detects execution of the AgentExecutor.exe binary. Which can be abused as a LOLBIN to execute powershell scripts with the ExecutionPolicy "Bypass" or any binary named "powershell.exe" located in the path provided by 6th positional argument - Legitimate use via Intune management. You exclude script paths and names to reduce FP rate
+description: 'Detects execution of the AgentExecutor.exe binary. Which can be abused as a LOLBIN to execute powershell scripts with the ExecutionPolicy "Bypass" or any binary named "powershell.exe" located in the path provided by 6th positional argument - Legitimate use via Intune management. You exclude script paths and names to reduce FP rate | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/agentexecutor_powershell_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

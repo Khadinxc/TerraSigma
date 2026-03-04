@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_suspicious_activity_
   name                       = "potential_suspicious_activity_using_secedit"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Suspicious Activity Using SeCEdit"
-  description                = "Detects potential suspicious behaviour using secedit.exe. Such as exporting or modifying the security policy - Legitimate administrative use"
+  description                = "Detects potential suspicious behaviour using secedit.exe. Such as exporting or modifying the security policy - Legitimate administrative use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_suspicious_activity_using_secedit.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

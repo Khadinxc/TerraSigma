@@ -1,6 +1,6 @@
 id: 8bf8ca1b-e85a-5a1f-b0a1-63c3ff0c1b3c
 name: Assembly DLL Creation Via AspNetCompiler
-description: Detects the creation of new DLL assembly files by "aspnet_compiler.exe", which could be a sign of "aspnet_compiler" abuse to proxy execution through a build provider. - Legitimate assembly compilation using a build provider
+description: 'Detects the creation of new DLL assembly files by "aspnet_compiler.exe", which could be a sign of "aspnet_compiler" abuse to proxy execution through a build provider. - Legitimate assembly compilation using a build provider | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/assembly_dll_creation_via_aspnetcompiler.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

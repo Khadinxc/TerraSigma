@@ -1,6 +1,6 @@
 id: 462019cd-7be6-577a-9a14-01c4e5dcf125
 name: Suspicious Use of PsLogList
-description: Detects usage of the PsLogList utility to dump event log in order to extract admin accounts and perform account discovery or delete events logs - Another tool that uses the command line switches of PsLogList - Legitimate use of PsLogList by an administrator
+description: 'Detects usage of the PsLogList utility to dump event log in order to extract admin accounts and perform account discovery or delete events logs - Another tool that uses the command line switches of PsLogList - Legitimate use of PsLogList by an administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_use_of_psloglist.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "powershell_download_and_execut
   name                       = "powershell_download_and_execution_cradles"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Download and Execution Cradles"
-  description                = "Detects PowerShell download and execution cradles. - Some PowerShell installers were seen using similar combinations. Apply filters accordingly"
+  description                = "Detects PowerShell download and execution cradles. - Some PowerShell installers were seen using similar combinations. Apply filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_download_and_execution_cradles.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

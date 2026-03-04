@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_ntlm_coercion_via_ce
   name                       = "potential_ntlm_coercion_via_certutil_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential NTLM Coercion Via Certutil.EXE"
-  description                = "Detects possible NTLM coercion via certutil using the 'syncwithWU' flag"
+  description                = "Detects possible NTLM coercion via certutil using the 'syncwithWU' flag | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_ntlm_coercion_via_certutil_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

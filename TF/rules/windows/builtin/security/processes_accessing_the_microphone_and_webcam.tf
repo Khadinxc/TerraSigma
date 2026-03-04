@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "processes_accessing_the_microp
   name                       = "processes_accessing_the_microphone_and_webcam"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Processes Accessing the Microphone and Webcam"
-  description                = "Potential adversaries accessing the microphone and webcam in an endpoint."
+  description                = "Potential adversaries accessing the microphone and webcam in an endpoint. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/processes_accessing_the_microphone_and_webcam.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

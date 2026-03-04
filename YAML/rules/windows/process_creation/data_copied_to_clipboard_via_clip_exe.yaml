@@ -1,6 +1,6 @@
 id: 05fb5979-caca-57a6-9773-23185db222ed
 name: Data Copied To Clipboard Via Clip.EXE
-description: Detects the execution of clip.exe in order to copy data to the clipboard. Adversaries may collect data stored in the clipboard from users copying information within or between applications.
+description: 'Detects the execution of clip.exe in order to copy data to the clipboard. Adversaries may collect data stored in the clipboard from users copying information within or between applications. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/data_copied_to_clipboard_via_clip_exe.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -1,6 +1,6 @@
 id: eee05714-de4d-59ba-ab79-e9704be8f19d
 name: New Outlook Macro Created
-description: Detects the creation of a macro file for Outlook. - User genuinely creates a VB Macro for their email
+description: 'Detects the creation of a macro file for Outlook. - User genuinely creates a VB Macro for their email | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/new_outlook_macro_created.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -28,10 +28,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

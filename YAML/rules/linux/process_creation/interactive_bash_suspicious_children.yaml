@@ -1,6 +1,6 @@
 id: 8490f088-512b-5f50-8ec1-a752418e4c8a
 name: Interactive Bash Suspicious Children
-description: Detects suspicious interactive bash as a parent to rather uncommon child processes - Legitimate software that uses these patterns
+description: 'Detects suspicious interactive bash as a parent to rather uncommon child processes - Legitimate software that uses these patterns | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/interactive_bash_suspicious_children.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

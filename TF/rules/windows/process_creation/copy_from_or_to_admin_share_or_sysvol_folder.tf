@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "copy_from_or_to_admin_share_or
   name                       = "copy_from_or_to_admin_share_or_sysvol_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Copy From Or To Admin Share Or Sysvol Folder"
-  description                = "Detects a copy command or a copy utility execution to or from an Admin share or remote - Administrative scripts"
+  description                = "Detects a copy command or a copy utility execution to or from an Admin share or remote - Administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/copy_from_or_to_admin_share_or_sysvol_folder.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

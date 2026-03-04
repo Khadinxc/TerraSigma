@@ -1,6 +1,6 @@
 id: 6e1dd9b4-9179-56b0-9601-4c23e7c19021
 name: New DNS ServerLevelPluginDll Installed
-description: Detects the installation of a DNS plugin DLL via ServerLevelPluginDll parameter in registry, which can be used to execute code in context of the DNS server (restart required)
+description: 'Detects the installation of a DNS plugin DLL via ServerLevelPluginDll parameter in registry, which can be used to execute code in context of the DNS server (restart required) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/new_dns_serverlevelplugindll_installed.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -27,10 +27,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -1,6 +1,6 @@
 id: cb6fab19-81cd-5782-b8d6-78e1461c8beb
 name: Potential Persistence Via Microsoft Compatibility Appraiser
-description: Detects manual execution of the "Microsoft Compatibility Appraiser" task via schtasks. In order to trigger persistence stored in the "\AppCompatFlags\TelemetryController" registry key.
+description: 'Detects manual execution of the "Microsoft Compatibility Appraiser" task via schtasks. In order to trigger persistence stored in the "\AppCompatFlags\TelemetryController" registry key. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_persistence_via_microsoft_compatibility_appraiser.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

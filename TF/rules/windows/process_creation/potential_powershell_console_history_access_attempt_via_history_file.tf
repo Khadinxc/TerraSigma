@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_powershell_console_h
   name                       = "potential_powershell_console_history_access_attempt_via_history_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential PowerShell Console History Access Attempt via History File"
-  description                = "Detects potential access attempts to the PowerShell console history directly via history file (ConsoleHost_history.txt). This can give access to plaintext passwords used in PowerShell commands or used for general reconnaissance. - Legitimate access of the console history file is possible"
+  description                = "Detects potential access attempts to the PowerShell console history directly via history file (ConsoleHost_history.txt). This can give access to plaintext passwords used in PowerShell commands or used for general reconnaissance. - Legitimate access of the console history file is possible | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_powershell_console_history_access_attempt_via_history_file.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

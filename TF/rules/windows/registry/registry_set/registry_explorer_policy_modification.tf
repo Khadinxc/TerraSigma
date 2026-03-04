@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_explorer_policy_modif
   name                       = "registry_explorer_policy_modification"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Registry Explorer Policy Modification"
-  description                = "Detects registry modifications that disable internal tools or functions in explorer (malware like Agent Tesla uses this technique) - Legitimate admin script"
+  description                = "Detects registry modifications that disable internal tools or functions in explorer (malware like Agent Tesla uses this technique) - Legitimate admin script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_explorer_policy_modification.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: b3966ae3-ceec-540c-86e9-e9eb818e276e
 name: Office Macro File Creation From Suspicious Process
-description: Detects the creation of a office macro file from a a suspicious process
+description: 'Detects the creation of a office macro file from a a suspicious process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/office_macro_file_creation_from_suspicious_process.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

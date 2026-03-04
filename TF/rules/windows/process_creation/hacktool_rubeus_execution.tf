@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_rubeus_execution" {
   name                       = "hacktool_rubeus_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Rubeus Execution"
-  description                = "Detects the execution of the hacktool Rubeus via PE information of command line parameters - Unlikely"
+  description                = "Detects the execution of the hacktool Rubeus via PE information of command line parameters - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_rubeus_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

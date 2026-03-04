@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "control_panel_items" {
   name                       = "control_panel_items"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Control Panel Items"
-  description                = "Detects the malicious use of a control panel item"
+  description                = "Detects the malicious use of a control panel item | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/control_panel_items.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

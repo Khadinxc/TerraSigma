@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "service_startuptype_change_via
   name                       = "service_startuptype_change_via_powershell_set_service"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Service StartupType Change Via PowerShell Set-Service"
-  description                = "Detects the use of the PowerShell \"Set-Service\" cmdlet to change the startup type of a service to \"disabled\" or \"manual\""
+  description                = "Detects the use of the PowerShell \"Set-Service\" cmdlet to change the startup type of a service to \"disabled\" or \"manual\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/service_startuptype_change_via_powershell_set_service.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

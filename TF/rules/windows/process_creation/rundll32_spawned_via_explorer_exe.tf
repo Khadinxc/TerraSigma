@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "rundll32_spawned_via_explorer_
   name                       = "rundll32_spawned_via_explorer_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Rundll32 Spawned Via Explorer.EXE"
-  description                = "Detects execution of \"rundll32.exe\" with a parent process of Explorer.exe. This has been observed by variants of Raspberry Robin, as first reported by Red Canary."
+  description                = "Detects execution of \"rundll32.exe\" with a parent process of Explorer.exe. This has been observed by variants of Raspberry Robin, as first reported by Red Canary. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rundll32_spawned_via_explorer_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

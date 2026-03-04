@@ -1,6 +1,6 @@
 id: ca3a3732-aeed-51b7-9b20-042cfc768ed0
 name: Potential Defense Evasion Via Right-to-Left Override
-description: Detects the presence of the "u202+E" character, which causes a terminal, browser, or operating system to render text in a right-to-left sequence. This is used as an obfuscation and masquerading techniques. - Commandlines that contains scriptures such as arabic or hebrew might make use of this character
+description: 'Detects the presence of the "u202+E" character, which causes a terminal, browser, or operating system to render text in a right-to-left sequence. This is used as an obfuscation and masquerading techniques. - Commandlines that contains scriptures such as arabic or hebrew might make use of this character | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_defense_evasion_via_right_to_left_override.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

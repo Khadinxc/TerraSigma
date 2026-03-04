@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "shimcache_flush" {
   name                       = "shimcache_flush"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ShimCache Flush"
-  description                = "Detects actions that clear the local ShimCache and remove forensic evidence"
+  description                = "Detects actions that clear the local ShimCache and remove forensic evidence | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/shimcache_flush.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

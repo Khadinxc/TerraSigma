@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "wget_creating_files_in_tmp_dir
   name                       = "wget_creating_files_in_tmp_directory"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Wget Creating Files in Tmp Directory"
-  description                = "Detects the use of wget to download content in a temporary directory such as \"/tmp\" or \"/var/tmp\" - Legitimate downloads of files in the tmp folder."
+  description                = "Detects the use of wget to download content in a temporary directory such as \"/tmp\" or \"/var/tmp\" - Legitimate downloads of files in the tmp folder. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/wget_creating_files_in_tmp_directory.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_sharpup_privesc_tool_
   name                       = "hacktool_sharpup_privesc_tool_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - SharpUp PrivEsc Tool Execution"
-  description                = "Detects the use of SharpUp, a tool for local privilege escalation"
+  description                = "Detects the use of SharpUp, a tool for local privilege escalation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_sharpup_privesc_tool_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

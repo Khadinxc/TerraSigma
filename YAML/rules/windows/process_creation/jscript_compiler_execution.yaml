@@ -1,6 +1,6 @@
 id: 8efcc24b-4a34-5a47-8ed4-813cca6d8428
 name: JScript Compiler Execution
-description: Detects the execution of the "jsc.exe" (JScript Compiler). Attacker might abuse this in order to compile JScript files on the fly and bypassing application whitelisting. - Legitimate use to compile JScript by developers.
+description: 'Detects the execution of the "jsc.exe" (JScript Compiler). Attacker might abuse this in order to compile JScript files on the fly and bypassing application whitelisting. - Legitimate use to compile JScript by developers. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/jscript_compiler_execution.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -1,6 +1,6 @@
 id: 93a761cc-046b-558c-9135-d6518e8e7f4e
 name: Suspicious Scheduled Task Creation Involving Temp Folder
-description: Detects the creation of scheduled tasks that involves a temporary folder and runs only once - Administrative activity - Software installation
+description: 'Detects the creation of scheduled tasks that involves a temporary folder and runs only once - Administrative activity - Software installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_scheduled_task_creation_involving_temp_folder.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

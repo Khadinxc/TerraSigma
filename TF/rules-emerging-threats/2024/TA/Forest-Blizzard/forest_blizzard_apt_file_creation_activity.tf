@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "forest_blizzard_apt_file_creat
   name                       = "forest_blizzard_apt_file_creation_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Forest Blizzard APT - File Creation Activity"
-  description                = "Detects the creation of specific files inside of ProgramData directory. These files were seen being created by Forest Blizzard as described by MSFT. - Unlikely"
+  description                = "Detects the creation of specific files inside of ProgramData directory. These files were seen being created by Forest Blizzard as described by MSFT. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/forest_blizzard_apt_file_creation_activity.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

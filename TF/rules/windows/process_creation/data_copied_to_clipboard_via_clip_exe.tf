@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "data_copied_to_clipboard_via_c
   name                       = "data_copied_to_clipboard_via_clip_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Data Copied To Clipboard Via Clip.EXE"
-  description                = "Detects the execution of clip.exe in order to copy data to the clipboard. Adversaries may collect data stored in the clipboard from users copying information within or between applications."
+  description                = "Detects the execution of clip.exe in order to copy data to the clipboard. Adversaries may collect data stored in the clipboard from users copying information within or between applications. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/data_copied_to_clipboard_via_clip_exe.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

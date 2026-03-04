@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "regsvr32_dll_execution_with_su
   name                       = "regsvr32_dll_execution_with_suspicious_file_extension"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Regsvr32 DLL Execution With Suspicious File Extension"
-  description                = "Detects the execution of REGSVR32.exe with DLL files masquerading as other files - Unlikely"
+  description                = "Detects the execution of REGSVR32.exe with DLL files masquerading as other files - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/regsvr32_dll_execution_with_suspicious_file_extension.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

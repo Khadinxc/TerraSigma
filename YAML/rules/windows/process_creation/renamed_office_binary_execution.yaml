@@ -1,6 +1,6 @@
 id: eb315c8f-fb02-5d92-a228-679225c41f37
 name: Renamed Office Binary Execution
-description: Detects the execution of a renamed office binary
+description: 'Detects the execution of a renamed office binary | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_office_binary_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "rdp_to_http_or_https_target_po
   name                       = "rdp_to_http_or_https_target_ports"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "RDP to HTTP or HTTPS Target Ports"
-  description                = "Detects svchost hosting RDP termsvcs communicating to target systems on TCP port 80 or 443"
+  description                = "Detects svchost hosting RDP termsvcs communicating to target systems on TCP port 80 or 443 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/rdp_to_http_or_https_target_ports.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

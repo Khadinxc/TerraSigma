@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "creation_of_non_existent_syste
   name                       = "creation_of_non_existent_system_dll"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Creation Of Non-Existent System DLL"
-  description                = "Detects the creation of system DLLs that are usually not present on the system (or at least not in system directories). Usually this technique is used to achieve DLL hijacking."
+  description                = "Detects the creation of system DLLs that are usually not present on the system (or at least not in system directories). Usually this technique is used to achieve DLL hijacking. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/creation_of_non_existent_system_dll.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

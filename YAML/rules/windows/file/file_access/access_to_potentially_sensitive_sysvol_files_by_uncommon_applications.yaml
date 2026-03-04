@@ -1,6 +1,6 @@
 id: 01a0c5b7-2116-522d-af9b-19a59afba21c
 name: Access To Potentially Sensitive Sysvol Files By Uncommon Applications
-description: Detects file access requests to potentially sensitive files hosted on the Windows Sysvol share.
+description: 'Detects file access requests to potentially sensitive files hosted on the Windows Sysvol share. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/access_to_potentially_sensitive_sysvol_files_by_uncommon_applications.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

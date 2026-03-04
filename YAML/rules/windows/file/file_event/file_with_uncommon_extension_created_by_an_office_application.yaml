@@ -1,6 +1,6 @@
 id: 208985d8-05df-52e5-a147-4b05b50af7c9
 name: File With Uncommon Extension Created By An Office Application
-description: Detects the creation of files with an executable or script extension by an Office application.
+description: 'Detects the creation of files with an executable or script extension by an Office application. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_with_uncommon_extension_created_by_an_office_application.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

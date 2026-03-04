@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "non_privileged_usage_of_reg_or
   name                       = "non_privileged_usage_of_reg_or_powershell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Non-privileged Usage of Reg or Powershell"
-  description                = "Search for usage of reg or Powershell by non-privileged users to modify service configuration in registry"
+  description                = "Search for usage of reg or Powershell by non-privileged users to modify service configuration in registry | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/non_privileged_usage_of_reg_or_powershell.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

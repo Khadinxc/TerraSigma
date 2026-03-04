@@ -1,6 +1,6 @@
 id: 7af491a6-f69b-5ed0-8844-0da4d71470a3
 name: Webshell Detection With Command Line Keywords
-description: Detects certain command line parameters often used during reconnaissance activity via web shells
+description: 'Detects certain command line parameters often used during reconnaissance activity via web shells | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/webshell_detection_with_command_line_keywords.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -28,10 +28,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

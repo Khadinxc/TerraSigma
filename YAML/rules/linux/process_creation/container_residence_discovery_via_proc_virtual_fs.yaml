@@ -1,6 +1,6 @@
 id: 399ae28a-d8fb-536e-9f9b-adc5ca735855
 name: Container Residence Discovery Via Proc Virtual FS
-description: Detects potential container discovery via listing of certain kernel features in the "/proc" virtual filesystem - Legitimate system administrator usage of these commands - Some container tools or deployments may use these techniques natively to determine how they proceed with execution, and will need to be filtered
+description: 'Detects potential container discovery via listing of certain kernel features in the "/proc" virtual filesystem - Legitimate system administrator usage of these commands - Some container tools or deployments may use these techniques natively to determine how they proceed with execution, and will need to be filtered | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/container_residence_discovery_via_proc_virtual_fs.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

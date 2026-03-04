@@ -1,6 +1,6 @@
 id: 6bc58d9e-a212-5e43-8248-0252c4352517
 name: UAC Bypass Using Consent and Comctl32 - Process
-description: Detects the pattern of UAC Bypass using consent.exe and comctl32.dll (UACMe 22)
+description: 'Detects the pattern of UAC Bypass using consent.exe and comctl32.dll (UACMe 22) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uac_bypass_using_consent_and_comctl32_process.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

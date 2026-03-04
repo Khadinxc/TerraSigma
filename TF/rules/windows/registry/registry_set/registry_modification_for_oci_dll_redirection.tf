@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_modification_for_oci_
   name                       = "registry_modification_for_oci_dll_redirection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Registry Modification for OCI DLL Redirection"
-  description                = "Detects registry modifications related to 'OracleOciLib' and 'OracleOciLibPath' under 'MSDTC' settings. Threat actors may modify these registry keys to redirect the loading of 'oci.dll' to a malicious DLL, facilitating phantom DLL hijacking via the MSDTC service. - Unlikely"
+  description                = "Detects registry modifications related to 'OracleOciLib' and 'OracleOciLibPath' under 'MSDTC' settings. Threat actors may modify these registry keys to redirect the loading of 'oci.dll' to a malicious DLL, facilitating phantom DLL hijacking via the MSDTC service. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_modification_for_oci_dll_redirection.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

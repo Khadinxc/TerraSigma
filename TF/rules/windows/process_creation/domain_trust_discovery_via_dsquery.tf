@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "domain_trust_discovery_via_dsq
   name                       = "domain_trust_discovery_via_dsquery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Domain Trust Discovery Via Dsquery"
-  description                = "Detects execution of \"dsquery.exe\" for domain trust discovery - Legitimate use of the utilities by legitimate user for legitimate reason"
+  description                = "Detects execution of \"dsquery.exe\" for domain trust discovery - Legitimate use of the utilities by legitimate user for legitimate reason | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/domain_trust_discovery_via_dsquery.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

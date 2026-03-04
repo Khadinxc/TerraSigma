@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "bypass_uac_using_silentcleanup
   name                       = "bypass_uac_using_silentcleanup_task"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Bypass UAC Using SilentCleanup Task"
-  description                = "Detects the setting of the environement variable \"windir\" to a non default value. Attackers often abuse this variable in order to trigger a UAC bypass via the \"SilentCleanup\" task. The SilentCleanup task located in %windir%\\system32\\cleanmgr.exe is an auto-elevated task that can be abused to elevate any file with administrator privileges without prompting UAC."
+  description                = "Detects the setting of the environement variable \"windir\" to a non default value. Attackers often abuse this variable in order to trigger a UAC bypass via the \"SilentCleanup\" task. The SilentCleanup task located in %windir%\\system32\\cleanmgr.exe is an auto-elevated task that can be abused to elevate any file with administrator privileges without prompting UAC. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/bypass_uac_using_silentcleanup_task.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

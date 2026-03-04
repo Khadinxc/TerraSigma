@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "os_architecture_discovery_via_
   name                       = "os_architecture_discovery_via_grep"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "OS Architecture Discovery Via Grep"
-  description                = "Detects the use of grep to identify information about the operating system architecture. Often combined beforehand with the execution of \"uname\" or \"cat /proc/cpuinfo\""
+  description                = "Detects the use of grep to identify information about the operating system architecture. Often combined beforehand with the execution of \"uname\" or \"cat /proc/cpuinfo\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/os_architecture_discovery_via_grep.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

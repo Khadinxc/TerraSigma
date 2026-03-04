@@ -1,6 +1,6 @@
 id: accc79d2-6acd-5924-983c-f0b5adade7f6
 name: Invoke-Obfuscation CLIP+ Launcher
-description: Detects Obfuscated use of Clip.exe to execute PowerShell
+description: 'Detects Obfuscated use of Clip.exe to execute PowerShell | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/invoke_obfuscation_clip_launcher.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

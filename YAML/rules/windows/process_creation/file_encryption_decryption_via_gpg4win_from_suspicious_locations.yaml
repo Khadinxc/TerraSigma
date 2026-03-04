@@ -1,6 +1,6 @@
 id: 8ad4ce80-929c-56c4-be34-27a2d579ee42
 name: File Encryption/Decryption Via Gpg4win From Suspicious Locations
-description: Detects usage of Gpg4win to encrypt/decrypt files located in potentially suspicious locations.
+description: 'Detects usage of Gpg4win to encrypt/decrypt files located in potentially suspicious locations. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_encryption_decryption_via_gpg4win_from_suspicious_locations.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

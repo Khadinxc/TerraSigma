@@ -1,6 +1,6 @@
 id: 5efd7f4d-baaa-5675-a7a8-4577d9a4c73e
 name: Suspicious File Download From IP Via Wget.EXE - Paths
-description: Detects potentially suspicious file downloads directly from IP addresses and stored in suspicious locations using Wget.exe
+description: 'Detects potentially suspicious file downloads directly from IP addresses and stored in suspicious locations using Wget.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_file_download_from_ip_via_wget_exe_paths.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uefi_persistence_via_wpbbin_pr
   name                       = "uefi_persistence_via_wpbbin_processcreation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UEFI Persistence Via Wpbbin - ProcessCreation"
-  description                = "Detects execution of the binary \"wpbbin\" which is used as part of the UEFI based persistence method described in the reference section - Legitimate usage of the file by hardware manufacturer such as lenovo (Thanks @0gtweet for the tip)"
+  description                = "Detects execution of the binary \"wpbbin\" which is used as part of the UEFI based persistence method described in the reference section - Legitimate usage of the file by hardware manufacturer such as lenovo (Thanks @0gtweet for the tip) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uefi_persistence_via_wpbbin_processcreation.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

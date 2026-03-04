@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "powershell_base64_encoded_wmi_
   name                       = "powershell_base64_encoded_wmi_classes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Base64 Encoded WMI Classes"
-  description                = "Detects calls to base64 encoded WMI class such as \"Win32_ShadowCopy\", \"Win32_ScheduledJob\", etc."
+  description                = "Detects calls to base64 encoded WMI class such as \"Win32_ShadowCopy\", \"Win32_ScheduledJob\", etc. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_base64_encoded_wmi_classes.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

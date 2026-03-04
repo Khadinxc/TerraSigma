@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_persistence_via_note
   name                       = "potential_persistence_via_notepad_plugins"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Notepad++ Plugins"
-  description                = "Detects creation of new \".dll\" files inside the plugins directory of a notepad++ installation by a process other than \"gup.exe\". Which could indicates possible persistence - Possible FPs during first installation of Notepad++ - Legitimate use of custom plugins by users in order to enhance notepad++ functionalities"
+  description                = "Detects creation of new \".dll\" files inside the plugins directory of a notepad++ installation by a process other than \"gup.exe\". Which could indicates possible persistence - Possible FPs during first installation of Notepad++ - Legitimate use of custom plugins by users in order to enhance notepad++ functionalities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_persistence_via_notepad_plugins.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: 90be3fdb-7d1a-578d-a950-b75b4d22588d
 name: DLL Call by Ordinal Via Rundll32.EXE
-description: Detects calls of DLLs exports by ordinal numbers via rundll32.dll. - Windows control panel elements have been identified as source (mmc).
+description: 'Detects calls of DLLs exports by ordinal numbers via rundll32.dll. - Windows control panel elements have been identified as source (mmc). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/dll_call_by_ordinal_via_rundll32_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "lsa_ppl_protection_disabled_vi
   name                       = "lsa_ppl_protection_disabled_via_reg_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "LSA PPL Protection Disabled Via Reg.EXE"
-  description                = "Detects the usage of the \"reg.exe\" utility to disable PPL protection on the LSA process - Unlikely"
+  description                = "Detects the usage of the \"reg.exe\" utility to disable PPL protection on the LSA process - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/lsa_ppl_protection_disabled_via_reg_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

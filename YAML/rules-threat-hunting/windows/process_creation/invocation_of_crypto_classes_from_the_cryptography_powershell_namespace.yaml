@@ -1,6 +1,6 @@
 id: f7eae42c-1cd4-5ee3-a580-cf3e1f8e6079
 name: Invocation Of Crypto-Classes From The "Cryptography" PowerShell Namespace
-description: Detects the invocation of PowerShell commands with references to classes from the "System.Security.Cryptography" namespace. The PowerShell namespace "System.Security.Cryptography" provides classes for on-the-fly encryption and decryption. These can be used for example in decrypting malicious payload for defense evasion. - Classes are legitimately used, but less so when e.g. parents with low prevalence or decryption of content in temporary folders.
+description: 'Detects the invocation of PowerShell commands with references to classes from the "System.Security.Cryptography" namespace. The PowerShell namespace "System.Security.Cryptography" provides classes for on-the-fly encryption and decryption. These can be used for example in decrypting malicious payload for defense evasion. - Classes are legitimately used, but less so when e.g. parents with low prevalence or decryption of content in temporary folders. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/invocation_of_crypto_classes_from_the_cryptography_powershell_namespace.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

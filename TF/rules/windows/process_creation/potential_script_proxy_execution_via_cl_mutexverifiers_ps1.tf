@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_script_proxy_executi
   name                       = "potential_script_proxy_execution_via_cl_mutexverifiers_ps1"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Script Proxy Execution Via CL_Mutexverifiers.ps1"
-  description                = "Detects the use of the Microsoft signed script \"CL_mutexverifiers\" to proxy the execution of additional PowerShell script commands"
+  description                = "Detects the use of the Microsoft signed script \"CL_mutexverifiers\" to proxy the execution of additional PowerShell script commands | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_script_proxy_execution_via_cl_mutexverifiers_ps1.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

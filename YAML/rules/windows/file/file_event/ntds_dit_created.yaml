@@ -1,6 +1,6 @@
 id: b6282d89-a7b5-5106-8746-06b3ff454187
 name: NTDS.DIT Created
-description: Detects creation of a file named "ntds.dit" (Active Directory Database)
+description: 'Detects creation of a file named "ntds.dit" (Active Directory Database) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/ntds_dit_created.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

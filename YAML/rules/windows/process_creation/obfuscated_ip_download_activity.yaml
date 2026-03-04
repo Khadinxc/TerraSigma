@@ -1,6 +1,6 @@
 id: 98dd5f81-3118-584c-9824-0063db989cfb
 name: Obfuscated IP Download Activity
-description: Detects use of an encoded/obfuscated version of an IP address (hex, octal...) in an URL combined with a download command
+description: 'Detects use of an encoded/obfuscated version of an IP address (hex, octal...) in an URL combined with a download command | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/obfuscated_ip_download_activity.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

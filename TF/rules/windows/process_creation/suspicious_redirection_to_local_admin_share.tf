@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_redirection_to_loca
   name                       = "suspicious_redirection_to_local_admin_share"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Redirection to Local Admin Share"
-  description                = "Detects a suspicious output redirection to the local admins share, this technique is often found in malicious scripts or hacktool stagers"
+  description                = "Detects a suspicious output redirection to the local admins share, this technique is often found in malicious scripts or hacktool stagers | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_redirection_to_local_admin_share.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

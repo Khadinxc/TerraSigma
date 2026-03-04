@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "mstsc_exe_execution_from_uncom
   name                       = "mstsc_exe_execution_from_uncommon_parent"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Mstsc.EXE Execution From Uncommon Parent"
-  description                = "Detects potential RDP connection via Mstsc using a local \".rdp\" file located in suspicious locations. - Unlikely"
+  description                = "Detects potential RDP connection via Mstsc using a local \".rdp\" file located in suspicious locations. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/mstsc_exe_execution_from_uncommon_parent.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

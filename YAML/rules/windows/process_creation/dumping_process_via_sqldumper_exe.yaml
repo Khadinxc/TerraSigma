@@ -1,6 +1,6 @@
 id: 7138b4bf-4b73-56af-ac12-f63caa15518e
 name: Dumping Process via Sqldumper.exe
-description: Detects process dump via legitimate sqldumper.exe binary - Legitimate MSSQL Server actions
+description: 'Detects process dump via legitimate sqldumper.exe binary - Legitimate MSSQL Server actions | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dumping_process_via_sqldumper_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

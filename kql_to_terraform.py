@@ -266,11 +266,11 @@ class KQLToTerraform:
                             })
                             break  # Only add one field per identifier
             
-            # Add entity mapping if we found any fields
+            # Add entity mapping if we found any fields (max 3 field_mappings per entity type)
             if field_mappings:
                 entity_mappings.append({
                     'entity_type': entity_type,
-                    'field_mappings': field_mappings
+                    'field_mappings': field_mappings[:3]
                 })
         
         return entity_mappings
@@ -291,6 +291,8 @@ class KQLToTerraform:
         # Description
         if metadata.get('description'):
             desc = self.escape_terraform_string(metadata['description'])
+            if metadata.get('sigma_reference'):
+                desc += f" | Source: {metadata['sigma_reference']}"
             tf_lines.append(f'  description                = "{desc}"')
         
         # Severity
@@ -422,6 +424,15 @@ class KQLToTerraform:
                 print(f"Skipping {relative_path} - no query found")
                 return False
             
+            # Compute sigma rule reference URL from the KQL file path
+            sigma_rel = relative_path
+            sigma_parts = sigma_rel.parts
+            if sigma_parts and sigma_parts[0].upper() == 'KQL':
+                sigma_rel = Path(*sigma_parts[1:])
+            metadata['sigma_reference'] = (
+                f"https://github.com/SigmaHQ/sigma/blob/master/{sigma_rel.with_suffix('.yml')}"
+            )
+
             # Compute output directory based on desired output structure
             # Option 'source' mirrors the original Sigma repo folder structure
             # Option 'tactics' groups rules by first MITRE tactic (legacy)

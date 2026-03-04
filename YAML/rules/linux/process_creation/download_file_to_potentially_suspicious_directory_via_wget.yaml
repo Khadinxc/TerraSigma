@@ -1,6 +1,6 @@
 id: 246f24ee-173b-5de6-b2e4-f380082b9fcb
 name: Download File To Potentially Suspicious Directory Via Wget
-description: Detects the use of wget to download content to a suspicious directory
+description: 'Detects the use of wget to download content to a suspicious directory | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/download_file_to_potentially_suspicious_directory_via_wget.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -1,6 +1,6 @@
 id: a3915aa3-e92c-5c04-b8a2-06b5379140fa
 name: Potential Persistence Via Notepad++ Plugins
-description: Detects creation of new ".dll" files inside the plugins directory of a notepad++ installation by a process other than "gup.exe". Which could indicates possible persistence - Possible FPs during first installation of Notepad++ - Legitimate use of custom plugins by users in order to enhance notepad++ functionalities
+description: 'Detects creation of new ".dll" files inside the plugins directory of a notepad++ installation by a process other than "gup.exe". Which could indicates possible persistence - Possible FPs during first installation of Notepad++ - Legitimate use of custom plugins by users in order to enhance notepad++ functionalities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_persistence_via_notepad_plugins.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

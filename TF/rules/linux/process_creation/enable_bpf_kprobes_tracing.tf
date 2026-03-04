@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "enable_bpf_kprobes_tracing" {
   name                       = "enable_bpf_kprobes_tracing"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Enable BPF Kprobes Tracing"
-  description                = "Detects common command used to enable bpf kprobes tracing"
+  description                = "Detects common command used to enable bpf kprobes tracing | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/enable_bpf_kprobes_tracing.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

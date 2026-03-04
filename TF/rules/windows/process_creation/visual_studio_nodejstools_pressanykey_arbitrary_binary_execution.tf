@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "visual_studio_nodejstools_pres
   name                       = "visual_studio_nodejstools_pressanykey_arbitrary_binary_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Visual Studio NodejsTools PressAnyKey Arbitrary Binary Execution"
-  description                = "Detects child processes of Microsoft.NodejsTools.PressAnyKey.exe that can be used to execute any other binary - Legitimate use by developers as part of NodeJS development with Visual Studio Tools"
+  description                = "Detects child processes of Microsoft.NodejsTools.PressAnyKey.exe that can be used to execute any other binary - Legitimate use by developers as part of NodeJS development with Visual Studio Tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/visual_studio_nodejstools_pressanykey_arbitrary_binary_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_remotekrbrelay_execut
   name                       = "hacktool_remotekrbrelay_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - RemoteKrbRelay Execution"
-  description                = "Detects the use of RemoteKrbRelay, a Kerberos relaying tool via CommandLine flags and PE metadata. - Unlikely"
+  description                = "Detects the use of RemoteKrbRelay, a Kerberos relaying tool via CommandLine flags and PE metadata. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_remotekrbrelay_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

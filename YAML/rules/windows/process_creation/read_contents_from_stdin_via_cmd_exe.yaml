@@ -1,6 +1,6 @@
 id: adeb2bc4-84d4-5657-8008-76862e43c07e
 name: Read Contents From Stdin Via Cmd.EXE
-description: Detect the use of "<" to read and potentially execute a file via cmd.exe
+description: 'Detect the use of "<" to read and potentially execute a file via cmd.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/read_contents_from_stdin_via_cmd_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "renamed_autohotkey_exe_executi
   name                       = "renamed_autohotkey_exe_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed AutoHotkey.EXE Execution"
-  description                = "Detects execution of a renamed autohotkey.exe binary based on PE metadata fields"
+  description                = "Detects execution of a renamed autohotkey.exe binary based on PE metadata fields | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_autohotkey_exe_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

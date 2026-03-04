@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "command_line_execution_with_su
   name                       = "command_line_execution_with_suspicious_url_and_appdata_strings"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Command Line Execution with Suspicious URL and AppData Strings"
-  description                = "Detects a suspicious command line execution that includes an URL and AppData string in the command line parameters as used by several droppers (js/vbs > powershell) - High"
+  description                = "Detects a suspicious command line execution that includes an URL and AppData string in the command line parameters as used by several droppers (js/vbs > powershell) - High | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/command_line_execution_with_suspicious_url_and_appdata_strings.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

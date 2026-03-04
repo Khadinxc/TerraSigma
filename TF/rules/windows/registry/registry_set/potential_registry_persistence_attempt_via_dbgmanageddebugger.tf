@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_registry_persistence
   name                       = "potential_registry_persistence_attempt_via_dbgmanageddebugger"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Registry Persistence Attempt Via DbgManagedDebugger"
-  description                = "Detects the addition of the \"Debugger\" value to the \"DbgManagedDebugger\" key in order to achieve persistence. Which will get invoked when an application crashes - Legitimate use of the key to setup a debugger. Which is often the case on developers machines"
+  description                = "Detects the addition of the \"Debugger\" value to the \"DbgManagedDebugger\" key in order to achieve persistence. Which will get invoked when an application crashes - Legitimate use of the key to setup a debugger. Which is often the case on developers machines | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_registry_persistence_attempt_via_dbgmanageddebugger.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

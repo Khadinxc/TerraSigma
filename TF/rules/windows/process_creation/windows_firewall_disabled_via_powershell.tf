@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "windows_firewall_disabled_via_
   name                       = "windows_firewall_disabled_via_powershell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Firewall Disabled via PowerShell"
-  description                = "Detects attempts to disable the Windows Firewall using PowerShell"
+  description                = "Detects attempts to disable the Windows Firewall using PowerShell | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_firewall_disabled_via_powershell.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

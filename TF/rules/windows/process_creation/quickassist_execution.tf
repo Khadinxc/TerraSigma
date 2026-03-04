@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "quickassist_execution" {
   name                       = "quickassist_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "QuickAssist Execution"
-  description                = "Detects the execution of Microsoft Quick Assist tool \"QuickAssist.exe\". This utility can be used by attackers to gain remote access. - Legitimate use of Quick Assist in the environment."
+  description                = "Detects the execution of Microsoft Quick Assist tool \"QuickAssist.exe\". This utility can be used by attackers to gain remote access. - Legitimate use of Quick Assist in the environment. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/quickassist_execution.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

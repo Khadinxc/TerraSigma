@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "network_connection_initiated_b
   name                       = "network_connection_initiated_by_imewdbld_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Network Connection Initiated By IMEWDBLD.EXE"
-  description                = "Detects a network connection initiated by IMEWDBLD.EXE. This might indicate potential abuse of the utility as a LOLBIN in order to download arbitrary files or additional payloads."
+  description                = "Detects a network connection initiated by IMEWDBLD.EXE. This might indicate potential abuse of the utility as a LOLBIN in order to download arbitrary files or additional payloads. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/network_connection_initiated_by_imewdbld_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

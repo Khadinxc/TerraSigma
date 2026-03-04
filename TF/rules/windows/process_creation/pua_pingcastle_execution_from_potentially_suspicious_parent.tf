@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_pingcastle_execution_from_
   name                       = "pua_pingcastle_execution_from_potentially_suspicious_parent"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - PingCastle Execution From Potentially Suspicious Parent"
-  description                = "Detects the execution of PingCastle, a tool designed to quickly assess the Active Directory security level via a script located in a potentially suspicious or uncommon location."
+  description                = "Detects the execution of PingCastle, a tool designed to quickly assess the Active Directory security level via a script located in a potentially suspicious or uncommon location. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_pingcastle_execution_from_potentially_suspicious_parent.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

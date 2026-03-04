@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_asp_net
   name                       = "potentially_suspicious_asp_net_compilation_via_aspnetcompiler"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious ASP.NET Compilation Via AspNetCompiler"
-  description                = "Detects execution of \"aspnet_compiler.exe\" with potentially suspicious paths for compilation."
+  description                = "Detects execution of \"aspnet_compiler.exe\" with potentially suspicious paths for compilation. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_asp_net_compilation_via_aspnetcompiler.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

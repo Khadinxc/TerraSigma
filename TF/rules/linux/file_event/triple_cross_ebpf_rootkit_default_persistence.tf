@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "triple_cross_ebpf_rootkit_defa
   name                       = "triple_cross_ebpf_rootkit_default_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Triple Cross eBPF Rootkit Default Persistence"
-  description                = "Detects the creation of \"ebpfbackdoor\" files in both \"cron.d\" and \"sudoers.d\" directories. Which both are related to the TripleCross persistence method - Unlikely"
+  description                = "Detects the creation of \"ebpfbackdoor\" files in both \"cron.d\" and \"sudoers.d\" directories. Which both are related to the TripleCross persistence method - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/triple_cross_ebpf_rootkit_default_persistence.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

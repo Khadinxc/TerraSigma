@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_mimikatz_kirbi_file_c
   name                       = "hacktool_mimikatz_kirbi_file_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Mimikatz Kirbi File Creation"
-  description                = "Detects the creation of files created by mimikatz such as \".kirbi\", \"mimilsa.log\", etc. - Unlikely"
+  description                = "Detects the creation of files created by mimikatz such as \".kirbi\", \"mimilsa.log\", etc. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/hacktool_mimikatz_kirbi_file_creation.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

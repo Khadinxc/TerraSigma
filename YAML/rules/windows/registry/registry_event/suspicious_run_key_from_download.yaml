@@ -1,6 +1,6 @@
 id: 8a630e64-32dc-529d-9ae3-7301528b900b
 name: Suspicious Run Key from Download
-description: Detects the suspicious RUN keys created by software located in Download or temporary Outlook/Internet Explorer directories - Software installers downloaded and used by users
+description: 'Detects the suspicious RUN keys created by software located in Download or temporary Outlook/Internet Explorer directories - Software installers downloaded and used by users | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/suspicious_run_key_from_download.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

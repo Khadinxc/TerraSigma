@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hh_exe_initiated_http_network_
   name                       = "hh_exe_initiated_http_network_connection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HH.EXE Initiated HTTP Network Connection"
-  description                = "Detects a network connection initiated by the \"hh.exe\" process to HTTP destination ports, which could indicate the execution/download of remotely hosted .chm files."
+  description                = "Detects a network connection initiated by the \"hh.exe\" process to HTTP destination ports, which could indicate the execution/download of remotely hosted .chm files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/hh_exe_initiated_http_network_connection.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

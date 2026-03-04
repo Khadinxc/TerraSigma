@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "unmount_share_via_net_exe" {
   name                       = "unmount_share_via_net_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Unmount Share Via Net.EXE"
-  description                = "Detects when when a mounted share is removed. Adversaries may remove share connections that are no longer useful in order to clean up traces of their operation - Administrators or Power users may remove their shares via cmd line"
+  description                = "Detects when when a mounted share is removed. Adversaries may remove share connections that are no longer useful in order to clean up traces of their operation - Administrators or Power users may remove their shares via cmd line | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/unmount_share_via_net_exe.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

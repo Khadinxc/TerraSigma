@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_export_of_third_party
   name                       = "registry_export_of_third_party_credentials"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Registry Export of Third-Party Credentials"
-  description                = "Detects the use of reg.exe to export registry paths associated with third-party credentials. Credential stealers have been known to use this technique to extract sensitive information from the registry."
+  description                = "Detects the use of reg.exe to export registry paths associated with third-party credentials. Credential stealers have been known to use this technique to extract sensitive information from the registry. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/registry_export_of_third_party_credentials.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

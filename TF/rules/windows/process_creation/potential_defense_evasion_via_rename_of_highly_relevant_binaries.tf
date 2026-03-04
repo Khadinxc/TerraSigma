@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_defense_evasion_via_
   name                       = "potential_defense_evasion_via_rename_of_highly_relevant_binaries"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Defense Evasion Via Rename Of Highly Relevant Binaries"
-  description                = "Detects the execution of a renamed binary often used by attackers or malware leveraging new Sysmon OriginalFileName datapoint. - Custom applications use renamed binaries adding slight change to binary name. Typically this is easy to spot and add to whitelist"
+  description                = "Detects the execution of a renamed binary often used by attackers or malware leveraging new Sysmon OriginalFileName datapoint. - Custom applications use renamed binaries adding slight change to binary name. Typically this is easy to spot and add to whitelist | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_defense_evasion_via_rename_of_highly_relevant_binaries.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

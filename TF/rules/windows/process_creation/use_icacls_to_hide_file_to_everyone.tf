@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "use_icacls_to_hide_file_to_eve
   name                       = "use_icacls_to_hide_file_to_everyone"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Use Icacls to Hide File to Everyone"
-  description                = "Detect use of icacls to deny access for everyone in Users folder sometimes used to hide malicious files"
+  description                = "Detect use of icacls to deny access for everyone in Users folder sometimes used to hide malicious files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_icacls_to_hide_file_to_everyone.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: 1e7dc50d-6f86-5bf6-9c58-58afd7640101
 name: WMI Persistence - Script Event Consumer File Write
-description: Detects file writes of WMI script event consumer - Dell Power Manager (C:\Program Files\Dell\PowerManager\DpmPowerPlanSetup.exe)
+description: 'Detects file writes of WMI script event consumer - Dell Power Manager (C:\Program Files\Dell\PowerManager\DpmPowerPlanSetup.exe) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/wmi_persistence_script_event_consumer_file_write.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

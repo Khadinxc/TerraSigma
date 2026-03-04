@@ -1,6 +1,6 @@
 id: d943c7dd-b034-5643-9afe-ac85306a7cc3
 name: Cloudflared Portable Execution
-description: Detects the execution of the "cloudflared" binary from a non standard location. - Legitimate usage of Cloudflared portable versions
+description: 'Detects the execution of the "cloudflared" binary from a non standard location. - Legitimate usage of Cloudflared portable versions | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/cloudflared_portable_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

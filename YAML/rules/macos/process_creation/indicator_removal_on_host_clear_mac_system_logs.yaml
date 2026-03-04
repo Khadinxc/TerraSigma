@@ -1,6 +1,6 @@
 id: 88901c74-5ce1-58d0-93f7-ca5120777208
 name: Indicator Removal on Host - Clear Mac System Logs
-description: Detects deletion of local audit logs - Legitimate administration activities
+description: 'Detects deletion of local audit logs - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/indicator_removal_on_host_clear_mac_system_logs.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

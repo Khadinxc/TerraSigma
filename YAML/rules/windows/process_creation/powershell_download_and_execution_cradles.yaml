@@ -1,6 +1,6 @@
 id: 59e9043f-6cda-5bb7-b637-a0d267afaf83
 name: PowerShell Download and Execution Cradles
-description: Detects PowerShell download and execution cradles. - Some PowerShell installers were seen using similar combinations. Apply filters accordingly
+description: 'Detects PowerShell download and execution cradles. - Some PowerShell installers were seen using similar combinations. Apply filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_download_and_execution_cradles.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

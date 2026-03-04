@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "sensitive_file_recovery_from_b
   name                       = "sensitive_file_recovery_from_backup_via_wbadmin_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Sensitive File Recovery From Backup Via Wbadmin.EXE"
-  description                = "Detects the dump of highly sensitive files such as \"NTDS.DIT\" and \"SECURITY\" hive. Attackers can leverage the \"wbadmin\" utility in order to dump sensitive files that might contain credential or sensitive information."
+  description                = "Detects the dump of highly sensitive files such as \"NTDS.DIT\" and \"SECURITY\" hive. Attackers can leverage the \"wbadmin\" utility in order to dump sensitive files that might contain credential or sensitive information. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sensitive_file_recovery_from_backup_via_wbadmin_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: 5f5d8b63-1696-5c3b-a9eb-80fd5179285e
 name: Potential Windows Defender Tampering Via Wmic.EXE
-description: Detects potential tampering with Windows Defender settings such as adding exclusion using wmic
+description: 'Detects potential tampering with Windows Defender settings such as adding exclusion using wmic | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_windows_defender_tampering_via_wmic_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

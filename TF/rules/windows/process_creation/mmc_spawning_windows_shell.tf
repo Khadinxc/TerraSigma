@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "mmc_spawning_windows_shell" {
   name                       = "mmc_spawning_windows_shell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "MMC Spawning Windows Shell"
-  description                = "Detects a Windows command line executable started from MMC"
+  description                = "Detects a Windows command line executable started from MMC | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/mmc_spawning_windows_shell.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_in_memory_download_a
   name                       = "potential_in_memory_download_and_compile_of_payloads"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential In-Memory Download And Compile Of Payloads"
-  description                = "Detects potential in-memory downloading and compiling of applets using curl and osacompile as seen used by XCSSET malware"
+  description                = "Detects potential in-memory downloading and compiling of applets using curl and osacompile as seen used by XCSSET malware | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/potential_in_memory_download_and_compile_of_payloads.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_modification_to_hidde
   name                       = "registry_modification_to_hidden_file_extension"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Registry Modification to Hidden File Extension"
-  description                = "Hides the file extension through modification of the registry - Administrative scripts"
+  description                = "Hides the file extension through modification of the registry - Administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_modification_to_hidden_file_extension.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: bcdddf5f-b1c8-5887-8704-2a50b99b7088
 name: Linux Doas Conf File Creation
-description: Detects the creation of doas.conf file in linux host platform. - Unlikely
+description: 'Detects the creation of doas.conf file in linux host platform. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/linux_doas_conf_file_creation.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

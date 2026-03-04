@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "wce_wceaux_dll_access" {
   name                       = "wce_wceaux_dll_access"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WCE wceaux.dll Access"
-  description                = "Detects wceaux.dll access while WCE pass-the-hash remote command execution on source host"
+  description                = "Detects wceaux.dll access while WCE pass-the-hash remote command execution on source host | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/wce_wceaux_dll_access.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

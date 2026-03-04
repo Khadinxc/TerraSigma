@@ -1,6 +1,6 @@
 id: 411ba89e-9acc-5d55-96e6-d54efa12a42a
 name: Suspicious DumpMinitool Execution
-description: Detects suspicious ways to use the "DumpMinitool.exe" binary
+description: 'Detects suspicious ways to use the "DumpMinitool.exe" binary | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_dumpminitool_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -1,6 +1,6 @@
 id: 39fef990-064d-568c-9cbf-c6bad736b246
 name: Potential PowerShell Downgrade Attack
-description: Detects PowerShell downgrade attack by comparing the host versions with the actually used engine version 2.0
+description: 'Detects PowerShell downgrade attack by comparing the host versions with the actually used engine version 2.0 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_powershell_downgrade_attack.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

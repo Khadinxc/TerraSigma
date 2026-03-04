@@ -1,6 +1,6 @@
 id: 2f102435-bf4d-59ce-98d9-76f8ee6c733a
 name: UAC Bypass via Sdclt
-description: Detects the pattern of UAC Bypass using registry key manipulation of sdclt.exe (e.g. UACMe 53)
+description: 'Detects the pattern of UAC Bypass using registry key manipulation of sdclt.exe (e.g. UACMe 53) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/uac_bypass_via_sdclt.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -1,6 +1,6 @@
 id: ba679b05-c0b9-5cb7-b915-84aa44c872ae
 name: Windows Internet Hosted WebDav Share Mount Via Net.EXE
-description: Detects when an internet hosted webdav share is mounted using the "net.exe" utility
+description: 'Detects when an internet hosted webdav share is mounted using the "net.exe" utility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_internet_hosted_webdav_share_mount_via_net_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

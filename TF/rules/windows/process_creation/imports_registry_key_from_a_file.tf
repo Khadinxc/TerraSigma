@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "imports_registry_key_from_a_fi
   name                       = "imports_registry_key_from_a_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Imports Registry Key From a File"
-  description                = "Detects the import of the specified file to the registry with regedit.exe. - Legitimate import of keys - Evernote"
+  description                = "Detects the import of the specified file to the registry with regedit.exe. - Legitimate import of keys - Evernote | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/imports_registry_key_from_a_file.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

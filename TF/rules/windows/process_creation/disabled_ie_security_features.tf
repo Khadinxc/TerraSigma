@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "disabled_ie_security_features"
   name                       = "disabled_ie_security_features"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disabled IE Security Features"
-  description                = "Detects command lines that indicate unwanted modifications to registry keys that disable important Internet Explorer security features"
+  description                = "Detects command lines that indicate unwanted modifications to registry keys that disable important Internet Explorer security features | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/disabled_ie_security_features.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

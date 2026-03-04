@@ -1,6 +1,6 @@
 id: 57e67b62-992a-54a5-9626-1adb619951d1
 name: Suspicious Greedy Compression Using Rar.EXE
-description: Detects RAR usage that creates an archive from a suspicious folder, either a system folder or one of the folders often used by attackers for staging purposes
+description: 'Detects RAR usage that creates an archive from a suspicious folder, either a system folder or one of the folders often used by attackers for staging purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_greedy_compression_using_rar_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

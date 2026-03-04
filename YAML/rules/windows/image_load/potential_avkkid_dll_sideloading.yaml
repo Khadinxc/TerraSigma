@@ -1,6 +1,6 @@
 id: dee7c750-fb1d-533f-8a90-0bc03d22b13f
 name: Potential AVKkid.DLL Sideloading
-description: Detects potential DLL sideloading of "AVKkid.dll"
+description: 'Detects potential DLL sideloading of "AVKkid.dll" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_avkkid_dll_sideloading.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

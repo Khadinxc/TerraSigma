@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "azure_ad_health_service_agents
   name                       = "azure_ad_health_service_agents_registry_keys_access"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Azure AD Health Service Agents Registry Keys Access"
-  description                = "This detection uses Windows security events to detect suspicious access attempts to the registry key values and sub-keys of Azure AD Health service agents (e.g AD FS). Information from AD Health service agents can be used to potentially abuse some of the features provided by those services in the cloud (e.g. Federation). This detection requires an access control entry (ACE) on the system access control list (SACL) of the following securable object: HKLM:\\SOFTWARE\\Microsoft\\ADHealthAgent. Make sure you set the SACL to propagate to its sub-keys."
+  description                = "This detection uses Windows security events to detect suspicious access attempts to the registry key values and sub-keys of Azure AD Health service agents (e.g AD FS). Information from AD Health service agents can be used to potentially abuse some of the features provided by those services in the cloud (e.g. Federation). This detection requires an access control entry (ACE) on the system access control list (SACL) of the following securable object: HKLM:\\SOFTWARE\\Microsoft\\ADHealthAgent. Make sure you set the SACL to propagate to its sub-keys. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/azure_ad_health_service_agents_registry_keys_access.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

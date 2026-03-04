@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "sdclt_child_processes" {
   name                       = "sdclt_child_processes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Sdclt Child Processes"
-  description                = "A General detection for sdclt spawning new processes. This could be an indicator of sdclt being used for bypass UAC techniques."
+  description                = "A General detection for sdclt spawning new processes. This could be an indicator of sdclt being used for bypass UAC techniques. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sdclt_child_processes.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

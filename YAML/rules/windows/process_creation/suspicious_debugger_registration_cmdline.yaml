@@ -1,6 +1,6 @@
 id: fffc8fbe-039d-5f2f-9064-469967d345a8
 name: Suspicious Debugger Registration Cmdline
-description: Detects the registration of a debugger for a program that is available in the logon screen (sticky key backdoor).
+description: 'Detects the registration of a debugger for a program that is available in the logon screen (sticky key backdoor). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_debugger_registration_cmdline.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

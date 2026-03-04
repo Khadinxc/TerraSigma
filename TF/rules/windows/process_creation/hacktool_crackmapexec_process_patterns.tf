@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_crackmapexec_process_
   name                       = "hacktool_crackmapexec_process_patterns"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - CrackMapExec Process Patterns"
-  description                = "Detects suspicious process patterns found in logs when CrackMapExec is used"
+  description                = "Detects suspicious process patterns found in logs when CrackMapExec is used | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_crackmapexec_process_patterns.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

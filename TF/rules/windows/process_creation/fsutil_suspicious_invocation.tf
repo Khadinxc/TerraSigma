@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "fsutil_suspicious_invocation" 
   name                       = "fsutil_suspicious_invocation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Fsutil Suspicious Invocation"
-  description                = "Detects suspicious parameters of fsutil (deleting USN journal, configuring it with small size, etc). Might be used by ransomwares during the attack (seen by NotPetya and others). - Admin activity - Scripts and administrative tools used in the monitored environment"
+  description                = "Detects suspicious parameters of fsutil (deleting USN journal, configuring it with small size, etc). Might be used by ransomwares during the attack (seen by NotPetya and others). - Admin activity - Scripts and administrative tools used in the monitored environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/fsutil_suspicious_invocation.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

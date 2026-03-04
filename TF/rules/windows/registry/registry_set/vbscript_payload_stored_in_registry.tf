@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "vbscript_payload_stored_in_reg
   name                       = "vbscript_payload_stored_in_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "VBScript Payload Stored in Registry"
-  description                = "Detects VBScript content stored into registry keys as seen being used by UNC2452 group"
+  description                = "Detects VBScript content stored into registry keys as seen being used by UNC2452 group | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/vbscript_payload_stored_in_registry.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

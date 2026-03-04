@@ -1,6 +1,6 @@
 id: 20c0abcb-4992-5aa1-9bd5-acc9e4a6205f
 name: CMSTP Execution Registry Event
-description: Detects various indicators of Microsoft Connection Manager Profile Installer execution - Legitimate CMSTP use (unlikely in modern enterprise environments)
+description: 'Detects various indicators of Microsoft Connection Manager Profile Installer execution - Legitimate CMSTP use (unlikely in modern enterprise environments) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/cmstp_execution_registry_event.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

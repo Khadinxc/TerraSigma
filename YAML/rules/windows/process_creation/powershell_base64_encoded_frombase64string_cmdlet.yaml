@@ -1,6 +1,6 @@
 id: f201ece9-1844-5f26-be7b-924673bbd7bb
 name: PowerShell Base64 Encoded FromBase64String Cmdlet
-description: Detects usage of a base64 encoded "FromBase64String" cmdlet in a process command line
+description: 'Detects usage of a base64 encoded "FromBase64String" cmdlet in a process command line | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_base64_encoded_frombase64string_cmdlet.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

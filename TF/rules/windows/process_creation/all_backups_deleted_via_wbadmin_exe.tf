@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "all_backups_deleted_via_wbadmi
   name                       = "all_backups_deleted_via_wbadmin_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "All Backups Deleted Via Wbadmin.EXE"
-  description                = "Detects the deletion of all backups or system state backups via \"wbadmin.exe\". This technique is used by numerous ransomware families and actors. This may only be successful on server platforms that have Windows Backup enabled."
+  description                = "Detects the deletion of all backups or system state backups via \"wbadmin.exe\". This technique is used by numerous ransomware families and actors. This may only be successful on server platforms that have Windows Backup enabled. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/all_backups_deleted_via_wbadmin_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

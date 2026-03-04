@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "linux_recon_indicators" {
   name                       = "linux_recon_indicators"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux Recon Indicators"
-  description                = "Detects events with patterns found in commands used for reconnaissance on linux systems - Legitimate administration activities"
+  description                = "Detects events with patterns found in commands used for reconnaissance on linux systems - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_recon_indicators.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

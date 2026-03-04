@@ -1,6 +1,6 @@
 id: 2e3ad05b-3fbb-51dd-a55d-310c34519be5
 name: Suspicious Wordpad Outbound Connections
-description: Detects a network connection initiated by "wordpad.exe" over uncommon destination ports. This might indicate potential process injection activity from a beacon or similar mechanisms. - Other ports can be used, apply additional filters accordingly
+description: 'Detects a network connection initiated by "wordpad.exe" over uncommon destination ports. This might indicate potential process injection activity from a beacon or similar mechanisms. - Other ports can be used, apply additional filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/suspicious_wordpad_outbound_connections.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -23,10 +23,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

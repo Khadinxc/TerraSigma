@@ -1,6 +1,6 @@
 id: 9b6d302d-c444-589f-b46b-913d61a9e0b5
 name: Potential Data Exfiltration Activity Via CommandLine Tools
-description: Detects the use of various CLI utilities exfiltrating data via web requests - Unlikely
+description: 'Detects the use of various CLI utilities exfiltrating data via web requests - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_data_exfiltration_activity_via_commandline_tools.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

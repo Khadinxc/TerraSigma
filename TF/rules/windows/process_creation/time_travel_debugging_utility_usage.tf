@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "time_travel_debugging_utility_
   name                       = "time_travel_debugging_utility_usage"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Time Travel Debugging Utility Usage"
-  description                = "Detects usage of Time Travel Debugging Utility. Adversaries can execute malicious processes and dump processes, such as lsass.exe, via tttracer.exe. - Legitimate usage by software developers/testers"
+  description                = "Detects usage of Time Travel Debugging Utility. Adversaries can execute malicious processes and dump processes, such as lsass.exe, via tttracer.exe. - Legitimate usage by software developers/testers | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/time_travel_debugging_utility_usage.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

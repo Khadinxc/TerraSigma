@@ -1,6 +1,6 @@
 id: a5b76c66-d33b-56b9-8779-dc41ac572690
 name: PowerShell Script Run in AppData
-description: Detects a suspicious command line execution that invokes PowerShell with reference to an AppData folder - Administrative scripts
+description: 'Detects a suspicious command line execution that invokes PowerShell with reference to an AppData folder - Administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_script_run_in_appdata.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

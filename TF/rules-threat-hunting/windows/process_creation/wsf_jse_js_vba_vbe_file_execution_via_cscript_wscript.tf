@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "wsf_jse_js_vba_vbe_file_execut
   name                       = "wsf_jse_js_vba_vbe_file_execution_via_cscript_wscript"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WSF/JSE/JS/VBA/VBE File Execution Via Cscript/Wscript"
-  description                = "Detects script file execution (.js, .jse, .vba, .vbe, .vbs, .wsf) by Wscript/Cscript - Some additional tuning is required. It is recommended to add the user profile path in CommandLine if it is getting too noisy."
+  description                = "Detects script file execution (.js, .jse, .vba, .vbe, .vbs, .wsf) by Wscript/Cscript - Some additional tuning is required. It is recommended to add the user profile path in CommandLine if it is getting too noisy. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/wsf_jse_js_vba_vbe_file_execution_via_cscript_wscript.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

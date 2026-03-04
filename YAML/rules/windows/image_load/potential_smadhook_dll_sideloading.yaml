@@ -1,6 +1,6 @@
 id: 90a94300-d518-558e-8f71-8d9a35ac537b
 name: Potential SmadHook.DLL Sideloading
-description: Detects potential DLL sideloading of "SmadHook.dll", a DLL used by SmadAV antivirus - Unlikely
+description: 'Detects potential DLL sideloading of "SmadHook.dll", a DLL used by SmadAV antivirus - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_smadhook_dll_sideloading.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

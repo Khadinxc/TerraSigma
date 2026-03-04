@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_winapi_calls_via_com
   name                       = "potential_winapi_calls_via_commandline"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential WinAPI Calls Via CommandLine"
-  description                = "Detects the use of WinAPI Functions via the commandline. As seen used by threat actors via the tool winapiexec - Some legitimate action or applications may use these functions. Investigate further to determine the legitimacy of the activity."
+  description                = "Detects the use of WinAPI Functions via the commandline. As seen used by threat actors via the tool winapiexec - Some legitimate action or applications may use these functions. Investigate further to determine the legitimacy of the activity. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_winapi_calls_via_commandline.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

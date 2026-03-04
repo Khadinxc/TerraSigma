@@ -1,6 +1,6 @@
 id: 5bad8f6c-d1c7-5944-956d-b71807145f7a
 name: LSASS Process Memory Dump Creation Via Taskmgr.EXE
-description: Detects the creation of an "lsass.dmp" file by the taskmgr process. This indicates a manual dumping of the LSASS.exe process memory using Windows Task Manager. - Rare case of troubleshooting by an administrator or support that has to be investigated regardless
+description: 'Detects the creation of an "lsass.dmp" file by the taskmgr process. This indicates a manual dumping of the LSASS.exe process memory using Windows Task Manager. - Rare case of troubleshooting by an administrator or support that has to be investigated regardless | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/lsass_process_memory_dump_creation_via_taskmgr_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

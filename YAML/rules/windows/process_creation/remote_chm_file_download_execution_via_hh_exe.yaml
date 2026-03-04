@@ -1,6 +1,6 @@
 id: 8cff450e-a8bc-5331-8b77-63863bce394f
 name: Remote CHM File Download/Execution Via HH.EXE
-description: Detects the usage of "hh.exe" to execute/download remotely hosted ".chm" files.
+description: 'Detects the usage of "hh.exe" to execute/download remotely hosted ".chm" files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_chm_file_download_execution_via_hh_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

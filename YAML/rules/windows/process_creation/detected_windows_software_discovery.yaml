@@ -1,6 +1,6 @@
 id: b5cd9cd3-14b8-5660-926a-a97c5a16c771
 name: Detected Windows Software Discovery
-description: Adversaries may attempt to enumerate software for a variety of reasons, such as figuring out what security measures are present or if the compromised system has a version of software that is vulnerable. - Legitimate administration activities
+description: 'Adversaries may attempt to enumerate software for a variety of reasons, such as figuring out what security measures are present or if the compromised system has a version of software that is vulnerable. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/detected_windows_software_discovery.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -1,6 +1,6 @@
 id: fc3bc9a7-5de2-5a84-bfe3-5fd6e52febc7
 name: User Discovery And Export Via Get-ADUser Cmdlet
-description: Detects usage of the Get-ADUser cmdlet to collect user information and output it to a file - Legitimate admin scripts may use the same technique, it's better to exclude specific computers or users who execute these commands or scripts often
+description: 'Detects usage of the Get-ADUser cmdlet to collect user information and output it to a file - Legitimate admin scripts may use the same technique, it''s better to exclude specific computers or users who execute these commands or scripts often | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/user_discovery_and_export_via_get_aduser_cmdlet.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

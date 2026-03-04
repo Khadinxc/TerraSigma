@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uncommon_file_created_in_offic
   name                       = "uncommon_file_created_in_office_startup_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon File Created In Office Startup Folder"
-  description                = "Detects the creation of a file with an uncommon extension in an Office application startup folder"
+  description                = "Detects the creation of a file with an uncommon extension in an Office application startup folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/uncommon_file_created_in_office_startup_folder.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

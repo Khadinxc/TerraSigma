@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_connection_initiated_to_po
   name                       = "new_connection_initiated_to_potential_dead_drop_resolver_domain"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Connection Initiated To Potential Dead Drop Resolver Domain"
-  description                = "Detects an executable, which is not an internet browser or known application, initiating network connections to legit popular websites, which were seen to be used as dead drop resolvers in previous attacks. In this context attackers leverage known websites such as \"facebook\", \"youtube\", etc. In order to pass through undetected. - One might need to exclude other internet browsers found in it's network or other applications like ones mentioned above from Microsoft Defender. - Ninite contacting githubusercontent.com"
+  description                = "Detects an executable, which is not an internet browser or known application, initiating network connections to legit popular websites, which were seen to be used as dead drop resolvers in previous attacks. In this context attackers leverage known websites such as \"facebook\", \"youtube\", etc. In order to pass through undetected. - One might need to exclude other internet browsers found in it's network or other applications like ones mentioned above from Microsoft Defender. - Ninite contacting githubusercontent.com | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/new_connection_initiated_to_potential_dead_drop_resolver_domain.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

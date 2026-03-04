@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "interactive_bash_suspicious_ch
   name                       = "interactive_bash_suspicious_children"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Interactive Bash Suspicious Children"
-  description                = "Detects suspicious interactive bash as a parent to rather uncommon child processes - Legitimate software that uses these patterns"
+  description                = "Detects suspicious interactive bash as a parent to rather uncommon child processes - Legitimate software that uses these patterns | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/interactive_bash_suspicious_children.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

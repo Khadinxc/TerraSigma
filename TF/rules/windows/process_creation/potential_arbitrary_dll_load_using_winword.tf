@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_arbitrary_dll_load_u
   name                       = "potential_arbitrary_dll_load_using_winword"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Arbitrary DLL Load Using Winword"
-  description                = "Detects potential DLL sideloading using the Microsoft Office winword process via the '/l' flag."
+  description                = "Detects potential DLL sideloading using the Microsoft Office winword process via the '/l' flag. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_arbitrary_dll_load_using_winword.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

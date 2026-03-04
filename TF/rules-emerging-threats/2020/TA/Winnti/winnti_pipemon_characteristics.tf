@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "winnti_pipemon_characteristics
   name                       = "winnti_pipemon_characteristics"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Winnti Pipemon Characteristics"
-  description                = "Detects specific process characteristics of Winnti Pipemon malware reported by ESET - Legitimate setups that use similar flags"
+  description                = "Detects specific process characteristics of Winnti Pipemon malware reported by ESET - Legitimate setups that use similar flags | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Winnti/winnti_pipemon_characteristics.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

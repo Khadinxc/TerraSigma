@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "regedit_as_trusted_installer" 
   name                       = "regedit_as_trusted_installer"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Regedit as Trusted Installer"
-  description                = "Detects a regedit started with TrustedInstaller privileges or by ProcessHacker.exe - Unlikely"
+  description                = "Detects a regedit started with TrustedInstaller privileges or by ProcessHacker.exe - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/regedit_as_trusted_installer.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

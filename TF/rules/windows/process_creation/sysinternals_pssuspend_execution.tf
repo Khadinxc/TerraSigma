@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "sysinternals_pssuspend_executi
   name                       = "sysinternals_pssuspend_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Sysinternals PsSuspend Execution"
-  description                = "Detects usage of Sysinternals PsSuspend which can be abused to suspend critical processes"
+  description                = "Detects usage of Sysinternals PsSuspend which can be abused to suspend critical processes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sysinternals_pssuspend_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: fc84c264-e4ad-5934-af12-c3365d5d551a
 name: Potential SAM Database Dump
-description: Detects the creation of files that look like exports of the local SAM (Security Account Manager) - Rare cases of administrative activity
+description: 'Detects the creation of files that look like exports of the local SAM (Security Account Manager) - Rare cases of administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_sam_database_dump.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

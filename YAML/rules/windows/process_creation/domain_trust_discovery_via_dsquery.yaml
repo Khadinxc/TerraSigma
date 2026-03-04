@@ -1,6 +1,6 @@
 id: a80c54c2-5a85-5314-8cb3-45e5358928d4
 name: Domain Trust Discovery Via Dsquery
-description: Detects execution of "dsquery.exe" for domain trust discovery - Legitimate use of the utilities by legitimate user for legitimate reason
+description: 'Detects execution of "dsquery.exe" for domain trust discovery - Legitimate use of the utilities by legitimate user for legitimate reason | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/domain_trust_discovery_via_dsquery.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -1,6 +1,6 @@
 id: 42e36721-66a1-5f3f-91a5-e06ea96dc0bd
 name: Suspicious PowerShell Invocations - Specific - ProcessCreation
-description: Detects suspicious PowerShell invocation command parameters
+description: 'Detects suspicious PowerShell invocation command parameters | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_powershell_invocations_specific_processcreation.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

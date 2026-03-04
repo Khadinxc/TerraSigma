@@ -1,6 +1,6 @@
 id: 8ca7a6f1-8ed9-5c70-baa0-17153abc40c1
 name: Gpscript Execution
-description: Detects the execution of the LOLBIN gpscript, which executes logon or startup scripts configured in Group Policy - Legitimate uses of logon scripts distributed via group policy
+description: 'Detects the execution of the LOLBIN gpscript, which executes logon or startup scripts configured in Group Policy - Legitimate uses of logon scripts distributed via group policy | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/gpscript_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

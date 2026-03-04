@@ -1,6 +1,6 @@
 id: 553a7850-d3e2-5f42-9d8d-fdcbd96aa2b3
 name: HackTool - SharpWSUS/WSUSpendu Execution
-description: Detects the execution of SharpWSUS or WSUSpendu, utilities that allow for lateral movement through WSUS. Windows Server Update Services (WSUS) is a critical component of Windows systems and is frequently configured in a way that allows an attacker to circumvent internal networking limitations.
+description: 'Detects the execution of SharpWSUS or WSUSpendu, utilities that allow for lateral movement through WSUS. Windows Server Update Services (WSUS) is a critical component of Windows systems and is frequently configured in a way that allows an attacker to circumvent internal networking limitations. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_sharpwsus_wsuspendu_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

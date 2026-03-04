@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_hashcat_password_crac
   name                       = "hacktool_hashcat_password_cracker_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Hashcat Password Cracker Execution"
-  description                = "Execute Hashcat.exe with provided SAM file from registry of Windows and Password list to crack against - Tools that use similar command line flags and values"
+  description                = "Execute Hashcat.exe with provided SAM file from registry of Windows and Password list to crack against - Tools that use similar command line flags and values | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_hashcat_password_cracker_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

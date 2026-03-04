@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "access_to_windows_dpapi_master
   name                       = "access_to_windows_dpapi_master_keys_by_uncommon_applications"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Access To Windows DPAPI Master Keys By Uncommon Applications"
-  description                = "Detects file access requests to the the Windows Data Protection API Master keys by an uncommon application. This can be a sign of credential stealing. Example case would be usage of mimikatz \"dpapi::masterkey\" function"
+  description                = "Detects file access requests to the the Windows Data Protection API Master keys by an uncommon application. This can be a sign of credential stealing. Example case would be usage of mimikatz \"dpapi::masterkey\" function | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/access_to_windows_dpapi_master_keys_by_uncommon_applications.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

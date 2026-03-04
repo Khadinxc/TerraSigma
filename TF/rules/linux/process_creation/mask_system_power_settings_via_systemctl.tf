@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "mask_system_power_settings_via
   name                       = "mask_system_power_settings_via_systemctl"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Mask System Power Settings Via Systemctl"
-  description                = "Detects the use of systemctl mask to disable system power management targets such as suspend, hibernate, or hybrid sleep. Adversaries may mask these targets to prevent a system from entering sleep or shutdown states, ensuring their malicious processes remain active and uninterrupted. This behavior can be associated with persistence or defense evasion, as it impairs normal system power operations to maintain long-term access or avoid termination of malicious activity. - Unlikely"
+  description                = "Detects the use of systemctl mask to disable system power management targets such as suspend, hibernate, or hybrid sleep. Adversaries may mask these targets to prevent a system from entering sleep or shutdown states, ensuring their malicious processes remain active and uninterrupted. This behavior can be associated with persistence or defense evasion, as it impairs normal system power operations to maintain long-term access or avoid termination of malicious activity. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/mask_system_power_settings_via_systemctl.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

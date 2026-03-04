@@ -1,6 +1,6 @@
 id: e98c5c37-9898-5919-890e-7a7af6e4cda1
 name: Python Path Configuration File Creation - MacOS
-description: Detects creation of a Python path configuration file (.pth) in Python library folders, which can be maliciously abused for code execution and persistence. Modules referenced by these files are run at every Python startup (v3.5+), regardless of whether the module is imported by the calling script. Default paths are '\lib\site-packages\*.pth' (Windows) and '/lib/pythonX.Y/site-packages/*.pth' (Unix and macOS). - Although .pth files are discouraged due to potential security implications, these are legitimate files by specification.
+description: 'Detects creation of a Python path configuration file (.pth) in Python library folders, which can be maliciously abused for code execution and persistence. Modules referenced by these files are run at every Python startup (v3.5+), regardless of whether the module is imported by the calling script. Default paths are ''\lib\site-packages\*.pth'' (Windows) and ''/lib/pythonX.Y/site-packages/*.pth'' (Unix and macOS). - Although .pth files are discouraged due to potential security implications, these are legitimate files by specification. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/macos/file/file_event/python_path_configuration_file_creation_macos.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

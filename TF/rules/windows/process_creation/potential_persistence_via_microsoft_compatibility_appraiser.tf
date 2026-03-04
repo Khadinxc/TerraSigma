@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_persistence_via_micr
   name                       = "potential_persistence_via_microsoft_compatibility_appraiser"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Microsoft Compatibility Appraiser"
-  description                = "Detects manual execution of the \"Microsoft Compatibility Appraiser\" task via schtasks. In order to trigger persistence stored in the \"\\AppCompatFlags\\TelemetryController\" registry key."
+  description                = "Detects manual execution of the \"Microsoft Compatibility Appraiser\" task via schtasks. In order to trigger persistence stored in the \"\\AppCompatFlags\\TelemetryController\" registry key. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_persistence_via_microsoft_compatibility_appraiser.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

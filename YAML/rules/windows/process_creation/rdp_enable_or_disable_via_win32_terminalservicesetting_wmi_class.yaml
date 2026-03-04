@@ -1,6 +1,6 @@
 id: a74fe423-53fe-522b-b72f-ebccde7f6cc1
 name: RDP Enable or Disable via Win32_TerminalServiceSetting WMI Class
-description: Detects enabling or disabling of Remote Desktop Protocol (RDP) using alternate methods such as WMIC or PowerShell. In PowerShell one-liner commands, the "SetAllowTSConnections" method of the "Win32_TerminalServiceSetting" class may be used to enable or disable RDP. In WMIC, the "rdtoggle" alias or "Win32_TerminalServiceSetting" class may be used for the same purpose. - Legitimate system administrators enabling RDP for remote support - System configuration scripts during deployment
+description: 'Detects enabling or disabling of Remote Desktop Protocol (RDP) using alternate methods such as WMIC or PowerShell. In PowerShell one-liner commands, the "SetAllowTSConnections" method of the "Win32_TerminalServiceSetting" class may be used to enable or disable RDP. In WMIC, the "rdtoggle" alias or "Win32_TerminalServiceSetting" class may be used for the same purpose. - Legitimate system administrators enabling RDP for remote support - System configuration scripts during deployment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rdp_enable_or_disable_via_win32_terminalservicesetting_wmi_class.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

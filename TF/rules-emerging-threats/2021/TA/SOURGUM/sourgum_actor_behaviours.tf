@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "sourgum_actor_behaviours" {
   name                       = "sourgum_actor_behaviours"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "SOURGUM Actor Behaviours"
-  description                = "Suspicious behaviours related to an actor tracked by Microsoft as SOURGUM"
+  description                = "Suspicious behaviours related to an actor tracked by Microsoft as SOURGUM | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/TA/SOURGUM/sourgum_actor_behaviours.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

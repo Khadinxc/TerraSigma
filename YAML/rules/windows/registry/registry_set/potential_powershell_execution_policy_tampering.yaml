@@ -1,6 +1,6 @@
 id: 172bf280-6517-5c67-8cd4-108ededea9ca
 name: Potential PowerShell Execution Policy Tampering
-description: Detects changes to the PowerShell execution policy in order to bypass signing requirements for script execution
+description: 'Detects changes to the PowerShell execution policy in order to bypass signing requirements for script execution | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_powershell_execution_policy_tampering.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

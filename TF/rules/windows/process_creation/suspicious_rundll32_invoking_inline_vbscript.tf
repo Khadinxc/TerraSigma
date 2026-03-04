@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_rundll32_invoking_i
   name                       = "suspicious_rundll32_invoking_inline_vbscript"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Rundll32 Invoking Inline VBScript"
-  description                = "Detects suspicious process related to rundll32 based on command line that invokes inline VBScript as seen being used by UNC2452"
+  description                = "Detects suspicious process related to rundll32 based on command line that invokes inline VBScript as seen being used by UNC2452 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_rundll32_invoking_inline_vbscript.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

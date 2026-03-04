@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "gpresult_display_group_policy_
   name                       = "gpresult_display_group_policy_information"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Gpresult Display Group Policy Information"
-  description                = "Detects cases in which a user uses the built-in Windows utility gpresult to display the Resultant Set of Policy (RSoP) information"
+  description                = "Detects cases in which a user uses the built-in Windows utility gpresult to display the Resultant Set of Policy (RSoP) information | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/gpresult_display_group_policy_information.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

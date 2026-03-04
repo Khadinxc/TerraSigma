@@ -1,6 +1,6 @@
 id: 805c6a1e-8a2e-551a-a17f-d88cf49a6e1e
 name: Potential Suspicious Windows Feature Enabled - ProcCreation
-description: Detects usage of the built-in PowerShell cmdlet "Enable-WindowsOptionalFeature" used as a Deployment Image Servicing and Management tool. Similar to DISM.exe, this cmdlet is used to enumerate, install, uninstall, configure, and update features and packages in Windows images - Legitimate usage of the features listed in the rule.
+description: 'Detects usage of the built-in PowerShell cmdlet "Enable-WindowsOptionalFeature" used as a Deployment Image Servicing and Management tool. Similar to DISM.exe, this cmdlet is used to enumerate, install, uninstall, configure, and update features and packages in Windows images - Legitimate usage of the features listed in the rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_suspicious_windows_feature_enabled_proccreation.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

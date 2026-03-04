@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_download_via_curl_exe" {
   name                       = "file_download_via_curl_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Download Via Curl.EXE"
-  description                = "Detects file download using curl.exe - Scripts created by developers and admins - Administrative activity - The \"\\Git\\usr\\bin\\sh.exe\" process uses the \"--output\" flag to download a specific file in the temp directory with the pattern \"gfw-httpget-xxxxxxxx.txt \""
+  description                = "Detects file download using curl.exe - Scripts created by developers and admins - Administrative activity - The \"\\Git\\usr\\bin\\sh.exe\" process uses the \"--output\" flag to download a specific file in the temp directory with the pattern \"gfw-httpget-xxxxxxxx.txt \" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/file_download_via_curl_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

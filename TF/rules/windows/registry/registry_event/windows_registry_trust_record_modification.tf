@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "windows_registry_trust_record_
   name                       = "windows_registry_trust_record_modification"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Registry Trust Record Modification"
-  description                = "Alerts on trust record modification within the registry, indicating usage of macros - This will alert on legitimate macro usage as well, additional tuning is required"
+  description                = "Alerts on trust record modification within the registry, indicating usage of macros - This will alert on legitimate macro usage as well, additional tuning is required | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/windows_registry_trust_record_modification.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

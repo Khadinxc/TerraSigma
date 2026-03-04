@@ -1,6 +1,6 @@
 id: 3e8d51cd-4b22-537f-8e7e-a4ffad34a0c6
 name: OilRig APT Registry Persistence
-description: Detects OilRig registry persistence as reported by Nyotron in their March 2018 report - Unlikely
+description: 'Detects OilRig registry persistence as reported by Nyotron in their March 2018 report - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/OilRig/oilrig_apt_registry_persistence.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -31,10 +31,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

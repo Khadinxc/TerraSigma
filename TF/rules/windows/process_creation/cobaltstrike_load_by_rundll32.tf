@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "cobaltstrike_load_by_rundll32"
   name                       = "cobaltstrike_load_by_rundll32"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "CobaltStrike Load by Rundll32"
-  description                = "Rundll32 can be use by Cobalt Strike with StartW function to load DLLs from the command line."
+  description                = "Rundll32 can be use by Cobalt Strike with StartW function to load DLLs from the command line. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/cobaltstrike_load_by_rundll32.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

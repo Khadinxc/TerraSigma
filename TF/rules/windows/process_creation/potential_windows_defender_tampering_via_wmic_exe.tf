@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_windows_defender_tam
   name                       = "potential_windows_defender_tampering_via_wmic_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Windows Defender Tampering Via Wmic.EXE"
-  description                = "Detects potential tampering with Windows Defender settings such as adding exclusion using wmic"
+  description                = "Detects potential tampering with Windows Defender settings such as adding exclusion using wmic | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_windows_defender_tampering_via_wmic_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

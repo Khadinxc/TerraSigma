@@ -1,6 +1,6 @@
 id: 025ade95-bed1-5cd3-a678-8a6b6022a52b
 name: TAIDOOR RAT DLL Load
-description: Detects specific process characteristics of Chinese TAIDOOR RAT malware load
+description: 'Detects specific process characteristics of Chinese TAIDOOR RAT malware load | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/TAIDOOR-RAT/taidoor_rat_dll_load.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

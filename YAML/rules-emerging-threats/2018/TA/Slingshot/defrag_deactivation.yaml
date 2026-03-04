@@ -1,6 +1,6 @@
 id: 4a6ce7fe-f2ca-55dd-a462-dd43a5212835
 name: Defrag Deactivation
-description: Detects the deactivation and disabling of the Scheduled defragmentation task as seen by Slingshot APT group
+description: 'Detects the deactivation and disabling of the Scheduled defragmentation task as seen by Slingshot APT group | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/Slingshot/defrag_deactivation.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

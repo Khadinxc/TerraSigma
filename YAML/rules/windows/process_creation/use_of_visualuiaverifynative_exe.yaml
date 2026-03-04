@@ -1,6 +1,6 @@
 id: 3dfbf262-f861-529c-8efa-33c3db2f3542
 name: Use of VisualUiaVerifyNative.exe
-description: VisualUiaVerifyNative.exe is a Windows SDK that can be used for AWL bypass and is listed in Microsoft's recommended block rules. - Legitimate testing of Microsoft UI parts.
+description: 'VisualUiaVerifyNative.exe is a Windows SDK that can be used for AWL bypass and is listed in Microsoft''s recommended block rules. - Legitimate testing of Microsoft UI parts. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_of_visualuiaverifynative_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

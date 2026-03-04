@@ -1,6 +1,6 @@
 id: 6669a2bb-83ad-5b14-bd74-4ae2abfcbc1a
 name: Suspicious Executable File Creation
-description: Detect creation of suspicious executable file names. Some strings look for suspicious file extensions, others look for filenames that exploit unquoted service paths.
+description: 'Detect creation of suspicious executable file names. Some strings look for suspicious file extensions, others look for filenames that exploit unquoted service paths. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_executable_file_creation.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

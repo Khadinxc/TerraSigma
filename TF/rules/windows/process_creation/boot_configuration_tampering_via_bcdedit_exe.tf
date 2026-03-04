@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "boot_configuration_tampering_v
   name                       = "boot_configuration_tampering_via_bcdedit_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Boot Configuration Tampering Via Bcdedit.EXE"
-  description                = "Detects the use of the bcdedit command to tamper with the boot configuration data. This technique is often times used by malware or attackers as a destructive way before launching ransomware. - Unlikely"
+  description                = "Detects the use of the bcdedit command to tamper with the boot configuration data. This technique is often times used by malware or attackers as a destructive way before launching ransomware. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/boot_configuration_tampering_via_bcdedit_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

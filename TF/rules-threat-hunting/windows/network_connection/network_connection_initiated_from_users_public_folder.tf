@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "network_connection_initiated_f
   name                       = "network_connection_initiated_from_users_public_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Network Connection Initiated From Users\\Public Folder"
-  description                = "Detects a network connection initiated from a process located in the \"C:\\Users\\Public\" folder. Attacker are known to drop their malicious payloads and malware in this directory as its writable by everyone. Use this rule to hunt for potential suspicious or uncommon activity in your environement. - Likely from legitimate third party application that execute from the \"Public\" directory."
+  description                = "Detects a network connection initiated from a process located in the \"C:\\Users\\Public\" folder. Attacker are known to drop their malicious payloads and malware in this directory as its writable by everyone. Use this rule to hunt for potential suspicious or uncommon activity in your environement. - Likely from legitimate third party application that execute from the \"Public\" directory. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/network_connection_initiated_from_users_public_folder.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

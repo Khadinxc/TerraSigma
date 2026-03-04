@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_lsass_process_dump_v
   name                       = "potential_lsass_process_dump_via_procdump"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential LSASS Process Dump Via Procdump"
-  description                = "Detects potential credential harvesting attempts through LSASS memory dumps using ProcDump. This rule identifies suspicious command-line patterns that combine memory dump flags (-ma, -mm, -mp) with LSASS-related process markers. LSASS (Local Security Authority Subsystem Service) contains sensitive authentication data including plaintext passwords, NTLM hashes, and Kerberos tickets in memory. Attackers commonly dump LSASS memory to extract credentials for lateral movement and privilege escalation. - Unlikely, because no one should dump an lsass process memory - Another tool that uses command line flags similar to ProcDump"
+  description                = "Detects potential credential harvesting attempts through LSASS memory dumps using ProcDump. This rule identifies suspicious command-line patterns that combine memory dump flags (-ma, -mm, -mp) with LSASS-related process markers. LSASS (Local Security Authority Subsystem Service) contains sensitive authentication data including plaintext passwords, NTLM hashes, and Kerberos tickets in memory. Attackers commonly dump LSASS memory to extract credentials for lateral movement and privilege escalation. - Unlikely, because no one should dump an lsass process memory - Another tool that uses command line flags similar to ProcDump | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_lsass_process_dump_via_procdump.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

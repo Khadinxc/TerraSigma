@@ -1,6 +1,6 @@
 id: b6108cb0-815e-5934-bcbf-575731cf596a
 name: HackTool - SILENTTRINITY Stager DLL Load
-description: Detects SILENTTRINITY stager dll loading activity - Unlikely
+description: 'Detects SILENTTRINITY stager dll loading activity - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/hacktool_silenttrinity_stager_dll_load.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

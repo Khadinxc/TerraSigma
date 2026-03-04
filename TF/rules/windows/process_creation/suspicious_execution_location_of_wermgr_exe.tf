@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_execution_location_
   name                       = "suspicious_execution_location_of_wermgr_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Execution Location Of Wermgr.EXE"
-  description                = "Detects suspicious Windows Error Reporting manager (wermgr.exe) execution location."
+  description                = "Detects suspicious Windows Error Reporting manager (wermgr.exe) execution location. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_execution_location_of_wermgr_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

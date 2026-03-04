@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_desktop
   name                       = "potentially_suspicious_desktop_background_change_via_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Desktop Background Change Via Registry"
-  description                = "Detects registry value settings that would replace the user's desktop background. This is a common technique used by malware to change the desktop background to a ransom note or other image. - Administrative scripts that change the desktop background to a company logo or other image."
+  description                = "Detects registry value settings that would replace the user's desktop background. This is a common technique used by malware to change the desktop background to a ransom note or other image. - Administrative scripts that change the desktop background to a company logo or other image. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potentially_suspicious_desktop_background_change_via_registry.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

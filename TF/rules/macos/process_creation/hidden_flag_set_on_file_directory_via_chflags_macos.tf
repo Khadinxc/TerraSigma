@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hidden_flag_set_on_file_direct
   name                       = "hidden_flag_set_on_file_directory_via_chflags_macos"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Hidden Flag Set On File/Directory Via Chflags - MacOS"
-  description                = "Detects the execution of the \"chflags\" utility with the \"hidden\" flag, in order to hide files on MacOS. When a file or directory has this hidden flag set, it becomes invisible to the default file listing commands and in graphical file browsers. - Legitimate usage of chflags by administrators and users."
+  description                = "Detects the execution of the \"chflags\" utility with the \"hidden\" flag, in order to hide files on MacOS. When a file or directory has this hidden flag set, it becomes invisible to the default file listing commands and in graphical file browsers. - Legitimate usage of chflags by administrators and users. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/hidden_flag_set_on_file_directory_via_chflags_macos.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

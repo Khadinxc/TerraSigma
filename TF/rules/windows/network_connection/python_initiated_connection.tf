@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "python_initiated_connection" {
   name                       = "python_initiated_connection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Python Initiated Connection"
-  description                = "Detects a Python process initiating a network connection. While this often relates to package installation, it can also indicate a potential malicious script communicating with a C&C server. - Legitimate python scripts using the socket library or similar will trigger this. Apply additional filters and perform an initial baseline before deploying."
+  description                = "Detects a Python process initiating a network connection. While this often relates to package installation, it can also indicate a potential malicious script communicating with a C&C server. - Legitimate python scripts using the socket library or similar will trigger this. Apply additional filters and perform an initial baseline before deploying. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/python_initiated_connection.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

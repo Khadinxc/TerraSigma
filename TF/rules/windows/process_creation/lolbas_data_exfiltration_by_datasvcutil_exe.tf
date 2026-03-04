@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "lolbas_data_exfiltration_by_da
   name                       = "lolbas_data_exfiltration_by_datasvcutil_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "LOLBAS Data Exfiltration by DataSvcUtil.exe"
-  description                = "Detects when a user performs data exfiltration by using DataSvcUtil.exe - DataSvcUtil.exe being used may be performed by a system administrator. - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment. - DataSvcUtil.exe being executed from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule."
+  description                = "Detects when a user performs data exfiltration by using DataSvcUtil.exe - DataSvcUtil.exe being used may be performed by a system administrator. - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment. - DataSvcUtil.exe being executed from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/lolbas_data_exfiltration_by_datasvcutil_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: d4fe82da-807a-5a15-977c-3049fb3299d4
 name: Running Chrome VPN Extensions via the Registry 2 VPN Extension
-description: Running Chrome VPN Extensions via the Registry install 2 vpn extension
+description: 'Running Chrome VPN Extensions via the Registry install 2 vpn extension | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/running_chrome_vpn_extensions_via_the_registry_2_vpn_extension.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

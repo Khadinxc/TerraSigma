@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "curl_exe_execution" {
   name                       = "curl_exe_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Curl.EXE Execution"
-  description                = "Detects a curl process start on Windows, which could indicates a file download from a remote location or a simple web request to a remote server - Scripts created by developers and admins - Administrative activity"
+  description                = "Detects a curl process start on Windows, which could indicates a file download from a remote location or a simple web request to a remote server - Scripts created by developers and admins - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/curl_exe_execution.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

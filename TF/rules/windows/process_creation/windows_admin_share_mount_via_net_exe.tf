@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "windows_admin_share_mount_via_
   name                       = "windows_admin_share_mount_via_net_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Admin Share Mount Via Net.EXE"
-  description                = "Detects when an admin share is mounted using net.exe - Administrators"
+  description                = "Detects when an admin share is mounted using net.exe - Administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_admin_share_mount_via_net_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

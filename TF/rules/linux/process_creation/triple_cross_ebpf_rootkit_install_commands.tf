@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "triple_cross_ebpf_rootkit_inst
   name                       = "triple_cross_ebpf_rootkit_install_commands"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Triple Cross eBPF Rootkit Install Commands"
-  description                = "Detects default install commands of the Triple Cross eBPF rootkit based on the \"deployer.sh\" script - Unlikely"
+  description                = "Detects default install commands of the Triple Cross eBPF rootkit based on the \"deployer.sh\" script - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/triple_cross_ebpf_rootkit_install_commands.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

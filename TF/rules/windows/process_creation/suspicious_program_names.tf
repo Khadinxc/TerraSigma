@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_program_names" {
   name                       = "suspicious_program_names"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Program Names"
-  description                = "Detects suspicious patterns in program names or folders that are often found in malicious samples or hacktools - Legitimate tools that accidentally match on the searched patterns"
+  description                = "Detects suspicious patterns in program names or folders that are often found in malicious samples or hacktools - Legitimate tools that accidentally match on the searched patterns | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_program_names.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

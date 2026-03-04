@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_uac_bypass_via_sdclt
   name                       = "potential_uac_bypass_via_sdclt_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential UAC Bypass Via Sdclt.EXE"
-  description                = "A General detection for sdclt being spawned as an elevated process. This could be an indicator of sdclt being used for bypass UAC techniques."
+  description                = "A General detection for sdclt being spawned as an elevated process. This could be an indicator of sdclt being used for bypass UAC techniques. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_uac_bypass_via_sdclt_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

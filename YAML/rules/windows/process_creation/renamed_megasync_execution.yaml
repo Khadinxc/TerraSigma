@@ -1,6 +1,6 @@
 id: 17a21214-18d9-5d46-9890-8fc5a93a0e27
 name: Renamed MegaSync Execution
-description: Detects the execution of a renamed MegaSync.exe as seen used by ransomware families like Nefilim, Sodinokibi, Pysa, and Conti. - Software that illegally integrates MegaSync in a renamed form - Administrators that have renamed MegaSync
+description: 'Detects the execution of a renamed MegaSync.exe as seen used by ransomware families like Nefilim, Sodinokibi, Pysa, and Conti. - Software that illegally integrates MegaSync in a renamed form - Administrators that have renamed MegaSync | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_megasync_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

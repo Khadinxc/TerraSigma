@@ -1,6 +1,6 @@
 id: b2a55b10-a45a-57ff-a920-8932ce44886e
 name: Files With System DLL Name In Unsuspected Locations
-description: Detects the creation of a file with the ".dll" extension that has the name of a System DLL in uncommon or unsuspected locations. (Outisde of "System32", "SysWOW64", etc.). It is highly recommended to perform an initial baseline before using this rule in production. - Third party software might bundle specific versions of system DLLs.
+description: 'Detects the creation of a file with the ".dll" extension that has the name of a System DLL in uncommon or unsuspected locations. (Outisde of "System32", "SysWOW64", etc.). It is highly recommended to perform an initial baseline before using this rule in production. - Third party software might bundle specific versions of system DLLs. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/files_with_system_dll_name_in_unsuspected_locations.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

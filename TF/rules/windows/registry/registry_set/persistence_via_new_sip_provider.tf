@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "persistence_via_new_sip_provid
   name                       = "persistence_via_new_sip_provider"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Persistence Via New SIP Provider"
-  description                = "Detects when an attacker register a new SIP provider for persistence and defense evasion - Legitimate SIP being registered by the OS or different software."
+  description                = "Detects when an attacker register a new SIP provider for persistence and defense evasion - Legitimate SIP being registered by the OS or different software. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/persistence_via_new_sip_provider.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

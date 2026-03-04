@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_java_children_proce
   name                       = "suspicious_java_children_processes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Java Children Processes"
-  description                = "Detects java process spawning suspicious children"
+  description                = "Detects java process spawning suspicious children | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/suspicious_java_children_processes.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

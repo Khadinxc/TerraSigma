@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_file_characteristic
   name                       = "suspicious_file_characteristics_due_to_missing_fields"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Characteristics Due to Missing Fields"
-  description                = "Detects Executables in the Downloads folder without FileVersion,Description,Product,Company likely created with py2exe"
+  description                = "Detects Executables in the Downloads folder without FileVersion,Description,Product,Company likely created with py2exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_file_characteristics_due_to_missing_fields.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

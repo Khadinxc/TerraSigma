@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_invoke_webrequest_e
   name                       = "suspicious_invoke_webrequest_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Invoke-WebRequest Execution"
-  description                = "Detects a suspicious call to Invoke-WebRequest cmdlet where the and output is located in a suspicious location"
+  description                = "Detects a suspicious call to Invoke-WebRequest cmdlet where the and output is located in a suspicious location | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_invoke_webrequest_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

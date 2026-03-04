@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_persistence_via_glob
   name                       = "potential_persistence_via_globalflags"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via GlobalFlags"
-  description                = "Detects registry persistence technique using the GlobalFlags and SilentProcessExit keys"
+  description                = "Detects registry persistence technique using the GlobalFlags and SilentProcessExit keys | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_globalflags.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

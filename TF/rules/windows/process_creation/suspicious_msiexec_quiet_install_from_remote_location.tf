@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_msiexec_quiet_insta
   name                       = "suspicious_msiexec_quiet_install_from_remote_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Msiexec Quiet Install From Remote Location"
-  description                = "Detects usage of Msiexec.exe to install packages hosted remotely quietly"
+  description                = "Detects usage of Msiexec.exe to install packages hosted remotely quietly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_msiexec_quiet_install_from_remote_location.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

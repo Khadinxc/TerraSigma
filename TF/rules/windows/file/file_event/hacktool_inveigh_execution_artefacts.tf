@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_inveigh_execution_art
   name                       = "hacktool_inveigh_execution_artefacts"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Inveigh Execution Artefacts"
-  description                = "Detects the presence and execution of Inveigh via dropped artefacts - Unlikely"
+  description                = "Detects the presence and execution of Inveigh via dropped artefacts - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/hacktool_inveigh_execution_artefacts.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

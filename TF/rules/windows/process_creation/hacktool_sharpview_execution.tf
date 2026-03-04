@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_sharpview_execution" 
   name                       = "hacktool_sharpview_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - SharpView Execution"
-  description                = "Adversaries may look for details about the network configuration and settings of systems they access or through information discovery of remote systems"
+  description                = "Adversaries may look for details about the network configuration and settings of systems they access or through information discovery of remote systems | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_sharpview_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

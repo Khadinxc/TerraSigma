@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_powershell_encoded_
   name                       = "suspicious_powershell_encoded_command_patterns"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious PowerShell Encoded Command Patterns"
-  description                = "Detects PowerShell command line patterns in combincation with encoded commands that often appear in malware infection chains - Other tools that work with encoded scripts in the command line instead of script files"
+  description                = "Detects PowerShell command line patterns in combincation with encoded commands that often appear in malware infection chains - Other tools that work with encoded scripts in the command line instead of script files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_powershell_encoded_command_patterns.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

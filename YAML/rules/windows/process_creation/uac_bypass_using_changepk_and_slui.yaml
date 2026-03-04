@@ -1,6 +1,6 @@
 id: bc730aa7-a1ca-539d-b37d-dcf4474a8e7a
 name: UAC Bypass Using ChangePK and SLUI
-description: Detects an UAC bypass that uses changepk.exe and slui.exe (UACMe 61)
+description: 'Detects an UAC bypass that uses changepk.exe and slui.exe (UACMe 61) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uac_bypass_using_changepk_and_slui.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "clr_dll_loaded_via_office_appl
   name                       = "clr_dll_loaded_via_office_applications"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "CLR DLL Loaded Via Office Applications"
-  description                = "Detects CLR DLL being loaded by an Office Product"
+  description                = "Detects CLR DLL being loaded by an Office Product | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/clr_dll_loaded_via_office_applications.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

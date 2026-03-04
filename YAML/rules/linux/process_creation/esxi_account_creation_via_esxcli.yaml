@@ -1,6 +1,6 @@
 id: 818dbfd3-0b90-5f00-91ea-fed5f9b7f5f8
 name: ESXi Account Creation Via ESXCLI
-description: Detects user account creation on ESXi system via esxcli - Legitimate administration activities
+description: 'Detects user account creation on ESXi system via esxcli - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/esxi_account_creation_via_esxcli.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

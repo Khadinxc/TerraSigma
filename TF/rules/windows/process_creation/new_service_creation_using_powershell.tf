@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_service_creation_using_pow
   name                       = "new_service_creation_using_powershell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Service Creation Using PowerShell"
-  description                = "Detects the creation of a new service using powershell. - Legitimate administrator or user creates a service for legitimate reasons. - Software installation"
+  description                = "Detects the creation of a new service using powershell. - Legitimate administrator or user creates a service for legitimate reasons. - Software installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_service_creation_using_powershell.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

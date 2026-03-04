@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "firewall_rule_update_via_netsh
   name                       = "firewall_rule_update_via_netsh_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Firewall Rule Update Via Netsh.EXE"
-  description                = "Detects execution of netsh with the \"advfirewall\" and the \"set\" option in order to set new values for properties of a existing rule - Legitimate administration activity - Software installations and removal"
+  description                = "Detects execution of netsh with the \"advfirewall\" and the \"set\" option in order to set new values for properties of a existing rule - Legitimate administration activity - Software installations and removal | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/firewall_rule_update_via_netsh_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

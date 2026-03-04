@@ -1,6 +1,6 @@
 id: 66575b9f-380b-5c48-8618-d4a455aaae8c
 name: Hypervisor-protected Code Integrity (HVCI) Related Registry Tampering Via CommandLine
-description: Detects the tampering of Hypervisor-protected Code Integrity (HVCI) related registry values via command line tool reg.exe. HVCI uses virtualization-based security to protect code integrity by ensuring that only trusted code can run in kernel mode. Adversaries may tamper with HVCI to load malicious or unsigned drivers, which can be used to escalate privileges, maintain persistence, or evade security mechanisms. - Legitimate system administration tasks that require disabling HVCI for troubleshooting purposes when certain drivers or applications are incompatible with it.
+description: 'Detects the tampering of Hypervisor-protected Code Integrity (HVCI) related registry values via command line tool reg.exe. HVCI uses virtualization-based security to protect code integrity by ensuring that only trusted code can run in kernel mode. Adversaries may tamper with HVCI to load malicious or unsigned drivers, which can be used to escalate privileges, maintain persistence, or evade security mechanisms. - Legitimate system administration tasks that require disabling HVCI for troubleshooting purposes when certain drivers or applications are incompatible with it. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hypervisor_protected_code_integrity_hvci_related_registry_tampering_via_commandline.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

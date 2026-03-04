@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "cloudflared_portable_execution
   name                       = "cloudflared_portable_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Cloudflared Portable Execution"
-  description                = "Detects the execution of the \"cloudflared\" binary from a non standard location. - Legitimate usage of Cloudflared portable versions"
+  description                = "Detects the execution of the \"cloudflared\" binary from a non standard location. - Legitimate usage of Cloudflared portable versions | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/cloudflared_portable_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

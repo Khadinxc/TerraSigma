@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "sysinternals_psservice_executi
   name                       = "sysinternals_psservice_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Sysinternals PsService Execution"
-  description                = "Detects usage of Sysinternals PsService which can be abused for service reconnaissance and tampering - Legitimate use of PsService by an administrator"
+  description                = "Detects usage of Sysinternals PsService which can be abused for service reconnaissance and tampering - Legitimate use of PsService by an administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sysinternals_psservice_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

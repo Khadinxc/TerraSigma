@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_dll_registered_via_odbccon
   name                       = "new_dll_registered_via_odbcconf_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New DLL Registered Via Odbcconf.EXE"
-  description                = "Detects execution of \"odbcconf\" with \"REGSVR\" in order to register a new DLL (equivalent to running regsvr32). Attackers abuse this to install and run malicious DLLs. - Legitimate DLLs being registered via \"odbcconf\" will generate false positives. Investigate the path of the DLL and its content to determine if the action is authorized."
+  description                = "Detects execution of \"odbcconf\" with \"REGSVR\" in order to register a new DLL (equivalent to running regsvr32). Attackers abuse this to install and run malicious DLLs. - Legitimate DLLs being registered via \"odbcconf\" will generate false positives. Investigate the path of the DLL and its content to determine if the action is authorized. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_dll_registered_via_odbcconf_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

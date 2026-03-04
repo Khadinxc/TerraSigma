@@ -1,6 +1,6 @@
 id: cfd36bc3-1ffb-52ef-b50d-812ac486ac7a
 name: Potentially Suspicious Execution From Parent Process In Public Folder
-description: Detects a potentially suspicious execution of a parent process located in the "\Users\Public" folder executing a child process containing references to shell or scripting binaries and commandlines.
+description: 'Detects a potentially suspicious execution of a parent process located in the "\Users\Public" folder executing a child process containing references to shell or scripting binaries and commandlines. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_execution_from_parent_process_in_public_folder.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

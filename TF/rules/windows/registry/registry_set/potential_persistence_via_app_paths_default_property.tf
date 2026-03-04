@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_persistence_via_app_
   name                       = "potential_persistence_via_app_paths_default_property"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via App Paths Default Property"
-  description                = "Detects changes to the \"Default\" property for keys located in the \\Software\\Microsoft\\Windows\\CurrentVersion\\App Paths\\ registry. Which might be used as a method of persistence The entries found under App Paths are used primarily for the following purposes. First, to map an application's executable file name to that file's fully qualified path. Second, to prepend information to the PATH environment variable on a per-application, per-process basis. - Legitimate applications registering their binary from on of the suspicious locations mentioned above (tune it)"
+  description                = "Detects changes to the \"Default\" property for keys located in the \\Software\\Microsoft\\Windows\\CurrentVersion\\App Paths\\ registry. Which might be used as a method of persistence The entries found under App Paths are used primarily for the following purposes. First, to map an application's executable file name to that file's fully qualified path. Second, to prepend information to the PATH environment variable on a per-application, per-process basis. - Legitimate applications registering their binary from on of the suspicious locations mentioned above (tune it) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_app_paths_default_property.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

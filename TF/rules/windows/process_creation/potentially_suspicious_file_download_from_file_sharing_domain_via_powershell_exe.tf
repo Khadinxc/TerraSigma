@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_file_do
   name                       = "potentially_suspicious_file_download_from_file_sharing_domain_via_powershell_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious File Download From File Sharing Domain Via PowerShell.EXE"
-  description                = "Detects potentially suspicious file downloads from file sharing domains using PowerShell.exe"
+  description                = "Detects potentially suspicious file downloads from file sharing domains using PowerShell.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_file_download_from_file_sharing_domain_via_powershell_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

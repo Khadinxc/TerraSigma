@@ -1,6 +1,6 @@
 id: c8212dd0-2ce6-53ad-a464-251b2113a8a9
 name: Bypass UAC Using Event Viewer
-description: Bypasses User Account Control using Event Viewer and a relevant Windows Registry modification
+description: 'Bypasses User Account Control using Event Viewer and a relevant Windows Registry modification | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/bypass_uac_using_event_viewer.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

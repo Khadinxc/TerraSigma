@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_googleu
   name                       = "potentially_suspicious_googleupdate_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious GoogleUpdate Child Process"
-  description                = "Detects potentially suspicious child processes of \"GoogleUpdate.exe\""
+  description                = "Detects potentially suspicious child processes of \"GoogleUpdate.exe\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_googleupdate_child_process.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

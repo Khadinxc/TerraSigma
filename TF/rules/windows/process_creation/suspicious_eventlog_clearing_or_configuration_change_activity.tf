@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_eventlog_clearing_o
   name                       = "suspicious_eventlog_clearing_or_configuration_change_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Eventlog Clearing or Configuration Change Activity"
-  description                = "Detects the clearing or configuration tampering of EventLog using utilities such as \"wevtutil\", \"powershell\" and \"wmic\". This technique were seen used by threat actors and ransomware strains in order to evade defenses. - Admin activity - Scripts and administrative tools used in the monitored environment - Maintenance activity"
+  description                = "Detects the clearing or configuration tampering of EventLog using utilities such as \"wevtutil\", \"powershell\" and \"wmic\". This technique were seen used by threat actors and ransomware strains in order to evade defenses. - Admin activity - Scripts and administrative tools used in the monitored environment - Maintenance activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_eventlog_clearing_or_configuration_change_activity.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

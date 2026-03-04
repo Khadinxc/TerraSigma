@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uncommon_assistive_technology_
   name                       = "uncommon_assistive_technology_applications_execution_via_atbroker_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon  Assistive Technology Applications Execution Via AtBroker.EXE"
-  description                = "Detects the start of a non built-in assistive technology applications via \"Atbroker.EXE\". - Legitimate, non-default assistive technology applications execution"
+  description                = "Detects the start of a non built-in assistive technology applications via \"Atbroker.EXE\". - Legitimate, non-default assistive technology applications execution | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_assistive_technology_applications_execution_via_atbroker_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

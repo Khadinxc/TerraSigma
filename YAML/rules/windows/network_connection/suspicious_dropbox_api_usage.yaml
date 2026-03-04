@@ -1,6 +1,6 @@
 id: 3e091642-250f-5dea-817c-97d566a0cfaa
 name: Suspicious Dropbox API Usage
-description: Detects an executable that isn't dropbox but communicates with the Dropbox API - Legitimate use of the API with a tool that the author wasn't aware of
+description: 'Detects an executable that isn''t dropbox but communicates with the Dropbox API - Legitimate use of the API with a tool that the author wasn''t aware of | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/suspicious_dropbox_api_usage.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

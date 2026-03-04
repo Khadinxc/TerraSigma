@@ -1,6 +1,6 @@
 id: 477284c5-1f3b-5c96-87b2-6fc495a52990
 name: Suspicious Usage of For Loop with Recursive Directory Search in CMD
-description: Detects suspicious usage of the cmd.exe 'for /f' loop combined with the 'tokens=' parameter and a recursive directory listing. This pattern may indicate an attempt to discover and execute system binaries dynamically, for example powershell, a technique sometimes used by attackers to evade detection. This behavior has been observed in various malicious lnk files.
+description: 'Detects suspicious usage of the cmd.exe ''for /f'' loop combined with the ''tokens='' parameter and a recursive directory listing. This pattern may indicate an attempt to discover and execute system binaries dynamically, for example powershell, a technique sometimes used by attackers to evade detection. This behavior has been observed in various malicious lnk files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_usage_of_for_loop_with_recursive_directory_search_in_cmd.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

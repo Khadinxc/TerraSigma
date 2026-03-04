@@ -1,6 +1,6 @@
 id: c1b15881-5453-5f0f-ae6b-6fc763d4ad34
 name: Chromium Browser Instance Executed With Custom Extension
-description: Detects a Chromium based browser process with the 'load-extension' flag to start a instance with a custom extension - Usage of Chrome Extensions in testing tools such as BurpSuite will trigger this alert
+description: 'Detects a Chromium based browser process with the ''load-extension'' flag to start a instance with a custom extension - Usage of Chrome Extensions in testing tools such as BurpSuite will trigger this alert | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/chromium_browser_instance_executed_with_custom_extension.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

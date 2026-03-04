@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "browser_started_with_remote_de
   name                       = "browser_started_with_remote_debugging"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Browser Started with Remote Debugging"
-  description                = "Detects browsers starting with the remote debugging flags. Which is a technique often used to perform browser injection attacks"
+  description                = "Detects browsers starting with the remote debugging flags. Which is a technique often used to perform browser injection attacks | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/browser_started_with_remote_debugging.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

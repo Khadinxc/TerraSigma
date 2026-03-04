@@ -1,6 +1,6 @@
 id: eff27e20-8e82-55ae-8557-8901796dd734
 name: Windows MSIX Package Support Framework AI_STUBS Execution
-description: Detects execution of Advanced Installer MSIX Package Support Framework (PSF) components, specifically AI_STUBS executables with original filename 'popupwrapper.exe'. This activity may indicate malicious MSIX packages build with Advanced Installer leveraging the Package Support Framework to bypass application control restrictions. - Legitimate applications packaged with Advanced Installer using Package Support Framework
+description: 'Detects execution of Advanced Installer MSIX Package Support Framework (PSF) components, specifically AI_STUBS executables with original filename ''popupwrapper.exe''. This activity may indicate malicious MSIX packages build with Advanced Installer leveraging the Package Support Framework to bypass application control restrictions. - Legitimate applications packaged with Advanced Installer using Package Support Framework | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_msix_package_support_framework_ai_stubs_execution.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -27,10 +27,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

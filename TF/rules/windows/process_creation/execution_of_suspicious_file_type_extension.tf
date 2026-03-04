@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "execution_of_suspicious_file_t
   name                       = "execution_of_suspicious_file_type_extension"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Execution of Suspicious File Type Extension"
-  description                = "Detects whether the image specified in a process creation event doesn't refer to an \".exe\" (or other known executable extension) file. This can be caused by process ghosting or other unorthodox methods to start a process. This rule might require some initial baselining to align with some third party tooling in the user environment."
+  description                = "Detects whether the image specified in a process creation event doesn't refer to an \".exe\" (or other known executable extension) file. This can be caused by process ghosting or other unorthodox methods to start a process. This rule might require some initial baselining to align with some third party tooling in the user environment. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/execution_of_suspicious_file_type_extension.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

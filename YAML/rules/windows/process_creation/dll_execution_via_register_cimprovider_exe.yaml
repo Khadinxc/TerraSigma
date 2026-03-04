@@ -1,6 +1,6 @@
 id: fb2e276d-1045-5e5e-b99d-c17136db8246
 name: DLL Execution Via Register-cimprovider.exe
-description: Detects using register-cimprovider.exe to execute arbitrary dll file.
+description: 'Detects using register-cimprovider.exe to execute arbitrary dll file. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dll_execution_via_register_cimprovider_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

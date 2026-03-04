@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uac_notification_disabled" {
   name                       = "uac_notification_disabled"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Notification Disabled"
-  description                = "Detects when an attacker tries to disable User Account Control (UAC) notification by tampering with the \"UACDisableNotify\" value. UAC is a critical security feature in Windows that prevents unauthorized changes to the operating system. It prompts the user for permission or an administrator password before allowing actions that could affect the system's operation or change settings that affect other users. When \"UACDisableNotify\" is set to 1, UAC prompts are suppressed."
+  description                = "Detects when an attacker tries to disable User Account Control (UAC) notification by tampering with the \"UACDisableNotify\" value. UAC is a critical security feature in Windows that prevents unauthorized changes to the operating system. It prompts the user for permission or an administrator password before allowing actions that could affect the system's operation or change settings that affect other users. When \"UACDisableNotify\" is set to 1, UAC prompts are suppressed. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/uac_notification_disabled.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

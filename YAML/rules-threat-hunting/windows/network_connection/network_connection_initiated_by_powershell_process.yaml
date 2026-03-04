@@ -1,6 +1,6 @@
 id: f27ce311-1580-5bbd-9610-33e61cbe3542
 name: Network Connection Initiated By PowerShell Process
-description: Detects a network connection that was initiated from a PowerShell process. Often times malicious powershell scripts download additional payloads or communicate back to command and control channels via uncommon ports or IPs. Use this rule as a basis for hunting for anomalies. - Administrative scripts - Microsoft IP range - Additional filters are required. Adjust to your environment (e.g. extend filters with company's ip range')
+description: 'Detects a network connection that was initiated from a PowerShell process. Often times malicious powershell scripts download additional payloads or communicate back to command and control channels via uncommon ports or IPs. Use this rule as a basis for hunting for anomalies. - Administrative scripts - Microsoft IP range - Additional filters are required. Adjust to your environment (e.g. extend filters with company''s ip range'') | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/network_connection_initiated_by_powershell_process.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

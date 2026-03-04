@@ -1,6 +1,6 @@
 id: 27933adc-ca3c-5870-af84-424d94f529df
 name: Recon Information for Export with Command Prompt
-description: Once established within a system or network, an adversary may use automated techniques for collecting internal data.
+description: 'Once established within a system or network, an adversary may use automated techniques for collecting internal data. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/recon_information_for_export_with_command_prompt.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

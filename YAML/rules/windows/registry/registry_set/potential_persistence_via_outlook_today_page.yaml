@@ -1,6 +1,6 @@
 id: 721a8ce6-951f-5445-8659-981644b0ecaa
 name: Potential Persistence Via Outlook Today Page
-description: Detects potential persistence activity via outlook today page. An attacker can set a custom page to execute arbitrary code and link to it via the registry values "URL" and "UserDefinedUrl".
+description: 'Detects potential persistence activity via outlook today page. An attacker can set a custom page to execute arbitrary code and link to it via the registry values "URL" and "UserDefinedUrl". | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_outlook_today_page.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

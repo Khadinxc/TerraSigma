@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_dinjector_powershell_
   name                       = "hacktool_dinjector_powershell_cradle_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - DInjector PowerShell Cradle Execution"
-  description                = "Detects the use of the Dinject PowerShell cradle based on the specific flags - Unlikely"
+  description                = "Detects the use of the Dinject PowerShell cradle based on the specific flags - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_dinjector_powershell_cradle_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

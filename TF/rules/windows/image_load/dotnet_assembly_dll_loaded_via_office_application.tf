@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dotnet_assembly_dll_loaded_via
   name                       = "dotnet_assembly_dll_loaded_via_office_application"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DotNET Assembly DLL Loaded Via Office Application"
-  description                = "Detects any assembly DLL being loaded by an Office Product"
+  description                = "Detects any assembly DLL being loaded by an Office Product | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/dotnet_assembly_dll_loaded_via_office_application.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

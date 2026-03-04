@@ -1,6 +1,6 @@
 id: 61425ad9-f2cd-510e-8ed7-ef9b0534533d
 name: InfDefaultInstall.exe .inf Execution
-description: Executes SCT script using scrobj.dll from a command in entered into a specially prepared INF file.
+description: 'Executes SCT script using scrobj.dll from a command in entered into a specially prepared INF file. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/infdefaultinstall_exe_inf_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

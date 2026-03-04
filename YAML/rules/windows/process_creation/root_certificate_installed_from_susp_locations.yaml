@@ -1,6 +1,6 @@
 id: ae7543b0-4c65-578e-bfd0-fae0096c7222
 name: Root Certificate Installed From Susp Locations
-description: Adversaries may install a root certificate on a compromised system to avoid warnings when connecting to adversary controlled web servers. - Unlikely
+description: 'Adversaries may install a root certificate on a compromised system to avoid warnings when connecting to adversary controlled web servers. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/root_certificate_installed_from_susp_locations.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "aruba_network_service_potentia
   name                       = "aruba_network_service_potential_dll_sideloading"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Aruba Network Service Potential DLL Sideloading"
-  description                = "Detects potential DLL sideloading activity via the Aruba Networks Virtual Intranet Access \"arubanetsvc.exe\" process using DLL Search Order Hijacking"
+  description                = "Detects potential DLL sideloading activity via the Aruba Networks Virtual Intranet Access \"arubanetsvc.exe\" process using DLL Search Order Hijacking | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/aruba_network_service_potential_dll_sideloading.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

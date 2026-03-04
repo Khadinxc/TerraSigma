@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "rundll32_internet_connection" 
   name                       = "rundll32_internet_connection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Rundll32 Internet Connection"
-  description                = "Detects a rundll32 that communicates with public IP addresses - Communication to other corporate systems that use IP addresses from public address spaces"
+  description                = "Detects a rundll32 that communicates with public IP addresses - Communication to other corporate systems that use IP addresses from public address spaces | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/rundll32_internet_connection.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

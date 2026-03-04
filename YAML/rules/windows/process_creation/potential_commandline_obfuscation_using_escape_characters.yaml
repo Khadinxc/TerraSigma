@@ -1,6 +1,6 @@
 id: 7c5bb251-4864-55c5-812d-2098e0fd0364
 name: Potential Commandline Obfuscation Using Escape Characters
-description: Detects potential commandline obfuscation using known escape characters
+description: 'Detects potential commandline obfuscation using known escape characters | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_commandline_obfuscation_using_escape_characters.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

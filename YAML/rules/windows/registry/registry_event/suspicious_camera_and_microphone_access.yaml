@@ -1,6 +1,6 @@
 id: 090a2f97-d795-52ae-be75-12845a91e6a9
 name: Suspicious Camera and Microphone Access
-description: Detects Processes accessing the camera and microphone from suspicious folder - Unlikely, there could be conferencing software running from a Temp folder accessing the devices
+description: 'Detects Processes accessing the camera and microphone from suspicious folder - Unlikely, there could be conferencing software running from a Temp folder accessing the devices | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/suspicious_camera_and_microphone_access.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -1,6 +1,6 @@
 id: 1465cd2c-0dfc-57a9-908b-20a23a635ed7
 name: Persistence Via TypedPaths - CommandLine
-description: Detects modification addition to the 'TypedPaths' key in the user or admin registry via the commandline. Which might indicate persistence attempt
+description: 'Detects modification addition to the ''TypedPaths'' key in the user or admin registry via the commandline. Which might indicate persistence attempt | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/persistence_via_typedpaths_commandline.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

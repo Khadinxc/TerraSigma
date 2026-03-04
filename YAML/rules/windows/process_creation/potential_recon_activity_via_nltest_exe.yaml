@@ -1,6 +1,6 @@
 id: 8bb5107b-f840-58ba-affd-07007a59664b
 name: Potential Recon Activity Via Nltest.EXE
-description: Detects nltest commands that can be used for information discovery - Legitimate administration use but user and host must be investigated
+description: 'Detects nltest commands that can be used for information discovery - Legitimate administration use but user and host must be investigated | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_recon_activity_via_nltest_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

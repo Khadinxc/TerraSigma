@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "remote_powershell_session_host
   name                       = "remote_powershell_session_host_process_winrm"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote PowerShell Session Host Process (WinRM)"
-  description                = "Detects remote PowerShell sections by monitoring for wsmprovhost (WinRM host process) as a parent or child process (sign of an active PowerShell remote session). - Legitimate usage of remote Powershell, e.g. for monitoring purposes."
+  description                = "Detects remote PowerShell sections by monitoring for wsmprovhost (WinRM host process) as a parent or child process (sign of an active PowerShell remote session). - Legitimate usage of remote Powershell, e.g. for monitoring purposes. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_powershell_session_host_process_winrm_.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

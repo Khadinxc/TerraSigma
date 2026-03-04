@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "windows_credential_editor_regi
   name                       = "windows_credential_editor_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Credential Editor Registry"
-  description                = "Detects the use of Windows Credential Editor (WCE)"
+  description                = "Detects the use of Windows Credential Editor (WCE) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/windows_credential_editor_registry.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

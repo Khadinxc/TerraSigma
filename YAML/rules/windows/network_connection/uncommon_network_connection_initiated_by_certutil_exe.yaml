@@ -1,6 +1,6 @@
 id: fee68673-1b58-5201-bf0f-4b2e874ec211
 name: Uncommon Network Connection Initiated By Certutil.EXE
-description: Detects a network connection initiated by the certutil.exe utility. Attackers can abuse the utility in order to download malware or additional payloads.
+description: 'Detects a network connection initiated by the certutil.exe utility. Attackers can abuse the utility in order to download malware or additional payloads. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/uncommon_network_connection_initiated_by_certutil_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

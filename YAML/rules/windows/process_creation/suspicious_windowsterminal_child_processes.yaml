@@ -1,6 +1,6 @@
 id: b186efaf-cab1-5c94-9f91-6a2a55305c3a
 name: Suspicious WindowsTerminal Child Processes
-description: Detects suspicious children spawned via the Windows Terminal application which could be a sign of persistence via WindowsTerminal (see references section) - Other legitimate "Windows Terminal" profiles
+description: 'Detects suspicious children spawned via the Windows Terminal application which could be a sign of persistence via WindowsTerminal (see references section) - Other legitimate "Windows Terminal" profiles | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_windowsterminal_child_processes.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -23,10 +23,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

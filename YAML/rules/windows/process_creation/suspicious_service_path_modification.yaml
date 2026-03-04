@@ -1,6 +1,6 @@
 id: c5a33a3c-44f3-5a2a-8e34-fafeb53ba253
 name: Suspicious Service Path Modification
-description: Detects service path modification via the "sc" binary to a suspicious command or path - Unlikely
+description: 'Detects service path modification via the "sc" binary to a suspicious command or path - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_service_path_modification.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

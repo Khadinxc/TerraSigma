@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "shell_open_registry_keys_manip
   name                       = "shell_open_registry_keys_manipulation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Shell Open Registry Keys Manipulation"
-  description                = "Detects the shell open key manipulation (exefile and ms-settings) used for persistence and the pattern of UAC Bypass using fodhelper.exe, computerdefaults.exe, slui.exe via registry keys (e.g. UACMe 33 or 62)"
+  description                = "Detects the shell open key manipulation (exefile and ms-settings) used for persistence and the pattern of UAC Bypass using fodhelper.exe, computerdefaults.exe, slui.exe via registry keys (e.g. UACMe 33 or 62) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/shell_open_registry_keys_manipulation.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

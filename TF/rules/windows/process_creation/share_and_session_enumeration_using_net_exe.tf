@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "share_and_session_enumeration_
   name                       = "share_and_session_enumeration_using_net_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Share And Session Enumeration Using Net.EXE"
-  description                = "Detects attempts to enumerate file shares, printer shares and sessions using \"net.exe\" with the \"view\" flag. - Legitimate use of net.exe utility by legitimate user"
+  description                = "Detects attempts to enumerate file shares, printer shares and sessions using \"net.exe\" with the \"view\" flag. - Legitimate use of net.exe utility by legitimate user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/share_and_session_enumeration_using_net_exe.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

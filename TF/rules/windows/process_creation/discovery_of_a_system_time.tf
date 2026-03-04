@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "discovery_of_a_system_time" {
   name                       = "discovery_of_a_system_time"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Discovery of a System Time"
-  description                = "Identifies use of various commands to query a systems time. This technique may be used before executing a scheduled task or to discover the time zone of a target system. - Legitimate use of the system utilities to discover system time for legitimate reason"
+  description                = "Identifies use of various commands to query a systems time. This technique may be used before executing a scheduled task or to discover the time zone of a target system. - Legitimate use of the system utilities to discover system time for legitimate reason | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/discovery_of_a_system_time.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

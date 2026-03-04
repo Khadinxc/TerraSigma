@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "firewall_disabled_via_netsh_ex
   name                       = "firewall_disabled_via_netsh_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Firewall Disabled via Netsh.EXE"
-  description                = "Detects netsh commands that turns off the Windows firewall - Legitimate administration activity"
+  description                = "Detects netsh commands that turns off the Windows firewall - Legitimate administration activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/firewall_disabled_via_netsh_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

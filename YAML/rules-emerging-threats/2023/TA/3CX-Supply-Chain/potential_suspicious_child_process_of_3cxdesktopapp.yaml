@@ -1,6 +1,6 @@
 id: 15fe6d7e-8523-5730-b66c-c73e99cc40e2
 name: Potential Suspicious Child Process Of 3CXDesktopApp
-description: Detects potential suspicious child processes of "3CXDesktopApp.exe". Which could be related to the 3CXDesktopApp supply chain compromise
+description: 'Detects potential suspicious child processes of "3CXDesktopApp.exe". Which could be related to the 3CXDesktopApp supply chain compromise | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/3CX-Supply-Chain/potential_suspicious_child_process_of_3cxdesktopapp.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

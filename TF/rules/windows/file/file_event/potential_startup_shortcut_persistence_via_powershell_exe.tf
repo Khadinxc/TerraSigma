@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_startup_shortcut_per
   name                       = "potential_startup_shortcut_persistence_via_powershell_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Startup Shortcut Persistence Via PowerShell.EXE"
-  description                = "Detects PowerShell writing startup shortcuts. This procedure was highlighted in Red Canary Intel Insights Oct. 2021, \"We frequently observe adversaries using PowerShell to write malicious .lnk files into the startup directory to establish persistence. Accordingly, this detection opportunity is likely to identify persistence mechanisms in multiple threats. In the context of Yellow Cockatoo, this persistence mechanism eventually launches the command-line script that leads to the installation of a malicious DLL\" - Depending on your environment accepted applications may leverage this at times. It is recommended to search for anomalies inidicative of malware."
+  description                = "Detects PowerShell writing startup shortcuts. This procedure was highlighted in Red Canary Intel Insights Oct. 2021, \"We frequently observe adversaries using PowerShell to write malicious .lnk files into the startup directory to establish persistence. Accordingly, this detection opportunity is likely to identify persistence mechanisms in multiple threats. In the context of Yellow Cockatoo, this persistence mechanism eventually launches the command-line script that leads to the installation of a malicious DLL\" - Depending on your environment accepted applications may leverage this at times. It is recommended to search for anomalies inidicative of malware. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_startup_shortcut_persistence_via_powershell_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

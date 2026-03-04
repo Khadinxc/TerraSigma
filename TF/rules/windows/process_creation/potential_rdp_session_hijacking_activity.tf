@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_rdp_session_hijackin
   name                       = "potential_rdp_session_hijacking_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential RDP Session Hijacking Activity"
-  description                = "Detects potential RDP Session Hijacking activity on Windows systems - Administrative activity"
+  description                = "Detects potential RDP Session Hijacking activity on Windows systems - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_rdp_session_hijacking_activity.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

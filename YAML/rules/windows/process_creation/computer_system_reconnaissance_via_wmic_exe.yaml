@@ -1,6 +1,6 @@
 id: 375ecf09-8cc4-56a4-97d5-79cff191a4f9
 name: Computer System Reconnaissance Via Wmic.EXE
-description: Detects execution of wmic utility with the "computersystem" flag in order to obtain information about the machine such as the domain, username, model, etc.
+description: 'Detects execution of wmic utility with the "computersystem" flag in order to obtain information about the machine such as the domain, username, model, etc. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/computer_system_reconnaissance_via_wmic_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

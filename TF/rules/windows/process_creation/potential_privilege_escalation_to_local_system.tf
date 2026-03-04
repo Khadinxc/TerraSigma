@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_privilege_escalation
   name                       = "potential_privilege_escalation_to_local_system"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Privilege Escalation To LOCAL SYSTEM"
-  description                = "Detects unknown program using commandline flags usually used by tools such as PsExec and PAExec to start programs with SYSTEM Privileges - Weird admins that rename their tools - Software companies that bundle PsExec/PAExec with their software and rename it, so that it is less embarrassing"
+  description                = "Detects unknown program using commandline flags usually used by tools such as PsExec and PAExec to start programs with SYSTEM Privileges - Weird admins that rename their tools - Software companies that bundle PsExec/PAExec with their software and rename it, so that it is less embarrassing | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_privilege_escalation_to_local_system.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

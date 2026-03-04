@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_compromised_3cxdeskt
   name                       = "potential_compromised_3cxdesktopapp_beaconing_activity_netcon"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Compromised 3CXDesktopApp Beaconing Activity - Netcon"
-  description                = "Detects potential beaconing activity to domains related to 3CX 3CXDesktopApp compromise - Unlikely"
+  description                = "Detects potential beaconing activity to domains related to 3CX 3CXDesktopApp compromise - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/3CX-Supply-Chain/potential_compromised_3cxdesktopapp_beaconing_activity_netcon.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

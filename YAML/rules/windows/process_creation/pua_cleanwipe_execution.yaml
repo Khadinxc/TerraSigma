@@ -1,6 +1,6 @@
 id: d24b30fc-a71a-5171-a904-58d6ef2cd90b
 name: PUA - CleanWipe Execution
-description: Detects the use of CleanWipe a tool usually used to delete Symantec antivirus. - Legitimate administrative use (Should be investigated either way)
+description: 'Detects the use of CleanWipe a tool usually used to delete Symantec antivirus. - Legitimate administrative use (Should be investigated either way) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_cleanwipe_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

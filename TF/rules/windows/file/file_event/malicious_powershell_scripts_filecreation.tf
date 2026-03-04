@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "malicious_powershell_scripts_f
   name                       = "malicious_powershell_scripts_filecreation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Malicious PowerShell Scripts - FileCreation"
-  description                = "Detects the creation of known offensive powershell scripts used for exploitation"
+  description                = "Detects the creation of known offensive powershell scripts used for exploitation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/malicious_powershell_scripts_filecreation.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

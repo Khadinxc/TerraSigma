@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_amsi_bypass_using_nu
   name                       = "potential_amsi_bypass_using_null_bits"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential AMSI Bypass Using NULL Bits"
-  description                = "Detects usage of special strings/null bits in order to potentially bypass AMSI functionalities"
+  description                = "Detects usage of special strings/null bits in order to potentially bypass AMSI functionalities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_amsi_bypass_using_null_bits.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

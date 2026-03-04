@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_file_write_to_webap
   name                       = "suspicious_file_write_to_webapps_root_directory"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Write to Webapps Root Directory"
-  description                = "Detects suspicious file writes to the root directory of web applications, particularly Apache web servers or Tomcat servers. This may indicate an attempt to deploy malicious files such as web shells or other unauthorized scripts."
+  description                = "Detects suspicious file writes to the root directory of web applications, particularly Apache web servers or Tomcat servers. This may indicate an attempt to deploy malicious files such as web shells or other unauthorized scripts. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_file_write_to_webapps_root_directory.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

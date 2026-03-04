@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_file_overwrite_via_s
   name                       = "potential_file_overwrite_via_sysinternals_sdelete"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential File Overwrite Via Sysinternals SDelete"
-  description                = "Detects the use of SDelete to erase a file not the free space"
+  description                = "Detects the use of SDelete to erase a file not the free space | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_file_overwrite_via_sysinternals_sdelete.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

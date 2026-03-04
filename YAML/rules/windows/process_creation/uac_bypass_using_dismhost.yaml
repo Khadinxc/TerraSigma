@@ -1,6 +1,6 @@
 id: d3ff1a51-27ac-58f1-81a2-6b3ae1e14549
 name: UAC Bypass Using DismHost
-description: Detects the pattern of UAC Bypass using DismHost DLL hijacking (UACMe 63)
+description: 'Detects the pattern of UAC Bypass using DismHost DLL hijacking (UACMe 63) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uac_bypass_using_dismhost.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -1,6 +1,6 @@
 id: 71c94ac3-bf94-523b-9047-b37f632c5f20
 name: Suspicious ArcSOC.exe Child Process
-description: Detects script interpreters, command-line tools, and similar suspicious child processes of ArcSOC.exe. ArcSOC.exe is the process name which hosts ArcGIS Server REST services. If an attacker compromises an ArcGIS Server system and uploads a malicious Server Object Extension (SOE), they can send crafted requests to the corresponding service endpoint and remotely execute code from the ArcSOC.exe process.
+description: 'Detects script interpreters, command-line tools, and similar suspicious child processes of ArcSOC.exe. ArcSOC.exe is the process name which hosts ArcGIS Server REST services. If an attacker compromises an ArcGIS Server system and uploads a malicious Server Object Extension (SOE), they can send crafted requests to the corresponding service endpoint and remotely execute code from the ArcSOC.exe process. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_arcsoc_exe_child_process.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

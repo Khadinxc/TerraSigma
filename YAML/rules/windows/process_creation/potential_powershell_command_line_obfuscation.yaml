@@ -1,6 +1,6 @@
 id: dd1212fd-d27a-50f1-beed-91157236dc12
 name: Potential PowerShell Command Line Obfuscation
-description: Detects the PowerShell command lines with special characters - Amazon SSM Document Worker - Windows Defender ATP
+description: 'Detects the PowerShell command lines with special characters - Amazon SSM Document Worker - Windows Defender ATP | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_powershell_command_line_obfuscation.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

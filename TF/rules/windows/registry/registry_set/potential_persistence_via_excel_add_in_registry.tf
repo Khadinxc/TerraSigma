@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_persistence_via_exce
   name                       = "potential_persistence_via_excel_add_in_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Excel Add-in - Registry"
-  description                = "Detect potential persistence via the creation of an excel add-in (XLL) file to make it run automatically when Excel is started."
+  description                = "Detect potential persistence via the creation of an excel add-in (XLL) file to make it run automatically when Excel is started. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_excel_add_in_registry.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: 92f56977-842b-5590-8722-82ead14bdabd
 name: Suspicious Download and Execute Pattern via Curl/Wget
-description: Detects suspicious use of command-line tools such as curl or wget to download remote content - particularly scripts - into temporary directories (e.g., /dev/shm, /tmp), followed by immediate execution, indicating potential malicious activity. This pattern is commonly used by malicious scripts, stagers, or downloaders in fileless or multi-stage Linux attacks. - System update scripts using temporary files - Installer scripts or automated provisioning tools
+description: 'Detects suspicious use of command-line tools such as curl or wget to download remote content - particularly scripts - into temporary directories (e.g., /dev/shm, /tmp), followed by immediate execution, indicating potential malicious activity. This pattern is commonly used by malicious scripts, stagers, or downloaders in fileless or multi-stage Linux attacks. - System update scripts using temporary files - Installer scripts or automated provisioning tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/suspicious_download_and_execute_pattern_via_curl_wget.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

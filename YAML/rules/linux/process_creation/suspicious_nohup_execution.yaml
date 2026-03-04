@@ -1,6 +1,6 @@
 id: 6cc533b1-8ce5-590f-b2e0-9696c9f61288
 name: Suspicious Nohup Execution
-description: Detects execution of binaries located in potentially suspicious locations via "nohup"
+description: 'Detects execution of binaries located in potentially suspicious locations via "nohup" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/suspicious_nohup_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

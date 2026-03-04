@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "gatekeeper_bypass_via_xattr" {
   name                       = "gatekeeper_bypass_via_xattr"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Gatekeeper Bypass via Xattr"
-  description                = "Detects macOS Gatekeeper bypass via xattr utility - Legitimate activities"
+  description                = "Detects macOS Gatekeeper bypass via xattr utility - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/gatekeeper_bypass_via_xattr.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

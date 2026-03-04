@@ -1,6 +1,6 @@
 id: ac83f1f9-4119-5f4f-a858-0a00f99de3bc
 name: Potential Persistence Via New AMSI Providers - Registry
-description: Detects when an attacker adds a new AMSI provider via the Windows Registry to bypass AMSI (Antimalware Scan Interface) protections. Attackers may add custom AMSI providers to persist on the system and evade detection by security software that relies on AMSI for scanning scripts and other content. This technique is often used in conjunction with fileless malware and script-based attacks to maintain persistence while avoiding detection. - Legitimate security products adding their own AMSI providers. Filter these according to your environment.
+description: 'Detects when an attacker adds a new AMSI provider via the Windows Registry to bypass AMSI (Antimalware Scan Interface) protections. Attackers may add custom AMSI providers to persist on the system and evade detection by security software that relies on AMSI for scanning scripts and other content. This technique is often used in conjunction with fileless malware and script-based attacks to maintain persistence while avoiding detection. - Legitimate security products adding their own AMSI providers. Filter these according to your environment. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_new_amsi_providers_registry.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

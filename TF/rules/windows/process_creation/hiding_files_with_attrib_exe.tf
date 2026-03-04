@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hiding_files_with_attrib_exe" 
   name                       = "hiding_files_with_attrib_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Hiding Files with Attrib.exe"
-  description                = "Detects usage of attrib.exe to hide files from users. - IgfxCUIService.exe hiding *.cui files via .bat script (attrib.exe a child of cmd.exe and igfxCUIService.exe is the parent of the cmd.exe) - Msiexec.exe hiding desktop.ini"
+  description                = "Detects usage of attrib.exe to hide files from users. - IgfxCUIService.exe hiding *.cui files via .bat script (attrib.exe a child of cmd.exe and igfxCUIService.exe is the parent of the cmd.exe) - Msiexec.exe hiding desktop.ini | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hiding_files_with_attrib_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

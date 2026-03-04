@@ -1,6 +1,6 @@
 id: 9efbf1e5-5046-5837-be24-803a218c8615
 name: New Connection Initiated To Potential Dead Drop Resolver Domain
-description: Detects an executable, which is not an internet browser or known application, initiating network connections to legit popular websites, which were seen to be used as dead drop resolvers in previous attacks. In this context attackers leverage known websites such as "facebook", "youtube", etc. In order to pass through undetected. - One might need to exclude other internet browsers found in it's network or other applications like ones mentioned above from Microsoft Defender. - Ninite contacting githubusercontent.com
+description: 'Detects an executable, which is not an internet browser or known application, initiating network connections to legit popular websites, which were seen to be used as dead drop resolvers in previous attacks. In this context attackers leverage known websites such as "facebook", "youtube", etc. In order to pass through undetected. - One might need to exclude other internet browsers found in it''s network or other applications like ones mentioned above from Microsoft Defender. - Ninite contacting githubusercontent.com | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/new_connection_initiated_to_potential_dead_drop_resolver_domain.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "wmi_backdoor_exchange_transpor
   name                       = "wmi_backdoor_exchange_transport_agent"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WMI Backdoor Exchange Transport Agent"
-  description                = "Detects a WMI backdoor in Exchange Transport Agents via WMI event filters"
+  description                = "Detects a WMI backdoor in Exchange Transport Agents via WMI event filters | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wmi_backdoor_exchange_transport_agent.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

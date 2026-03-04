@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "convertto_securestring_cmdlet_
   name                       = "convertto_securestring_cmdlet_usage_via_commandline"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ConvertTo-SecureString Cmdlet Usage Via CommandLine"
-  description                = "Detects usage of the \"ConvertTo-SecureString\" cmdlet via the commandline. Which is fairly uncommon and could indicate potential suspicious activity - Legitimate use to pass password to different powershell commands"
+  description                = "Detects usage of the \"ConvertTo-SecureString\" cmdlet via the commandline. Which is fairly uncommon and could indicate potential suspicious activity - Legitimate use to pass password to different powershell commands | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/convertto_securestring_cmdlet_usage_via_commandline.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

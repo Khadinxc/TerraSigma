@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "gac_dll_loaded_via_office_appl
   name                       = "gac_dll_loaded_via_office_applications"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "GAC DLL Loaded Via Office Applications"
-  description                = "Detects any GAC DLL being loaded by an Office Product - Legitimate macro usage. Add the appropriate filter according to your environment"
+  description                = "Detects any GAC DLL being loaded by an Office Product - Legitimate macro usage. Add the appropriate filter according to your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/gac_dll_loaded_via_office_applications.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: 0ab1aa84-d08e-5539-8257-ce79234ffa23
 name: Potential Persistence Via Excel Add-in - Registry
-description: Detect potential persistence via the creation of an excel add-in (XLL) file to make it run automatically when Excel is started.
+description: 'Detect potential persistence via the creation of an excel add-in (XLL) file to make it run automatically when Excel is started. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_excel_add_in_registry.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -1,6 +1,6 @@
 id: 117fa79e-8014-5b74-a02b-7b4168403914
 name: Potential PsExec Remote Execution
-description: Detects potential psexec command that initiate execution on a remote systems via common commandline flags used by the utility
+description: 'Detects potential psexec command that initiate execution on a remote systems via common commandline flags used by the utility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_psexec_remote_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

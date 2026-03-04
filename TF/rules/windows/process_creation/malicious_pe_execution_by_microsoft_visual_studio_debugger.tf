@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "malicious_pe_execution_by_micr
   name                       = "malicious_pe_execution_by_microsoft_visual_studio_debugger"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Malicious PE Execution by Microsoft Visual Studio Debugger"
-  description                = "There is an option for a MS VS Just-In-Time Debugger \"vsjitdebugger.exe\" to launch specified executable and attach a debugger. This option may be used adversaries to execute malicious code by signed verified binary. The debugger is installed alongside with Microsoft Visual Studio package. - The process spawned by vsjitdebugger.exe is uncommon."
+  description                = "There is an option for a MS VS Just-In-Time Debugger \"vsjitdebugger.exe\" to launch specified executable and attach a debugger. This option may be used adversaries to execute malicious code by signed verified binary. The debugger is installed alongside with Microsoft Visual Studio package. - The process spawned by vsjitdebugger.exe is uncommon. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/malicious_pe_execution_by_microsoft_visual_studio_debugger.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

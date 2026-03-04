@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "disabled_windows_defender_even
   name                       = "disabled_windows_defender_eventlog"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disabled Windows Defender Eventlog"
-  description                = "Detects the disabling of the Windows Defender eventlog as seen in relation to Lockbit 3.0 infections - Other Antivirus software installations could cause Windows to disable that eventlog (unknown)"
+  description                = "Detects the disabling of the Windows Defender eventlog as seen in relation to Lockbit 3.0 infections - Other Antivirus software installations could cause Windows to disable that eventlog (unknown) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/disabled_windows_defender_eventlog.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

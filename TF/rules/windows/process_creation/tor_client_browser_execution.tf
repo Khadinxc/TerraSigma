@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "tor_client_browser_execution" 
   name                       = "tor_client_browser_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Tor Client/Browser Execution"
-  description                = "Detects the use of Tor or Tor-Browser to connect to onion routing networks"
+  description                = "Detects the use of Tor or Tor-Browser to connect to onion routing networks | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/tor_client_browser_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

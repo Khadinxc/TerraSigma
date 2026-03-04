@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_powershell_in_regis
   name                       = "suspicious_powershell_in_registry_run_keys"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious PowerShell In Registry Run Keys"
-  description                = "Detects potential PowerShell commands or code within registry run keys - Legitimate admin or third party scripts. Baseline according to your environment"
+  description                = "Detects potential PowerShell commands or code within registry run keys - Legitimate admin or third party scripts. Baseline according to your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/suspicious_powershell_in_registry_run_keys.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "network_communication_initiate
   name                       = "network_communication_initiated_to_portmap_io_domain"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Network Communication Initiated To Portmap.IO Domain"
-  description                = "Detects an executable accessing the portmap.io domain, which could be a sign of forbidden C2 traffic or data exfiltration by malicious actors - Legitimate use of portmap.io domains"
+  description                = "Detects an executable accessing the portmap.io domain, which could be a sign of forbidden C2 traffic or data exfiltration by malicious actors - Legitimate use of portmap.io domains | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/network_communication_initiated_to_portmap_io_domain.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

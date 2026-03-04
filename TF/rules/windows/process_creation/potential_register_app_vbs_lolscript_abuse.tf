@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_register_app_vbs_lol
   name                       = "potential_register_app_vbs_lolscript_abuse"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Register_App.Vbs LOLScript Abuse"
-  description                = "Detects potential abuse of the \"register_app.vbs\" script that is part of the Windows SDK. The script offers the capability to register new VSS/VDS Provider as a COM+ application. Attackers can use this to install malicious DLLs for persistence and execution. - Other VB scripts that leverage the same starting command line flags"
+  description                = "Detects potential abuse of the \"register_app.vbs\" script that is part of the Windows SDK. The script offers the capability to register new VSS/VDS Provider as a COM+ application. Attackers can use this to install malicious DLLs for persistence and execution. - Other VB scripts that leverage the same starting command line flags | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_register_app_vbs_lolscript_abuse.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

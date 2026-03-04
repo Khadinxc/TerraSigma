@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_curl_file_upload_li
   name                       = "suspicious_curl_file_upload_linux"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Curl File Upload - Linux"
-  description                = "Detects a suspicious curl process start the adds a file to a web request - Scripts created by developers and admins"
+  description                = "Detects a suspicious curl process start the adds a file to a web request - Scripts created by developers and admins | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/suspicious_curl_file_upload_linux.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: ef34be92-d4ae-55f1-90cb-82804f779eb5
 name: Macro Enabled In A Potentially Suspicious Document
-description: Detects registry changes to Office trust records where the path is located in a potentially suspicious location - Unlikely
+description: 'Detects registry changes to Office trust records where the path is located in a potentially suspicious location - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/macro_enabled_in_a_potentially_suspicious_document.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

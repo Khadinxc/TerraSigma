@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "powershell_as_a_service_in_reg
   name                       = "powershell_as_a_service_in_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell as a Service in Registry"
-  description                = "Detects that a powershell code is written to the registry as a service."
+  description                = "Detects that a powershell code is written to the registry as a service. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/powershell_as_a_service_in_registry.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

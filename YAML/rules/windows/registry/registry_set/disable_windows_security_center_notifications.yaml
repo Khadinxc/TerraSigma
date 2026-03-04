@@ -1,6 +1,6 @@
 id: 6adb67f2-5954-5925-a393-11e1b17f4584
 name: Disable Windows Security Center Notifications
-description: Detect set UseActionCenterExperience to 0 to disable the Windows security center notification
+description: 'Detect set UseActionCenterExperience to 0 to disable the Windows security center notification | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/disable_windows_security_center_notifications.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

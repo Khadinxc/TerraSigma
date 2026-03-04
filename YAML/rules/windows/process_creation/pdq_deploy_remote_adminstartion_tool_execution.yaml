@@ -1,6 +1,6 @@
 id: 9083c8e6-3bee-58e1-9ac2-bb8cbc07353f
 name: PDQ Deploy Remote Adminstartion Tool Execution
-description: Detect use of PDQ Deploy remote admin tool - Legitimate use
+description: 'Detect use of PDQ Deploy remote admin tool - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pdq_deploy_remote_adminstartion_tool_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

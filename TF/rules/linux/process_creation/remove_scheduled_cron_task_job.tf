@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "remove_scheduled_cron_task_job
   name                       = "remove_scheduled_cron_task_job"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remove Scheduled Cron Task/Job"
-  description                = "Detects usage of the 'crontab' utility to remove the current crontab. This is a common occurrence where cryptocurrency miners compete against each other by removing traces of other miners to hijack the maximum amount of resources possible"
+  description                = "Detects usage of the 'crontab' utility to remove the current crontab. This is a common occurrence where cryptocurrency miners compete against each other by removing traces of other miners to hijack the maximum amount of resources possible | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/remove_scheduled_cron_task_job.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

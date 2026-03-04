@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "use_of_vsiisexelauncher_exe" {
   name                       = "use_of_vsiisexelauncher_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Use of VSIISExeLauncher.exe"
-  description                = "The \"VSIISExeLauncher.exe\" binary part of the Visual Studio/VS Code can be used to execute arbitrary binaries"
+  description                = "The \"VSIISExeLauncher.exe\" binary part of the Visual Studio/VS Code can be used to execute arbitrary binaries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_of_vsiisexelauncher_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

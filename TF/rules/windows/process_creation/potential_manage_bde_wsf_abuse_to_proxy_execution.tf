@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_manage_bde_wsf_abuse
   name                       = "potential_manage_bde_wsf_abuse_to_proxy_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Manage-bde.wsf Abuse To Proxy Execution"
-  description                = "Detects potential abuse of the \"manage-bde.wsf\" script as a LOLBIN to proxy execution - Unlikely"
+  description                = "Detects potential abuse of the \"manage-bde.wsf\" script as a LOLBIN to proxy execution - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_manage_bde_wsf_abuse_to_proxy_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

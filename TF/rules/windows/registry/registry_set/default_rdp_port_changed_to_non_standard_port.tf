@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "default_rdp_port_changed_to_no
   name                       = "default_rdp_port_changed_to_non_standard_port"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Default RDP Port Changed to Non Standard Port"
-  description                = "Detects changes to the default RDP port. Remote desktop is a common feature in operating systems. It allows a user to log into a remote system using an interactive session with a graphical user interface. Microsoft refers to its implementation of the Remote Desktop Protocol (RDP) as Remote Desktop Services (RDS)."
+  description                = "Detects changes to the default RDP port. Remote desktop is a common feature in operating systems. It allows a user to log into a remote system using an interactive session with a graphical user interface. Microsoft refers to its implementation of the Remote Desktop Protocol (RDP) as Remote Desktop Services (RDS). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/default_rdp_port_changed_to_non_standard_port.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

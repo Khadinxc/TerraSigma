@@ -1,6 +1,6 @@
 id: 8b89d2d5-fa7b-5626-906d-4b0d2e4389af
 name: Internet Explorer DisableFirstRunCustomize Enabled
-description: Detects changes to the Internet Explorer "DisableFirstRunCustomize" value, which prevents Internet Explorer from running the first run wizard the first time a user starts the browser after installing Internet Explorer or Windows. - As this is controlled by group policy as well as user settings. Some false positives may occur.
+description: 'Detects changes to the Internet Explorer "DisableFirstRunCustomize" value, which prevents Internet Explorer from running the first run wizard the first time a user starts the browser after installing Internet Explorer or Windows. - As this is controlled by group policy as well as user settings. Some false positives may occur. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/internet_explorer_disablefirstruncustomize_enabled.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

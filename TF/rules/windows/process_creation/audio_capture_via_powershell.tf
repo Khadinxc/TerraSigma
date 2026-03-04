@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "audio_capture_via_powershell" 
   name                       = "audio_capture_via_powershell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Audio Capture via PowerShell"
-  description                = "Detects audio capture via PowerShell Cmdlet. - Legitimate audio capture by legitimate user."
+  description                = "Detects audio capture via PowerShell Cmdlet. - Legitimate audio capture by legitimate user. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/audio_capture_via_powershell.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

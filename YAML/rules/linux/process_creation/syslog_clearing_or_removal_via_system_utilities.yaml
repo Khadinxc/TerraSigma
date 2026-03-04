@@ -1,6 +1,6 @@
 id: eadd625f-77c6-5359-a5f0-f51698e17dd2
 name: Syslog Clearing or Removal Via System Utilities
-description: Detects specific commands commonly used to remove or empty the syslog. Which is a technique often used by attacker as a method to hide their tracks - Log rotation. - Maintenance.
+description: 'Detects specific commands commonly used to remove or empty the syslog. Which is a technique often used by attacker as a method to hide their tracks - Log rotation. - Maintenance. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/syslog_clearing_or_removal_via_system_utilities.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

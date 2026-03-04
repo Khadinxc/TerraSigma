@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "microsoft_office_dll_sideload"
   name                       = "microsoft_office_dll_sideload"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Microsoft Office DLL Sideload"
-  description                = "Detects DLL sideloading of DLLs that are part of Microsoft Office from non standard location - Unlikely"
+  description                = "Detects DLL sideloading of DLLs that are part of Microsoft Office from non standard location - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/microsoft_office_dll_sideload.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

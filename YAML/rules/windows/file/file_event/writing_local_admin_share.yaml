@@ -1,6 +1,6 @@
 id: d6276768-1602-5e3f-a7b4-3f3738f26682
 name: Writing Local Admin Share
-description: Aversaries may use to interact with a remote network share using Server Message Block (SMB). This technique is used by post-exploitation frameworks.
+description: 'Aversaries may use to interact with a remote network share using Server Message Block (SMB). This technique is used by post-exploitation frameworks. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/writing_local_admin_share.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

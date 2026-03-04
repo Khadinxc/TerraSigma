@@ -1,6 +1,6 @@
 id: d989afc7-7475-506e-8223-987fea249130
 name: Process Launched Without Image Name
-description: Detect the use of processes with no name (".exe"), which can be used to evade Image-based detections. - Rare legitimate software.
+description: 'Detect the use of processes with no name (".exe"), which can be used to evade Image-based detections. - Rare legitimate software. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/process_launched_without_image_name.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

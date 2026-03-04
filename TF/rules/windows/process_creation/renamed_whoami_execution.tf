@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "renamed_whoami_execution" {
   name                       = "renamed_whoami_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed Whoami Execution"
-  description                = "Detects the execution of whoami that has been renamed to a different name to avoid detection"
+  description                = "Detects the execution of whoami that has been renamed to a different name to avoid detection | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_whoami_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

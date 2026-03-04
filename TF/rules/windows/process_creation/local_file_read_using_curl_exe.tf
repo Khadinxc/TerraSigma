@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "local_file_read_using_curl_exe
   name                       = "local_file_read_using_curl_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Local File Read Using Curl.EXE"
-  description                = "Detects execution of \"curl.exe\" with the \"file://\" protocol handler in order to read local files."
+  description                = "Detects execution of \"curl.exe\" with the \"file://\" protocol handler in order to read local files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/local_file_read_using_curl_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

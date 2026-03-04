@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pfx_file_creation" {
   name                       = "pfx_file_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PFX File Creation"
-  description                = "Detects the creation of PFX files (Personal Information Exchange format). PFX files contain private keys and certificates bundled together, making them valuable targets for attackers seeking to: - Exfiltrate digital certificates for impersonation or signing malicious code - Establish persistent access through certificate-based authentication - Bypass security controls that rely on certificate validation Analysts should investigate PFX file creation events by examining which process created the PFX file and its parent process chain, as well as unusual locations outside standard certificate stores or development environments. - System administrators legitimately managing certificates and PKI infrastructure - Development environments where developers create test certificates for application signing - Automated certificate deployment tools and scripts used in enterprise environments - Software installation processes that include certificate provisioning (e.g., web servers, VPN clients) - Certificate backup and recovery operations performed by IT staff - Build systems and CI/CD pipelines that generate code signing certificates - Third-party applications that create temporary certificates for secure communications"
+  description                = "Detects the creation of PFX files (Personal Information Exchange format). PFX files contain private keys and certificates bundled together, making them valuable targets for attackers seeking to: - Exfiltrate digital certificates for impersonation or signing malicious code - Establish persistent access through certificate-based authentication - Bypass security controls that rely on certificate validation Analysts should investigate PFX file creation events by examining which process created the PFX file and its parent process chain, as well as unusual locations outside standard certificate stores or development environments. - System administrators legitimately managing certificates and PKI infrastructure - Development environments where developers create test certificates for application signing - Automated certificate deployment tools and scripts used in enterprise environments - Software installation processes that include certificate provisioning (e.g., web servers, VPN clients) - Certificate backup and recovery operations performed by IT staff - Build systems and CI/CD pipelines that generate code signing certificates - Third-party applications that create temporary certificates for secure communications | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/pfx_file_creation.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

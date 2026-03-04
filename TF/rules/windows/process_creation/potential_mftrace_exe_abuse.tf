@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_mftrace_exe_abuse" {
   name                       = "potential_mftrace_exe_abuse"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Mftrace.EXE Abuse"
-  description                = "Detects child processes of the \"Trace log generation tool for Media Foundation Tools\" (Mftrace.exe) which can abused to execute arbitrary binaries. - Legitimate use for tracing purposes"
+  description                = "Detects child processes of the \"Trace log generation tool for Media Foundation Tools\" (Mftrace.exe) which can abused to execute arbitrary binaries. - Legitimate use for tracing purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_mftrace_exe_abuse.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

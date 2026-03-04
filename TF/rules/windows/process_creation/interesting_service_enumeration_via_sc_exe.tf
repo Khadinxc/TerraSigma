@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "interesting_service_enumeratio
   name                       = "interesting_service_enumeration_via_sc_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Interesting Service Enumeration Via Sc.EXE"
-  description                = "Detects the enumeration and query of interesting and in some cases sensitive services on the system via \"sc.exe\". Attackers often try to enumerate the services currently running on a system in order to find different attack vectors."
+  description                = "Detects the enumeration and query of interesting and in some cases sensitive services on the system via \"sc.exe\". Attackers often try to enumerate the services currently running on a system in order to find different attack vectors. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/interesting_service_enumeration_via_sc_exe.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

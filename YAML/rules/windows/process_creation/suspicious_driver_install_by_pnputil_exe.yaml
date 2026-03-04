@@ -1,6 +1,6 @@
 id: 726c0f77-80fd-5886-98ab-3e6da9ac391e
 name: Suspicious Driver Install by pnputil.exe
-description: Detects when a possible suspicious driver is being installed via pnputil.exe lolbin - Pnputil.exe being used may be performed by a system administrator. - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment. - Pnputil.exe being executed from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule.
+description: 'Detects when a possible suspicious driver is being installed via pnputil.exe lolbin - Pnputil.exe being used may be performed by a system administrator. - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment. - Pnputil.exe being executed from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_driver_install_by_pnputil_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

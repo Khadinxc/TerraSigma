@@ -1,6 +1,6 @@
 id: dad40d30-9f08-5060-8cfd-8cdb5d2c2fa9
 name: Reg Add Suspicious Paths
-description: Detects when an adversary uses the reg.exe utility to add or modify new keys or subkeys - Rare legitimate add to registry via cli (to these locations)
+description: 'Detects when an adversary uses the reg.exe utility to add or modify new keys or subkeys - Rare legitimate add to registry via cli (to these locations) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/reg_add_suspicious_paths.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

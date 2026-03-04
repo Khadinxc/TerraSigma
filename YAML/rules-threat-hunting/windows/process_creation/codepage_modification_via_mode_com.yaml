@@ -1,6 +1,6 @@
 id: a413ebd7-216a-5404-8b05-0a7e12b695d0
 name: CodePage Modification Via MODE.COM
-description: Detects a CodePage modification using the "mode.com" utility. This behavior has been used by threat actors behind Dharma ransomware.
+description: 'Detects a CodePage modification using the "mode.com" utility. This behavior has been used by threat actors behind Dharma ransomware. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/codepage_modification_via_mode_com.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

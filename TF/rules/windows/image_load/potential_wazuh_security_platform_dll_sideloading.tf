@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_wazuh_security_platf
   name                       = "potential_wazuh_security_platform_dll_sideloading"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Wazuh Security Platform DLL Sideloading"
-  description                = "Detects potential DLL side loading of DLLs that are part of the Wazuh security platform - Many legitimate applications leverage this DLL. (Visual Studio, JetBrains, Ruby, Anaconda, GithubDesktop, etc.)"
+  description                = "Detects potential DLL side loading of DLLs that are part of the Wazuh security platform - Many legitimate applications leverage this DLL. (Visual Studio, JetBrains, Ruby, Anaconda, GithubDesktop, etc.) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_wazuh_security_platform_dll_sideloading.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

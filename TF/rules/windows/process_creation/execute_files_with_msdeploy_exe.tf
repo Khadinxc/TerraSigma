@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "execute_files_with_msdeploy_ex
   name                       = "execute_files_with_msdeploy_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Execute Files with Msdeploy.exe"
-  description                = "Detects file execution using the msdeploy.exe lolbin - System administrator Usage"
+  description                = "Detects file execution using the msdeploy.exe lolbin - System administrator Usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/execute_files_with_msdeploy_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

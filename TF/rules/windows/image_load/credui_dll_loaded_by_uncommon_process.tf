@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "credui_dll_loaded_by_uncommon_
   name                       = "credui_dll_loaded_by_uncommon_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "CredUI.DLL Loaded By Uncommon Process"
-  description                = "Detects loading of \"credui.dll\" and related DLLs by an uncommon process. Attackers might leverage this DLL for potential use of \"CredUIPromptForCredentials\" or \"CredUnPackAuthenticationBufferW\". - Other legitimate processes loading those DLLs in your environment."
+  description                = "Detects loading of \"credui.dll\" and related DLLs by an uncommon process. Attackers might leverage this DLL for potential use of \"CredUIPromptForCredentials\" or \"CredUnPackAuthenticationBufferW\". - Other legitimate processes loading those DLLs in your environment. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/credui_dll_loaded_by_uncommon_process.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "eventlog_evtx_file_deleted" {
   name                       = "eventlog_evtx_file_deleted"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "EventLog EVTX File Deleted"
-  description                = "Detects the deletion of the event log files which may indicate an attempt to destroy forensic evidence"
+  description                = "Detects the deletion of the event log files which may indicate an attempt to destroy forensic evidence | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/eventlog_evtx_file_deleted.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "add_safeboot_keys_via_reg_util
   name                       = "add_safeboot_keys_via_reg_utility"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Add SafeBoot Keys Via Reg Utility"
-  description                = "Detects execution of \"reg.exe\" commands with the \"add\" or \"copy\" flags on safe boot registry keys. Often used by attacker to allow the ransomware to work in safe mode as some security products do not - Unlikely"
+  description                = "Detects execution of \"reg.exe\" commands with the \"add\" or \"copy\" flags on safe boot registry keys. Often used by attacker to allow the ransomware to work in safe mode as some security products do not - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/add_safeboot_keys_via_reg_utility.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

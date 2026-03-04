@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "install_root_certificate" {
   name                       = "install_root_certificate"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Install Root Certificate"
-  description                = "Detects installation of new certificate on the system which attackers may use to avoid warnings when connecting to controlled web servers or C2s - Legitimate administration activities"
+  description                = "Detects installation of new certificate on the system which attackers may use to avoid warnings when connecting to controlled web servers or C2s - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/install_root_certificate.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

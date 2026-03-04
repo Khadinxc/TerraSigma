@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "creation_of_a_diagcab" {
   name                       = "creation_of_a_diagcab"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Creation of a Diagcab"
-  description                = "Detects the creation of diagcab file, which could be caused by some legitimate installer or is a sign of exploitation (review the filename and its location) - Legitimate microsoft diagcab"
+  description                = "Detects the creation of diagcab file, which could be caused by some legitimate installer or is a sign of exploitation (review the filename and its location) - Legitimate microsoft diagcab | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/creation_of_a_diagcab.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

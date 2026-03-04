@@ -1,6 +1,6 @@
 id: 6ad57fec-8b0f-5cb6-b034-2288bc5cebdc
 name: ISO or Image Mount Indicator in Recent Files
-description: Detects the creation of recent element file that points to an .ISO, .IMG, .VHD or .VHDX file as often used in phishing attacks. This can be a false positive on server systems but on workstations users should rarely mount .iso or .img files. - Cases in which a user mounts an image file for legitimate reasons
+description: 'Detects the creation of recent element file that points to an .ISO, .IMG, .VHD or .VHDX file as often used in phishing attacks. This can be a false positive on server systems but on workstations users should rarely mount .iso or .img files. - Cases in which a user mounts an image file for legitimate reasons | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/iso_or_image_mount_indicator_in_recent_files.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

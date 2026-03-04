@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "windows_recovery_environment_d
   name                       = "windows_recovery_environment_disabled_via_reagentc"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Recovery Environment Disabled Via Reagentc"
-  description                = "Detects attempts to disable windows recovery environment using Reagentc. ReAgentc.exe is a command-line tool in Windows used to manage the Windows Recovery Environment (WinRE). It allows users to enable, disable, and configure WinRE, which is used for troubleshooting and repairing common boot issues. - Legitimate administrative activity"
+  description                = "Detects attempts to disable windows recovery environment using Reagentc. ReAgentc.exe is a command-line tool in Windows used to manage the Windows Recovery Environment (WinRE). It allows users to enable, disable, and configure WinRE, which is used for troubleshooting and repairing common boot issues. - Legitimate administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_recovery_environment_disabled_via_reagentc.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

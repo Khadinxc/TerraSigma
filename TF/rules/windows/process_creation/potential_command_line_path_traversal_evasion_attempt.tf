@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_command_line_path_tr
   name                       = "potential_command_line_path_traversal_evasion_attempt"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Command Line Path Traversal Evasion Attempt"
-  description                = "Detects potential evasion or obfuscation attempts using bogus path traversal via the commandline - Google Drive - Citrix"
+  description                = "Detects potential evasion or obfuscation attempts using bogus path traversal via the commandline - Google Drive - Citrix | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_command_line_path_traversal_evasion_attempt.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

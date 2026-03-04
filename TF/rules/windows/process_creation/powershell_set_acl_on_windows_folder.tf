@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "powershell_set_acl_on_windows_
   name                       = "powershell_set_acl_on_windows_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Set-Acl On Windows Folder"
-  description                = "Detects PowerShell scripts to set the ACL to a file in the Windows folder"
+  description                = "Detects PowerShell scripts to set the ACL to a file in the Windows folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_set_acl_on_windows_folder.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

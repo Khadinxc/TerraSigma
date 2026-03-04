@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "onyx_sleet_apt_file_creation_i
   name                       = "onyx_sleet_apt_file_creation_indicators"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Onyx Sleet APT File Creation Indicators"
-  description                = "Detects file creation activity that is related to Onyx Sleet APT activity - Unlikely"
+  description                = "Detects file creation activity that is related to Onyx Sleet APT activity - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Onyx-Sleet/onyx_sleet_apt_file_creation_indicators.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

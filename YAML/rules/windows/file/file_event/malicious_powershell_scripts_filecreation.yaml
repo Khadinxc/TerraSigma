@@ -1,6 +1,6 @@
 id: 2fa7fb94-f17e-52cd-8bec-429d9155c963
 name: Malicious PowerShell Scripts - FileCreation
-description: Detects the creation of known offensive powershell scripts used for exploitation
+description: 'Detects the creation of known offensive powershell scripts used for exploitation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/malicious_powershell_scripts_filecreation.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

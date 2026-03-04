@@ -1,6 +1,6 @@
 id: 4e227f74-672d-52cf-9b25-c44de747c04d
 name: Use Short Name Path in Image
-description: Detect use of the Windows 8.3 short name. Which could be used as a method to avoid Image detection - Applications could use this notation occasionally which might generate some false positives. In that case Investigate the parent and child process.
+description: 'Detect use of the Windows 8.3 short name. Which could be used as a method to avoid Image detection - Applications could use this notation occasionally which might generate some false positives. In that case Investigate the parent and child process. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_short_name_path_in_image.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

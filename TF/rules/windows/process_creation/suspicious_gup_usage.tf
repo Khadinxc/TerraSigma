@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_gup_usage" {
   name                       = "suspicious_gup_usage"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious GUP Usage"
-  description                = "Detects execution of the Notepad++ updater in a suspicious directory, which is often used in DLL side-loading attacks - Execution of tools named GUP.exe and located in folders different than Notepad++\\updater"
+  description                = "Detects execution of the Notepad++ updater in a suspicious directory, which is often used in DLL side-loading attacks - Execution of tools named GUP.exe and located in folders different than Notepad++\\updater | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_gup_usage.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

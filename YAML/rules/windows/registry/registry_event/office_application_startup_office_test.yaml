@@ -1,6 +1,6 @@
 id: 07b3db7c-5cf2-5f27-862a-5aacecc36b18
 name: Office Application Startup - Office Test
-description: Detects the addition of office test registry that allows a user to specify an arbitrary DLL that will be executed every time an Office application is started - Unlikely
+description: 'Detects the addition of office test registry that allows a user to specify an arbitrary DLL that will be executed every time an Office application is started - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/office_application_startup_office_test.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

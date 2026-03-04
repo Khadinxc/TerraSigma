@@ -1,6 +1,6 @@
 id: b323c08e-cf01-5a5c-8003-281cd6f203d6
 name: Use NTFS Short Name in Image
-description: Detect use of the Windows 8.3 short name. Which could be used as a method to avoid Image based detection - Software Installers
+description: 'Detect use of the Windows 8.3 short name. Which could be used as a method to avoid Image based detection - Software Installers | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_ntfs_short_name_in_image.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

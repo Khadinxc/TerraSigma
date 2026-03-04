@@ -1,6 +1,6 @@
 id: 9dda0bbb-d561-580a-8cdf-24866695f1ea
 name: Access To .Reg/.Hive Files By Uncommon Applications
-description: Detects file access requests to files ending with either the ".hive"/".reg" extension, usually associated with Windows Registry backups. - Third party software installed in the user context might generate a lot of FPs. Heavy baselining and tuning might be required.
+description: 'Detects file access requests to files ending with either the ".hive"/".reg" extension, usually associated with Windows Registry backups. - Third party software installed in the user context might generate a lot of FPs. Heavy baselining and tuning might be required. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/access_to_reg_hive_files_by_uncommon_applications.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

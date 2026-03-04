@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "windows_defender_definition_fi
   name                       = "windows_defender_definition_files_removed"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Defender Definition Files Removed"
-  description                = "Adversaries may disable security tools to avoid possible detection of their tools and activities by removing Windows Defender Definition Files"
+  description                = "Adversaries may disable security tools to avoid possible detection of their tools and activities by removing Windows Defender Definition Files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_defender_definition_files_removed.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

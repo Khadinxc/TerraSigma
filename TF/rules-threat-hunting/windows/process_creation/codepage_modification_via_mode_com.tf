@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "codepage_modification_via_mode
   name                       = "codepage_modification_via_mode_com"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "CodePage Modification Via MODE.COM"
-  description                = "Detects a CodePage modification using the \"mode.com\" utility. This behavior has been used by threat actors behind Dharma ransomware."
+  description                = "Detects a CodePage modification using the \"mode.com\" utility. This behavior has been used by threat actors behind Dharma ransomware. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/codepage_modification_via_mode_com.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

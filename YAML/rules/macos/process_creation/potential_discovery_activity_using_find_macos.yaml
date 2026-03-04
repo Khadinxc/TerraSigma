@@ -1,6 +1,6 @@
 id: 0b9a363f-a124-50b4-8bda-575f5a2a7789
 name: Potential Discovery Activity Using Find - MacOS
-description: Detects usage of "find" binary in a suspicious manner to perform discovery
+description: 'Detects usage of "find" binary in a suspicious manner to perform discovery | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/potential_discovery_activity_using_find_macos.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

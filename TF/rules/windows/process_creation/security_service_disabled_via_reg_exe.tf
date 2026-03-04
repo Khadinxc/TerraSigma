@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "security_service_disabled_via_
   name                       = "security_service_disabled_via_reg_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Security Service Disabled Via Reg.EXE"
-  description                = "Detects execution of \"reg.exe\" to disable security services such as Windows Defender. - Unlikely"
+  description                = "Detects execution of \"reg.exe\" to disable security services such as Windows Defender. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/security_service_disabled_via_reg_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

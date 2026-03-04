@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "usage_of_renamed_sysinternals_
   name                       = "usage_of_renamed_sysinternals_tools_registryset"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Usage of Renamed Sysinternals Tools - RegistrySet"
-  description                = "Detects non-sysinternals tools setting the \"accepteula\" key which normally is set on sysinternals tool execution - Unlikely"
+  description                = "Detects non-sysinternals tools setting the \"accepteula\" key which normally is set on sysinternals tool execution - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/usage_of_renamed_sysinternals_tools_registryset.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

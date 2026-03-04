@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_script_execution_fr
   name                       = "suspicious_script_execution_from_temp_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Script Execution From Temp Folder"
-  description                = "Detects a suspicious script executions from temporary folder - Administrative scripts"
+  description                = "Detects a suspicious script executions from temporary folder - Administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_script_execution_from_temp_folder.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

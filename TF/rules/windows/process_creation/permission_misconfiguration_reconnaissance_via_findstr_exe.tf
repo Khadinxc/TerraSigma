@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "permission_misconfiguration_re
   name                       = "permission_misconfiguration_reconnaissance_via_findstr_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Permission Misconfiguration Reconnaissance Via Findstr.EXE"
-  description                = "Detects usage of findstr with the \"EVERYONE\" or \"BUILTIN\" keywords. This was seen being used in combination with \"icacls\" and other utilities to spot misconfigured files or folders permissions."
+  description                = "Detects usage of findstr with the \"EVERYONE\" or \"BUILTIN\" keywords. This was seen being used in combination with \"icacls\" and other utilities to spot misconfigured files or folders permissions. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/permission_misconfiguration_reconnaissance_via_findstr_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

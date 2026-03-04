@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "network_communication_with_cry
   name                       = "network_communication_with_crypto_mining_pool"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Network Communication With Crypto Mining Pool"
-  description                = "Detects initiated network connections to crypto mining pools - Unlikely"
+  description                = "Detects initiated network connections to crypto mining pools - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/network_communication_with_crypto_mining_pool.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

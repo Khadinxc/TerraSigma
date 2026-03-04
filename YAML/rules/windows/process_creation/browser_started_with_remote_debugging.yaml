@@ -1,6 +1,6 @@
 id: dbd25144-3473-537a-b890-92492ed35c3a
 name: Browser Started with Remote Debugging
-description: Detects browsers starting with the remote debugging flags. Which is a technique often used to perform browser injection attacks
+description: 'Detects browsers starting with the remote debugging flags. Which is a technique often used to perform browser injection attacks | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/browser_started_with_remote_debugging.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

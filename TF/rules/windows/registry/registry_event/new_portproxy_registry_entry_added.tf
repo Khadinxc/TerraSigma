@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_portproxy_registry_entry_a
   name                       = "new_portproxy_registry_entry_added"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New PortProxy Registry Entry Added"
-  description                = "Detects the modification of the PortProxy registry key which is used for port forwarding. - WSL2 network bridge PowerShell script used for WSL/Kubernetes/Docker (e.g. https://github.com/microsoft/WSL/issues/4150#issuecomment-504209723) - Synergy Software KVM (https://symless.com/synergy)"
+  description                = "Detects the modification of the PortProxy registry key which is used for port forwarding. - WSL2 network bridge PowerShell script used for WSL/Kubernetes/Docker (e.g. https://github.com/microsoft/WSL/issues/4150#issuecomment-504209723) - Synergy Software KVM (https://symless.com/synergy) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/new_portproxy_registry_entry_added.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_regsvr32_execution_
   name                       = "suspicious_regsvr32_execution_from_remote_share"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Regsvr32 Execution From Remote Share"
-  description                = "Detects REGSVR32.exe to execute DLL hosted on remote shares"
+  description                = "Detects REGSVR32.exe to execute DLL hosted on remote shares | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_regsvr32_execution_from_remote_share.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

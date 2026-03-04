@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_sharpevtmute_executio
   name                       = "hacktool_sharpevtmute_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - SharpEvtMute Execution"
-  description                = "Detects the use of SharpEvtHook, a tool that tampers with the Windows event logs"
+  description                = "Detects the use of SharpEvtHook, a tool that tampers with the Windows event logs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_sharpevtmute_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

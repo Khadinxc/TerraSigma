@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "sysmon_driver_altitude_change"
   name                       = "sysmon_driver_altitude_change"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Sysmon Driver Altitude Change"
-  description                = "Detects changes in Sysmon driver altitude value. If the Sysmon driver is configured to load at an altitude of another registered service, it will fail to load at boot. - Legitimate driver altitude change to hide sysmon"
+  description                = "Detects changes in Sysmon driver altitude value. If the Sysmon driver is configured to load at an altitude of another registered service, it will fail to load at boot. - Legitimate driver altitude change to hide sysmon | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/sysmon_driver_altitude_change.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

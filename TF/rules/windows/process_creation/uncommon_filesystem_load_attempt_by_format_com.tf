@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uncommon_filesystem_load_attem
   name                       = "uncommon_filesystem_load_attempt_by_format_com"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon FileSystem Load Attempt By Format.com"
-  description                = "Detects the execution of format.com with an uncommon filesystem selection that could indicate a defense evasion activity in which \"format.com\" is used to load malicious DLL files or other programs."
+  description                = "Detects the execution of format.com with an uncommon filesystem selection that could indicate a defense evasion activity in which \"format.com\" is used to load malicious DLL files or other programs. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_filesystem_load_attempt_by_format_com.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

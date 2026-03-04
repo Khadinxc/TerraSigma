@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "legitimate_application_writing
   name                       = "legitimate_application_writing_files_in_uncommon_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Legitimate Application Writing Files In Uncommon Location"
-  description                = "Detects legitimate applications writing any type of file to uncommon or suspicious locations that are not typical for application data storage or execution. Adversaries may leverage legitimate applications (Living off the Land Binaries - LOLBins) to drop or download malicious files to uncommon locations on the system to evade detection by security solutions."
+  description                = "Detects legitimate applications writing any type of file to uncommon or suspicious locations that are not typical for application data storage or execution. Adversaries may leverage legitimate applications (Living off the Land Binaries - LOLBins) to drop or download malicious files to uncommon locations on the system to evade detection by security solutions. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/legitimate_application_writing_files_in_uncommon_location.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

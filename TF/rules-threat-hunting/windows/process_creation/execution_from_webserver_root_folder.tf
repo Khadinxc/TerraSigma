@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "execution_from_webserver_root_
   name                       = "execution_from_webserver_root_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Execution From Webserver Root Folder"
-  description                = "Detects a program executing from a web server root folder. Use this rule to hunt for potential interesting activity such as webshell or backdoors - Various applications - Tools that include ping or nslookup command invocations"
+  description                = "Detects a program executing from a web server root folder. Use this rule to hunt for potential interesting activity such as webshell or backdoors - Various applications - Tools that include ping or nslookup command invocations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/execution_from_webserver_root_folder.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 
