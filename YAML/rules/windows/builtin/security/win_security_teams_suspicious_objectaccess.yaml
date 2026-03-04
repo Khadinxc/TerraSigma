@@ -1,0 +1,40 @@
+id: 95ae124e-d2a5-5def-805f-b1b3d6245c9c
+name: Suspicious Teams Application Related ObjectAcess Event
+description: 'Detects an access to authentication tokens and accounts of Microsoft Teams desktop application. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_teams_suspicious_objectaccess.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_teams_suspicious_objectaccess.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CredentialAccess
+query: |-
+  DeviceRegistryEvents
+  | where (RegistryKey contains "\\Microsoft\\Teams\\Cookies" or RegistryKey contains "\\Microsoft\\Teams\\Local Storage\\leveldb") and (not(InitiatingProcessFolderPath contains "\\Microsoft\\Teams\\current\\Teams.exe"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1528
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

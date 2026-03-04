@@ -1,0 +1,40 @@
+id: a8e07c82-a435-5e09-9bcd-d5fd55098615
+name: Raccine Uninstall
+description: 'Detects commands that indicate a Raccine removal from an end system. Raccine is a free ransomware protection tool. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_disable_raccine.yml - Legitimate deinstallation by administrative staff | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_disable_raccine.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "taskkill " and ProcessCommandLine contains "RaccineSettings.exe") or (ProcessCommandLine contains "reg.exe" and ProcessCommandLine contains "delete" and ProcessCommandLine contains "Raccine Tray") or (ProcessCommandLine contains "schtasks" and ProcessCommandLine contains "/DELETE" and ProcessCommandLine contains "Raccine Rules Updater")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1562
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

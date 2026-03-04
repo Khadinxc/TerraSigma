@@ -1,0 +1,46 @@
+id: 90acacd8-2b27-58e4-960a-ae3346c23de7
+name: Suspicious Mshta.EXE Execution Patterns
+description: 'Detects suspicious mshta process execution patterns Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_susp_pattern.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_susp_pattern.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where ((FolderPath endswith "\\mshta.exe" or ProcessVersionInfoOriginalFileName =~ "MSHTA.EXE") and ((ProcessCommandLine contains "\\AppData\\Local\\" or ProcessCommandLine contains "C:\\ProgramData\\" or ProcessCommandLine contains "C:\\Users\\Public\\" or ProcessCommandLine contains "C:\\Windows\\Temp\\") and (InitiatingProcessFolderPath endswith "\\cmd.exe" or InitiatingProcessFolderPath endswith "\\cscript.exe" or InitiatingProcessFolderPath endswith "\\powershell.exe" or InitiatingProcessFolderPath endswith "\\pwsh.exe" or InitiatingProcessFolderPath endswith "\\regsvr32.exe" or InitiatingProcessFolderPath endswith "\\rundll32.exe" or InitiatingProcessFolderPath endswith "\\wscript.exe"))) or ((FolderPath endswith "\\mshta.exe" or ProcessVersionInfoOriginalFileName =~ "MSHTA.EXE") and (not(((FolderPath startswith "C:\\Windows\\System32\\" or FolderPath startswith "C:\\Windows\\SysWOW64\\") or (ProcessCommandLine contains ".htm" or ProcessCommandLine contains ".hta") or (ProcessCommandLine endswith "mshta.exe" or ProcessCommandLine endswith "mshta")))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1106
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

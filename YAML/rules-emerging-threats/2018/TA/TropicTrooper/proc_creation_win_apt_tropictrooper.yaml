@@ -1,0 +1,40 @@
+id: 88b1c5d8-72d0-571a-8fa6-3b7a291c8986
+name: TropicTrooper Campaign November 2018
+description: 'Detects TropicTrooper activity, an actor who targeted high-profile organizations in the energy and food and beverage sectors in Asia Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/TropicTrooper/proc_creation_win_apt_tropictrooper.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/TropicTrooper/proc_creation_win_apt_tropictrooper.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine contains "abCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

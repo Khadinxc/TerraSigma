@@ -1,0 +1,48 @@
+id: c0abfd13-7c0d-5f99-b2e2-e72347f9e098
+name: Potential Encoded PowerShell Patterns In CommandLine
+description: 'Detects specific combinations of encoding methods in PowerShell via the commandline Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_encoding_patterns.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_encoding_patterns.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where ((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe") or (ProcessVersionInfoOriginalFileName in~ ("PowerShell.EXE", "pwsh.dll"))) and (((ProcessCommandLine contains "ToInt" or ProcessCommandLine contains "ToDecimal" or ProcessCommandLine contains "ToByte" or ProcessCommandLine contains "ToUint" or ProcessCommandLine contains "ToSingle" or ProcessCommandLine contains "ToSByte") and (ProcessCommandLine contains "ToChar" or ProcessCommandLine contains "ToString" or ProcessCommandLine contains "String")) or ((ProcessCommandLine contains "char" and ProcessCommandLine contains "join") or (ProcessCommandLine contains "split" and ProcessCommandLine contains "join")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1027
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

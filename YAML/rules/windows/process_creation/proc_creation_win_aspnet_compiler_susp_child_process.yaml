@@ -1,0 +1,40 @@
+id: 91f44db5-e31a-5394-b9b1-8ba817a6ed1f
+name: Suspicious Child Process of AspNetCompiler
+description: 'Detects potentially suspicious child processes of "aspnet_compiler.exe". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_aspnet_compiler_susp_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_aspnet_compiler_susp_child_process.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ((FolderPath endswith "\\calc.exe" or FolderPath endswith "\\notepad.exe") or (FolderPath contains "\\Users\\Public\\" or FolderPath contains "\\AppData\\Local\\Temp\\" or FolderPath contains "\\AppData\\Local\\Roaming\\" or FolderPath contains ":\\Temp\\" or FolderPath contains ":\\Windows\\Temp\\" or FolderPath contains ":\\Windows\\System32\\Tasks\\" or FolderPath contains ":\\Windows\\Tasks\\")) and InitiatingProcessFolderPath endswith "\\aspnet_compiler.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1127
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

@@ -1,0 +1,46 @@
+id: ff99cf77-b607-5966-8391-2778a2e65f49
+name: Sensitive File Dump Via Wbadmin.EXE
+description: 'Detects the dump of highly sensitive files such as "NTDS.DIT" and "SECURITY" hive. Attackers can leverage the "wbadmin" utility in order to dump sensitive files that might contain credential or sensitive information. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wbadmin_dump_sensitive_files.yml - Legitimate backup operation by authorized administrators. Matches must be investigated and allowed on a case by case basis. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wbadmin_dump_sensitive_files.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CredentialAccess
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "start" or ProcessCommandLine contains "backup") and (FolderPath endswith "\\wbadmin.exe" or ProcessVersionInfoOriginalFileName =~ "WBADMIN.EXE") and (ProcessCommandLine contains "\\config\\SAM" or ProcessCommandLine contains "\\config\\SECURITY" or ProcessCommandLine contains "\\config\\SYSTEM" or ProcessCommandLine contains "\\Windows\\NTDS\\NTDS.dit")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1003
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

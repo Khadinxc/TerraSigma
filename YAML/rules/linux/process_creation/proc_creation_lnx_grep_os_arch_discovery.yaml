@@ -1,0 +1,44 @@
+id: b2e0025b-ad66-5b90-8756-319d7e8ad1c3
+name: OS Architecture Discovery Via Grep
+description: 'Detects the use of grep to identify information about the operating system architecture. Often combined beforehand with the execution of "uname" or "cat /proc/cpuinfo" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_grep_os_arch_discovery.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_grep_os_arch_discovery.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine endswith "aarch64" or ProcessCommandLine endswith "arm" or ProcessCommandLine endswith "i386" or ProcessCommandLine endswith "i686" or ProcessCommandLine endswith "mips" or ProcessCommandLine endswith "x86_64") and FolderPath endswith "/grep"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1082
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

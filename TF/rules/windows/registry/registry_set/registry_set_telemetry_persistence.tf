@@ -1,0 +1,81 @@
+resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_telemetry_persistence" {
+  name                       = "registry_set_telemetry_persistence"
+  log_analytics_workspace_id = var.workspace_id
+  display_name               = "Potential Registry Persistence Attempt Via Windows Telemetry"
+  description                = "Detects potential persistence behavior using the windows telemetry registry key. Windows telemetry makes use of the binary CompatTelRunner.exe to run a variety of commands and perform the actual telemetry collections. This binary was created to be easily extensible, and to that end, it relies on the registry to instruct on which commands to run. The problem is, it will run any arbitrary command without restriction of location or type. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_telemetry_persistence.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_telemetry_persistence.yml"
+  severity                   = "High"
+  query                      = <<QUERY
+DeviceRegistryEvents
+| where ((RegistryValueData contains ".bat" or RegistryValueData contains ".bin" or RegistryValueData contains ".cmd" or RegistryValueData contains ".dat" or RegistryValueData contains ".dll" or RegistryValueData contains ".exe" or RegistryValueData contains ".hta" or RegistryValueData contains ".jar" or RegistryValueData contains ".js" or RegistryValueData contains ".msi" or RegistryValueData contains ".ps" or RegistryValueData contains ".sh" or RegistryValueData contains ".vb") and RegistryKey endswith "\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\TelemetryController*" and RegistryKey endswith "\\Command") and (not((RegistryValueData contains "\\system32\\CompatTelRunner.exe" or RegistryValueData contains "\\system32\\DeviceCensus.exe")))
+QUERY
+  query_frequency            = "PT1H"
+  query_period               = "PT1H"
+  trigger_operator           = "GreaterThan"
+  trigger_threshold          = 0
+  suppression_enabled        = false
+  suppression_duration       = "PT5H"
+  tactics                    = ["PrivilegeEscalation", "Execution", "Persistence"]
+  techniques                 = ["T1053"]
+  enabled                    = true
+
+  incident {
+    create_incident_enabled = true
+    grouping {
+      enabled                 = false
+      lookback_duration       = "PT5H"
+      reopen_closed_incidents = false
+      entity_matching_method  = "AllEntities"
+      by_entities             = []
+      by_alert_details        = []
+      by_custom_details       = []
+    }
+  }
+
+  event_grouping {
+    aggregation_method = "SingleAlert"
+  }
+
+  entity_mapping {
+    entity_type = "Account"
+    field_mapping {
+      identifier  = "Name"
+      column_name = "InitiatingProcessAccountName"
+    }
+    field_mapping {
+      identifier  = "NTDomain"
+      column_name = "InitiatingProcessAccountDomain"
+    }
+    field_mapping {
+      identifier  = "Sid"
+      column_name = "InitiatingProcessAccountSid"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "Host"
+    field_mapping {
+      identifier  = "HostName"
+      column_name = "DeviceName"
+    }
+    field_mapping {
+      identifier  = "AzureID"
+      column_name = "DeviceId"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "RegistryKey"
+    field_mapping {
+      identifier  = "Key"
+      column_name = "RegistryKey"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "RegistryValue"
+    field_mapping {
+      identifier  = "Value"
+      column_name = "RegistryValueData"
+    }
+  }
+}

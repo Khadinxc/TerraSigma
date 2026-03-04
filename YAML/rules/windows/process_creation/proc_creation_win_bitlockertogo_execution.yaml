@@ -1,0 +1,40 @@
+id: 28891af0-8dab-5f7c-8258-0947a8fc4dd7
+name: BitLockerTogo.EXE Execution
+description: 'Detects the execution of "BitLockerToGo.EXE". BitLocker To Go is BitLocker Drive Encryption on removable data drives. This feature includes the encryption of, USB flash drives, SD cards, External hard disk drives, Other drives that are formatted by using the NTFS, FAT16, FAT32, or exFAT file system. This is a rarely used application and usage of it at all is worth investigating. Malware such as Lumma stealer has been seen using this process as a target for process hollowing. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitlockertogo_execution.yml - Legitimate usage of BitLockerToGo.exe to encrypt portable devices. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitlockertogo_execution.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where FolderPath endswith "\\BitLockerToGo.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1218
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

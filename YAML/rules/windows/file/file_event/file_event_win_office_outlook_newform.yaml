@@ -1,0 +1,40 @@
+id: 5a2d263c-dc5f-50e6-8fb4-5702396df857
+name: Potential Persistence Via Outlook Form
+description: 'Detects the creation of a new Outlook form which can contain malicious code Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_outlook_newform.yml - Legitimate use of outlook forms | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_outlook_newform.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+query: |-
+  DeviceFileEvents
+  | where InitiatingProcessFolderPath endswith "\\outlook.exe" and (FolderPath contains "\\AppData\\Local\\Microsoft\\FORMS\\IPM" or FolderPath contains "\\Local Settings\\Application Data\\Microsoft\\Forms")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1137
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

@@ -1,0 +1,46 @@
+id: d551bd7c-d75e-5073-853a-522c02d80373
+name: Php Inline Command Execution
+description: 'Detects execution of php using the "-r" flag. This is could be used as a way to launch a reverse shell or execute live php code. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_php_inline_command_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_php_inline_command_execution.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine contains " -r" and (FolderPath endswith "\\php.exe" or ProcessVersionInfoOriginalFileName =~ "php.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

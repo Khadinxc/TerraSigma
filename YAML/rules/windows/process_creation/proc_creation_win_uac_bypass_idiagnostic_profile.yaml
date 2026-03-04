@@ -1,0 +1,48 @@
+id: 372e0804-71d3-5168-b9dc-b6ce81df502c
+name: UAC Bypass Using IDiagnostic Profile
+description: 'Detects the "IDiagnosticProfileUAC" UAC bypass technique Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_idiagnostic_profile.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_idiagnostic_profile.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- DefenseEvasion
+- PrivilegeEscalation
+query: |-
+  DeviceProcessEvents
+  | where (ProcessIntegrityLevel in~ ("High", "System", "S-1-16-16384", "S-1-16-12288")) and InitiatingProcessCommandLine contains " /Processid:{12C21EA7-2EB8-4B55-9249-AC243DA8C666}" and InitiatingProcessFolderPath endswith "\\DllHost.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1548
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: ProcessId
+    columnName: ProcessId
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

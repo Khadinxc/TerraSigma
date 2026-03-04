@@ -1,0 +1,44 @@
+id: 66c3bb1a-8a68-5d73-90fe-94116e40adee
+name: Flush Iptables Ufw Chain
+description: 'Detect use of iptables to flush all firewall rules, tables and chains and allow all network traffic Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_iptables_flush_ufw.yml - Network administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_iptables_flush_ufw.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (FolderPath endswith "/iptables" or FolderPath endswith "/xtables-legacy-multi" or FolderPath endswith "/iptables-legacy-multi" or FolderPath endswith "/ip6tables" or FolderPath endswith "/ip6tables-legacy-multi") and (ProcessCommandLine contains "-F" or ProcessCommandLine contains "-Z" or ProcessCommandLine contains "-X") and (ProcessCommandLine contains "ufw-logging-deny" or ProcessCommandLine contains "ufw-logging-allow" or ProcessCommandLine contains "ufw6-logging-deny" or ProcessCommandLine contains "ufw6-logging-allow")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1562
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

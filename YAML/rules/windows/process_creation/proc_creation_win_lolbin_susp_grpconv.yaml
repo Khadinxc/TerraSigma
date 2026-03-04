@@ -1,0 +1,41 @@
+id: 5ab36ae5-87bd-5a33-9fc9-e2a198016f0d
+name: Suspicious GrpConv Execution
+description: 'Detects the suspicious execution of a utility to convert Windows 3.x .grp files or for persistence purposes by malicious software or actors Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_susp_grpconv.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_susp_grpconv.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Persistence
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine contains "grpconv.exe -o" or ProcessCommandLine contains "grpconv -o"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1547
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

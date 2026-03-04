@@ -1,0 +1,41 @@
+id: 6308e24a-a8f4-5b67-8fa1-3844c5899356
+name: BITS Client BitsProxy DLL Loaded By Uncommon Process
+description: 'Detects an uncommon process loading the "BitsProxy.dll". This DLL is used when the BITS COM instance or API is used. This detection can be used to hunt for uncommon processes loading this DLL in your environment. Which may indicate potential suspicious activity occurring. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_dll_bitsproxy_load_by_uncommon_process.yml - Allowed binaries in the environment that do BITS Jobs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_dll_bitsproxy_load_by_uncommon_process.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Persistence
+query: |-
+  DeviceImageLoadEvents
+  | where FolderPath endswith "\\BitsProxy.dll" and (not((InitiatingProcessFolderPath in~ ("C:\\Windows\\System32\\aitstatic.exe", "C:\\Windows\\System32\\bitsadmin.exe", "C:\\Windows\\System32\\desktopimgdownldr.exe", "C:\\Windows\\System32\\DeviceEnroller.exe", "C:\\Windows\\System32\\MDMAppInstaller.exe", "C:\\Windows\\System32\\ofdeploy.exe", "C:\\Windows\\System32\\RecoveryDrive.exe", "C:\\Windows\\System32\\Speech_OneCore\\common\\SpeechModelDownload.exe", "C:\\Windows\\SysWOW64\\bitsadmin.exe", "C:\\Windows\\SysWOW64\\OneDriveSetup.exe", "C:\\Windows\\SysWOW64\\Speech_OneCore\\Common\\SpeechModelDownload.exe")))) and (not(InitiatingProcessFolderPath =~ "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1197
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

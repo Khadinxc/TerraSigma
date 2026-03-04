@@ -1,0 +1,49 @@
+id: 130857ab-dee5-5c55-84e3-d3c6f9defea5
+name: HackTool - winPEAS Execution
+description: 'WinPEAS is a script that search for possible paths to escalate privileges on Windows hosts. The checks are explained on book.hacktricks.xyz Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_winpeas.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_winpeas.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine contains "https://github.com/carlospolop/PEASS-ng/releases/latest/download/" or (ProcessCommandLine contains " applicationsinfo" or ProcessCommandLine contains " browserinfo" or ProcessCommandLine contains " eventsinfo" or ProcessCommandLine contains " fileanalysis" or ProcessCommandLine contains " filesinfo" or ProcessCommandLine contains " processinfo" or ProcessCommandLine contains " servicesinfo" or ProcessCommandLine contains " windowscreds") or (InitiatingProcessCommandLine endswith " -linpeas" or ProcessCommandLine endswith " -linpeas") or (ProcessVersionInfoOriginalFileName =~ "winPEAS.exe" or (FolderPath endswith "\\winPEASany_ofs.exe" or FolderPath endswith "\\winPEASany.exe" or FolderPath endswith "\\winPEASx64_ofs.exe" or FolderPath endswith "\\winPEASx64.exe" or FolderPath endswith "\\winPEASx86_ofs.exe" or FolderPath endswith "\\winPEASx86.exe"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1082
+- T1087
+- T1046
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

@@ -1,0 +1,46 @@
+id: 460df309-4b7e-5ec2-8224-57f0b6579106
+name: Changing Existing Service ImagePath Value Via Reg.EXE
+description: 'Adversaries may execute their own malicious payloads by hijacking the Registry entries used by services. Adversaries may use flaws in the permissions for registry to redirect from the originally specified executable to one that they control, in order to launch their own code at Service start. Windows stores local service configuration information in the Registry under HKLM\SYSTEM\CurrentControlSet\Services Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_service_imagepath_change.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_service_imagepath_change.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- DefenseEvasion
+- Persistence
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "add " and ProcessCommandLine contains "SYSTEM\\CurrentControlSet\\Services\\" and ProcessCommandLine contains " ImagePath ") and FolderPath endswith "\\reg.exe") and (ProcessCommandLine contains " -d " or ProcessCommandLine contains " /d " or ProcessCommandLine contains " –d " or ProcessCommandLine contains " —d " or ProcessCommandLine contains " ―d ")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1574
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

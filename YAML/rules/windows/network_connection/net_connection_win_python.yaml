@@ -1,0 +1,44 @@
+id: 791d5b28-0059-5a76-bf0b-3c6046b44db5
+name: Python Initiated Connection
+description: 'Detects a Python process initiating a network connection. While this often relates to package installation, it can also indicate a potential malicious script communicating with a C&C server. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_python.yml - Legitimate python scripts using the socket library or similar will trigger this. Apply additional filters and perform an initial baseline before deploying. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_python.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceNetworkEvents
+  | where (InitiatingProcessFolderPath contains "\\python" and InitiatingProcessFolderPath contains ".exe") and (not(((RemoteIP =~ "127.0.0.1" and LocalIP =~ "127.0.0.1") or (InitiatingProcessCommandLine contains "pip.exe" and InitiatingProcessCommandLine contains "install")))) and (not((((InitiatingProcessCommandLine contains ":\\ProgramData\\Anaconda3\\Scripts\\conda-script.py" and InitiatingProcessCommandLine contains "update") and InitiatingProcessParentFileName =~ "conda.exe") or (InitiatingProcessCommandLine contains "C:\\ProgramData\\Anaconda3\\Scripts\\jupyter-notebook-script.py" and InitiatingProcessParentFileName =~ "python.exe"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1046
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: IP
+  fieldMappings:
+  - identifier: Address
+    columnName: RemoteIP
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: InitiatingProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceNetworkEvents

@@ -1,0 +1,40 @@
+id: 6b6cdea3-aaa0-52ed-afd8-5172a14e3f72
+name: Explorer Process Tree Break
+description: 'Detects a command line process that uses explorer.exe to launch arbitrary commands or binaries, which is similar to cmd.exe /c, only it breaks the process tree and makes its parent a new instance of explorer spawning from "svchost" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_explorer_break_process_tree.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_explorer_break_process_tree.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine contains "/factory,{75dff2b7-6936-4c06-a8bb-676a7b00b24b}" or (ProcessCommandLine contains "explorer.exe" and (ProcessCommandLine contains " -root," or ProcessCommandLine contains " /root," or ProcessCommandLine contains " –root," or ProcessCommandLine contains " —root," or ProcessCommandLine contains " ―root,"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1036
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

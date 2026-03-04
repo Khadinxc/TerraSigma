@@ -1,0 +1,40 @@
+id: 39389460-c442-5176-b3b6-8ee1d2711088
+name: PowerShell SAM Copy
+description: 'Detects suspicious PowerShell scripts accessing SAM hives Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_sam_access.yml - Some rare backup scenarios - PowerShell scripts fixing HiveNightmare / SeriousSAM ACLs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_sam_access.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CredentialAccess
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "\\HarddiskVolumeShadowCopy" and ProcessCommandLine contains "System32\\config\\sam") and (ProcessCommandLine contains "Copy-Item" or ProcessCommandLine contains "cp $_." or ProcessCommandLine contains "cpi $_." or ProcessCommandLine contains "copy $_." or ProcessCommandLine contains ".File]::Copy(")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1003
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

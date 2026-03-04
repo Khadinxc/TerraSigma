@@ -1,0 +1,45 @@
+id: beb40fd1-af3f-565f-8534-e5d04914cfcb
+name: New BgInfo.EXE Custom WMI Query Registry Configuration
+description: 'Detects setting of a new registry value related to BgInfo configuration, which can be abused to execute custom WMI query via "BgInfo.exe" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_bginfo_custom_wmi_query.yml - Legitimate WMI query | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_bginfo_custom_wmi_query.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- DefenseEvasion
+query: |-
+  DeviceRegistryEvents
+  | where RegistryValueData startswith "6" and RegistryKey endswith "\\Software\\Winternals\\BGInfo\\UserFields*"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1112
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

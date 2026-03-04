@@ -1,0 +1,40 @@
+id: 32f94aea-58cc-54c4-8296-5a4a64a99f32
+name: Octopus Scanner Malware
+description: 'Detects Octopus Scanner Malware. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_mal_octopus_scanner.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_mal_octopus_scanner.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- InitialAccess
+query: |-
+  DeviceFileEvents
+  | where FolderPath endswith "\\AppData\\Local\\Microsoft\\Cache134.dat" or FolderPath endswith "\\AppData\\Local\\Microsoft\\ExplorerSync.db"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1195
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

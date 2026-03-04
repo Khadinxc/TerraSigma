@@ -1,0 +1,45 @@
+id: e3d86a47-8321-59bc-ad19-2b685a4f6aa9
+name: MSDT Execution Via Answer File
+description: 'Detects execution of "msdt.exe" using an answer file which is simulating the legitimate way of calling msdt via "pcwrun.exe" (For example from the compatibility tab). Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msdt_answer_file_exec.yml - Possible undocumented parents of "msdt" other than "pcwrun". | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msdt_answer_file_exec.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "\\WINDOWS\\diagnostics\\index\\PCWDiagnostic.xml" and (ProcessCommandLine contains " -af " or ProcessCommandLine contains " /af " or ProcessCommandLine contains " –af " or ProcessCommandLine contains " —af " or ProcessCommandLine contains " ―af ") and FolderPath endswith "\\msdt.exe") and (not(InitiatingProcessFolderPath endswith "\\pcwrun.exe"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1218
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

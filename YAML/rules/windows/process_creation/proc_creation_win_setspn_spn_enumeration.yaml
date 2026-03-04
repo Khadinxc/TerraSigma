@@ -1,0 +1,46 @@
+id: dcbfd469-f61f-5205-bef4-a44dc5cf5222
+name: Potential SPN Enumeration Via Setspn.EXE
+description: 'Detects service principal name (SPN) enumeration used for Kerberoasting Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_setspn_spn_enumeration.yml - Administration activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_setspn_spn_enumeration.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CredentialAccess
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains " -q " or ProcessCommandLine contains " /q ") and (FolderPath endswith "\\setspn.exe" or ProcessVersionInfoOriginalFileName =~ "setspn.exe" or (ProcessVersionInfoFileDescription contains "Query or reset the computer" and ProcessVersionInfoFileDescription contains "SPN attribute"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1558
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

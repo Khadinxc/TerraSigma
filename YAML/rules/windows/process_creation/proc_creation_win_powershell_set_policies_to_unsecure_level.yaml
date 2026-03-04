@@ -1,0 +1,46 @@
+id: e3e8b45e-1888-5dad-b696-de343eac3ec6
+name: Change PowerShell Policies to an Insecure Level
+description: 'Detects changing the PowerShell script execution policy to a potentially insecure level using the "-ExecutionPolicy" flag. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_set_policies_to_unsecure_level.yml - Administrator scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_set_policies_to_unsecure_level.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (((ProcessVersionInfoOriginalFileName in~ ("powershell_ise.exe", "PowerShell.EXE", "pwsh.dll")) or (FolderPath endswith "\\powershell_ise.exe" or FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe")) and (ProcessCommandLine contains "Bypass" or ProcessCommandLine contains "Unrestricted") and (ProcessCommandLine contains "-executionpolicy " or ProcessCommandLine contains " -ep " or ProcessCommandLine contains " -exec ")) and (not(((ProcessCommandLine contains "-NoProfile -ExecutionPolicy Bypass -File \"C:\\Program Files\\PowerShell\\7\\" or ProcessCommandLine contains "-NoProfile -ExecutionPolicy Bypass -File \"C:\\Program Files (x86)\\PowerShell\\7\\") and (InitiatingProcessFolderPath in~ ("C:\\Windows\\SysWOW64\\msiexec.exe", "C:\\Windows\\System32\\msiexec.exe"))))) and (not(((ProcessCommandLine contains "-ExecutionPolicy ByPass -File \"C:\\Program Files\\Avast Software\\Avast" or ProcessCommandLine contains "-ExecutionPolicy ByPass -File \"C:\\Program Files (x86)\\Avast Software\\Avast\\") and (InitiatingProcessFolderPath contains "C:\\Program Files\\Avast Software\\Avast\\" or InitiatingProcessFolderPath contains "C:\\Program Files (x86)\\Avast Software\\Avast\\" or InitiatingProcessFolderPath contains "\\instup.exe"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

@@ -1,0 +1,40 @@
+id: b4140a24-5832-5af4-97b6-9758936af90d
+name: Suspicious Desktopimgdownldr Target File
+description: 'Detects a suspicious Microsoft desktopimgdownldr file creation that stores a file to a suspicious location or contains a file with a suspicious extension Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_desktopimgdownldr_file.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_desktopimgdownldr_file.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CommandAndControl
+query: |-
+  DeviceFileEvents
+  | where (InitiatingProcessFolderPath endswith "\\svchost.exe" and FolderPath contains "\\Personalization\\LockScreenImage\\") and (not(FolderPath contains "C:\\Windows\\")) and (not((FolderPath contains ".jpg" or FolderPath contains ".jpeg" or FolderPath contains ".png")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1105
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

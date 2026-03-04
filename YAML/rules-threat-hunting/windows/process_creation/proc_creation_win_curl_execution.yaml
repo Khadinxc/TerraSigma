@@ -1,0 +1,40 @@
+id: 632a73f8-ca20-5e77-87c6-ba50ae0465f7
+name: Curl.EXE Execution
+description: 'Detects a curl process start on Windows, which could indicates a file download from a remote location or a simple web request to a remote server Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_curl_execution.yml - Scripts created by developers and admins - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_curl_execution.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CommandAndControl
+query: |-
+  DeviceProcessEvents
+  | where FolderPath endswith "\\curl.exe" or ProcessVersionInfoProductName =~ "The curl executable"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1105
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

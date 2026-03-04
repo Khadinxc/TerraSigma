@@ -1,0 +1,44 @@
+id: a3c53cea-65dd-5041-9289-0a2ccf961250
+name: System Network Discovery - macOS
+description: 'Detects enumeration of local network configuration Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_system_network_discovery.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_system_network_discovery.yml'
+severity: Informational
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where ((FolderPath endswith "/arp" or FolderPath endswith "/ifconfig" or FolderPath endswith "/netstat" or FolderPath endswith "/networksetup" or FolderPath endswith "/socketfilterfw") or ((ProcessCommandLine contains "/Library/Preferences/com.apple.alf" and ProcessCommandLine contains "read") and FolderPath =~ "/usr/bin/defaults")) and (not(InitiatingProcessFolderPath endswith "/wifivelocityd"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1016
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

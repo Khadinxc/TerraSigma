@@ -1,0 +1,44 @@
+id: 63c5f765-2a1c-55d1-9a4d-7f489530780b
+name: Screen Capture Activity Via Psr.EXE
+description: 'Detects execution of Windows Problem Steps Recorder (psr.exe), a utility used to record the user screen and clicks. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_psr_capture_screenshots.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_psr_capture_screenshots.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Collection
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "/start" or ProcessCommandLine contains "-start") and FolderPath endswith "\\Psr.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1113
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

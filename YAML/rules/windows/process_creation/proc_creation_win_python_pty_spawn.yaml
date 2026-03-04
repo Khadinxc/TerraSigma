@@ -1,0 +1,44 @@
+id: 523bb429-6296-5d43-8347-303e1cbdfb20
+name: Python Spawning Pretty TTY on Windows
+description: 'Detects python spawning a pretty tty Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_python_pty_spawn.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_python_pty_spawn.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (FolderPath endswith "python.exe" or FolderPath endswith "python3.exe" or FolderPath endswith "python2.exe") and ((ProcessCommandLine contains "import pty" and ProcessCommandLine contains ".spawn(") or ProcessCommandLine contains "from pty import spawn")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

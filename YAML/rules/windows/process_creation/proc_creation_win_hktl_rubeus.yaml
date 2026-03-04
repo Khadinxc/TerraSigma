@@ -1,0 +1,50 @@
+id: 817f4c5e-8ba5-5ef6-b20e-62ca7341ad2c
+name: HackTool - Rubeus Execution
+description: 'Detects the execution of the hacktool Rubeus via PE information of command line parameters Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_rubeus.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_rubeus.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- CredentialAccess
+- LateralMovement
+query: |-
+  DeviceProcessEvents
+  | where FolderPath endswith "\\Rubeus.exe" or ProcessVersionInfoOriginalFileName =~ "Rubeus.exe" or ProcessVersionInfoFileDescription =~ "Rubeus" or (ProcessCommandLine contains "asreproast " or ProcessCommandLine contains "dump /service:krbtgt " or ProcessCommandLine contains "dump /luid:0x" or ProcessCommandLine contains "kerberoast " or ProcessCommandLine contains "createnetonly /program:" or ProcessCommandLine contains "ptt /ticket:" or ProcessCommandLine contains "/impersonateuser:" or ProcessCommandLine contains "renew /ticket:" or ProcessCommandLine contains "asktgt /user:" or ProcessCommandLine contains "harvest /interval:" or ProcessCommandLine contains "s4u /user:" or ProcessCommandLine contains "s4u /ticket:" or ProcessCommandLine contains "hash /password:" or ProcessCommandLine contains "golden /aes256:" or ProcessCommandLine contains "silver /user:")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1003
+- T1558
+- T1550
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

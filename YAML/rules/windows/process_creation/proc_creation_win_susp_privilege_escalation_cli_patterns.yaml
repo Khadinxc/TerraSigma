@@ -1,0 +1,38 @@
+id: 9c06157b-f3c6-52c6-b4b9-1bfc280decc5
+name: Suspicious RunAs-Like Flag Combination
+description: 'Detects suspicious command line flags that let the user set a target user and command as e.g. seen in PsExec-like tools Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_privilege_escalation_cli_patterns.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_privilege_escalation_cli_patterns.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains " -c cmd" or ProcessCommandLine contains " -c \"cmd" or ProcessCommandLine contains " -c powershell" or ProcessCommandLine contains " -c \"powershell" or ProcessCommandLine contains " --command cmd" or ProcessCommandLine contains " --command powershell" or ProcessCommandLine contains " -c whoami" or ProcessCommandLine contains " -c wscript" or ProcessCommandLine contains " -c cscript") and (ProcessCommandLine contains " -u system " or ProcessCommandLine contains " --user system " or ProcessCommandLine contains " -u NT" or ProcessCommandLine contains " -u \"NT" or ProcessCommandLine contains " -u 'NT" or ProcessCommandLine contains " --system " or ProcessCommandLine contains " -u administrator ")
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

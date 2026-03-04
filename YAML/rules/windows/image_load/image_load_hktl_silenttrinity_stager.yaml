@@ -1,0 +1,36 @@
+id: d6addff0-03f4-5b27-bd48-fd375f1171fe
+name: HackTool - SILENTTRINITY Stager DLL Load
+description: 'Detects SILENTTRINITY stager dll loading activity Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_hktl_silenttrinity_stager.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_hktl_silenttrinity_stager.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CommandAndControl
+query: |-
+  DeviceImageLoadEvents
+  | where InitiatingProcessVersionInfoFileDescription contains "st2stager"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1071
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

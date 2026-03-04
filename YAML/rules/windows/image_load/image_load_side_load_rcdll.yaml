@@ -1,0 +1,42 @@
+id: cce42813-1885-5051-999c-0c863f3a5a41
+name: Potential Rcdll.DLL Sideloading
+description: 'Detects potential DLL sideloading of rcdll.dll Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_rcdll.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_rcdll.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- DefenseEvasion
+- PrivilegeEscalation
+query: |-
+  DeviceImageLoadEvents
+  | where FolderPath endswith "\\rcdll.dll" and (not((FolderPath startswith "C:\\Program Files (x86)\\Microsoft Visual Studio\\" or FolderPath startswith "C:\\Program Files (x86)\\Windows Kits\\")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1574
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

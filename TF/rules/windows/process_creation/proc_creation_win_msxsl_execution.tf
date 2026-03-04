@@ -1,0 +1,73 @@
+resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_msxsl_execution" {
+  name                       = "proc_creation_win_msxsl_execution"
+  log_analytics_workspace_id = var.workspace_id
+  display_name               = "Msxsl.EXE Execution"
+  description                = "Detects the execution of the MSXSL utility. This can be used to execute Extensible Stylesheet Language (XSL) files. These files are commonly used to describe the processing and rendering of data within XML files. Adversaries can abuse this functionality to execute arbitrary files while potentially bypassing application whitelisting defenses. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msxsl_execution.yml - Msxsl is not installed by default and is deprecated, so unlikely on most systems. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msxsl_execution.yml"
+  severity                   = "Medium"
+  query                      = <<QUERY
+DeviceProcessEvents
+| where FolderPath endswith "\\msxsl.exe"
+QUERY
+  query_frequency            = "PT1H"
+  query_period               = "PT1H"
+  trigger_operator           = "GreaterThan"
+  trigger_threshold          = 0
+  suppression_enabled        = false
+  suppression_duration       = "PT5H"
+  tactics                    = ["DefenseEvasion"]
+  techniques                 = ["T1220"]
+  enabled                    = true
+
+  incident {
+    create_incident_enabled = true
+    grouping {
+      enabled                 = false
+      lookback_duration       = "PT5H"
+      reopen_closed_incidents = false
+      entity_matching_method  = "AllEntities"
+      by_entities             = []
+      by_alert_details        = []
+      by_custom_details       = []
+    }
+  }
+
+  event_grouping {
+    aggregation_method = "SingleAlert"
+  }
+
+  entity_mapping {
+    entity_type = "Account"
+    field_mapping {
+      identifier  = "Name"
+      column_name = "InitiatingProcessAccountName"
+    }
+    field_mapping {
+      identifier  = "NTDomain"
+      column_name = "InitiatingProcessAccountDomain"
+    }
+    field_mapping {
+      identifier  = "Sid"
+      column_name = "InitiatingProcessAccountSid"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "Host"
+    field_mapping {
+      identifier  = "HostName"
+      column_name = "DeviceName"
+    }
+    field_mapping {
+      identifier  = "AzureID"
+      column_name = "DeviceId"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "File"
+    field_mapping {
+      identifier  = "Directory"
+      column_name = "FolderPath"
+    }
+  }
+}

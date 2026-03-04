@@ -1,0 +1,40 @@
+id: c51abce1-db2b-5308-90ea-f6b3b334640c
+name: Execute From Alternate Data Streams
+description: 'Detects execution from an Alternate Data Stream (ADS). Adversaries may use NTFS file attributes to hide their malicious data in order to evade detection Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_alternate_data_streams.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_alternate_data_streams.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine contains "txt:" and ((ProcessCommandLine contains "esentutl " and ProcessCommandLine contains " /y " and ProcessCommandLine contains " /d " and ProcessCommandLine contains " /o ") or (ProcessCommandLine contains "makecab " and ProcessCommandLine contains ".cab") or (ProcessCommandLine contains "reg " and ProcessCommandLine contains " export ") or (ProcessCommandLine contains "regedit " and ProcessCommandLine contains " /E ") or (ProcessCommandLine contains "type " and ProcessCommandLine contains " > "))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1564
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

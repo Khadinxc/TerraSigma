@@ -1,0 +1,40 @@
+id: 8836d939-a164-52c4-b13a-ec585353a44f
+name: Suspicious File Created in Outlook Temporary Directory
+description: 'Detects the creation of files with suspicious file extensions in the temporary directory that Outlook uses when opening attachments. This can be used to detect spear-phishing campaigns that use suspicious files as attachments, which may contain malicious code. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_outlook_susp_file_creation_in_temp_dir.yml - Opening of headers or footers in email signatures that include SVG images or legitimate SVG attachments | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_outlook_susp_file_creation_in_temp_dir.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- InitialAccess
+query: |-
+  DeviceFileEvents
+  | where (FolderPath endswith ".cpl" or FolderPath endswith ".hta" or FolderPath endswith ".iso" or FolderPath endswith ".rdp" or FolderPath endswith ".svg" or FolderPath endswith ".vba" or FolderPath endswith ".vbe" or FolderPath endswith ".vbs") and ((FolderPath contains "\\AppData\\Local\\Packages\\Microsoft.Outlook_" or FolderPath contains "\\AppData\\Local\\Microsoft\\Olk\\Attachments\\") or (FolderPath contains "\\AppData\\Local\\Microsoft\\Windows\\" and FolderPath contains "\\Content.Outlook\\"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1566
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

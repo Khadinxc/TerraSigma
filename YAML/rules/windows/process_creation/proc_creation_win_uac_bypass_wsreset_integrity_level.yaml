@@ -1,0 +1,41 @@
+id: a494c1ba-ddc8-5a74-ad2a-6c124c927433
+name: UAC Bypass WSReset
+description: 'Detects the pattern of UAC Bypass via WSReset usable by default sysmon-config Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_wsreset_integrity_level.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_wsreset_integrity_level.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- PrivilegeEscalation
+query: |-
+  DeviceProcessEvents
+  | where FolderPath endswith "\\wsreset.exe" and (ProcessIntegrityLevel in~ ("High", "System", "S-1-16-16384", "S-1-16-12288"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1548
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

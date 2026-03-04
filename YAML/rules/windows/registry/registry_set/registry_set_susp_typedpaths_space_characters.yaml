@@ -1,0 +1,46 @@
+id: dcc72648-2ce3-5bfa-b82b-052e7eae4a80
+name: Suspicious Space Characters in TypedPaths Registry Path - FileFix
+description: 'Detects the occurrence of numerous space characters in TypedPaths registry paths, which may indicate execution via phishing lures using file-fix techniques to hide malicious commands. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_typedpaths_space_characters.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_typedpaths_space_characters.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- DefenseEvasion
+query: |-
+  DeviceRegistryEvents
+  | where (RegistryValueData contains "#" and RegistryKey endswith "\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\TypedPaths\\url1") and (RegistryValueData contains "            " or RegistryValueData contains "            " or RegistryValueData contains "            " or RegistryValueData contains "            " or RegistryValueData contains "            " or RegistryValueData contains "            " or RegistryValueData contains "            " or RegistryValueData contains "            " or RegistryValueData contains "            " or RegistryValueData contains "            " or RegistryValueData contains "            " or RegistryValueData contains "            " or RegistryValueData contains "            ")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1204
+- T1027
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

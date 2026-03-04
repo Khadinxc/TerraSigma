@@ -1,0 +1,40 @@
+id: b47328c8-2a10-5842-a0c6-9cd5408e2ee8
+name: System Shutdown/Reboot - MacOs
+description: 'Adversaries may shutdown/reboot systems to interrupt access to, or aid in the destruction of, those systems. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_system_shutdown_reboot.yml - Legitimate administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_system_shutdown_reboot.yml'
+severity: Informational
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Impact
+query: |-
+  DeviceProcessEvents
+  | where FolderPath endswith "/shutdown" or FolderPath endswith "/reboot" or FolderPath endswith "/halt"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1529
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

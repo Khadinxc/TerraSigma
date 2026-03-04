@@ -1,0 +1,46 @@
+id: ce3341a7-bbe1-5f3b-b07a-01e5c7729870
+name: Suspicious File Execution From Internet Hosted WebDav Share
+description: 'Detects the execution of the "net use" command to mount a WebDAV server and then immediately execute some content in it. As seen being used in malicious LNK files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_net_use_and_exec_combo.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_net_use_and_exec_combo.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains " net use http" and ProcessCommandLine contains "& start /b " and ProcessCommandLine contains "\\DavWWWRoot\\") and (ProcessCommandLine contains ".exe " or ProcessCommandLine contains ".dll " or ProcessCommandLine contains ".bat " or ProcessCommandLine contains ".vbs " or ProcessCommandLine contains ".ps1 ") and (FolderPath contains "\\cmd.exe" or ProcessVersionInfoOriginalFileName =~ "Cmd.EXE")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

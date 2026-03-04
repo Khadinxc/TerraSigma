@@ -1,0 +1,38 @@
+id: 6c911fb6-97d9-502f-90e7-6b1dc0cbcc5d
+name: Lace Tempest File Indicators
+description: 'Detects PowerShell script file creation with specific names or suffixes which was seen being used often in PowerShell scripts by FIN7 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lace-Tempest/file_event_win_apt_lace_tempest_indicators.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lace-Tempest/file_event_win_apt_lace_tempest_indicators.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceFileEvents
+  | where (FolderPath endswith ":\\Program Files\\SysAidServer\\tomcat\\webapps\\usersfiles\\user.exe" or FolderPath endswith ":\\Program Files\\SysAidServer\\tomcat\\webapps\\usersfiles.war" or FolderPath endswith ":\\Program Files\\SysAidServer\\tomcat\\webapps\\leave") or FolderPath contains ":\\Program Files\\SysAidServer\\tomcat\\webapps\\user."
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

@@ -1,0 +1,40 @@
+id: 9740ff4e-d0af-5c4e-805a-fb6cce6395c5
+name: Network Connection Initiated By AddinUtil.EXE
+description: 'Detects a network connection initiated by the Add-In deployment cache updating utility "AddInutil.exe". This could indicate a potential command and control communication as this tool doesn''t usually initiate network activity. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_addinutil_initiated.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_addinutil_initiated.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceNetworkEvents
+  | where InitiatingProcessFolderPath endswith "\\addinutil.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1218
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: IP
+  fieldMappings:
+  - identifier: Address
+    columnName: RemoteIP
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceNetworkEvents

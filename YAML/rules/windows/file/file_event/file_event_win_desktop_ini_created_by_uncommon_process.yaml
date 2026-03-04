@@ -1,0 +1,41 @@
+id: 4f554943-a480-5637-a5be-e9b9e666a6a5
+name: Desktop.INI Created by Uncommon Process
+description: 'Detects unusual processes accessing desktop.ini, which can be leveraged to alter how Explorer displays a folder''s content (i.e. renaming files) without changing them on disk. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_desktop_ini_created_by_uncommon_process.yml - Operations performed through Windows SCCM or equivalent - Read only access list authority | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_desktop_ini_created_by_uncommon_process.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Persistence
+query: |-
+  DeviceFileEvents
+  | where FolderPath endswith "\\desktop.ini" and (not(((InitiatingProcessFolderPath startswith "C:\\Windows\\" or InitiatingProcessFolderPath startswith "C:\\Program Files\\" or InitiatingProcessFolderPath startswith "C:\\Program Files (x86)\\") or FolderPath startswith "C:\\$WINDOWS.~BT\\NewOS\\"))) and (not(((InitiatingProcessFolderPath endswith "\\AppData\\Local\\JetBrains\\Toolbox\\bin\\7z.exe" and InitiatingProcessFolderPath startswith "C:\\Users\\" and FolderPath contains "\\JetBrains\\apps\\") or (InitiatingProcessFolderPath contains "\\AppData\\Local\\Microsoft\\OneDrive\\" and InitiatingProcessFolderPath startswith "C:\\Users\\"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1547
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

@@ -1,0 +1,41 @@
+id: d35005a8-7e75-5715-926d-94aa4ab249ef
+name: Uncommon Child Process Of Setres.EXE
+description: 'Detects uncommon child process of Setres.EXE. Setres.EXE is a Windows server only process and tool that can be used to set the screen resolution. It can potentially be abused in order to launch any arbitrary file with a name containing the word "choice" from the current execution path. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_setres_uncommon_child_process.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_setres_uncommon_child_process.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (FolderPath contains "\\choice" and InitiatingProcessFolderPath endswith "\\setres.exe") and (not((FolderPath endswith "C:\\Windows\\System32\\choice.exe" or FolderPath endswith "C:\\Windows\\SysWOW64\\choice.exe")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1218
+- T1202
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

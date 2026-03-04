@@ -1,0 +1,40 @@
+id: db63b1b3-4c37-598a-80fb-db4e641e1bef
+name: New Process Created Via Taskmgr.EXE
+description: 'Detects the creation of a process via the Windows task manager. This might be an attempt to bypass UAC Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_taskmgr_susp_child_process.yml - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_taskmgr_susp_child_process.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where InitiatingProcessFolderPath endswith "\\taskmgr.exe" and (not((FolderPath endswith ":\\Windows\\System32\\mmc.exe" or FolderPath endswith ":\\Windows\\System32\\resmon.exe" or FolderPath endswith ":\\Windows\\System32\\Taskmgr.exe")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1036
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

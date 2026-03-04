@@ -1,0 +1,40 @@
+id: b1f52649-7928-5acd-8189-f9e7ba0af2b7
+name: Suspicious TSCON Start as SYSTEM
+description: 'Detects a tscon.exe start as LOCAL SYSTEM Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tscon_localsystem.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tscon_localsystem.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CommandAndControl
+query: |-
+  DeviceProcessEvents
+  | where FolderPath endswith "\\tscon.exe" and (AccountName contains "AUTHORI" or AccountName contains "AUTORI")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1219
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

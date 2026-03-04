@@ -1,0 +1,47 @@
+id: b53614bb-4672-5e25-a2de-25edbda8c318
+name: Filter Driver Unloaded Via Fltmc.EXE
+description: 'Detect filter driver unloading activity via fltmc.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fltmc_unload_driver.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fltmc_unload_driver.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "unload" and (FolderPath endswith "\\fltMC.exe" or ProcessVersionInfoOriginalFileName =~ "fltMC.exe")) and (not((((ProcessCommandLine endswith "unload rtp_filesystem_filter" or ProcessCommandLine endswith "unload rtp_filter") and (InitiatingProcessFolderPath contains "\\AppData\\Local\\Temp\\" or InitiatingProcessFolderPath contains ":\\Windows\\Temp\\") and InitiatingProcessFolderPath endswith "\\endpoint-protection-installer-x64.tmp") or (ProcessCommandLine endswith "unload DFMFilter" and InitiatingProcessFolderPath =~ "C:\\Program Files (x86)\\ManageEngine\\uems_agent\\bin\\dcfaservice64.exe"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1070
+- T1562
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

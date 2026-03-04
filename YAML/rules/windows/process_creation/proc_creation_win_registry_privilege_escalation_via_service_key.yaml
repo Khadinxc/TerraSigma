@@ -1,0 +1,42 @@
+id: 4167bd5c-68c9-5910-a275-f72ab223c74d
+name: Potential Privilege Escalation via Service Permissions Weakness
+description: 'Detect modification of services configuration (ImagePath, FailureCommand and ServiceDLL) in registry by processes with Medium integrity level Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_privilege_escalation_via_service_key.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_privilege_escalation_via_service_key.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- DefenseEvasion
+- PrivilegeEscalation
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "\\ImagePath" or ProcessCommandLine contains "\\FailureCommand" or ProcessCommandLine contains "\\ServiceDll") and (ProcessCommandLine contains "ControlSet" and ProcessCommandLine contains "services") and (ProcessIntegrityLevel in~ ("Medium", "S-1-16-8192"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1574
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

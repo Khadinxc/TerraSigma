@@ -1,0 +1,48 @@
+id: 094ca6d8-93e1-51fd-931d-ade5682bab32
+name: Remote Access Tool - Renamed MeshAgent Execution - Windows
+description: 'Detects the execution of a renamed instance of the Remote Monitoring and Management (RMM) tool, MeshAgent. RMM tools such as MeshAgent are commonly utilized by IT administrators for legitimate remote support and system management. However, malicious actors may exploit these tools by renaming them to bypass detection mechanisms, enabling unauthorized access and control over compromised systems. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_renamed_meshagent_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_renamed_meshagent_execution.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CommandAndControl
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "--meshServiceName" or ProcessVersionInfoOriginalFileName contains "meshagent") and (not(FolderPath endswith "\\meshagent.exe"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1219
+- T1036
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

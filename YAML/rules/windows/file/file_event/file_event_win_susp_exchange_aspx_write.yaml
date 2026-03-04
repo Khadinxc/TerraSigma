@@ -1,0 +1,42 @@
+id: b921eeb4-95e0-545d-9df1-a0390718c9f2
+name: Suspicious MSExchangeMailboxReplication ASPX Write
+description: 'Detects suspicious activity in which the MSExchangeMailboxReplication process writes .asp and .apsx files to disk, which could be a sign of ProxyShell exploitation Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_exchange_aspx_write.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_exchange_aspx_write.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- InitialAccess
+- Persistence
+query: |-
+  DeviceFileEvents
+  | where InitiatingProcessFolderPath endswith "\\MSExchangeMailboxReplication.exe" and (FolderPath endswith ".aspx" or FolderPath endswith ".asp")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1190
+- T1505
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

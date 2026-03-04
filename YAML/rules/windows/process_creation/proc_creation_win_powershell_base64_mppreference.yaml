@@ -1,0 +1,40 @@
+id: c0beecde-3607-561d-b2a0-b66e7152f77e
+name: Powershell Base64 Encoded MpPreference Cmdlet
+description: 'Detects base64 encoded "MpPreference" PowerShell cmdlet code that tries to modifies or tamper with Windows Defender AV Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_mppreference.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_mppreference.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "QWRkLU1wUHJlZmVyZW5jZS" or ProcessCommandLine contains "FkZC1NcFByZWZlcmVuY2Ug" or ProcessCommandLine contains "BZGQtTXBQcmVmZXJlbmNlI" or ProcessCommandLine contains "U2V0LU1wUHJlZmVyZW5jZS" or ProcessCommandLine contains "NldC1NcFByZWZlcmVuY2Ug" or ProcessCommandLine contains "TZXQtTXBQcmVmZXJlbmNlI" or ProcessCommandLine contains "YWRkLW1wcHJlZmVyZW5jZS" or ProcessCommandLine contains "FkZC1tcHByZWZlcmVuY2Ug" or ProcessCommandLine contains "hZGQtbXBwcmVmZXJlbmNlI" or ProcessCommandLine contains "c2V0LW1wcHJlZmVyZW5jZS" or ProcessCommandLine contains "NldC1tcHByZWZlcmVuY2Ug" or ProcessCommandLine contains "zZXQtbXBwcmVmZXJlbmNlI") or (ProcessCommandLine contains "QQBkAGQALQBNAHAAUAByAGUAZgBlAHIAZQBuAGMAZQAgA" or ProcessCommandLine contains "EAZABkAC0ATQBwAFAAcgBlAGYAZQByAGUAbgBjAGUAIA" or ProcessCommandLine contains "BAGQAZAAtAE0AcABQAHIAZQBmAGUAcgBlAG4AYwBlACAA" or ProcessCommandLine contains "UwBlAHQALQBNAHAAUAByAGUAZgBlAHIAZQBuAGMAZQAgA" or ProcessCommandLine contains "MAZQB0AC0ATQBwAFAAcgBlAGYAZQByAGUAbgBjAGUAIA" or ProcessCommandLine contains "TAGUAdAAtAE0AcABQAHIAZQBmAGUAcgBlAG4AYwBlACAA" or ProcessCommandLine contains "YQBkAGQALQBtAHAAcAByAGUAZgBlAHIAZQBuAGMAZQAgA" or ProcessCommandLine contains "EAZABkAC0AbQBwAHAAcgBlAGYAZQByAGUAbgBjAGUAIA" or ProcessCommandLine contains "hAGQAZAAtAG0AcABwAHIAZQBmAGUAcgBlAG4AYwBlACAA" or ProcessCommandLine contains "cwBlAHQALQBtAHAAcAByAGUAZgBlAHIAZQBuAGMAZQAgA" or ProcessCommandLine contains "MAZQB0AC0AbQBwAHAAcgBlAGYAZQByAGUAbgBjAGUAIA" or ProcessCommandLine contains "zAGUAdAAtAG0AcABwAHIAZQBmAGUAcgBlAG4AYwBlACAA")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1562
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

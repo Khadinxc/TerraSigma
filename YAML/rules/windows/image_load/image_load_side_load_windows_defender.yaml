@@ -1,0 +1,42 @@
+id: 2d7250dc-95b6-5f9c-b308-b892511be866
+name: Potential Mpclient.DLL Sideloading
+description: 'Detects potential sideloading of "mpclient.dll" by Windows Defender processes ("MpCmdRun" and "NisSrv") from their non-default directory. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_windows_defender.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_windows_defender.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Persistence
+- DefenseEvasion
+query: |-
+  DeviceImageLoadEvents
+  | where (FolderPath endswith "\\mpclient.dll" and (InitiatingProcessFolderPath endswith "\\MpCmdRun.exe" or InitiatingProcessFolderPath endswith "\\NisSrv.exe")) and (not((InitiatingProcessFolderPath startswith "C:\\Program Files (x86)\\Windows Defender\\" or InitiatingProcessFolderPath startswith "C:\\Program Files\\Microsoft Security Client\\" or InitiatingProcessFolderPath startswith "C:\\Program Files\\Windows Defender\\" or InitiatingProcessFolderPath startswith "C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\" or InitiatingProcessFolderPath startswith "C:\\Windows\\WinSxS\\")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1574
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

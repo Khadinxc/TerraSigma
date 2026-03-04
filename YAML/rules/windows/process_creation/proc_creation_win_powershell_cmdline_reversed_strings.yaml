@@ -1,0 +1,48 @@
+id: 09679c88-2eea-55c5-9533-44870cd5cb3a
+name: Potential PowerShell Obfuscation Via Reversed Commands
+description: 'Detects the presence of reversed PowerShell commands in the CommandLine. This is often used as a method of obfuscation by attackers Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cmdline_reversed_strings.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cmdline_reversed_strings.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "hctac" or ProcessCommandLine contains "kaerb" or ProcessCommandLine contains "dnammoc" or ProcessCommandLine contains "ekovn" or ProcessCommandLine contains "eliFd" or ProcessCommandLine contains "rahc" or ProcessCommandLine contains "etirw" or ProcessCommandLine contains "golon" or ProcessCommandLine contains "tninon" or ProcessCommandLine contains "eddih" or ProcessCommandLine contains "tpircS" or ProcessCommandLine contains "ssecorp" or ProcessCommandLine contains "llehsrewop" or ProcessCommandLine contains "esnopser" or ProcessCommandLine contains "daolnwod" or ProcessCommandLine contains "tneilCbeW" or ProcessCommandLine contains "tneilc" or ProcessCommandLine contains "ptth" or ProcessCommandLine contains "elifotevas" or ProcessCommandLine contains "46esab" or ProcessCommandLine contains "htaPpmeTteG" or ProcessCommandLine contains "tcejbO" or ProcessCommandLine contains "maerts" or ProcessCommandLine contains "hcaerof" or ProcessCommandLine contains "retupmoc") and ((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe") or (ProcessVersionInfoOriginalFileName in~ ("PowerShell.EXE", "pwsh.dll")))) and (not((ProcessCommandLine contains " -EncodedCommand " or ProcessCommandLine contains " -enc ")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1027
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

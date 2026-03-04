@@ -1,0 +1,44 @@
+id: 55bb7a28-a21e-579f-b24f-3e527482b1bb
+name: Suspicious Java Children Processes
+description: 'Detects java process spawning suspicious children Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_java_children.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_java_children.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "/bin/sh" or ProcessCommandLine contains "bash" or ProcessCommandLine contains "dash" or ProcessCommandLine contains "ksh" or ProcessCommandLine contains "zsh" or ProcessCommandLine contains "csh" or ProcessCommandLine contains "fish" or ProcessCommandLine contains "curl" or ProcessCommandLine contains "wget" or ProcessCommandLine contains "python") and InitiatingProcessFolderPath endswith "/java"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

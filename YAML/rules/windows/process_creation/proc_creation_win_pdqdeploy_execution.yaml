@@ -1,0 +1,41 @@
+id: ed02f638-7649-5900-b587-f7289e162050
+name: PDQ Deploy Remote Adminstartion Tool Execution
+description: 'Detect use of PDQ Deploy remote admin tool Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pdqdeploy_execution.yml - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pdqdeploy_execution.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- LateralMovement
+query: |-
+  DeviceProcessEvents
+  | where ProcessVersionInfoFileDescription =~ "PDQ Deploy Console" or ProcessVersionInfoProductName =~ "PDQ Deploy" or ProcessVersionInfoCompanyName =~ "PDQ.com" or ProcessVersionInfoOriginalFileName =~ "PDQDeployConsole.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1072
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

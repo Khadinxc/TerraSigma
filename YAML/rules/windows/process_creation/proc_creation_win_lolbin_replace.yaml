@@ -1,0 +1,44 @@
+id: b2bcfc4a-357c-5ce4-a5f4-337857357ff3
+name: Replace.exe Usage
+description: 'Detects the use of Replace.exe which can be used to replace file with another file Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_replace.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_replace.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CommandAndControl
+query: |-
+  DeviceProcessEvents
+  | where FolderPath endswith "\\replace.exe" and (ProcessCommandLine contains "-a" or ProcessCommandLine contains "/a" or ProcessCommandLine contains "–a" or ProcessCommandLine contains "—a" or ProcessCommandLine contains "―a")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1105
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

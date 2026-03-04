@@ -1,0 +1,45 @@
+id: 7c6c9b99-8e88-5b93-a35e-9fd3f4366a3a
+name: Winlogon AllowMultipleTSSessions Enable
+description: 'Detects when the ''AllowMultipleTSSessions'' value is enabled. Which allows for multiple Remote Desktop connection sessions to be opened at once. This is often used by attacker as a way to connect to an RDP session without disconnecting the other users Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_winlogon_allow_multiple_tssessions.yml - Legitimate use of the multi session functionality | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_winlogon_allow_multiple_tssessions.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- DefenseEvasion
+query: |-
+  DeviceRegistryEvents
+  | where RegistryValueData endswith "DWORD (0x00000001)" and RegistryKey endswith "\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\AllowMultipleTSSessions"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1112
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

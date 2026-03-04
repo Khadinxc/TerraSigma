@@ -1,0 +1,42 @@
+id: d78f5237-b69a-5ff9-88b1-3e9b409ce775
+name: Time Travel Debugging Utility Usage - Image
+description: 'Detects usage of Time Travel Debugging Utility. Adversaries can execute malicious processes and dump processes, such as lsass.exe, via tttracer.exe. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_tttracer_module_load.yml - Legitimate usage by software developers/testers | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_tttracer_module_load.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- CredentialAccess
+query: |-
+  DeviceImageLoadEvents
+  | where FolderPath endswith "\\ttdrecord.dll" or FolderPath endswith "\\ttdwriter.dll" or FolderPath endswith "\\ttdloader.dll"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1218
+- T1003
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

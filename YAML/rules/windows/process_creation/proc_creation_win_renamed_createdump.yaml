@@ -1,0 +1,48 @@
+id: 374b583a-709a-5556-8349-9d73b42d8837
+name: Renamed CreateDump Utility Execution
+description: 'Detects uses of a renamed legitimate createdump.exe LOLOBIN utility to dump process memory Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_createdump.yml - Command lines that use the same flags | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_createdump.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- CredentialAccess
+query: |-
+  DeviceProcessEvents
+  | where (((ProcessCommandLine contains " -u " and ProcessCommandLine contains " -f " and ProcessCommandLine contains ".dmp") or (ProcessCommandLine contains " --full " and ProcessCommandLine contains " --name " and ProcessCommandLine contains ".dmp")) or ProcessVersionInfoOriginalFileName =~ "FX_VER_INTERNALNAME_STR") and (not(FolderPath endswith "\\createdump.exe"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1036
+- T1003
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

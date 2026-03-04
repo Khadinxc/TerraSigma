@@ -1,0 +1,44 @@
+id: 7c21c72e-7b6e-583d-9415-7674544670da
+name: PUA- IOX Tunneling Tool Execution
+description: 'Detects the use of IOX - a tool for port forwarding and intranet proxy purposes Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_iox.yml - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_iox.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CommandAndControl
+query: |-
+  DeviceProcessEvents
+  | where FolderPath endswith "\\iox.exe" or (ProcessCommandLine contains ".exe fwd -l " or ProcessCommandLine contains ".exe fwd -r " or ProcessCommandLine contains ".exe proxy -l " or ProcessCommandLine contains ".exe proxy -r ") or (MD5 startswith "9DB2D314DD3F704A02051EF5EA210993" or SHA1 startswith "039130337E28A6623ECF9A0A3DA7D92C5964D8DD" or SHA256 startswith "C6CF82919B809967D9D90EA73772A8AA1C1EB3BC59252D977500F64F1A0D6731")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1090
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

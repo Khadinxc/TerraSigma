@@ -1,0 +1,46 @@
+id: b9982689-f8ff-568e-96a5-f2ae44df374e
+name: Suspicious Manipulation Of Default Accounts Via Net.EXE
+description: 'Detects suspicious manipulations of default accounts such as ''administrator'' and ''guest''. For example ''enable'' or ''disable'' accounts or change the password...etc Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_user_default_accounts_manipulation.yml - Some false positives could occur with the admin or guest account. It depends on the scripts being used by the admins in your env. If you experience a lot of FP you could reduce the level to medium | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_user_default_accounts_manipulation.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Collection
+query: |-
+  DeviceProcessEvents
+  | where (((FolderPath endswith "\\net.exe" or FolderPath endswith "\\net1.exe") or (ProcessVersionInfoOriginalFileName in~ ("net.exe", "net1.exe"))) and ProcessCommandLine contains " user " and (ProcessCommandLine contains " Järjestelmänvalvoja " or ProcessCommandLine contains " Rendszergazda " or ProcessCommandLine contains " Администратор " or ProcessCommandLine contains " Administrateur " or ProcessCommandLine contains " Administrador " or ProcessCommandLine contains " Administratör " or ProcessCommandLine contains " Administrator " or ProcessCommandLine contains " guest " or ProcessCommandLine contains " DefaultAccount " or ProcessCommandLine contains " \"Järjestelmänvalvoja\" " or ProcessCommandLine contains " \"Rendszergazda\" " or ProcessCommandLine contains " \"Администратор\" " or ProcessCommandLine contains " \"Administrateur\" " or ProcessCommandLine contains " \"Administrador\" " or ProcessCommandLine contains " \"Administratör\" " or ProcessCommandLine contains " \"Administrator\" " or ProcessCommandLine contains " \"guest\" " or ProcessCommandLine contains " \"DefaultAccount\" " or ProcessCommandLine contains " 'Järjestelmänvalvoja' " or ProcessCommandLine contains " 'Rendszergazda' " or ProcessCommandLine contains " 'Администратор' " or ProcessCommandLine contains " 'Administrateur' " or ProcessCommandLine contains " 'Administrador' " or ProcessCommandLine contains " 'Administratör' " or ProcessCommandLine contains " 'Administrator' " or ProcessCommandLine contains " 'guest' " or ProcessCommandLine contains " 'DefaultAccount' ")) and (not((ProcessCommandLine contains "guest" and ProcessCommandLine contains "/active no")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1560
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

@@ -1,0 +1,49 @@
+id: f0703b97-3391-5e95-bece-18ae8ffd5380
+name: Communication To Ngrok Tunneling Service - Linux
+description: 'Detects an executable accessing an ngrok tunneling endpoint, which could be a sign of forbidden exfiltration of data exfiltration by malicious actors Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/network_connection/net_connection_lnx_ngrok_tunnel.yml - Legitimate use of ngrok | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/network_connection/net_connection_lnx_ngrok_tunnel.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Exfiltration
+- CommandAndControl
+query: |-
+  DeviceNetworkEvents
+  | where RemoteUrl contains "tunnel.us.ngrok.com" or RemoteUrl contains "tunnel.eu.ngrok.com" or RemoteUrl contains "tunnel.ap.ngrok.com" or RemoteUrl contains "tunnel.au.ngrok.com" or RemoteUrl contains "tunnel.sa.ngrok.com" or RemoteUrl contains "tunnel.jp.ngrok.com" or RemoteUrl contains "tunnel.in.ngrok.com"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1567
+- T1568
+- T1572
+- T1090
+- T1102
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: IP
+  fieldMappings:
+  - identifier: Address
+    columnName: RemoteIP
+- entityType: URL
+  fieldMappings:
+  - identifier: Url
+    columnName: RemoteUrl
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceNetworkEvents

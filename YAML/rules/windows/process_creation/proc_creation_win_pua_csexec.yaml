@@ -1,0 +1,42 @@
+id: ac9a1f2c-bced-5b35-8c73-6341f707e908
+name: PUA - CsExec Execution
+description: 'Detects the use of the lesser known remote execution tool named CsExec a PsExec alternative Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_csexec.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_csexec.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- ResourceDevelopment
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where FolderPath endswith "\\csexec.exe" or ProcessVersionInfoFileDescription =~ "csexec"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1587
+- T1569
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

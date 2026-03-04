@@ -1,0 +1,47 @@
+id: 3d8a5243-c8e4-5d8d-b734-c126dbdf1c5d
+name: Compressed File Creation Via Tar.EXE
+description: 'Detects execution of "tar.exe" in order to create a compressed file. Adversaries may abuse various utilities to compress or encrypt data before exfiltration. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tar_compression.yml - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tar_compression.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Collection
+- Exfiltration
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "-c" or ProcessCommandLine contains "-r" or ProcessCommandLine contains "-u") and (FolderPath endswith "\\tar.exe" or ProcessVersionInfoOriginalFileName =~ "bsdtar")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1560
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

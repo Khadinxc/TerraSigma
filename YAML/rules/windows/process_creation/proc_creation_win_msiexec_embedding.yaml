@@ -1,0 +1,44 @@
+id: 9d67ef4f-3734-514e-890d-2d84efe3efb3
+name: Suspicious MsiExec Embedding Parent
+description: 'Adversaries may abuse msiexec.exe to proxy the execution of malicious payloads Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_embedding.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_embedding.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe" or FolderPath endswith "\\cmd.exe") and (InitiatingProcessCommandLine contains "MsiExec.exe" and InitiatingProcessCommandLine contains "-Embedding ")) and (not(((ProcessCommandLine contains "C:\\Program Files\\SplunkUniversalForwarder\\bin\\" and FolderPath endswith ":\\Windows\\System32\\cmd.exe") or (ProcessCommandLine contains "\\DismFoDInstall.cmd" or (InitiatingProcessCommandLine contains "\\MsiExec.exe -Embedding " and InitiatingProcessCommandLine contains "Global\\MSI0000")))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1218
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

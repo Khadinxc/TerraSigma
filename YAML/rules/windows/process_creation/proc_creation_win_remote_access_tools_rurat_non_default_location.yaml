@@ -1,0 +1,38 @@
+id: b414f5c9-1313-5438-8391-31ed642e45cb
+name: Remote Access Tool - RURAT Execution From Unusual Location
+description: 'Detects execution of Remote Utilities RAT (RURAT) from an unusual location (outside of ''C:\Program Files'') Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_rurat_non_default_location.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_rurat_non_default_location.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ((FolderPath endswith "\\rutserv.exe" or FolderPath endswith "\\rfusclient.exe") or ProcessVersionInfoProductName =~ "Remote Utilities") and (not((FolderPath startswith "C:\\Program Files\\Remote Utilities" or FolderPath startswith "C:\\Program Files (x86)\\Remote Utilities")))
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

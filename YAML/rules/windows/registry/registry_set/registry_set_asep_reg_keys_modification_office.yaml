@@ -1,0 +1,45 @@
+id: a66cec10-4120-5d52-8edb-be3ec714c269
+name: Office Autorun Keys Modification
+description: 'Detects modification of autostart extensibility point (ASEP) in registry. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_office.yml - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reason - Legitimate administrator sets up autorun keys for legitimate reason | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_office.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Persistence
+query: |-
+  DeviceRegistryEvents
+  | where ((RegistryKey contains "\\Word\\Addins" or RegistryKey contains "\\PowerPoint\\Addins" or RegistryKey contains "\\Outlook\\Addins" or RegistryKey contains "\\Onenote\\Addins" or RegistryKey contains "\\Excel\\Addins" or RegistryKey contains "\\Access\\Addins" or RegistryKey contains "test\\Special\\Perf") and (RegistryKey contains "\\Software\\Wow6432Node\\Microsoft\\Office" or RegistryKey contains "\\Software\\Microsoft\\Office")) and (not((RegistryValueData =~ "(Empty)" or ((InitiatingProcessFolderPath startswith "C:\\Program Files\\Microsoft Office\\" or InitiatingProcessFolderPath startswith "C:\\Program Files (x86)\\Microsoft Office\\" or InitiatingProcessFolderPath startswith "C:\\Windows\\System32\\msiexec.exe" or InitiatingProcessFolderPath startswith "C:\\Windows\\System32\\regsvr32.exe") and (RegistryKey endswith "\\Excel\\Addins\\AdHocReportingExcelClientLib.AdHocReportingExcelClientAddIn.1*" or RegistryKey endswith "\\Excel\\Addins\\ExcelPlugInShell.PowerMapConnect*" or RegistryKey endswith "\\Excel\\Addins\\NativeShim*" or RegistryKey endswith "\\Excel\\Addins\\NativeShim.InquireConnector.1*" or RegistryKey endswith "\\Excel\\Addins\\PowerPivotExcelClientAddIn.NativeEntry.1*" or RegistryKey endswith "\\Outlook\\AddIns\\AccessAddin.DC*" or RegistryKey endswith "\\Outlook\\AddIns\\ColleagueImport.ColleagueImportAddin*" or RegistryKey endswith "\\Outlook\\AddIns\\EvernoteCC.EvernoteContactConnector*" or RegistryKey endswith "\\Outlook\\AddIns\\EvernoteOLRD.Connect*" or RegistryKey endswith "\\Outlook\\Addins\\Microsoft.VbaAddinForOutlook.1*" or RegistryKey endswith "\\Outlook\\Addins\\OcOffice.OcForms*" or RegistryKey contains "\\Outlook\\Addins\\OneNote.OutlookAddin" or RegistryKey endswith "\\Outlook\\Addins\\OscAddin.Connect*" or RegistryKey endswith "\\Outlook\\Addins\\OutlookChangeNotifier.Connect*" or RegistryKey contains "\\Outlook\\Addins\\UCAddin.LyncAddin.1" or RegistryKey contains "\\Outlook\\Addins\\UCAddin.UCAddin.1" or RegistryKey endswith "\\Outlook\\Addins\\UmOutlookAddin.FormRegionAddin*" or RegistryKey contains "AddinTakeNotesService\\FriendlyName")) or (InitiatingProcessFolderPath endswith "\\OfficeClickToRun.exe" and (InitiatingProcessFolderPath startswith "C:\\Program Files\\Common Files\\Microsoft Shared\\ClickToRun\\" or InitiatingProcessFolderPath startswith "C:\\Program Files\\Common Files\\Microsoft Shared\\ClickToRun\\Updates\\"))))) and (not((((InitiatingProcessFolderPath in~ ("C:\\Program Files\\Avast Software\\Avast\\RegSvr.exe", "C:\\Program Files\\Avast Software\\Avast\\x86\\RegSvr.exe")) and RegistryKey endswith "\\Microsoft\\Office\\Outlook\\Addins\\Avast.AsOutExt*") or ((InitiatingProcessFolderPath in~ ("C:\\Program Files\\AVG\\Antivirus\\RegSvr.exe", "C:\\Program Files\\AVG\\Antivirus\\x86\\RegSvr.exe")) and RegistryKey endswith "\\Microsoft\\Office\\Outlook\\Addins\\Antivirus.AsOutExt*"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1547
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

@@ -1,0 +1,46 @@
+id: 4b679af2-9b1e-540f-af71-27cbc552257e
+name: Suspicious Where Execution
+description: 'Adversaries may enumerate browser bookmarks to learn more about compromised hosts. Browser bookmarks may reveal personal information about users (ex: banking sites, interests, social media, etc.) as well as details about internal network resources such as servers, tools/dashboards, or other related infrastructure. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_where_browser_data_recon.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_where_browser_data_recon.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where (FolderPath endswith "\\where.exe" or ProcessVersionInfoOriginalFileName =~ "where.exe") and (ProcessCommandLine contains "places.sqlite" or ProcessCommandLine contains "cookies.sqlite" or ProcessCommandLine contains "formhistory.sqlite" or ProcessCommandLine contains "logins.json" or ProcessCommandLine contains "key4.db" or ProcessCommandLine contains "key3.db" or ProcessCommandLine contains "sessionstore.jsonlz4" or ProcessCommandLine contains "History" or ProcessCommandLine contains "Bookmarks" or ProcessCommandLine contains "Cookies" or ProcessCommandLine contains "Login Data")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1217
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

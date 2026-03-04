@@ -1,0 +1,44 @@
+id: 9453c6c3-60c0-510d-bb89-427596bac3db
+name: Disabling Security Tools
+description: 'Detects disabling security tools Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_security_tools_disabling.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_security_tools_disabling.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "cbdaemon" and ProcessCommandLine contains "stop") and FolderPath endswith "/service") or ((ProcessCommandLine contains "cbdaemon" and ProcessCommandLine contains "off") and FolderPath endswith "/chkconfig") or ((ProcessCommandLine contains "cbdaemon" and ProcessCommandLine contains "stop") and FolderPath endswith "/systemctl") or ((ProcessCommandLine contains "cbdaemon" and ProcessCommandLine contains "disable") and FolderPath endswith "/systemctl") or ((ProcessCommandLine contains "stop" and ProcessCommandLine contains "falcon-sensor") and FolderPath endswith "/systemctl") or ((ProcessCommandLine contains "disable" and ProcessCommandLine contains "falcon-sensor") and FolderPath endswith "/systemctl") or ((ProcessCommandLine contains "firewalld" and ProcessCommandLine contains "stop") and FolderPath endswith "/systemctl") or ((ProcessCommandLine contains "firewalld" and ProcessCommandLine contains "disable") and FolderPath endswith "/systemctl") or ((ProcessCommandLine contains "iptables" and ProcessCommandLine contains "stop") and FolderPath endswith "/service") or ((ProcessCommandLine contains "ip6tables" and ProcessCommandLine contains "stop") and FolderPath endswith "/service") or ((ProcessCommandLine contains "iptables" and ProcessCommandLine contains "stop") and FolderPath endswith "/chkconfig") or ((ProcessCommandLine contains "ip6tables" and ProcessCommandLine contains "stop") and FolderPath endswith "/chkconfig") or (ProcessCommandLine contains "0" and FolderPath endswith "/setenforce")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1562
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

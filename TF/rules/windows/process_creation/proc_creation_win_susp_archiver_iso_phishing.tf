@@ -1,0 +1,73 @@
+resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_archiver_iso_phishing" {
+  name                       = "proc_creation_win_susp_archiver_iso_phishing"
+  log_analytics_workspace_id = var.workspace_id
+  display_name               = "Phishing Pattern ISO in Archive"
+  description                = "Detects cases in which an ISO files is opend within an archiver like 7Zip or Winrar, which is a sign of phishing as threat actors put small ISO files in archives as email attachments to bypass certain filters and protective measures (mark of web) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_archiver_iso_phishing.yml - Legitimate cases in which archives contain ISO or IMG files and the user opens the archive and the image via clicking and not extraction | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_archiver_iso_phishing.yml"
+  severity                   = "High"
+  query                      = <<QUERY
+DeviceProcessEvents
+| where (FolderPath endswith "\\isoburn.exe" or FolderPath endswith "\\PowerISO.exe" or FolderPath endswith "\\ImgBurn.exe") and (InitiatingProcessFolderPath endswith "\\Winrar.exe" or InitiatingProcessFolderPath endswith "\\7zFM.exe" or InitiatingProcessFolderPath endswith "\\peazip.exe")
+QUERY
+  query_frequency            = "PT1H"
+  query_period               = "PT1H"
+  trigger_operator           = "GreaterThan"
+  trigger_threshold          = 0
+  suppression_enabled        = false
+  suppression_duration       = "PT5H"
+  tactics                    = ["InitialAccess"]
+  techniques                 = ["T1566"]
+  enabled                    = true
+
+  incident {
+    create_incident_enabled = true
+    grouping {
+      enabled                 = false
+      lookback_duration       = "PT5H"
+      reopen_closed_incidents = false
+      entity_matching_method  = "AllEntities"
+      by_entities             = []
+      by_alert_details        = []
+      by_custom_details       = []
+    }
+  }
+
+  event_grouping {
+    aggregation_method = "SingleAlert"
+  }
+
+  entity_mapping {
+    entity_type = "Account"
+    field_mapping {
+      identifier  = "Name"
+      column_name = "InitiatingProcessAccountName"
+    }
+    field_mapping {
+      identifier  = "NTDomain"
+      column_name = "InitiatingProcessAccountDomain"
+    }
+    field_mapping {
+      identifier  = "Sid"
+      column_name = "InitiatingProcessAccountSid"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "Host"
+    field_mapping {
+      identifier  = "HostName"
+      column_name = "DeviceName"
+    }
+    field_mapping {
+      identifier  = "AzureID"
+      column_name = "DeviceId"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "File"
+    field_mapping {
+      identifier  = "Directory"
+      column_name = "FolderPath"
+    }
+  }
+}

@@ -1,0 +1,81 @@
+resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_windows_defender_tamper" {
+  name                       = "registry_set_windows_defender_tamper"
+  log_analytics_workspace_id = var.workspace_id
+  display_name               = "Disable Windows Defender Functionalities Via Registry Keys"
+  description                = "Detects when attackers or tools disable Windows Defender functionalities via the Windows registry Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_windows_defender_tamper.yml - Administrator actions via the Windows Defender interface - Third party Antivirus | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_windows_defender_tamper.yml"
+  severity                   = "High"
+  query                      = <<QUERY
+DeviceRegistryEvents
+| where (RegistryKey endswith "\\SOFTWARE\\Microsoft\\Windows Defender*" or RegistryKey endswith "\\SOFTWARE\\Policies\\Microsoft\\Windows Defender Security Center*" or RegistryKey endswith "\\SOFTWARE\\Policies\\Microsoft\\Windows Defender*") and ((RegistryValueData =~ "DWORD (0x00000000)" and (RegistryKey endswith "\\DisallowExploitProtectionOverride" or RegistryKey endswith "\\Features\\TamperProtection" or RegistryKey endswith "\\MpEngine\\MpEnablePus" or RegistryKey endswith "\\PUAProtection" or RegistryKey endswith "\\Signature Update\\ForceUpdateFromMU" or RegistryKey endswith "\\SpyNet\\SpynetReporting" or RegistryKey endswith "\\SpyNet\\SubmitSamplesConsent" or RegistryKey endswith "\\Windows Defender Exploit Guard\\Controlled Folder Access\\EnableControlledFolderAccess")) or (RegistryValueData =~ "DWORD (0x00000001)" and (RegistryKey endswith "\\DisableAntiSpyware" or RegistryKey endswith "\\DisableAntiVirus" or RegistryKey endswith "\\DisableBehaviorMonitoring" or RegistryKey endswith "\\DisableBlockAtFirstSeen" or RegistryKey endswith "\\DisableEnhancedNotifications" or RegistryKey endswith "\\DisableIntrusionPreventionSystem" or RegistryKey endswith "\\DisableIOAVProtection" or RegistryKey endswith "\\DisableOnAccessProtection" or RegistryKey endswith "\\DisableRealtimeMonitoring" or RegistryKey endswith "\\DisableScanOnRealtimeEnable" or RegistryKey endswith "\\DisableScriptScanning"))) and (not((InitiatingProcessFolderPath endswith "\\sepWscSvc64.exe" and InitiatingProcessFolderPath startswith "C:\\Program Files\\Symantec\\Symantec Endpoint Protection\\")))
+QUERY
+  query_frequency            = "PT1H"
+  query_period               = "PT1H"
+  trigger_operator           = "GreaterThan"
+  trigger_threshold          = 0
+  suppression_enabled        = false
+  suppression_duration       = "PT5H"
+  tactics                    = ["DefenseEvasion"]
+  techniques                 = ["T1562"]
+  enabled                    = true
+
+  incident {
+    create_incident_enabled = true
+    grouping {
+      enabled                 = false
+      lookback_duration       = "PT5H"
+      reopen_closed_incidents = false
+      entity_matching_method  = "AllEntities"
+      by_entities             = []
+      by_alert_details        = []
+      by_custom_details       = []
+    }
+  }
+
+  event_grouping {
+    aggregation_method = "SingleAlert"
+  }
+
+  entity_mapping {
+    entity_type = "Account"
+    field_mapping {
+      identifier  = "Name"
+      column_name = "InitiatingProcessAccountName"
+    }
+    field_mapping {
+      identifier  = "NTDomain"
+      column_name = "InitiatingProcessAccountDomain"
+    }
+    field_mapping {
+      identifier  = "Sid"
+      column_name = "InitiatingProcessAccountSid"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "Host"
+    field_mapping {
+      identifier  = "HostName"
+      column_name = "DeviceName"
+    }
+    field_mapping {
+      identifier  = "AzureID"
+      column_name = "DeviceId"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "RegistryKey"
+    field_mapping {
+      identifier  = "Key"
+      column_name = "RegistryKey"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "RegistryValue"
+    field_mapping {
+      identifier  = "Value"
+      column_name = "RegistryValueData"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+id: b17ed759-fe77-5f42-af69-f0318b0fe229
+name: ETW Logging Disabled In .NET Processes - Sysmon Registry
+description: 'Potential adversaries stopping ETW providers recording loaded .NET assemblies. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_dot_net_etw_tamper.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_dot_net_etw_tamper.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- DefenseEvasion
+query: |-
+  DeviceRegistryEvents
+  | where ((RegistryValueData in~ ("0", "DWORD (0x00000000)")) and (RegistryKey endswith "\\COMPlus_ETWEnabled" or RegistryKey endswith "\\COMPlus_ETWFlags")) or (RegistryValueData =~ "DWORD (0x00000000)" and RegistryKey endswith "SOFTWARE\\Microsoft\\.NETFramework\\ETWEnabled")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1112
+- T1562
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

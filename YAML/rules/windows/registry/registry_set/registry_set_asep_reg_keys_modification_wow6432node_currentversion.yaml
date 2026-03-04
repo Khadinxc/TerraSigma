@@ -1,0 +1,45 @@
+id: 7545011a-cca0-5338-9bc1-980f3760e6a7
+name: Wow6432Node Windows NT CurrentVersion Autorun Keys Modification
+description: 'Detects modification of autostart extensibility point (ASEP) in registry. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_wow6432node_currentversion.yml - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reason - Legitimate administrator sets up autorun keys for legitimate reason | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_wow6432node_currentversion.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Persistence
+query: |-
+  DeviceRegistryEvents
+  | where ((RegistryKey contains "\\Windows\\Appinit_Dlls" or RegistryKey contains "\\Image File Execution Options" or RegistryKey contains "\\Drivers32") and RegistryKey contains "\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows NT\\CurrentVersion") and (not((RegistryValueData =~ "(Empty)" or RegistryValueData endswith "\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options" or isnull(RegistryValueData))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1547
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

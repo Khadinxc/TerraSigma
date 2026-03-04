@@ -1,0 +1,44 @@
+id: 2ef5aff0-b535-5c3a-aa77-13c570f169de
+name: Local Groups Discovery - MacOs
+description: 'Detects enumeration of local system groups Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_local_groups.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_local_groups.yml'
+severity: Informational
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "-q" and ProcessCommandLine contains "group") and FolderPath endswith "/dscacheutil") or (ProcessCommandLine contains "/etc/group" and FolderPath endswith "/cat") or ((ProcessCommandLine contains "-list" and ProcessCommandLine contains "/groups") and FolderPath endswith "/dscl")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1069
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

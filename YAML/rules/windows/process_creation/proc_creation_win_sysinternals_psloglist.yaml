@@ -1,0 +1,46 @@
+id: 02b6d02c-bb8e-50c6-8256-3d466b2cbb9b
+name: Suspicious Use of PsLogList
+description: 'Detects usage of the PsLogList utility to dump event log in order to extract admin accounts and perform account discovery or delete events logs Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_psloglist.yml - Another tool that uses the command line switches of PsLogList - Legitimate use of PsLogList by an administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_psloglist.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains " security" or ProcessCommandLine contains " application" or ProcessCommandLine contains " system") and (ProcessCommandLine contains " -d" or ProcessCommandLine contains " /d" or ProcessCommandLine contains " –d" or ProcessCommandLine contains " —d" or ProcessCommandLine contains " ―d" or ProcessCommandLine contains " -x" or ProcessCommandLine contains " /x" or ProcessCommandLine contains " –x" or ProcessCommandLine contains " —x" or ProcessCommandLine contains " ―x" or ProcessCommandLine contains " -s" or ProcessCommandLine contains " /s" or ProcessCommandLine contains " –s" or ProcessCommandLine contains " —s" or ProcessCommandLine contains " ―s" or ProcessCommandLine contains " -c" or ProcessCommandLine contains " /c" or ProcessCommandLine contains " –c" or ProcessCommandLine contains " —c" or ProcessCommandLine contains " ―c" or ProcessCommandLine contains " -g" or ProcessCommandLine contains " /g" or ProcessCommandLine contains " –g" or ProcessCommandLine contains " —g" or ProcessCommandLine contains " ―g") and (ProcessVersionInfoOriginalFileName =~ "psloglist.exe" or (FolderPath endswith "\\psloglist.exe" or FolderPath endswith "\\psloglist64.exe"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1087
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

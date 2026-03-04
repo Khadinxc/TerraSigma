@@ -1,0 +1,44 @@
+id: 04a8317e-dcf7-528b-a38a-c52c30da2f50
+name: Enable Microsoft Dynamic Data Exchange
+description: 'Enable Dynamic Data Exchange protocol (DDE) in all supported editions of Microsoft Word or Excel. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_enable_dde.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_enable_dde.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceRegistryEvents
+  | where (RegistryValueData =~ "DWORD (0x00000000)" and (RegistryKey endswith "\\Excel\\Security\\DisableDDEServerLaunch" or RegistryKey endswith "\\Excel\\Security\\DisableDDEServerLookup")) or ((RegistryValueData in~ ("DWORD (0x00000001)", "DWORD (0x00000002)")) and RegistryKey endswith "\\Word\\Security\\AllowDDE")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1559
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

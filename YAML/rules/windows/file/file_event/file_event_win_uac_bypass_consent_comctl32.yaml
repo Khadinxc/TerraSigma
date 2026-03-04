@@ -1,0 +1,41 @@
+id: a329b0d5-7025-568e-87da-c16d3e18bb58
+name: UAC Bypass Using Consent and Comctl32 - File
+description: 'Detects the pattern of UAC Bypass using consent.exe and comctl32.dll (UACMe 22) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_consent_comctl32.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_consent_comctl32.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- PrivilegeEscalation
+query: |-
+  DeviceFileEvents
+  | where FolderPath endswith "\\comctl32.dll" and FolderPath startswith "C:\\Windows\\System32\\consent.exe.@"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1548
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

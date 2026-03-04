@@ -1,0 +1,40 @@
+id: 497fcc56-7dac-5298-9184-65fa6fd40aba
+name: Suspicious Creation with Colorcpl
+description: 'Once executed, colorcpl.exe will copy the arbitrary file to c:\windows\system32\spool\drivers\color\ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_colorcpl.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_colorcpl.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceFileEvents
+  | where InitiatingProcessFolderPath endswith "\\colorcpl.exe" and (not((FolderPath endswith ".icm" or FolderPath endswith ".gmmp" or FolderPath endswith ".cdmp" or FolderPath endswith ".camp")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1564
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

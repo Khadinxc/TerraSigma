@@ -1,0 +1,42 @@
+id: 800cdf75-a5ca-523c-a669-0009715276e6
+name: Potential EACore.DLL Sideloading
+description: 'Detects potential DLL sideloading of "EACore.dll" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_eacore.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_eacore.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- DefenseEvasion
+- PrivilegeEscalation
+query: |-
+  DeviceImageLoadEvents
+  | where FolderPath endswith "\\EACore.dll" and (not((FolderPath startswith "C:\\Program Files\\Electronic Arts\\EA Desktop\\" and (InitiatingProcessFolderPath contains "C:\\Program Files\\Electronic Arts\\EA Desktop\\" and InitiatingProcessFolderPath contains "\\EACoreServer.exe"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1574
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

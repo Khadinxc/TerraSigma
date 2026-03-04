@@ -1,0 +1,40 @@
+id: 5accbde6-e0ab-50fd-9ef6-f33269f9f623
+name: Potential Webshell Creation On Static Website
+description: 'Detects the creation of files with certain extensions on a static web site. This can be indicative of potential uploads of a web shell. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_webshell_creation_detect.yml - Legitimate administrator or developer creating legitimate executable files in a web application folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_webshell_creation_detect.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+query: |-
+  DeviceFileEvents
+  | where (((FolderPath contains ".ashx" or FolderPath contains ".asp" or FolderPath contains ".ph" or FolderPath contains ".soap") and FolderPath contains "\\inetpub\\wwwroot\\") or (FolderPath contains ".ph" and (FolderPath contains "\\www\\" or FolderPath contains "\\htdocs\\" or FolderPath contains "\\html\\"))) and (not((FolderPath contains "\\xampp" or InitiatingProcessFolderPath =~ "System" or (FolderPath contains "\\AppData\\Local\\Temp\\" or FolderPath contains "\\Windows\\Temp\\"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1505
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

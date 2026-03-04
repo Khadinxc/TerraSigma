@@ -1,0 +1,43 @@
+id: b7073d5e-e552-57fa-bd70-c62b4b6d111a
+name: Suspicious Microsoft Office Child Process - MacOS
+description: 'Detects suspicious child processes spawning from microsoft office suite applications such as word or excel. This could indicates malicious macro execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_office_susp_child_processes.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_office_susp_child_processes.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- Persistence
+query: |-
+  DeviceProcessEvents
+  | where (FolderPath endswith "/bash" or FolderPath endswith "/curl" or FolderPath endswith "/dash" or FolderPath endswith "/fish" or FolderPath endswith "/osacompile" or FolderPath endswith "/osascript" or FolderPath endswith "/sh" or FolderPath endswith "/zsh" or FolderPath endswith "/python" or FolderPath endswith "/python3" or FolderPath endswith "/wget") and (InitiatingProcessFolderPath contains "Microsoft Word" or InitiatingProcessFolderPath contains "Microsoft Excel" or InitiatingProcessFolderPath contains "Microsoft PowerPoint" or InitiatingProcessFolderPath contains "Microsoft OneNote")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+- T1137
+- T1204
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

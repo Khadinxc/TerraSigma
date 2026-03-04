@@ -1,0 +1,42 @@
+id: c6f7c8a8-a064-58d5-9ccd-638239356b43
+name: Old TLS1.0/TLS1.1 Protocol Version Enabled
+description: 'Detects applications or users re-enabling old TLS versions by setting the "Enabled" value to "1" for the "Protocols" registry key. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_tls_protocol_old_version_enabled.yml - Legitimate enabling of the old tls versions due to incompatibility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_tls_protocol_old_version_enabled.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceRegistryEvents
+  | where RegistryValueData =~ "DWORD (0x00000001)" and (RegistryKey endswith "\\Control\\SecurityProviders\\SCHANNEL\\Protocols\\TLS 1.0*" or RegistryKey endswith "\\Control\\SecurityProviders\\SCHANNEL\\Protocols\\TLS 1.1*") and RegistryKey endswith "\\Enabled"
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

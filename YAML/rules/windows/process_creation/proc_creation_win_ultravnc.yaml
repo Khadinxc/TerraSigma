@@ -1,0 +1,40 @@
+id: c9ac8912-5b00-5477-8b56-e8432552886e
+name: Use of UltraVNC Remote Access Software
+description: 'An adversary may use legitimate desktop support and remote access software,to establish an interactive command and control channel to target systems within networks Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ultravnc.yml - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ultravnc.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CommandAndControl
+query: |-
+  DeviceProcessEvents
+  | where ProcessVersionInfoFileDescription =~ "VNCViewer" or ProcessVersionInfoProductName =~ "UltraVNC VNCViewer" or ProcessVersionInfoCompanyName =~ "UltraVNC" or ProcessVersionInfoOriginalFileName =~ "VNCViewer.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1219
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

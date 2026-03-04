@@ -1,0 +1,46 @@
+id: fd015fbe-0141-5380-a11d-d8eaeffe24d2
+name: ESXi VM Kill Via ESXCLI
+description: 'Detects execution of the "esxcli" command with the "vm" and "kill" flag in order to kill/shutdown a specific VM. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_vm_kill.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_vm_kill.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- Impact
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "vm process" and ProcessCommandLine contains "kill") and FolderPath endswith "/esxcli"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+- T1529
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

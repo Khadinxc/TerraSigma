@@ -1,0 +1,40 @@
+id: dcb5762d-a045-5dc4-8771-434d5414956b
+name: Cloudflared Portable Execution
+description: 'Detects the execution of the "cloudflared" binary from a non standard location. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cloudflared_portable_execution.yml - Legitimate usage of Cloudflared portable versions | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cloudflared_portable_execution.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CommandAndControl
+query: |-
+  DeviceProcessEvents
+  | where FolderPath endswith "\\cloudflared.exe" and (not((FolderPath contains ":\\Program Files (x86)\\cloudflared\\" or FolderPath contains ":\\Program Files\\cloudflared\\")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1090
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

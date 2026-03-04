@@ -1,0 +1,40 @@
+id: b789cf15-fe80-5b41-85ad-81d3017b6a29
+name: Suspicious Serv-U Process Pattern
+description: 'Detects a suspicious process pattern which could be a sign of an exploited Serv-U service Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_servu_susp_child_process.yml - Legitimate uses in which users or programs use the SSH service of Serv-U for remote command execution | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_servu_susp_child_process.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CredentialAccess
+query: |-
+  DeviceProcessEvents
+  | where (FolderPath endswith "\\cmd.exe" or FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe" or FolderPath endswith "\\wscript.exe" or FolderPath endswith "\\cscript.exe" or FolderPath endswith "\\sh.exe" or FolderPath endswith "\\bash.exe" or FolderPath endswith "\\schtasks.exe" or FolderPath endswith "\\regsvr32.exe" or FolderPath endswith "\\wmic.exe" or FolderPath endswith "\\mshta.exe" or FolderPath endswith "\\rundll32.exe" or FolderPath endswith "\\msiexec.exe" or FolderPath endswith "\\forfiles.exe" or FolderPath endswith "\\scriptrunner.exe") and InitiatingProcessFolderPath endswith "\\Serv-U.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1555
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

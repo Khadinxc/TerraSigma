@@ -1,0 +1,47 @@
+id: ba26f7b7-097b-57ac-843c-039206df866a
+name: Suspicious Windows Trace ETW Session Tamper Via Logman.EXE
+description: 'Detects the execution of "logman" utility in order to disable or delete Windows trace sessions Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_logman_disable_eventlog.yml - Legitimate deactivation by administrative staff - Installer tools that disable services, e.g. before log collection agent installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_logman_disable_eventlog.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "stop " or ProcessCommandLine contains "delete ") and (FolderPath endswith "\\logman.exe" or ProcessVersionInfoOriginalFileName =~ "Logman.exe") and (ProcessCommandLine contains "Circular Kernel Context Logger" or ProcessCommandLine contains "EventLog-" or ProcessCommandLine contains "SYSMON TRACE" or ProcessCommandLine contains "SysmonDnsEtwSession")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1562
+- T1070
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

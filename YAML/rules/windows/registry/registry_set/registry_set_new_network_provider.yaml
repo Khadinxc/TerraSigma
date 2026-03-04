@@ -1,0 +1,40 @@
+id: 56b44004-a4a9-593a-a1ee-05a08319143d
+name: Potential Credential Dumping Attempt Using New NetworkProvider - REG
+description: 'Detects when an attacker tries to add a new network provider in order to dump clear text credentials, similar to how the NPPSpy tool does it Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_new_network_provider.yml - Other legitimate network providers used and not filtred in this rule | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_new_network_provider.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CredentialAccess
+query: |-
+  DeviceRegistryEvents
+  | where (RegistryKey endswith "\\System\\CurrentControlSet\\Services*" and RegistryKey contains "\\NetworkProvider") and (not(((RegistryKey contains "\\System\\CurrentControlSet\\Services\\WebClient\\NetworkProvider" or RegistryKey contains "\\System\\CurrentControlSet\\Services\\LanmanWorkstation\\NetworkProvider" or RegistryKey contains "\\System\\CurrentControlSet\\Services\\RDPNP\\NetworkProvider") or InitiatingProcessFolderPath =~ "C:\\Windows\\System32\\poqexec.exe")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1003
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

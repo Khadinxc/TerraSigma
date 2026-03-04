@@ -1,0 +1,44 @@
+id: f5167c0d-6532-525f-af42-57ac716f01ad
+name: HackTool - CrackMapExec Execution Patterns
+description: 'Detects various execution patterns of the CrackMapExec pentesting framework Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_crackmapexec_execution_patterns.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_crackmapexec_execution_patterns.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Persistence
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "cmd.exe /Q /c " and ProcessCommandLine contains " 1> \\" and ProcessCommandLine contains "\\" and ProcessCommandLine contains "\\" and ProcessCommandLine contains " 2>&1") or (ProcessCommandLine contains "cmd.exe /C " and ProcessCommandLine contains " > \\" and ProcessCommandLine contains "\\" and ProcessCommandLine contains "\\" and ProcessCommandLine contains " 2>&1") or (ProcessCommandLine contains "cmd.exe /C " and ProcessCommandLine contains " > " and ProcessCommandLine contains "\\Temp\\" and ProcessCommandLine contains " 2>&1") or ProcessCommandLine contains "powershell.exe -exec bypass -noni -nop -w 1 -C \"" or ProcessCommandLine contains "powershell.exe -noni -nop -w 1 -enc "
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1047
+- T1053
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

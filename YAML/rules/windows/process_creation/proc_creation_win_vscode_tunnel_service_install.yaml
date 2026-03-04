@@ -1,0 +1,40 @@
+id: 6b119e39-a661-5b76-a148-5e0c6ab30176
+name: Visual Studio Code Tunnel Service Installation
+description: 'Detects the installation of VsCode tunnel (code-tunnel) as a service. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_tunnel_service_install.yml - Legitimate installation of code-tunnel as a service | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_tunnel_service_install.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CommandAndControl
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine contains "tunnel " and ProcessCommandLine contains "service" and ProcessCommandLine contains "internal-run" and ProcessCommandLine contains "tunnel-service.log"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1071
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

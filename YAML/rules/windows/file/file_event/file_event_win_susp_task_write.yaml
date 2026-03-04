@@ -1,0 +1,42 @@
+id: 09917c01-25a3-5774-b456-86fd77c9c83b
+name: Suspicious Scheduled Task Write to System32 Tasks
+description: 'Detects the creation of tasks from processes executed from suspicious locations Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_task_write.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_task_write.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Persistence
+- Execution
+query: |-
+  DeviceFileEvents
+  | where (InitiatingProcessFolderPath contains "\\AppData\\" or InitiatingProcessFolderPath contains "C:\\PerfLogs" or InitiatingProcessFolderPath contains "\\Windows\\System32\\config\\systemprofile") and FolderPath contains "\\Windows\\System32\\Tasks"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1053
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

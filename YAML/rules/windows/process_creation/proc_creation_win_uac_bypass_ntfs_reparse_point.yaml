@@ -1,0 +1,45 @@
+id: 3b14c399-4685-5539-ba71-5e3027bdc837
+name: UAC Bypass Using NTFS Reparse Point - Process
+description: 'Detects the pattern of UAC Bypass using NTFS reparse point and wusa.exe DLL hijacking (UACMe 36) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_ntfs_reparse_point.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_ntfs_reparse_point.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- PrivilegeEscalation
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine endswith "\\AppData\\Local\\Temp\\update.msu" and ProcessCommandLine startswith "\"C:\\Windows\\system32\\wusa.exe\"  /quiet C:\\Users\\" and (ProcessIntegrityLevel in~ ("High", "System", "S-1-16-16384", "S-1-16-12288"))) or ((ProcessCommandLine contains "C:\\Users\\" and ProcessCommandLine contains "\\AppData\\Local\\Temp\\" and ProcessCommandLine contains "\\dismhost.exe {") and FolderPath endswith "\\DismHost.exe" and (ProcessIntegrityLevel in~ ("High", "System")) and InitiatingProcessCommandLine =~ "\"C:\\Windows\\system32\\dism.exe\" /online /quiet /norestart /add-package /packagepath:\"C:\\Windows\\system32\\pe386\" /ignorecheck")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1548
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

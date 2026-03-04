@@ -1,0 +1,59 @@
+id: a709cfff-57dc-580b-8712-a15bc9d52d7a
+name: Potential Suspicious Activity Using SeCEdit
+description: 'Detects potential suspicious behaviour using secedit.exe. Such as exporting or modifying the security policy Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_secedit_execution.yml - Legitimate administrative use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_secedit_execution.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Collection
+- Discovery
+- Persistence
+- DefenseEvasion
+- CredentialAccess
+- PrivilegeEscalation
+query: |-
+  DeviceProcessEvents
+  | where (FolderPath endswith "\\secedit.exe" or ProcessVersionInfoOriginalFileName =~ "SeCEdit") and ((ProcessCommandLine contains "/configure" and ProcessCommandLine contains "/db") or (ProcessCommandLine contains "/export" and ProcessCommandLine contains "/cfg"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1562
+- T1547
+- T1505
+- T1556
+- T1574
+- T1564
+- T1546
+- T1557
+- T1082
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

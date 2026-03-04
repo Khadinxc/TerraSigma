@@ -1,0 +1,46 @@
+id: d88cf122-ae37-5d4c-ad78-3fb6f745b673
+name: HackTool - SharpLdapWhoami Execution
+description: 'Detects SharpLdapWhoami, a whoami alternative that queries the LDAP service on a domain controller Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpldapwhoami.yml - Programs that use the same command line flags | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpldapwhoami.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine endswith " /method:ntlm" or ProcessCommandLine endswith " /method:kerb" or ProcessCommandLine endswith " /method:nego" or ProcessCommandLine endswith " /m:nego" or ProcessCommandLine endswith " /m:ntlm" or ProcessCommandLine endswith " /m:kerb") or FolderPath endswith "\\SharpLdapWhoami.exe" or (ProcessVersionInfoOriginalFileName contains "SharpLdapWhoami" or ProcessVersionInfoProductName =~ "SharpLdapWhoami")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1033
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

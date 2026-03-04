@@ -1,0 +1,38 @@
+id: ec3c70ce-97b3-5224-a59e-c069bcc87930
+name: WinSxS Executable File Creation By Non-System Process
+description: 'Detects the creation of binaries in the WinSxS folder by non-system processes Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_winsxs_binary_creation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_winsxs_binary_creation.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceFileEvents
+  | where (FolderPath endswith ".exe" and FolderPath startswith "C:\\Windows\\WinSxS\\") and (not((InitiatingProcessFolderPath startswith "C:\\Windows\\Systems32\\" or InitiatingProcessFolderPath startswith "C:\\Windows\\SysWOW64\\" or InitiatingProcessFolderPath startswith "C:\\Windows\\WinSxS\\")))
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

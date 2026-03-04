@@ -1,0 +1,46 @@
+id: 1ce07922-da97-5fa5-9bf7-88412e166eea
+name: Forfiles Command Execution
+description: 'Detects the execution of "forfiles" with the "/c" flag. While this is an expected behavior of the tool, it can be abused in order to proxy execution through it with any binary. Can be used to bypass application whitelisting. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_forfiles_proxy_execution_.yml - Legitimate use via a batch script or by an administrator. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_forfiles_proxy_execution_.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains " -c " or ProcessCommandLine contains " /c " or ProcessCommandLine contains " –c " or ProcessCommandLine contains " —c " or ProcessCommandLine contains " ―c ") and (FolderPath endswith "\\forfiles.exe" or ProcessVersionInfoOriginalFileName =~ "forfiles.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

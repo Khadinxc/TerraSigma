@@ -1,0 +1,47 @@
+id: 4b1ab0a1-84a5-5a61-ab8d-03c83b73bc29
+name: Potential Recon Activity Via Nltest.EXE
+description: 'Detects nltest commands that can be used for information discovery Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_nltest_recon.yml - Legitimate administration use but user and host must be investigated | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_nltest_recon.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where (FolderPath endswith "\\nltest.exe" or ProcessVersionInfoOriginalFileName =~ "nltestrk.exe") and ((ProcessCommandLine contains "server" and ProcessCommandLine contains "query") or (ProcessCommandLine contains "/user" or ProcessCommandLine contains "all_trusts" or ProcessCommandLine contains "dclist:" or ProcessCommandLine contains "dnsgetdc:" or ProcessCommandLine contains "domain_trusts" or ProcessCommandLine contains "dsgetdc:" or ProcessCommandLine contains "parentdomain" or ProcessCommandLine contains "trusted_domains"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1016
+- T1482
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

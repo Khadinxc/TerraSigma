@@ -1,0 +1,42 @@
+id: e463e0e7-6f0c-535c-a41a-6b2d4a943f80
+name: Potentially Suspicious Windows App Activity
+description: 'Detects potentially suspicious child process of applications launched from inside the WindowsApps directory. This could be a sign of a rogue ".appx" package installation/execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_appx_execution.yml - Legitimate packages that make use of external binaries such as Windows Terminal | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_appx_execution.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where InitiatingProcessFolderPath contains "C:\\Program Files\\WindowsApps\\" and ((ProcessCommandLine contains "cmd /c" or ProcessCommandLine contains "Invoke-" or ProcessCommandLine contains "Base64") or (FolderPath endswith "\\cmd.exe" or FolderPath endswith "\\cscript.exe" or FolderPath endswith "\\mshta.exe" or FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\powershell_ise.exe" or FolderPath endswith "\\pwsh.exe" or FolderPath endswith "\\regsvr32.exe" or FolderPath endswith "\\rundll32.exe" or FolderPath endswith "\\wscript.exe")) and (not(((FolderPath endswith "\\cmd.exe" and InitiatingProcessFolderPath startswith "C:\\Program Files\\WindowsApps\\Microsoft.SysinternalsSuite") or ((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\cmd.exe" or FolderPath endswith "\\pwsh.exe") and InitiatingProcessFolderPath contains ":\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal" and InitiatingProcessFolderPath endswith "\\WindowsTerminal.exe"))))
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

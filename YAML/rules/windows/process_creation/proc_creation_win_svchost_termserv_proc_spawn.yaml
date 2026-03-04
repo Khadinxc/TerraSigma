@@ -1,0 +1,46 @@
+id: f408c8c6-0419-5c45-8911-4b9f7d7c19cd
+name: Terminal Service Process Spawn
+description: 'Detects a process spawned by the terminal service server process (this could be an indicator for an exploitation of CVE-2019-0708) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_svchost_termserv_proc_spawn.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_svchost_termserv_proc_spawn.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- InitialAccess
+- LateralMovement
+query: |-
+  DeviceProcessEvents
+  | where (InitiatingProcessCommandLine contains "\\svchost.exe" and InitiatingProcessCommandLine contains "termsvcs") and (not(((FolderPath endswith "\\rdpclip.exe" or FolderPath endswith ":\\Windows\\System32\\csrss.exe" or FolderPath endswith ":\\Windows\\System32\\wininit.exe" or FolderPath endswith ":\\Windows\\System32\\winlogon.exe") or isnull(FolderPath))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1190
+- T1210
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

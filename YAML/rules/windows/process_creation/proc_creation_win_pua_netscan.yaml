@@ -1,0 +1,40 @@
+id: 5c9ef82c-d9d2-5737-95fc-f1b8bec3f23a
+name: PUA - SoftPerfect Netscan Execution
+description: 'Detects usage of SoftPerfect''s "netscan.exe". An application for scanning networks. It is actively used in-the-wild by threat actors to inspect and understand the network architecture of a victim. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_netscan.yml - Legitimate administrator activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_netscan.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where FolderPath endswith "\\netscan.exe" or ProcessVersionInfoProductName =~ "Network Scanner" or ProcessVersionInfoFileDescription =~ "Application for scanning networks"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1046
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

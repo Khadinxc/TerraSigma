@@ -1,0 +1,40 @@
+id: 30a25fa5-c789-5ce9-9867-65e8fbee9869
+name: MaxMpxCt Registry Value Changed
+description: 'Detects changes to the "MaxMpxCt" registry value. MaxMpxCt specifies the maximum outstanding network requests for the server per client, which is used when negotiating a Server Message Block (SMB) connection with a client. Note if the value is set beyond 125 older Windows 9x clients will fail to negotiate. Ransomware threat actors and operators (specifically BlackCat) were seen increasing this value in order to handle a higher volume of traffic. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_optimize_file_sharing_network.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_optimize_file_sharing_network.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceRegistryEvents
+  | where RegistryKey endswith "\\Services\\LanmanServer\\Parameters\\MaxMpxCt"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1070
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

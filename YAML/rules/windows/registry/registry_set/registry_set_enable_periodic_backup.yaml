@@ -1,0 +1,44 @@
+id: e3398ad2-7bbf-5414-b4c1-b495f9c7700b
+name: Periodic Backup For System Registry Hives Enabled
+description: 'Detects the enabling of the "EnablePeriodicBackup" registry value. Once enabled, The OS will backup System registry hives on restarts to the "C:\Windows\System32\config\RegBack" folder. Windows creates a "RegIdleBackup" task to manage subsequent backups. Registry backup was a default behavior on Windows and was disabled as of "Windows 10, version 1803". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_enable_periodic_backup.yml - Legitimate need for RegBack feature by administrators. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_enable_periodic_backup.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Collection
+query: |-
+  DeviceRegistryEvents
+  | where RegistryValueData =~ "DWORD (0x00000001)" and RegistryKey endswith "\\Control\\Session Manager\\Configuration Manager\\EnablePeriodicBackup"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1113
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

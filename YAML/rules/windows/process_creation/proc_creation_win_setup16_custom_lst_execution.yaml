@@ -1,0 +1,46 @@
+id: 23ca6eb1-78a0-58a0-96ef-a1b1a9555381
+name: Setup16.EXE Execution With Custom .Lst File
+description: 'Detects the execution of "Setup16.EXE" and old installation utility with a custom ".lst" file. These ".lst" file can contain references to external program that "Setup16.EXE" will execute. Attackers and adversaries might leverage this as a living of the land utility. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_setup16_custom_lst_execution.yml - On modern Windows system, the "Setup16" utility is practically never used, hence false positive should be very rare. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_setup16_custom_lst_execution.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Persistence
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (InitiatingProcessCommandLine contains " -m " and InitiatingProcessFolderPath =~ "C:\\Windows\\SysWOW64\\setup16.exe") and (not(FolderPath startswith "C:\\~MSSETUP.T\\"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1574
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

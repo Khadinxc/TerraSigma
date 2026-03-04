@@ -1,0 +1,44 @@
+id: 151c292c-3a5a-515f-916d-9a57060558d0
+name: Suspicious Package Installed - Linux
+description: 'Detects installation of suspicious packages using system installation utilities Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_install_suspicious_packages.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_install_suspicious_packages.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "install" and (FolderPath endswith "/apt" or FolderPath endswith "/apt-get")) or ((ProcessCommandLine contains "--install" or ProcessCommandLine contains "-i") and FolderPath endswith "/dpkg") or (ProcessCommandLine contains "-i" and FolderPath endswith "/rpm") or ((ProcessCommandLine contains "localinstall" or ProcessCommandLine contains "install") and FolderPath endswith "/yum")) and (ProcessCommandLine contains "nmap" or ProcessCommandLine contains " nc" or ProcessCommandLine contains "netcat" or ProcessCommandLine contains "wireshark" or ProcessCommandLine contains "tshark" or ProcessCommandLine contains "openconnect" or ProcessCommandLine contains "proxychains" or ProcessCommandLine contains "socat")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1553
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

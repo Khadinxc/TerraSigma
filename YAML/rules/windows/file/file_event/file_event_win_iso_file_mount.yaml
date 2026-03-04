@@ -1,0 +1,40 @@
+id: 354832a6-edc6-5eee-866a-1391ab672c32
+name: ISO File Created Within Temp Folders
+description: 'Detects the creation of a ISO file in the Outlook temp folder or in the Appdata temp folder. Typical of Qakbot TTP from end-July 2022. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_iso_file_mount.yml - Potential FP by sysadmin opening a zip file containing a legitimate ISO file | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_iso_file_mount.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- InitialAccess
+query: |-
+  DeviceFileEvents
+  | where ((FolderPath contains "\\AppData\\Local\\Temp\\" and FolderPath contains ".zip\\") and FolderPath endswith ".iso") or (FolderPath contains "\\AppData\\Local\\Microsoft\\Windows\\INetCache\\Content.Outlook\\" and FolderPath endswith ".iso")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1566
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

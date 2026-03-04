@@ -1,0 +1,46 @@
+id: b14d669f-84ec-5c2a-8dbb-abcba9850274
+name: FTP Connection Open Attempt Via Winscp CLI
+description: 'Detects the execution of Winscp with the "-command" and the "open" flags in order to open an FTP connection. Akira ransomware was seen using this technique in order to exfiltrate data. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_winscp_command_open_ftp.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_winscp_command_open_ftp.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Exfiltration
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "open " and ProcessCommandLine contains "ftp://") and (ProcessCommandLine contains "-command" or ProcessCommandLine contains "/command" or ProcessCommandLine contains "–command" or ProcessCommandLine contains "—command" or ProcessCommandLine contains "―command")) and (FolderPath endswith "\\WinSCP.exe" or ProcessVersionInfoOriginalFileName =~ "winscp.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1048
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

@@ -1,0 +1,42 @@
+id: 0972fafd-6452-5ca7-a03e-972e5c184b1d
+name: Renamed Gpg.EXE Execution
+description: 'Detects the execution of a renamed "gpg.exe". Often used by ransomware and loaders to decrypt/encrypt data. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_gpg4win.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_gpg4win.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Impact
+query: |-
+  DeviceProcessEvents
+  | where ProcessVersionInfoOriginalFileName =~ "gpg.exe" and (not((FolderPath endswith "\\gpg.exe" or FolderPath endswith "\\gpg2.exe")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1486
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

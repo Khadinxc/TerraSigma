@@ -1,0 +1,46 @@
+id: 11f4a182-03b1-533b-9a89-f29c5257b2fe
+name: Sofacy Trojan Loader Activity
+description: 'Detects Trojan loader activity as used by APT28 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT28/proc_creation_win_apt_sofacy.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT28/proc_creation_win_apt_sofacy.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains ".dat\"," or (ProcessCommandLine endswith ".dll #1" or ProcessCommandLine endswith ".dll\" #1" or ProcessCommandLine endswith ".dll\",#1")) and ((ProcessCommandLine contains "%LOCALAPPDATA%" or ProcessCommandLine contains "\\AppData\\Local\\") and FolderPath endswith "\\rundll32.exe")) and (not(ProcessCommandLine contains "\\AppData\\Local\\Temp\\"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+- T1218
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

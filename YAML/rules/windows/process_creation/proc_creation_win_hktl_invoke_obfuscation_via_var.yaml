@@ -1,0 +1,42 @@
+id: 0a14dbc6-0a30-5e2b-ad6f-30a43a2c2924
+name: Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION
+description: 'Detects Obfuscated Powershell via VAR++ LAUNCHER Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_via_var.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_via_var.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "{0}" or ProcessCommandLine contains "{1}" or ProcessCommandLine contains "{2}" or ProcessCommandLine contains "{3}" or ProcessCommandLine contains "{4}" or ProcessCommandLine contains "{5}") and (ProcessCommandLine contains "&&set" and ProcessCommandLine contains "cmd" and ProcessCommandLine contains "/c" and ProcessCommandLine contains "-f")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1027
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

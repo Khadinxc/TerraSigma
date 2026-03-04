@@ -1,0 +1,46 @@
+id: 8ef162df-59c7-5672-b5e8-968e130d8bd5
+name: DLL Load via LSASS
+description: 'Detects a method to load DLL via LSASS process using an undocumented Registry key Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_lsass_dll_load.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_lsass_dll_load.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Execution
+- Persistence
+query: |-
+  DeviceRegistryEvents
+  | where (RegistryKey contains "\\CurrentControlSet\\Services\\NTDS\\DirectoryServiceExtPt" or RegistryKey contains "\\CurrentControlSet\\Services\\NTDS\\LsaDbExtPt") and (not(((RegistryValueData in~ ("%%systemroot%%\\system32\\ntdsa.dll", "%%systemroot%%\\system32\\lsadb.dll")) and InitiatingProcessFolderPath =~ "C:\\Windows\\system32\\lsass.exe")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1547
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

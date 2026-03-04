@@ -1,0 +1,46 @@
+id: 06f86c8f-5e8a-5539-8b75-3286e32f2440
+name: Uncommon System Information Discovery Via Wmic.EXE
+description: 'Detects the use of the WMI command-line (WMIC) utility to identify and display various system information, including OS, CPU, GPU, and disk drive names; memory capacity; display resolution; and baseboard, BIOS, and GPU driver products/versions. Some of these commands were used by Aurora Stealer in late 2022/early 2023. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_system_info_uncommon.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_system_info_uncommon.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "LOGICALDISK get Name,Size,FreeSpace" or ProcessCommandLine contains "os get Caption,OSArchitecture,Version") and (ProcessVersionInfoFileDescription =~ "WMI Commandline Utility" or ProcessVersionInfoOriginalFileName =~ "wmic.exe" or FolderPath endswith "\\WMIC.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1082
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

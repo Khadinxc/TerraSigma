@@ -1,0 +1,40 @@
+id: 8c43fa8c-1853-5f79-b253-029e3559579a
+name: File With Uncommon Extension Created By An Office Application
+description: 'Detects the creation of files with an executable or script extension by an Office application. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_susp_file_extension.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_susp_file_extension.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceFileEvents
+  | where ((InitiatingProcessFolderPath endswith "\\excel.exe" or InitiatingProcessFolderPath endswith "\\msaccess.exe" or InitiatingProcessFolderPath endswith "\\mspub.exe" or InitiatingProcessFolderPath endswith "\\powerpnt.exe" or InitiatingProcessFolderPath endswith "\\visio.exe" or InitiatingProcessFolderPath endswith "\\winword.exe") and (FolderPath endswith ".bat" or FolderPath endswith ".cmd" or FolderPath endswith ".com" or FolderPath endswith ".dll" or FolderPath endswith ".exe" or FolderPath endswith ".hta" or FolderPath endswith ".ocx" or FolderPath endswith ".proj" or FolderPath endswith ".ps1" or FolderPath endswith ".scf" or FolderPath endswith ".scr" or FolderPath endswith ".sys" or FolderPath endswith ".vbe" or FolderPath endswith ".vbs" or FolderPath endswith ".wsf" or FolderPath endswith ".wsh")) and (not((FolderPath contains "\\AppData\\Local\\assembly\\tmp\\" and FolderPath endswith ".dll"))) and (not((((FolderPath contains "C:\\Users\\" and FolderPath contains "\\AppData\\Local\\Microsoft\\Office\\" and FolderPath contains "\\BackstageInAppNavCache\\") and FolderPath endswith ".com") or (InitiatingProcessFolderPath endswith "\\winword.exe" and FolderPath contains "\\AppData\\Local\\Temp\\webexdelta\\" and (FolderPath endswith ".dll" or FolderPath endswith ".exe")) or ((FolderPath contains "C:\\Users\\" and FolderPath contains "\\AppData\\Local\\Microsoft\\Office\\" and FolderPath contains "\\WebServiceCache\\AllUsers") and FolderPath endswith ".com"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1204
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

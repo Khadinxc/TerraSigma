@@ -1,0 +1,44 @@
+id: 0565156d-e324-50f7-a61a-819d68f9be79
+name: REvil Kaseya Incident Malware Patterns
+description: 'Detects process command line patterns and locations used by REvil group in Kaseya incident (can also match on other malware) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/TA/Kaseya-Supply-Chain/proc_creation_win_apt_revil_kaseya.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/TA/Kaseya-Supply-Chain/proc_creation_win_apt_revil_kaseya.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "C:\\Windows\\cert.exe" or ProcessCommandLine contains "del /q /f c:\\kworking\\agent.crt" or ProcessCommandLine contains "Kaseya VSA Agent Hot-fix" or ProcessCommandLine contains "\\AppData\\Local\\Temp\\MsMpEng.exe" or ProcessCommandLine contains "rmdir /s /q %SystemDrive%\\inetpub\\logs" or (ProcessCommandLine contains "del /s /q /f %SystemDrive%\\" and ProcessCommandLine contains ".log") or ProcessCommandLine contains "c:\\kworking1\\agent.exe" or ProcessCommandLine contains "c:\\kworking1\\agent.crt") or (FolderPath in~ ("C:\\Windows\\MsMpEng.exe", "C:\\Windows\\cert.exe", "C:\\kworking\\agent.exe", "C:\\kworking1\\agent.exe")) or (ProcessCommandLine contains "del /s /q /f" and ProcessCommandLine contains "WebPages\\Errors\\webErrorLog.txt")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

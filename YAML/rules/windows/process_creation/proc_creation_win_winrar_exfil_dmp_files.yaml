@@ -1,0 +1,44 @@
+id: 547edcd0-357b-53c7-bbdd-548aafc43e84
+name: Winrar Compressing Dump Files
+description: 'Detects execution of WinRAR in order to compress a file with a ".dmp"/".dump" extension, which could be a step in a process of dump file exfiltration. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winrar_exfil_dmp_files.yml - Legitimate use of WinRAR with a command line in which ".dmp" or ".dump" appears accidentally - Legitimate use of WinRAR to compress WER ".dmp" files for troubleshooting | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winrar_exfil_dmp_files.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Collection
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains ".dmp" or ProcessCommandLine contains ".dump" or ProcessCommandLine contains ".hdmp") and ((FolderPath endswith "\\rar.exe" or FolderPath endswith "\\winrar.exe") or ProcessVersionInfoFileDescription =~ "Command line RAR")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1560
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

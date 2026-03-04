@@ -1,0 +1,40 @@
+id: 465c2cdd-ae4c-5361-bd8a-76f45466562f
+name: Windows Binaries Write Suspicious Extensions
+description: 'Detects Windows executables that write files with suspicious extensions Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_shell_write_susp_files_extensions.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_shell_write_susp_files_extensions.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceFileEvents
+  | where (((InitiatingProcessFolderPath endswith "\\csrss.exe" or InitiatingProcessFolderPath endswith "\\lsass.exe" or InitiatingProcessFolderPath endswith "\\RuntimeBroker.exe" or InitiatingProcessFolderPath endswith "\\sihost.exe" or InitiatingProcessFolderPath endswith "\\smss.exe" or InitiatingProcessFolderPath endswith "\\wininit.exe" or InitiatingProcessFolderPath endswith "\\winlogon.exe") and (FolderPath endswith ".bat" or FolderPath endswith ".dll" or FolderPath endswith ".exe" or FolderPath endswith ".hta" or FolderPath endswith ".iso" or FolderPath endswith ".ps1" or FolderPath endswith ".txt" or FolderPath endswith ".vbe" or FolderPath endswith ".vbs")) or ((InitiatingProcessFolderPath endswith "\\dllhost.exe" or InitiatingProcessFolderPath endswith "\\rundll32.exe" or InitiatingProcessFolderPath endswith "\\svchost.exe") and (FolderPath endswith ".bat" or FolderPath endswith ".hta" or FolderPath endswith ".iso" or FolderPath endswith ".ps1" or FolderPath endswith ".vbe" or FolderPath endswith ".vbs"))) and (not(((InitiatingProcessFolderPath =~ "C:\\Windows\\System32\\dllhost.exe" and (FolderPath contains ":\\Users\\" and FolderPath contains "\\AppData\\Local\\Temp\\__PSScriptPolicyTest_") and FolderPath endswith ".ps1") or (InitiatingProcessFolderPath =~ "C:\\Windows\\system32\\svchost.exe" and (FolderPath contains "C:\\Program Files\\WindowsApps\\Clipchamp" and FolderPath contains ".ps1")) or ((InitiatingProcessFolderPath in~ ("C:\\Windows\\system32\\svchost.exe", "C:\\Windows\\SysWOW64\\svchost.exe")) and FolderPath endswith ".ps1" and (FolderPath startswith "C:\\Program Files\\WindowsApps\\Microsoft.PowerShellPreview" or FolderPath startswith "C:\\Program Files (x86)\\WindowsApps\\Microsoft.PowerShellPreview")) or (InitiatingProcessFolderPath =~ "C:\\Windows\\system32\\svchost.exe" and (FolderPath contains "C:\\Windows\\System32\\GroupPolicy\\DataStore\\" and FolderPath contains "\\sysvol\\" and FolderPath contains "\\Policies\\" and FolderPath contains "\\Machine\\Scripts\\Startup\\") and (FolderPath endswith ".ps1" or FolderPath endswith ".bat")))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1036
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

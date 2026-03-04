@@ -1,0 +1,42 @@
+id: 940c36ff-b3d2-5698-9ad9-8dd610074024
+name: Potential Libvlc.DLL Sideloading
+description: 'Detects potential DLL sideloading of "libvlc.dll", a DLL that is legitimately used by "VLC.exe" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_libvlc.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_libvlc.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Persistence
+- PrivilegeEscalation
+query: |-
+  DeviceImageLoadEvents
+  | where FolderPath endswith "\\libvlc.dll" and (not((FolderPath startswith "C:\\Program Files (x86)\\VideoLAN\\VLC\\" or FolderPath startswith "C:\\Program Files\\VideoLAN\\VLC\\")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1574
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

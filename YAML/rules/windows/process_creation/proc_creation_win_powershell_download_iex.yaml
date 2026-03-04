@@ -1,0 +1,40 @@
+id: ae8aeb3f-d104-5921-a80a-1d9f426884e1
+name: PowerShell Download and Execution Cradles
+description: 'Detects PowerShell download and execution cradles. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_download_iex.yml - Some PowerShell installers were seen using similar combinations. Apply filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_download_iex.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains ".DownloadString(" or ProcessCommandLine contains ".DownloadFile(" or ProcessCommandLine contains "Invoke-WebRequest " or ProcessCommandLine contains "iwr " or ProcessCommandLine contains "Invoke-RestMethod " or ProcessCommandLine contains "irm ") and (ProcessCommandLine contains ";iex $" or ProcessCommandLine contains "| IEX" or ProcessCommandLine contains "|IEX " or ProcessCommandLine contains "I`E`X" or ProcessCommandLine contains "I`EX" or ProcessCommandLine contains "IE`X" or ProcessCommandLine contains "iex " or ProcessCommandLine contains "IEX (" or ProcessCommandLine contains "IEX(" or ProcessCommandLine contains "Invoke-Expression")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

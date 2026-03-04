@@ -1,0 +1,45 @@
+id: b8f1d9ff-c7ed-5af1-a9da-0f4beb435ee0
+name: Uncommon Userinit Child Process
+description: 'Detects uncommon "userinit.exe" child processes, which could be a sign of uncommon shells or login scripts used for persistence. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_userinit_uncommon_child_processes.yml - Legitimate logon scripts or custom shells may trigger false positives. Apply additional filters accordingly. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_userinit_uncommon_child_processes.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Persistence
+query: |-
+  DeviceProcessEvents
+  | where InitiatingProcessFolderPath endswith "\\userinit.exe" and (not(FolderPath endswith ":\\WINDOWS\\explorer.exe")) and (not(((FolderPath endswith ":\\Program Files (x86)\\Citrix\\HDX\\bin\\cmstart.exe" or FolderPath endswith ":\\Program Files (x86)\\Citrix\\HDX\\bin\\icast.exe" or FolderPath endswith ":\\Program Files (x86)\\Citrix\\System32\\icast.exe" or FolderPath endswith ":\\Program Files\\Citrix\\HDX\\bin\\cmstart.exe" or FolderPath endswith ":\\Program Files\\Citrix\\HDX\\bin\\icast.exe" or FolderPath endswith ":\\Program Files\\Citrix\\System32\\icast.exe") or isnull(FolderPath) or (ProcessCommandLine contains "netlogon.bat" or ProcessCommandLine contains "UsrLogon.cmd") or (FolderPath endswith ":\\Windows\\System32\\proquota.exe" or FolderPath endswith ":\\Windows\\SysWOW64\\proquota.exe") or ProcessCommandLine =~ "PowerShell.exe")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1037
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

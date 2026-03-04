@@ -1,0 +1,44 @@
+id: 1d403ffc-1329-5c45-8f59-5fef67442b3b
+name: Suspicious PowerShell IEX Execution Patterns
+description: 'Detects suspicious ways to run Invoke-Execution using IEX alias Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_iex_patterns.yml - Legitimate scripts that use IEX | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_iex_patterns.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (((ProcessCommandLine contains " | iex;" or ProcessCommandLine contains " | iex " or ProcessCommandLine contains " | iex}" or ProcessCommandLine contains " | IEX ;" or ProcessCommandLine contains " | IEX -Error" or ProcessCommandLine contains " | IEX (new" or ProcessCommandLine contains ");IEX ") and (FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe")) and (ProcessCommandLine contains "::FromBase64String" or ProcessCommandLine contains ".GetString([System.Convert]::")) or (ProcessCommandLine contains ")|iex;$" or ProcessCommandLine contains ");iex($" or ProcessCommandLine contains ");iex $" or ProcessCommandLine contains " | IEX | " or ProcessCommandLine contains " | iex\\\"")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

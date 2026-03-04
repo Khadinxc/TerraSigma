@@ -1,0 +1,46 @@
+id: 363d7028-0a03-5b40-b351-6e5cb487993a
+name: NetNTLM Downgrade Attack - Registry
+description: 'Detects NetNTLM downgrade attack Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_net_ntlm_downgrade.yml - Services or tools that set the values to more restrictive values | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_net_ntlm_downgrade.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- DefenseEvasion
+query: |-
+  DeviceRegistryEvents
+  | where (RegistryKey endswith "SYSTEM*" and RegistryKey contains "ControlSet" and RegistryKey contains "\\Control\\Lsa") and (((RegistryValueData in~ ("DWORD (0x00000000)", "DWORD (0x00000001)", "DWORD (0x00000002)")) and RegistryKey endswith "\\lmcompatibilitylevel") or ((RegistryValueData in~ ("DWORD (0x00000000)", "DWORD (0x00000010)", "DWORD (0x00000020)", "DWORD (0x00000030)")) and RegistryKey endswith "\\NtlmMinClientSec") or RegistryKey endswith "\\RestrictSendingNTLMTraffic")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1562
+- T1112
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

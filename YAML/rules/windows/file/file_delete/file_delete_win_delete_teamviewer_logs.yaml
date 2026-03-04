@@ -1,0 +1,40 @@
+id: 1620ca20-c490-547c-94af-b0ca6ac8a611
+name: TeamViewer Log File Deleted
+description: 'Detects the deletion of the TeamViewer log files which may indicate an attempt to destroy forensic evidence Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_teamviewer_logs.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_teamviewer_logs.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceFileEvents
+  | where (FolderPath contains "\\TeamViewer_" and FolderPath endswith ".log") and (not(InitiatingProcessFolderPath =~ "C:\\Windows\\system32\\svchost.exe"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1070
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

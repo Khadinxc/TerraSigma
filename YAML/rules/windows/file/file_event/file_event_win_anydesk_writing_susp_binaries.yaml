@@ -1,0 +1,40 @@
+id: 97c13f89-ed90-560f-a324-54d3a4a78bbd
+name: Suspicious Binary Writes Via AnyDesk
+description: 'Detects AnyDesk writing binary files to disk other than "gcapi.dll". According to RedCanary research it is highly abnormal for AnyDesk to write executable files to disk besides gcapi.dll, which is a legitimate DLL that is part of the Google Chrome web browser used to interact with the Google Cloud API. (See reference section for more details) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_anydesk_writing_susp_binaries.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_anydesk_writing_susp_binaries.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CommandAndControl
+query: |-
+  DeviceFileEvents
+  | where ((InitiatingProcessFolderPath endswith "\\AnyDesk.exe" or InitiatingProcessFolderPath endswith "\\AnyDeskMSI.exe") and (FolderPath endswith ".dll" or FolderPath endswith ".exe")) and (not(FolderPath endswith "\\gcapi.dll"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1219
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

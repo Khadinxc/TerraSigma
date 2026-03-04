@@ -1,0 +1,40 @@
+id: ae7ec697-3c8c-5883-b255-918f97e87bb7
+name: Potential DCOM InternetExplorer.Application DLL Hijack - Image Load
+description: 'Detects potential DLL hijack of "iertutil.dll" found in the DCOM InternetExplorer.Application Class Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_iexplore_dcom_iertutil_dll_hijack.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_iexplore_dcom_iertutil_dll_hijack.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- LateralMovement
+query: |-
+  DeviceImageLoadEvents
+  | where FolderPath endswith "\\Internet Explorer\\iertutil.dll" and InitiatingProcessFolderPath endswith "\\Internet Explorer\\iexplore.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1021
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

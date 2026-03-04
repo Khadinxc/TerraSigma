@@ -1,0 +1,41 @@
+id: 200ca560-dc89-5cb9-bd81-581ce5b13490
+name: UAC Bypass Abusing Winsat Path Parsing - File
+description: 'Detects the pattern of UAC Bypass using a path parsing issue in winsat.exe (UACMe 52) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_winsat.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_winsat.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- PrivilegeEscalation
+query: |-
+  DeviceFileEvents
+  | where (FolderPath endswith "\\AppData\\Local\\Temp\\system32\\winsat.exe" or FolderPath endswith "\\AppData\\Local\\Temp\\system32\\winmm.dll") and FolderPath startswith "C:\\Users\\"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1548
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

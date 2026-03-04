@@ -1,0 +1,44 @@
+id: 2ba7a641-7469-5943-89b0-ca7647b3eb8c
+name: Renamed CURL.EXE Execution
+description: 'Detects the execution of a renamed "CURL.exe" binary based on the PE metadata fields Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_curl.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_curl.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (ProcessVersionInfoOriginalFileName =~ "curl.exe" or ProcessVersionInfoFileDescription =~ "The curl executable") and (not(FolderPath contains "\\curl"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+- T1202
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

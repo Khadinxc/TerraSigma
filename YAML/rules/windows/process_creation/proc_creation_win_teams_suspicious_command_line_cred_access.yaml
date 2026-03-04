@@ -1,0 +1,44 @@
+id: 54b7d605-02c1-52ba-acf6-579a17ea3402
+name: Potentially Suspicious Command Targeting Teams Sensitive Files
+description: 'Detects a commandline containing references to the Microsoft Teams database or cookies files from a process other than Teams. The database might contain authentication tokens and other sensitive information about the logged in accounts. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_teams_suspicious_command_line_cred_access.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_teams_suspicious_command_line_cred_access.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CredentialAccess
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "\\Microsoft\\Teams\\Cookies" or ProcessCommandLine contains "\\Microsoft\\Teams\\Local Storage\\leveldb") and (not(FolderPath endswith "\\Microsoft\\Teams\\current\\Teams.exe"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1528
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

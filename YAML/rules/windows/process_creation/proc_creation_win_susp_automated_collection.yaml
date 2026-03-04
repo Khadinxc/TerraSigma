@@ -1,0 +1,46 @@
+id: 8d0b1b03-fd51-5270-898b-a1272e8cdd7d
+name: Automated Collection Command Prompt
+description: 'Once established within a system or network, an adversary may use automated techniques for collecting internal data. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_automated_collection.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_automated_collection.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Collection
+- CredentialAccess
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains ".doc" or ProcessCommandLine contains ".docx" or ProcessCommandLine contains ".xls" or ProcessCommandLine contains ".xlsx" or ProcessCommandLine contains ".ppt" or ProcessCommandLine contains ".pptx" or ProcessCommandLine contains ".rtf" or ProcessCommandLine contains ".pdf" or ProcessCommandLine contains ".txt") and ((ProcessCommandLine contains "dir " and ProcessCommandLine contains " /b " and ProcessCommandLine contains " /s ") or ((ProcessCommandLine contains " /e " or ProcessCommandLine contains " /si ") and ProcessVersionInfoOriginalFileName =~ "FINDSTR.EXE"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1119
+- T1552
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

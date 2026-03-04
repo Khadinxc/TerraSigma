@@ -1,0 +1,40 @@
+id: e47e0e6b-610e-5961-8222-51159471b1b5
+name: AspNetCompiler Execution
+description: 'Detects execution of "aspnet_compiler.exe" which can be abused to compile and execute C# code. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_aspnet_compiler_exectuion.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_aspnet_compiler_exectuion.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (FolderPath contains ":\\Windows\\Microsoft.NET\\Framework\\" or FolderPath contains ":\\Windows\\Microsoft.NET\\Framework64\\" or FolderPath contains ":\\Windows\\Microsoft.NET\\FrameworkArm\\" or FolderPath contains ":\\Windows\\Microsoft.NET\\FrameworkArm64\\") and FolderPath endswith "\\aspnet_compiler.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1127
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

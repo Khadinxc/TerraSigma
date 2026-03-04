@@ -1,0 +1,46 @@
+id: 56ff4e8f-ac7b-5535-8257-eb9d5647da4b
+name: Process Memory Dump via RdrLeakDiag.EXE
+description: 'Detects the use of the Microsoft Windows Resource Leak Diagnostic tool "rdrleakdiag.exe" to dump process memory Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rdrleakdiag_process_dumping.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rdrleakdiag_process_dumping.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CredentialAccess
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "-memdmp" or ProcessCommandLine contains "/memdmp" or ProcessCommandLine contains "–memdmp" or ProcessCommandLine contains "—memdmp" or ProcessCommandLine contains "―memdmp" or ProcessCommandLine contains "fullmemdmp") and (ProcessCommandLine contains " -o " or ProcessCommandLine contains " /o " or ProcessCommandLine contains " –o " or ProcessCommandLine contains " —o " or ProcessCommandLine contains " ―o " or ProcessCommandLine contains " -p " or ProcessCommandLine contains " /p " or ProcessCommandLine contains " –p " or ProcessCommandLine contains " —p " or ProcessCommandLine contains " ―p ") and (FolderPath endswith "\\rdrleakdiag.exe" or ProcessVersionInfoOriginalFileName =~ "RdrLeakDiag.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1003
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

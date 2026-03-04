@@ -1,0 +1,41 @@
+id: daff9cd9-0f0a-53e6-b24d-b916b27f8afc
+name: Potentially Suspicious Usage Of Qemu
+description: 'Detects potentially suspicious execution of the Qemu utility in a Windows environment. Threat actors have leveraged this utility and this technique for achieving network access as reported by Kaspersky. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_qemu_suspicious_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_qemu_suspicious_execution.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CommandAndControl
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "-m 1M" or ProcessCommandLine contains "-m 2M" or ProcessCommandLine contains "-m 3M") and (ProcessCommandLine contains "restrict=off" and ProcessCommandLine contains "-netdev " and ProcessCommandLine contains "connect=" and ProcessCommandLine contains "-nographic")) and (not((ProcessCommandLine contains " -cdrom " or ProcessCommandLine contains " type=virt " or ProcessCommandLine contains " -blockdev ")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1090
+- T1572
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

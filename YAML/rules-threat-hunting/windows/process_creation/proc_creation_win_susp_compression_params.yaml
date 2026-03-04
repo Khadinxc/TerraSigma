@@ -1,0 +1,46 @@
+id: 94ed698f-2509-57d5-912e-b85e27526c84
+name: Potentially Suspicious Compression Tool Parameters
+description: 'Detects potentially suspicious command line arguments of common data compression tools Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_compression_params.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_compression_params.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Collection
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains " -p" or ProcessCommandLine contains " -ta" or ProcessCommandLine contains " -tb" or ProcessCommandLine contains " -sdel" or ProcessCommandLine contains " -dw" or ProcessCommandLine contains " -hp") and ((ProcessVersionInfoOriginalFileName contains "7z" and ProcessVersionInfoOriginalFileName contains ".exe") or ProcessVersionInfoOriginalFileName endswith "rar.exe" or (ProcessVersionInfoOriginalFileName contains "Command" and ProcessVersionInfoOriginalFileName contains "Line" and ProcessVersionInfoOriginalFileName contains "RAR"))) and (not((InitiatingProcessFolderPath contains ":\\Program Files\\" or InitiatingProcessFolderPath contains ":\\Program Files (x86)\\")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1560
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

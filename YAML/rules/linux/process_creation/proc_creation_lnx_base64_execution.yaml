@@ -1,0 +1,40 @@
+id: b728f906-e2e1-56f4-a03e-998e7221f0c3
+name: Linux Base64 Encoded Pipe to Shell
+description: 'Detects suspicious process command line that uses base64 encoded input for execution with a shell Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_base64_execution.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_base64_execution.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine contains "base64 " and ((ProcessCommandLine contains "| bash " or ProcessCommandLine contains "| sh " or ProcessCommandLine contains "|bash " or ProcessCommandLine contains "|sh ") or (ProcessCommandLine endswith " |sh" or ProcessCommandLine endswith "| bash" or ProcessCommandLine endswith "| sh" or ProcessCommandLine endswith "|bash"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1140
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

@@ -1,0 +1,40 @@
+id: 79dee7ae-8e50-520e-be99-63bdaa1edbff
+name: Suspicious Executable File Creation
+description: 'Detect creation of suspicious executable file names. Some strings look for suspicious file extensions, others look for filenames that exploit unquoted service paths. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_executable_creation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_executable_creation.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceFileEvents
+  | where FolderPath endswith ":\\$Recycle.Bin.exe" or FolderPath endswith ":\\Documents and Settings.exe" or FolderPath endswith ":\\MSOCache.exe" or FolderPath endswith ":\\PerfLogs.exe" or FolderPath endswith ":\\Recovery.exe" or FolderPath endswith ".bat.exe" or FolderPath endswith ".sys.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1564
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

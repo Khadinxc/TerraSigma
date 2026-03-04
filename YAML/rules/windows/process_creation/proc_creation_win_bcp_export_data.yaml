@@ -1,0 +1,47 @@
+id: ca2ab8fd-7e48-5b95-9ac6-d54042f52adf
+name: Data Export From MSSQL Table Via BCP.EXE
+description: 'Detects the execution of the BCP utility in order to export data from the database. Attackers were seen saving their malware to a database column or table and then later extracting it via "bcp.exe" into a file. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bcp_export_data.yml - Legitimate data export operations. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bcp_export_data.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- Exfiltration
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains " out " or ProcessCommandLine contains " queryout ") and (FolderPath endswith "\\bcp.exe" or ProcessVersionInfoOriginalFileName =~ "BCP.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1048
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

@@ -1,0 +1,48 @@
+id: c51ba886-47c8-51b8-883d-28cda4898c96
+name: File Download Via Windows Defender MpCmpRun.EXE
+description: 'Detects the use of Windows Defender MpCmdRun.EXE to download files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mpcmdrun_download_arbitrary_file.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mpcmdrun_download_arbitrary_file.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- CommandAndControl
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "DownloadFile" and ProcessCommandLine contains "url") and (ProcessVersionInfoOriginalFileName =~ "MpCmdRun.exe" or FolderPath endswith "\\MpCmdRun.exe" or ProcessCommandLine contains "MpCmdRun.exe" or ProcessVersionInfoFileDescription =~ "Microsoft Malware Protection Command Line Utility")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1218
+- T1105
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

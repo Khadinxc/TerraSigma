@@ -1,0 +1,38 @@
+id: e203e216-483a-5040-938b-84991adc7218
+name: Potential APT Mustang Panda Activity Against Australian Gov
+description: 'Detects specific command line execution used by Mustang Panda in a targeted attack against the Australian government as reported by Lab52 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Mustang-Panda-Australia-Campaign/proc_creation_win_apt_mustang_panda_indicators.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Mustang-Panda-Australia-Campaign/proc_creation_win_apt_mustang_panda_indicators.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "copy SolidPDFCreator.dll" and ProcessCommandLine contains "C:\\Users\\Public\\Libraries\\PhotoTvRHD\\SolidPDFCreator.dll") or (ProcessCommandLine contains "reg " and ProcessCommandLine contains "\\Windows\\CurrentVersion\\Run" and ProcessCommandLine contains "SolidPDF" and ProcessCommandLine contains "C:\\Users\\Public\\Libraries\\PhotoTvRHD\\")
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

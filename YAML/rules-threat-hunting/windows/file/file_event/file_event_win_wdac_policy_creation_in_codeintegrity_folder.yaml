@@ -1,0 +1,40 @@
+id: 5de044b5-ae7b-5a3a-8b68-9bb3550a26ba
+name: WDAC Policy File Creation In CodeIntegrity Folder
+description: 'Attackers can craft a custom Windows Defender Application Control (WDAC) policy that blocks Endpoint Detection and Response (EDR) components while allowing their own malicious code. The policy is placed in the privileged Windows Code Integrity folder (C:\Windows\System32\CodeIntegrity\). Upon reboot, the policy prevents EDR drivers from loading, effectively bypassing security measures and may further enable undetected lateral movement within an Active Directory environment. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/file_event_win_wdac_policy_creation_in_codeintegrity_folder.yml - May occur legitimately as part of admin activity, but rarely with interactive elevation. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/file_event_win_wdac_policy_creation_in_codeintegrity_folder.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceFileEvents
+  | where InitiatingProcessIntegrityLevel =~ "High" and FolderPath contains ":\\Windows\\System32\\CodeIntegrity\\" and (FolderPath endswith ".cip" or FolderPath endswith ".p7b")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1562
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

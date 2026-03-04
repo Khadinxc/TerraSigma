@@ -1,0 +1,40 @@
+id: 78e675ea-7377-52c9-9790-9295ce0b8471
+name: Suspicious Service Binary Directory
+description: 'Detects a service binary running in a suspicious directory Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_service_dir.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_service_dir.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (FolderPath contains "\\Users\\Public\\" or FolderPath contains "\\$Recycle.bin" or FolderPath contains "\\Users\\All Users\\" or FolderPath contains "\\Users\\Default\\" or FolderPath contains "\\Users\\Contacts\\" or FolderPath contains "\\Users\\Searches\\" or FolderPath contains "C:\\Perflogs\\" or FolderPath contains "\\config\\systemprofile\\" or FolderPath contains "\\Windows\\Fonts\\" or FolderPath contains "\\Windows\\IME\\" or FolderPath contains "\\Windows\\addins\\") and (InitiatingProcessFolderPath endswith "\\services.exe" or InitiatingProcessFolderPath endswith "\\svchost.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1202
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

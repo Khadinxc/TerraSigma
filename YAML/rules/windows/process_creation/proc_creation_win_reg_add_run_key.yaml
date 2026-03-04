@@ -1,0 +1,45 @@
+id: 33557e47-a25d-5df3-a438-cdf26e151158
+name: Potential Persistence Attempt Via Run Keys Using Reg.EXE
+description: 'Detects suspicious command line reg.exe tool adding key to RUN key in Registry Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_add_run_key.yml - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reasons. - Legitimate administrator sets up autorun keys for legitimate reasons. - Discord | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_add_run_key.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Persistence
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "Software\\Microsoft\\Windows\\CurrentVersion\\Run" or ProcessCommandLine contains "\\Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Run" or ProcessCommandLine contains "\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\Run") and (ProcessCommandLine contains "reg" and ProcessCommandLine contains " add ") and FolderPath endswith "\\reg.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1547
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

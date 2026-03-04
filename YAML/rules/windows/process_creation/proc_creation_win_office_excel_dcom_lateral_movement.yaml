@@ -1,0 +1,42 @@
+id: c53b01e9-cb2f-57c1-8770-c123b8781acf
+name: Potential Excel.EXE DCOM Lateral Movement Via ActivateMicrosoftApp
+description: 'Detects suspicious child processes of Excel which could be an indicator of lateral movement leveraging the "ActivateMicrosoftApp" Excel DCOM object. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_excel_dcom_lateral_movement.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_excel_dcom_lateral_movement.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- LateralMovement
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessVersionInfoOriginalFileName in~ ("foxprow.exe", "schdplus.exe", "winproj.exe")) or (FolderPath endswith "\\foxprow.exe" or FolderPath endswith "\\schdplus.exe" or FolderPath endswith "\\winproj.exe")) and InitiatingProcessFolderPath endswith "\\excel.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1021
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

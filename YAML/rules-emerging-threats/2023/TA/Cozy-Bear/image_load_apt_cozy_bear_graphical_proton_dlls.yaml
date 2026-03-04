@@ -1,0 +1,42 @@
+id: 6d55917e-0b36-5398-b148-c09e244c44f7
+name: DLL Names Used By SVR For GraphicalProton Backdoor
+description: 'Hunts known SVR-specific DLL names. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Cozy-Bear/image_load_apt_cozy_bear_graphical_proton_dlls.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Cozy-Bear/image_load_apt_cozy_bear_graphical_proton_dlls.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Persistence
+- PrivilegeEscalation
+query: |-
+  DeviceImageLoadEvents
+  | where FolderPath endswith "\\AclNumsInvertHost.dll" or FolderPath endswith "\\AddressResourcesSpec.dll" or FolderPath endswith "\\BlendMonitorStringBuild.dll" or FolderPath endswith "\\ChildPaletteConnected.dll" or FolderPath endswith "\\DeregisterSeekUsers.dll" or FolderPath endswith "\\HandleFrequencyAll.dll" or FolderPath endswith "\\HardSwapColor.dll" or FolderPath endswith "\\LengthInMemoryActivate.dll" or FolderPath endswith "\\ModeBitmapNumericAnimate.dll" or FolderPath endswith "\\ModeFolderSignMove.dll" or FolderPath endswith "\\ParametersNamesPopup.dll" or FolderPath endswith "\\PerformanceCaptionApi.dll" or FolderPath endswith "\\ScrollbarHandleGet.dll" or FolderPath endswith "\\UnregisterAncestorAppendAuto.dll" or FolderPath endswith "\\WowIcmpRemoveReg.dll"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1574
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

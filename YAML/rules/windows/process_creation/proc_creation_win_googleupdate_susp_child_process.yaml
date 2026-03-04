@@ -1,0 +1,38 @@
+id: d21b85fa-4369-56ac-b3c4-7c7e8d5043d5
+name: Potentially Suspicious GoogleUpdate Child Process
+description: 'Detects potentially suspicious child processes of "GoogleUpdate.exe" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_googleupdate_susp_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_googleupdate_susp_child_process.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where InitiatingProcessFolderPath endswith "\\GoogleUpdate.exe" and (not((isnull(FolderPath) or (FolderPath contains "\\Google" or (FolderPath endswith "\\setup.exe" or FolderPath endswith "chrome_updater.exe" or FolderPath endswith "chrome_installer.exe")))))
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

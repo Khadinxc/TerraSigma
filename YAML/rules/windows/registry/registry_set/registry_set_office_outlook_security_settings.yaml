@@ -1,0 +1,40 @@
+id: 373e9280-fd4c-5cc1-ba6e-602774c87f0a
+name: Outlook Security Settings Updated - Registry
+description: 'Detects changes to the registry values related to outlook security settings Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_outlook_security_settings.yml - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_outlook_security_settings.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+query: |-
+  DeviceRegistryEvents
+  | where RegistryKey endswith "\\SOFTWARE\\Microsoft\\Office*" and RegistryKey endswith "\\Outlook\\Security*"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1137
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

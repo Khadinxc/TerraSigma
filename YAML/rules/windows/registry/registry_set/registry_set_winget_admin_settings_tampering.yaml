@@ -1,0 +1,39 @@
+id: a67c2840-29cc-56bd-ad81-4a387a5afa8a
+name: Winget Admin Settings Modification
+description: 'Detects changes to the AppInstaller (winget) admin settings. Such as enabling local manifest installations or disabling installer hash checks Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_winget_admin_settings_tampering.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_winget_admin_settings_tampering.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Persistence
+query: |-
+  DeviceRegistryEvents
+  | where InitiatingProcessFolderPath endswith "\\winget.exe" and RegistryKey endswith "\\LocalState\\admin_settings" and RegistryKey =~ "\\REGISTRY\\A*"
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

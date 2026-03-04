@@ -1,0 +1,44 @@
+id: e41920ec-64d7-50d6-9fb6-a0f8a4dc41ce
+name: Potentially Suspicious Electron Application CommandLine
+description: 'Detects potentially suspicious CommandLine of electron apps (teams, discord, slack, etc.). This could be a sign of abuse to proxy execution through a signed binary. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_electron_execution_proxy.yml - Legitimate usage for debugging purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_electron_execution_proxy.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "--browser-subprocess-path" or ProcessCommandLine contains "--gpu-launcher" or ProcessCommandLine contains "--renderer-cmd-prefix" or ProcessCommandLine contains "--utility-cmd-prefix") and ((FolderPath endswith "\\chrome.exe" or FolderPath endswith "\\code.exe" or FolderPath endswith "\\discord.exe" or FolderPath endswith "\\GitHubDesktop.exe" or FolderPath endswith "\\keybase.exe" or FolderPath endswith "\\msedge_proxy.exe" or FolderPath endswith "\\msedge.exe" or FolderPath endswith "\\msedgewebview2.exe" or FolderPath endswith "\\msteams.exe" or FolderPath endswith "\\slack.exe" or FolderPath endswith "\\Teams.exe") or (ProcessVersionInfoOriginalFileName in~ ("chrome.exe", "code.exe", "discord.exe", "GitHubDesktop.exe", "keybase.exe", "msedge_proxy.exe", "msedge.exe", "msedgewebview2.exe", "msteams.exe", "slack.exe", "Teams.exe")))
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

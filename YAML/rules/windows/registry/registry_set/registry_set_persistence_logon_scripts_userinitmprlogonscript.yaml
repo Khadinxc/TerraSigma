@@ -1,0 +1,42 @@
+id: bb085687-3dfd-5cc9-a328-f7cdd10d4fc4
+name: Potential Persistence Via Logon Scripts - Registry
+description: 'Detects creation of "UserInitMprLogonScript" registry value which can be used as a persistence method by malicious actors Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_logon_scripts_userinitmprlogonscript.yml - Investigate the contents of the "UserInitMprLogonScript" value to determine of the added script is legitimate | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_logon_scripts_userinitmprlogonscript.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Persistence
+- LateralMovement
+query: |-
+  DeviceRegistryEvents
+  | where RegistryKey contains "UserInitMprLogonScript"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1037
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

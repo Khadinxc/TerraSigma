@@ -1,0 +1,40 @@
+id: e139453b-9cd1-5df3-862d-366eebc9830b
+name: Potential APT-C-12 BlueMushroom DLL Load Activity Via Regsvr32
+description: 'Detects potential BlueMushroom DLL loading activity via regsvr32 from AppData Local Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/APC-C-12/proc_creation_win_apt_aptc12_bluemushroom.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/APC-C-12/proc_creation_win_apt_aptc12_bluemushroom.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine contains "regsvr32" and ProcessCommandLine contains "\\AppData\\Local\\" and ProcessCommandLine contains ".dll" and ProcessCommandLine contains ",DllEntry"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1218
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

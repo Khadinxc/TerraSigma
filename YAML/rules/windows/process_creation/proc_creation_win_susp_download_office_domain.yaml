@@ -1,0 +1,46 @@
+id: e2c52467-5d19-59d7-ae6b-ddd3785da35a
+name: Suspicious Download from Office Domain
+description: 'Detects suspicious ways to download files from Microsoft domains that are used to store attachments in Emails or OneNote documents Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_download_office_domain.yml - Scripts or tools that download attachments from these domains (OneNote, Outlook 365) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_download_office_domain.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CommandAndControl
+- ResourceDevelopment
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "https://attachment.outlook.live.net/owa/" or ProcessCommandLine contains "https://onenoteonlinesync.onenote.com/onenoteonlinesync/") and ((FolderPath endswith "\\curl.exe" or FolderPath endswith "\\wget.exe") or (ProcessCommandLine contains "Invoke-WebRequest" or ProcessCommandLine contains "iwr " or ProcessCommandLine contains "curl " or ProcessCommandLine contains "wget " or ProcessCommandLine contains "Start-BitsTransfer" or ProcessCommandLine contains ".DownloadFile(" or ProcessCommandLine contains ".DownloadString("))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1105
+- T1608
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

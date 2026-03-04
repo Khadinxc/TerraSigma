@@ -1,0 +1,46 @@
+id: 7d1f651c-3b01-52a7-ac36-12b41f9ca02f
+name: HackTool - Inveigh Execution
+description: 'Detects the use of Inveigh a cross-platform .NET IPv4/IPv6 machine-in-the-middle tool Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_inveigh.yml - Very unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_inveigh.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CredentialAccess
+query: |-
+  DeviceProcessEvents
+  | where FolderPath endswith "\\Inveigh.exe" or (ProcessVersionInfoOriginalFileName in~ ("\\Inveigh.exe", "\\Inveigh.dll")) or ProcessVersionInfoFileDescription =~ "Inveigh" or (ProcessCommandLine contains " -SpooferIP" or ProcessCommandLine contains " -ReplyToIPs " or ProcessCommandLine contains " -ReplyToDomains " or ProcessCommandLine contains " -ReplyToMACs " or ProcessCommandLine contains " -SnifferIP")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1003
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

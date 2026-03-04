@@ -1,0 +1,44 @@
+id: ced89df5-1a10-54c7-823e-b586f6342032
+name: PUA - Netcat Suspicious Execution
+description: 'Detects execution of Netcat. Adversaries may use a non-application layer protocol for communication between host and C2 server or among infected hosts within a network Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_netcat.yml - Legitimate ncat use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_netcat.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CommandAndControl
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains " -lvp " or ProcessCommandLine contains " -lvnp" or ProcessCommandLine contains " -l -v -p " or ProcessCommandLine contains " -lv -p " or ProcessCommandLine contains " -l --proxy-type http " or ProcessCommandLine contains " -vnl --exec " or ProcessCommandLine contains " -vnl -e " or ProcessCommandLine contains " --lua-exec " or ProcessCommandLine contains " --sh-exec ") or (FolderPath endswith "\\nc.exe" or FolderPath endswith "\\ncat.exe" or FolderPath endswith "\\netcat.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1095
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

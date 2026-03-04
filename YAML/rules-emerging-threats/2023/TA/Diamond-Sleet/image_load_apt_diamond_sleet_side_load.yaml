@@ -1,0 +1,42 @@
+id: b4eb0b9b-baac-5b3b-bb0c-1589086899bd
+name: Diamond Sleet APT DLL Sideloading Indicators
+description: 'Detects DLL sideloading activity seen used by Diamond Sleet APT Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/image_load_apt_diamond_sleet_side_load.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/image_load_apt_diamond_sleet_side_load.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Persistence
+- PrivilegeEscalation
+query: |-
+  DeviceImageLoadEvents
+  | where (FolderPath endswith ":\\ProgramData\\Version.dll" and InitiatingProcessFolderPath endswith ":\\ProgramData\\clip.exe") or (FolderPath endswith ":\\ProgramData\\DSROLE.dll" and InitiatingProcessFolderPath endswith ":\\ProgramData\\wsmprovhost.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1574
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

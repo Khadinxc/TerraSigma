@@ -1,0 +1,39 @@
+id: 9efe8be6-796c-5b79-aed4-255c2e15a05d
+name: Registry Tampering by Potentially Suspicious Processes
+description: 'Detects suspicious registry modifications made by suspicious processes such as script engine processes such as WScript, or CScript etc. These processes are rarely used for legitimate registry modifications, and their activity may indicate an attempt to modify the registry without using standard tools like regedit.exe or reg.exe, potentially for evasion and persistence. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_process_registry_modification.yml - Some legitimate admin or install scripts may use these processes for registry modifications. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_process_registry_modification.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Persistence
+- Execution
+query: |-
+  DeviceRegistryEvents
+  | where InitiatingProcessFolderPath endswith "\\mshta.exe" or InitiatingProcessFolderPath endswith "\\wscript.exe" or InitiatingProcessFolderPath endswith "\\cscript.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1112
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

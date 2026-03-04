@@ -1,0 +1,41 @@
+id: bfe88406-b751-5f9d-bacc-efea0d190683
+name: Suspicious Shim Database Patching Activity
+description: 'Detects installation of new shim databases that try to patch sections of known processes for potential process injection or persistence. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_shim_database_susp_application.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_shim_database_susp_application.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Persistence
+query: |-
+  DeviceRegistryEvents
+  | where RegistryKey endswith "\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Custom*" and (RegistryKey endswith "\\csrss.exe" or RegistryKey endswith "\\dllhost.exe" or RegistryKey endswith "\\explorer.exe" or RegistryKey endswith "\\RuntimeBroker.exe" or RegistryKey endswith "\\services.exe" or RegistryKey endswith "\\sihost.exe" or RegistryKey endswith "\\svchost.exe" or RegistryKey endswith "\\taskhostw.exe" or RegistryKey endswith "\\winlogon.exe" or RegistryKey endswith "\\WmiPrvSe.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1546
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

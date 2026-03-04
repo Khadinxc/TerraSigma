@@ -1,0 +1,41 @@
+id: 8eca1d29-5036-5cea-a478-70113bed5d14
+name: Uncommon Child Process Of Appvlp.EXE
+description: 'Detects uncommon child processes of Appvlp.EXE Appvlp or the Application Virtualization Utility is included with Microsoft Office. Attackers are able to abuse "AppVLP" to execute shell commands. Normally, this binary is used for Application Virtualization, but it can also be abused to circumvent the ASR file path rule folder or to mark a file as a system file. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_appvlp_uncommon_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_appvlp_uncommon_child_process.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where InitiatingProcessFolderPath endswith "\\appvlp.exe" and (not((FolderPath endswith ":\\Windows\\SysWOW64\\rundll32.exe" or FolderPath endswith ":\\Windows\\System32\\rundll32.exe"))) and (not(((FolderPath contains ":\\Program Files\\Microsoft Office" and FolderPath endswith "\\msoasb.exe") or (FolderPath contains ":\\Program Files\\Microsoft Office" and FolderPath endswith "\\MSOUC.EXE") or ((FolderPath contains ":\\Program Files\\Microsoft Office" and FolderPath contains "\\SkypeSrv\\") and FolderPath endswith "\\SKYPESERVER.EXE"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1218
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

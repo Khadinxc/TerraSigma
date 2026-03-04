@@ -1,0 +1,40 @@
+id: d349ee7d-0cfe-5836-bf89-4d2c78b95dd2
+name: Recon Command Output Piped To Findstr.EXE
+description: 'Detects the execution of a potential recon command where the results are piped to "findstr". This is meant to trigger on inline calls of "cmd.exe" via the "/c" or "/k" for example. Attackers often time use this technique to extract specific information they require in their reconnaissance phase. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_recon_pipe_output.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_recon_pipe_output.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "ipconfig" and ProcessCommandLine contains "|" and ProcessCommandLine contains "find") or (ProcessCommandLine contains "net" and ProcessCommandLine contains "|" and ProcessCommandLine contains "find") or (ProcessCommandLine contains "netstat" and ProcessCommandLine contains "|" and ProcessCommandLine contains "find") or (ProcessCommandLine contains "ping" and ProcessCommandLine contains "|" and ProcessCommandLine contains "find") or (ProcessCommandLine contains "systeminfo" and ProcessCommandLine contains "|" and ProcessCommandLine contains "find") or (ProcessCommandLine contains "tasklist" and ProcessCommandLine contains "|" and ProcessCommandLine contains "find") or (ProcessCommandLine contains "whoami" and ProcessCommandLine contains "|" and ProcessCommandLine contains "find")) and (not((ProcessCommandLine contains "cmd.exe /c TASKLIST /V |" and ProcessCommandLine contains "FIND /I" and ProcessCommandLine contains "\\xampp\\" and ProcessCommandLine contains "\\catalina_start.bat")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1057
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

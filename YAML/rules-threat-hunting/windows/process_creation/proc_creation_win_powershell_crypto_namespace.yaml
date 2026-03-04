@@ -1,0 +1,48 @@
+id: 7fa5ff63-1dba-5a0e-86e2-b750f3f9b0e7
+name: Invocation Of Crypto-Classes From The "Cryptography" PowerShell Namespace
+description: 'Detects the invocation of PowerShell commands with references to classes from the "System.Security.Cryptography" namespace. The PowerShell namespace "System.Security.Cryptography" provides classes for on-the-fly encryption and decryption. These can be used for example in decrypting malicious payload for defense evasion. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_crypto_namespace.yml - Classes are legitimately used, but less so when e.g. parents with low prevalence or decryption of content in temporary folders. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_crypto_namespace.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains ".AesCryptoServiceProvider" or ProcessCommandLine contains ".DESCryptoServiceProvider" or ProcessCommandLine contains ".DSACryptoServiceProvider" or ProcessCommandLine contains ".RC2CryptoServiceProvider" or ProcessCommandLine contains ".Rijndael" or ProcessCommandLine contains ".RSACryptoServiceProvider" or ProcessCommandLine contains ".TripleDESCryptoServiceProvider") and ProcessCommandLine contains "System.Security.Cryptography." and ((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe") or (ProcessVersionInfoOriginalFileName in~ ("PowerShell.EXE", "pwsh.dll")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+- T1027
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

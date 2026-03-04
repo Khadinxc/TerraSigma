@@ -1,0 +1,45 @@
+id: dae90f9a-694b-525a-a396-b9d13c18d096
+name: Potential Meterpreter/CobaltStrike Activity
+description: 'Detects the use of getsystem Meterpreter/Cobalt Strike command by detecting a specific service starting Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_meterpreter_getsystem.yml - Commandlines containing components like cmd accidentally - Jobs and services started with cmd | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_meterpreter_getsystem.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- PrivilegeEscalation
+query: |-
+  DeviceProcessEvents
+  | where InitiatingProcessFolderPath endswith "\\services.exe" and (((ProcessCommandLine contains "cmd" or ProcessCommandLine contains "%COMSPEC%") and (ProcessCommandLine contains "/c" and ProcessCommandLine contains "echo" and ProcessCommandLine contains "\\pipe\\")) or (ProcessCommandLine contains "rundll32" and ProcessCommandLine contains ".dll,a" and ProcessCommandLine contains "/p:")) and (not(ProcessCommandLine contains "MpCmdRun"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1134
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

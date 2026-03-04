@@ -1,0 +1,40 @@
+id: c6aafa2f-c362-5beb-9868-fd2832f89a57
+name: Potential Lateral Movement via Windows Remote Shell
+description: 'Detects a child process spawned by ''winrshost.exe'', which suggests remote command execution through Windows Remote Shell (WinRs) and may indicate potential lateral movement activity. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winrshost_command_execution.yml - Legitimate use of WinRM within the organization | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winrshost_command_execution.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- LateralMovement
+query: |-
+  DeviceProcessEvents
+  | where InitiatingProcessFolderPath endswith "\\winrshost.exe" and (not(FolderPath =~ "C:\\Windows\\System32\\conhost.exe"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1021
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

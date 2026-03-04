@@ -1,0 +1,50 @@
+id: dde6048e-3ba9-5372-bb6a-8b877cf2834f
+name: HackTool - Bloodhound/Sharphound Execution
+description: 'Detects command line parameters used by Bloodhound and Sharphound hack tools Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_bloodhound_sharphound.yml - Other programs that use these command line option and accepts an ''All'' parameter | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_bloodhound_sharphound.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains " -CollectionMethod All " or ProcessCommandLine contains " --CollectionMethods Session " or ProcessCommandLine contains " --Loop --Loopduration " or ProcessCommandLine contains " --PortScanTimeout " or ProcessCommandLine contains ".exe -c All -d " or ProcessCommandLine contains "Invoke-Bloodhound" or ProcessCommandLine contains "Get-BloodHoundData") or (ProcessCommandLine contains " -JsonFolder " and ProcessCommandLine contains " -ZipFileName ") or (ProcessCommandLine contains " DCOnly " and ProcessCommandLine contains " --NoSaveCache ") or (ProcessVersionInfoProductName contains "SharpHound" or ProcessVersionInfoFileDescription contains "SharpHound" or (ProcessVersionInfoCompanyName contains "SpecterOps" or ProcessVersionInfoCompanyName contains "evil corp") or (FolderPath contains "\\Bloodhound.exe" or FolderPath contains "\\SharpHound.exe"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1087
+- T1482
+- T1069
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

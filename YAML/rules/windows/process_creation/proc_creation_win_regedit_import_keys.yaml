@@ -1,0 +1,47 @@
+id: 9ce007c5-78d6-5cf3-a856-8cd00b1e471b
+name: Imports Registry Key From a File
+description: 'Detects the import of the specified file to the registry with regedit.exe. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regedit_import_keys.yml - Legitimate import of keys - Evernote | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regedit_import_keys.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains " /i " or ProcessCommandLine contains " /s " or ProcessCommandLine contains ".reg") and (FolderPath endswith "\\regedit.exe" or ProcessVersionInfoOriginalFileName =~ "REGEDIT.EXE")) and (not(((ProcessCommandLine contains " -e " or ProcessCommandLine contains " /e " or ProcessCommandLine contains " –e " or ProcessCommandLine contains " —e " or ProcessCommandLine contains " ―e " or ProcessCommandLine contains " -a " or ProcessCommandLine contains " /a " or ProcessCommandLine contains " –a " or ProcessCommandLine contains " —a " or ProcessCommandLine contains " ―a " or ProcessCommandLine contains " -c " or ProcessCommandLine contains " /c " or ProcessCommandLine contains " –c " or ProcessCommandLine contains " —c " or ProcessCommandLine contains " ―c ") and ProcessCommandLine matches regex ":[^ \\\\]")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1112
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

@@ -1,0 +1,46 @@
+id: 9e8b95e1-78e3-5484-84b1-14152aebbb8a
+name: Suspicious Printer Driver Empty Manufacturer
+description: 'Detects a suspicious printer driver installation with an empty Manufacturer value Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_printer_driver.yml - Alerts on legitimate printer drivers that do not set any more details in the Manufacturer value | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_printer_driver.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- DefenseEvasion
+- PrivilegeEscalation
+query: |-
+  DeviceRegistryEvents
+  | where (RegistryValueData =~ "(Empty)" and (RegistryKey contains "\\Control\\Print\\Environments\\Windows x64\\Drivers" and RegistryKey contains "\\Manufacturer")) and (not((RegistryKey endswith "\\CutePDF Writer v4.0*" or RegistryKey endswith "\\Version-3\\PDF24*" or (RegistryKey endswith "\\VNC Printer (PS)*" or RegistryKey endswith "\\VNC Printer (UD)*"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1574
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

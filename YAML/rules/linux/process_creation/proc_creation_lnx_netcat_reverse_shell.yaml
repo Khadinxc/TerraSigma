@@ -1,0 +1,44 @@
+id: 7eeb9ad8-a3cc-57e6-bce1-7461f84bef18
+name: Potential Netcat Reverse Shell Execution
+description: 'Detects execution of netcat with the "-e" flag followed by common shells. This could be a sign of a potential reverse shell setup. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_netcat_reverse_shell.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_netcat_reverse_shell.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains " -c " or ProcessCommandLine contains " -e ") and (FolderPath endswith "/nc" or FolderPath endswith "/ncat") and (ProcessCommandLine contains " ash" or ProcessCommandLine contains " bash" or ProcessCommandLine contains " bsh" or ProcessCommandLine contains " csh" or ProcessCommandLine contains " ksh" or ProcessCommandLine contains " pdksh" or ProcessCommandLine contains " sh" or ProcessCommandLine contains " tcsh" or ProcessCommandLine contains "/bin/ash" or ProcessCommandLine contains "/bin/bash" or ProcessCommandLine contains "/bin/bsh" or ProcessCommandLine contains "/bin/csh" or ProcessCommandLine contains "/bin/ksh" or ProcessCommandLine contains "/bin/pdksh" or ProcessCommandLine contains "/bin/sh" or ProcessCommandLine contains "/bin/tcsh" or ProcessCommandLine contains "/bin/zsh" or ProcessCommandLine contains "$IFSash" or ProcessCommandLine contains "$IFSbash" or ProcessCommandLine contains "$IFSbsh" or ProcessCommandLine contains "$IFScsh" or ProcessCommandLine contains "$IFSksh" or ProcessCommandLine contains "$IFSpdksh" or ProcessCommandLine contains "$IFSsh" or ProcessCommandLine contains "$IFStcsh" or ProcessCommandLine contains "$IFSzsh")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

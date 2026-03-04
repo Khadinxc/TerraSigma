@@ -1,0 +1,44 @@
+id: f6d4e278-a0ce-5f7a-908d-56d504159ca4
+name: Remote Access Tool - ScreenConnect Potential Suspicious Remote Command Execution
+description: 'Detects potentially suspicious child processes launched via the ScreenConnect client service. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_screenconnect_remote_execution_susp.yml - If the script being executed make use of any of the utilities mentioned in the detection then they should filtered out or allowed. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_screenconnect_remote_execution_susp.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CommandAndControl
+query: |-
+  DeviceProcessEvents
+  | where (FolderPath endswith "\\bitsadmin.exe" or FolderPath endswith "\\cmd.exe" or FolderPath endswith "\\curl.exe" or FolderPath endswith "\\dllhost.exe" or FolderPath endswith "\\net.exe" or FolderPath endswith "\\nltest.exe" or FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe" or FolderPath endswith "\\rundll32.exe" or FolderPath endswith "\\wevtutil.exe") and (InitiatingProcessCommandLine contains ":\\Windows\\TEMP\\ScreenConnect\\" and InitiatingProcessCommandLine contains "run.cmd")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1219
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

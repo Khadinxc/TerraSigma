@@ -1,0 +1,47 @@
+id: f67b954b-cc7d-51bf-9df9-7dc8fc6fa98c
+name: Potential Shim Database Persistence via Sdbinst.EXE
+description: 'Detects installation of a new shim using sdbinst.exe. Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by application shims Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sdbinst_shim_persistence.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sdbinst_shim_persistence.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- PrivilegeEscalation
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains ".sdb" and (FolderPath endswith "\\sdbinst.exe" or ProcessVersionInfoOriginalFileName =~ "sdbinst.exe")) and (not(((ProcessCommandLine contains ":\\Program Files (x86)\\IIS Express\\iisexpressshim.sdb" or ProcessCommandLine contains ":\\Program Files\\IIS Express\\iisexpressshim.sdb") and InitiatingProcessFolderPath endswith "\\msiexec.exe")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1546
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

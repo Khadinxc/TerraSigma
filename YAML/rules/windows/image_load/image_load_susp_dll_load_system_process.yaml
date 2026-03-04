@@ -1,0 +1,40 @@
+id: 6324b412-4f6b-5868-8c3c-49a20f15ce48
+name: DLL Load By System Process From Suspicious Locations
+description: 'Detects when a system process (i.e. located in system32, syswow64, etc.) loads a DLL from a suspicious location or a location with permissive permissions such as "C:\Users\Public" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_susp_dll_load_system_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_susp_dll_load_system_process.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceImageLoadEvents
+  | where (FolderPath startswith "C:\\Users\\Public\\" or FolderPath startswith "C:\\PerfLogs\\") and InitiatingProcessFolderPath startswith "C:\\Windows\\"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1070
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

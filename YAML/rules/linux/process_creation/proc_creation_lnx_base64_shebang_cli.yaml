@@ -1,0 +1,40 @@
+id: 336f53a8-adad-5bf9-906e-e07817623bb5
+name: Linux Base64 Encoded Shebang In CLI
+description: 'Detects the presence of a base64 version of the shebang in the commandline, which could indicate a malicious payload about to be decoded Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_base64_shebang_cli.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_base64_shebang_cli.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine contains "IyEvYmluL2Jhc2" or ProcessCommandLine contains "IyEvYmluL2Rhc2" or ProcessCommandLine contains "IyEvYmluL3pza" or ProcessCommandLine contains "IyEvYmluL2Zpc2" or ProcessCommandLine contains "IyEvYmluL3No"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1140
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

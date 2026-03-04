@@ -1,0 +1,47 @@
+id: e77cfd58-1219-50a7-bf68-30ef9d3a3387
+name: Suspicious Userinit Child Process
+description: 'Detects a suspicious child process of userinit Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_userinit_child.yml - Administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_userinit_child.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where InitiatingProcessFolderPath endswith "\\userinit.exe" and (not(((FolderPath endswith "\\explorer.exe" or ProcessVersionInfoOriginalFileName =~ "explorer.exe" or ProcessCommandLine =~ "C:\\Windows\\Explorer.EXE") or ProcessCommandLine contains "\\netlogon\\" or isnull(FolderPath))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1055
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

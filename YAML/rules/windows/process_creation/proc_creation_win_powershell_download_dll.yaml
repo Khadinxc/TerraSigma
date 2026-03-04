@@ -1,0 +1,42 @@
+id: 1f8aeec8-3b24-5c92-80cc-36bbfdfc6a77
+name: Potential DLL File Download Via PowerShell Invoke-WebRequest
+description: 'Detects potential DLL files being downloaded using the PowerShell Invoke-WebRequest or Invoke-RestMethod cmdlets. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_download_dll.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_download_dll.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CommandAndControl
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "Invoke-RestMethod " or ProcessCommandLine contains "Invoke-WebRequest " or ProcessCommandLine contains "IRM " or ProcessCommandLine contains "IWR ") and (ProcessCommandLine contains "http" and ProcessCommandLine contains "OutFile" and ProcessCommandLine contains ".dll")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+- T1105
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

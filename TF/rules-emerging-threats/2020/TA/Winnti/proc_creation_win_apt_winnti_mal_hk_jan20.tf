@@ -1,0 +1,73 @@
+resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_winnti_mal_hk_jan20" {
+  name                       = "proc_creation_win_apt_winnti_mal_hk_jan20"
+  log_analytics_workspace_id = var.workspace_id
+  display_name               = "Winnti Malware HK University Campaign"
+  description                = "Detects specific process characteristics of Winnti malware noticed in Dec/Jan 2020 in a campaign against Honk Kong universities Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Winnti/proc_creation_win_apt_winnti_mal_hk_jan20.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Winnti/proc_creation_win_apt_winnti_mal_hk_jan20.yml"
+  severity                   = "High"
+  query                      = <<QUERY
+DeviceProcessEvents
+| where (FolderPath startswith "C:\\ProgramData\\DRM" and (InitiatingProcessFolderPath contains "C:\\Windows\\Temp" or InitiatingProcessFolderPath contains "\\hpqhvind.exe")) or (FolderPath endswith "\\wmplayer.exe" and InitiatingProcessFolderPath startswith "C:\\ProgramData\\DRM") or (FolderPath endswith "\\wmplayer.exe" and InitiatingProcessFolderPath endswith "\\Test.exe") or FolderPath =~ "C:\\ProgramData\\DRM\\CLR\\CLR.exe" or (FolderPath endswith "\\SearchFilterHost.exe" and InitiatingProcessFolderPath startswith "C:\\ProgramData\\DRM\\Windows")
+QUERY
+  query_frequency            = "PT1H"
+  query_period               = "PT1H"
+  trigger_operator           = "GreaterThan"
+  trigger_threshold          = 0
+  suppression_enabled        = false
+  suppression_duration       = "PT5H"
+  tactics                    = ["PrivilegeEscalation", "Persistence", "DefenseEvasion"]
+  techniques                 = ["T1574"]
+  enabled                    = true
+
+  incident {
+    create_incident_enabled = true
+    grouping {
+      enabled                 = false
+      lookback_duration       = "PT5H"
+      reopen_closed_incidents = false
+      entity_matching_method  = "AllEntities"
+      by_entities             = []
+      by_alert_details        = []
+      by_custom_details       = []
+    }
+  }
+
+  event_grouping {
+    aggregation_method = "SingleAlert"
+  }
+
+  entity_mapping {
+    entity_type = "Account"
+    field_mapping {
+      identifier  = "Name"
+      column_name = "InitiatingProcessAccountName"
+    }
+    field_mapping {
+      identifier  = "NTDomain"
+      column_name = "InitiatingProcessAccountDomain"
+    }
+    field_mapping {
+      identifier  = "Sid"
+      column_name = "InitiatingProcessAccountSid"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "Host"
+    field_mapping {
+      identifier  = "HostName"
+      column_name = "DeviceName"
+    }
+    field_mapping {
+      identifier  = "AzureID"
+      column_name = "DeviceId"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "File"
+    field_mapping {
+      identifier  = "Directory"
+      column_name = "FolderPath"
+    }
+  }
+}

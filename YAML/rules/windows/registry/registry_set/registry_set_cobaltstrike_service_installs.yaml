@@ -1,0 +1,49 @@
+id: da8b0823-7ee9-58b9-911d-8c079869a996
+name: Potential CobaltStrike Service Installations - Registry
+description: 'Detects known malicious service installs that appear in cases in which a Cobalt Strike beacon elevates privileges or lateral movement. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_cobaltstrike_service_installs.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_cobaltstrike_service_installs.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- Execution
+- PrivilegeEscalation
+- LateralMovement
+query: |-
+  DeviceRegistryEvents
+  | where ((RegistryValueData contains "ADMIN$" and RegistryValueData contains ".exe") or (RegistryValueData contains "%COMSPEC%" and RegistryValueData contains "start" and RegistryValueData contains "powershell")) and (RegistryKey contains "\\System\\CurrentControlSet\\Services" or (RegistryKey contains "\\System\\ControlSet" and RegistryKey contains "\\Services"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1021
+- T1543
+- T1569
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

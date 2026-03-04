@@ -1,0 +1,38 @@
+id: 6c855bac-f83c-5592-955f-1a62618a6693
+name: Potentially Suspicious Shell Script Creation in Profile Folder
+description: 'Detects the creation of shell scripts under the "profile.d" path. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_susp_shell_script_under_profile_directory.yml - Legitimate shell scripts in the "profile.d" directory could be common in your environment. Apply additional filter accordingly via "image", by adding specific filenames you "trust" or by correlating it with other events. - Regular file creation during system update or software installation by the package manager | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_susp_shell_script_under_profile_directory.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+query: |-
+  DeviceFileEvents
+  | where FolderPath contains "/etc/profile.d/" and (FolderPath endswith ".csh" or FolderPath endswith ".sh")
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

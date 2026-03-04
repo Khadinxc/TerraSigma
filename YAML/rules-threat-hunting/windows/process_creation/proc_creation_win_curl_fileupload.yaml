@@ -1,0 +1,46 @@
+id: 8d6dd03a-660d-5e7e-a824-b7cc394ee996
+name: Potential Data Exfiltration Via Curl.EXE
+description: 'Detects the execution of the "curl" process with "upload" flags. Which might indicate potential data exfiltration Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_curl_fileupload.yml - Scripts created by developers and admins | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_curl_fileupload.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Exfiltration
+- CommandAndControl
+query: |-
+  DeviceProcessEvents
+  | where (((ProcessCommandLine contains " --form" or ProcessCommandLine contains " --upload-file " or ProcessCommandLine contains " --data " or ProcessCommandLine contains " --data-") or ProcessCommandLine matches regex "\\s-[FTd]\\s") and (FolderPath endswith "\\curl.exe" or ProcessVersionInfoProductName =~ "The curl executable")) and (not((ProcessCommandLine contains "://localhost" or ProcessCommandLine contains "://127.0.0.1")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1567
+- T1105
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

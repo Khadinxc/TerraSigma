@@ -1,0 +1,41 @@
+id: 76b423a8-06be-584c-858f-f00e275f44bc
+name: Silenttrinity Stager Msbuild Activity
+description: 'Detects a possible remote connections to Silenttrinity c2 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_silenttrinity_stager_msbuild_activity.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_silenttrinity_stager_msbuild_activity.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- DefenseEvasion
+query: |-
+  DeviceNetworkEvents
+  | where InitiatingProcessFolderPath endswith "\\msbuild.exe" and (RemotePort in~ ("80", "443"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1127
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: IP
+  fieldMappings:
+  - identifier: Address
+    columnName: RemoteIP
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceNetworkEvents

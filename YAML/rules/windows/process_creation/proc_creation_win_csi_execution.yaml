@@ -1,0 +1,45 @@
+id: 705932de-b8eb-595c-9873-a93a5a1611e0
+name: Suspicious Csi.exe Usage
+description: 'Csi.exe is a signed binary from Microsoft that comes with Visual Studio and provides C# interactive capabilities. It can be used to run C# code from a file passed as a parameter in command line. Early version of this utility provided with Microsoft “Roslyn” Community Technology Preview was named ''rcsi.exe'' Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_csi_execution.yml - Legitimate usage by software developers | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_csi_execution.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- LateralMovement
+- Execution
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ProcessVersionInfoCompanyName =~ "Microsoft Corporation" and ((FolderPath endswith "\\csi.exe" or FolderPath endswith "\\rcsi.exe") or (ProcessVersionInfoOriginalFileName in~ ("csi.exe", "rcsi.exe")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1072
+- T1218
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

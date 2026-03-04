@@ -1,0 +1,40 @@
+id: 40142cfe-3d70-5fb0-aadd-f45ffd7fe9ab
+name: New Application in AppCompat
+description: 'A General detection for a new application in AppCompat. This indicates an application executing for the first time on an endpoint. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_new_application_appcompat.yml - Newly setup system. - Legitimate installation of new application. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_new_application_appcompat.yml'
+severity: Informational
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceRegistryEvents
+  | where RegistryKey endswith "\\AppCompatFlags\\Compatibility Assistant\\Store*"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1204
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

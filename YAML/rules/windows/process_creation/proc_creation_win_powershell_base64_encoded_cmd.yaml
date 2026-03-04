@@ -1,0 +1,46 @@
+id: 45a2dc9d-8af7-5954-a431-287918471aa8
+name: Suspicious Encoded PowerShell Command Line
+description: 'Detects suspicious powershell process starts with base64 encoded commands (e.g. Emotet) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_encoded_cmd.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_encoded_cmd.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where ((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe") or (ProcessVersionInfoOriginalFileName in~ ("PowerShell.EXE", "pwsh.dll"))) and (((ProcessCommandLine contains " JAB" or ProcessCommandLine contains " SUVYI" or ProcessCommandLine contains " SQBFAFgA" or ProcessCommandLine contains " aQBlAHgA" or ProcessCommandLine contains " aWV4I" or ProcessCommandLine contains " IAA" or ProcessCommandLine contains " IAB" or ProcessCommandLine contains " UwB" or ProcessCommandLine contains " cwB") and ProcessCommandLine contains " -e") or (ProcessCommandLine contains ".exe -ENCOD " or ProcessCommandLine contains " BA^J e-")) and (not(ProcessCommandLine contains " -ExecutionPolicy remotesigned "))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

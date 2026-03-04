@@ -1,0 +1,40 @@
+id: 160bd69a-c6ec-5c52-b538-171bfa169281
+name: Use Short Name Path in Image
+description: 'Detect use of the Windows 8.3 short name. Which could be used as a method to avoid Image detection Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_ntfs_short_name_path_use_image.yml - Applications could use this notation occasionally which might generate some false positives. In that case Investigate the parent and child process. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_ntfs_short_name_path_use_image.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (FolderPath contains "~1\\" or FolderPath contains "~2\\") and (not((((FolderPath contains "\\AppData\\" and FolderPath contains "\\Temp\\") or (FolderPath endswith "~1\\unzip.exe" or FolderPath endswith "~1\\7zG.exe")) or (InitiatingProcessFolderPath in~ ("C:\\Windows\\System32\\Dism.exe", "C:\\Windows\\System32\\cleanmgr.exe"))))) and (not(((ProcessVersionInfoProductName =~ "InstallShield (R)" or ProcessVersionInfoFileDescription =~ "InstallShield (R) Setup Engine" or ProcessVersionInfoCompanyName =~ "InstallShield Software Corporation") or InitiatingProcessFolderPath endswith "\\thor\\thor64.exe" or InitiatingProcessFolderPath endswith "\\WebEx\\WebexHost.exe")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1564
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

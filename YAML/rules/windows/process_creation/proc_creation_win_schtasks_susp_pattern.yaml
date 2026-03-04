@@ -1,0 +1,46 @@
+id: b9b33705-431c-5d59-bd87-84e3b334d22b
+name: Suspicious Command Patterns In Scheduled Task Creation
+description: 'Detects scheduled task creation using "schtasks" that contain potentially suspicious or uncommon commands Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_susp_pattern.yml - Software installers that run from temporary folders and also install scheduled tasks are expected to generate some false positives | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_susp_pattern.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Persistence
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "/Create " and FolderPath endswith "\\schtasks.exe") and (((ProcessCommandLine contains "/sc minute " or ProcessCommandLine contains "/ru system ") and (ProcessCommandLine contains "cmd /c" or ProcessCommandLine contains "cmd /k" or ProcessCommandLine contains "cmd /r" or ProcessCommandLine contains "cmd.exe /c " or ProcessCommandLine contains "cmd.exe /k " or ProcessCommandLine contains "cmd.exe /r ")) or (ProcessCommandLine contains " -decode " or ProcessCommandLine contains " -enc " or ProcessCommandLine contains " -w hidden " or ProcessCommandLine contains " bypass " or ProcessCommandLine contains " IEX" or ProcessCommandLine contains ".DownloadData" or ProcessCommandLine contains ".DownloadFile" or ProcessCommandLine contains ".DownloadString" or ProcessCommandLine contains "/c start /min " or ProcessCommandLine contains "FromBase64String" or ProcessCommandLine contains "mshta http" or ProcessCommandLine contains "mshta.exe http") or ((ProcessCommandLine contains ":\\ProgramData\\" or ProcessCommandLine contains ":\\Temp\\" or ProcessCommandLine contains ":\\Tmp\\" or ProcessCommandLine contains ":\\Users\\Public\\" or ProcessCommandLine contains ":\\Windows\\Temp\\" or ProcessCommandLine contains "\\AppData\\" or ProcessCommandLine contains "%AppData%" or ProcessCommandLine contains "%Temp%" or ProcessCommandLine contains "%tmp%") and (ProcessCommandLine contains "cscript" or ProcessCommandLine contains "curl" or ProcessCommandLine contains "wscript")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1053
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

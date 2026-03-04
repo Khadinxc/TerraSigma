@@ -1,0 +1,44 @@
+id: 5c1aadf6-749d-56f6-8e78-02b34842bbeb
+name: Shell Execution via Rsync - Linux
+description: 'Detects the use of the "rsync" utility to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or to break out from restricted environments. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_rsync_shell_execution.yml - Legitimate cases in which "rsync" is used to execute a shell | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_rsync_shell_execution.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "/ash " or ProcessCommandLine contains "/bash " or ProcessCommandLine contains "/dash " or ProcessCommandLine contains "/csh " or ProcessCommandLine contains "/sh " or ProcessCommandLine contains "/zsh " or ProcessCommandLine contains "/tcsh " or ProcessCommandLine contains "/ksh " or ProcessCommandLine contains "'ash " or ProcessCommandLine contains "'bash " or ProcessCommandLine contains "'dash " or ProcessCommandLine contains "'csh " or ProcessCommandLine contains "'sh " or ProcessCommandLine contains "'zsh " or ProcessCommandLine contains "'tcsh " or ProcessCommandLine contains "'ksh ") and (ProcessCommandLine contains " -e " and (FolderPath endswith "/rsync" or FolderPath endswith "/rsyncd"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

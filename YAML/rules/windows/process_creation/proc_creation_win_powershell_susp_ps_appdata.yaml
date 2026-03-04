@@ -1,0 +1,40 @@
+id: 1aa71a40-e184-576d-9de5-dc7cb005c0a4
+name: PowerShell Script Run in AppData
+description: 'Detects a suspicious command line execution that invokes PowerShell with reference to an AppData folder Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_susp_ps_appdata.yml - Administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_susp_ps_appdata.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "powershell.exe" or ProcessCommandLine contains "\\powershell" or ProcessCommandLine contains "\\pwsh" or ProcessCommandLine contains "pwsh.exe") and ((ProcessCommandLine contains "Local\\" or ProcessCommandLine contains "Roaming\\") and (ProcessCommandLine contains "/c " and ProcessCommandLine contains "\\AppData\\"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

@@ -1,0 +1,46 @@
+id: 7991e8f7-9fa7-542c-a0f0-ee3d28d5345d
+name: Firewall Configuration Discovery Via Netsh.EXE
+description: 'Adversaries may look for details about the network configuration and settings of systems they access or through information discovery of remote systems Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_rules_discovery.yml - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_rules_discovery.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "config " or ProcessCommandLine contains "state " or ProcessCommandLine contains "rule " or ProcessCommandLine contains "name=all") and (ProcessCommandLine contains "netsh" and ProcessCommandLine contains "show " and ProcessCommandLine contains "firewall ")) and (FolderPath endswith "\\netsh.exe" or ProcessVersionInfoOriginalFileName =~ "netsh.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1016
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

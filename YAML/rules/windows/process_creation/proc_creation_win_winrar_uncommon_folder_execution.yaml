@@ -1,0 +1,40 @@
+id: 036f2592-7bd8-55a1-aefc-eb3449df38b5
+name: WinRAR Execution in Non-Standard Folder
+description: 'Detects a suspicious WinRAR execution in a folder which is not the default installation folder Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winrar_uncommon_folder_execution.yml - Legitimate use of WinRAR in a folder of a software that bundles WinRAR | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winrar_uncommon_folder_execution.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Collection
+query: |-
+  DeviceProcessEvents
+  | where ((FolderPath endswith "\\rar.exe" or FolderPath endswith "\\winrar.exe") or (ProcessVersionInfoFileDescription in~ ("Command line RAR", "WinRAR"))) and (not(((FolderPath contains ":\\Program Files (x86)\\WinRAR\\" or FolderPath contains ":\\Program Files\\WinRAR\\") or FolderPath endswith "\\UnRAR.exe"))) and (not(FolderPath contains ":\\Windows\\Temp\\"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1560
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

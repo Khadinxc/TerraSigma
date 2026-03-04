@@ -1,0 +1,42 @@
+id: 5bbb4702-037f-5ba6-b661-a6c754a9d723
+name: Potential RoboForm.DLL Sideloading
+description: 'Detects potential DLL sideloading of "roboform.dll", a DLL used by RoboForm Password Manager Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_robform.yml - If installed on a per-user level, the path would be located in "AppData\Local". Add additional filters to reflect this mode of installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_robform.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- DefenseEvasion
+- PrivilegeEscalation
+query: |-
+  DeviceImageLoadEvents
+  | where (FolderPath endswith "\\roboform.dll" or FolderPath endswith "\\roboform-x64.dll") and (not(((InitiatingProcessFolderPath endswith "\\robotaskbaricon.exe" or InitiatingProcessFolderPath endswith "\\robotaskbaricon-x64.exe") and (InitiatingProcessFolderPath startswith " C:\\Program Files (x86)\\Siber Systems\\AI RoboForm\\" or InitiatingProcessFolderPath startswith " C:\\Program Files\\Siber Systems\\AI RoboForm\\"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1574
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

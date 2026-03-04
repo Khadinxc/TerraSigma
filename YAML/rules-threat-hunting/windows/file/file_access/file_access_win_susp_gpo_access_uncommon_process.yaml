@@ -1,0 +1,42 @@
+id: 765a2077-8ce6-5166-9e05-37f486ec6b99
+name: Access To Sysvol Policies Share By Uncommon Process
+description: 'Detects file access requests to the Windows Sysvol Policies Share by uncommon processes Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/file_access_win_susp_gpo_access_uncommon_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/file_access_win_susp_gpo_access_uncommon_process.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CredentialAccess
+query: |-
+  DeviceFileEvents
+  | where ((FileName contains "\\sysvol\\" and FileName contains "\\Policies\\") and FileName startswith "\\") and (not((InitiatingProcessFolderPath contains ":\\Program Files (x86)\\" or InitiatingProcessFolderPath contains ":\\Program Files\\" or InitiatingProcessFolderPath contains ":\\Windows\\explorer.exe" or InitiatingProcessFolderPath contains ":\\Windows\\system32\\" or InitiatingProcessFolderPath contains ":\\Windows\\SysWOW64\\")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1552
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

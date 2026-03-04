@@ -1,0 +1,44 @@
+id: 33371d03-0419-5fa5-b149-2e8a9a23ce17
+name: Potential APT10 Cloud Hopper Activity
+description: 'Detects potential process and execution activity related to APT10 Cloud Hopper operation Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/APT10/proc_creation_win_apt_apt10_cloud_hopper.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/APT10/proc_creation_win_apt_apt10_cloud_hopper.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains ".vbs /shell " and FolderPath endswith "\\cscript.exe") or (ProcessCommandLine contains "csvde -f C:\\windows\\web\\" and ProcessCommandLine contains ".log")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

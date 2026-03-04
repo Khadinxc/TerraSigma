@@ -1,0 +1,45 @@
+id: 08e219b6-8c6f-52ad-9fdb-8ce48ddd2dd8
+name: Windows MSIX Package Support Framework AI_STUBS Execution
+description: 'Detects execution of Advanced Installer MSIX Package Support Framework (PSF) components, specifically AI_STUBS executables with original filename ''popupwrapper.exe''. This activity may indicate malicious MSIX packages build with Advanced Installer leveraging the Package Support Framework to bypass application control restrictions. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msix_ai_stub_execution.yml - Legitimate applications packaged with Advanced Installer using Package Support Framework | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msix_ai_stub_execution.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (FolderPath endswith "\\AI_STUBS\\AiStubX64Elevated.exe" or FolderPath endswith "\\AI_STUBS\\AiStubX86Elevated.exe" or FolderPath endswith "\\AI_STUBS\\AiStubX64.exe" or FolderPath endswith "\\AI_STUBS\\AiStubX86.exe") and ProcessVersionInfoOriginalFileName =~ "popupwrapper.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1218
+- T1553
+- T1204
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

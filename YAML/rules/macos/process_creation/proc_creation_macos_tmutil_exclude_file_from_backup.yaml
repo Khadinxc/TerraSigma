@@ -1,0 +1,44 @@
+id: c9dd2cf5-0820-5512-ac5f-a6310d175104
+name: New File Exclusion Added To Time Machine Via Tmutil - MacOS
+description: 'Detects the addition of a new file or path exclusion to MacOS Time Machine via the "tmutil" utility. An adversary could exclude a path from Time Machine backups to prevent certain files from being backed up. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_tmutil_exclude_file_from_backup.yml - Legitimate administrator activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_tmutil_exclude_file_from_backup.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Impact
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine contains "addexclusion" and (FolderPath endswith "/tmutil" or ProcessCommandLine contains "tmutil")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1490
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

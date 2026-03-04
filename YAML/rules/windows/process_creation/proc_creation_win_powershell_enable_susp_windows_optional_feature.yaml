@@ -1,0 +1,38 @@
+id: 60402e69-3a06-5a0c-a4fd-21c397c0558f
+name: Potential Suspicious Windows Feature Enabled - ProcCreation
+description: 'Detects usage of the built-in PowerShell cmdlet "Enable-WindowsOptionalFeature" used as a Deployment Image Servicing and Management tool. Similar to DISM.exe, this cmdlet is used to enumerate, install, uninstall, configure, and update features and packages in Windows images Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_enable_susp_windows_optional_feature.yml - Legitimate usage of the features listed in the rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_enable_susp_windows_optional_feature.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "Enable-WindowsOptionalFeature" and ProcessCommandLine contains "-Online" and ProcessCommandLine contains "-FeatureName") and (ProcessCommandLine contains "TelnetServer" or ProcessCommandLine contains "Internet-Explorer-Optional-amd64" or ProcessCommandLine contains "TFTP" or ProcessCommandLine contains "SMB1Protocol" or ProcessCommandLine contains "Client-ProjFS" or ProcessCommandLine contains "Microsoft-Windows-Subsystem-Linux")
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

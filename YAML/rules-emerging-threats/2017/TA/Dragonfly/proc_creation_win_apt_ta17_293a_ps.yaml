@@ -1,0 +1,40 @@
+id: b61e52b8-a0fe-5670-ad04-ae5f8b9f7e99
+name: Ps.exe Renamed SysInternals Tool
+description: 'Detects renamed SysInternals tool execution with a binary named ps.exe as used by Dragonfly APT group and documented in TA17-293A report Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Dragonfly/proc_creation_win_apt_ta17_293a_ps.yml - Renamed SysInternals tool | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Dragonfly/proc_creation_win_apt_ta17_293a_ps.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine contains "ps.exe -accepteula" and ProcessCommandLine contains "-s cmd /c netstat"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1036
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

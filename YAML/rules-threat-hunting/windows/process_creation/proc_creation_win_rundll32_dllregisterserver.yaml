@@ -1,0 +1,46 @@
+id: 92b0766a-c82f-5705-9733-2dbcdf667cf1
+name: Rundll32.EXE Calling DllRegisterServer Export Function Explicitly
+description: 'Detects when the DLL export function ''DllRegisterServer'' is called in the commandline by Rundll32 explicitly where the DLL is located in a non-standard path. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_rundll32_dllregisterserver.yml - Legitimate usage as part of application installation, but less likely from e.g. temporary paths. - Not every instance is considered malicious, but this rule will capture the malicious usages. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_rundll32_dllregisterserver.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "DllRegisterServer" and (FolderPath endswith "\\rundll32.exe" or ProcessVersionInfoOriginalFileName =~ "RUNDLL32.EXE")) and (not((ProcessCommandLine contains ":\\Program Files (x86)" or ProcessCommandLine contains ":\\Program Files\\" or ProcessCommandLine contains ":\\Windows\\System32\\" or ProcessCommandLine contains ":\\Windows\\SysWOW64\\")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1218
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

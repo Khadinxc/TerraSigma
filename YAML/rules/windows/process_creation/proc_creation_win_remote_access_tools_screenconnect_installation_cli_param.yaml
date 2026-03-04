@@ -1,0 +1,41 @@
+id: b02d7216-737f-5a4b-9b71-110a5d28ed9c
+name: Remote Access Tool - ScreenConnect Installation Execution
+description: 'Detects ScreenConnect program starts that establish a remote access to a system. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_screenconnect_installation_cli_param.yml - Legitimate use by administrative staff | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_screenconnect_installation_cli_param.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- InitialAccess
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine contains "e=Access&" and ProcessCommandLine contains "y=Guest&" and ProcessCommandLine contains "&p=" and ProcessCommandLine contains "&c=" and ProcessCommandLine contains "&k="
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1133
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

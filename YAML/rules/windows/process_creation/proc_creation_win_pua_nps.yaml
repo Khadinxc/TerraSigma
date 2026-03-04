@@ -1,0 +1,44 @@
+id: 6b5e5833-3f0c-5d99-a910-f9ee5f5c7148
+name: PUA - NPS Tunneling Tool Execution
+description: 'Detects the use of NPS, a port forwarding and intranet penetration proxy server Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_nps.yml - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_nps.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CommandAndControl
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains " -server=" and ProcessCommandLine contains " -vkey=" and ProcessCommandLine contains " -password=") or ProcessCommandLine contains " -config=npc" or (MD5 startswith "AE8ACF66BFE3A44148964048B826D005" or SHA1 startswith "CEA49E9B9B67F3A13AD0BE1C2655293EA3C18181" or SHA256 startswith "5A456283392FFCEEEACA3D3426C306EB470304637520D72FED1CC1FEBBBD6856") or FolderPath endswith "\\npc.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1090
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

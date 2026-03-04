@@ -1,0 +1,45 @@
+id: 2380d624-0544-514b-a131-be2c107ff322
+name: RDP Sensitive Settings Changed to Zero
+description: 'Detects tampering of RDP Terminal Service/Server sensitive settings. Such as allowing unauthorized users access to a system via the ''fAllowUnsolicited'' or enabling RDP via ''fDenyTSConnections'', etc. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_terminal_server_suspicious.yml - Some of the keys mentioned here could be modified by an administrator while setting group policy (it should be investigated either way) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_terminal_server_suspicious.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Persistence
+query: |-
+  DeviceRegistryEvents
+  | where RegistryValueData =~ "DWORD (0x00000000)" and (RegistryKey endswith "\\fDenyTSConnections" or RegistryKey endswith "\\fSingleSessionPerUser" or RegistryKey endswith "\\UserAuthentication")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1112
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

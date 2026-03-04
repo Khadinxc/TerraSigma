@@ -1,0 +1,44 @@
+id: 87402986-9244-5bee-b01f-d60309764c01
+name: HackTool - SOAPHound Execution
+description: 'Detects the execution of SOAPHound, a .NET tool for collecting Active Directory data, using specific command-line arguments that may indicate an attempt to extract sensitive AD information. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_soaphound_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_soaphound_execution.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains " --buildcache " or ProcessCommandLine contains " --bhdump " or ProcessCommandLine contains " --certdump " or ProcessCommandLine contains " --dnsdump ") and (ProcessCommandLine contains " -c " or ProcessCommandLine contains " --cachefilename " or ProcessCommandLine contains " -o " or ProcessCommandLine contains " --outputdirectory")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1087
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

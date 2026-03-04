@@ -1,0 +1,45 @@
+id: 78d2ab8e-e758-5dae-9dda-c61cad7e093e
+name: Service Binary in Suspicious Folder
+description: 'Detect the creation of a service with a service binary located in a suspicious directory Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_creation_service_susp_folder.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_creation_service_susp_folder.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- DefenseEvasion
+query: |-
+  DeviceRegistryEvents
+  | where (((RegistryValueData contains "\\Users\\Public\\" or RegistryValueData contains "\\Perflogs\\" or RegistryValueData contains "\\ADMIN$\\" or RegistryValueData contains "\\Temp\\") and RegistryKey endswith "\\ImagePath" and RegistryKey =~ "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet001\\Services*") or ((RegistryValueData in~ ("DWORD (0x00000000)", "DWORD (0x00000001)", "DWORD (0x00000002)")) and (InitiatingProcessFolderPath contains "\\Users\\Public\\" or InitiatingProcessFolderPath contains "\\Perflogs\\" or InitiatingProcessFolderPath contains "\\ADMIN$\\" or InitiatingProcessFolderPath contains "\\Temp\\") and RegistryKey endswith "\\Start" and RegistryKey =~ "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet001\\Services*")) and (not(((InitiatingProcessFolderPath contains "\\Common Files\\" and InitiatingProcessFolderPath contains "\\Temp\\") or (RegistryValueData endswith "\\AppData\\Local\\Temp\\MBAMInstallerService.exe\"" and InitiatingProcessFolderPath =~ "C:\\Windows\\system32\\services.exe" and RegistryKey endswith "\\CurrentControlSet\\Services\\MBAMInstallerService\\ImagePath"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1112
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

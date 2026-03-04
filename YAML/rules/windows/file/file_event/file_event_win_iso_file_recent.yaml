@@ -1,0 +1,40 @@
+id: 91de9ff9-d2e8-5571-8dd8-34a5db565e30
+name: ISO or Image Mount Indicator in Recent Files
+description: 'Detects the creation of recent element file that points to an .ISO, .IMG, .VHD or .VHDX file as often used in phishing attacks. This can be a false positive on server systems but on workstations users should rarely mount .iso or .img files. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_iso_file_recent.yml - Cases in which a user mounts an image file for legitimate reasons | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_iso_file_recent.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- InitialAccess
+query: |-
+  DeviceFileEvents
+  | where FolderPath contains "\\Microsoft\\Windows\\Recent\\" and (FolderPath endswith ".iso.lnk" or FolderPath endswith ".img.lnk" or FolderPath endswith ".vhd.lnk" or FolderPath endswith ".vhdx.lnk")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1566
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

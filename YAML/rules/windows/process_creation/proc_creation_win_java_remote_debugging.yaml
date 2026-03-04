@@ -1,0 +1,40 @@
+id: 94e5fbeb-b2d6-51d3-9bf1-6624910d5e7a
+name: Java Running with Remote Debugging
+description: 'Detects a JAVA process running with remote debugging allowing more than just localhost to connect Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_java_remote_debugging.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_java_remote_debugging.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "transport=dt_socket,address=" and (ProcessCommandLine contains "jre1." or ProcessCommandLine contains "jdk1.")) and (not((ProcessCommandLine contains "address=127.0.0.1" or ProcessCommandLine contains "address=localhost")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1203
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

@@ -1,0 +1,45 @@
+id: fa3fce61-94ae-52a4-baa5-e73615df1fbc
+name: Registry Persistence via Explorer Run Key
+description: 'Detects a possible persistence mechanism using RUN key for Windows Explorer and pointing to a suspicious folder Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_reg_persist_explorer_run.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_reg_persist_explorer_run.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Persistence
+query: |-
+  DeviceRegistryEvents
+  | where (RegistryValueData contains ":\\$Recycle.bin\\" or RegistryValueData contains ":\\ProgramData\\" or RegistryValueData contains ":\\Temp\\" or RegistryValueData contains ":\\Users\\Default\\" or RegistryValueData contains ":\\Users\\Public\\" or RegistryValueData contains ":\\Windows\\Temp\\" or RegistryValueData contains "\\AppData\\Local\\Temp\\") and RegistryKey endswith "\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\Run"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1547
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

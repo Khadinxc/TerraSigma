@@ -1,0 +1,44 @@
+id: 5d615c52-0325-5d1a-b7b1-25038c13e7a4
+name: Shell Execution GCC  - Linux
+description: 'Detects the use of the "gcc" utility to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or to break out from restricted environments. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_gcc_shell_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_gcc_shell_execution.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "/bin/bash,-s" or ProcessCommandLine contains "/bin/dash,-s" or ProcessCommandLine contains "/bin/fish,-s" or ProcessCommandLine contains "/bin/sh,-s" or ProcessCommandLine contains "/bin/zsh,-s") and (ProcessCommandLine contains "-wrapper" and (FolderPath endswith "/c89" or FolderPath endswith "/c99" or FolderPath endswith "/gcc"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1083
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

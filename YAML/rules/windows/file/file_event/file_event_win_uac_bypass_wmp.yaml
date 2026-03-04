@@ -1,0 +1,41 @@
+id: 1fe8779b-2cd8-56a0-a7d9-f4dad6da0e33
+name: UAC Bypass Using Windows Media Player - File
+description: 'Detects the pattern of UAC Bypass using Windows Media Player osksupport.dll (UACMe 32) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_wmp.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_wmp.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- PrivilegeEscalation
+query: |-
+  DeviceFileEvents
+  | where (FolderPath endswith "\\AppData\\Local\\Temp\\OskSupport.dll" and FolderPath startswith "C:\\Users\\") or (InitiatingProcessFolderPath =~ "C:\\Windows\\system32\\DllHost.exe" and FolderPath =~ "C:\\Program Files\\Windows Media Player\\osk.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1548
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

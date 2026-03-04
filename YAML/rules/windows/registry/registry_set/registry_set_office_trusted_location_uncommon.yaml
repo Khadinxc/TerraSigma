@@ -1,0 +1,45 @@
+id: 3458be23-2615-5bfc-b72e-ee4cd6278109
+name: Uncommon Microsoft Office Trusted Location Added
+description: 'Detects changes to registry keys related to "Trusted Location" of Microsoft Office where the path is set to something uncommon. Attackers might add additional trusted locations to avoid macro security restrictions. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_trusted_location_uncommon.yml - Other unknown legitimate or custom paths need to be filtered to avoid false positives | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_trusted_location_uncommon.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- DefenseEvasion
+query: |-
+  DeviceRegistryEvents
+  | where (RegistryKey contains "Security\\Trusted Locations\\Location" and RegistryKey endswith "\\Path") and (not(((InitiatingProcessFolderPath contains ":\\Program Files\\Microsoft Office\\" or InitiatingProcessFolderPath contains ":\\Program Files (x86)\\Microsoft Office\\") or (InitiatingProcessFolderPath contains ":\\Program Files\\Common Files\\Microsoft Shared\\ClickToRun\\" and InitiatingProcessFolderPath endswith "\\OfficeClickToRun.exe")))) and (not((RegistryValueData contains "%APPDATA%\\Microsoft\\Templates" or RegistryValueData contains "%%APPDATA%%\\Microsoft\\Templates" or RegistryValueData contains "%APPDATA%\\Microsoft\\Word\\Startup" or RegistryValueData contains "%%APPDATA%%\\Microsoft\\Word\\Startup" or RegistryValueData contains ":\\Program Files (x86)\\Microsoft Office\\root\\Templates\\" or RegistryValueData contains ":\\Program Files\\Microsoft Office (x86)\\Templates" or RegistryValueData contains ":\\Program Files\\Microsoft Office\\root\\Templates\\" or RegistryValueData contains ":\\Program Files\\Microsoft Office\\Templates\\")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1112
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

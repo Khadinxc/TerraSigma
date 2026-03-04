@@ -1,0 +1,46 @@
+id: 3ed39678-8ddd-550c-a1b2-b5d3969197ec
+name: Execute Code with Pester.bat
+description: 'Detects code execution via Pester.bat (Pester - Powershell Modulte for testing) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_pester_1.yml - Legitimate use of Pester for writing tests for Powershell scripts and modules | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_pester_1.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "Pester" and ProcessCommandLine contains "Get-Help") and (FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe")) or (((ProcessCommandLine contains "pester" and ProcessCommandLine contains ";") and FolderPath endswith "\\cmd.exe") and (ProcessCommandLine contains "help" or ProcessCommandLine contains "?"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+- T1216
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

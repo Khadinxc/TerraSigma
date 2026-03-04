@@ -1,0 +1,47 @@
+id: 01714a39-244b-5019-9fe0-7bc23b77c3da
+name: PUA - System Informer Execution
+description: 'Detects the execution of System Informer, a task manager tool to view and manipulate processes, kernel options and other low level operations Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_system_informer.yml - System Informer is regularly used legitimately by system administrators or developers. Apply additional filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_system_informer.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- PrivilegeEscalation
+- Discovery
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where FolderPath endswith "\\SystemInformer.exe" or ProcessVersionInfoOriginalFileName =~ "SystemInformer.exe" or ProcessVersionInfoFileDescription =~ "System Informer" or ProcessVersionInfoProductName =~ "System Informer" or (MD5 startswith "19426363A37C03C3ED6FEDF57B6696EC" or SHA1 startswith "8B12C6DA8FAC0D5E8AB999C31E5EA04AF32D53DC" or SHA256 startswith "8EE9D84DE50803545937A63C686822388A3338497CDDB660D5D69CF68B68F287")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1082
+- T1564
+- T1543
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

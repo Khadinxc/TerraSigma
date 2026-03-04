@@ -1,0 +1,42 @@
+id: 76c5736d-c18e-5eb1-81f5-2978fb5152c0
+name: Suspicious File Write to Webapps Root Directory
+description: 'Detects suspicious file writes to the root directory of web applications, particularly Apache web servers or Tomcat servers. This may indicate an attempt to deploy malicious files such as web shells or other unauthorized scripts. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_file_write_in_webapps_root.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_file_write_in_webapps_root.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- InitialAccess
+query: |-
+  DeviceFileEvents
+  | where FolderPath contains "\\webapps\\ROOT\\" and (FolderPath contains "\\apache" or FolderPath contains "\\tomcat") and FolderPath endswith ".jsp" and (InitiatingProcessFolderPath endswith "\\dotnet.exe" or InitiatingProcessFolderPath endswith "\\w3wp.exe" or InitiatingProcessFolderPath endswith "\\java.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1505
+- T1190
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

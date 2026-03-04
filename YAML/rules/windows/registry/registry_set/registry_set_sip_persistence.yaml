@@ -1,0 +1,45 @@
+id: a01e4c27-a342-5a2d-93dc-eee73f6c936d
+name: Persistence Via New SIP Provider
+description: 'Detects when an attacker register a new SIP provider for persistence and defense evasion Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_sip_persistence.yml - Legitimate SIP being registered by the OS or different software. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_sip_persistence.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- DefenseEvasion
+query: |-
+  DeviceRegistryEvents
+  | where ((RegistryKey contains "\\Dll" or RegistryKey contains "\\$DLL") and (RegistryKey endswith "\\SOFTWARE\\Microsoft\\Cryptography\\Providers*" or RegistryKey contains "\\SOFTWARE\\Microsoft\\Cryptography\\OID\\EncodingType" or RegistryKey endswith "\\SOFTWARE\\WOW6432Node\\Microsoft\\Cryptography\\Providers*" or RegistryKey contains "\\SOFTWARE\\WOW6432Node\\Microsoft\\Cryptography\\OID\\EncodingType")) and (not(((RegistryValueData in~ ("WINTRUST.DLL", "mso.dll")) or (RegistryValueData =~ "C:\\Windows\\System32\\PsfSip.dll" and InitiatingProcessFolderPath =~ "C:\\Windows\\System32\\poqexec.exe" and RegistryKey contains "\\CryptSIPDll"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1553
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

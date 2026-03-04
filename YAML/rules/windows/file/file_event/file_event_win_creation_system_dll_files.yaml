@@ -1,0 +1,40 @@
+id: 9a42973e-48ca-5822-9704-d5f485d7a3b2
+name: Files With System DLL Name In Unsuspected Locations
+description: 'Detects the creation of a file with the ".dll" extension that has the name of a System DLL in uncommon or unsuspected locations. (Outisde of "System32", "SysWOW64", etc.). It is highly recommended to perform an initial baseline before using this rule in production. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_creation_system_dll_files.yml - Third party software might bundle specific versions of system DLLs. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_creation_system_dll_files.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceFileEvents
+  | where (FolderPath endswith "\\secur32.dll" or FolderPath endswith "\\tdh.dll") and (not((FolderPath contains "C:\\$WINDOWS.~BT\\" or FolderPath contains "C:\\$WinREAgent\\" or FolderPath contains "C:\\Windows\\SoftwareDistribution\\" or FolderPath contains "C:\\Windows\\System32\\" or FolderPath contains "C:\\Windows\\SysWOW64\\" or FolderPath contains "C:\\Windows\\WinSxS\\" or FolderPath contains "C:\\Windows\\uus\\")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1036
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

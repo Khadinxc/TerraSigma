@@ -1,0 +1,46 @@
+id: fbc13ba9-2ac0-538b-8360-68a5ecb8fca5
+name: File Download with Headless Browser
+description: 'Detects execution of chromium based browser in headless mode using the "dump-dom" command line to download files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_headless_file_download.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_headless_file_download.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- CommandAndControl
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "--headless" and ProcessCommandLine contains "dump-dom" and ProcessCommandLine contains "http") and (FolderPath endswith "\\brave.exe" or FolderPath endswith "\\chrome.exe" or FolderPath endswith "\\msedge.exe" or FolderPath endswith "\\opera.exe" or FolderPath endswith "\\vivaldi.exe")) and (not(((ProcessCommandLine contains "--headless --disable-gpu --disable-extensions --disable-plugins --mute-audio --no-first-run --incognito --aggressive-cache-discard --dump-dom" and (FolderPath endswith "\\msedge.exe" or FolderPath endswith "\\msedgewebview2.exe" or FolderPath endswith "\\MicrosoftEdge.exe") and (FolderPath startswith "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\" or FolderPath startswith "C:\\Program Files (x86)\\Microsoft\\EdgeCore\\" or FolderPath startswith "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\" or FolderPath startswith "C:\\Program Files\\Microsoft\\Edge\\Application\\" or FolderPath startswith "C:\\Program Files\\Microsoft\\EdgeCore\\" or FolderPath startswith "C:\\Program Files\\Microsoft\\EdgeWebView\\" or FolderPath startswith "C:\\Program Files\\WindowsApps\\Microsoft.MicrosoftEdge")) or (ProcessCommandLine contains "--headless --disable-gpu --disable-extensions --disable-plugins --mute-audio --no-first-run --incognito --aggressive-cache-discard --dump-dom" and (FolderPath contains "\\AppData\\Local\\Microsoft\\WindowsApps\\" or FolderPath contains "\\Windows\\SystemApps\\Microsoft.MicrosoftEdge") and (FolderPath endswith "\\msedge.exe" or FolderPath endswith "\\MicrosoftEdge.exe")))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1105
+- T1564
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

@@ -1,0 +1,73 @@
+resource "azurerm_sentinel_alert_rule_scheduled" "image_load_wmic_remote_xsl_scripting_dlls" {
+  name                       = "image_load_wmic_remote_xsl_scripting_dlls"
+  log_analytics_workspace_id = var.workspace_id
+  display_name               = "WMIC Loading Scripting Libraries"
+  description                = "Detects threat actors proxy executing code and bypassing application controls by leveraging wmic and the `/FORMAT` argument switch to download and execute an XSL file (i.e js, vbs, etc). It could be an indicator of SquiblyTwo technique, which uses Windows Management Instrumentation (WMI) to execute malicious code. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_wmic_remote_xsl_scripting_dlls.yml - The command wmic os get lastbootuptime loads vbscript.dll - The command wmic os get locale loads vbscript.dll - Since the ImageLoad event doesn't have enough information in this case. It's better to look at the recent process creation events that spawned the WMIC process and investigate the command line and parent/child processes to get more insights - The command `wmic ntevent` loads vbscript.dll | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_wmic_remote_xsl_scripting_dlls.yml"
+  severity                   = "Medium"
+  query                      = <<QUERY
+DeviceImageLoadEvents
+| where (FolderPath endswith "\\jscript.dll" or FolderPath endswith "\\vbscript.dll") and InitiatingProcessFolderPath endswith "\\wmic.exe"
+QUERY
+  query_frequency            = "PT1H"
+  query_period               = "PT1H"
+  trigger_operator           = "GreaterThan"
+  trigger_threshold          = 0
+  suppression_enabled        = false
+  suppression_duration       = "PT5H"
+  tactics                    = ["DefenseEvasion"]
+  techniques                 = ["T1220"]
+  enabled                    = true
+
+  incident {
+    create_incident_enabled = true
+    grouping {
+      enabled                 = false
+      lookback_duration       = "PT5H"
+      reopen_closed_incidents = false
+      entity_matching_method  = "AllEntities"
+      by_entities             = []
+      by_alert_details        = []
+      by_custom_details       = []
+    }
+  }
+
+  event_grouping {
+    aggregation_method = "SingleAlert"
+  }
+
+  entity_mapping {
+    entity_type = "Account"
+    field_mapping {
+      identifier  = "Name"
+      column_name = "InitiatingProcessAccountName"
+    }
+    field_mapping {
+      identifier  = "NTDomain"
+      column_name = "InitiatingProcessAccountDomain"
+    }
+    field_mapping {
+      identifier  = "Sid"
+      column_name = "InitiatingProcessAccountSid"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "Host"
+    field_mapping {
+      identifier  = "HostName"
+      column_name = "DeviceName"
+    }
+    field_mapping {
+      identifier  = "AzureID"
+      column_name = "DeviceId"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "File"
+    field_mapping {
+      identifier  = "Directory"
+      column_name = "FolderPath"
+    }
+  }
+}

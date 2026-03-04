@@ -1,0 +1,73 @@
+resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_webdav_process_execution" {
+  name                       = "proc_creation_win_webdav_process_execution"
+  log_analytics_workspace_id = var.workspace_id
+  display_name               = "Process Execution From WebDAV Share"
+  description                = "Detects execution of processes with image paths starting with WebDAV shares (\\\\), which might indicate malicious file execution from remote web shares. Execution of processes from WebDAV shares can be a sign of lateral movement or exploitation attempts, especially if the process is not a known legitimate application. Exploitation Attempt of vulnerabilities like CVE-2025-33053 also involves executing processes from WebDAV paths. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_webdav_process_execution.yml - Legitimate use of WebDAV shares for process execution - Known applications executing from WebDAV paths | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_webdav_process_execution.yml"
+  severity                   = "Low"
+  query                      = <<QUERY
+DeviceProcessEvents
+| where FolderPath contains "\\DavWWWRoot\\" and FolderPath startswith "\\\\"
+QUERY
+  query_frequency            = "PT1H"
+  query_period               = "PT1H"
+  trigger_operator           = "GreaterThan"
+  trigger_threshold          = 0
+  suppression_enabled        = false
+  suppression_duration       = "PT5H"
+  tactics                    = ["Execution", "CommandAndControl", "LateralMovement"]
+  techniques                 = ["T1105"]
+  enabled                    = true
+
+  incident {
+    create_incident_enabled = true
+    grouping {
+      enabled                 = false
+      lookback_duration       = "PT5H"
+      reopen_closed_incidents = false
+      entity_matching_method  = "AllEntities"
+      by_entities             = []
+      by_alert_details        = []
+      by_custom_details       = []
+    }
+  }
+
+  event_grouping {
+    aggregation_method = "SingleAlert"
+  }
+
+  entity_mapping {
+    entity_type = "Account"
+    field_mapping {
+      identifier  = "Name"
+      column_name = "InitiatingProcessAccountName"
+    }
+    field_mapping {
+      identifier  = "NTDomain"
+      column_name = "InitiatingProcessAccountDomain"
+    }
+    field_mapping {
+      identifier  = "Sid"
+      column_name = "InitiatingProcessAccountSid"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "Host"
+    field_mapping {
+      identifier  = "HostName"
+      column_name = "DeviceName"
+    }
+    field_mapping {
+      identifier  = "AzureID"
+      column_name = "DeviceId"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "File"
+    field_mapping {
+      identifier  = "Directory"
+      column_name = "FolderPath"
+    }
+  }
+}

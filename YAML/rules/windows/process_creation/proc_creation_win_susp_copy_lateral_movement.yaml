@@ -1,0 +1,50 @@
+id: df3547b4-3114-5da8-acdc-dbbdcd9f85f2
+name: Copy From Or To Admin Share Or Sysvol Folder
+description: 'Detects a copy command or a copy utility execution to or from an Admin share or remote Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_copy_lateral_movement.yml - Administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_copy_lateral_movement.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- LateralMovement
+- Collection
+- Exfiltration
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "\\" and ProcessCommandLine contains "\\" and ProcessCommandLine contains "$") or ProcessCommandLine contains "\\Sysvol\\") and (((FolderPath endswith "\\robocopy.exe" or FolderPath endswith "\\xcopy.exe") or (ProcessVersionInfoOriginalFileName in~ ("robocopy.exe", "XCOPY.EXE"))) or (ProcessCommandLine contains "copy" and (FolderPath endswith "\\cmd.exe" or ProcessVersionInfoOriginalFileName =~ "Cmd.Exe")) or ((ProcessCommandLine contains "copy-item" or ProcessCommandLine contains "copy " or ProcessCommandLine contains "cpi " or ProcessCommandLine contains " cp " or ProcessCommandLine contains "move " or ProcessCommandLine contains " move-item" or ProcessCommandLine contains " mi " or ProcessCommandLine contains " mv ") and ((FolderPath contains "\\powershell_ise.exe" or FolderPath contains "\\powershell.exe" or FolderPath contains "\\pwsh.exe") or (ProcessVersionInfoOriginalFileName in~ ("powershell_ise.exe", "PowerShell.EXE", "pwsh.dll")))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1039
+- T1048
+- T1021
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

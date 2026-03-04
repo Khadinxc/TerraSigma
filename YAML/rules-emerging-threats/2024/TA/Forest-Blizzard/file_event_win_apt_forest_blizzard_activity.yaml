@@ -1,0 +1,40 @@
+id: 9459d172-addc-5a62-b9a0-8c1ad47cc219
+name: Forest Blizzard APT - File Creation Activity
+description: 'Detects the creation of specific files inside of ProgramData directory. These files were seen being created by Forest Blizzard as described by MSFT. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/file_event_win_apt_forest_blizzard_activity.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/file_event_win_apt_forest_blizzard_activity.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceFileEvents
+  | where ((FolderPath contains "\\prnms003.inf_" or FolderPath contains "\\prnms009.inf_") and (FolderPath startswith "C:\\ProgramData\\Microsoft\\v" or FolderPath startswith "C:\\ProgramData\\Adobe\\v" or FolderPath startswith "C:\\ProgramData\\Comms\\v" or FolderPath startswith "C:\\ProgramData\\Intel\\v" or FolderPath startswith "C:\\ProgramData\\Kaspersky Lab\\v" or FolderPath startswith "C:\\ProgramData\\Bitdefender\\v" or FolderPath startswith "C:\\ProgramData\\ESET\\v" or FolderPath startswith "C:\\ProgramData\\NVIDIA\\v" or FolderPath startswith "C:\\ProgramData\\UbiSoft\\v" or FolderPath startswith "C:\\ProgramData\\Steam\\v")) or (FolderPath startswith "C:\\ProgramData\\" and ((FolderPath endswith ".save" or FolderPath endswith "\\doit.bat" or FolderPath endswith "\\execute.bat" or FolderPath endswith "\\servtask.bat") or (FolderPath contains "\\wayzgoose" and FolderPath endswith ".dll")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1562
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

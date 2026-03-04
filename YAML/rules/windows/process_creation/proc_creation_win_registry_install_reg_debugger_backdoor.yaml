@@ -1,0 +1,41 @@
+id: b6ff9366-044a-58df-ba8b-816d3d8d9086
+name: Suspicious Debugger Registration Cmdline
+description: 'Detects the registration of a debugger for a program that is available in the logon screen (sticky key backdoor). Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_install_reg_debugger_backdoor.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_install_reg_debugger_backdoor.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- PrivilegeEscalation
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine contains "\\CurrentVersion\\Image File Execution Options\\" and (ProcessCommandLine contains "sethc.exe" or ProcessCommandLine contains "utilman.exe" or ProcessCommandLine contains "osk.exe" or ProcessCommandLine contains "magnify.exe" or ProcessCommandLine contains "narrator.exe" or ProcessCommandLine contains "displayswitch.exe" or ProcessCommandLine contains "atbroker.exe" or ProcessCommandLine contains "HelpPane.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1546
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

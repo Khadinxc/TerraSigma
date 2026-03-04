@@ -1,0 +1,46 @@
+id: 71a01e1d-b6b2-5815-9b99-1b68177fccb5
+name: DLL Call by Ordinal Via Rundll32.EXE
+description: 'Detects calls of DLLs exports by ordinal numbers via rundll32.dll. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_rundll32_by_ordinal.yml - Windows control panel elements have been identified as source (mmc). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_rundll32_by_ordinal.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains ",#" or ProcessCommandLine contains ", #" or ProcessCommandLine contains ".dll #" or ProcessCommandLine contains ".ocx #") and (FolderPath endswith "\\rundll32.exe" or ProcessVersionInfoOriginalFileName =~ "RUNDLL32.EXE")) and (not(((ProcessCommandLine contains "EDGEHTML.dll" and ProcessCommandLine contains "#141") or ((ProcessCommandLine contains "\\FileTracker32.dll,#1" or ProcessCommandLine contains "\\FileTracker32.dll\",#1" or ProcessCommandLine contains "\\FileTracker64.dll,#1" or ProcessCommandLine contains "\\FileTracker64.dll\",#1") and (InitiatingProcessFolderPath contains "\\Msbuild\\Current\\Bin\\" or InitiatingProcessFolderPath contains "\\VC\\Tools\\MSVC\\" or InitiatingProcessFolderPath contains "\\Tracker.exe")))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1218
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

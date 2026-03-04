@@ -1,0 +1,48 @@
+id: 85d7c2a3-2452-57cb-a33b-3fc30ad4a225
+name: Potential PowerShell Command Line Obfuscation
+description: 'Detects the PowerShell command lines with special characters Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cmdline_special_characters.yml - Amazon SSM Document Worker - Windows Defender ATP | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cmdline_special_characters.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe") or (ProcessVersionInfoOriginalFileName in~ ("PowerShell.EXE", "pwsh.dll"))) and (ProcessCommandLine matches regex "\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+" or ProcessCommandLine matches regex "\\{.*\\{.*\\{.*\\{.*\\{.*\\{.*\\{.*\\{.*\\{.*\\{" or ProcessCommandLine matches regex "\\^.*\\^.*\\^.*\\^.*\\^" or ProcessCommandLine matches regex "`.*`.*`.*`.*`")) and (not((InitiatingProcessFolderPath =~ "C:\\Program Files\\Amazon\\SSM\\ssm-document-worker.exe" or (ProcessCommandLine contains "new EventSource(\"Microsoft.Windows.Sense.Client.Management\"" or ProcessCommandLine contains "public static extern bool InstallELAMCertificateInfo(SafeFileHandle handle);"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1027
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

@@ -1,0 +1,45 @@
+id: e87341b6-c05b-5b22-bc7f-462979565918
+name: New Kernel Driver Via SC.EXE
+description: 'Detects creation of a new service (kernel driver) with the type "kernel" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_new_kernel_driver.yml - Rare legitimate installation of kernel drivers via sc.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_new_kernel_driver.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- PrivilegeEscalation
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "create" or ProcessCommandLine contains "config") and (ProcessCommandLine contains "binPath" and ProcessCommandLine contains "type" and ProcessCommandLine contains "kernel") and FolderPath endswith "\\sc.exe") and (not(((ProcessCommandLine contains "create netprotection_network_filter" and ProcessCommandLine contains "type= kernel start= " and ProcessCommandLine contains "binPath= System32\\drivers\\netprotection_network_filter" and ProcessCommandLine contains "DisplayName= netprotection_network_filter" and ProcessCommandLine contains "group= PNP_TDI tag= yes") or (ProcessCommandLine contains "create avelam binpath=C:\\Windows\\system32\\drivers\\avelam.sys" and ProcessCommandLine contains "type=kernel start=boot error=critical group=Early-Launch"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1543
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

@@ -1,0 +1,46 @@
+id: c3c90690-da4a-5102-8f1b-f095d28e7722
+name: Suspicious Usage Of Active Directory Diagnostic Tool (ntdsutil.exe)
+description: 'Detects execution of ntdsutil.exe to perform different actions such as restoring snapshots...etc. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ntdsutil_susp_usage.yml - Legitimate usage to restore snapshots - Legitimate admin activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ntdsutil_susp_usage.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CredentialAccess
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "snapshot" and ProcessCommandLine contains "mount ") or (ProcessCommandLine contains "ac" and ProcessCommandLine contains " i" and ProcessCommandLine contains " ntds")) and (FolderPath endswith "\\ntdsutil.exe" or ProcessVersionInfoOriginalFileName =~ "ntdsutil.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1003
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

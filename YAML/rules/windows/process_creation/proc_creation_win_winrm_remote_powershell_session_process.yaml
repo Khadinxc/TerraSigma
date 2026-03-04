@@ -1,0 +1,42 @@
+id: 83b985b0-e4d4-5db2-a2e5-856cb987a9d1
+name: Remote PowerShell Session Host Process (WinRM)
+description: 'Detects remote PowerShell sections by monitoring for wsmprovhost (WinRM host process) as a parent or child process (sign of an active PowerShell remote session). Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winrm_remote_powershell_session_process.yml - Legitimate usage of remote Powershell, e.g. for monitoring purposes. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winrm_remote_powershell_session_process.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- LateralMovement
+query: |-
+  DeviceProcessEvents
+  | where FolderPath endswith "\\wsmprovhost.exe" or InitiatingProcessFolderPath endswith "\\wsmprovhost.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+- T1021
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

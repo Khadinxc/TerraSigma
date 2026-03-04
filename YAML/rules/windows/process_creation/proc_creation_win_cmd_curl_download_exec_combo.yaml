@@ -1,0 +1,42 @@
+id: 8b14127c-0676-5121-bd36-aacfc1debd0b
+name: Curl Download And Execute Combination
+description: 'Adversaries can use curl to download payloads remotely and execute them. Curl is included by default in Windows 10 build 17063 and later. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_curl_download_exec_combo.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_curl_download_exec_combo.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- CommandAndControl
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "curl " and ProcessCommandLine contains "http" and ProcessCommandLine contains "-o" and ProcessCommandLine contains "&") and (ProcessCommandLine contains " -c " or ProcessCommandLine contains " /c " or ProcessCommandLine contains " –c " or ProcessCommandLine contains " —c " or ProcessCommandLine contains " ―c ")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1218
+- T1105
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

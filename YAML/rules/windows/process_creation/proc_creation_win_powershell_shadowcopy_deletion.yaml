@@ -1,0 +1,40 @@
+id: c0f5c928-bbca-5a7c-99b4-59f70467537f
+name: Deletion of Volume Shadow Copies via WMI with PowerShell
+description: 'Detects deletion of Windows Volume Shadow Copies with PowerShell code and Get-WMIObject. This technique is used by numerous ransomware families such as Sodinokibi/REvil Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_shadowcopy_deletion.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_shadowcopy_deletion.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Impact
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains ".Delete()" or ProcessCommandLine contains "Remove-WmiObject" or ProcessCommandLine contains "rwmi" or ProcessCommandLine contains "Remove-CimInstance" or ProcessCommandLine contains "rcim") and (ProcessCommandLine contains "Get-WmiObject" or ProcessCommandLine contains "gwmi" or ProcessCommandLine contains "Get-CimInstance" or ProcessCommandLine contains "gcim") and ProcessCommandLine contains "Win32_ShadowCopy"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1490
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

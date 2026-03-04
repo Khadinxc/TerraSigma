@@ -1,0 +1,48 @@
+id: 67bed5fa-e5d0-59ec-bd61-9947d9294deb
+name: Arbitrary Command Execution Using WSL
+description: 'Detects potential abuse of Windows Subsystem for Linux (WSL) binary as a Living of the Land binary in order to execute arbitrary Linux or Windows commands. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_wsl_arbitrary_command_execution.yml - Automation and orchestration scripts may use this method to execute scripts etc. - Legitimate use by Windows to kill processes opened via WSL (example VsCode WSL server) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_wsl_arbitrary_command_execution.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains " -e " or ProcessCommandLine contains " --exec" or ProcessCommandLine contains " --system" or ProcessCommandLine contains " --shell-type " or ProcessCommandLine contains " /mnt/c" or ProcessCommandLine contains " --user root" or ProcessCommandLine contains " -u root" or ProcessCommandLine contains "--debug-shell") and (FolderPath endswith "\\wsl.exe" or ProcessVersionInfoOriginalFileName =~ "wsl.exe")) and (not(((ProcessCommandLine contains " -d " and ProcessCommandLine contains " -e kill ") and InitiatingProcessFolderPath endswith "\\cmd.exe")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1218
+- T1202
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

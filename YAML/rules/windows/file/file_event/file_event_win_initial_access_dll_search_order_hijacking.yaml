@@ -1,0 +1,44 @@
+id: 7ff7f005-bd20-5fd4-bbf4-fd6265b19118
+name: Potential Initial Access via DLL Search Order Hijacking
+description: 'Detects attempts to create a DLL file to a known desktop application dependencies folder such as Slack, Teams or OneDrive and by an unusual process. This may indicate an attempt to load a malicious module via DLL search order hijacking. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_initial_access_dll_search_order_hijacking.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_initial_access_dll_search_order_hijacking.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Persistence
+- InitialAccess
+- DefenseEvasion
+query: |-
+  DeviceFileEvents
+  | where ((InitiatingProcessFolderPath endswith "\\winword.exe" or InitiatingProcessFolderPath endswith "\\excel.exe" or InitiatingProcessFolderPath endswith "\\powerpnt.exe" or InitiatingProcessFolderPath endswith "\\MSACCESS.EXE" or InitiatingProcessFolderPath endswith "\\MSPUB.EXE" or InitiatingProcessFolderPath endswith "\\fltldr.exe" or InitiatingProcessFolderPath endswith "\\cmd.exe" or InitiatingProcessFolderPath endswith "\\certutil.exe" or InitiatingProcessFolderPath endswith "\\mshta.exe" or InitiatingProcessFolderPath endswith "\\cscript.exe" or InitiatingProcessFolderPath endswith "\\wscript.exe" or InitiatingProcessFolderPath endswith "\\curl.exe" or InitiatingProcessFolderPath endswith "\\powershell.exe" or InitiatingProcessFolderPath endswith "\\pwsh.exe") and (FolderPath contains "\\Microsoft\\OneDrive\\" or FolderPath contains "\\Microsoft OneDrive\\" or FolderPath contains "\\Microsoft\\Teams\\" or FolderPath contains "\\Local\\slack\\app-" or FolderPath contains "\\Local\\Programs\\Microsoft VS Code\\") and (FolderPath contains "\\Users\\" and FolderPath contains "\\AppData\\") and FolderPath endswith ".dll") and (not((InitiatingProcessFolderPath endswith "\\cmd.exe" and (FolderPath contains "\\Users\\" and FolderPath contains "\\AppData\\" and FolderPath contains "\\Microsoft\\OneDrive\\" and FolderPath contains "\\api-ms-win-core-"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1566
+- T1574
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

@@ -1,0 +1,41 @@
+id: 7dd33944-6e80-59d1-836e-30abeaa070c5
+name: ShimCache Flush
+description: 'Detects actions that clear the local ShimCache and remove forensic evidence Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_shimcache_flush.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_shimcache_flush.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "rundll32" and ProcessCommandLine contains "apphelp.dll") and (ProcessCommandLine contains "ShimFlushCache" or ProcessCommandLine contains "#250")) or ((ProcessCommandLine contains "rundll32" and ProcessCommandLine contains "kernel32.dll") and (ProcessCommandLine contains "BaseFlushAppcompatCache" or ProcessCommandLine contains "#46"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1112
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

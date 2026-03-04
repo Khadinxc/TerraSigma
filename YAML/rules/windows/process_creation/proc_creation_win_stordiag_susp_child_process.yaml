@@ -1,0 +1,40 @@
+id: 6f49e263-e7c4-51aa-9b10-e31d09d6ae04
+name: Execution via stordiag.exe
+description: 'Detects the use of stordiag.exe to execute schtasks.exe systeminfo.exe and fltmc.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_stordiag_susp_child_process.yml - Legitimate usage of stordiag.exe. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_stordiag_susp_child_process.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ((FolderPath endswith "\\schtasks.exe" or FolderPath endswith "\\systeminfo.exe" or FolderPath endswith "\\fltmc.exe") and InitiatingProcessFolderPath endswith "\\stordiag.exe") and (not((InitiatingProcessFolderPath startswith "c:\\windows\\system32\\" or InitiatingProcessFolderPath startswith "c:\\windows\\syswow64\\")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1218
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

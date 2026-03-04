@@ -1,0 +1,49 @@
+id: 2699bc30-7733-58c3-9bed-f3564e3c6bd6
+name: MSHTA Execution with Suspicious File Extensions
+description: 'Detects execution of mshta.exe with file types that looks like they do not typically represent HTA (HTML Application) content, such as .png, .jpg, .zip, .pdf, and others, which are often polyglots. MSHTA is a legitimate Windows utility for executing HTML Applications containing VBScript or JScript. Threat actors often abuse this lolbin utility to download and execute malicious scripts disguised as benign files or hosted under misleading extensions to evade detection. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_susp_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_susp_execution.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains ".7z" or ProcessCommandLine contains ".avi" or ProcessCommandLine contains ".bat" or ProcessCommandLine contains ".bmp" or ProcessCommandLine contains ".conf" or ProcessCommandLine contains ".csv" or ProcessCommandLine contains ".dll" or ProcessCommandLine contains ".doc" or ProcessCommandLine contains ".gif" or ProcessCommandLine contains ".gz" or ProcessCommandLine contains ".ini" or ProcessCommandLine contains ".jpe" or ProcessCommandLine contains ".jpg" or ProcessCommandLine contains ".json" or ProcessCommandLine contains ".lnk" or ProcessCommandLine contains ".log" or ProcessCommandLine contains ".mkv" or ProcessCommandLine contains ".mp3" or ProcessCommandLine contains ".mp4" or ProcessCommandLine contains ".pdf" or ProcessCommandLine contains ".png" or ProcessCommandLine contains ".ppt" or ProcessCommandLine contains ".rar" or ProcessCommandLine contains ".rtf" or ProcessCommandLine contains ".svg" or ProcessCommandLine contains ".tar" or ProcessCommandLine contains ".tmp" or ProcessCommandLine contains ".txt" or ProcessCommandLine contains ".xls" or ProcessCommandLine contains ".xml" or ProcessCommandLine contains ".yaml" or ProcessCommandLine contains ".yml" or ProcessCommandLine contains ".zip" or ProcessCommandLine contains "vbscript") and (FolderPath endswith "\\mshta.exe" or ProcessVersionInfoOriginalFileName =~ "mshta.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1140
+- T1218
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

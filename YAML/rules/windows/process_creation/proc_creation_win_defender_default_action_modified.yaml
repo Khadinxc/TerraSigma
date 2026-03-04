@@ -1,0 +1,40 @@
+id: bf5cabc1-199d-5968-bf79-3c74155c6065
+name: PowerShell Defender Threat Severity Default Action Set to 'Allow' or 'NoAction'
+description: 'Detects the use of PowerShell to execute the ''Set-MpPreference'' cmdlet to configure Windows Defender''s threat severity default action to ''Allow'' (value ''6'') or ''NoAction'' (value ''9''). This is a highly suspicious configuration change that effectively disables Defender''s ability to automatically mitigate threats of a certain severity level. An attacker might use this technique via the command line to bypass defenses before executing payloads. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_defender_default_action_modified.yml - Highly unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_defender_default_action_modified.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "-LowThreatDefaultAction" or ProcessCommandLine contains "-ModerateThreatDefaultAction" or ProcessCommandLine contains "-HighThreatDefaultAction" or ProcessCommandLine contains "-SevereThreatDefaultAction" or ProcessCommandLine contains "-ltdefac " or ProcessCommandLine contains "-mtdefac " or ProcessCommandLine contains "-htdefac " or ProcessCommandLine contains "-stdefac ") and ProcessCommandLine contains "Set-MpPreference" and (ProcessCommandLine contains "Allow" or ProcessCommandLine contains "6" or ProcessCommandLine contains "NoAction" or ProcessCommandLine contains "9")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1562
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

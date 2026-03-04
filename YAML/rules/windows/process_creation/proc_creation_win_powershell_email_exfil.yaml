@@ -1,0 +1,42 @@
+id: 69cdef70-8aa1-560b-bba4-97b227e5b658
+name: Email Exifiltration Via Powershell
+description: 'Detects email exfiltration via powershell cmdlets Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_email_exfil.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_email_exfil.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Exfiltration
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "Add-PSSnapin" and ProcessCommandLine contains "Get-Recipient" and ProcessCommandLine contains "-ExpandProperty" and ProcessCommandLine contains "EmailAddresses" and ProcessCommandLine contains "SmtpAddress" and ProcessCommandLine contains "-hidetableheaders") and (FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe")
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

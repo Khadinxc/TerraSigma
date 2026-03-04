@@ -1,0 +1,44 @@
+id: 60775ecf-5192-5e08-9070-5464a44d6faf
+name: Sysinternals PsSuspend Execution
+description: 'Detects usage of Sysinternals PsSuspend which can be abused to suspend critical processes Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_pssuspend_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_pssuspend_execution.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Discovery
+- Persistence
+query: |-
+  DeviceProcessEvents
+  | where ProcessVersionInfoOriginalFileName =~ "pssuspend.exe" or (FolderPath endswith "\\pssuspend.exe" or FolderPath endswith "\\pssuspend64.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1543
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

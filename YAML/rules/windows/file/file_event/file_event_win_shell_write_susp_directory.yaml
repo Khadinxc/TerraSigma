@@ -1,0 +1,40 @@
+id: 48b2d3aa-7997-5a14-97ac-fcb0dca25b94
+name: Windows Shell/Scripting Application File Write to Suspicious Folder
+description: 'Detects Windows shells and scripting applications that write files to suspicious folders Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_shell_write_susp_directory.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_shell_write_susp_directory.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceFileEvents
+  | where ((InitiatingProcessFolderPath endswith "\\bash.exe" or InitiatingProcessFolderPath endswith "\\cmd.exe" or InitiatingProcessFolderPath endswith "\\cscript.exe" or InitiatingProcessFolderPath endswith "\\msbuild.exe" or InitiatingProcessFolderPath endswith "\\powershell.exe" or InitiatingProcessFolderPath endswith "\\pwsh.exe" or InitiatingProcessFolderPath endswith "\\sh.exe" or InitiatingProcessFolderPath endswith "\\wscript.exe") and (FolderPath startswith "C:\\PerfLogs\\" or FolderPath startswith "C:\\Users\\Public\\")) or ((InitiatingProcessFolderPath endswith "\\certutil.exe" or InitiatingProcessFolderPath endswith "\\forfiles.exe" or InitiatingProcessFolderPath endswith "\\mshta.exe" or InitiatingProcessFolderPath endswith "\\schtasks.exe" or InitiatingProcessFolderPath endswith "\\scriptrunner.exe" or InitiatingProcessFolderPath endswith "\\wmic.exe") and (FolderPath contains "C:\\PerfLogs\\" or FolderPath contains "C:\\Users\\Public\\" or FolderPath contains "C:\\Windows\\Temp\\"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

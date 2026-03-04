@@ -1,0 +1,44 @@
+id: c1a23bc9-a905-5931-ac21-4ed5e51fd21b
+name: Microsoft Office Protected View Disabled
+description: 'Detects changes to Microsoft Office protected view registry keys with which the attacker disables this feature. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_disable_protected_view_features.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_disable_protected_view_features.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceRegistryEvents
+  | where (RegistryKey endswith "\\SOFTWARE\\Microsoft\\Office*" and RegistryKey endswith "\\Security\\ProtectedView*") and ((RegistryValueData =~ "DWORD (0x00000000)" and (RegistryKey endswith "\\enabledatabasefileprotectedview" or RegistryKey endswith "\\enableforeigntextfileprotectedview")) or (RegistryValueData =~ "DWORD (0x00000001)" and (RegistryKey endswith "\\DisableAttachementsInPV" or RegistryKey endswith "\\DisableInternetFilesInPV" or RegistryKey endswith "\\DisableIntranetCheck" or RegistryKey endswith "\\DisableUnsafeLocationsInPV")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1562
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

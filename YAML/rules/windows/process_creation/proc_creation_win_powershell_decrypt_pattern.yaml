@@ -1,0 +1,44 @@
+id: e7262e17-6088-588d-8ced-8093cdd1dddb
+name: PowerShell Execution With Potential Decryption Capabilities
+description: 'Detects PowerShell commands that decrypt an ".LNK" "file to drop the next stage of the malware. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_decrypt_pattern.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_decrypt_pattern.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "Get-ChildItem " or ProcessCommandLine contains "dir " or ProcessCommandLine contains "gci " or ProcessCommandLine contains "ls ") and (ProcessCommandLine contains "Get-Content " or ProcessCommandLine contains "gc " or ProcessCommandLine contains "cat " or ProcessCommandLine contains "type " or ProcessCommandLine contains "ReadAllBytes") and ((ProcessCommandLine contains " ^| " and ProcessCommandLine contains "*.lnk" and ProcessCommandLine contains "-Recurse" and ProcessCommandLine contains "-Skip ") or (ProcessCommandLine contains " -ExpandProperty " and ProcessCommandLine contains "*.lnk" and ProcessCommandLine contains "WriteAllBytes" and ProcessCommandLine contains " .length ")) and ((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe") and (ProcessVersionInfoOriginalFileName in~ ("PowerShell.EXE", "pwsh.dll")))
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

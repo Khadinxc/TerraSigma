@@ -1,0 +1,44 @@
+id: 399b9e60-f945-5a38-b7ca-aef1b584327a
+name: Import New Module Via PowerShell CommandLine
+description: 'Detects usage of the "Import-Module" cmdlet in order to add new Cmdlets to the current PowerShell session Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_import_module.yml - Depending on the environement, many legitimate scripts will import modules inline. This rule is targeted for hunting purposes. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_import_module.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "Import-Module " or ProcessCommandLine contains "ipmo ") and ((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe") or (ProcessVersionInfoOriginalFileName in~ ("PowerShell.EXE", "pwsh.dll")))) and (not(((ProcessCommandLine contains ":\\Program Files\\Microsoft Visual Studio\\" and ProcessCommandLine contains "Tools\\Microsoft.VisualStudio.DevShell.dll") and (InitiatingProcessFolderPath contains ":\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_" or InitiatingProcessFolderPath contains ":\\Windows\\System32\\cmd.exe"))))
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

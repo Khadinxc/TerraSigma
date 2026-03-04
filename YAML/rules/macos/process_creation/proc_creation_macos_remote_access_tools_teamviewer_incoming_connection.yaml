@@ -1,0 +1,45 @@
+id: db61ba67-da90-5491-a65d-57e6eb4d7149
+name: Remote Access Tool - Team Viewer Session Started On MacOS Host
+description: 'Detects the command line executed when TeamViewer starts a session started by a remote host. Once a connection has been started, an investigator can verify the connection details by viewing the "incoming_connections.txt" log file in the TeamViewer folder. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_remote_access_tools_teamviewer_incoming_connection.yml - Legitimate usage of TeamViewer | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_remote_access_tools_teamviewer_incoming_connection.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- InitialAccess
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine endswith "/TeamViewer_Desktop --IPCport 5939 --Module 1" and FolderPath endswith "/TeamViewer_Desktop" and InitiatingProcessFolderPath endswith "/TeamViewer_Service"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1133
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

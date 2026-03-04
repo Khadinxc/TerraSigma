@@ -1,0 +1,44 @@
+id: cc7eb94a-5785-5bdb-b019-24e099b96e70
+name: Execution of Powershell Script in Public Folder
+description: 'This rule detects execution of PowerShell scripts located in the "C:\Users\Public" folder Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_public_folder.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_public_folder.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "-f C:\\Users\\Public" or ProcessCommandLine contains "-f \"C:\\Users\\Public" or ProcessCommandLine contains "-f %Public%" or ProcessCommandLine contains "-fi C:\\Users\\Public" or ProcessCommandLine contains "-fi \"C:\\Users\\Public" or ProcessCommandLine contains "-fi %Public%" or ProcessCommandLine contains "-fil C:\\Users\\Public" or ProcessCommandLine contains "-fil \"C:\\Users\\Public" or ProcessCommandLine contains "-fil %Public%" or ProcessCommandLine contains "-file C:\\Users\\Public" or ProcessCommandLine contains "-file \"C:\\Users\\Public" or ProcessCommandLine contains "-file %Public%") and (FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

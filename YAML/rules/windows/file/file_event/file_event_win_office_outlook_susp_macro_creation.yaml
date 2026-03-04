@@ -1,0 +1,44 @@
+id: 86b134f7-de3f-5479-a3d3-1f338fc8d0d3
+name: Suspicious Outlook Macro Created
+description: 'Detects the creation of a macro file for Outlook. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_outlook_susp_macro_creation.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_outlook_susp_macro_creation.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Persistence
+- CommandAndControl
+query: |-
+  DeviceFileEvents
+  | where FolderPath endswith "\\Microsoft\\Outlook\\VbaProject.OTM" and (not(InitiatingProcessFolderPath endswith "\\outlook.exe"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1137
+- T1008
+- T1546
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

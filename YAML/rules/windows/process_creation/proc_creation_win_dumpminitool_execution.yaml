@@ -1,0 +1,48 @@
+id: 62971ac3-d45a-5c7e-8727-3c1fcdab3959
+name: DumpMinitool Execution
+description: 'Detects the use of "DumpMinitool.exe" a tool that allows the dump of process memory via the use of the "MiniDumpWriteDump" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dumpminitool_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dumpminitool_execution.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- CredentialAccess
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains " Full" or ProcessCommandLine contains " Mini" or ProcessCommandLine contains " WithHeap") and ((FolderPath endswith "\\DumpMinitool.exe" or FolderPath endswith "\\DumpMinitool.x86.exe" or FolderPath endswith "\\DumpMinitool.arm64.exe") or (ProcessVersionInfoOriginalFileName in~ ("DumpMinitool.exe", "DumpMinitool.x86.exe", "DumpMinitool.arm64.exe")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1036
+- T1003
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

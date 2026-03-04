@@ -1,0 +1,46 @@
+id: c4af1959-7ad9-5e6e-ab08-53a18fa5fabb
+name: PUA - NSudo Execution
+description: 'Detects the use of NSudo tool for command execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_nsudo.yml - Legitimate use by administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_nsudo.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "-U:S " or ProcessCommandLine contains "-U:T " or ProcessCommandLine contains "-U:E " or ProcessCommandLine contains "-P:E " or ProcessCommandLine contains "-M:S " or ProcessCommandLine contains "-M:H " or ProcessCommandLine contains "-U=S " or ProcessCommandLine contains "-U=T " or ProcessCommandLine contains "-U=E " or ProcessCommandLine contains "-P=E " or ProcessCommandLine contains "-M=S " or ProcessCommandLine contains "-M=H " or ProcessCommandLine contains "-ShowWindowMode:Hide") and ((FolderPath endswith "\\NSudo.exe" or FolderPath endswith "\\NSudoLC.exe" or FolderPath endswith "\\NSudoLG.exe") or (ProcessVersionInfoOriginalFileName in~ ("NSudo.exe", "NSudoLC.exe", "NSudoLG.exe")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1569
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

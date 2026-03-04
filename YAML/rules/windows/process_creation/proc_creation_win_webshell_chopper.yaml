@@ -1,0 +1,48 @@
+id: 3697ffe6-1c05-53a4-beec-5ed636e0a5f7
+name: Chopper Webshell Process Pattern
+description: 'Detects patterns found in process executions cause by China Chopper like tiny (ASPX) webshells Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_webshell_chopper.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_webshell_chopper.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "&ipconfig&echo" or ProcessCommandLine contains "&quser&echo" or ProcessCommandLine contains "&whoami&echo" or ProcessCommandLine contains "&c:&echo" or ProcessCommandLine contains "&cd&echo" or ProcessCommandLine contains "&dir&echo" or ProcessCommandLine contains "&echo [E]" or ProcessCommandLine contains "&echo [S]") and (FolderPath endswith "\\w3wp.exe" or InitiatingProcessFolderPath endswith "\\w3wp.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1505
+- T1018
+- T1033
+- T1087
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

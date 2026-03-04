@@ -1,0 +1,40 @@
+id: e4399f6b-190b-5729-acaa-ff747bf94362
+name: Potential Persistence Via Microsoft Office Add-In
+description: 'Detects potential persistence activity via startup add-ins that load when Microsoft Office starts (.wll/.xll are simply .dll fit for Word or Excel). Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_addin_persistence.yml - Legitimate add-ins | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_addin_persistence.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+query: |-
+  DeviceFileEvents
+  | where (FolderPath contains "\\Microsoft\\Addins\\" and (FolderPath endswith ".xlam" or FolderPath endswith ".xla" or FolderPath endswith ".ppam")) or (FolderPath contains "\\Microsoft\\Word\\Startup\\" and FolderPath endswith ".wll") or (FolderPath contains "Microsoft\\Excel\\XLSTART\\" and FolderPath endswith ".xlam") or (FolderPath contains "\\Microsoft\\Excel\\Startup\\" and FolderPath endswith ".xll")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1137
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

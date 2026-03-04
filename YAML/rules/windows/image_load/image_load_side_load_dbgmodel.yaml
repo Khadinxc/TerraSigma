@@ -1,0 +1,42 @@
+id: 4841531f-c463-590f-a06b-616a81bba57c
+name: Potential DLL Sideloading Of DbgModel.DLL
+description: 'Detects potential DLL sideloading of "DbgModel.dll" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_dbgmodel.yml - Legitimate applications loading their own versions of the DLL mentioned in this rule | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_dbgmodel.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Persistence
+- DefenseEvasion
+query: |-
+  DeviceImageLoadEvents
+  | where FolderPath endswith "\\dbgmodel.dll" and (not((FolderPath startswith "C:\\Windows\\System32\\" or FolderPath startswith "C:\\Windows\\SysWOW64\\" or FolderPath startswith "C:\\Windows\\WinSxS\\"))) and (not((FolderPath startswith "C:\\Program Files\\WindowsApps\\Microsoft.WinDbg_" or (FolderPath startswith "C:\\Program Files (x86)\\Windows Kits\\" or FolderPath startswith "C:\\Program Files\\Windows Kits\\"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1574
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

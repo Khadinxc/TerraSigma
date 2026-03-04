@@ -1,0 +1,40 @@
+id: 61ef4144-35e5-53d9-a84a-e4ab4cf4a2a5
+name: LSASS Process Memory Dump Files
+description: 'Detects creation of files with names used by different memory dumping tools to create a memory dump of the LSASS process memory, which contains user credentials. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_lsass_default_dump_file_names.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_lsass_default_dump_file_names.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CredentialAccess
+query: |-
+  DeviceFileEvents
+  | where (FolderPath endswith "\\Andrew.dmp" or FolderPath endswith "\\Coredump.dmp" or FolderPath endswith "\\lsass.dmp" or FolderPath endswith "\\lsass.rar" or FolderPath endswith "\\lsass.zip" or FolderPath endswith "\\NotLSASS.zip" or FolderPath endswith "\\PPLBlade.dmp" or FolderPath endswith "\\rustive.dmp") or (FolderPath contains "\\lsass_2" or FolderPath contains "\\lsassdmp" or FolderPath contains "\\lsassdump") or (FolderPath contains "\\lsass" and FolderPath contains ".dmp") or (FolderPath contains "SQLDmpr" and FolderPath endswith ".mdmp") or ((FolderPath contains "\\nanodump" or FolderPath contains "\\proc_") and FolderPath endswith ".dmp")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1003
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents
