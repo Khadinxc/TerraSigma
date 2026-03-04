@@ -6,6 +6,9 @@ on:
     - cron: '0 4 * * 0'
   workflow_dispatch:
     # Allow manual trigger
+  push:
+    branches:
+      - main
 
 jobs:
   convert-detections:
@@ -30,8 +33,8 @@ jobs:
 
       - name: Clone Sigma2KQL repository
         run: |
-          git clone https://github.com/Khadinxc/Sigma2KQL.git
-          echo "Cloned Sigma2KQL repository"
+          git clone --depth 1 --branch master https://github.com/Khadinxc/Sigma2KQL.git
+          echo "Cloned Sigma2KQL repository (latest commit: $(git -C Sigma2KQL rev-parse --short HEAD))"
 
       - name: Copy KQL files to working directory
         run: |
