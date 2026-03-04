@@ -1,0 +1,47 @@
+id: bb1cb5ab-34d2-5251-b6f0-b26f2a2ea881
+name: Windows Event Log Access Tampering Via Registry
+description: 'Detects changes to the Windows EventLog channel permission values. It focuses on changes to the Security Descriptor Definition Language (SDDL) string, as modifications to these values can restrict access to specific users or groups, potentially aiding in defense evasion by controlling who can view or modify a event log channel. Upon execution, the user shouldn''t be able to access the event log channel via the event viewer or via utilities such as "Get-EventLog" or "wevtutil". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_windows_event_log_access.yml - Administrative activity, still unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_windows_event_log_access.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Persistence
+- DefenseEvasion
+query: |-
+  DeviceRegistryEvents
+  | where ((RegistryKey endswith "\\SYSTEM\\CurrentControlSet\\Services\\EventLog*" and RegistryKey endswith "\\CustomSD") or ((RegistryKey endswith "\\Policies\\Microsoft\\Windows\\EventLog*" or RegistryKey contains "\\Microsoft\\Windows\\CurrentVersion\\WINEVT\\Channels") and RegistryKey endswith "\\ChannelAccess")) and (RegistryValueData contains "D:(D;" or (RegistryValueData contains "D:(" and RegistryValueData contains ")(D;")) and (not(((InitiatingProcessFolderPath endswith "\\TiWorker.exe" and InitiatingProcessFolderPath startswith "C:\\Windows\\WinSxS\\") or InitiatingProcessFolderPath =~ "C:\\Windows\\servicing\\TrustedInstaller.exe"))) and (not((InitiatingProcessFolderPath =~ "" or isnull(InitiatingProcessFolderPath))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1547
+- T1112
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

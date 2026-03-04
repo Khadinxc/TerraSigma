@@ -1,0 +1,46 @@
+id: 08e0e4c0-f1b0-5620-aba0-7e6526f13298
+name: Suspicious ZipExec Execution
+description: 'ZipExec is a Proof-of-Concept (POC) tool to wrap binary-based tools into a password-protected zip file. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_zipexec.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_zipexec.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "/generic:Microsoft_Windows_Shell_ZipFolder:filename=" and ProcessCommandLine contains ".zip" and ProcessCommandLine contains "/pass:" and ProcessCommandLine contains "/user:") or (ProcessCommandLine contains "/delete" and ProcessCommandLine contains "Microsoft_Windows_Shell_ZipFolder:filename=" and ProcessCommandLine contains ".zip")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1218
+- T1202
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

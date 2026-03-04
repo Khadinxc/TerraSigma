@@ -1,0 +1,47 @@
+id: 0437abcc-b2be-5212-b456-f87347345735
+name: OilRig APT Registry Persistence
+description: 'Detects OilRig registry persistence as reported by Nyotron in their March 2018 report Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/OilRig/registry_event_apt_oilrig_mar18.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/OilRig/registry_event_apt_oilrig_mar18.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Execution
+- Persistence
+- DefenseEvasion
+- CommandAndControl
+query: |-
+  DeviceRegistryEvents
+  | where RegistryKey endswith "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\UMe" or RegistryKey endswith "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\UT"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1053
+- T1543
+- T1112
+- T1071
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

@@ -1,0 +1,40 @@
+id: e2eefd8c-585c-5f6f-b77e-a3e631ecdb99
+name: HackTool - RemoteKrbRelay SMB Relay Secrets Dump Module Indicators
+description: 'Detects the creation of file with specific names used by RemoteKrbRelay SMB Relay attack module. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_krbrelay_remote_ioc.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_krbrelay_remote_ioc.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CommandAndControl
+query: |-
+  DeviceFileEvents
+  | where FolderPath endswith ":\\windows\\temp\\sam.tmp" or FolderPath endswith ":\\windows\\temp\\sec.tmp" or FolderPath endswith ":\\windows\\temp\\sys.tmp"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1219
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

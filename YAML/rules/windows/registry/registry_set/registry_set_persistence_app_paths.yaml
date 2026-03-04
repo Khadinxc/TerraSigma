@@ -1,0 +1,45 @@
+id: d8e26e6b-9f2c-5a95-a5e2-642d3f07d74c
+name: Potential Persistence Via App Paths Default Property
+description: 'Detects changes to the "Default" property for keys located in the \Software\Microsoft\Windows\CurrentVersion\App Paths\ registry. Which might be used as a method of persistence The entries found under App Paths are used primarily for the following purposes. First, to map an application''s executable file name to that file''s fully qualified path. Second, to prepend information to the PATH environment variable on a per-application, per-process basis. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_app_paths.yml - Legitimate applications registering their binary from on of the suspicious locations mentioned above (tune it) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_app_paths.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Persistence
+query: |-
+  DeviceRegistryEvents
+  | where (RegistryValueData contains "\\Users\\Public" or RegistryValueData contains "\\AppData\\Local\\Temp\\" or RegistryValueData contains "\\Windows\\Temp\\" or RegistryValueData contains "\\Desktop\\" or RegistryValueData contains "\\Downloads\\" or RegistryValueData contains "%temp%" or RegistryValueData contains "%tmp%" or RegistryValueData contains "iex" or RegistryValueData contains "Invoke-" or RegistryValueData contains "rundll32" or RegistryValueData contains "regsvr32" or RegistryValueData contains "mshta" or RegistryValueData contains "cscript" or RegistryValueData contains "wscript" or RegistryValueData contains ".bat" or RegistryValueData contains ".hta" or RegistryValueData contains ".dll" or RegistryValueData contains ".ps1") and RegistryKey contains "\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths" and (RegistryKey endswith "(Default)" or RegistryKey endswith "Path")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1546
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

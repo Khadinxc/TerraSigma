@@ -1,0 +1,38 @@
+id: d75f26d5-c950-547b-aae6-566f4fe2c3bc
+name: Potential Persistence Via Notepad++ Plugins
+description: 'Detects creation of new ".dll" files inside the plugins directory of a notepad++ installation by a process other than "gup.exe". Which could indicates possible persistence Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_notepad_plus_plus_persistence.yml - Possible FPs during first installation of Notepad++ - Legitimate use of custom plugins by users in order to enhance notepad++ functionalities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_notepad_plus_plus_persistence.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+query: |-
+  DeviceFileEvents
+  | where (FolderPath contains "\\Notepad++\\plugins\\" and FolderPath endswith ".dll") and (not((InitiatingProcessFolderPath endswith "\\Notepad++\\updater\\gup.exe" or (InitiatingProcessFolderPath contains "\\AppData\\Local\\Temp\\" and (InitiatingProcessFolderPath endswith "\\target.exe" or InitiatingProcessFolderPath endswith "Installer.x64.exe") and InitiatingProcessFolderPath startswith "C:\\Users\\") or (InitiatingProcessFolderPath contains "\\npp." and InitiatingProcessFolderPath endswith ".exe" and (FolderPath in~ ("C:\\Program Files\\Notepad++\\plugins\\NppExport\\NppExport.dll", "C:\\Program Files\\Notepad++\\plugins\\mimeTools\\mimeTools.dll", "C:\\Program Files\\Notepad++\\plugins\\NppConverter\\NppConverter.dll", "C:\\Program Files\\Notepad++\\plugins\\Config\\nppPluginList.dll"))))))
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

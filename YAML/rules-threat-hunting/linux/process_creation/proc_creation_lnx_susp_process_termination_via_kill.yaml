@@ -1,0 +1,40 @@
+id: f208a20c-2667-58e8-93b4-1fca99f3c195
+name: Terminate Linux Process Via Kill
+description: 'Detects usage of command line tools such as "kill", "pkill" or "killall" to terminate or signal a running process. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/process_creation/proc_creation_lnx_susp_process_termination_via_kill.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/process_creation/proc_creation_lnx_susp_process_termination_via_kill.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where FolderPath endswith "/kill" or FolderPath endswith "/killall" or FolderPath endswith "/pkill" or FolderPath endswith "/xkill"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1562
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

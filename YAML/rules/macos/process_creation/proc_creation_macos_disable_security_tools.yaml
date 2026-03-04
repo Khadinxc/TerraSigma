@@ -1,0 +1,44 @@
+id: 8c187efc-2344-58ff-bd25-21b6c3433e75
+name: Disable Security Tools
+description: 'Detects disabling security tools Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_disable_security_tools.yml - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_disable_security_tools.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "unload" and FolderPath =~ "/bin/launchctl") and (ProcessCommandLine contains "com.objective-see.lulu.plist" or ProcessCommandLine contains "com.objective-see.blockblock.plist" or ProcessCommandLine contains "com.google.santad.plist" or ProcessCommandLine contains "com.carbonblack.defense.daemon.plist" or ProcessCommandLine contains "com.carbonblack.daemon.plist" or ProcessCommandLine contains "at.obdev.littlesnitchd.plist" or ProcessCommandLine contains "com.tenablesecurity.nessusagent.plist" or ProcessCommandLine contains "com.opendns.osx.RoamingClientConfigUpdater.plist" or ProcessCommandLine contains "com.crowdstrike.falcond.plist" or ProcessCommandLine contains "com.crowdstrike.userdaemon.plist" or ProcessCommandLine contains "osquery" or ProcessCommandLine contains "filebeat" or ProcessCommandLine contains "auditbeat" or ProcessCommandLine contains "packetbeat" or ProcessCommandLine contains "td-agent")) or (ProcessCommandLine contains "disable" and FolderPath =~ "/usr/sbin/spctl")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1562
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

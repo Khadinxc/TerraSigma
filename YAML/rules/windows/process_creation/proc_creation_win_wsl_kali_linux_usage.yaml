@@ -1,0 +1,44 @@
+id: 4e911122-9436-57e5-8156-41677806b3b1
+name: WSL Kali-Linux Usage
+description: 'Detects the use of Kali Linux through Windows Subsystem for Linux Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wsl_kali_linux_usage.yml - Legitimate installation or usage of Kali Linux WSL by administrators or security teams | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wsl_kali_linux_usage.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (((FolderPath contains ":\\Users\\" and FolderPath contains "\\AppData\\Local\\packages\\KaliLinux") or (FolderPath contains ":\\Users\\" and FolderPath contains "\\AppData\\Local\\Microsoft\\WindowsApps\\kali.exe")) or (FolderPath contains ":\\Program Files\\WindowsApps\\KaliLinux." and FolderPath endswith "\\kali.exe")) or ((((FolderPath contains "\\kali.exe" or FolderPath contains "\\KaliLinux") or (ProcessCommandLine contains "Kali.exe" or ProcessCommandLine contains "Kali-linux" or ProcessCommandLine contains "kalilinux")) and (InitiatingProcessFolderPath endswith "\\wsl.exe" or InitiatingProcessFolderPath endswith "\\wslhost.exe")) and (not((ProcessCommandLine contains " -i " or ProcessCommandLine contains " --install " or ProcessCommandLine contains " --unregister "))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1202
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

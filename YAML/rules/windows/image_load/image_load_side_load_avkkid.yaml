@@ -1,0 +1,42 @@
+id: afd5b4ee-9e5f-5098-aca6-f22f5b552d99
+name: Potential AVKkid.DLL Sideloading
+description: 'Detects potential DLL sideloading of "AVKkid.dll" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_avkkid.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_avkkid.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- DefenseEvasion
+- PrivilegeEscalation
+query: |-
+  DeviceImageLoadEvents
+  | where FolderPath endswith "\\AVKkid.dll" and (not(((FolderPath startswith "C:\\Program Files (x86)\\G DATA\\" or FolderPath startswith "C:\\Program Files\\G DATA\\") and (InitiatingProcessFolderPath contains "C:\\Program Files (x86)\\G DATA\\" or InitiatingProcessFolderPath contains "C:\\Program Files\\G DATA\\") and InitiatingProcessFolderPath endswith "\\AVKKid.exe")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1574
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

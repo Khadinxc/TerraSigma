@@ -1,0 +1,40 @@
+id: 0c85afdf-4df3-5423-91cc-eeeffc3c633f
+name: HackTool - Typical HiveNightmare SAM File Export
+description: 'Detects files written by the different tools that exploit HiveNightmare Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_hivenightmare_file_exports.yml - Files that accidentally contain these strings | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_hivenightmare_file_exports.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CredentialAccess
+query: |-
+  DeviceFileEvents
+  | where (FolderPath contains "\\hive_sam_" or FolderPath contains "\\SAM-2021-" or FolderPath contains "\\SAM-2022-" or FolderPath contains "\\SAM-2023-" or FolderPath contains "\\SAM-haxx" or FolderPath contains "\\Sam.save") or FolderPath =~ "C:\\windows\\temp\\sam"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1552
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

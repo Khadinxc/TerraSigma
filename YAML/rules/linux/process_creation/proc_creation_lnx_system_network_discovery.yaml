@@ -1,0 +1,44 @@
+id: fad2c3fa-2b7c-50c9-a043-89557f926d48
+name: System Network Discovery - Linux
+description: 'Detects enumeration of local network configuration Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_system_network_discovery.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_system_network_discovery.yml'
+severity: Informational
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine contains "/etc/resolv.conf" or (FolderPath endswith "/firewall-cmd" or FolderPath endswith "/ufw" or FolderPath endswith "/iptables" or FolderPath endswith "/netstat" or FolderPath endswith "/ss" or FolderPath endswith "/ip" or FolderPath endswith "/ifconfig" or FolderPath endswith "/systemd-resolve" or FolderPath endswith "/route")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1016
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

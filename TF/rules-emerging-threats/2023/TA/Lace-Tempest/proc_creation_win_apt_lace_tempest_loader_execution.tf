@@ -1,0 +1,72 @@
+resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_lace_tempest_loader_execution" {
+  name                       = "proc_creation_win_apt_lace_tempest_loader_execution"
+  log_analytics_workspace_id = var.workspace_id
+  display_name               = "Lace Tempest Malware Loader Execution"
+  description                = "Detects execution of a specific binary based on filename and hash used by Lace Tempest to load additional malware as reported by SysAid Team Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lace-Tempest/proc_creation_win_apt_lace_tempest_loader_execution.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lace-Tempest/proc_creation_win_apt_lace_tempest_loader_execution.yml"
+  severity                   = "High"
+  query                      = <<QUERY
+DeviceProcessEvents
+| where SHA256 startswith "B5ACF14CDAC40BE590318DEE95425D0746E85B1B7B1CBD14DA66F21F2522BF4D" or FolderPath endswith ":\\Program Files\\SysAidServer\\tomcat\\webapps\\usersfiles\\user.exe"
+QUERY
+  query_frequency            = "PT1H"
+  query_period               = "PT1H"
+  trigger_operator           = "GreaterThan"
+  trigger_threshold          = 0
+  suppression_enabled        = false
+  suppression_duration       = "PT5H"
+  tactics                    = ["Execution"]
+  enabled                    = true
+
+  incident {
+    create_incident_enabled = true
+    grouping {
+      enabled                 = false
+      lookback_duration       = "PT5H"
+      reopen_closed_incidents = false
+      entity_matching_method  = "AllEntities"
+      by_entities             = []
+      by_alert_details        = []
+      by_custom_details       = []
+    }
+  }
+
+  event_grouping {
+    aggregation_method = "SingleAlert"
+  }
+
+  entity_mapping {
+    entity_type = "Account"
+    field_mapping {
+      identifier  = "Name"
+      column_name = "InitiatingProcessAccountName"
+    }
+    field_mapping {
+      identifier  = "NTDomain"
+      column_name = "InitiatingProcessAccountDomain"
+    }
+    field_mapping {
+      identifier  = "Sid"
+      column_name = "InitiatingProcessAccountSid"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "Host"
+    field_mapping {
+      identifier  = "HostName"
+      column_name = "DeviceName"
+    }
+    field_mapping {
+      identifier  = "AzureID"
+      column_name = "DeviceId"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "File"
+    field_mapping {
+      identifier  = "Directory"
+      column_name = "FolderPath"
+    }
+  }
+}

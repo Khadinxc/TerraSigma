@@ -1,0 +1,45 @@
+id: 75389a78-97a6-5146-8180-1059fe649203
+name: CurrentControlSet Autorun Keys Modification
+description: 'Detects modification of autostart extensibility point (ASEP) in registry. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_currentcontrolset.yml - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reason - Legitimate administrator sets up autorun keys for legitimate reason | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_currentcontrolset.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Persistence
+query: |-
+  DeviceRegistryEvents
+  | where (RegistryKey contains "\\SYSTEM\\CurrentControlSet\\Control" and (RegistryKey contains "\\Terminal Server\\WinStations\\RDP-Tcp\\InitialProgram" or RegistryKey contains "\\Terminal Server\\Wds\\rdpwd\\StartupPrograms" or RegistryKey contains "\\SecurityProviders\\SecurityProviders" or RegistryKey contains "\\SafeBoot\\AlternateShell" or RegistryKey contains "\\Print\\Providers" or RegistryKey contains "\\Print\\Monitors" or RegistryKey contains "\\NetworkProvider\\Order" or RegistryKey contains "\\Lsa\\Notification Packages" or RegistryKey contains "\\Lsa\\Authentication Packages" or RegistryKey contains "\\BootVerificationProgram\\ImagePath")) and (not((((RegistryValueData in~ ("cpwmon64_v40.dll", "CutePDF Writer")) and InitiatingProcessFolderPath =~ "C:\\Windows\\System32\\spoolsv.exe" and RegistryKey contains "\\Print\\Monitors\\CutePDF Writer Monitor") or RegistryValueData =~ "(Empty)" or (InitiatingProcessFolderPath =~ "C:\\Windows\\System32\\spoolsv.exe" and RegistryKey contains "Print\\Monitors\\Appmon\\Ports\\Microsoft.Office.OneNote_" and (InitiatingProcessAccountName contains "AUTHORI" or InitiatingProcessAccountName contains "AUTORI")) or (InitiatingProcessFolderPath =~ "C:\\Windows\\System32\\poqexec.exe" and RegistryKey endswith "\\NetworkProvider\\Order\\ProviderOrder") or (RegistryValueData =~ "VNCpm.dll" and InitiatingProcessFolderPath =~ "C:\\Windows\\System32\\spoolsv.exe" and RegistryKey endswith "\\Print\\Monitors\\MONVNC\\Driver"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1547
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

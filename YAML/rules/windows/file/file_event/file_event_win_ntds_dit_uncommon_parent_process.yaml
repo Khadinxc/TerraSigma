@@ -1,0 +1,42 @@
+id: 14d06fae-3e16-5e26-a7e2-a260a082517b
+name: NTDS.DIT Creation By Uncommon Parent Process
+description: 'Detects creation of a file named "ntds.dit" (Active Directory Database) by an uncommon parent process or directory Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_ntds_dit_uncommon_parent_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_ntds_dit_uncommon_parent_process.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CredentialAccess
+query: |-
+  DeviceFileEvents
+  | where FolderPath endswith "\\ntds.dit" and ((InitiatingProcessParentFileName in~ ("cscript.exe", "httpd.exe", "nginx.exe", "php-cgi.exe", "powershell.exe", "pwsh.exe", "w3wp.exe", "wscript.exe")) or (InitiatingProcessParentFileName startswith "apache" or InitiatingProcessParentFileName startswith "tomcat" or InitiatingProcessParentFileName startswith "" or InitiatingProcessParentFileName startswith "" or InitiatingProcessParentFileName startswith "" or InitiatingProcessParentFileName startswith ""))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1003
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

@@ -1,0 +1,46 @@
+id: c7117459-0036-5b4b-862e-0866f31248c0
+name: HackTool - SharPersist Execution
+description: 'Detects the execution of the hacktool SharPersist - used to deploy various different kinds of persistence mechanisms Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpersist.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpersist.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Execution
+- Persistence
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains " -t schtask -c " or ProcessCommandLine contains " -t startupfolder -c ") or (ProcessCommandLine contains " -t reg -c " and ProcessCommandLine contains " -m add") or (ProcessCommandLine contains " -t service -c " and ProcessCommandLine contains " -m add") or (ProcessCommandLine contains " -t schtask -c " and ProcessCommandLine contains " -m add") or (FolderPath endswith "\\SharPersist.exe" or ProcessVersionInfoProductName =~ "SharPersist")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1053
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

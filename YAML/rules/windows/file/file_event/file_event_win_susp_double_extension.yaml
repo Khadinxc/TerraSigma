@@ -1,0 +1,40 @@
+id: 47ca6d2f-b5b0-5137-820e-dce365b7abb8
+name: Suspicious Double Extension Files
+description: 'Detects dropped files with double extensions, which is often used by malware as a method to abuse the fact that Windows hide default extensions by default. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_double_extension.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_double_extension.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceFileEvents
+  | where (FolderPath endswith ".rar.exe" or FolderPath endswith ".zip.exe") or ((FolderPath contains ".doc." or FolderPath contains ".docx." or FolderPath contains ".gif." or FolderPath contains ".jpeg." or FolderPath contains ".jpg." or FolderPath contains ".mp3." or FolderPath contains ".mp4." or FolderPath contains ".pdf." or FolderPath contains ".png." or FolderPath contains ".ppt." or FolderPath contains ".pptx." or FolderPath contains ".rtf." or FolderPath contains ".svg." or FolderPath contains ".txt." or FolderPath contains ".xls." or FolderPath contains ".xlsx.") and (FolderPath endswith ".exe" or FolderPath endswith ".iso" or FolderPath endswith ".rar" or FolderPath endswith ".svg" or FolderPath endswith ".zip"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1036
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

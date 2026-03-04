@@ -1,0 +1,43 @@
+id: a876c48c-84dd-59af-b080-e871b8533082
+name: UAC Bypass With Fake DLL
+description: 'Attempts to load dismcore.dll after dropping it Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_uac_bypass_via_dism.yml - Actions of a legitimate telnet client | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_uac_bypass_via_dism.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- DefenseEvasion
+- PrivilegeEscalation
+query: |-
+  DeviceImageLoadEvents
+  | where (FolderPath endswith "\\dismcore.dll" and InitiatingProcessFolderPath endswith "\\dism.exe") and (not(FolderPath =~ "C:\\Windows\\System32\\Dism\\dismcore.dll"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1548
+- T1574
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

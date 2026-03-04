@@ -1,0 +1,46 @@
+id: a706e95f-8fa1-579f-b9be-3a84fde28992
+name: SC.EXE Query Execution
+description: 'Detects execution of "sc.exe" to query information about registered services on the system Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_sc_query.yml - Legitimate query of a service by an administrator to get more information such as the state or PID - Keybase process "kbfsdokan.exe" query the dokan1 service with the following commandline "sc query dokan1" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_sc_query.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains " query" and (FolderPath endswith "\\sc.exe" and ProcessVersionInfoOriginalFileName =~ "sc.exe")) and (not(ProcessCommandLine =~ "sc query dokan1"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1007
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

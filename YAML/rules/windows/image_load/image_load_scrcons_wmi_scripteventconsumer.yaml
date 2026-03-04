@@ -1,0 +1,42 @@
+id: b9491e6a-253f-523f-bf60-6873f13a94c4
+name: WMI ActiveScriptEventConsumers Activity Via Scrcons.EXE DLL Load
+description: 'Detects signs of the WMI script host process "scrcons.exe" loading scripting DLLs which could indicates WMI ActiveScriptEventConsumers EventConsumers activity. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_scrcons_wmi_scripteventconsumer.yml - Legitimate event consumers - Dell computers on some versions register an event consumer that is known to cause false positives when brightness is changed by the corresponding keyboard button | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_scrcons_wmi_scripteventconsumer.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- LateralMovement
+- PrivilegeEscalation
+- Persistence
+query: |-
+  DeviceImageLoadEvents
+  | where (FolderPath endswith "\\vbscript.dll" or FolderPath endswith "\\wbemdisp.dll" or FolderPath endswith "\\wshom.ocx" or FolderPath endswith "\\scrrun.dll") and InitiatingProcessFolderPath endswith "\\scrcons.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1546
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

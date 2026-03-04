@@ -1,0 +1,46 @@
+id: 6b33e508-750a-571b-b9d7-e93591f8d5ac
+name: HackTool - PurpleSharp Execution
+description: 'Detects the execution of the PurpleSharp adversary simulation tool Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_purplesharp_indicators.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_purplesharp_indicators.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- ResourceDevelopment
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "xyz123456.exe" or ProcessCommandLine contains "PurpleSharp") or (FolderPath contains "\\purplesharp" or ProcessVersionInfoOriginalFileName =~ "PurpleSharp.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1587
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

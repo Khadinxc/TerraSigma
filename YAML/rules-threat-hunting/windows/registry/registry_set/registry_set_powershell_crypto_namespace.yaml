@@ -1,0 +1,49 @@
+id: 87ef6780-39da-51e7-a789-a0d81fea0c56
+name: Registry Set With Crypto-Classes From The "Cryptography" PowerShell Namespace
+description: 'Detects the setting of a registry inside the "\Shell\Open\Command" value with PowerShell classes from the "System.Security.Cryptography" namespace. The PowerShell namespace "System.Security.Cryptography" provides classes for on-the-fly encryption and decryption. These can be used for example in decrypting malicious payload for defense evasion. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_set/registry_set_powershell_crypto_namespace.yml - Classes are legitimately used, but less so when e.g. parents with low prevalence or decryption of content in temporary folders. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_set/registry_set_powershell_crypto_namespace.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Execution
+- Persistence
+- PrivilegeEscalation
+query: |-
+  DeviceRegistryEvents
+  | where RegistryKey contains "\\Shell\\Open\\Command" and (RegistryValueData contains ".AesCryptoServiceProvider" or RegistryValueData contains ".DESCryptoServiceProvider" or RegistryValueData contains ".DSACryptoServiceProvider" or RegistryValueData contains ".RC2CryptoServiceProvider" or RegistryValueData contains ".Rijndael" or RegistryValueData contains ".RSACryptoServiceProvider" or RegistryValueData contains ".TripleDESCryptoServiceProvider") and (RegistryValueData contains "powershell" or RegistryValueData contains "pwsh") and RegistryValueData contains "System.Security.Cryptography."
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+- T1027
+- T1547
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

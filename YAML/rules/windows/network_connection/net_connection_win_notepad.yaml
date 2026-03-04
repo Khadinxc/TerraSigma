@@ -1,0 +1,43 @@
+id: 0340fc32-7545-506c-911c-71a2ab92d2d1
+name: Network Connection Initiated Via Notepad.EXE
+description: 'Detects a network connection that is initiated by the "notepad.exe" process. This might be a sign of process injection from a beacon process or something similar. Notepad rarely initiates a network communication except when printing documents for example. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_notepad.yml - Printing documents via notepad might cause communication with the printer via port 9100 or similar. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_notepad.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- CommandAndControl
+- Execution
+- DefenseEvasion
+query: |-
+  DeviceNetworkEvents
+  | where InitiatingProcessFolderPath endswith "\\notepad.exe" and (not(RemotePort == 9100))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1055
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: IP
+  fieldMappings:
+  - identifier: Address
+    columnName: RemoteIP
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceNetworkEvents

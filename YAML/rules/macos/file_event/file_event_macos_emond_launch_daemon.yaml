@@ -1,0 +1,41 @@
+id: 0af65cd3-1d5d-5024-8d21-1b2a7b9a65f1
+name: MacOS Emond Launch Daemon
+description: 'Detects additions to the Emond Launch Daemon that adversaries may use to gain persistence and elevate privileges. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/file_event/file_event_macos_emond_launch_daemon.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/file_event/file_event_macos_emond_launch_daemon.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- PrivilegeEscalation
+query: |-
+  DeviceFileEvents
+  | where (FolderPath contains "/etc/emond.d/rules/" and FolderPath endswith ".plist") or FolderPath contains "/private/var/db/emondClients/"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1546
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

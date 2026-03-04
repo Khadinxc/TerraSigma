@@ -1,0 +1,40 @@
+id: c5e862d3-e726-5d2c-a852-a28f0d78704d
+name: Suspicious Outbound SMTP Connections
+description: 'Adversaries may steal data by exfiltrating it over an un-encrypted network protocol other than that of the existing command and control channel. The data may also be sent to an alternate network location from the main command and control server. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_susp_outbound_smtp_connections.yml - Other SMTP tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_susp_outbound_smtp_connections.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Exfiltration
+query: |-
+  DeviceNetworkEvents
+  | where (RemotePort in~ ("25", "587", "465", "2525")) and (not(((InitiatingProcessFolderPath endswith "\\thunderbird.exe" or InitiatingProcessFolderPath endswith "\\outlook.exe") or InitiatingProcessFolderPath startswith "C:\\Program Files\\Microsoft\\Exchange Server\\" or (InitiatingProcessFolderPath endswith "\\HxTsr.exe" and InitiatingProcessFolderPath startswith "C:\\Program Files\\WindowsApps\\microsoft.windowscommunicationsapps_"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1048
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: IP
+  fieldMappings:
+  - identifier: Address
+    columnName: RemoteIP
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceNetworkEvents

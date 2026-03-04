@@ -1,0 +1,40 @@
+id: 68f0be61-a3dd-5a87-bc60-6ee29fea6c63
+name: HackTool - Inveigh Execution Artefacts
+description: 'Detects the presence and execution of Inveigh via dropped artefacts Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_inveigh_artefacts.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_inveigh_artefacts.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CommandAndControl
+query: |-
+  DeviceFileEvents
+  | where FolderPath endswith "\\Inveigh-Log.txt" or FolderPath endswith "\\Inveigh-Cleartext.txt" or FolderPath endswith "\\Inveigh-NTLMv1Users.txt" or FolderPath endswith "\\Inveigh-NTLMv2Users.txt" or FolderPath endswith "\\Inveigh-NTLMv1.txt" or FolderPath endswith "\\Inveigh-NTLMv2.txt" or FolderPath endswith "\\Inveigh-FormInput.txt" or FolderPath endswith "\\Inveigh.dll" or FolderPath endswith "\\Inveigh.exe" or FolderPath endswith "\\Inveigh.ps1" or FolderPath endswith "\\Inveigh-Relay.ps1"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1219
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

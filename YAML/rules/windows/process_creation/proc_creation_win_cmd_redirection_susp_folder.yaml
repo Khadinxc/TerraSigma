@@ -1,0 +1,46 @@
+id: f536289f-478c-5a8d-9c2b-0cb6747f474d
+name: Potentially Suspicious CMD Shell Output Redirect
+description: 'Detects inline Windows shell commands redirecting output via the ">" symbol to a suspicious location. This technique is sometimes used by malicious actors in order to redirect the output of reconnaissance commands such as "hostname" and "dir" to files for future exfiltration. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_redirection_susp_folder.yml - Legitimate admin or third party scripts used for diagnostic collection might generate some false positives | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_redirection_susp_folder.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (FolderPath endswith "\\cmd.exe" or ProcessVersionInfoOriginalFileName =~ "Cmd.Exe") and (((ProcessCommandLine contains ">" and ProcessCommandLine contains "%APPDATA%\\") or (ProcessCommandLine contains ">" and ProcessCommandLine contains "%TEMP%\\") or (ProcessCommandLine contains ">" and ProcessCommandLine contains "%TMP%\\") or (ProcessCommandLine contains ">" and ProcessCommandLine contains "%USERPROFILE%\\") or (ProcessCommandLine contains ">" and ProcessCommandLine contains "C:\\ProgramData\\") or (ProcessCommandLine contains ">" and ProcessCommandLine contains "C:\\Temp\\") or (ProcessCommandLine contains ">" and ProcessCommandLine contains "C:\\Users\\Public\\") or (ProcessCommandLine contains ">" and ProcessCommandLine contains "C:\\Windows\\Temp\\")) or ((ProcessCommandLine contains " >" or ProcessCommandLine contains "\">" or ProcessCommandLine contains "'>") and (ProcessCommandLine contains "C:\\Users\\" and ProcessCommandLine contains "\\AppData\\Local\\")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1218
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

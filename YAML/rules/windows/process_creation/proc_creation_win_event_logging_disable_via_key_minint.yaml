@@ -1,0 +1,48 @@
+id: d97b207d-feca-5d06-aaa6-e0fc5e0e8bce
+name: Security Event Logging Disabled via MiniNt Registry Key - Process
+description: 'Detects attempts to disable security event logging by adding the `MiniNt` registry key. This key is used to disable the Windows Event Log service, which collects and stores event logs from the operating system and applications. Adversaries may want to disable this service to prevent logging of security events that could be used to detect their activities. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_event_logging_disable_via_key_minint.yml - Highly Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_event_logging_disable_via_key_minint.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains " add " and ProcessCommandLine contains "\\SYSTEM\\CurrentControlSet\\Control\\MiniNt") and (FolderPath endswith "\\reg.exe" or ProcessVersionInfoOriginalFileName =~ "reg.exe")) or ((ProcessCommandLine contains "New-Item " or ProcessCommandLine contains "ni ") and ProcessCommandLine contains "\\SYSTEM\\CurrentControlSet\\Control\\MiniNt" and ((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe" or FolderPath endswith "\\powershell_ise.exe") or (ProcessVersionInfoOriginalFileName in~ ("PowerShell.EXE", "pwsh.dll"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1562
+- T1112
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

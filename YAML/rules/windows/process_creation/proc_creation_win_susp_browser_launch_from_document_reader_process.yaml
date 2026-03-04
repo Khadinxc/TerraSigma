@@ -1,0 +1,44 @@
+id: 9e9182f0-7069-5f35-a5e9-40591cf0f512
+name: Potential Suspicious Browser Launch From Document Reader Process
+description: 'Detects when a browser process or browser tab is launched from an application that handles document files such as Adobe, Microsoft Office, etc. And connects to a web application over http(s), this could indicate a possible phishing attempt. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_browser_launch_from_document_reader_process.yml - Unlikely in most cases, further investigation should be done in the commandline of the browser process to determine the context of the URL accessed. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_browser_launch_from_document_reader_process.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "http" and (FolderPath endswith "\\brave.exe" or FolderPath endswith "\\chrome.exe" or FolderPath endswith "\\firefox.exe" or FolderPath endswith "\\msedge.exe" or FolderPath endswith "\\opera.exe" or FolderPath endswith "\\maxthon.exe" or FolderPath endswith "\\seamonkey.exe" or FolderPath endswith "\\vivaldi.exe") and (InitiatingProcessFolderPath contains "Acrobat Reader" or InitiatingProcessFolderPath contains "Microsoft Office" or InitiatingProcessFolderPath contains "PDF Reader")) and (not(ProcessCommandLine contains "https://go.microsoft.com/fwlink/")) and (not(((ProcessCommandLine contains "http://ad.foxitsoftware.com/adlog.php") or (ProcessCommandLine contains "https://globe-map.foxitservice.com/go.php" and ProcessCommandLine contains "do=redirect"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1204
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

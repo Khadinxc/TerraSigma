@@ -1,0 +1,46 @@
+id: 934043fd-9806-5e1b-9ba4-07ef145e1827
+name: HackTool - SharpMove Tool Execution
+description: 'Detects the execution of SharpMove, a .NET utility performing multiple tasks such as "Task Creation", "SCM" query, VBScript execution using WMI via its PE metadata and command line options. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpmove.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpmove.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- LateralMovement
+query: |-
+  DeviceProcessEvents
+  | where (FolderPath endswith "\\SharpMove.exe" or ProcessVersionInfoOriginalFileName =~ "SharpMove.exe") or ((ProcessCommandLine contains "action=create" or ProcessCommandLine contains "action=dcom" or ProcessCommandLine contains "action=executevbs" or ProcessCommandLine contains "action=hijackdcom" or ProcessCommandLine contains "action=modschtask" or ProcessCommandLine contains "action=modsvc" or ProcessCommandLine contains "action=query" or ProcessCommandLine contains "action=scm" or ProcessCommandLine contains "action=startservice" or ProcessCommandLine contains "action=taskscheduler") and ProcessCommandLine contains "computername=")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1021
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

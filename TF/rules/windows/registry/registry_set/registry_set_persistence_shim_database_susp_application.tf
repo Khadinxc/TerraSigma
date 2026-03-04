@@ -1,0 +1,73 @@
+resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_persistence_shim_database_susp_application" {
+  name                       = "registry_set_persistence_shim_database_susp_application"
+  log_analytics_workspace_id = var.workspace_id
+  display_name               = "Suspicious Shim Database Patching Activity"
+  description                = "Detects installation of new shim databases that try to patch sections of known processes for potential process injection or persistence. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_shim_database_susp_application.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_shim_database_susp_application.yml"
+  severity                   = "High"
+  query                      = <<QUERY
+DeviceRegistryEvents
+| where RegistryKey endswith "\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Custom*" and (RegistryKey endswith "\\csrss.exe" or RegistryKey endswith "\\dllhost.exe" or RegistryKey endswith "\\explorer.exe" or RegistryKey endswith "\\RuntimeBroker.exe" or RegistryKey endswith "\\services.exe" or RegistryKey endswith "\\sihost.exe" or RegistryKey endswith "\\svchost.exe" or RegistryKey endswith "\\taskhostw.exe" or RegistryKey endswith "\\winlogon.exe" or RegistryKey endswith "\\WmiPrvSe.exe")
+QUERY
+  query_frequency            = "PT1H"
+  query_period               = "PT1H"
+  trigger_operator           = "GreaterThan"
+  trigger_threshold          = 0
+  suppression_enabled        = false
+  suppression_duration       = "PT5H"
+  tactics                    = ["PrivilegeEscalation", "Persistence"]
+  techniques                 = ["T1546"]
+  enabled                    = true
+
+  incident {
+    create_incident_enabled = true
+    grouping {
+      enabled                 = false
+      lookback_duration       = "PT5H"
+      reopen_closed_incidents = false
+      entity_matching_method  = "AllEntities"
+      by_entities             = []
+      by_alert_details        = []
+      by_custom_details       = []
+    }
+  }
+
+  event_grouping {
+    aggregation_method = "SingleAlert"
+  }
+
+  entity_mapping {
+    entity_type = "Account"
+    field_mapping {
+      identifier  = "Name"
+      column_name = "InitiatingProcessAccountName"
+    }
+    field_mapping {
+      identifier  = "NTDomain"
+      column_name = "InitiatingProcessAccountDomain"
+    }
+    field_mapping {
+      identifier  = "Sid"
+      column_name = "InitiatingProcessAccountSid"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "Host"
+    field_mapping {
+      identifier  = "HostName"
+      column_name = "DeviceName"
+    }
+    field_mapping {
+      identifier  = "AzureID"
+      column_name = "DeviceId"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "RegistryKey"
+    field_mapping {
+      identifier  = "Key"
+      column_name = "RegistryKey"
+    }
+  }
+}

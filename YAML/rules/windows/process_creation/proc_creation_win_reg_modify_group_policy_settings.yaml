@@ -1,0 +1,47 @@
+id: 9a129d70-d4ae-5ecf-81eb-54ff2acf8abd
+name: Modify Group Policy Settings
+description: 'Detect malicious GPO modifications can be used to implement many other malicious behaviors. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_modify_group_policy_settings.yml - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_modify_group_policy_settings.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- PrivilegeEscalation
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "GroupPolicyRefreshTimeDC" or ProcessCommandLine contains "GroupPolicyRefreshTimeOffsetDC" or ProcessCommandLine contains "GroupPolicyRefreshTime" or ProcessCommandLine contains "GroupPolicyRefreshTimeOffset" or ProcessCommandLine contains "EnableSmartScreen" or ProcessCommandLine contains "ShellSmartScreenLevel") and ProcessCommandLine contains "\\SOFTWARE\\Policies\\Microsoft\\Windows\\System" and (FolderPath endswith "\\reg.exe" or ProcessVersionInfoOriginalFileName =~ "reg.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1484
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

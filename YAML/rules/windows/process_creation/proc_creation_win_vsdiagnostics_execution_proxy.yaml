@@ -1,0 +1,46 @@
+id: a1123a73-4bf3-5944-9ef3-01e9c543efac
+name: Potential Binary Proxy Execution Via VSDiagnostics.EXE
+description: 'Detects execution of "VSDiagnostics.exe" with the "start" command in order to launch and proxy arbitrary binaries. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vsdiagnostics_execution_proxy.yml - Legitimate usage for tracing and diagnostics purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vsdiagnostics_execution_proxy.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains " /launch:" or ProcessCommandLine contains " -launch:") and ProcessCommandLine contains "start" and (FolderPath endswith "\\VSDiagnostics.exe" or ProcessVersionInfoOriginalFileName =~ "VSDiagnostics.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1218
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

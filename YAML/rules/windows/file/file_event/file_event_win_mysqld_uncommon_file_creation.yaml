@@ -1,0 +1,38 @@
+id: ed856d60-dc4c-5c57-9845-65acebd90a2a
+name: Uncommon File Creation By Mysql Daemon Process
+description: 'Detects the creation of files with scripting or executable extensions by Mysql daemon. Which could be an indicator of "User Defined Functions" abuse to download malware. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_mysqld_uncommon_file_creation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_mysqld_uncommon_file_creation.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceFileEvents
+  | where (InitiatingProcessFolderPath endswith "\\mysqld.exe" or InitiatingProcessFolderPath endswith "\\mysqld-nt.exe") and (FolderPath endswith ".bat" or FolderPath endswith ".dat" or FolderPath endswith ".dll" or FolderPath endswith ".exe" or FolderPath endswith ".ps1" or FolderPath endswith ".psm1" or FolderPath endswith ".vbe" or FolderPath endswith ".vbs")
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

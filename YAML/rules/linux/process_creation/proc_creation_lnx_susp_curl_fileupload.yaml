@@ -1,0 +1,46 @@
+id: b43d12d8-8867-5cc0-b567-47fe66bd6aa5
+name: Suspicious Curl File Upload - Linux
+description: 'Detects a suspicious curl process start the adds a file to a web request Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_curl_fileupload.yml - Scripts created by developers and admins | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_curl_fileupload.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Exfiltration
+- CommandAndControl
+query: |-
+  DeviceProcessEvents
+  | where (((ProcessCommandLine contains " --form" or ProcessCommandLine contains " --upload-file " or ProcessCommandLine contains " --data " or ProcessCommandLine contains " --data-") or ProcessCommandLine matches regex "\\s-[FTd]\\s") and FolderPath endswith "/curl") and (not((ProcessCommandLine contains "://localhost" or ProcessCommandLine contains "://127.0.0.1")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1567
+- T1105
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

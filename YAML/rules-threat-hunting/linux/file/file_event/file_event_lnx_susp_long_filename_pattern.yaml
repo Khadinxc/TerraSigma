@@ -1,0 +1,42 @@
+id: 2e8771cc-d5ae-58fd-a6bb-7dfd3c678cd1
+name: Potentially Suspicious Long Filename Pattern - Linux
+description: 'Detects the creation of files with unusually long filenames (100 or more characters), which may indicate obfuscation techniques used by malware such as VShell. This is a hunting rule to identify potential threats that use long filenames to evade detection. Keep in mind that on a legitimate system, such long filenames can and are common. Run this detection in the context of threat hunting rather than alerting. Adjust the threshold of filename length as needed based on your environment. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/file/file_event/file_event_lnx_susp_long_filename_pattern.yml - Legitimate files with long filenames. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/file/file_event/file_event_lnx_susp_long_filename_pattern.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- DefenseEvasion
+query: |-
+  DeviceFileEvents
+  | where FolderPath matches regex "[^/]{100,}$" and (not((FolderPath startswith "/run/systemd/units/invocation:systemd-fsck@" or FolderPath startswith "/sys/firmware/" or FolderPath startswith "/var/log/journal/")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+- T1027
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

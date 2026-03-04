@@ -1,0 +1,40 @@
+id: dcdfb334-cf0e-551f-bfa7-ec0557ab55ce
+name: Potential Execution of Sysinternals Tools
+description: 'Detects command lines that contain the ''accepteula'' flag which could be a sign of execution of one of the Sysinternals tools Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_eula_accepted.yml - Legitimate use of SysInternals tools - Programs that use the same command line flag | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_eula_accepted.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- ResourceDevelopment
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine contains " -accepteula" or ProcessCommandLine contains " /accepteula" or ProcessCommandLine contains " –accepteula" or ProcessCommandLine contains " —accepteula" or ProcessCommandLine contains " ―accepteula"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1588
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

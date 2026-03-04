@@ -1,0 +1,45 @@
+id: de4808bb-3d19-5d3e-942e-ddce20ad4b50
+name: Modification of IE Registry Settings
+description: 'Detects modification of the registry settings used for Internet Explorer and other Windows components that use these settings. An attacker can abuse this registry key to add a domain to the trusted sites Zone or insert JavaScript for persistence Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_ie.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_ie.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- DefenseEvasion
+query: |-
+  DeviceRegistryEvents
+  | where RegistryKey contains "\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings" and (not((RegistryValueData =~ "Binary Data" or RegistryValueData startswith "DWORD" or isnull(RegistryValueData) or (RegistryValueData in~ ("Cookie:", "Visited:", "(Empty)")) or (RegistryKey contains "\\Cache" or RegistryKey contains "\\ZoneMap" or RegistryKey contains "\\WpadDecision")))) and (not(RegistryKey contains "\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Accepted Documents"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1112
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

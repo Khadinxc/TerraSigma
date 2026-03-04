@@ -1,0 +1,43 @@
+id: 8762e668-9c7e-5e60-baa7-efad4a0d3201
+name: Suspicious WindowsTerminal Child Processes
+description: 'Detects suspicious children spawned via the Windows Terminal application which could be a sign of persistence via WindowsTerminal (see references section) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_windows_terminal_susp_children.yml - Other legitimate "Windows Terminal" profiles | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_windows_terminal_susp_children.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- Persistence
+query: |-
+  DeviceProcessEvents
+  | where ((InitiatingProcessFolderPath endswith "\\WindowsTerminal.exe" or InitiatingProcessFolderPath endswith "\\wt.exe") and ((FolderPath endswith "\\rundll32.exe" or FolderPath endswith "\\regsvr32.exe" or FolderPath endswith "\\certutil.exe" or FolderPath endswith "\\cscript.exe" or FolderPath endswith "\\wscript.exe" or FolderPath endswith "\\csc.exe") or (FolderPath contains "C:\\Users\\Public\\" or FolderPath contains "\\Downloads\\" or FolderPath contains "\\Desktop\\" or FolderPath contains "\\AppData\\Local\\Temp\\" or FolderPath contains "\\Windows\\TEMP\\") or (ProcessCommandLine contains " iex " or ProcessCommandLine contains " icm" or ProcessCommandLine contains "Invoke-" or ProcessCommandLine contains "Import-Module " or ProcessCommandLine contains "ipmo " or ProcessCommandLine contains "DownloadString(" or ProcessCommandLine contains " /c " or ProcessCommandLine contains " /k " or ProcessCommandLine contains " /r "))) and (not(((ProcessCommandLine contains "Import-Module" and ProcessCommandLine contains "Microsoft.VisualStudio.DevShell.dll" and ProcessCommandLine contains "Enter-VsDevShell") or (ProcessCommandLine contains "\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_" and ProcessCommandLine contains "\\LocalState\\settings.json") or (ProcessCommandLine contains "C:\\Program Files\\Microsoft Visual Studio\\" and ProcessCommandLine contains "\\Common7\\Tools\\VsDevCmd.bat"))))
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

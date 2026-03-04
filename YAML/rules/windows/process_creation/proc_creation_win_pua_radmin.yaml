@@ -1,0 +1,41 @@
+id: 961643f0-3607-520b-9634-425bae07f995
+name: PUA - Radmin Viewer Utility Execution
+description: 'Detects the execution of Radmin which can be abused by an adversary to remotely control Windows machines Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_radmin.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_radmin.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- LateralMovement
+query: |-
+  DeviceProcessEvents
+  | where ProcessVersionInfoFileDescription =~ "Radmin Viewer" or ProcessVersionInfoProductName =~ "Radmin Viewer" or ProcessVersionInfoOriginalFileName =~ "Radmin.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1072
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

@@ -1,0 +1,41 @@
+id: 4aca5ff8-16c8-5f77-a464-63669c2052a3
+name: WMI Persistence - Script Event Consumer File Write
+description: 'Detects file writes of WMI script event consumer Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_wmi_persistence_script_event_consumer_write.yml - Dell Power Manager (C:\Program Files\Dell\PowerManager\DpmPowerPlanSetup.exe) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_wmi_persistence_script_event_consumer_write.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Persistence
+query: |-
+  DeviceFileEvents
+  | where InitiatingProcessFolderPath =~ "C:\\WINDOWS\\system32\\wbem\\scrcons.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1546
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

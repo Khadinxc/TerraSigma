@@ -1,0 +1,42 @@
+id: 6d28bdb0-8d85-514c-b9e5-ecc79aa6aa87
+name: New PortProxy Registry Entry Added
+description: 'Detects the modification of the PortProxy registry key which is used for port forwarding. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_portproxy_registry_key.yml - WSL2 network bridge PowerShell script used for WSL/Kubernetes/Docker (e.g. https://github.com/microsoft/WSL/issues/4150#issuecomment-504209723) - Synergy Software KVM (https://symless.com/synergy) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_portproxy_registry_key.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- LateralMovement
+- DefenseEvasion
+- CommandAndControl
+query: |-
+  DeviceRegistryEvents
+  | where RegistryKey endswith "\\Services\\PortProxy\\v4tov4\\tcp*"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1090
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

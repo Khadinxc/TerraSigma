@@ -1,0 +1,42 @@
+id: 43ba44ac-89b6-5998-971c-d46e037282d3
+name: Microsoft Office DLL Sideload
+description: 'Detects DLL sideloading of DLLs that are part of Microsoft Office from non standard location Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_office_dlls.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_office_dlls.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Persistence
+- PrivilegeEscalation
+query: |-
+  DeviceImageLoadEvents
+  | where FolderPath endswith "\\outllib.dll" and (not((FolderPath startswith "C:\\Program Files\\Microsoft Office\\OFFICE" or FolderPath startswith "C:\\Program Files (x86)\\Microsoft Office\\OFFICE" or FolderPath startswith "C:\\Program Files\\Microsoft Office\\Root\\OFFICE" or FolderPath startswith "C:\\Program Files (x86)\\Microsoft Office\\Root\\OFFICE")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1574
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

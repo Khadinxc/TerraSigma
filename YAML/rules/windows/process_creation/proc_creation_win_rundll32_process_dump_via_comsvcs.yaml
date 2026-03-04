@@ -1,0 +1,48 @@
+id: 00997b2e-666b-5483-824c-f691984a3773
+name: Process Memory Dump Via Comsvcs.DLL
+description: 'Detects a process memory dump via "comsvcs.dll" using rundll32, covering multiple different techniques (ordinal, minidump function, etc.) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_process_dump_via_comsvcs.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_process_dump_via_comsvcs.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- CredentialAccess
+query: |-
+  DeviceProcessEvents
+  | where ((FolderPath endswith "\\rundll32.exe" or ProcessVersionInfoOriginalFileName =~ "RUNDLL32.EXE" or ProcessCommandLine contains "rundll32") and ((ProcessCommandLine contains "#-" or ProcessCommandLine contains "#+" or ProcessCommandLine contains "#24" or ProcessCommandLine contains "24 " or ProcessCommandLine contains "MiniDump" or ProcessCommandLine contains "#65560") and (ProcessCommandLine contains "comsvcs" and ProcessCommandLine contains "full"))) or ((ProcessCommandLine contains " #" or ProcessCommandLine contains ",#" or ProcessCommandLine contains ", #" or ProcessCommandLine contains "\"#") and (ProcessCommandLine contains "24" and ProcessCommandLine contains "comsvcs" and ProcessCommandLine contains "full"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1036
+- T1003
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

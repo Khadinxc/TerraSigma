@@ -1,0 +1,81 @@
+resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_susp_run_key_img_folder" {
+  name                       = "registry_set_susp_run_key_img_folder"
+  log_analytics_workspace_id = var.workspace_id
+  display_name               = "New RUN Key Pointing to Suspicious Folder"
+  description                = "Detects suspicious new RUN key element pointing to an executable in a suspicious folder Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_run_key_img_folder.yml - Software using weird folders for updates | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_run_key_img_folder.yml"
+  severity                   = "High"
+  query                      = <<QUERY
+DeviceRegistryEvents
+| where (RegistryKey contains "\\Software\\Microsoft\\Windows\\CurrentVersion\\Run" or RegistryKey contains "\\Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Run" or RegistryKey contains "\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\Run") and ((RegistryValueData contains ":\\Perflogs" or RegistryValueData contains ":\\ProgramData'" or RegistryValueData contains ":\\Windows\\Temp" or RegistryValueData contains ":\\Temp" or RegistryValueData contains "\\AppData\\Local\\Temp" or RegistryValueData contains "\\AppData\\Roaming" or RegistryValueData contains ":\\$Recycle.bin" or RegistryValueData contains ":\\Users\\Default" or RegistryValueData contains ":\\Users\\public" or RegistryValueData contains "%temp%" or RegistryValueData contains "%tmp%" or RegistryValueData contains "%Public%" or RegistryValueData contains "%AppData%") or (RegistryValueData contains ":\\Users\\" and (RegistryValueData contains "\\Favorites" or RegistryValueData contains "\\Favourites" or RegistryValueData contains "\\Contacts" or RegistryValueData contains "\\Music" or RegistryValueData contains "\\Pictures" or RegistryValueData contains "\\Documents" or RegistryValueData contains "\\Photos"))) and (not(((RegistryValueData contains "\\AppData\\Local\\Temp\\" or RegistryValueData contains "C:\\Windows\\Temp\\") and (RegistryValueData contains "rundll32.exe " and RegistryValueData contains "C:\\WINDOWS\\system32\\advpack.dll,DelNodeRunDLL32") and InitiatingProcessFolderPath startswith "C:\\Windows\\SoftwareDistribution\\Download\\" and RegistryKey endswith "\\Microsoft\\Windows\\CurrentVersion\\RunOnce*"))) and (not((RegistryValueData endswith "Spotify.exe --autostart --minimized" and (InitiatingProcessFolderPath endswith "C:\\Program Files\\Spotify\\Spotify.exe" or InitiatingProcessFolderPath endswith "C:\\Program Files (x86)\\Spotify\\Spotify.exe" or InitiatingProcessFolderPath endswith "\\AppData\\Roaming\\Spotify\\Spotify.exe") and RegistryKey endswith "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\Spotify")))
+QUERY
+  query_frequency            = "PT1H"
+  query_period               = "PT1H"
+  trigger_operator           = "GreaterThan"
+  trigger_threshold          = 0
+  suppression_enabled        = false
+  suppression_duration       = "PT5H"
+  tactics                    = ["PrivilegeEscalation", "Persistence"]
+  techniques                 = ["T1547"]
+  enabled                    = true
+
+  incident {
+    create_incident_enabled = true
+    grouping {
+      enabled                 = false
+      lookback_duration       = "PT5H"
+      reopen_closed_incidents = false
+      entity_matching_method  = "AllEntities"
+      by_entities             = []
+      by_alert_details        = []
+      by_custom_details       = []
+    }
+  }
+
+  event_grouping {
+    aggregation_method = "SingleAlert"
+  }
+
+  entity_mapping {
+    entity_type = "Account"
+    field_mapping {
+      identifier  = "Name"
+      column_name = "InitiatingProcessAccountName"
+    }
+    field_mapping {
+      identifier  = "NTDomain"
+      column_name = "InitiatingProcessAccountDomain"
+    }
+    field_mapping {
+      identifier  = "Sid"
+      column_name = "InitiatingProcessAccountSid"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "Host"
+    field_mapping {
+      identifier  = "HostName"
+      column_name = "DeviceName"
+    }
+    field_mapping {
+      identifier  = "AzureID"
+      column_name = "DeviceId"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "RegistryKey"
+    field_mapping {
+      identifier  = "Key"
+      column_name = "RegistryKey"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "RegistryValue"
+    field_mapping {
+      identifier  = "Value"
+      column_name = "RegistryValueData"
+    }
+  }
+}

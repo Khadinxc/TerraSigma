@@ -1,0 +1,42 @@
+id: 73ddee8b-4f11-59d9-a114-0aa8d9729708
+name: Command Executed Via Run Dialog Box - Registry
+description: 'Detects execution of commands via the run dialog box on Windows by checking values of the "RunMRU" registry key. This technique was seen being abused by threat actors to deceive users into pasting and executing malicious commands, often disguised as CAPTCHA verification steps. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_set/registry_set_runmru_command_execution.yml - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_set/registry_set_runmru_command_execution.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceRegistryEvents
+  | where RegistryKey contains "\\Microsoft\\Windows\\CurrentVersion\\Explorer\\RunMRU" and (not(RegistryKey endswith "\\MRUList")) and (not(((RegistryValueData in~ ("%appdata%\\1", "%localappdata%\\1", "%public%\\1", "%temp%\\1", "calc\\1", "dxdiag\\1", "explorer\\1", "gpedit.msc\\1", "mmc\\1", "notepad\\1", "regedit\\1", "services.msc\\1", "winver\\1")) or RegistryValueData contains "ping")))
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

@@ -1,0 +1,40 @@
+id: a542b9e2-71d6-5844-8482-2ddb96dff072
+name: LSASS Dump Keyword In CommandLine
+description: 'Detects the presence of the keywords "lsass" and ".dmp" in the commandline, which could indicate a potential attempt to dump or create a dump of the lsass process. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_lsass_dmp_cli_keywords.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_lsass_dmp_cli_keywords.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CredentialAccess
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "lsass.dmp" or ProcessCommandLine contains "lsass.zip" or ProcessCommandLine contains "lsass.rar" or ProcessCommandLine contains "Andrew.dmp" or ProcessCommandLine contains "Coredump.dmp" or ProcessCommandLine contains "NotLSASS.zip" or ProcessCommandLine contains "lsass_2" or ProcessCommandLine contains "lsassdump" or ProcessCommandLine contains "lsassdmp") or (ProcessCommandLine contains "lsass" and ProcessCommandLine contains ".dmp") or (ProcessCommandLine contains "SQLDmpr" and ProcessCommandLine contains ".mdmp") or (ProcessCommandLine contains "nanodump" and ProcessCommandLine contains ".dmp")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1003
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

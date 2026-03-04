@@ -1,0 +1,44 @@
+id: d261dc85-2683-51fa-8a18-35508c1994c9
+name: Linux Crypto Mining Pool Connections
+description: 'Detects process connections to a Monero crypto mining pool Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/network_connection/net_connection_lnx_crypto_mining_indicators.yml - Legitimate use of crypto miners | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/network_connection/net_connection_lnx_crypto_mining_indicators.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Impact
+query: |-
+  DeviceNetworkEvents
+  | where RemoteUrl in~ ("pool.minexmr.com", "fr.minexmr.com", "de.minexmr.com", "sg.minexmr.com", "ca.minexmr.com", "us-west.minexmr.com", "pool.supportxmr.com", "mine.c3pool.com", "xmr-eu1.nanopool.org", "xmr-eu2.nanopool.org", "xmr-us-east1.nanopool.org", "xmr-us-west1.nanopool.org", "xmr-asia1.nanopool.org", "xmr-jp1.nanopool.org", "xmr-au1.nanopool.org", "xmr.2miners.com", "xmr.hashcity.org", "xmr.f2pool.com", "xmrpool.eu", "pool.hashvault.pro", "moneroocean.stream", "monerocean.stream")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1496
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: IP
+  fieldMappings:
+  - identifier: Address
+    columnName: RemoteIP
+- entityType: URL
+  fieldMappings:
+  - identifier: Url
+    columnName: RemoteUrl
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceNetworkEvents

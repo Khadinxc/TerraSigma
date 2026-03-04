@@ -1,0 +1,48 @@
+id: 5719e644-9dfe-5628-a5d6-ca23ebc252d2
+name: Shadow Copies Deletion Using Operating Systems Utilities
+description: 'Shadow Copies deletion using operating systems utilities Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_shadow_copies_deletion.yml - Legitimate Administrator deletes Shadow Copies using operating systems utilities for legitimate reason - LANDesk LDClient Ivanti-PSModule (PS EncodedCommand) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_shadow_copies_deletion.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Impact
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "shadow" and ProcessCommandLine contains "delete") and ((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe" or FolderPath endswith "\\wmic.exe" or FolderPath endswith "\\vssadmin.exe" or FolderPath endswith "\\diskshadow.exe") or (ProcessVersionInfoOriginalFileName in~ ("PowerShell.EXE", "pwsh.dll", "wmic.exe", "VSSADMIN.EXE", "diskshadow.exe")))) or ((ProcessCommandLine contains "delete" and ProcessCommandLine contains "catalog" and ProcessCommandLine contains "quiet") and (FolderPath endswith "\\wbadmin.exe" or ProcessVersionInfoOriginalFileName =~ "WBADMIN.EXE")) or (((ProcessCommandLine contains "unbounded" or ProcessCommandLine contains "/MaxSize=") and (ProcessCommandLine contains "resize" and ProcessCommandLine contains "shadowstorage")) and (FolderPath endswith "\\vssadmin.exe" or ProcessVersionInfoOriginalFileName =~ "VSSADMIN.EXE"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1070
+- T1490
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

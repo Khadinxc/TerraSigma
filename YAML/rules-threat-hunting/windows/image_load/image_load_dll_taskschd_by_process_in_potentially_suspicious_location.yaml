@@ -1,0 +1,44 @@
+id: be68d37a-dec9-587f-9299-e4f6437f3fa9
+name: Task Scheduler DLL Loaded By Application Located In Potentially Suspicious Location
+description: 'Detects the loading of the "taskschd.dll" module from a process that located in a potentially suspicious or uncommon directory. The loading of this DLL might indicate that the application have the capability to create a scheduled task via the "Schedule.Service" COM object. Investigation of the loading application and its behavior is required to determining if its malicious. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_dll_taskschd_by_process_in_potentially_suspicious_location.yml - Some installers might generate false positives, apply additional filters accordingly. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_dll_taskschd_by_process_in_potentially_suspicious_location.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- Execution
+- PrivilegeEscalation
+query: |-
+  DeviceImageLoadEvents
+  | where (FolderPath endswith "\\taskschd.dll" or InitiatingProcessVersionInfoOriginalFileName =~ "taskschd.dll") and (InitiatingProcessFolderPath contains ":\\Temp\\" or InitiatingProcessFolderPath contains ":\\Users\\Public\\" or InitiatingProcessFolderPath contains ":\\Windows\\Temp\\" or InitiatingProcessFolderPath contains "\\AppData\\Local\\Temp\\" or InitiatingProcessFolderPath contains "\\Desktop\\" or InitiatingProcessFolderPath contains "\\Downloads\\")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1053
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

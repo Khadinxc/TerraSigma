@@ -1,0 +1,41 @@
+id: cd36202d-a678-51ba-ae1f-1a3c8cc00f29
+name: Wmiexec Default Output File
+description: 'Detects the creation of the default output filename used by the wmiexec tool Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_wmiexec_default_filename.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_wmiexec_default_filename.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- LateralMovement
+- Execution
+query: |-
+  DeviceFileEvents
+  | where FolderPath matches regex "\\\\Windows\\\\__1\\d{9}\\.\\d{1,7}$" or FolderPath matches regex "C:\\\\__1\\d{9}\\.\\d{1,7}$" or FolderPath matches regex "D:\\\\__1\\d{9}\\.\\d{1,7}$"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1047
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

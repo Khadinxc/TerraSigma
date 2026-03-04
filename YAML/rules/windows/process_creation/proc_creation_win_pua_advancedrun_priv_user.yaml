@@ -1,0 +1,45 @@
+id: 49e7c9e2-3d0c-5de7-8478-78812c4eb721
+name: PUA - AdvancedRun Suspicious Execution
+description: 'Detects the execution of AdvancedRun utility in the context of the TrustedInstaller, SYSTEM, Local Service or Network Service accounts Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_advancedrun_priv_user.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_advancedrun_priv_user.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- PrivilegeEscalation
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "/EXEFilename" or ProcessCommandLine contains "/CommandLine") and ((ProcessCommandLine contains " /RunAs 8 " or ProcessCommandLine contains " /RunAs 4 " or ProcessCommandLine contains " /RunAs 10 " or ProcessCommandLine contains " /RunAs 11 ") or (ProcessCommandLine endswith "/RunAs 8" or ProcessCommandLine endswith "/RunAs 4" or ProcessCommandLine endswith "/RunAs 10" or ProcessCommandLine endswith "/RunAs 11"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1134
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

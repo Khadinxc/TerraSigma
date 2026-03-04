@@ -1,0 +1,44 @@
+id: 614c835c-b649-50d6-9b9e-a91277c5bb54
+name: Registry Disable System Restore
+description: 'Detects the modification of the registry to disable a system restore on the computer Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_system_restore.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_system_restore.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Impact
+query: |-
+  DeviceRegistryEvents
+  | where RegistryValueData =~ "DWORD (0x00000001)" and (RegistryKey contains "\\Policies\\Microsoft\\Windows NT\\SystemRestore" or RegistryKey contains "\\Microsoft\\Windows NT\\CurrentVersion\\SystemRestore") and (RegistryKey endswith "DisableConfig" or RegistryKey endswith "DisableSR")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1490
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

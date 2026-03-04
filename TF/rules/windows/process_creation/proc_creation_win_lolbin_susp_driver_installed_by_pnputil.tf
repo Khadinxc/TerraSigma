@@ -1,0 +1,81 @@
+resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_susp_driver_installed_by_pnputil" {
+  name                       = "proc_creation_win_lolbin_susp_driver_installed_by_pnputil"
+  log_analytics_workspace_id = var.workspace_id
+  display_name               = "Suspicious Driver Install by pnputil.exe"
+  description                = "Detects when a possible suspicious driver is being installed via pnputil.exe lolbin Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_susp_driver_installed_by_pnputil.yml - Pnputil.exe being used may be performed by a system administrator. - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment. - Pnputil.exe being executed from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_susp_driver_installed_by_pnputil.yml"
+  severity                   = "Medium"
+  query                      = <<QUERY
+DeviceProcessEvents
+| where (ProcessCommandLine contains "-i" or ProcessCommandLine contains "/install" or ProcessCommandLine contains "-a" or ProcessCommandLine contains "/add-driver" or ProcessCommandLine contains ".inf") and FolderPath endswith "\\pnputil.exe"
+QUERY
+  query_frequency            = "PT1H"
+  query_period               = "PT1H"
+  trigger_operator           = "GreaterThan"
+  trigger_threshold          = 0
+  suppression_enabled        = false
+  suppression_duration       = "PT5H"
+  tactics                    = ["PrivilegeEscalation", "Persistence"]
+  techniques                 = ["T1547"]
+  enabled                    = true
+
+  incident {
+    create_incident_enabled = true
+    grouping {
+      enabled                 = false
+      lookback_duration       = "PT5H"
+      reopen_closed_incidents = false
+      entity_matching_method  = "AllEntities"
+      by_entities             = []
+      by_alert_details        = []
+      by_custom_details       = []
+    }
+  }
+
+  event_grouping {
+    aggregation_method = "SingleAlert"
+  }
+
+  entity_mapping {
+    entity_type = "Account"
+    field_mapping {
+      identifier  = "Name"
+      column_name = "InitiatingProcessAccountName"
+    }
+    field_mapping {
+      identifier  = "NTDomain"
+      column_name = "InitiatingProcessAccountDomain"
+    }
+    field_mapping {
+      identifier  = "Sid"
+      column_name = "InitiatingProcessAccountSid"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "Host"
+    field_mapping {
+      identifier  = "HostName"
+      column_name = "DeviceName"
+    }
+    field_mapping {
+      identifier  = "AzureID"
+      column_name = "DeviceId"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "Process"
+    field_mapping {
+      identifier  = "CommandLine"
+      column_name = "ProcessCommandLine"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "File"
+    field_mapping {
+      identifier  = "Directory"
+      column_name = "FolderPath"
+    }
+  }
+}

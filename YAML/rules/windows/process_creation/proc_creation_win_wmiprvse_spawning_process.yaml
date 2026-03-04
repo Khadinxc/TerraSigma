@@ -1,0 +1,40 @@
+id: 893ddba2-93f6-522d-8698-6062c2189ad7
+name: WmiPrvSE Spawned A Process
+description: 'Detects WmiPrvSE spawning a process Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmiprvse_spawning_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmiprvse_spawning_process.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where InitiatingProcessFolderPath endswith "\\WmiPrvSe.exe" and (not(((LogonId in~ ("0x3e7", "null")) or isnull(LogonId) or (AccountName contains "AUTHORI" or AccountName contains "AUTORI") or FolderPath endswith "\\WerFault.exe" or FolderPath endswith "\\WmiPrvSE.exe")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1047
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

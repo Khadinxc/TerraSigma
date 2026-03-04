@@ -1,0 +1,41 @@
+id: 9da7fca2-257c-5244-b430-a538ac9ad87b
+name: Leviathan Registry Key Activity
+description: 'Detects registry key used by Leviathan APT in Malaysian focused campaign Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Leviathan/registry_event_apt_leviathan.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Leviathan/registry_event_apt_leviathan.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Persistence
+query: |-
+  DeviceRegistryEvents
+  | where RegistryKey contains "\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\ntkd"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1547
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

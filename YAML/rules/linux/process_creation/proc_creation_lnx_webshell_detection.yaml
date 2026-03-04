@@ -1,0 +1,44 @@
+id: fb43462a-be2d-580f-a68f-8b134b9d3e09
+name: Linux Webshell Indicators
+description: 'Detects suspicious sub processes of web server processes Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_webshell_detection.yml - Web applications that invoke Linux command line tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_webshell_detection.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+query: |-
+  DeviceProcessEvents
+  | where ((InitiatingProcessFolderPath endswith "/httpd" or InitiatingProcessFolderPath endswith "/lighttpd" or InitiatingProcessFolderPath endswith "/nginx" or InitiatingProcessFolderPath endswith "/apache2" or InitiatingProcessFolderPath endswith "/node" or InitiatingProcessFolderPath endswith "/caddy") or (InitiatingProcessCommandLine contains "/bin/java" and InitiatingProcessCommandLine contains "tomcat") or (InitiatingProcessCommandLine contains "/bin/java" and InitiatingProcessCommandLine contains "websphere")) and (FolderPath endswith "/whoami" or FolderPath endswith "/ifconfig" or FolderPath endswith "/ip" or FolderPath endswith "/bin/uname" or FolderPath endswith "/bin/cat" or FolderPath endswith "/bin/crontab" or FolderPath endswith "/hostname" or FolderPath endswith "/iptables" or FolderPath endswith "/netstat" or FolderPath endswith "/pwd" or FolderPath endswith "/route")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1505
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

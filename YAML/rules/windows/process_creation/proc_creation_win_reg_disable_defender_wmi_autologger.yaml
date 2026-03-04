@@ -1,0 +1,46 @@
+id: d9eccaf8-41f6-5f83-a207-e745f74eccdd
+name: Disabling Windows Defender WMI Autologger Session via Reg.exe
+description: 'Detects the use of reg.exe to disable the Event Tracing for Windows (ETW) Autologger session for Windows Defender API and Audit events. By setting the ''Start'' value to ''0'' for the ''DefenderApiLogger'' or ''DefenderAuditLogger'' session, an attacker can prevent these critical security events from being logged, effectively blinding monitoring tools that rely on this data. This is a powerful defense evasion technique. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_disable_defender_wmi_autologger.yml - Highly unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_disable_defender_wmi_autologger.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ((FolderPath endswith "\\reg.exe" or ProcessVersionInfoOriginalFileName =~ "reg.exe") and (ProcessCommandLine contains "add" and ProcessCommandLine contains "0") and (ProcessCommandLine contains "\\Control\\WMI\\Autologger\\DefenderApiLogger\\Start" or ProcessCommandLine contains "\\Control\\WMI\\Autologger\\DefenderAuditLogger\\Start")) and (not(ProcessCommandLine contains "0x00000001"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1562
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

@@ -1,0 +1,46 @@
+id: 06992680-d97e-5899-b8c3-dd822f309462
+name: Recon Information for Export with Command Prompt
+description: 'Once established within a system or network, an adversary may use automated techniques for collecting internal data. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_recon.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_recon.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Collection
+query: |-
+  DeviceProcessEvents
+  | where ((FolderPath endswith "\\tree.com" or FolderPath endswith "\\WMIC.exe" or FolderPath endswith "\\doskey.exe" or FolderPath endswith "\\sc.exe") or (ProcessVersionInfoOriginalFileName in~ ("wmic.exe", "DOSKEY.EXE", "sc.exe"))) and (InitiatingProcessCommandLine contains " > %TEMP%\\" or InitiatingProcessCommandLine contains " > %TMP%\\")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1119
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

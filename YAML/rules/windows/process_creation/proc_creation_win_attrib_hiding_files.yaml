@@ -1,0 +1,46 @@
+id: cca2e9ee-2354-5f18-8b5e-35d0d4993b98
+name: Hiding Files with Attrib.exe
+description: 'Detects usage of attrib.exe to hide files from users. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_attrib_hiding_files.yml - IgfxCUIService.exe hiding *.cui files via .bat script (attrib.exe a child of cmd.exe and igfxCUIService.exe is the parent of the cmd.exe) - Msiexec.exe hiding desktop.ini | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_attrib_hiding_files.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains " +h " and (FolderPath endswith "\\attrib.exe" or ProcessVersionInfoOriginalFileName =~ "ATTRIB.EXE")) and (not(ProcessCommandLine contains "\\desktop.ini ")) and (not((ProcessCommandLine =~ "+R +H +S +A \\*.cui" and InitiatingProcessCommandLine =~ "C:\\WINDOWS\\system32\\*.bat" and InitiatingProcessFolderPath endswith "\\cmd.exe")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1564
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

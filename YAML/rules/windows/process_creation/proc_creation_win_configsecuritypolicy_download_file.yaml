@@ -1,0 +1,46 @@
+id: a081eeb0-cd9c-566f-b84f-c765e36b7727
+name: Arbitrary File Download Via ConfigSecurityPolicy.EXE
+description: 'Detects the execution of "ConfigSecurityPolicy.EXE", a binary part of Windows Defender used to manage settings in Windows Defender. Users can configure different pilot collections for each of the co-management workloads. It can be abused by attackers in order to upload or download files. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_configsecuritypolicy_download_file.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_configsecuritypolicy_download_file.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Exfiltration
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "ConfigSecurityPolicy.exe" or FolderPath endswith "\\ConfigSecurityPolicy.exe" or ProcessVersionInfoOriginalFileName =~ "ConfigSecurityPolicy.exe") and (ProcessCommandLine contains "ftp://" or ProcessCommandLine contains "http://" or ProcessCommandLine contains "https://")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1567
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

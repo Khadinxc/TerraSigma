@@ -1,0 +1,40 @@
+id: 7c7b80ff-eb32-58da-99f2-ba3fbfe7967f
+name: Microsoft VBA For Outlook Addin Loaded Via Outlook
+description: 'Detects outlvba (Microsoft VBA for Outlook Addin) DLL being loaded by the outlook process Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_outlook_outlvba_load.yml - Legitimate macro usage. Add the appropriate filter according to your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_outlook_outlvba_load.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceImageLoadEvents
+  | where FolderPath endswith "\\outlvba.dll" and InitiatingProcessFolderPath endswith "\\outlook.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1204
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

@@ -1,0 +1,42 @@
+id: 0c7ade6c-b4fa-5ce8-95b9-fb6c3f3fe550
+name: MMC Loading Script Engines DLLs
+description: 'Detects when the Microsoft Management Console (MMC) loads the DLL libraries like vbscript, jscript etc which might indicate an attempt to execute malicious scripts within a trusted system process for bypassing application whitelisting or defense evasion. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_win_mmc_loads_script_engine_dll.yml - Legitimate MMC operations or extensions loading these libraries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_win_mmc_loads_script_engine_dll.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- DefenseEvasion
+query: |-
+  DeviceImageLoadEvents
+  | where (FolderPath endswith "\\vbscript.dll" or FolderPath endswith "\\jscript.dll" or FolderPath endswith "\\jscript9.dll") and InitiatingProcessFolderPath endswith "\\mmc.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+- T1218
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

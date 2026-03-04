@@ -1,0 +1,43 @@
+id: e070d0f6-5a55-5995-a981-d7976a377bc4
+name: APT31 Judgement Panda Activity
+description: 'Detects APT31 Judgement Panda activity as described in the Crowdstrike 2019 Global Threat Report Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/APT31/proc_creation_win_apt_apt31_judgement_panda.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/APT31/proc_creation_win_apt_apt31_judgement_panda.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Collection
+- LateralMovement
+- CredentialAccess
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "\\aaaa\\procdump64.exe" or ProcessCommandLine contains "\\aaaa\\netsess.exe" or ProcessCommandLine contains "\\aaaa\\7za.exe" or ProcessCommandLine contains "\\c$\\aaaa\\") and (ProcessCommandLine contains "copy \\\\" and ProcessCommandLine contains "c$")) or (ProcessCommandLine contains "ldifde" and ProcessCommandLine contains "-f -n" and ProcessCommandLine contains "eprod.ldf")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1003
+- T1560
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

@@ -1,0 +1,41 @@
+id: bb6e5f54-b212-5846-b2d9-d370bea61d34
+name: Process Monitor Driver Creation By Non-Sysinternals Binary
+description: 'Detects creation of the Process Monitor driver by processes other than Process Monitor (procmon) itself. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sysinternals_procmon_driver_susp_creation.yml - Some false positives may occur with legitimate renamed process monitor binaries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sysinternals_procmon_driver_susp_creation.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- PrivilegeEscalation
+query: |-
+  DeviceFileEvents
+  | where (FolderPath contains "\\procmon" and FolderPath endswith ".sys") and (not((InitiatingProcessFolderPath endswith "\\procmon.exe" or InitiatingProcessFolderPath endswith "\\procmon64.exe")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1068
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

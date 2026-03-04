@@ -1,0 +1,50 @@
+id: 7e5344dc-da2d-5ff1-a5f2-05f845b0c25a
+name: HackTool - WinPwn Execution
+description: 'Detects commandline keywords indicative of potential usge of the tool WinPwn. A tool for Windows and Active Directory reconnaissance and exploitation. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_winpwn.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_winpwn.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CredentialAccess
+- DefenseEvasion
+- Discovery
+- Execution
+- PrivilegeEscalation
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine contains "Offline_Winpwn" or ProcessCommandLine contains "WinPwn " or ProcessCommandLine contains "WinPwn.exe" or ProcessCommandLine contains "WinPwn.ps1"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1046
+- T1082
+- T1106
+- T1518
+- T1548
+- T1552
+- T1555
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

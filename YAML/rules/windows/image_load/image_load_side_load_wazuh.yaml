@@ -1,0 +1,42 @@
+id: 93f3be80-7f0c-5716-9d4a-8a7ca3d85c75
+name: Potential Wazuh Security Platform DLL Sideloading
+description: 'Detects potential DLL side loading of DLLs that are part of the Wazuh security platform Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_wazuh.yml - Many legitimate applications leverage this DLL. (Visual Studio, JetBrains, Ruby, Anaconda, GithubDesktop, etc.) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_wazuh.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Persistence
+- PrivilegeEscalation
+query: |-
+  DeviceImageLoadEvents
+  | where (FolderPath endswith "\\libwazuhshared.dll" or FolderPath endswith "\\libwinpthread-1.dll") and (not((FolderPath startswith "C:\\Program Files\\" or FolderPath startswith "C:\\Program Files (x86)\\"))) and (not(((FolderPath contains "\\AppData\\Local\\" or FolderPath contains "\\ProgramData\\") and FolderPath endswith "\\mingw64\\bin\\libwinpthread-1.dll")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1574
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

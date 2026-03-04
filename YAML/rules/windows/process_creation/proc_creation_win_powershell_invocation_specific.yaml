@@ -1,0 +1,38 @@
+id: fe56aef8-3955-5285-a0b5-e815d69cdb64
+name: Suspicious PowerShell Invocations - Specific - ProcessCreation
+description: 'Detects suspicious PowerShell invocation command parameters Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_invocation_specific.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_invocation_specific.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "-nop" and ProcessCommandLine contains " -w " and ProcessCommandLine contains "hidden" and ProcessCommandLine contains " -c " and ProcessCommandLine contains "[Convert]::FromBase64String") or (ProcessCommandLine contains " -w " and ProcessCommandLine contains "hidden" and ProcessCommandLine contains "-ep" and ProcessCommandLine contains "bypass" and ProcessCommandLine contains "-Enc") or (ProcessCommandLine contains " -w " and ProcessCommandLine contains "hidden" and ProcessCommandLine contains "-noni" and ProcessCommandLine contains "-nop" and ProcessCommandLine contains " -c " and ProcessCommandLine contains "iex" and ProcessCommandLine contains "New-Object") or (ProcessCommandLine contains "iex" and ProcessCommandLine contains "New-Object" and ProcessCommandLine contains "Net.WebClient" and ProcessCommandLine contains ".Download") or (ProcessCommandLine contains "powershell" and ProcessCommandLine contains "reg" and ProcessCommandLine contains "add" and ProcessCommandLine contains "\\software\\") or (ProcessCommandLine contains "bypass" and ProcessCommandLine contains "-noprofile" and ProcessCommandLine contains "-windowstyle" and ProcessCommandLine contains "hidden" and ProcessCommandLine contains "new-object" and ProcessCommandLine contains "system.net.webclient" and ProcessCommandLine contains ".download")) and (not((ProcessCommandLine contains "(New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1" or ProcessCommandLine contains "Write-ChocolateyWarning")))
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

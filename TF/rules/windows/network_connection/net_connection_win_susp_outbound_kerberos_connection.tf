@@ -1,0 +1,73 @@
+resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_susp_outbound_kerberos_connection" {
+  name                       = "net_connection_win_susp_outbound_kerberos_connection"
+  log_analytics_workspace_id = var.workspace_id
+  display_name               = "Uncommon Outbound Kerberos Connection"
+  description                = "Detects uncommon outbound network activity via Kerberos default port indicating possible lateral movement or first stage PrivEsc via delegation. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_susp_outbound_kerberos_connection.yml - Web Browsers and third party application might generate similar activity. An initial baseline is required. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_susp_outbound_kerberos_connection.yml"
+  severity                   = "Medium"
+  query                      = <<QUERY
+DeviceNetworkEvents
+| where RemotePort == 88 and (not(InitiatingProcessFolderPath =~ "C:\\Windows\\System32\\lsass.exe")) and (not(((InitiatingProcessFolderPath in~ ("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe", "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe")) or (InitiatingProcessFolderPath in~ ("C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe", "C:\\Program Files\\Mozilla Firefox\\firefox.exe")) or InitiatingProcessFolderPath endswith "\\tomcat\\bin\\tomcat8.exe")))
+QUERY
+  query_frequency            = "PT1H"
+  query_period               = "PT1H"
+  trigger_operator           = "GreaterThan"
+  trigger_threshold          = 0
+  suppression_enabled        = false
+  suppression_duration       = "PT5H"
+  tactics                    = ["DefenseEvasion", "CredentialAccess", "LateralMovement"]
+  techniques                 = ["T1558", "T1550"]
+  enabled                    = true
+
+  incident {
+    create_incident_enabled = true
+    grouping {
+      enabled                 = false
+      lookback_duration       = "PT5H"
+      reopen_closed_incidents = false
+      entity_matching_method  = "AllEntities"
+      by_entities             = []
+      by_alert_details        = []
+      by_custom_details       = []
+    }
+  }
+
+  event_grouping {
+    aggregation_method = "SingleAlert"
+  }
+
+  entity_mapping {
+    entity_type = "Account"
+    field_mapping {
+      identifier  = "Name"
+      column_name = "InitiatingProcessAccountName"
+    }
+    field_mapping {
+      identifier  = "NTDomain"
+      column_name = "InitiatingProcessAccountDomain"
+    }
+    field_mapping {
+      identifier  = "Sid"
+      column_name = "InitiatingProcessAccountSid"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "Host"
+    field_mapping {
+      identifier  = "HostName"
+      column_name = "DeviceName"
+    }
+    field_mapping {
+      identifier  = "AzureID"
+      column_name = "DeviceId"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "IP"
+    field_mapping {
+      identifier  = "Address"
+      column_name = "RemoteIP"
+    }
+  }
+}

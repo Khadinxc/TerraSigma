@@ -1,0 +1,40 @@
+id: b570d77d-4bd0-576f-a5c9-b5c08f26de8a
+name: Tap Installer Execution
+description: 'Well-known TAP software installation. Possible preparation for data exfiltration using tunneling techniques Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tapinstall_execution.yml - Legitimate OpenVPN TAP installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tapinstall_execution.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Exfiltration
+query: |-
+  DeviceProcessEvents
+  | where FolderPath endswith "\\tapinstall.exe" and (not(((FolderPath contains ":\\Program Files\\Avast Software\\SecureLine VPN\\" or FolderPath contains ":\\Program Files (x86)\\Avast Software\\SecureLine VPN\\") or FolderPath contains ":\\Program Files\\OpenVPN Connect\\drivers\\tap\\" or FolderPath contains ":\\Program Files (x86)\\Proton Technologies\\ProtonVPNTap\\installer\\")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1048
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

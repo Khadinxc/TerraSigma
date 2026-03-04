@@ -1,0 +1,41 @@
+id: 3edd92da-61cb-564a-90d3-3c7ed26b51a8
+name: Renamed Remote Utilities RAT (RURAT) Execution
+description: 'Detects execution of renamed Remote Utilities (RURAT) via Product PE header field Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_rurat.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_rurat.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Collection
+- CommandAndControl
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where ProcessVersionInfoProductName =~ "Remote Utilities" and (not((FolderPath endswith "\\rutserv.exe" or FolderPath endswith "\\rfusclient.exe")))
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

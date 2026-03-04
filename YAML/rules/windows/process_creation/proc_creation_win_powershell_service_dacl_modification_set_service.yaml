@@ -1,0 +1,47 @@
+id: 4d1792d8-7fe6-5a3e-9ef3-5e286e100966
+name: Suspicious Service DACL Modification Via Set-Service Cmdlet
+description: 'Detects suspicious DACL modifications via the "Set-Service" cmdlet using the "SecurityDescriptorSddl" flag (Only available with PowerShell 7) that can be used to hide services or make them unstopable Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_service_dacl_modification_set_service.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_service_dacl_modification_set_service.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Persistence
+query: |-
+  DeviceProcessEvents
+  | where (FolderPath endswith "\\pwsh.exe" or ProcessVersionInfoOriginalFileName =~ "pwsh.dll") and (ProcessCommandLine contains "-SecurityDescriptorSddl " or ProcessCommandLine contains "-sd ") and ((ProcessCommandLine contains ";;;IU" or ProcessCommandLine contains ";;;SU" or ProcessCommandLine contains ";;;BA" or ProcessCommandLine contains ";;;SY" or ProcessCommandLine contains ";;;WD") and (ProcessCommandLine contains "Set-Service " and ProcessCommandLine contains "D;;"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1543
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

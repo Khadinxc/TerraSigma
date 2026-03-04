@@ -1,0 +1,41 @@
+id: 2e277f21-0e63-527b-8a12-f7a26d68068b
+name: WMI Persistence - Security
+description: 'Detects suspicious WMI event filter and command line event consumer based on WMI and Security Logs. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_wmi_persistence.yml - Unknown (data set is too small; further testing needed) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_wmi_persistence.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- PrivilegeEscalation
+query: |-
+  DeviceRegistryEvents
+  | where RegistryKey contains "subscription"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1546
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

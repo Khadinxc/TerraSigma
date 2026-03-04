@@ -1,0 +1,47 @@
+id: 0820b554-2157-546a-882b-8a32c9b36f73
+name: Shell Open Registry Keys Manipulation
+description: 'Detects the shell open key manipulation (exefile and ms-settings) used for persistence and the pattern of UAC Bypass using fodhelper.exe, computerdefaults.exe, slui.exe via registry keys (e.g. UACMe 33 or 62) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_shell_open_keys_manipulation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_shell_open_keys_manipulation.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- DefenseEvasion
+- PrivilegeEscalation
+query: |-
+  DeviceRegistryEvents
+  | where (RegistryValueData contains "\\Software\\Classes\\{" and ActionType =~ "RegistryValueSet" and RegistryKey endswith "Classes\\ms-settings\\shell\\open\\command\\SymbolicLinkValue") or RegistryKey endswith "Classes\\ms-settings\\shell\\open\\command\\DelegateExecute" or ((ActionType =~ "RegistryValueSet" and (RegistryKey endswith "Classes\\ms-settings\\shell\\open\\command\\(Default)" or RegistryKey endswith "Classes\\exefile\\shell\\open\\command\\(Default)")) and (not(RegistryValueData =~ "(Empty)")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1548
+- T1546
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

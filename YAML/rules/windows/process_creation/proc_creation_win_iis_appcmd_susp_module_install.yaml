@@ -1,0 +1,46 @@
+id: be816a85-2b3f-5118-b1ee-cb7d6f96cb33
+name: IIS Native-Code Module Command Line Installation
+description: 'Detects suspicious IIS native-code module installations via command line Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_appcmd_susp_module_install.yml - Unknown as it may vary from organisation to organisation how admins use to install IIS modules | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_appcmd_susp_module_install.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+query: |-
+  DeviceProcessEvents
+  | where (((ProcessCommandLine contains "install" and ProcessCommandLine contains "module") and (ProcessCommandLine contains "-name:" or ProcessCommandLine contains "/name:" or ProcessCommandLine contains "–name:" or ProcessCommandLine contains "—name:" or ProcessCommandLine contains "―name:")) and (FolderPath endswith "\\appcmd.exe" or ProcessVersionInfoOriginalFileName =~ "appcmd.exe")) and (not(InitiatingProcessFolderPath =~ "C:\\Windows\\System32\\inetsrv\\iissetup.exe"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1505
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

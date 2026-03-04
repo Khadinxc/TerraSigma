@@ -1,0 +1,45 @@
+id: c87f5e7e-82ba-5812-b64e-55da808080ff
+name: Suspicious ScreenSave Change by Reg.exe
+description: 'Adversaries may establish persistence by executing malicious content triggered by user inactivity. Screensavers are programs that execute after a configurable time of user inactivity and consist of Portable Executable (PE) files with a .scr file extension Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_screensaver.yml - GPO | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_screensaver.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- PrivilegeEscalation
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "HKEY_CURRENT_USER\\Control Panel\\Desktop" or ProcessCommandLine contains "HKCU\\Control Panel\\Desktop") and FolderPath endswith "\\reg.exe") and ((ProcessCommandLine contains "/v ScreenSaveActive" and ProcessCommandLine contains "/t REG_SZ" and ProcessCommandLine contains "/d 1" and ProcessCommandLine contains "/f") or (ProcessCommandLine contains "/v ScreenSaveTimeout" and ProcessCommandLine contains "/t REG_SZ" and ProcessCommandLine contains "/d " and ProcessCommandLine contains "/f") or (ProcessCommandLine contains "/v ScreenSaverIsSecure" and ProcessCommandLine contains "/t REG_SZ" and ProcessCommandLine contains "/d 0" and ProcessCommandLine contains "/f") or (ProcessCommandLine contains "/v SCRNSAVE.EXE" and ProcessCommandLine contains "/t REG_SZ" and ProcessCommandLine contains "/d " and ProcessCommandLine contains ".scr" and ProcessCommandLine contains "/f"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1546
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

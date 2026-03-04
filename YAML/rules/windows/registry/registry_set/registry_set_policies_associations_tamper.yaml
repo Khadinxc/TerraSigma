@@ -1,0 +1,42 @@
+id: c771d59c-a825-55f2-b801-7009a4082e1e
+name: Potential Attachment Manager Settings Associations Tamper
+description: 'Detects tampering with attachment manager settings policies associations to lower the default file type risks (See reference for more information) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_policies_associations_tamper.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_policies_associations_tamper.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceRegistryEvents
+  | where RegistryKey endswith "\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Associations*" and ((RegistryValueData =~ "DWORD (0x00006152)" and RegistryKey endswith "\\DefaultFileTypeRisk") or ((RegistryValueData contains ".zip;" or RegistryValueData contains ".rar;" or RegistryValueData contains ".exe;" or RegistryValueData contains ".bat;" or RegistryValueData contains ".com;" or RegistryValueData contains ".cmd;" or RegistryValueData contains ".reg;" or RegistryValueData contains ".msi;" or RegistryValueData contains ".htm;" or RegistryValueData contains ".html;") and RegistryKey endswith "\\LowRiskFileTypes"))
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

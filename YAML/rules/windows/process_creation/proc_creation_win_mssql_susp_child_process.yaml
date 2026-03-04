@@ -1,0 +1,47 @@
+id: 3473ecb8-b0da-57f2-9783-6cd54334f6d4
+name: Suspicious Child Process Of SQL Server
+description: 'Detects suspicious child processes of the SQLServer process. This could indicate potential RCE or SQL Injection. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mssql_susp_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mssql_susp_child_process.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- InitialAccess
+- Persistence
+- PrivilegeEscalation
+query: |-
+  DeviceProcessEvents
+  | where ((FolderPath endswith "\\bash.exe" or FolderPath endswith "\\bitsadmin.exe" or FolderPath endswith "\\cmd.exe" or FolderPath endswith "\\netstat.exe" or FolderPath endswith "\\nltest.exe" or FolderPath endswith "\\ping.exe" or FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe" or FolderPath endswith "\\regsvr32.exe" or FolderPath endswith "\\rundll32.exe" or FolderPath endswith "\\sh.exe" or FolderPath endswith "\\systeminfo.exe" or FolderPath endswith "\\tasklist.exe" or FolderPath endswith "\\wsl.exe") and InitiatingProcessFolderPath endswith "\\sqlservr.exe") and (not((ProcessCommandLine startswith "\"C:\\Windows\\system32\\cmd.exe\" " and FolderPath =~ "C:\\Windows\\System32\\cmd.exe" and InitiatingProcessFolderPath endswith "DATEV_DBENGINE\\MSSQL\\Binn\\sqlservr.exe" and InitiatingProcessFolderPath startswith "C:\\Program Files\\Microsoft SQL Server\\")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1505
+- T1190
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

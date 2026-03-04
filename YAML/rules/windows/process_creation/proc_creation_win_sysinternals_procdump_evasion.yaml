@@ -1,0 +1,42 @@
+id: 1d2ffebb-1829-51e5-b501-b9ef593fbffb
+name: Potential SysInternals ProcDump Evasion
+description: 'Detects uses of the SysInternals ProcDump utility in which ProcDump or its output get renamed, or a dump file is moved or copied to a different name Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_procdump_evasion.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_procdump_evasion.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- CredentialAccess
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "copy procdump" or ProcessCommandLine contains "move procdump") or ((ProcessCommandLine contains "2.dmp" or ProcessCommandLine contains "lsass" or ProcessCommandLine contains "out.dmp") and (ProcessCommandLine contains "copy " and ProcessCommandLine contains ".dmp ")) or (ProcessCommandLine contains "copy lsass.exe_" or ProcessCommandLine contains "move lsass.exe_")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1036
+- T1003
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

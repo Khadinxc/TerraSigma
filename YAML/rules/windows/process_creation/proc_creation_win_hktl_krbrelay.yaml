@@ -1,0 +1,46 @@
+id: 2ce81b84-4b44-51f3-9702-fed7dc3cd5c3
+name: HackTool - KrbRelay Execution
+description: 'Detects the use of KrbRelay, a Kerberos relaying tool Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_krbrelay.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_krbrelay.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CredentialAccess
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains " -spn " and ProcessCommandLine contains " -clsid " and ProcessCommandLine contains " -rbcd ") or (ProcessCommandLine contains "shadowcred" and ProcessCommandLine contains "clsid" and ProcessCommandLine contains "spn") or (ProcessCommandLine contains "spn " and ProcessCommandLine contains "session " and ProcessCommandLine contains "clsid ") or (FolderPath endswith "\\KrbRelay.exe" or ProcessVersionInfoOriginalFileName =~ "KrbRelay.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1558
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

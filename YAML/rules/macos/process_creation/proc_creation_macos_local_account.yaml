@@ -1,0 +1,44 @@
+id: a5898f5a-3ff3-5ad2-a52e-f6e0f90b43ac
+name: Local System Accounts Discovery - MacOs
+description: 'Detects enumeration of local systeam accounts on MacOS Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_local_account.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_local_account.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "list" and ProcessCommandLine contains "/users") and FolderPath endswith "/dscl") or ((ProcessCommandLine contains "-q" and ProcessCommandLine contains "user") and FolderPath endswith "/dscacheutil") or ProcessCommandLine contains "'x:0:'" or ((ProcessCommandLine contains "/etc/passwd" or ProcessCommandLine contains "/etc/sudoers") and FolderPath endswith "/cat") or FolderPath endswith "/id" or (ProcessCommandLine contains "-u" and FolderPath endswith "/lsof")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1087
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

@@ -1,0 +1,40 @@
+id: 7c4b946d-21df-5f66-8ac7-879bb76d71f1
+name: Remote Access Tool - ScreenConnect Server Web Shell Execution
+description: 'Detects potential web shell execution from the ScreenConnect server process. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_screenconnect_webshell.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_screenconnect_webshell.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- InitialAccess
+query: |-
+  DeviceProcessEvents
+  | where (FolderPath endswith "\\cmd.exe" or FolderPath endswith "\\csc.exe") and InitiatingProcessFolderPath endswith "\\ScreenConnect.Service.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1190
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

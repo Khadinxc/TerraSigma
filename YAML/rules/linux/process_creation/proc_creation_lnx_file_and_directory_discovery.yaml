@@ -1,0 +1,44 @@
+id: 91b625bc-d118-5823-96ca-0927cb557b73
+name: File and Directory Discovery - Linux
+description: 'Detects usage of system utilities such as "find", "tree", "findmnt", etc, to discover files, directories and network shares. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_file_and_directory_discovery.yml - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_file_and_directory_discovery.yml'
+severity: Informational
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine matches regex "(.){200,}" and FolderPath endswith "/file") or FolderPath endswith "/find" or FolderPath endswith "/findmnt" or FolderPath endswith "/mlocate" or (ProcessCommandLine contains "-R" and FolderPath endswith "/ls") or FolderPath endswith "/tree"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1083
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

@@ -1,0 +1,44 @@
+id: d3b48637-6c90-544f-a8b9-167e49ee61a9
+name: Console CodePage Lookup Via CHCP
+description: 'Detects use of chcp to look up the system locale value as part of host discovery Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_chcp_codepage_lookup.yml - During Anaconda update the ''conda.exe'' process will eventually execution the ''chcp'' command. - Discord was seen using chcp to look up code pages | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_chcp_codepage_lookup.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine endswith "chcp" or ProcessCommandLine endswith "chcp " or ProcessCommandLine endswith "chcp  ") and FolderPath endswith "\\chcp.com" and (InitiatingProcessCommandLine contains " -c " or InitiatingProcessCommandLine contains " /c " or InitiatingProcessCommandLine contains " –c " or InitiatingProcessCommandLine contains " —c " or InitiatingProcessCommandLine contains " ―c " or InitiatingProcessCommandLine contains " -r " or InitiatingProcessCommandLine contains " /r " or InitiatingProcessCommandLine contains " –r " or InitiatingProcessCommandLine contains " —r " or InitiatingProcessCommandLine contains " ―r " or InitiatingProcessCommandLine contains " -k " or InitiatingProcessCommandLine contains " /k " or InitiatingProcessCommandLine contains " –k " or InitiatingProcessCommandLine contains " —k " or InitiatingProcessCommandLine contains " ―k ") and InitiatingProcessFolderPath endswith "\\cmd.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1614
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

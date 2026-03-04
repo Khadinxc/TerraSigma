@@ -1,0 +1,46 @@
+id: 488fbcfe-cd86-582e-a221-f36eb0a3f5ca
+name: Lolbin Unregmp2.exe Use As Proxy
+description: 'Detect usage of the "unregmp2.exe" binary as a proxy to launch a custom version of "wmpnscfg.exe" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_unregmp2.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_unregmp2.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains " -HideWMP" or ProcessCommandLine contains " /HideWMP" or ProcessCommandLine contains " –HideWMP" or ProcessCommandLine contains " —HideWMP" or ProcessCommandLine contains " ―HideWMP") and (FolderPath endswith "\\unregmp2.exe" or ProcessVersionInfoOriginalFileName =~ "unregmp2.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1218
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

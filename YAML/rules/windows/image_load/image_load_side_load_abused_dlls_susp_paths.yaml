@@ -1,0 +1,40 @@
+id: ff176df2-284c-5124-9d30-301903929f62
+name: Abusable DLL Potential Sideloading From Suspicious Location
+description: 'Detects potential DLL sideloading of DLLs that are known to be abused from suspicious locations Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_abused_dlls_susp_paths.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_abused_dlls_susp_paths.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceImageLoadEvents
+  | where (FolderPath endswith "\\coreclr.dll" or FolderPath endswith "\\facesdk.dll" or FolderPath endswith "\\HPCustPartUI.dll" or FolderPath endswith "\\libcef.dll" or FolderPath endswith "\\ZIPDLL.dll") and ((FolderPath contains ":\\Perflogs\\" or FolderPath contains ":\\Users\\Public\\" or FolderPath contains "\\Temporary Internet" or FolderPath contains "\\Windows\\Temp\\") or ((FolderPath contains ":\\Users\\" and FolderPath contains "\\Favorites\\") or (FolderPath contains ":\\Users\\" and FolderPath contains "\\Favourites\\") or (FolderPath contains ":\\Users\\" and FolderPath contains "\\Contacts\\") or (FolderPath contains ":\\Users\\" and FolderPath contains "\\Pictures\\")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

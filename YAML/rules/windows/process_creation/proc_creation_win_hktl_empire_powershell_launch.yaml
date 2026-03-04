@@ -1,0 +1,40 @@
+id: 31945bfa-4092-584c-b5ef-30977f731b0d
+name: HackTool - Empire PowerShell Launch Parameters
+description: 'Detects suspicious powershell command line parameters used in Empire Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_empire_powershell_launch.yml - Other tools that incidentally use the same command line parameters | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_empire_powershell_launch.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine contains " -NoP -sta -NonI -W Hidden -Enc " or ProcessCommandLine contains " -noP -sta -w 1 -enc " or ProcessCommandLine contains " -NoP -NonI -W Hidden -enc " or ProcessCommandLine contains " -noP -sta -w 1 -enc" or ProcessCommandLine contains " -enc  SQB" or ProcessCommandLine contains " -nop -exec bypass -EncodedCommand "
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

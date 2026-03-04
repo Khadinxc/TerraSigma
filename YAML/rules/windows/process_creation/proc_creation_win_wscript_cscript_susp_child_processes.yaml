@@ -1,0 +1,42 @@
+id: 32f1abee-ddee-55bc-a98a-19d49a0c9c69
+name: Cscript/Wscript Potentially Suspicious Child Process
+description: 'Detects potentially suspicious child processes of Wscript/Cscript. These include processes such as rundll32 with uncommon exports or PowerShell spawning rundll32 or regsvr32. Malware such as Pikabot and Qakbot were seen using similar techniques as well as many others. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wscript_cscript_susp_child_processes.yml - Some false positives might occur with admin or third party software scripts. Investigate and apply additional filters accordingly. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wscript_cscript_susp_child_processes.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (InitiatingProcessFolderPath endswith "\\wscript.exe" or InitiatingProcessFolderPath endswith "\\cscript.exe") and (FolderPath endswith "\\rundll32.exe" or ((FolderPath endswith "\\cmd.exe" or FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe") and ((ProcessCommandLine contains "mshta" and ProcessCommandLine contains "http") or (ProcessCommandLine contains "rundll32" or ProcessCommandLine contains "regsvr32" or ProcessCommandLine contains "msiexec")))) and (not(((ProcessCommandLine contains "UpdatePerUserSystemParameters" or ProcessCommandLine contains "PrintUIEntry" or ProcessCommandLine contains "ClearMyTracksByProcess") and FolderPath endswith "\\rundll32.exe")))
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

@@ -1,0 +1,49 @@
+id: 415c1c63-4096-56f8-aa05-c5ecf1a2c5f8
+name: Scheduled Task Executing Payload from Registry
+description: 'Detects the creation of a schtasks that potentially executes a payload stored in the Windows Registry using PowerShell. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_reg_loader.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_reg_loader.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Execution
+- Persistence
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "/Create" and (ProcessCommandLine contains "Get-ItemProperty" or ProcessCommandLine contains " gp ") and (ProcessCommandLine contains "HKCU:" or ProcessCommandLine contains "HKLM:" or ProcessCommandLine contains "registry::" or ProcessCommandLine contains "HKEY_") and (FolderPath endswith "\\schtasks.exe" or ProcessVersionInfoOriginalFileName =~ "schtasks.exe")) and (not((ProcessCommandLine contains "FromBase64String" or ProcessCommandLine contains "encodedcommand")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1053
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

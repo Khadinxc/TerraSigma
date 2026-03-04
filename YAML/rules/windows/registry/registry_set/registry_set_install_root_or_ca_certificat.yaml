@@ -1,0 +1,44 @@
+id: 34299aed-dba5-52e2-ba56-315cba61163c
+name: New Root or CA or AuthRoot Certificate to Store
+description: 'Detects the addition of new root, CA or AuthRoot certificates to the Windows registry Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_install_root_or_ca_certificat.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_install_root_or_ca_certificat.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Impact
+query: |-
+  DeviceRegistryEvents
+  | where RegistryValueData =~ "Binary Data" and (RegistryKey endswith "\\SOFTWARE\\Microsoft\\SystemCertificates\\Root\\Certificates*" or RegistryKey endswith "\\SOFTWARE\\Policies\\Microsoft\\SystemCertificates\\Root\\Certificates*" or RegistryKey endswith "\\SOFTWARE\\Microsoft\\EnterpriseCertificates\\Root\\Certificates*" or RegistryKey endswith "\\SOFTWARE\\Microsoft\\SystemCertificates\\CA\\Certificates*" or RegistryKey endswith "\\SOFTWARE\\Policies\\Microsoft\\SystemCertificates\\CA\\Certificates*" or RegistryKey endswith "\\SOFTWARE\\Microsoft\\EnterpriseCertificates\\CA\\Certificates*" or RegistryKey endswith "\\SOFTWARE\\Microsoft\\SystemCertificates\\AuthRoot\\Certificates*" or RegistryKey endswith "\\SOFTWARE\\Policies\\Microsoft\\SystemCertificates\\AuthRoot\\Certificates*" or RegistryKey endswith "\\SOFTWARE\\Microsoft\\EnterpriseCertificates\\AuthRoot\\Certificates*") and RegistryKey endswith "\\Blob"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1490
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

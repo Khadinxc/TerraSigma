@@ -1,0 +1,47 @@
+id: b24fbdcf-9d69-5c3c-9594-752d2a0a0c3d
+name: Proxy Execution Via Wuauclt.EXE
+description: 'Detects the use of the Windows Update Client binary (wuauclt.exe) for proxy execution. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wuauclt_dll_loading.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wuauclt_dll_loading.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "UpdateDeploymentProvider" and ProcessCommandLine contains "RunHandlerComServer") and (FolderPath endswith "\\wuauclt.exe" or ProcessVersionInfoOriginalFileName =~ "wuauclt.exe")) and (not((ProcessCommandLine contains " /UpdateDeploymentProvider UpdateDeploymentProvider.dll " or (ProcessCommandLine contains ":\\Windows\\UUS\\Packages\\Preview\\amd64\\updatedeploy.dll /ClassId" or ProcessCommandLine contains ":\\Windows\\UUS\\amd64\\UpdateDeploy.dll /ClassId") or (ProcessCommandLine contains ":\\Windows\\WinSxS\\" and ProcessCommandLine contains "\\UpdateDeploy.dll /ClassId ") or ProcessCommandLine contains " wuaueng.dll ")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1218
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

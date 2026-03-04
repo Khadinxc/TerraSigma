@@ -1,0 +1,48 @@
+id: 114d879d-8852-571c-a94b-9a1a60fcbd1f
+name: PowerShell Web Access Feature Enabled Via DISM
+description: 'Detects the use of DISM to enable the PowerShell Web Access feature, which could be used for remote access and potential abuse Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dism_enable_powershell_web_access_feature.yml - Legitimate PowerShell Web Access installations by administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dism_enable_powershell_web_access_feature.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- DefenseEvasion
+- Persistence
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "WindowsPowerShellWebAccess" and ProcessCommandLine contains "/online" and ProcessCommandLine contains "/enable-feature") and (FolderPath endswith "\\dism.exe" or ProcessVersionInfoOriginalFileName =~ "DISM.EXE")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1548
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

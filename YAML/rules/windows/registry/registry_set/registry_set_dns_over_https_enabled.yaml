@@ -1,0 +1,46 @@
+id: a5d34812-1732-56cc-849d-c46f0dd0bcaa
+name: DNS-over-HTTPS Enabled by Registry
+description: 'Detects when a user enables DNS-over-HTTPS. This can be used to hide internet activity or be used to hide the process of exfiltrating data. With this enabled organization will lose visibility into data such as query type, response and originating IP that are used to determine bad actors. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_dns_over_https_enabled.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_dns_over_https_enabled.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- DefenseEvasion
+query: |-
+  DeviceRegistryEvents
+  | where (RegistryValueData =~ "secure" and RegistryKey endswith "\\SOFTWARE\\Google\\Chrome\\DnsOverHttpsMode") or (RegistryValueData =~ "DWORD (0x00000001)" and RegistryKey endswith "\\SOFTWARE\\Policies\\Microsoft\\Edge\\BuiltInDnsClientEnabled") or (RegistryValueData =~ "DWORD (0x00000001)" and RegistryKey endswith "\\SOFTWARE\\Policies\\Mozilla\\Firefox\\DNSOverHTTPS\\Enabled")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1140
+- T1112
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

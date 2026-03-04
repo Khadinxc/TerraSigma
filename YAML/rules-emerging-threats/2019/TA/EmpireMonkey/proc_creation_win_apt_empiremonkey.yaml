@@ -1,0 +1,40 @@
+id: 9cf0ff94-b649-5c18-aaa4-cac5ba5bb285
+name: Potential EmpireMonkey Activity
+description: 'Detects potential EmpireMonkey APT activity Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/EmpireMonkey/proc_creation_win_apt_empiremonkey.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/EmpireMonkey/proc_creation_win_apt_empiremonkey.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine contains "/e:jscript" and ProcessCommandLine contains "\\Local\\Temp\\Errors.bat"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1218
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

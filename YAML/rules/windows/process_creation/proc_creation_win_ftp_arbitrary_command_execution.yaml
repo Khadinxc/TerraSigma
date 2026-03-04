@@ -1,0 +1,48 @@
+id: e77ea81b-5eab-5783-8d5c-b93151922632
+name: Potential Arbitrary Command Execution Via FTP.EXE
+description: 'Detects execution of "ftp.exe" script with the "-s" or "/s" flag and any child processes ran by "ftp.exe". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ftp_arbitrary_command_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ftp_arbitrary_command_execution.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where InitiatingProcessFolderPath endswith "\\ftp.exe" or ((ProcessCommandLine contains "-s:" or ProcessCommandLine contains "/s:" or ProcessCommandLine contains "–s:" or ProcessCommandLine contains "—s:" or ProcessCommandLine contains "―s:") and (FolderPath endswith "\\ftp.exe" or ProcessVersionInfoOriginalFileName =~ "ftp.exe"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+- T1202
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

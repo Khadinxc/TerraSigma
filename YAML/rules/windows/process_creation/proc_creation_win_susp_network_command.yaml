@@ -1,0 +1,40 @@
+id: 566bb0c7-6019-5bda-a0d7-0e69b150a45a
+name: Suspicious Network Command
+description: 'Adversaries may look for details about the network configuration and settings of systems they access or through information discovery of remote systems Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_network_command.yml - Administrator, hotline ask to user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_network_command.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine matches regex "ipconfig\\s+/all" or ProcessCommandLine matches regex "netsh\\s+interface show interface" or ProcessCommandLine matches regex "arp\\s+-a" or ProcessCommandLine matches regex "nbtstat\\s+-n" or ProcessCommandLine matches regex "net\\s+config" or ProcessCommandLine matches regex "route\\s+print"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1016
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

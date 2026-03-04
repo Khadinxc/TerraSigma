@@ -1,0 +1,50 @@
+id: 4b731ed4-52c8-59c5-89ca-1c19a8944b18
+name: Scheduled Task Creation Masquerading as System Processes
+description: 'Detects the creation of scheduled tasks that involve system processes, which may indicate malicious actors masquerading as or abusing these processes to execute payloads or maintain persistence. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_system_process.yml - Legitimate system administration tasks scheduling trusted system processes. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_system_process.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Execution
+- Persistence
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains " audiodg" or ProcessCommandLine contains " conhost" or ProcessCommandLine contains " dwm.exe" or ProcessCommandLine contains " explorer" or ProcessCommandLine contains " lsass" or ProcessCommandLine contains " lsm" or ProcessCommandLine contains " mmc" or ProcessCommandLine contains " msiexec" or ProcessCommandLine contains " regsvr32" or ProcessCommandLine contains " rundll32" or ProcessCommandLine contains " services" or ProcessCommandLine contains " spoolsv" or ProcessCommandLine contains " svchost" or ProcessCommandLine contains " taskeng" or ProcessCommandLine contains " taskhost" or ProcessCommandLine contains " wininit" or ProcessCommandLine contains " winlogon") and (ProcessCommandLine contains " -create " or ProcessCommandLine contains " /create " or ProcessCommandLine contains " –create " or ProcessCommandLine contains " —create " or ProcessCommandLine contains " ―create ")) and (FolderPath endswith "\\schtasks.exe" or ProcessVersionInfoOriginalFileName =~ "schtasks.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1053
+- T1036
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

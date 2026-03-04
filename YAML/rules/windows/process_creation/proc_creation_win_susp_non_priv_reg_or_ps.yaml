@@ -1,0 +1,41 @@
+id: afae84ef-411c-5873-bb67-9cbdc48c3752
+name: Non-privileged Usage of Reg or Powershell
+description: 'Search for usage of reg or Powershell by non-privileged users to modify service configuration in registry Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_non_priv_reg_or_ps.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_non_priv_reg_or_ps.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "reg " and ProcessCommandLine contains "add") or (ProcessCommandLine contains "powershell" or ProcessCommandLine contains "set-itemproperty" or ProcessCommandLine contains " sp " or ProcessCommandLine contains "new-itemproperty")) and ((ProcessCommandLine contains "ImagePath" or ProcessCommandLine contains "FailureCommand" or ProcessCommandLine contains "ServiceDLL") and (ProcessCommandLine contains "ControlSet" and ProcessCommandLine contains "Services") and (ProcessIntegrityLevel in~ ("Medium", "S-1-16-8192")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1112
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

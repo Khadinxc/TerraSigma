@@ -1,0 +1,45 @@
+id: 53634dca-d03a-5994-ae80-ba1e33a8b959
+name: Suspicious New Service Creation
+description: 'Detects creation of a new service via "sc" command or the powershell "new-service" cmdlet with suspicious binary paths Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_service_creation.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_service_creation.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- PrivilegeEscalation
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "New-Service" and ProcessCommandLine contains "-BinaryPathName") or ((ProcessCommandLine contains "create" and ProcessCommandLine contains "binPath=") and FolderPath endswith "\\sc.exe")) and (ProcessCommandLine contains "powershell" or ProcessCommandLine contains "mshta" or ProcessCommandLine contains "wscript" or ProcessCommandLine contains "cscript" or ProcessCommandLine contains "svchost" or ProcessCommandLine contains "dllhost" or ProcessCommandLine contains "cmd " or ProcessCommandLine contains "cmd.exe /c" or ProcessCommandLine contains "cmd.exe /k" or ProcessCommandLine contains "cmd.exe /r" or ProcessCommandLine contains "rundll32" or ProcessCommandLine contains "C:\\Users\\Public" or ProcessCommandLine contains "\\Downloads\\" or ProcessCommandLine contains "\\Desktop\\" or ProcessCommandLine contains "\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\" or ProcessCommandLine contains "C:\\Windows\\TEMP\\" or ProcessCommandLine contains "\\AppData\\Local\\Temp")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1543
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

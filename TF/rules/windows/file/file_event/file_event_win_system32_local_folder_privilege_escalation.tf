@@ -1,0 +1,72 @@
+resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_system32_local_folder_privilege_escalation" {
+  name                       = "file_event_win_system32_local_folder_privilege_escalation"
+  log_analytics_workspace_id = var.workspace_id
+  display_name               = "Potential Privilege Escalation Attempt Via .Exe.Local Technique"
+  description                = "Detects potential privilege escalation attempt via the creation of the \"*.Exe.Local\" folder inside the \"System32\" directory in order to sideload \"comctl32.dll\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_system32_local_folder_privilege_escalation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_system32_local_folder_privilege_escalation.yml"
+  severity                   = "High"
+  query                      = <<QUERY
+DeviceFileEvents
+| where FolderPath endswith "\\comctl32.dll" and (FolderPath startswith "C:\\Windows\\System32\\logonUI.exe.local" or FolderPath startswith "C:\\Windows\\System32\\werFault.exe.local" or FolderPath startswith "C:\\Windows\\System32\\consent.exe.local" or FolderPath startswith "C:\\Windows\\System32\\narrator.exe.local" or FolderPath startswith "C:\\Windows\\System32\\wermgr.exe.local")
+QUERY
+  query_frequency            = "PT1H"
+  query_period               = "PT1H"
+  trigger_operator           = "GreaterThan"
+  trigger_threshold          = 0
+  suppression_enabled        = false
+  suppression_duration       = "PT5H"
+  tactics                    = ["DefenseEvasion", "Persistence", "PrivilegeEscalation"]
+  enabled                    = true
+
+  incident {
+    create_incident_enabled = true
+    grouping {
+      enabled                 = false
+      lookback_duration       = "PT5H"
+      reopen_closed_incidents = false
+      entity_matching_method  = "AllEntities"
+      by_entities             = []
+      by_alert_details        = []
+      by_custom_details       = []
+    }
+  }
+
+  event_grouping {
+    aggregation_method = "SingleAlert"
+  }
+
+  entity_mapping {
+    entity_type = "Account"
+    field_mapping {
+      identifier  = "Name"
+      column_name = "InitiatingProcessAccountName"
+    }
+    field_mapping {
+      identifier  = "NTDomain"
+      column_name = "InitiatingProcessAccountDomain"
+    }
+    field_mapping {
+      identifier  = "Sid"
+      column_name = "InitiatingProcessAccountSid"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "Host"
+    field_mapping {
+      identifier  = "HostName"
+      column_name = "DeviceName"
+    }
+    field_mapping {
+      identifier  = "AzureID"
+      column_name = "DeviceId"
+    }
+  }
+
+  entity_mapping {
+    entity_type = "File"
+    field_mapping {
+      identifier  = "Directory"
+      column_name = "FolderPath"
+    }
+  }
+}

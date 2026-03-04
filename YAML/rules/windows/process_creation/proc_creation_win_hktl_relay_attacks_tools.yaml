@@ -1,0 +1,46 @@
+id: 15f588c1-f6bb-5230-b2cb-3129ccfa879b
+name: Potential SMB Relay Attack Tool Execution
+description: 'Detects different hacktools used for relay attacks on Windows for privilege escalation Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_relay_attacks_tools.yml - Legitimate files with these rare hacktool names | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_relay_attacks_tools.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Collection
+- Execution
+- CredentialAccess
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains ".exe -c \"{" and ProcessCommandLine endswith "}\" -z") or (FolderPath contains "PetitPotam" or FolderPath contains "RottenPotato" or FolderPath contains "HotPotato" or FolderPath contains "JuicyPotato" or FolderPath contains "\\just_dce_" or FolderPath contains "Juicy Potato" or FolderPath contains "\\temp\\rot.exe" or FolderPath contains "\\Potato.exe" or FolderPath contains "\\SpoolSample.exe" or FolderPath contains "\\Responder.exe" or FolderPath contains "\\smbrelayx" or FolderPath contains "\\ntlmrelayx" or FolderPath contains "\\LocalPotato") or (ProcessCommandLine contains "Invoke-Tater" or ProcessCommandLine contains " smbrelay" or ProcessCommandLine contains " ntlmrelay" or ProcessCommandLine contains "cme smb " or ProcessCommandLine contains " /ntlm:NTLMhash " or ProcessCommandLine contains "Invoke-PetitPotam" or (ProcessCommandLine contains ".exe -t " and ProcessCommandLine contains " -p "))) and (not((FolderPath contains "HotPotatoes6" or FolderPath contains "HotPotatoes7" or FolderPath contains "HotPotatoes ")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1557
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

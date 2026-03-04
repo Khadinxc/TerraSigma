@@ -1,0 +1,45 @@
+id: 1a286d2f-3be4-56e1-8529-0536c51d998b
+name: Turla Group Lateral Movement
+description: 'Detects automated lateral movement by Turla group Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2014/TA/Turla/proc_creation_win_apt_turla_commands_critical.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2014/TA/Turla/proc_creation_win_apt_turla_commands_critical.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- LateralMovement
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine startswith "net use \\\\%DomainController%\\C$ \"P@ssw0rd\" " or (ProcessCommandLine contains "dir c:\\" and ProcessCommandLine contains ".doc" and ProcessCommandLine contains " /s") or (ProcessCommandLine contains "dir %TEMP%\\" and ProcessCommandLine contains ".exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+- T1021
+- T1083
+- T1135
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

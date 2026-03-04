@@ -1,0 +1,38 @@
+id: 63f18a42-8f55-5c8f-832d-31b11c40350c
+name: Potential Binary Or Script Dropper Via PowerShell
+description: 'Detects PowerShell creating a binary executable or a script file. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_powershell_drop_binary_or_script.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_powershell_drop_binary_or_script.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+query: |-
+  DeviceFileEvents
+  | where ((InitiatingProcessFolderPath endswith "\\powershell.exe" or InitiatingProcessFolderPath endswith "\\powershell_ise.exe" or InitiatingProcessFolderPath endswith "\\pwsh.exe") and (FolderPath endswith ".bat" or FolderPath endswith ".chm" or FolderPath endswith ".cmd" or FolderPath endswith ".com" or FolderPath endswith ".dll" or FolderPath endswith ".exe" or FolderPath endswith ".hta" or FolderPath endswith ".jar" or FolderPath endswith ".js" or FolderPath endswith ".ocx" or FolderPath endswith ".scr" or FolderPath endswith ".sys" or FolderPath endswith ".vbe" or FolderPath endswith ".vbs" or FolderPath endswith ".wsf")) and (not(((FolderPath endswith "\\Microsoft.PackageManagement.NuGetProvider.dll" and FolderPath startswith "C:\\Program Files\\PackageManagement\\ProviderAssemblies\\nuget\\") or ((FolderPath endswith ".dll" or FolderPath endswith ".exe") and (FolderPath startswith "C:\\Windows\\Temp\\" or FolderPath startswith "C:\\Windows\\SystemTemp\\")) or (FolderPath contains "\\WindowsPowerShell\\Modules\\" and FolderPath endswith ".dll" and FolderPath startswith "C:\\Users\\") or (FolderPath contains "\\AppData\\Local\\Temp\\" and (FolderPath endswith ".dll" or FolderPath endswith ".exe") and FolderPath startswith "C:\\Users\\"))))
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

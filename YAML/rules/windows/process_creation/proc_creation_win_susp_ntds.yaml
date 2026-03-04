@@ -1,0 +1,44 @@
+id: 25e6fcb5-bf9a-51f6-a469-3a3f44b1cfdb
+name: Suspicious Process Patterns NTDS.DIT Exfil
+description: 'Detects suspicious process patterns used in NTDS.DIT exfiltration Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_ntds.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_ntds.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CredentialAccess
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "ac i ntds" and ProcessCommandLine contains "create full") or (ProcessCommandLine contains "/c copy " and ProcessCommandLine contains "\\windows\\ntds\\ntds.dit") or (ProcessCommandLine contains "activate instance ntds" and ProcessCommandLine contains "create full") or (ProcessCommandLine contains "powershell" and ProcessCommandLine contains "ntds.dit") or ((FolderPath endswith "\\NTDSDump.exe" or FolderPath endswith "\\NTDSDumpEx.exe") or (ProcessCommandLine contains "ntds.dit" and ProcessCommandLine contains "system.hiv") or ProcessCommandLine contains "NTDSgrab.ps1")) or (((InitiatingProcessFolderPath contains "\\apache" or InitiatingProcessFolderPath contains "\\tomcat" or InitiatingProcessFolderPath contains "\\AppData\\" or InitiatingProcessFolderPath contains "\\Temp\\" or InitiatingProcessFolderPath contains "\\Public\\" or InitiatingProcessFolderPath contains "\\PerfLogs\\") or (FolderPath contains "\\apache" or FolderPath contains "\\tomcat" or FolderPath contains "\\AppData\\" or FolderPath contains "\\Temp\\" or FolderPath contains "\\Public\\" or FolderPath contains "\\PerfLogs\\")) and ProcessCommandLine contains "ntds.dit")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1003
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

@@ -1,0 +1,46 @@
+id: ac849d5d-b7e5-542f-a949-4077ad8d67c1
+name: Copying Sensitive Files with Credential Data
+description: 'Files with well-known filenames (sensitive files with credential data) copying Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_esentutl_sensitive_file_copy.yml - Copying sensitive files for legitimate use (eg. backup) or forensic investigation by legitimate incident responder or forensic investigator. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_esentutl_sensitive_file_copy.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CredentialAccess
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "vss" or ProcessCommandLine contains " -m " or ProcessCommandLine contains " /m " or ProcessCommandLine contains " –m " or ProcessCommandLine contains " —m " or ProcessCommandLine contains " ―m " or ProcessCommandLine contains " -y " or ProcessCommandLine contains " /y " or ProcessCommandLine contains " –y " or ProcessCommandLine contains " —y " or ProcessCommandLine contains " ―y ") and (FolderPath endswith "\\esentutl.exe" or ProcessVersionInfoOriginalFileName =~ "\\esentutl.exe")) or (ProcessCommandLine contains "\\config\\RegBack\\sam" or ProcessCommandLine contains "\\config\\RegBack\\security" or ProcessCommandLine contains "\\config\\RegBack\\system" or ProcessCommandLine contains "\\config\\sam" or ProcessCommandLine contains "\\config\\security" or ProcessCommandLine contains "\\config\\system " or ProcessCommandLine contains "\\repair\\sam" or ProcessCommandLine contains "\\repair\\security" or ProcessCommandLine contains "\\repair\\system" or ProcessCommandLine contains "\\windows\\ntds\\ntds.dit")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1003
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

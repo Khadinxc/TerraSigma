@@ -1,0 +1,50 @@
+id: e780a966-0d92-55e6-81bb-6cdd0d3fb380
+name: PowerShell MSI Install via WindowsInstaller COM From Remote Location
+description: 'Detects the execution of PowerShell commands that attempt to install MSI packages via the Windows Installer COM object (`WindowsInstaller.Installer`) hosted remotely. This could be indication of malicious software deployment or lateral movement attempts using Windows Installer functionality. And the usage of WindowsInstaller COM object rather than msiexec could be an attempt to bypass the detection. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_comobject_msi_remote.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_comobject_msi_remote.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- DefenseEvasion
+- CommandAndControl
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "-ComObject" and ProcessCommandLine contains "InstallProduct(") and ((FolderPath endswith "\\powershell_ise.exe" or FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe") or (ProcessVersionInfoOriginalFileName in~ ("PowerShell_ISE.EXE", "PowerShell.EXE", "pwsh.dll"))) and (ProcessCommandLine contains "http" or ProcessCommandLine contains "\\\\")) and (not((ProcessCommandLine contains "://127.0.0.1" or ProcessCommandLine contains "://localhost")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+- T1218
+- T1105
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

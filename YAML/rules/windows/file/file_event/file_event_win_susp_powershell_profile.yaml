@@ -1,0 +1,41 @@
+id: 3ea81a75-624a-524f-8c51-195febee6c3d
+name: PowerShell Profile Modification
+description: 'Detects the creation or modification of a powershell profile which could indicate suspicious activity as the profile can be used as a mean of persistence Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_powershell_profile.yml - System administrator creating Powershell profile manually | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_powershell_profile.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- PrivilegeEscalation
+query: |-
+  DeviceFileEvents
+  | where FolderPath endswith "\\Microsoft.PowerShell_profile.ps1" or FolderPath endswith "\\PowerShell\\profile.ps1" or FolderPath endswith "\\Program Files\\PowerShell\\7-preview\\profile.ps1" or FolderPath endswith "\\Program Files\\PowerShell\\7\\profile.ps1" or FolderPath endswith "\\Windows\\System32\\WindowsPowerShell\\v1.0\\profile.ps1" or FolderPath endswith "\\WindowsPowerShell\\profile.ps1"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1546
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

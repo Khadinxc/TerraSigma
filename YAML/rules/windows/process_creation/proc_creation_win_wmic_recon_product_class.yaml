@@ -1,0 +1,48 @@
+id: c978cbfb-e1d6-517a-9e8b-4604e1a1d778
+name: Potential Product Class Reconnaissance Via Wmic.EXE
+description: 'Detects the execution of WMIC in order to get a list of firewall, antivirus and antispywware products. Adversaries often enumerate security products installed on a system to identify security controls and potential ways to evade detection or disable protection mechanisms. This information helps them plan their next attack steps and choose appropriate techniques to bypass security measures. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_product_class.yml - Legitimate use of wmic.exe for reconnaissance of firewall, antivirus and antispywware products. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_product_class.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "AntiVirusProduct" or ProcessCommandLine contains "AntiSpywareProduct" or ProcessCommandLine contains "FirewallProduct") and (FolderPath endswith "\\wmic.exe" or ProcessVersionInfoOriginalFileName =~ "wmic.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1047
+- T1082
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

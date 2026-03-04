@@ -1,0 +1,45 @@
+id: 19af9b11-b8a4-5035-b877-dee72ce5d88a
+name: Potential DLL Injection Or Execution Using Tracker.exe
+description: 'Detects potential DLL injection and execution using "Tracker.exe" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_tracker.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_tracker.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains " /d " or ProcessCommandLine contains " /c ") and (FolderPath endswith "\\tracker.exe" or ProcessVersionInfoFileDescription =~ "Tracker")) and (not((ProcessCommandLine contains " /ERRORREPORT:PROMPT " or (InitiatingProcessFolderPath endswith "\\Msbuild\\Current\\Bin\\MSBuild.exe" or InitiatingProcessFolderPath endswith "\\Msbuild\\Current\\Bin\\amd64\\MSBuild.exe"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1055
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

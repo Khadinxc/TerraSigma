@@ -1,0 +1,49 @@
+id: 5749a928-46cf-543e-9d50-37aae847f024
+name: Potentially Suspicious Desktop Background Change Using Reg.EXE
+description: 'Detects the execution of "reg.exe" to alter registry keys that would replace the user''s desktop background. This is a common technique used by malware to change the desktop background to a ransom note or other image. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_desktop_background_change.yml - Administrative scripts that change the desktop background to a company logo or other image. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_desktop_background_change.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- DefenseEvasion
+- Impact
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "add" and (FolderPath endswith "\\reg.exe" or ProcessVersionInfoOriginalFileName =~ "reg.exe")) and (ProcessCommandLine contains "Control Panel\\Desktop" or ProcessCommandLine contains "CurrentVersion\\Policies\\ActiveDesktop" or ProcessCommandLine contains "CurrentVersion\\Policies\\System") and ((ProcessCommandLine contains "/v NoChangingWallpaper" and ProcessCommandLine contains "/d 1") or (ProcessCommandLine contains "/v Wallpaper" and ProcessCommandLine contains "/t REG_SZ") or (ProcessCommandLine contains "/v WallpaperStyle" and ProcessCommandLine contains "/d 2"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1112
+- T1491
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

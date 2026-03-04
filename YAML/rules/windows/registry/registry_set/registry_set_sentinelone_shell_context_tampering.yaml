@@ -1,0 +1,42 @@
+id: bce66680-1a9c-5786-adcc-02f1e8aa7721
+name: Potential SentinelOne Shell Context Menu Scan Command Tampering
+description: 'Detects potentially suspicious changes to the SentinelOne context menu scan command by a process other than SentinelOne. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_sentinelone_shell_context_tampering.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_sentinelone_shell_context_tampering.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+query: |-
+  DeviceRegistryEvents
+  | where RegistryKey endswith "\\shell\\SentinelOneScan\\command*" and (not(((InitiatingProcessFolderPath endswith "C:\\Program Files\\SentinelOne\\" or InitiatingProcessFolderPath endswith "C:\\Program Files (x86)\\SentinelOne\\") or (RegistryValueData contains "\\SentinelScanFromContextMenu.exe" and (RegistryValueData startswith "C:\\Program Files\\SentinelOne\\Sentinel Agent" or RegistryValueData startswith "C:\\Program Files (x86)\\SentinelOne\\Sentinel Agent")))))
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

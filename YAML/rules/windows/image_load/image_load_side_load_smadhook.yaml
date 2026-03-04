@@ -1,0 +1,42 @@
+id: e9279bee-983c-5e8a-a36c-ee5c3119ac5f
+name: Potential SmadHook.DLL Sideloading
+description: 'Detects potential DLL sideloading of "SmadHook.dll", a DLL used by SmadAV antivirus Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_smadhook.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_smadhook.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- DefenseEvasion
+- PrivilegeEscalation
+query: |-
+  DeviceImageLoadEvents
+  | where (FolderPath endswith "\\SmadHook32c.dll" or FolderPath endswith "\\SmadHook64c.dll") and (not(((InitiatingProcessFolderPath in~ ("C:\\Program Files (x86)\\SMADAV\\SmadavProtect32.exe", "C:\\Program Files (x86)\\SMADAV\\SmadavProtect64.exe", "C:\\Program Files\\SMADAV\\SmadavProtect32.exe", "C:\\Program Files\\SMADAV\\SmadavProtect64.exe")) and (FolderPath startswith "C:\\Program Files (x86)\\SMADAV\\" or FolderPath startswith "C:\\Program Files\\SMADAV\\"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1574
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

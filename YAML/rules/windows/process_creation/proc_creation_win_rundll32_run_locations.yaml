@@ -1,0 +1,40 @@
+id: 34de17ad-15ec-58ae-bd85-50a2578f37a8
+name: Suspicious Process Start Locations
+description: 'Detects suspicious process run from unusual locations Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_run_locations.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_run_locations.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (FolderPath contains ":\\RECYCLER\\" or FolderPath contains ":\\SystemVolumeInformation\\") or (FolderPath startswith "C:\\Windows\\Tasks\\" or FolderPath startswith "C:\\Windows\\debug\\" or FolderPath startswith "C:\\Windows\\fonts\\" or FolderPath startswith "C:\\Windows\\help\\" or FolderPath startswith "C:\\Windows\\drivers\\" or FolderPath startswith "C:\\Windows\\addins\\" or FolderPath startswith "C:\\Windows\\cursors\\" or FolderPath startswith "C:\\Windows\\system32\\tasks\\")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1036
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

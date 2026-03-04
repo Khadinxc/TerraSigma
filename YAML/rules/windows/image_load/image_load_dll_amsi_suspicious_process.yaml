@@ -1,0 +1,38 @@
+id: 01d1ea62-97c8-5a7f-94a7-0722f42eb5cf
+name: Amsi.DLL Loaded Via LOLBIN Process
+description: 'Detects loading of "Amsi.dll" by a living of the land process. This could be an indication of a "PowerShell without PowerShell" attack Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_amsi_suspicious_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_amsi_suspicious_process.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceImageLoadEvents
+  | where FolderPath endswith "\\amsi.dll" and (InitiatingProcessFolderPath endswith "\\ExtExport.exe" or InitiatingProcessFolderPath endswith "\\odbcconf.exe" or InitiatingProcessFolderPath endswith "\\rundll32.exe")
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

@@ -1,0 +1,40 @@
+id: 5400ae41-a81f-5c4e-96ba-e4a9a25a688b
+name: SysKey Registry Keys Access
+description: 'Detects handle requests and access operations to specific registry keys to calculate the SysKey Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_syskey_registry_access.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_syskey_registry_access.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceRegistryEvents
+  | where RegistryKey endswith "lsa\\JD" or RegistryKey endswith "lsa\\GBG" or RegistryKey endswith "lsa\\Skew1" or RegistryKey endswith "lsa\\Data"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1012
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

@@ -1,0 +1,40 @@
+id: cc322334-42c5-5413-a64c-68d5fe4d6dc0
+name: Uncommon Connection to Active Directory Web Services
+description: 'Detects uncommon network connections to the Active Directory Web Services (ADWS) from processes not typically associated with ADWS management. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_adws_unusual_connection.yml - ADWS is used by a number of legitimate applications that need to interact with Active Directory. These applications should be added to the allow-listing to avoid false positives. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_adws_unusual_connection.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceNetworkEvents
+  | where RemotePort == 9389 and (not((InitiatingProcessFolderPath =~ "C:\\Windows\\system32\\dsac.exe" or InitiatingProcessFolderPath =~ "C:\\Program Files\\Microsoft Monitoring Agent\\" or (InitiatingProcessFolderPath startswith "C:\\Program Files\\PowerShell\\7\\pwsh.exe" or InitiatingProcessFolderPath startswith "C:\\Program Files\\PowerShell\\7-preview\\pwsh.ex" or InitiatingProcessFolderPath startswith "C:\\Windows\\System32\\WindowsPowerShell\\" or InitiatingProcessFolderPath startswith "C:\\Windows\\SysWOW64\\WindowsPowerShell\\"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1087
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: IP
+  fieldMappings:
+  - identifier: Address
+    columnName: RemoteIP
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceNetworkEvents

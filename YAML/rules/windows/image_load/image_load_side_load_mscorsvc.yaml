@@ -1,0 +1,42 @@
+id: 2542ecba-3f3a-5807-8e0d-a34c2c608d90
+name: Potential DLL Sideloading Of MsCorSvc.DLL
+description: 'Detects potential DLL sideloading of "mscorsvc.dll". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_mscorsvc.yml - Legitimate applications loading their own versions of the DLL mentioned in this rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_mscorsvc.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- Persistence
+- DefenseEvasion
+query: |-
+  DeviceImageLoadEvents
+  | where FolderPath endswith "\\mscorsvc.dll" and (not((FolderPath startswith "C:\\Windows\\Microsoft.NET\\Framework\\" or FolderPath startswith "C:\\Windows\\Microsoft.NET\\Framework64\\" or FolderPath startswith "C:\\Windows\\Microsoft.NET\\FrameworkArm\\" or FolderPath startswith "C:\\Windows\\Microsoft.NET\\FrameworkArm64\\" or FolderPath startswith "C:\\Windows\\WinSxS\\")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1574
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

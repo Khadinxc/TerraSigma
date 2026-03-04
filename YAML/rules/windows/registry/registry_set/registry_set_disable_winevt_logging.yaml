@@ -1,0 +1,44 @@
+id: f1975051-1597-53c6-b242-13b1692eba51
+name: Disable Windows Event Logging Via Registry
+description: 'Detects tampering with the "Enabled" registry key in order to disable Windows logging of a Windows event channel Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_winevt_logging.yml - Rare falsepositives may occur from legitimate administrators disabling specific event log for troubleshooting | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_winevt_logging.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceRegistryEvents
+  | where (RegistryValueData =~ "DWORD (0x00000000)" and RegistryKey endswith "\\Microsoft\\Windows\\CurrentVersion\\WINEVT\\Channels*" and RegistryKey endswith "\\Enabled") and (not(((InitiatingProcessFolderPath endswith "\\TiWorker.exe" and InitiatingProcessFolderPath startswith "C:\\Windows\\winsxs\\") or (InitiatingProcessFolderPath =~ "C:\\Windows\\System32\\svchost.exe" and (RegistryKey contains "\\Microsoft\\Windows\\CurrentVersion\\WINEVT\\Channels\\Microsoft-Windows-FileInfoMinifilter" or RegistryKey endswith "\\Microsoft\\Windows\\CurrentVersion\\WINEVT\\Channels\\Microsoft-Windows-ASN1*" or RegistryKey endswith "\\Microsoft\\Windows\\CurrentVersion\\WINEVT\\Channels\\Microsoft-Windows-Kernel-AppCompat*" or RegistryKey endswith "\\Microsoft\\Windows\\CurrentVersion\\WINEVT\\Channels\\Microsoft-Windows-Runtime\\Error*" or RegistryKey endswith "\\Microsoft\\Windows\\CurrentVersion\\WINEVT\\Channels\\Microsoft-Windows-CAPI2/Operational*")) or (InitiatingProcessFolderPath =~ "C:\\Windows\\servicing\\TrustedInstaller.exe" and RegistryKey contains "\\Microsoft\\Windows\\CurrentVersion\\WINEVT\\Channels\\Microsoft-Windows-Compat-Appraiser") or InitiatingProcessFolderPath =~ "C:\\Windows\\system32\\wevtutil.exe"))) and (not((InitiatingProcessFolderPath =~ "" or isnull(InitiatingProcessFolderPath))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1562
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

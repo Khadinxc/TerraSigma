@@ -1,0 +1,39 @@
+id: 9df92c0e-dd8d-5734-b4b6-29556775570e
+name: Suspicious New Instance Of An Office COM Object
+description: 'Detects an svchost process spawning an instance of an office application. This happens when the initial word application creates an instance of one of the Office COM objects such as ''Word.Application'', ''Excel.Application'', etc. This can be used by malicious actors to create malicious Office documents with macros on the fly. (See vba2clr project in the references) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_office_svchost_parent.yml - Legitimate usage of office automation via scripting | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_office_svchost_parent.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (FolderPath endswith "\\eqnedt32.exe" or FolderPath endswith "\\excel.exe" or FolderPath endswith "\\msaccess.exe" or FolderPath endswith "\\mspub.exe" or FolderPath endswith "\\powerpnt.exe" or FolderPath endswith "\\visio.exe" or FolderPath endswith "\\winword.exe") and InitiatingProcessFolderPath endswith "\\svchost.exe"
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

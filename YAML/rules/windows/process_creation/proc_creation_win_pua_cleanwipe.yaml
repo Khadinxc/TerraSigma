@@ -1,0 +1,44 @@
+id: 2f97b25a-fc7d-5a55-a578-523abeeee9c7
+name: PUA - CleanWipe Execution
+description: 'Detects the use of CleanWipe a tool usually used to delete Symantec antivirus. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_cleanwipe.yml - Legitimate administrative use (Should be investigated either way) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_cleanwipe.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where FolderPath endswith "\\SepRemovalToolNative_x64.exe" or (ProcessCommandLine contains "--uninstall" and FolderPath endswith "\\CATClean.exe") or (ProcessCommandLine contains "-r" and FolderPath endswith "\\NetInstaller.exe") or ((ProcessCommandLine contains "/uninstall" and ProcessCommandLine contains "/enterprise") and FolderPath endswith "\\WFPUnins.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1562
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

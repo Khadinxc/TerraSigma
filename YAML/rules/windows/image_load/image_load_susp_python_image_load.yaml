@@ -1,0 +1,40 @@
+id: c6a105b2-f165-56fa-88bf-02a9d5a38da6
+name: Python Image Load By Non-Python Process
+description: 'Detects the image load of "Python Core" by a non-Python process. This might be indicative of a execution of executable that has been bundled from Python code. Various tools like Py2Exe, PyInstaller, and cx_Freeze are used to bundle Python code into standalone executables. Threat actors often use these tools to bundle malicious Python scripts into executables, sometimes to obfuscate the code or to bypass security measures. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_susp_python_image_load.yml - Legitimate Py2Exe Binaries - Known false positive caused with Python Anaconda - Various legitimate software is bundled from Python code into executables | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_susp_python_image_load.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceImageLoadEvents
+  | where InitiatingProcessVersionInfoFileDescription =~ "Python Core" and (not((InitiatingProcessFolderPath contains "Python" or (InitiatingProcessFolderPath startswith "C:\\Program Files\\" or InitiatingProcessFolderPath startswith "C:\\Program Files (x86)\\" or InitiatingProcessFolderPath startswith "C:\\ProgramData\\Anaconda3\\")))) and (not(isnull(InitiatingProcessFolderPath)))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1027
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

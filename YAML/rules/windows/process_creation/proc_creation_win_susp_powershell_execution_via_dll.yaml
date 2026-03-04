@@ -1,0 +1,46 @@
+id: 1af04b1f-8647-5dfc-be37-3c9011ce800e
+name: Potential PowerShell Execution Via DLL
+description: 'Detects potential PowerShell execution from a DLL instead of the usual PowerShell process as seen used in PowerShdll. This detection assumes that PowerShell commands are passed via the CommandLine. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_powershell_execution_via_dll.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_powershell_execution_via_dll.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "Default.GetString" or ProcessCommandLine contains "DownloadString" or ProcessCommandLine contains "FromBase64String" or ProcessCommandLine contains "ICM " or ProcessCommandLine contains "IEX " or ProcessCommandLine contains "Invoke-Command" or ProcessCommandLine contains "Invoke-Expression") and ((FolderPath endswith "\\InstallUtil.exe" or FolderPath endswith "\\RegAsm.exe" or FolderPath endswith "\\RegSvcs.exe" or FolderPath endswith "\\regsvr32.exe" or FolderPath endswith "\\rundll32.exe") or (ProcessVersionInfoOriginalFileName in~ ("InstallUtil.exe", "RegAsm.exe", "RegSvcs.exe", "REGSVR32.EXE", "RUNDLL32.EXE")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1218
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

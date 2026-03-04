@@ -1,0 +1,49 @@
+id: c2e7103e-76ea-55a6-8913-c3a9286ff691
+name: MMC Executing Files with Reversed Extensions Using RTLO Abuse
+description: 'Detects malicious behavior where the MMC utility (`mmc.exe`) executes files with reversed extensions caused by Right-to-Left Override (RLO) abuse, disguising them as document formats. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mmc_rlo_abuse_pattern.yml - Legitimate administrative actions using MMC to execute misnamed `.msc` files. - Unconventional but non-malicious usage of RLO or reversed extensions. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mmc_rlo_abuse_pattern.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "cod.msc" or ProcessCommandLine contains "fdp.msc" or ProcessCommandLine contains "ftr.msc" or ProcessCommandLine contains "lmth.msc" or ProcessCommandLine contains "slx.msc" or ProcessCommandLine contains "tdo.msc" or ProcessCommandLine contains "xcod.msc" or ProcessCommandLine contains "xslx.msc" or ProcessCommandLine contains "xtpp.msc") and (FolderPath endswith "\\mmc.exe" or ProcessVersionInfoOriginalFileName =~ "MMC.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1204
+- T1218
+- T1036
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

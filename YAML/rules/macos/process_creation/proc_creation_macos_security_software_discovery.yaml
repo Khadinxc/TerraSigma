@@ -1,0 +1,44 @@
+id: d20469b2-dc3a-5ae7-8dbc-448c80af0944
+name: Security Software Discovery - MacOs
+description: 'Detects usage of system utilities (only grep for now) to discover security software discovery Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_security_software_discovery.yml - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_security_software_discovery.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where FolderPath =~ "/usr/bin/grep" and ((ProcessCommandLine contains "nessusd" or ProcessCommandLine contains "santad" or ProcessCommandLine contains "CbDefense" or ProcessCommandLine contains "falcond" or ProcessCommandLine contains "td-agent" or ProcessCommandLine contains "packetbeat" or ProcessCommandLine contains "filebeat" or ProcessCommandLine contains "auditbeat" or ProcessCommandLine contains "osqueryd" or ProcessCommandLine contains "BlockBlock" or ProcessCommandLine contains "LuLu") or (ProcessCommandLine contains "Little" and ProcessCommandLine contains "Snitch"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1518
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

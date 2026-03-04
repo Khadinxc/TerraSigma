@@ -1,0 +1,40 @@
+id: b87c580d-eb86-5fbe-8fab-0aa8a82c1df4
+name: Process Execution From A Potentially Suspicious Folder
+description: 'Detects a potentially suspicious execution from an uncommon folder. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_execution_path.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_execution_path.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (FolderPath contains ":\\Perflogs\\" or FolderPath contains ":\\Users\\All Users\\" or FolderPath contains ":\\Users\\Default\\" or FolderPath contains ":\\Users\\NetworkService\\" or FolderPath contains ":\\Windows\\addins\\" or FolderPath contains ":\\Windows\\debug\\" or FolderPath contains ":\\Windows\\Fonts\\" or FolderPath contains ":\\Windows\\Help\\" or FolderPath contains ":\\Windows\\IME\\" or FolderPath contains ":\\Windows\\Media\\" or FolderPath contains ":\\Windows\\repair\\" or FolderPath contains ":\\Windows\\security\\" or FolderPath contains ":\\Windows\\System32\\Tasks\\" or FolderPath contains ":\\Windows\\Tasks\\" or FolderPath contains "$Recycle.bin" or FolderPath contains "\\config\\systemprofile\\" or FolderPath contains "\\Intel\\Logs\\" or FolderPath contains "\\RSA\\MachineKeys\\") and (not(((FolderPath endswith "\\CitrixReceiverUpdater.exe" and FolderPath startswith "C:\\Windows\\SysWOW64\\config\\systemprofile\\Citrix\\UpdaterBinaries\\") or FolderPath startswith "C:\\Users\\Public\\IBM\\ClientSolutions\\Start_Programs\\")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1036
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

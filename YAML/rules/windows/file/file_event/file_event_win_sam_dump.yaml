@@ -1,0 +1,40 @@
+id: ea6a44af-9dc4-59f4-b944-9b3d65852d90
+name: Potential SAM Database Dump
+description: 'Detects the creation of files that look like exports of the local SAM (Security Account Manager) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sam_dump.yml - Rare cases of administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sam_dump.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CredentialAccess
+query: |-
+  DeviceFileEvents
+  | where (FolderPath endswith "\\Temp\\sam" or FolderPath endswith "\\sam.sav" or FolderPath endswith "\\Intel\\sam" or FolderPath endswith "\\sam.hive" or FolderPath endswith "\\Perflogs\\sam" or FolderPath endswith "\\ProgramData\\sam" or FolderPath endswith "\\Users\\Public\\sam" or FolderPath endswith "\\AppData\\Local\\sam" or FolderPath endswith "\\AppData\\Roaming\\sam" or FolderPath endswith "_ShadowSteal.zip" or FolderPath endswith "\\Documents\\SAM.export" or FolderPath endswith ":\\sam") or (FolderPath contains "\\hive_sam_" or FolderPath contains "\\sam.save" or FolderPath contains "\\sam.export" or FolderPath contains "\\~reg_sam.save" or FolderPath contains "\\sam_backup" or FolderPath contains "\\sam.bck" or FolderPath contains "\\sam.backup")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1003
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

@@ -1,0 +1,40 @@
+id: 4756f140-9368-5245-bdca-6944f0eeb1c0
+name: Usage of Renamed Sysinternals Tools - RegistrySet
+description: 'Detects non-sysinternals tools setting the "accepteula" key which normally is set on sysinternals tool execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_renamed_sysinternals_eula_accepted.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_renamed_sysinternals_eula_accepted.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- ResourceDevelopment
+query: |-
+  DeviceRegistryEvents
+  | where ((RegistryKey contains "\\PsExec" or RegistryKey contains "\\ProcDump" or RegistryKey contains "\\Handle" or RegistryKey contains "\\LiveKd" or RegistryKey contains "\\Process Explorer" or RegistryKey contains "\\PsLoglist" or RegistryKey contains "\\PsPasswd" or RegistryKey contains "\\Active Directory Explorer") and RegistryKey endswith "\\EulaAccepted") and (not((InitiatingProcessFolderPath endswith "\\PsExec.exe" or InitiatingProcessFolderPath endswith "\\PsExec64.exe" or InitiatingProcessFolderPath endswith "\\procdump.exe" or InitiatingProcessFolderPath endswith "\\procdump64.exe" or InitiatingProcessFolderPath endswith "\\handle.exe" or InitiatingProcessFolderPath endswith "\\handle64.exe" or InitiatingProcessFolderPath endswith "\\livekd.exe" or InitiatingProcessFolderPath endswith "\\livekd64.exe" or InitiatingProcessFolderPath endswith "\\procexp.exe" or InitiatingProcessFolderPath endswith "\\procexp64.exe" or InitiatingProcessFolderPath endswith "\\psloglist.exe" or InitiatingProcessFolderPath endswith "\\psloglist64.exe" or InitiatingProcessFolderPath endswith "\\pspasswd.exe" or InitiatingProcessFolderPath endswith "\\pspasswd64.exe" or InitiatingProcessFolderPath endswith "\\ADExplorer.exe" or InitiatingProcessFolderPath endswith "\\ADExplorer64.exe"))) and (not(isnull(InitiatingProcessFolderPath)))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1588
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

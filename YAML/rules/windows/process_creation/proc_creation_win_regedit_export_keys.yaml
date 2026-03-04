@@ -1,0 +1,47 @@
+id: 0b68b0e6-4c79-5b91-9601-3d248bef6826
+name: Exports Registry Key To a File
+description: 'Detects the export of the target Registry key to a file. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regedit_export_keys.yml - Legitimate export of keys | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regedit_export_keys.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Exfiltration
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains " -E " or ProcessCommandLine contains " /E " or ProcessCommandLine contains " –E " or ProcessCommandLine contains " —E " or ProcessCommandLine contains " ―E ") and (FolderPath endswith "\\regedit.exe" or ProcessVersionInfoOriginalFileName =~ "REGEDIT.EXE")) and (not(((ProcessCommandLine contains "hklm" or ProcessCommandLine contains "hkey_local_machine") and (ProcessCommandLine endswith "\\system" or ProcessCommandLine endswith "\\sam" or ProcessCommandLine endswith "\\security"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1012
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

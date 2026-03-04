@@ -1,0 +1,48 @@
+id: 8e86f0eb-1abf-5bd9-b1ff-a4153472c84f
+name: Renamed PingCastle Binary Execution
+description: 'Detects the execution of a renamed "PingCastle" binary based on the PE metadata fields. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_pingcastle.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_pingcastle.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessVersionInfoOriginalFileName in~ ("PingCastleReporting.exe", "PingCastleCloud.exe", "PingCastle.exe")) or (ProcessCommandLine contains "--scanner aclcheck" or ProcessCommandLine contains "--scanner antivirus" or ProcessCommandLine contains "--scanner computerversion" or ProcessCommandLine contains "--scanner foreignusers" or ProcessCommandLine contains "--scanner laps_bitlocker" or ProcessCommandLine contains "--scanner localadmin" or ProcessCommandLine contains "--scanner nullsession" or ProcessCommandLine contains "--scanner nullsession-trust" or ProcessCommandLine contains "--scanner oxidbindings" or ProcessCommandLine contains "--scanner remote" or ProcessCommandLine contains "--scanner share" or ProcessCommandLine contains "--scanner smb" or ProcessCommandLine contains "--scanner smb3querynetwork" or ProcessCommandLine contains "--scanner spooler" or ProcessCommandLine contains "--scanner startup" or ProcessCommandLine contains "--scanner zerologon") or ProcessCommandLine contains "--no-enum-limit" or (ProcessCommandLine contains "--healthcheck" and ProcessCommandLine contains "--level Full") or (ProcessCommandLine contains "--healthcheck" and ProcessCommandLine contains "--server ")) and (not((FolderPath endswith "\\PingCastleReporting.exe" or FolderPath endswith "\\PingCastleCloud.exe" or FolderPath endswith "\\PingCastle.exe")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+- T1202
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

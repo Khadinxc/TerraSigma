@@ -1,0 +1,46 @@
+id: 030cc922-e491-5fae-aaaf-ecad39c1540d
+name: ETW Logging Disabled For rpcrt4.dll
+description: 'Detects changes to the "ExtErrorInformation" key in order to disable ETW logging for rpcrt4.dll Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_rpcrt4_etw_tamper.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_rpcrt4_etw_tamper.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- DefenseEvasion
+query: |-
+  DeviceRegistryEvents
+  | where (RegistryValueData in~ ("DWORD (0x00000000)", "DWORD (0x00000002)")) and RegistryKey endswith "\\Microsoft\\Windows NT\\Rpc\\ExtErrorInformation"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1112
+- T1562
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

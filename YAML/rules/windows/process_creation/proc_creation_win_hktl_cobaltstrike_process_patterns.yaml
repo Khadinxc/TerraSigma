@@ -1,0 +1,44 @@
+id: 2a333db8-d1ee-531c-9dea-12d9fb8ba8c7
+name: Potential CobaltStrike Process Patterns
+description: 'Detects potential process patterns related to Cobalt Strike beacon activity Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_cobaltstrike_process_patterns.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_cobaltstrike_process_patterns.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine endswith "conhost.exe 0xffffffff -ForceV1" and (InitiatingProcessCommandLine contains "cmd.exe /C echo" and InitiatingProcessCommandLine contains " > \\\\.\\pipe")) or (ProcessCommandLine endswith "conhost.exe 0xffffffff -ForceV1" and InitiatingProcessCommandLine endswith "/C whoami") or (ProcessCommandLine endswith "cmd.exe /C whoami" and InitiatingProcessFolderPath startswith "C:\\Temp\\") or ((ProcessCommandLine contains "cmd.exe /c echo" and ProcessCommandLine contains "> \\\\.\\pipe") and (InitiatingProcessFolderPath endswith "\\runonce.exe" or InitiatingProcessFolderPath endswith "\\dllhost.exe"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

@@ -1,0 +1,42 @@
+id: e540ffcb-7f38-5e40-b6e1-c11227d1d5da
+name: Portable Gpg.EXE Execution
+description: 'Detects the execution of "gpg.exe" from uncommon location. Often used by ransomware and loaders to decrypt/encrypt data. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gpg4win_portable_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gpg4win_portable_execution.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Impact
+query: |-
+  DeviceProcessEvents
+  | where ((FolderPath endswith "\\gpg.exe" or FolderPath endswith "\\gpg2.exe") or ProcessVersionInfoOriginalFileName =~ "gpg.exe" or ProcessVersionInfoFileDescription =~ "GnuPG’s OpenPGP tool") and (not((FolderPath contains ":\\Program Files (x86)\\GNU\\GnuPG\\bin\\" or FolderPath contains ":\\Program Files (x86)\\GnuPG VS-Desktop\\" or FolderPath contains ":\\Program Files (x86)\\GnuPG\\bin\\" or FolderPath contains ":\\Program Files (x86)\\Gpg4win\\bin\\")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1486
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

@@ -1,0 +1,49 @@
+id: 627f1276-63fb-50dd-9281-bc4e87e15d0b
+name: Suspicious XOR Encoded PowerShell Command
+description: 'Detects presence of a potentially xor encoded powershell command Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_xor_commandline.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_xor_commandline.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "ForEach" or ProcessCommandLine contains "for(" or ProcessCommandLine contains "for " or ProcessCommandLine contains "-join " or ProcessCommandLine contains "-join'" or ProcessCommandLine contains "-join\"" or ProcessCommandLine contains "-join`" or ProcessCommandLine contains "::Join" or ProcessCommandLine contains "[char]") and ProcessCommandLine contains "bxor" and ((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe") or (ProcessVersionInfoOriginalFileName in~ ("PowerShell.EXE", "pwsh.dll")) or ProcessVersionInfoFileDescription =~ "Windows PowerShell" or ProcessVersionInfoProductName =~ "PowerShell Core 6")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+- T1140
+- T1027
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

@@ -1,0 +1,46 @@
+id: ed3c9572-0b42-56e6-bae2-2afc6b88dc48
+name: Regsvr32 Execution From Highly Suspicious Location
+description: 'Detects execution of regsvr32 where the DLL is located in a highly suspicious locations Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_susp_exec_path_2.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_susp_exec_path_2.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (FolderPath endswith "\\regsvr32.exe" or ProcessVersionInfoOriginalFileName =~ "REGSVR32.EXE") and ((ProcessCommandLine contains ":\\PerfLogs\\" or ProcessCommandLine contains ":\\Temp\\" or ProcessCommandLine contains "\\Windows\\Registration\\CRMLog" or ProcessCommandLine contains "\\Windows\\System32\\com\\dmp\\" or ProcessCommandLine contains "\\Windows\\System32\\FxsTmp\\" or ProcessCommandLine contains "\\Windows\\System32\\Microsoft\\Crypto\\RSA\\MachineKeys\\" or ProcessCommandLine contains "\\Windows\\System32\\spool\\drivers\\color\\" or ProcessCommandLine contains "\\Windows\\System32\\spool\\PRINTERS\\" or ProcessCommandLine contains "\\Windows\\System32\\spool\\SERVERS\\" or ProcessCommandLine contains "\\Windows\\System32\\Tasks_Migrated\\" or ProcessCommandLine contains "\\Windows\\System32\\Tasks\\Microsoft\\Windows\\SyncCenter\\" or ProcessCommandLine contains "\\Windows\\SysWOW64\\com\\dmp\\" or ProcessCommandLine contains "\\Windows\\SysWOW64\\FxsTmp\\" or ProcessCommandLine contains "\\Windows\\SysWOW64\\Tasks\\Microsoft\\Windows\\PLA\\System\\" or ProcessCommandLine contains "\\Windows\\SysWOW64\\Tasks\\Microsoft\\Windows\\SyncCenter\\" or ProcessCommandLine contains "\\Windows\\Tasks\\" or ProcessCommandLine contains "\\Windows\\Tracing\\") or ((ProcessCommandLine contains " \"C:\\" or ProcessCommandLine contains " C:\\" or ProcessCommandLine contains " 'C:\\" or ProcessCommandLine contains "D:\\") and (not((ProcessCommandLine contains "C:\\Program Files (x86)\\" or ProcessCommandLine contains "C:\\Program Files\\" or ProcessCommandLine contains "C:\\ProgramData\\" or ProcessCommandLine contains "C:\\Users\\" or ProcessCommandLine contains " C:\\Windows\\" or ProcessCommandLine contains " \"C:\\Windows\\" or ProcessCommandLine contains " 'C:\\Windows\\"))))) and (not((ProcessCommandLine =~ "" or isnull(ProcessCommandLine))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1218
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

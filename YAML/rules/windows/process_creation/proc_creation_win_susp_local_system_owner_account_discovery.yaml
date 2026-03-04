@@ -1,0 +1,47 @@
+id: c6ba2809-7ae0-525b-9446-7e12f74fe0ee
+name: Local Accounts Discovery
+description: 'Local accounts, System Owner/User discovery using operating systems utilities Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_local_system_owner_account_discovery.yml - Legitimate administrator or user enumerates local users for legitimate reason | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_local_system_owner_account_discovery.yml'
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where (((ProcessCommandLine contains " /c" and ProcessCommandLine contains "dir " and ProcessCommandLine contains "\\Users\\") and FolderPath endswith "\\cmd.exe") and (not(ProcessCommandLine contains " rmdir "))) or ((ProcessCommandLine contains "user" and (FolderPath endswith "\\net.exe" or FolderPath endswith "\\net1.exe")) and (not((ProcessCommandLine contains "/domain" or ProcessCommandLine contains "/add" or ProcessCommandLine contains "/delete" or ProcessCommandLine contains "/active" or ProcessCommandLine contains "/expires" or ProcessCommandLine contains "/passwordreq" or ProcessCommandLine contains "/scriptpath" or ProcessCommandLine contains "/times" or ProcessCommandLine contains "/workstations")))) or ((ProcessCommandLine contains " /l" and FolderPath endswith "\\cmdkey.exe") or ((FolderPath endswith "\\whoami.exe" or FolderPath endswith "\\quser.exe" or FolderPath endswith "\\qwinsta.exe") or (ProcessVersionInfoOriginalFileName in~ ("whoami.exe", "quser.exe", "qwinsta.exe"))) or ((ProcessCommandLine contains "useraccount" and ProcessCommandLine contains "get") and FolderPath endswith "\\wmic.exe"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1033
+- T1087
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

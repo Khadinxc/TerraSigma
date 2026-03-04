@@ -1,0 +1,46 @@
+id: f2d735bd-43ef-5c59-80ad-b6b8b7699646
+name: Suspicious Installer Package Child Process
+description: 'Detects the execution of suspicious child processes from macOS installer package parent process. This includes osascript, JXA, curl and wget amongst other interpreters Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_installer_susp_child_process.yml - Legitimate software uses the scripts (preinstall, postinstall) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_installer_susp_child_process.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- CommandAndControl
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "preinstall" or ProcessCommandLine contains "postinstall") and (FolderPath endswith "/sh" or FolderPath endswith "/bash" or FolderPath endswith "/dash" or FolderPath endswith "/python" or FolderPath endswith "/ruby" or FolderPath endswith "/perl" or FolderPath endswith "/php" or FolderPath endswith "/javascript" or FolderPath endswith "/osascript" or FolderPath endswith "/tclsh" or FolderPath endswith "/curl" or FolderPath endswith "/wget") and (InitiatingProcessFolderPath endswith "/package_script_service" or InitiatingProcessFolderPath endswith "/installer")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+- T1071
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

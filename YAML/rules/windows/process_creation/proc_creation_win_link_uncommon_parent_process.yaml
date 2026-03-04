@@ -1,0 +1,44 @@
+id: 47699dc0-28d3-578e-b27d-0bd2baa37692
+name: Uncommon Link.EXE Parent Process
+description: 'Detects an uncommon parent process of "LINK.EXE". Link.EXE in Microsoft incremental linker. Its a utility usually bundled with Visual Studio installation. Multiple utilities often found in the same folder (editbin.exe, dumpbin.exe, lib.exe, etc) have a hardcode call to the "LINK.EXE" binary without checking its validity. This would allow an attacker to sideload any binary with the name "link.exe" if one of the aforementioned tools get executed from a different location. By filtering the known locations of such utilities we can spot uncommon parent process of LINK.EXE that might be suspicious or malicious. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_link_uncommon_parent_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_link_uncommon_parent_process.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "LINK /" and FolderPath endswith "\\link.exe") and (not(((InitiatingProcessFolderPath contains "\\VC\\bin\\" or InitiatingProcessFolderPath contains "\\VC\\Tools\\") and (InitiatingProcessFolderPath startswith "C:\\Program Files\\Microsoft Visual Studio\\" or InitiatingProcessFolderPath startswith "C:\\Program Files (x86)\\Microsoft Visual Studio\\"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1218
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

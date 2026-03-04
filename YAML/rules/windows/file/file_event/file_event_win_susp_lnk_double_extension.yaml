@@ -1,0 +1,40 @@
+id: e6f8acd2-97a1-5f17-b8a7-5eb3a69bb5e2
+name: Suspicious LNK Double Extension File Created
+description: 'Detects the creation of files with an "LNK" as a second extension. This is sometimes used by malware as a method to abuse the fact that Windows hides the "LNK" extension by default. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_lnk_double_extension.yml - Some tuning is required for other general purpose directories of third party apps | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_lnk_double_extension.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceFileEvents
+  | where ((FolderPath contains ".doc." or FolderPath contains ".docx." or FolderPath contains ".jpg." or FolderPath contains ".pdf." or FolderPath contains ".ppt." or FolderPath contains ".pptx." or FolderPath contains ".xls." or FolderPath contains ".xlsx.") and FolderPath endswith ".lnk") and (not(FolderPath contains "\\AppData\\Roaming\\Microsoft\\Windows\\Recent\\")) and (not(((InitiatingProcessFolderPath endswith "\\excel.exe" and FolderPath contains "\\AppData\\Roaming\\Microsoft\\Excel") or (InitiatingProcessFolderPath endswith "\\powerpnt.exe" and FolderPath contains "\\AppData\\Roaming\\Microsoft\\PowerPoint") or ((InitiatingProcessFolderPath endswith "\\excel.exe" or InitiatingProcessFolderPath endswith "\\powerpnt.exe" or InitiatingProcessFolderPath endswith "\\winword.exe") and FolderPath contains "\\AppData\\Roaming\\Microsoft\\Office\\Recent\\") or (InitiatingProcessFolderPath endswith "\\winword.exe" and FolderPath contains "\\AppData\\Roaming\\Microsoft\\Word"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1036
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

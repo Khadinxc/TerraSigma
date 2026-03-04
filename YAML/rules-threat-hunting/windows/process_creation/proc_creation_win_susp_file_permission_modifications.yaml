@@ -1,0 +1,44 @@
+id: 8bc1dc7e-9e3f-5888-bb33-476292aac064
+name: File or Folder Permissions Modifications
+description: 'Detects a file or folder''s permissions being modified or tampered with. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_file_permission_modifications.yml - Users interacting with the files on their own (unlikely unless privileged users). - Dynatrace app | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_file_permission_modifications.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (((ProcessCommandLine contains "/grant" or ProcessCommandLine contains "/setowner" or ProcessCommandLine contains "/inheritance:r") and (FolderPath endswith "\\cacls.exe" or FolderPath endswith "\\icacls.exe" or FolderPath endswith "\\net.exe" or FolderPath endswith "\\net1.exe")) or (ProcessCommandLine contains "-r" and FolderPath endswith "\\attrib.exe") or FolderPath endswith "\\takeown.exe") and (not(((ProcessCommandLine contains ":\\Program Files (x86)\\Avira" or ProcessCommandLine contains ":\\Program Files\\Avira") or ProcessCommandLine endswith "ICACLS C:\\ProgramData\\dynatrace\\gateway\\config\\connectivity.history /reset" or (ProcessCommandLine contains "ICACLS C:\\ProgramData\\dynatrace\\gateway\\config\\config.properties /grant :r " and ProcessCommandLine contains "S-1-5-19:F") or (ProcessCommandLine contains "\\AppData\\Local\\Programs\\Microsoft VS Code" or ProcessCommandLine contains ":\\Program Files\\Microsoft VS Code"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1222
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

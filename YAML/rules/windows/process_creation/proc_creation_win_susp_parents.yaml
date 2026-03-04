@@ -1,0 +1,40 @@
+id: fb44e0bc-ddbd-52f6-b9c8-428c8aef0156
+name: Suspicious Process Parents
+description: 'Detects suspicious parent processes that should not have any children or should only have a single possible child program Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_parents.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_parents.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (InitiatingProcessFolderPath endswith "\\minesweeper.exe" or InitiatingProcessFolderPath endswith "\\winver.exe" or InitiatingProcessFolderPath endswith "\\bitsadmin.exe") or ((InitiatingProcessFolderPath endswith "\\csrss.exe" or InitiatingProcessFolderPath endswith "\\certutil.exe" or InitiatingProcessFolderPath endswith "\\eventvwr.exe" or InitiatingProcessFolderPath endswith "\\calc.exe" or InitiatingProcessFolderPath endswith "\\notepad.exe") and (not((isnull(FolderPath) or (FolderPath endswith "\\WerFault.exe" or FolderPath endswith "\\wermgr.exe" or FolderPath endswith "\\conhost.exe" or FolderPath endswith "\\mmc.exe" or FolderPath endswith "\\win32calc.exe" or FolderPath endswith "\\notepad.exe")))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1036
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

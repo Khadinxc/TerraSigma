@@ -1,0 +1,44 @@
+id: ce975e1f-56c0-5a9c-9a5a-635f3336c96b
+name: Visual Studio Code Tunnel Shell Execution
+description: 'Detects the execution of a shell (powershell, bash, wsl...) via Visual Studio Code tunnel. Attackers can abuse this functionality to establish a C2 channel and execute arbitrary commands on the system. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_tunnel_remote_shell_.yml - Legitimate use of Visual Studio Code tunnel and running code from there | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_tunnel_remote_shell_.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CommandAndControl
+query: |-
+  DeviceProcessEvents
+  | where (InitiatingProcessCommandLine contains ".vscode-server" and InitiatingProcessFolderPath contains "\\servers\\Stable-" and InitiatingProcessFolderPath endswith "\\server\\node.exe") and ((ProcessCommandLine contains "\\terminal\\browser\\media\\shellIntegration.ps1" and (FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe")) or (FolderPath endswith "\\wsl.exe" or FolderPath endswith "\\bash.exe"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1071
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

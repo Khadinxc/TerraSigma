@@ -1,0 +1,46 @@
+id: 3c92c106-eb4c-53b2-af6d-d5e629fbeb4f
+name: Permission Check Via Accesschk.EXE
+description: 'Detects the usage of the "Accesschk" utility, an access and privilege audit tool developed by SysInternal and often being abused by attacker to verify process privileges Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_accesschk_check_permissions.yml - System administrator Usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_accesschk_check_permissions.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "uwcqv " or ProcessCommandLine contains "kwsu " or ProcessCommandLine contains "qwsu " or ProcessCommandLine contains "uwdqs ") and (ProcessVersionInfoProductName endswith "AccessChk" or ProcessVersionInfoFileDescription contains "Reports effective permissions" or (FolderPath endswith "\\accesschk.exe" or FolderPath endswith "\\accesschk64.exe") or ProcessVersionInfoOriginalFileName =~ "accesschk.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1069
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

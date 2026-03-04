@@ -1,0 +1,41 @@
+id: aacce8f3-5c97-53cb-ad06-9629e4919ccf
+name: Suspicious Camera and Microphone Access
+description: 'Detects Processes accessing the camera and microphone from suspicious folder Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_mic_cam_access.yml - Unlikely, there could be conferencing software running from a Temp folder accessing the devices | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_mic_cam_access.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Collection
+query: |-
+  DeviceRegistryEvents
+  | where (RegistryKey endswith "\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore*" and RegistryKey contains "\\NonPackaged") and (RegistryKey contains "microphone" or RegistryKey contains "webcam") and (RegistryKey contains ":#Windows#Temp#" or RegistryKey contains ":#$Recycle.bin#" or RegistryKey contains ":#Temp#" or RegistryKey contains ":#Users#Public#" or RegistryKey contains ":#Users#Default#" or RegistryKey contains ":#Users#Desktop#")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1125
+- T1123
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

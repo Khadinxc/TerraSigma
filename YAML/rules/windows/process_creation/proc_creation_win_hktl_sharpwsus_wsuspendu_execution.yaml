@@ -1,0 +1,41 @@
+id: ce3ebca5-7d54-5f63-8f8e-245be000bb89
+name: HackTool - SharpWSUS/WSUSpendu Execution
+description: 'Detects the execution of SharpWSUS or WSUSpendu, utilities that allow for lateral movement through WSUS. Windows Server Update Services (WSUS) is a critical component of Windows systems and is frequently configured in a way that allows an attacker to circumvent internal networking limitations. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpwsus_wsuspendu_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpwsus_wsuspendu_execution.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- LateralMovement
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains " -Inject " and (ProcessCommandLine contains " -PayloadArgs " or ProcessCommandLine contains " -PayloadFile ")) or ((ProcessCommandLine contains " approve " or ProcessCommandLine contains " create " or ProcessCommandLine contains " check " or ProcessCommandLine contains " delete ") and (ProcessCommandLine contains " /payload:" or ProcessCommandLine contains " /payload=" or ProcessCommandLine contains " /updateid:" or ProcessCommandLine contains " /updateid="))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1210
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

@@ -1,0 +1,46 @@
+id: 6394c004-a4c0-5836-9234-74b0d12f893c
+name: ZxShell Malware
+description: 'Detects a ZxShell start by the called and well-known function name Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2014/TA/Axiom/proc_creation_win_apt_zxshell.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2014/TA/Axiom/proc_creation_win_apt_zxshell.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "zxFunction" or ProcessCommandLine contains "RemoteDiskXXXXX") and FolderPath endswith "\\rundll32.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+- T1218
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

@@ -1,0 +1,42 @@
+id: e8b3e679-9eca-5fa5-bf91-84786659e0e7
+name: Potential DLL Sideloading Via comctl32.dll
+description: 'Detects potential DLL sideloading using comctl32.dll to obtain system privileges Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_comctl32.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_comctl32.yml'
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- Persistence
+- PrivilegeEscalation
+query: |-
+  DeviceImageLoadEvents
+  | where FolderPath endswith "\\comctl32.dll" and (FolderPath startswith "C:\\Windows\\System32\\logonUI.exe.local\\" or FolderPath startswith "C:\\Windows\\System32\\werFault.exe.local\\" or FolderPath startswith "C:\\Windows\\System32\\consent.exe.local\\" or FolderPath startswith "C:\\Windows\\System32\\narrator.exe.local\\" or FolderPath startswith "C:\\windows\\system32\\wermgr.exe.local\\")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1574
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents

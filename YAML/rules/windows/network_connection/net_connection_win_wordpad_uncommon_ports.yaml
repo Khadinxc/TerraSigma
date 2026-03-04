@@ -1,0 +1,39 @@
+id: 21c6e705-4a21-52ac-b6d9-96a41892a9a3
+name: Suspicious Wordpad Outbound Connections
+description: 'Detects a network connection initiated by "wordpad.exe" over uncommon destination ports. This might indicate potential process injection activity from a beacon or similar mechanisms. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_wordpad_uncommon_ports.yml - Other ports can be used, apply additional filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_wordpad_uncommon_ports.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- DefenseEvasion
+- CommandAndControl
+query: |-
+  DeviceNetworkEvents
+  | where InitiatingProcessFolderPath endswith "\\wordpad.exe" and (not((RemotePort in~ ("80", "139", "443", "445", "465", "587", "993", "995"))))
+version: 1.0.0
+kind: Scheduled
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: IP
+  fieldMappings:
+  - identifier: Address
+    columnName: RemoteIP
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceNetworkEvents

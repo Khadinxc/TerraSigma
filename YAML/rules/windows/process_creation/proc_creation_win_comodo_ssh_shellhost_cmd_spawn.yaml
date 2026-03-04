@@ -1,0 +1,48 @@
+id: ab01f445-47eb-50a7-918e-f47c77ed806a
+name: OpenEDR Spawning Command Shell
+description: 'Detects the OpenEDR ssh-shellhost.exe spawning a command shell (cmd.exe) or PowerShell with PTY (pseudo-terminal) capabilities. This may indicate remote command execution through OpenEDR''s remote management features, which could be legitimate administrative activity or potential abuse of the remote access tool. Threat actors may leverage OpenEDR''s remote shell capabilities to execute commands on compromised systems, facilitating lateral movement or other command-and-control operations. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_comodo_ssh_shellhost_cmd_spawn.yml - Legitimate use of OpenEDR for remote command execution | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_comodo_ssh_shellhost_cmd_spawn.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- LateralMovement
+- CommandAndControl
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "bash" or ProcessCommandLine contains "cmd" or ProcessCommandLine contains "powershell" or ProcessCommandLine contains "pwsh") and (ProcessCommandLine contains "--pty" and FolderPath endswith "\\ssh-shellhost.exe" and InitiatingProcessFolderPath endswith "\\ITSMService.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+- T1021
+- T1219
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

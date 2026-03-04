@@ -1,0 +1,40 @@
+id: 023ee7df-bd13-5f90-8ecf-0011bb4e3800
+name: Execution From Webserver Root Folder
+description: 'Detects a program executing from a web server root folder. Use this rule to hunt for potential interesting activity such as webshell or backdoors Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_execution_path_webserver.yml - Various applications - Tools that include ping or nslookup command invocations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_execution_path_webserver.yml'
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+query: |-
+  DeviceProcessEvents
+  | where (FolderPath contains "\\wwwroot\\" or FolderPath contains "\\wmpub\\" or FolderPath contains "\\htdocs\\") and (not(((FolderPath contains "bin\\" or FolderPath contains "\\Tools\\" or FolderPath contains "\\SMSComponent\\") and InitiatingProcessFolderPath endswith "\\services.exe")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1505
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents
