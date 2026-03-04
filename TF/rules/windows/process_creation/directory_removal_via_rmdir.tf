@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "directory_removal_via_rmdir" {
   name                       = "directory_removal_via_rmdir"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Directory Removal Via Rmdir"
-  description                = "Detects execution of the builtin \"rmdir\" command in order to delete directories. Adversaries may delete files left behind by the actions of their intrusion activity. Malware, tools, or other non-native files dropped or created on a system by an adversary may leave traces to indicate to what was done within a network and how. Removal of these files can occur during an intrusion, or as part of a post-intrusion process to minimize the adversary's footprint."
+  description                = "Detects execution of the builtin \"rmdir\" command in order to delete directories. Adversaries may delete files left behind by the actions of their intrusion activity. Malware, tools, or other non-native files dropped or created on a system by an adversary may leave traces to indicate to what was done within a network and how. Removal of these files can occur during an intrusion, or as part of a post-intrusion process to minimize the adversary's footprint. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/directory_removal_via_rmdir.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

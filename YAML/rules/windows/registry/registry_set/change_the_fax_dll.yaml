@@ -1,6 +1,6 @@
 id: c1c5f965-71d3-5bd2-be1c-8582ac371701
 name: Change the Fax Dll
-description: Detect possible persistence using Fax DLL load when service restart
+description: 'Detect possible persistence using Fax DLL load when service restart | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/change_the_fax_dll.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

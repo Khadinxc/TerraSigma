@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_and_directory_discovery_m
   name                       = "file_and_directory_discovery_macos"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File and Directory Discovery - MacOS"
-  description                = "Detects usage of system utilities to discover files and directories - Legitimate activities"
+  description                = "Detects usage of system utilities to discover files and directories - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/file_and_directory_discovery_macos.yml"
   severity                   = "Informational"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

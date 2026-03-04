@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "removal_of_potential_com_hijac
   name                       = "removal_of_potential_com_hijacking_registry_keys"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Removal of Potential COM Hijacking Registry Keys"
-  description                = "Detects any deletion of entries in \".*\\shell\\open\\command\" registry keys. These registry keys might have been used for COM hijacking activities by a threat actor or an attacker and the deletion could indicate steps to remove its tracks. - Legitimate software (un)installations are known to cause false positives. Please add them as a filter when encountered"
+  description                = "Detects any deletion of entries in \".*\\shell\\open\\command\" registry keys. These registry keys might have been used for COM hijacking activities by a threat actor or an attacker and the deletion could indicate steps to remove its tracks. - Legitimate software (un)installations are known to cause false positives. Please add them as a filter when encountered | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/removal_of_potential_com_hijacking_registry_keys.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

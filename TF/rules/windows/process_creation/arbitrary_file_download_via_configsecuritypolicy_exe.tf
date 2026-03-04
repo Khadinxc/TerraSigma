@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "arbitrary_file_download_via_co
   name                       = "arbitrary_file_download_via_configsecuritypolicy_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Arbitrary File Download Via ConfigSecurityPolicy.EXE"
-  description                = "Detects the execution of \"ConfigSecurityPolicy.EXE\", a binary part of Windows Defender used to manage settings in Windows Defender. Users can configure different pilot collections for each of the co-management workloads. It can be abused by attackers in order to upload or download files."
+  description                = "Detects the execution of \"ConfigSecurityPolicy.EXE\", a binary part of Windows Defender used to manage settings in Windows Defender. Users can configure different pilot collections for each of the co-management workloads. It can be abused by attackers in order to upload or download files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_file_download_via_configsecuritypolicy_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

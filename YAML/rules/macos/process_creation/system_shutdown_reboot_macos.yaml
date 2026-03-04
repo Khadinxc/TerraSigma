@@ -1,6 +1,6 @@
 id: fca697a3-cf85-54d1-bd5f-38b2405ee5d2
 name: System Shutdown/Reboot - MacOs
-description: Adversaries may shutdown/reboot systems to interrupt access to, or aid in the destruction of, those systems. - Legitimate administrative activity
+description: 'Adversaries may shutdown/reboot systems to interrupt access to, or aid in the destruction of, those systems. - Legitimate administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/system_shutdown_reboot_macos.yml'
 severity: Informational
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_qakbot_registry_acti
   name                       = "potential_qakbot_registry_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Qakbot Registry Activity"
-  description                = "Detects a registry key used by IceID in a campaign that distributes malicious OneNote files"
+  description                = "Detects a registry key used by IceID in a campaign that distributes malicious OneNote files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/potential_qakbot_registry_activity.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

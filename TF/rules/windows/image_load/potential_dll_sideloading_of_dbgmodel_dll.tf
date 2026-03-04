@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_dll_sideloading_of_d
   name                       = "potential_dll_sideloading_of_dbgmodel_dll"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential DLL Sideloading Of DbgModel.DLL"
-  description                = "Detects potential DLL sideloading of \"DbgModel.dll\" - Legitimate applications loading their own versions of the DLL mentioned in this rule"
+  description                = "Detects potential DLL sideloading of \"DbgModel.dll\" - Legitimate applications loading their own versions of the DLL mentioned in this rule | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_dll_sideloading_of_dbgmodel_dll.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

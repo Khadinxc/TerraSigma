@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "aspnetcompiler_execution" {
   name                       = "aspnetcompiler_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "AspNetCompiler Execution"
-  description                = "Detects execution of \"aspnet_compiler.exe\" which can be abused to compile and execute C# code."
+  description                = "Detects execution of \"aspnet_compiler.exe\" which can be abused to compile and execute C# code. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/aspnetcompiler_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

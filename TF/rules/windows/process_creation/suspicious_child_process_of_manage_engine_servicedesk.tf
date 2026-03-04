@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_child_process_of_ma
   name                       = "suspicious_child_process_of_manage_engine_servicedesk"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Child Process Of Manage Engine ServiceDesk"
-  description                = "Detects suspicious child processes of the \"Manage Engine ServiceDesk Plus\" Java web service - Legitimate sub processes started by Manage Engine ServiceDesk Pro"
+  description                = "Detects suspicious child processes of the \"Manage Engine ServiceDesk Plus\" Java web service - Legitimate sub processes started by Manage Engine ServiceDesk Pro | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_child_process_of_manage_engine_servicedesk.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

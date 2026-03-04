@@ -1,6 +1,6 @@
 id: fd5aa660-8013-5771-9d27-72843d595b42
 name: Execute Files with Msdeploy.exe
-description: Detects file execution using the msdeploy.exe lolbin - System administrator Usage
+description: 'Detects file execution using the msdeploy.exe lolbin - System administrator Usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/execute_files_with_msdeploy_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

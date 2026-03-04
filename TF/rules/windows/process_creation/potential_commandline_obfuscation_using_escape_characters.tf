@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_commandline_obfuscat
   name                       = "potential_commandline_obfuscation_using_escape_characters"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Commandline Obfuscation Using Escape Characters"
-  description                = "Detects potential commandline obfuscation using known escape characters"
+  description                = "Detects potential commandline obfuscation using known escape characters | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_commandline_obfuscation_using_escape_characters.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: 1807cf3b-b0d2-5d57-a588-4ca87e9cc465
 name: Renamed Microsoft Teams Execution
-description: Detects the execution of a renamed Microsoft Teams binary.
+description: 'Detects the execution of a renamed Microsoft Teams binary. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_microsoft_teams_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

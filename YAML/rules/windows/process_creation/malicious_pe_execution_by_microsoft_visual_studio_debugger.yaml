@@ -1,6 +1,6 @@
 id: c4f08d52-6fe4-5ca5-aa51-53c8f29bb65e
 name: Malicious PE Execution by Microsoft Visual Studio Debugger
-description: There is an option for a MS VS Just-In-Time Debugger "vsjitdebugger.exe" to launch specified executable and attach a debugger. This option may be used adversaries to execute malicious code by signed verified binary. The debugger is installed alongside with Microsoft Visual Studio package. - The process spawned by vsjitdebugger.exe is uncommon.
+description: 'There is an option for a MS VS Just-In-Time Debugger "vsjitdebugger.exe" to launch specified executable and attach a debugger. This option may be used adversaries to execute malicious code by signed verified binary. The debugger is installed alongside with Microsoft Visual Studio package. - The process spawned by vsjitdebugger.exe is uncommon. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/malicious_pe_execution_by_microsoft_visual_studio_debugger.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

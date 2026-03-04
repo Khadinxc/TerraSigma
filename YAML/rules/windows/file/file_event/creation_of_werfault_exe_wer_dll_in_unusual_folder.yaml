@@ -1,6 +1,6 @@
 id: 6e6d2047-e456-5c95-81df-c6cf3f59d373
 name: Creation of WerFault.exe/Wer.dll in Unusual Folder
-description: Detects the creation of a file named "WerFault.exe" or "wer.dll" in an uncommon folder, which could be a sign of WerFault DLL hijacking.
+description: 'Detects the creation of a file named "WerFault.exe" or "wer.dll" in an uncommon folder, which could be a sign of WerFault DLL hijacking. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/creation_of_werfault_exe_wer_dll_in_unusual_folder.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

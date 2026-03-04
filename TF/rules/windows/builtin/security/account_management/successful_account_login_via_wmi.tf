@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "successful_account_login_via_w
   name                       = "successful_account_login_via_wmi"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Successful Account Login Via WMI"
-  description                = "Detects successful logon attempts performed with WMI - Monitoring tools - Legitimate system administration"
+  description                = "Detects successful logon attempts performed with WMI - Monitoring tools - Legitimate system administration | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/account_management/successful_account_login_via_wmi.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceLogonEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "AccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

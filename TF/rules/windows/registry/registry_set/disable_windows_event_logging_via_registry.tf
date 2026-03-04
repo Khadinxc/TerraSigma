@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "disable_windows_event_logging_
   name                       = "disable_windows_event_logging_via_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disable Windows Event Logging Via Registry"
-  description                = "Detects tampering with the \"Enabled\" registry key in order to disable Windows logging of a Windows event channel - Rare falsepositives may occur from legitimate administrators disabling specific event log for troubleshooting"
+  description                = "Detects tampering with the \"Enabled\" registry key in order to disable Windows logging of a Windows event channel - Rare falsepositives may occur from legitimate administrators disabling specific event log for troubleshooting | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/disable_windows_event_logging_via_registry.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

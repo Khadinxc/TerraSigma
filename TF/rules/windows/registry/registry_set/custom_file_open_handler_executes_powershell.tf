@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "custom_file_open_handler_execu
   name                       = "custom_file_open_handler_executes_powershell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Custom File Open Handler Executes PowerShell"
-  description                = "Detects the abuse of custom file open handler, executing powershell"
+  description                = "Detects the abuse of custom file open handler, executing powershell | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/custom_file_open_handler_executes_powershell.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: 1f966eb3-a054-5520-8475-43237e470027
 name: Potential RDP Tunneling Via Plink
-description: Execution of plink to perform data exfiltration and tunneling
+description: 'Execution of plink to perform data exfiltration and tunneling | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_rdp_tunneling_via_plink.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

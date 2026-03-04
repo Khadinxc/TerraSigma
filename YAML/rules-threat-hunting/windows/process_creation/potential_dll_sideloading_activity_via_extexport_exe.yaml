@@ -1,6 +1,6 @@
 id: 290c4d0c-8e10-59cc-a939-f6f631957027
 name: Potential DLL Sideloading Activity Via ExtExport.EXE
-description: Detects the execution of "Extexport.exe".A utility that is part of the Internet Explorer browser and is used to export and import various settings and data, particularly when switching between Internet Explorer and other web browsers like Firefox. It allows users to transfer bookmarks, browsing history, and other preferences from Internet Explorer to Firefox or vice versa. It can be abused as a tool to side load any DLL. If a folder is provided in the command line it'll load any DLL with one of the following names "mozcrt19.dll", "mozsqlite3.dll", or "sqlite.dll". Arbitrary DLLs can also be loaded if a specific number of flags was provided.
+description: 'Detects the execution of "Extexport.exe".A utility that is part of the Internet Explorer browser and is used to export and import various settings and data, particularly when switching between Internet Explorer and other web browsers like Firefox. It allows users to transfer bookmarks, browsing history, and other preferences from Internet Explorer to Firefox or vice versa. It can be abused as a tool to side load any DLL. If a folder is provided in the command line it''ll load any DLL with one of the following names "mozcrt19.dll", "mozsqlite3.dll", or "sqlite.dll". Arbitrary DLLs can also be loaded if a specific number of flags was provided. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/potential_dll_sideloading_activity_via_extexport_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

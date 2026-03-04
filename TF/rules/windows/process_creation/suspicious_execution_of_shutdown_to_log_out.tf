@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_execution_of_shutdo
   name                       = "suspicious_execution_of_shutdown_to_log_out"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Execution of Shutdown to Log Out"
-  description                = "Detects the rare use of the command line tool shutdown to logoff a user"
+  description                = "Detects the rare use of the command line tool shutdown to logoff a user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_execution_of_shutdown_to_log_out.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

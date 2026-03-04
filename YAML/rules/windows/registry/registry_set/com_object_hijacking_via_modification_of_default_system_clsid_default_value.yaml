@@ -1,6 +1,6 @@
 id: bc136622-7267-54f2-a273-8348d0988562
 name: COM Object Hijacking Via Modification Of Default System CLSID Default Value
-description: Detects potential COM object hijacking via modification of default system CLSID. - Unlikely
+description: 'Detects potential COM object hijacking via modification of default system CLSID. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/com_object_hijacking_via_modification_of_default_system_clsid_default_value.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

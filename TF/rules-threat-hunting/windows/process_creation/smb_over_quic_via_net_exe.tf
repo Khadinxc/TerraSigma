@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "smb_over_quic_via_net_exe" {
   name                       = "smb_over_quic_via_net_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "SMB over QUIC Via Net.EXE"
-  description                = "Detects the mounting of Windows SMB shares over QUIC, which can be an unexpected event in some enterprise environments. - Administrative activity"
+  description                = "Detects the mounting of Windows SMB shares over QUIC, which can be an unexpected event in some enterprise environments. - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/smb_over_quic_via_net_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: aa01e310-800f-5324-b585-98cd580682e8
 name: Potential Arbitrary File Download Via Cmdl32.EXE
-description: Detects execution of Cmdl32 with the "/vpn" and "/lan" flags. Attackers can abuse this utility in order to download arbitrary files via a configuration file. Inspect the location and the content of the file passed as an argument in order to determine if it is suspicious.
+description: 'Detects execution of Cmdl32 with the "/vpn" and "/lan" flags. Attackers can abuse this utility in order to download arbitrary files via a configuration file. Inspect the location and the content of the file passed as an argument in order to determine if it is suspicious. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_arbitrary_file_download_via_cmdl32_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

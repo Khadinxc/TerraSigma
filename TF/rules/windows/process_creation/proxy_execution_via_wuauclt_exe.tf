@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proxy_execution_via_wuauclt_ex
   name                       = "proxy_execution_via_wuauclt_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Proxy Execution Via Wuauclt.EXE"
-  description                = "Detects the use of the Windows Update Client binary (wuauclt.exe) for proxy execution."
+  description                = "Detects the use of the Windows Update Client binary (wuauclt.exe) for proxy execution. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proxy_execution_via_wuauclt_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

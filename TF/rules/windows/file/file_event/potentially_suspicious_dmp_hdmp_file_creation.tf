@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_dmp_hdm
   name                       = "potentially_suspicious_dmp_hdmp_file_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious DMP/HDMP File Creation"
-  description                = "Detects the creation of a file with the \".dmp\"/\".hdmp\" extension by a shell or scripting application such as \"cmd\", \"powershell\", etc. Often created by software during a crash. Memory dumps can sometimes contain sensitive information such as credentials. It's best to determine the source of the crash. - Some administrative PowerShell or VB scripts might have the ability to collect dumps and move them to other folders which might trigger a false positive."
+  description                = "Detects the creation of a file with the \".dmp\"/\".hdmp\" extension by a shell or scripting application such as \"cmd\", \"powershell\", etc. Often created by software during a crash. Memory dumps can sometimes contain sensitive information such as credentials. It's best to determine the source of the crash. - Some administrative PowerShell or VB scripts might have the ability to collect dumps and move them to other folders which might trigger a false positive. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potentially_suspicious_dmp_hdmp_file_creation.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

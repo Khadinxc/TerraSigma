@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "add_insecure_download_source_t
   name                       = "add_insecure_download_source_to_winget"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Add Insecure Download Source To Winget"
-  description                = "Detects usage of winget to add a new insecure (http) download source. Winget will not allow the addition of insecure sources, hence this could indicate potential suspicious activity (or typos)"
+  description                = "Detects usage of winget to add a new insecure (http) download source. Winget will not allow the addition of insecure sources, hence this could indicate potential suspicious activity (or typos) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/add_insecure_download_source_to_winget.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

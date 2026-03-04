@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dll_loaded_via_certoc_exe" {
   name                       = "dll_loaded_via_certoc_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DLL Loaded via CertOC.EXE"
-  description                = "Detects when a user installs certificates by using CertOC.exe to loads the target DLL file."
+  description                = "Detects when a user installs certificates by using CertOC.exe to loads the target DLL file. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dll_loaded_via_certoc_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

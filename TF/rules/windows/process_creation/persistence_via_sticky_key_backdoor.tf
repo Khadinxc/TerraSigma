@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "persistence_via_sticky_key_bac
   name                       = "persistence_via_sticky_key_backdoor"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Persistence Via Sticky Key Backdoor"
-  description                = "By replacing the sticky keys executable with the local admins CMD executable, an attacker is able to access a privileged windows console session without authenticating to the system. When the sticky keys are \"activated\" the privilleged shell is launched. - Unlikely"
+  description                = "By replacing the sticky keys executable with the local admins CMD executable, an attacker is able to access a privileged windows console session without authenticating to the system. When the sticky keys are \"activated\" the privilleged shell is launched. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/persistence_via_sticky_key_backdoor.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

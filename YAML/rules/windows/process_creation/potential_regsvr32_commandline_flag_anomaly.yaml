@@ -1,6 +1,6 @@
 id: d6c9794b-e18c-55bc-a123-615ac19f0549
 name: Potential Regsvr32 Commandline Flag Anomaly
-description: Detects a potential command line flag anomaly related to "regsvr32" in which the "/i" flag is used without the "/n" which should be uncommon. - Administrator typo might cause some false positives
+description: 'Detects a potential command line flag anomaly related to "regsvr32" in which the "/i" flag is used without the "/n" which should be uncommon. - Administrator typo might cause some false positives | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_regsvr32_commandline_flag_anomaly.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

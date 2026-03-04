@@ -1,6 +1,6 @@
 id: ddc29e8f-a850-5bfd-b401-5e85165aa15a
 name: HackTool - LaZagne Execution
-description: Detects the execution of the LaZagne. A utility used to retrieve multiple types of passwords stored on a local computer. LaZagne has been leveraged multiple times by threat actors in order to dump credentials. - Some false positive is expected from tools with similar command line flags.
+description: 'Detects the execution of the LaZagne. A utility used to retrieve multiple types of passwords stored on a local computer. LaZagne has been leveraged multiple times by threat actors in order to dump credentials. - Some false positive is expected from tools with similar command line flags. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_lazagne_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

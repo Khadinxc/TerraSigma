@@ -1,6 +1,6 @@
 id: 55ad0bf1-a469-5b89-9355-745de8f046c6
 name: Private Keys Reconnaissance Via CommandLine Tools
-description: Adversaries may search for private key certificate files on compromised systems for insecurely stored credential
+description: 'Adversaries may search for private key certificate files on compromised systems for insecurely stored credential | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/private_keys_reconnaissance_via_commandline_tools.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

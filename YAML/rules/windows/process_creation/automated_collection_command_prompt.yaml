@@ -1,6 +1,6 @@
 id: 739e1496-cdbd-5a41-ae8b-d20385b8d484
 name: Automated Collection Command Prompt
-description: Once established within a system or network, an adversary may use automated techniques for collecting internal data.
+description: 'Once established within a system or network, an adversary may use automated techniques for collecting internal data. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/automated_collection_command_prompt.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

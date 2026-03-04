@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "triple_cross_ebpf_rootkit_exec
   name                       = "triple_cross_ebpf_rootkit_execve_hijack"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Triple Cross eBPF Rootkit Execve Hijack"
-  description                = "Detects execution of a the file \"execve_hijack\" which is used by the Triple Cross rootkit as a way to elevate privileges - Unlikely"
+  description                = "Detects execution of a the file \"execve_hijack\" which is used by the Triple Cross rootkit as a way to elevate privileges - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/triple_cross_ebpf_rootkit_execve_hijack.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

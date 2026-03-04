@@ -1,6 +1,6 @@
 id: 23ee8abc-5e28-5598-b7ce-57e5f383d505
 name: RegAsm.EXE Execution Without CommandLine Flags or Files
-description: Detects the execution of "RegAsm.exe" without a commandline flag or file, which might indicate potential process injection activity. Usually "RegAsm.exe" should point to a dedicated DLL file or call the help with the "/?" flag. - Legitimate use of Regasm by developers.
+description: 'Detects the execution of "RegAsm.exe" without a commandline flag or file, which might indicate potential process injection activity. Usually "RegAsm.exe" should point to a dedicated DLL file or call the help with the "/?" flag. - Legitimate use of Regasm by developers. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/regasm_exe_execution_without_commandline_flags_or_files.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

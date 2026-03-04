@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "root_account_enable_via_dsenab
   name                       = "root_account_enable_via_dsenableroot"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Root Account Enable Via Dsenableroot"
-  description                = "Detects attempts to enable the root account via \"dsenableroot\""
+  description                = "Detects attempts to enable the root account via \"dsenableroot\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/root_account_enable_via_dsenableroot.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

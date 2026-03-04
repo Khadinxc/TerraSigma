@@ -1,6 +1,6 @@
 id: 2645121f-5ca1-5529-86d0-2098f2aac3d6
 name: Suspicious Userinit Child Process
-description: Detects a suspicious child process of userinit - Administrative scripts
+description: 'Detects a suspicious child process of userinit - Administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_userinit_child_process.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

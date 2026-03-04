@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uncommon_child_processes_of_sn
   name                       = "uncommon_child_processes_of_sndvol_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon Child Processes Of SndVol.exe"
-  description                = "Detects potentially uncommon child processes of SndVol.exe (the Windows volume mixer)"
+  description                = "Detects potentially uncommon child processes of SndVol.exe (the Windows volume mixer) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_child_processes_of_sndvol_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

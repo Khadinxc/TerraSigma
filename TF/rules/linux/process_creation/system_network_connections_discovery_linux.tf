@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "system_network_connections_dis
   name                       = "system_network_connections_discovery_linux"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "System Network Connections Discovery - Linux"
-  description                = "Detects usage of system utilities to discover system network connections - Legitimate activities"
+  description                = "Detects usage of system utilities to discover system network connections - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/system_network_connections_discovery_linux.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

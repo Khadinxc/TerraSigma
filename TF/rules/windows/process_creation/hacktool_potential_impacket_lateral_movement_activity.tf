@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_potential_impacket_la
   name                       = "hacktool_potential_impacket_lateral_movement_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Potential Impacket Lateral Movement Activity"
-  description                = "Detects wmiexec/dcomexec/atexec/smbexec from Impacket framework"
+  description                = "Detects wmiexec/dcomexec/atexec/smbexec from Impacket framework | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_potential_impacket_lateral_movement_activity.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

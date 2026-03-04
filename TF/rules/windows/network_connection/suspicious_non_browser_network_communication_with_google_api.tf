@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_non_browser_network
   name                       = "suspicious_non_browser_network_communication_with_google_api"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Non-Browser Network Communication With Google API"
-  description                = "Detects a non-browser process interacting with the Google API which could indicate the use of a covert C2 such as Google Sheet C2 (GC2-sheet) - Legitimate applications communicating with the \"googleapis.com\" endpoints that are not already in the exclusion list. This is environmental dependent and requires further testing and tuning."
+  description                = "Detects a non-browser process interacting with the Google API which could indicate the use of a covert C2 such as Google Sheet C2 (GC2-sheet) - Legitimate applications communicating with the \"googleapis.com\" endpoints that are not already in the exclusion list. This is environmental dependent and requires further testing and tuning. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/suspicious_non_browser_network_communication_with_google_api.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_splwow64_without_pa
   name                       = "suspicious_splwow64_without_params"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Splwow64 Without Params"
-  description                = "Detects suspicious Splwow64.exe process without any command line parameters"
+  description                = "Detects suspicious Splwow64.exe process without any command line parameters | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_splwow64_without_params.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

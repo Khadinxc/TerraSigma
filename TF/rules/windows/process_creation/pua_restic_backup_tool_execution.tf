@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_restic_backup_tool_executi
   name                       = "pua_restic_backup_tool_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Restic Backup Tool Execution"
-  description                = "Detects the execution of the Restic backup tool, which can be used for data exfiltration. Threat actors may leverage Restic to back up and exfiltrate sensitive data to remote storage locations, including cloud services. If not legitimately used in the enterprise environment, its presence may indicate malicious activity. - Legitimate use of Restic for backup purposes within the organization."
+  description                = "Detects the execution of the Restic backup tool, which can be used for data exfiltration. Threat actors may leverage Restic to back up and exfiltrate sensitive data to remote storage locations, including cloud services. If not legitimately used in the enterprise environment, its presence may indicate malicious activity. - Legitimate use of Restic for backup purposes within the organization. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_restic_backup_tool_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

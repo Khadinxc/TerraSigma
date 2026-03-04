@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "time_machine_backup_deletion_a
   name                       = "time_machine_backup_deletion_attempt_via_tmutil_macos"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Time Machine Backup Deletion Attempt Via Tmutil - MacOS"
-  description                = "Detects deletion attempts of MacOS Time Machine backups via the native backup utility \"tmutil\". An adversary may perform this action before launching a ransonware attack to prevent the victim from restoring their files. - Legitimate activities"
+  description                = "Detects deletion attempts of MacOS Time Machine backups via the native backup utility \"tmutil\". An adversary may perform this action before launching a ransonware attack to prevent the victim from restoring their files. - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/time_machine_backup_deletion_attempt_via_tmutil_macos.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

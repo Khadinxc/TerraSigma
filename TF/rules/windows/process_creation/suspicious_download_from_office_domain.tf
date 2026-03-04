@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_download_from_offic
   name                       = "suspicious_download_from_office_domain"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Download from Office Domain"
-  description                = "Detects suspicious ways to download files from Microsoft domains that are used to store attachments in Emails or OneNote documents - Scripts or tools that download attachments from these domains (OneNote, Outlook 365)"
+  description                = "Detects suspicious ways to download files from Microsoft domains that are used to store attachments in Emails or OneNote documents - Scripts or tools that download attachments from these domains (OneNote, Outlook 365) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_download_from_office_domain.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

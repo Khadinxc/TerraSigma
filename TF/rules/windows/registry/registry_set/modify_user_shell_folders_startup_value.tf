@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "modify_user_shell_folders_star
   name                       = "modify_user_shell_folders_startup_value"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Modify User Shell Folders Startup Value"
-  description                = "Detect modification of the startup key to a path where a payload could be stored to be launched during startup"
+  description                = "Detect modification of the startup key to a path where a payload could be stored to be launched during startup | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/modify_user_shell_folders_startup_value.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

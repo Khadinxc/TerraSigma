@@ -1,6 +1,6 @@
 id: b5a4ce92-a987-5e90-9124-f1397f84add6
 name: Potential SSH Tunnel Persistence Install Using A Scheduled Task
-description: Detects the creation of new scheduled tasks via commandline, using Schtasks.exe. This rule detects tasks creating that call OpenSSH, which may indicate the creation of reverse SSH tunnel to the attacker's server.
+description: 'Detects the creation of new scheduled tasks via commandline, using Schtasks.exe. This rule detects tasks creating that call OpenSSH, which may indicate the creation of reverse SSH tunnel to the attacker''s server. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_ssh_tunnel_persistence_install_using_a_scheduled_task.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -27,10 +27,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

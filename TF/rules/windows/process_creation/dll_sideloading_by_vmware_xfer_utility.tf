@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dll_sideloading_by_vmware_xfer
   name                       = "dll_sideloading_by_vmware_xfer_utility"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DLL Sideloading by VMware Xfer Utility"
-  description                = "Detects execution of VMware Xfer utility (VMwareXferlogs.exe) from the non-default directory which may be an attempt to sideload arbitrary DLL - Unlikely"
+  description                = "Detects execution of VMware Xfer utility (VMwareXferlogs.exe) from the non-default directory which may be an attempt to sideload arbitrary DLL - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dll_sideloading_by_vmware_xfer_utility.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

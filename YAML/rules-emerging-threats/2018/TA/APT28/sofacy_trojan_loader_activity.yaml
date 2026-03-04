@@ -1,6 +1,6 @@
 id: 05425cd3-53a9-5371-997b-cbbde290284a
 name: Sofacy Trojan Loader Activity
-description: Detects Trojan loader activity as used by APT28
+description: 'Detects Trojan loader activity as used by APT28 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT28/sofacy_trojan_loader_activity.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

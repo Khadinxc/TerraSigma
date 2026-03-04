@@ -1,6 +1,6 @@
 id: 6afe642a-4997-5e3f-b147-e3bb733c333f
 name: CMD Shell Output Redirect
-description: Detects the use of the redirection character ">" to redirect information on the command line. This technique is sometimes used by malicious actors in order to redirect the output of reconnaissance commands such as "hostname" and "dir" to files for future exfiltration. - Internet Download Manager extensions use named pipes and redirection via CLI. Filter it out if you use it in your environment
+description: 'Detects the use of the redirection character ">" to redirect information on the command line. This technique is sometimes used by malicious actors in order to redirect the output of reconnaissance commands such as "hostname" and "dir" to files for future exfiltration. - Internet Download Manager extensions use named pipes and redirection via CLI. Filter it out if you use it in your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/cmd_shell_output_redirect.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

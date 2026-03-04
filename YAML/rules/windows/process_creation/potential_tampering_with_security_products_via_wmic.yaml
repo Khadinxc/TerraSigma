@@ -1,6 +1,6 @@
 id: fb711b67-5078-5d49-8580-8d86445d7eb3
 name: Potential Tampering With Security Products Via WMIC
-description: Detects uninstallation or termination of security products using the WMIC utility - Legitimate administration
+description: 'Detects uninstallation or termination of security products using the WMIC utility - Legitimate administration | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_tampering_with_security_products_via_wmic.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

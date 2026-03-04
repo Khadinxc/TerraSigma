@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_command
   name                       = "potentially_suspicious_command_executed_via_run_dialog_box_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Command Executed Via Run Dialog Box - Registry"
-  description                = "Detects execution of commands via the run dialog box on Windows by checking values of the \"RunMRU\" registry key. This technique was seen being abused by threat actors to deceive users into pasting and executing malicious commands, often disguised as CAPTCHA verification steps."
+  description                = "Detects execution of commands via the run dialog box on Windows by checking values of the \"RunMRU\" registry key. This technique was seen being abused by threat actors to deceive users into pasting and executing malicious commands, often disguised as CAPTCHA verification steps. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potentially_suspicious_command_executed_via_run_dialog_box_registry.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

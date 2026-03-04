@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_windowsterminal_chi
   name                       = "suspicious_windowsterminal_child_processes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious WindowsTerminal Child Processes"
-  description                = "Detects suspicious children spawned via the Windows Terminal application which could be a sign of persistence via WindowsTerminal (see references section) - Other legitimate \"Windows Terminal\" profiles"
+  description                = "Detects suspicious children spawned via the Windows Terminal application which could be a sign of persistence via WindowsTerminal (see references section) - Other legitimate \"Windows Terminal\" profiles | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_windowsterminal_child_processes.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

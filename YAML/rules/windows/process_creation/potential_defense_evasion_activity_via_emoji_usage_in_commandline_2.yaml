@@ -1,6 +1,6 @@
 id: 72753eaa-96a8-5f42-8e7e-5980bd894440
 name: Potential Defense Evasion Activity Via Emoji Usage In CommandLine - 2
-description: Detects the usage of emojis in the command line, this could be a sign of potential defense evasion activity.
+description: 'Detects the usage of emojis in the command line, this could be a sign of potential defense evasion activity. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_defense_evasion_activity_via_emoji_usage_in_commandline_2.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

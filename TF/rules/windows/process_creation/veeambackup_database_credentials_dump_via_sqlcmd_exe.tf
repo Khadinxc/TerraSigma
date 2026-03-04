@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "veeambackup_database_credentia
   name                       = "veeambackup_database_credentials_dump_via_sqlcmd_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "VeeamBackup Database Credentials Dump Via Sqlcmd.EXE"
-  description                = "Detects dump of credentials in VeeamBackup dbo"
+  description                = "Detects dump of credentials in VeeamBackup dbo | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/veeambackup_database_credentials_dump_via_sqlcmd_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uac_bypass_via_sdclt" {
   name                       = "uac_bypass_via_sdclt"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass via Sdclt"
-  description                = "Detects the pattern of UAC Bypass using registry key manipulation of sdclt.exe (e.g. UACMe 53)"
+  description                = "Detects the pattern of UAC Bypass using registry key manipulation of sdclt.exe (e.g. UACMe 53) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/uac_bypass_via_sdclt.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

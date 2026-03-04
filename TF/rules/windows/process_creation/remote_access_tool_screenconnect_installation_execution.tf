@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "remote_access_tool_screenconne
   name                       = "remote_access_tool_screenconnect_installation_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Access Tool - ScreenConnect Installation Execution"
-  description                = "Detects ScreenConnect program starts that establish a remote access to a system. - Legitimate use by administrative staff"
+  description                = "Detects ScreenConnect program starts that establish a remote access to a system. - Legitimate use by administrative staff | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_access_tool_screenconnect_installation_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "shadow_copies_deletion_using_o
   name                       = "shadow_copies_deletion_using_operating_systems_utilities"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Shadow Copies Deletion Using Operating Systems Utilities"
-  description                = "Shadow Copies deletion using operating systems utilities - Legitimate Administrator deletes Shadow Copies using operating systems utilities for legitimate reason - LANDesk LDClient Ivanti-PSModule (PS EncodedCommand)"
+  description                = "Shadow Copies deletion using operating systems utilities - Legitimate Administrator deletes Shadow Copies using operating systems utilities for legitimate reason - LANDesk LDClient Ivanti-PSModule (PS EncodedCommand) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/shadow_copies_deletion_using_operating_systems_utilities.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: e8aa0986-c8fe-5fee-a819-f9fc86066a29
 name: Compressed File Creation Via Tar.EXE
-description: Detects execution of "tar.exe" in order to create a compressed file. Adversaries may abuse various utilities to compress or encrypt data before exfiltration. - Likely
+description: 'Detects execution of "tar.exe" in order to create a compressed file. Adversaries may abuse various utilities to compress or encrypt data before exfiltration. - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/compressed_file_creation_via_tar_exe.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

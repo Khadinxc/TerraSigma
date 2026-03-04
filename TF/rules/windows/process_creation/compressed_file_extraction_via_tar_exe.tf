@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "compressed_file_extraction_via
   name                       = "compressed_file_extraction_via_tar_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Compressed File Extraction Via Tar.EXE"
-  description                = "Detects execution of \"tar.exe\" in order to extract compressed file. Adversaries may abuse various utilities in order to decompress data to avoid detection. - Likely"
+  description                = "Detects execution of \"tar.exe\" in order to extract compressed file. Adversaries may abuse various utilities in order to decompress data to avoid detection. - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/compressed_file_extraction_via_tar_exe.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

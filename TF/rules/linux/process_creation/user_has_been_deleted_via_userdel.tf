@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "user_has_been_deleted_via_user
   name                       = "user_has_been_deleted_via_userdel"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "User Has Been Deleted Via Userdel"
-  description                = "Detects execution of the \"userdel\" binary. Which is used to delete a user account and related files. This is sometimes abused by threat actors in order to cover their tracks - Legitimate administrator activities"
+  description                = "Detects execution of the \"userdel\" binary. Which is used to delete a user account and related files. This is sometimes abused by threat actors in order to cover their tracks - Legitimate administrator activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/user_has_been_deleted_via_userdel.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "whoami_as_parameter" {
   name                       = "whoami_as_parameter"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WhoAmI as Parameter"
-  description                = "Detects a suspicious process command line that uses whoami as first parameter (as e.g. used by EfsPotato)"
+  description                = "Detects a suspicious process command line that uses whoami as first parameter (as e.g. used by EfsPotato) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/whoami_as_parameter.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

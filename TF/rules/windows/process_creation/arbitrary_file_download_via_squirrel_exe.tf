@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "arbitrary_file_download_via_sq
   name                       = "arbitrary_file_download_via_squirrel_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Arbitrary File Download Via Squirrel.EXE"
-  description                = "Detects the usage of the \"Squirrel.exe\" to download arbitrary files. This binary is part of multiple Electron based software installations (Slack, Teams, Discord, etc.) - Expected FP with some Electron based applications such as (1Clipboard, Beaker Browser, Caret, Discord, GitHub Desktop, etc.)"
+  description                = "Detects the usage of the \"Squirrel.exe\" to download arbitrary files. This binary is part of multiple Electron based software installations (Slack, Teams, Discord, etc.) - Expected FP with some Electron based applications such as (1Clipboard, Beaker Browser, Caret, Discord, GitHub Desktop, etc.) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_file_download_via_squirrel_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

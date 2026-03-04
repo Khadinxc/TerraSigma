@@ -1,6 +1,6 @@
 id: 0e6b9ab9-70a5-5aef-856a-0289911a181e
 name: Outlook Macro Execution Without Warning Setting Enabled
-description: Detects the modification of Outlook security setting to allow unprompted execution of macros. - Unlikely
+description: 'Detects the modification of Outlook security setting to allow unprompted execution of macros. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/outlook_macro_execution_without_warning_setting_enabled.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -28,10 +28,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

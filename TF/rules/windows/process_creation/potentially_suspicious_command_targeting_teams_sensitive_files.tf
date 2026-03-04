@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_command
   name                       = "potentially_suspicious_command_targeting_teams_sensitive_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Command Targeting Teams Sensitive Files"
-  description                = "Detects a commandline containing references to the Microsoft Teams database or cookies files from a process other than Teams. The database might contain authentication tokens and other sensitive information about the logged in accounts."
+  description                = "Detects a commandline containing references to the Microsoft Teams database or cookies files from a process other than Teams. The database might contain authentication tokens and other sensitive information about the logged in accounts. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_command_targeting_teams_sensitive_files.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

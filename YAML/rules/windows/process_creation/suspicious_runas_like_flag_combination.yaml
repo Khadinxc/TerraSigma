@@ -1,6 +1,6 @@
 id: 450e03e9-56a5-59f0-bd74-a48c46451e80
 name: Suspicious RunAs-Like Flag Combination
-description: Detects suspicious command line flags that let the user set a target user and command as e.g. seen in PsExec-like tools
+description: 'Detects suspicious command line flags that let the user set a target user and command as e.g. seen in PsExec-like tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_runas_like_flag_combination.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

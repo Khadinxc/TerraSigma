@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "psexec_service_execution" {
   name                       = "psexec_service_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PsExec Service Execution"
-  description                = "Detects launch of the PSEXESVC service, which means that this system was the target of a psexec remote execution - Legitimate administrative tasks"
+  description                = "Detects launch of the PSEXESVC service, which means that this system was the target of a psexec remote execution - Legitimate administrative tasks | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/psexec_service_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

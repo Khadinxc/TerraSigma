@@ -1,6 +1,6 @@
 id: d5ffe30b-4122-5e17-b9b6-1e0c7ffc22e0
 name: PowerShell SAM Copy
-description: Detects suspicious PowerShell scripts accessing SAM hives - Some rare backup scenarios - PowerShell scripts fixing HiveNightmare / SeriousSAM ACLs
+description: 'Detects suspicious PowerShell scripts accessing SAM hives - Some rare backup scenarios - PowerShell scripts fixing HiveNightmare / SeriousSAM ACLs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_sam_copy.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

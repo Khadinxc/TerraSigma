@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_creation_in_suspicious_di
   name                       = "file_creation_in_suspicious_directory_by_msdt_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Creation In Suspicious Directory By Msdt.EXE"
-  description                = "Detects msdt.exe creating files in suspicious directories which could be a sign of exploitation of either Follina or Dogwalk vulnerabilities"
+  description                = "Detects msdt.exe creating files in suspicious directories which could be a sign of exploitation of either Follina or Dogwalk vulnerabilities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_creation_in_suspicious_directory_by_msdt_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

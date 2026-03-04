@@ -1,6 +1,6 @@
 id: c6227a7b-653f-5898-a466-5933c8c1d086
 name: PUA - Advanced Port Scanner Execution
-description: Detects the use of Advanced Port Scanner. - Legitimate administrative use - Tools with similar commandline (very rare)
+description: 'Detects the use of Advanced Port Scanner. - Legitimate administrative use - Tools with similar commandline (very rare) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_advanced_port_scanner_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

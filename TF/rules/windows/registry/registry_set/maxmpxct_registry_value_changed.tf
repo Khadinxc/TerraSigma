@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "maxmpxct_registry_value_change
   name                       = "maxmpxct_registry_value_changed"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "MaxMpxCt Registry Value Changed"
-  description                = "Detects changes to the \"MaxMpxCt\" registry value. MaxMpxCt specifies the maximum outstanding network requests for the server per client, which is used when negotiating a Server Message Block (SMB) connection with a client. Note if the value is set beyond 125 older Windows 9x clients will fail to negotiate. Ransomware threat actors and operators (specifically BlackCat) were seen increasing this value in order to handle a higher volume of traffic."
+  description                = "Detects changes to the \"MaxMpxCt\" registry value. MaxMpxCt specifies the maximum outstanding network requests for the server per client, which is used when negotiating a Server Message Block (SMB) connection with a client. Note if the value is set beyond 125 older Windows 9x clients will fail to negotiate. Ransomware threat actors and operators (specifically BlackCat) were seen increasing this value in order to handle a higher volume of traffic. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/maxmpxct_registry_value_changed.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

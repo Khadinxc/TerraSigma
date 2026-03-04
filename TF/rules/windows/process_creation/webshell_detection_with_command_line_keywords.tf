@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "webshell_detection_with_comman
   name                       = "webshell_detection_with_command_line_keywords"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Webshell Detection With Command Line Keywords"
-  description                = "Detects certain command line parameters often used during reconnaissance activity via web shells"
+  description                = "Detects certain command line parameters often used during reconnaissance activity via web shells | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/webshell_detection_with_command_line_keywords.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

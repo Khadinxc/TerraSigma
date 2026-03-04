@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "shell32_dll_execution_in_suspi
   name                       = "shell32_dll_execution_in_suspicious_directory"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Shell32 DLL Execution in Suspicious Directory"
-  description                = "Detects shell32.dll executing a DLL in a suspicious directory"
+  description                = "Detects shell32.dll executing a DLL in a suspicious directory | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/shell32_dll_execution_in_suspicious_directory.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

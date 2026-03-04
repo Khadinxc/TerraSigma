@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_suspicious_browser_l
   name                       = "potential_suspicious_browser_launch_from_document_reader_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Suspicious Browser Launch From Document Reader Process"
-  description                = "Detects when a browser process or browser tab is launched from an application that handles document files such as Adobe, Microsoft Office, etc. And connects to a web application over http(s), this could indicate a possible phishing attempt. - Unlikely in most cases, further investigation should be done in the commandline of the browser process to determine the context of the URL accessed."
+  description                = "Detects when a browser process or browser tab is launched from an application that handles document files such as Adobe, Microsoft Office, etc. And connects to a web application over http(s), this could indicate a possible phishing attempt. - Unlikely in most cases, further investigation should be done in the commandline of the browser process to determine the context of the URL accessed. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_suspicious_browser_launch_from_document_reader_process.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

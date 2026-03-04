@@ -1,6 +1,6 @@
 id: 48ffb81a-487f-5f9d-8aa6-9e0d25a66b01
 name: Windows Defender Definition Files Removed
-description: Adversaries may disable security tools to avoid possible detection of their tools and activities by removing Windows Defender Definition Files
+description: 'Adversaries may disable security tools to avoid possible detection of their tools and activities by removing Windows Defender Definition Files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/windows_defender_definition_files_removed.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

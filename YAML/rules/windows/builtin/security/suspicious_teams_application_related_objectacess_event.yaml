@@ -1,6 +1,6 @@
 id: 8824e7f0-9ff8-5580-9e2f-8fa7734b048e
 name: Suspicious Teams Application Related ObjectAcess Event
-description: Detects an access to authentication tokens and accounts of Microsoft Teams desktop application.
+description: 'Detects an access to authentication tokens and accounts of Microsoft Teams desktop application. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/suspicious_teams_application_related_objectacess_event.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

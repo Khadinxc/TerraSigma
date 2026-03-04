@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_rjvplatform_dll_side
   name                       = "potential_rjvplatform_dll_sideloading_from_non_default_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential RjvPlatform.DLL Sideloading From Non-Default Location"
-  description                = "Detects potential DLL sideloading of \"RjvPlatform.dll\" by \"SystemResetPlatform.exe\" located in a non-default location. - Unlikely"
+  description                = "Detects potential DLL sideloading of \"RjvPlatform.dll\" by \"SystemResetPlatform.exe\" located in a non-default location. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_rjvplatform_dll_sideloading_from_non_default_location.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

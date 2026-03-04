@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "writing_of_malicious_files_to_
   name                       = "writing_of_malicious_files_to_the_fonts_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Writing Of Malicious Files To The Fonts Folder"
-  description                = "Monitors for the hiding possible malicious files in the C:\\Windows\\Fonts\\ location. This folder doesn't require admin privillege to be written and executed from."
+  description                = "Monitors for the hiding possible malicious files in the C:\\Windows\\Fonts\\ location. This folder doesn't require admin privillege to be written and executed from. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/writing_of_malicious_files_to_the_fonts_folder.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

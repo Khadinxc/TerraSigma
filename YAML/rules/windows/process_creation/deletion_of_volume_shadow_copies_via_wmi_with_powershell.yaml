@@ -1,6 +1,6 @@
 id: 81d1fc19-1e75-525a-8844-fe28b762a8dd
 name: Deletion of Volume Shadow Copies via WMI with PowerShell
-description: Detects deletion of Windows Volume Shadow Copies with PowerShell code and Get-WMIObject. This technique is used by numerous ransomware families such as Sodinokibi/REvil
+description: 'Detects deletion of Windows Volume Shadow Copies with PowerShell code and Get-WMIObject. This technique is used by numerous ransomware families such as Sodinokibi/REvil | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/deletion_of_volume_shadow_copies_via_wmi_with_powershell.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

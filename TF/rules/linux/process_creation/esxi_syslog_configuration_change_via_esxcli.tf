@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "esxi_syslog_configuration_chan
   name                       = "esxi_syslog_configuration_change_via_esxcli"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ESXi Syslog Configuration Change Via ESXCLI"
-  description                = "Detects changes to the ESXi syslog configuration via \"esxcli\" - Legitimate administrative activities"
+  description                = "Detects changes to the ESXi syslog configuration via \"esxcli\" - Legitimate administrative activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/esxi_syslog_configuration_change_via_esxcli.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

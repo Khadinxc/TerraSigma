@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_sentinelone_shell_co
   name                       = "potential_sentinelone_shell_context_menu_scan_command_tampering"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential SentinelOne Shell Context Menu Scan Command Tampering"
-  description                = "Detects potentially suspicious changes to the SentinelOne context menu scan command by a process other than SentinelOne."
+  description                = "Detects potentially suspicious changes to the SentinelOne context menu scan command by a process other than SentinelOne. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_sentinelone_shell_context_menu_scan_command_tampering.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

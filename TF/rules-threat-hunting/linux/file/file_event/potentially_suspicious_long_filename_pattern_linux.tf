@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_long_fi
   name                       = "potentially_suspicious_long_filename_pattern_linux"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Long Filename Pattern - Linux"
-  description                = "Detects the creation of files with unusually long filenames (100 or more characters), which may indicate obfuscation techniques used by malware such as VShell. This is a hunting rule to identify potential threats that use long filenames to evade detection. Keep in mind that on a legitimate system, such long filenames can and are common. Run this detection in the context of threat hunting rather than alerting. Adjust the threshold of filename length as needed based on your environment. - Legitimate files with long filenames."
+  description                = "Detects the creation of files with unusually long filenames (100 or more characters), which may indicate obfuscation techniques used by malware such as VShell. This is a hunting rule to identify potential threats that use long filenames to evade detection. Keep in mind that on a legitimate system, such long filenames can and are common. Run this detection in the context of threat hunting rather than alerting. Adjust the threshold of filename length as needed based on your environment. - Legitimate files with long filenames. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/file/file_event/potentially_suspicious_long_filename_pattern_linux.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

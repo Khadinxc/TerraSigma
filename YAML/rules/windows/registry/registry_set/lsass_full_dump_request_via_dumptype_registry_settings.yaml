@@ -1,6 +1,6 @@
 id: fee9ab36-54c7-50ce-aca9-5a1f419a5ec9
 name: Lsass Full Dump Request Via DumpType Registry Settings
-description: Detects the setting of the "DumpType" registry value to "2" which stands for a "Full Dump". Technique such as LSASS Shtinkering requires this value to be "2" in order to dump LSASS. - Legitimate application that needs to do a full dump of their process
+description: 'Detects the setting of the "DumpType" registry value to "2" which stands for a "Full Dump". Technique such as LSASS Shtinkering requires this value to be "2" in order to dump LSASS. - Legitimate application that needs to do a full dump of their process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/lsass_full_dump_request_via_dumptype_registry_settings.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

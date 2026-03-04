@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_apt10_cloud_hopper_a
   name                       = "potential_apt10_cloud_hopper_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential APT10 Cloud Hopper Activity"
-  description                = "Detects potential process and execution activity related to APT10 Cloud Hopper operation - Unlikely"
+  description                = "Detects potential process and execution activity related to APT10 Cloud Hopper operation - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/APT10/potential_apt10_cloud_hopper_activity.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "diagnostic_library_sdiageng_dl
   name                       = "diagnostic_library_sdiageng_dll_loaded_by_msdt_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Diagnostic Library Sdiageng.DLL Loaded By Msdt.EXE"
-  description                = "Detects both of CVE-2022-30190 (Follina) and DogWalk vulnerabilities exploiting msdt.exe binary to load the \"sdiageng.dll\" library"
+  description                = "Detects both of CVE-2022-30190 (Follina) and DogWalk vulnerabilities exploiting msdt.exe binary to load the \"sdiageng.dll\" library | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/diagnostic_library_sdiageng_dll_loaded_by_msdt_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

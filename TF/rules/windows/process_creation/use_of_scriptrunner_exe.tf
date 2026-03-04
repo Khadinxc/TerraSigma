@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "use_of_scriptrunner_exe" {
   name                       = "use_of_scriptrunner_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Use of Scriptrunner.exe"
-  description                = "The \"ScriptRunner.exe\" binary can be abused to proxy execution through it and bypass possible whitelisting - Legitimate use when App-v is deployed"
+  description                = "The \"ScriptRunner.exe\" binary can be abused to proxy execution through it and bypass possible whitelisting - Legitimate use when App-v is deployed | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_of_scriptrunner_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

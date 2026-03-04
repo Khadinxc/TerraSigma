@@ -1,6 +1,6 @@
 id: cecd8e4d-81c4-5157-add4-caf19df5c3b7
 name: Curl Download And Execute Combination
-description: Adversaries can use curl to download payloads remotely and execute them. Curl is included by default in Windows 10 build 17063 and later.
+description: 'Adversaries can use curl to download payloads remotely and execute them. Curl is included by default in Windows 10 build 17063 and later. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/curl_download_and_execute_combination.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

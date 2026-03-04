@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "sensitive_file_dump_via_wbadmi
   name                       = "sensitive_file_dump_via_wbadmin_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Sensitive File Dump Via Wbadmin.EXE"
-  description                = "Detects the dump of highly sensitive files such as \"NTDS.DIT\" and \"SECURITY\" hive. Attackers can leverage the \"wbadmin\" utility in order to dump sensitive files that might contain credential or sensitive information. - Legitimate backup operation by authorized administrators. Matches must be investigated and allowed on a case by case basis."
+  description                = "Detects the dump of highly sensitive files such as \"NTDS.DIT\" and \"SECURITY\" hive. Attackers can leverage the \"wbadmin\" utility in order to dump sensitive files that might contain credential or sensitive information. - Legitimate backup operation by authorized administrators. Matches must be investigated and allowed on a case by case basis. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sensitive_file_dump_via_wbadmin_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

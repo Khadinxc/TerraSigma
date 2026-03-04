@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "installation_of_teamviewer_des
   name                       = "installation_of_teamviewer_desktop"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Installation of TeamViewer Desktop"
-  description                = "TeamViewer_Desktop.exe is create during install"
+  description                = "TeamViewer_Desktop.exe is create during install | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/installation_of_teamviewer_desktop.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

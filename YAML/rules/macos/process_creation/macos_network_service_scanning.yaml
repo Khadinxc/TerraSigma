@@ -1,6 +1,6 @@
 id: 06143434-9093-5040-9237-dbb73939bdea
 name: MacOS Network Service Scanning
-description: Detects enumeration of local or remote network services. - Legitimate administration activities
+description: 'Detects enumeration of local or remote network services. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/macos_network_service_scanning.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

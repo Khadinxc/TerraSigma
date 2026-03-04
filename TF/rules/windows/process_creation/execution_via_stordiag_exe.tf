@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "execution_via_stordiag_exe" {
   name                       = "execution_via_stordiag_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Execution via stordiag.exe"
-  description                = "Detects the use of stordiag.exe to execute schtasks.exe systeminfo.exe and fltmc.exe - Legitimate usage of stordiag.exe."
+  description                = "Detects the use of stordiag.exe to execute schtasks.exe systeminfo.exe and fltmc.exe - Legitimate usage of stordiag.exe. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/execution_via_stordiag_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

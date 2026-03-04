@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_command_patterns_in
   name                       = "suspicious_command_patterns_in_scheduled_task_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Command Patterns In Scheduled Task Creation"
-  description                = "Detects scheduled task creation using \"schtasks\" that contain potentially suspicious or uncommon commands - Software installers that run from temporary folders and also install scheduled tasks are expected to generate some false positives"
+  description                = "Detects scheduled task creation using \"schtasks\" that contain potentially suspicious or uncommon commands - Software installers that run from temporary folders and also install scheduled tasks are expected to generate some false positives | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_command_patterns_in_scheduled_task_creation.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

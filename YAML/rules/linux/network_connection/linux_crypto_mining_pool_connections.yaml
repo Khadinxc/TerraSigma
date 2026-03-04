@@ -1,6 +1,6 @@
 id: 6d61a3c3-dd74-5548-bfe2-dae485fde54f
 name: Linux Crypto Mining Pool Connections
-description: Detects process connections to a Monero crypto mining pool - Legitimate use of crypto miners
+description: 'Detects process connections to a Monero crypto mining pool - Legitimate use of crypto miners | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/network_connection/linux_crypto_mining_pool_connections.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

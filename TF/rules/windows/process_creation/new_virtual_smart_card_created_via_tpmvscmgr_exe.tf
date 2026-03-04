@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_virtual_smart_card_created
   name                       = "new_virtual_smart_card_created_via_tpmvscmgr_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Virtual Smart Card Created Via TpmVscMgr.EXE"
-  description                = "Detects execution of \"Tpmvscmgr.exe\" to create a new virtual smart card. - Legitimate usage by an administrator"
+  description                = "Detects execution of \"Tpmvscmgr.exe\" to create a new virtual smart card. - Legitimate usage by an administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_virtual_smart_card_created_via_tpmvscmgr_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

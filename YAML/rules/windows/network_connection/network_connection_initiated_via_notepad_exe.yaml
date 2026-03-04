@@ -1,6 +1,6 @@
 id: 51cd5a4f-45e1-51f7-9dcd-e88cc64628ff
 name: Network Connection Initiated Via Notepad.EXE
-description: Detects a network connection that is initiated by the "notepad.exe" process. This might be a sign of process injection from a beacon process or something similar. Notepad rarely initiates a network communication except when printing documents for example. - Printing documents via notepad might cause communication with the printer via port 9100 or similar.
+description: 'Detects a network connection that is initiated by the "notepad.exe" process. This might be a sign of process injection from a beacon process or something similar. Notepad rarely initiates a network communication except when printing documents for example. - Printing documents via notepad might cause communication with the printer via port 9100 or similar. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/network_connection_initiated_via_notepad_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -27,10 +27,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -1,6 +1,6 @@
 id: 198dc1ad-576c-57ed-b35e-08df7c5975cc
 name: Suspicious MsiExec Embedding Parent
-description: Adversaries may abuse msiexec.exe to proxy the execution of malicious payloads
+description: 'Adversaries may abuse msiexec.exe to proxy the execution of malicious payloads | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_msiexec_embedding_parent.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

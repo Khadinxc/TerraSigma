@@ -1,6 +1,6 @@
 id: 70ed80c6-e48f-52fc-bbee-42faa5139aa7
 name: Sysmon Driver Unloaded Via Fltmc.EXE
-description: Detects possible Sysmon filter driver unloaded via fltmc.exe - Unlikely
+description: 'Detects possible Sysmon filter driver unloaded via fltmc.exe - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sysmon_driver_unloaded_via_fltmc_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

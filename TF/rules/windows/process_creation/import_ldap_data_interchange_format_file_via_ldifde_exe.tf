@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "import_ldap_data_interchange_f
   name                       = "import_ldap_data_interchange_format_file_via_ldifde_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Import LDAP Data Interchange Format File Via Ldifde.EXE"
-  description                = "Detects the execution of \"Ldifde.exe\" with the import flag \"-i\". The can be abused to include HTTP-based arguments which will allow the arbitrary download of files from a remote server. - Since the content of the files are unknown, false positives are expected"
+  description                = "Detects the execution of \"Ldifde.exe\" with the import flag \"-i\". The can be abused to include HTTP-based arguments which will allow the arbitrary download of files from a remote server. - Since the content of the files are unknown, false positives are expected | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/import_ldap_data_interchange_format_file_via_ldifde_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

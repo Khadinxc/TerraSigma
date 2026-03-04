@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "system_shutdown_reboot_macos" 
   name                       = "system_shutdown_reboot_macos"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "System Shutdown/Reboot - MacOs"
-  description                = "Adversaries may shutdown/reboot systems to interrupt access to, or aid in the destruction of, those systems. - Legitimate administrative activity"
+  description                = "Adversaries may shutdown/reboot systems to interrupt access to, or aid in the destruction of, those systems. - Legitimate administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/system_shutdown_reboot_macos.yml"
   severity                   = "Informational"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

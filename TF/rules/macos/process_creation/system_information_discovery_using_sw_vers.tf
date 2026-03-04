@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "system_information_discovery_u
   name                       = "system_information_discovery_using_sw_vers"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "System Information Discovery Using sw_vers"
-  description                = "Detects the use of \"sw_vers\" for system information discovery - Legitimate administrative activities"
+  description                = "Detects the use of \"sw_vers\" for system information discovery - Legitimate administrative activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/system_information_discovery_using_sw_vers.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

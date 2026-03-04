@@ -1,6 +1,6 @@
 id: d53f6660-c4fc-5587-a199-2692e76d9d6c
 name: Self Extraction Directive File Created In Potentially Suspicious Location
-description: Detects the creation of Self Extraction Directive files (.sed) in a potentially suspicious location. These files are used by the "iexpress.exe" utility in order to create self extracting packages. Attackers were seen abusing this utility and creating PE files with embedded ".sed" entries.
+description: 'Detects the creation of Self Extraction Directive files (.sed) in a potentially suspicious location. These files are used by the "iexpress.exe" utility in order to create self extracting packages. Attackers were seen abusing this utility and creating PE files with embedded ".sed" entries. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/self_extraction_directive_file_created_in_potentially_suspicious_location.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

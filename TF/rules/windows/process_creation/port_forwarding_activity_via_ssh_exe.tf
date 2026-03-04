@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "port_forwarding_activity_via_s
   name                       = "port_forwarding_activity_via_ssh_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Port Forwarding Activity Via SSH.EXE"
-  description                = "Detects port forwarding activity via SSH.exe - Administrative activity using a remote port forwarding to a local port"
+  description                = "Detects port forwarding activity via SSH.exe - Administrative activity using a remote port forwarding to a local port | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/port_forwarding_activity_via_ssh_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

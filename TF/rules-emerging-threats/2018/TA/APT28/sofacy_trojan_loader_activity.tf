@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "sofacy_trojan_loader_activity"
   name                       = "sofacy_trojan_loader_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Sofacy Trojan Loader Activity"
-  description                = "Detects Trojan loader activity as used by APT28"
+  description                = "Detects Trojan loader activity as used by APT28 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT28/sofacy_trojan_loader_activity.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

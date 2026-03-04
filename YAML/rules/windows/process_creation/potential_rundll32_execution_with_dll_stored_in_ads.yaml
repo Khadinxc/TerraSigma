@@ -1,6 +1,6 @@
 id: 3d8183e1-ed16-528e-a774-ee0386985b43
 name: Potential Rundll32 Execution With DLL Stored In ADS
-description: Detects execution of rundll32 where the DLL being called is stored in an Alternate Data Stream (ADS).
+description: 'Detects execution of rundll32 where the DLL being called is stored in an Alternate Data Stream (ADS). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_rundll32_execution_with_dll_stored_in_ads.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_speech_runtime_bina
   name                       = "suspicious_speech_runtime_binary_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Speech Runtime Binary Child Process"
-  description                = "Detects suspicious Speech Runtime Binary Execution by monitoring its child processes. Child processes spawned by SpeechRuntime.exe could indicate an attempt for lateral movement via COM & DCOM hijacking. - Unlikely."
+  description                = "Detects suspicious Speech Runtime Binary Execution by monitoring its child processes. Child processes spawned by SpeechRuntime.exe could indicate an attempt for lateral movement via COM & DCOM hijacking. - Unlikely. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_speech_runtime_binary_child_process.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

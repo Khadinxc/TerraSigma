@@ -1,6 +1,6 @@
 id: 6af5afce-e9ae-59d6-bafc-c7a2fe1110fe
 name: Network Connection Initiated To AzureWebsites.NET By Non-Browser Process
-description: Detects an initiated network connection by a non browser process on the system to "azurewebsites.net". The latter was often used by threat actors as a malware hosting and exfiltration site.
+description: 'Detects an initiated network connection by a non browser process on the system to "azurewebsites.net". The latter was often used by threat actors as a malware hosting and exfiltration site. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/network_connection_initiated_to_azurewebsites_net_by_non_browser_process.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

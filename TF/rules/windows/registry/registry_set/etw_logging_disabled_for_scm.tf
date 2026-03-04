@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "etw_logging_disabled_for_scm" 
   name                       = "etw_logging_disabled_for_scm"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ETW Logging Disabled For SCM"
-  description                = "Detects changes to the \"TracingDisabled\" key in order to disable ETW logging for services.exe (SCM)"
+  description                = "Detects changes to the \"TracingDisabled\" key in order to disable ETW logging for services.exe (SCM) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/etw_logging_disabled_for_scm.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

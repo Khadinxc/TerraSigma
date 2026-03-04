@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "shell_context_menu_command_tam
   name                       = "shell_context_menu_command_tampering"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Shell Context Menu Command Tampering"
-  description                = "Detects changes to shell context menu commands. Use this rule to hunt for potential anomalies and suspicious shell commands. - Likely from new software installation suggesting to add context menu items. Such as \"PowerShell\", \"Everything\", \"Git\", etc."
+  description                = "Detects changes to shell context menu commands. Use this rule to hunt for potential anomalies and suspicious shell commands. - Likely from new software installation suggesting to add context menu items. Such as \"PowerShell\", \"Everything\", \"Git\", etc. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_set/shell_context_menu_command_tampering.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

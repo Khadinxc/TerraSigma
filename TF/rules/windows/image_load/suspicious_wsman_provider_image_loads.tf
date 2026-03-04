@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_wsman_provider_imag
   name                       = "suspicious_wsman_provider_image_loads"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious WSMAN Provider Image Loads"
-  description                = "Detects signs of potential use of the WSMAN provider from uncommon processes locally and remote execution."
+  description                = "Detects signs of potential use of the WSMAN provider from uncommon processes locally and remote execution. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/suspicious_wsman_provider_image_loads.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

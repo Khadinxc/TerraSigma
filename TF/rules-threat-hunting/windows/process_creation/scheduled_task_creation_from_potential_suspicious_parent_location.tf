@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "scheduled_task_creation_from_p
   name                       = "scheduled_task_creation_from_potential_suspicious_parent_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Scheduled Task Creation From Potential Suspicious Parent Location"
-  description                = "Detects the execution of \"schtasks.exe\" from a parent that is located in a potentially suspicious location. Multiple malware strains were seen exhibiting a similar behavior in order to achieve persistence. - Software installers that run from temporary folders and also install scheduled tasks"
+  description                = "Detects the execution of \"schtasks.exe\" from a parent that is located in a potentially suspicious location. Multiple malware strains were seen exhibiting a similar behavior in order to achieve persistence. - Software installers that run from temporary folders and also install scheduled tasks | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/scheduled_task_creation_from_potential_suspicious_parent_location.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

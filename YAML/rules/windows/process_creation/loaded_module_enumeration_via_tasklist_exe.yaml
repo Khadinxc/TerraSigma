@@ -1,6 +1,6 @@
 id: 771f2b9c-85bb-5e99-9ee1-0f279fbbb38e
 name: Loaded Module Enumeration Via Tasklist.EXE
-description: Detects the enumeration of a specific DLL or EXE being used by a binary via "tasklist.exe". This is often used by attackers in order to find the specific process identifier (PID) that is using the DLL in question. In order to dump the process memory or perform other nefarious actions.
+description: 'Detects the enumeration of a specific DLL or EXE being used by a binary via "tasklist.exe". This is often used by attackers in order to find the specific process identifier (PID) that is using the DLL in question. In order to dump the process memory or perform other nefarious actions. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/loaded_module_enumeration_via_tasklist_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

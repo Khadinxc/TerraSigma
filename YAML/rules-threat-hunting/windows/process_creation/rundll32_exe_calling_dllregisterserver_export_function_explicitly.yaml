@@ -1,6 +1,6 @@
 id: c45202a0-be6d-5310-9f35-359aca83eb0b
 name: Rundll32.EXE Calling DllRegisterServer Export Function Explicitly
-description: Detects when the DLL export function 'DllRegisterServer' is called in the commandline by Rundll32 explicitly where the DLL is located in a non-standard path. - Legitimate usage as part of application installation, but less likely from e.g. temporary paths. - Not every instance is considered malicious, but this rule will capture the malicious usages.
+description: 'Detects when the DLL export function ''DllRegisterServer'' is called in the commandline by Rundll32 explicitly where the DLL is located in a non-standard path. - Legitimate usage as part of application installation, but less likely from e.g. temporary paths. - Not every instance is considered malicious, but this rule will capture the malicious usages. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/rundll32_exe_calling_dllregisterserver_export_function_explicitly.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

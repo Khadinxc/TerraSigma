@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_git_clone" {
   name                       = "suspicious_git_clone"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Git Clone"
-  description                = "Detects execution of \"git\" in order to clone a remote repository that contain suspicious keywords which might be suspicious"
+  description                = "Detects execution of \"git\" in order to clone a remote repository that contain suspicious keywords which might be suspicious | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_git_clone.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

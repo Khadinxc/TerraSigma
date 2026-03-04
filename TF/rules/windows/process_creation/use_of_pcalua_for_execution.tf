@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "use_of_pcalua_for_execution" {
   name                       = "use_of_pcalua_for_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Use of Pcalua For Execution"
-  description                = "Detects execition of commands and binaries from the context of The program compatibility assistant (Pcalua.exe). This can be used as a LOLBIN in order to bypass application whitelisting. - Legitimate use by a via a batch script or by an administrator."
+  description                = "Detects execition of commands and binaries from the context of The program compatibility assistant (Pcalua.exe). This can be used as a LOLBIN in order to bypass application whitelisting. - Legitimate use by a via a batch script or by an administrator. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_of_pcalua_for_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

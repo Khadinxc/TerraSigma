@@ -1,6 +1,6 @@
 id: 5f97aa5c-8b9e-5a23-b2bc-faa0bcfa0042
 name: Suspicious Encoded PowerShell Command Line
-description: Detects suspicious powershell process starts with base64 encoded commands (e.g. Emotet)
+description: 'Detects suspicious powershell process starts with base64 encoded commands (e.g. Emotet) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_encoded_powershell_command_line.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "powershell_core_dll_loaded_by_
   name                       = "powershell_core_dll_loaded_by_non_powershell_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Core DLL Loaded By Non PowerShell Process"
-  description                = "Detects loading of essential DLLs used by PowerShell by non-PowerShell process. Detects behavior similar to meterpreter's \"load powershell\" extension. - Used by some .NET binaries, minimal on user workstation. - Used by Microsoft SQL Server Management Studio"
+  description                = "Detects loading of essential DLLs used by PowerShell by non-PowerShell process. Detects behavior similar to meterpreter's \"load powershell\" extension. - Used by some .NET binaries, minimal on user workstation. - Used by Microsoft SQL Server Management Studio | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/powershell_core_dll_loaded_by_non_powershell_process.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

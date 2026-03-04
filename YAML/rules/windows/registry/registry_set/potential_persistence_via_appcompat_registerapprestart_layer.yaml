@@ -1,6 +1,6 @@
 id: 620e7b3f-eda5-5afd-95a8-90dc2c9ef7bc
 name: Potential Persistence Via AppCompat RegisterAppRestart Layer
-description: Detects the setting of the REGISTERAPPRESTART compatibility layer on an application. This compatibility layer allows an application to register for restart using the "RegisterApplicationRestart" API. This can be potentially abused as a persistence mechanism. - Legitimate applications making use of this feature for compatibility reasons
+description: 'Detects the setting of the REGISTERAPPRESTART compatibility layer on an application. This compatibility layer allows an application to register for restart using the "RegisterApplicationRestart" API. This can be potentially abused as a persistence mechanism. - Legitimate applications making use of this feature for compatibility reasons | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_appcompat_registerapprestart_layer.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

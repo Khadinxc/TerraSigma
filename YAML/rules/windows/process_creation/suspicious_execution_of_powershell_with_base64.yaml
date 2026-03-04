@@ -1,6 +1,6 @@
 id: 872f2b72-c553-52da-8a2b-92ae84e6ba91
 name: Suspicious Execution of Powershell with Base64
-description: Commandline to launch powershell with a base64 payload
+description: 'Commandline to launch powershell with a base64 payload | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_execution_of_powershell_with_base64.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "setup16_exe_execution_with_cus
   name                       = "setup16_exe_execution_with_custom_lst_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Setup16.EXE Execution With Custom .Lst File"
-  description                = "Detects the execution of \"Setup16.EXE\" and old installation utility with a custom \".lst\" file. These \".lst\" file can contain references to external program that \"Setup16.EXE\" will execute. Attackers and adversaries might leverage this as a living of the land utility. - On modern Windows system, the \"Setup16\" utility is practically never used, hence false positive should be very rare."
+  description                = "Detects the execution of \"Setup16.EXE\" and old installation utility with a custom \".lst\" file. These \".lst\" file can contain references to external program that \"Setup16.EXE\" will execute. Attackers and adversaries might leverage this as a living of the land utility. - On modern Windows system, the \"Setup16\" utility is practically never used, hence false positive should be very rare. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/setup16_exe_execution_with_custom_lst_file.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

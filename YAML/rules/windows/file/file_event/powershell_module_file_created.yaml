@@ -1,6 +1,6 @@
 id: aabfe2e8-1860-5649-931b-06c6c01e8e8e
 name: PowerShell Module File Created
-description: Detects the creation of a new PowerShell module ".psm1", ".psd1", ".dll", ".ps1", etc. - Likely
+description: 'Detects the creation of a new PowerShell module ".psm1", ".psd1", ".dll", ".ps1", etc. - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/powershell_module_file_created.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

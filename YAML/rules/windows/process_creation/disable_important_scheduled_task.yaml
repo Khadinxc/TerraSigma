@@ -1,6 +1,6 @@
 id: a142772a-6a45-53d5-8536-487bf17ffc0b
 name: Disable Important Scheduled Task
-description: Detects when adversaries stop services or processes by disabling their respective scheduled tasks in order to conduct data destructive activities
+description: 'Detects when adversaries stop services or processes by disabling their respective scheduled tasks in order to conduct data destructive activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/disable_important_scheduled_task.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

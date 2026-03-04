@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "vhd_image_download_via_browser
   name                       = "vhd_image_download_via_browser"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "VHD Image Download Via Browser"
-  description                = "Detects creation of \".vhd\"/\".vhdx\" files by browser processes. Malware can use mountable Virtual Hard Disk \".vhd\" files to encapsulate payloads and evade security controls. - Legitimate downloads of \".vhd\" files would also trigger this"
+  description                = "Detects creation of \".vhd\"/\".vhdx\" files by browser processes. Malware can use mountable Virtual Hard Disk \".vhd\" files to encapsulate payloads and evade security controls. - Legitimate downloads of \".vhd\" files would also trigger this | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/vhd_image_download_via_browser.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

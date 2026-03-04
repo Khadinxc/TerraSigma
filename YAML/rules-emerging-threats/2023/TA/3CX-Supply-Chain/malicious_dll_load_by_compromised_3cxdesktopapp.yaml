@@ -1,6 +1,6 @@
 id: d37d9ab2-6400-5d03-a3ed-91e211ada0f8
 name: Malicious DLL Load By Compromised 3CXDesktopApp
-description: Detects DLL load activity of known compromised DLLs used in by the compromised 3CXDesktopApp - Unlikely
+description: 'Detects DLL load activity of known compromised DLLs used in by the compromised 3CXDesktopApp - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/3CX-Supply-Chain/malicious_dll_load_by_compromised_3cxdesktopapp.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

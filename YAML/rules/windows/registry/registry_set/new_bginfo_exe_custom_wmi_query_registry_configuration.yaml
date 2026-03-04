@@ -1,6 +1,6 @@
 id: 87a35a4a-4032-513a-a855-057db8d64d14
 name: New BgInfo.EXE Custom WMI Query Registry Configuration
-description: Detects setting of a new registry value related to BgInfo configuration, which can be abused to execute custom WMI query via "BgInfo.exe" - Legitimate WMI query
+description: 'Detects setting of a new registry value related to BgInfo configuration, which can be abused to execute custom WMI query via "BgInfo.exe" - Legitimate WMI query | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/new_bginfo_exe_custom_wmi_query_registry_configuration.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

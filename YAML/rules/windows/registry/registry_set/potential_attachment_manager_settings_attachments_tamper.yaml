@@ -1,6 +1,6 @@
 id: e7a41ee4-94be-5f78-ac8f-1a1d912f4de4
 name: Potential Attachment Manager Settings Attachments Tamper
-description: Detects tampering with attachment manager settings policies attachments (See reference for more information) - Unlikely
+description: 'Detects tampering with attachment manager settings policies attachments (See reference for more information) - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_attachment_manager_settings_attachments_tamper.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

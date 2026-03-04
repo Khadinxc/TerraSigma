@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_persistence_via_explo
   name                       = "registry_persistence_via_explorer_run_key"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Registry Persistence via Explorer Run Key"
-  description                = "Detects a possible persistence mechanism using RUN key for Windows Explorer and pointing to a suspicious folder"
+  description                = "Detects a possible persistence mechanism using RUN key for Windows Explorer and pointing to a suspicious folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_persistence_via_explorer_run_key.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

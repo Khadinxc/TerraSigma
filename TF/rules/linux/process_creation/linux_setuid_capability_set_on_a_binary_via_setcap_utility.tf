@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "linux_setuid_capability_set_on
   name                       = "linux_setuid_capability_set_on_a_binary_via_setcap_utility"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux Setuid Capability Set on a Binary via Setcap Utility"
-  description                = "Detects the use of the 'setcap' utility to set the 'setuid' capability (cap_setuid) on a binary file. This capability allows a non privileged process to make arbitrary manipulations of user IDs (UIDs), including setting its current UID to a value that would otherwise be restricted (i.e. UID 0, the root user). This behavior can be used by adversaries to backdoor a binary in order to escalate privileges again in the future if needed."
+  description                = "Detects the use of the 'setcap' utility to set the 'setuid' capability (cap_setuid) on a binary file. This capability allows a non privileged process to make arbitrary manipulations of user IDs (UIDs), including setting its current UID to a value that would otherwise be restricted (i.e. UID 0, the root user). This behavior can be used by adversaries to backdoor a binary in order to escalate privileges again in the future if needed. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_setuid_capability_set_on_a_binary_via_setcap_utility.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

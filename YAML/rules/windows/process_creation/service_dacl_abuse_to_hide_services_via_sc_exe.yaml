@@ -1,6 +1,6 @@
 id: 240fa08f-0425-5662-973e-6ddc3d2ac6ef
 name: Service DACL Abuse To Hide Services Via Sc.EXE
-description: Detects usage of the "sc.exe" utility adding a new service with special permission seen used by threat actors which makes the service hidden and unremovable.
+description: 'Detects usage of the "sc.exe" utility adding a new service with special permission seen used by threat actors which makes the service hidden and unremovable. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/service_dacl_abuse_to_hide_services_via_sc_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

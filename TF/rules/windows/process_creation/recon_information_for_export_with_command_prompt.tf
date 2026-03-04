@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "recon_information_for_export_w
   name                       = "recon_information_for_export_with_command_prompt"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Recon Information for Export with Command Prompt"
-  description                = "Once established within a system or network, an adversary may use automated techniques for collecting internal data."
+  description                = "Once established within a system or network, an adversary may use automated techniques for collecting internal data. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/recon_information_for_export_with_command_prompt.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

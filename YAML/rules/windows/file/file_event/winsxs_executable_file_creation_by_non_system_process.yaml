@@ -1,6 +1,6 @@
 id: 73773350-1ba3-5f92-9203-a1d2a9d9cfca
 name: WinSxS Executable File Creation By Non-System Process
-description: Detects the creation of binaries in the WinSxS folder by non-system processes
+description: 'Detects the creation of binaries in the WinSxS folder by non-system processes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/winsxs_executable_file_creation_by_non_system_process.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

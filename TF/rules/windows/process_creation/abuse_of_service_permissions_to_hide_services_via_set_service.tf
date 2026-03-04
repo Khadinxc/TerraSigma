@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "abuse_of_service_permissions_t
   name                       = "abuse_of_service_permissions_to_hide_services_via_set_service"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Abuse of Service Permissions to Hide Services Via Set-Service"
-  description                = "Detects usage of the \"Set-Service\" powershell cmdlet to configure a new SecurityDescriptor that allows a service to be hidden from other utilities such as \"sc.exe\", \"Get-Service\"...etc. (Works only in powershell 7) - Rare intended use of hidden services"
+  description                = "Detects usage of the \"Set-Service\" powershell cmdlet to configure a new SecurityDescriptor that allows a service to be hidden from other utilities such as \"sc.exe\", \"Get-Service\"...etc. (Works only in powershell 7) - Rare intended use of hidden services | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/abuse_of_service_permissions_to_hide_services_via_set_service.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

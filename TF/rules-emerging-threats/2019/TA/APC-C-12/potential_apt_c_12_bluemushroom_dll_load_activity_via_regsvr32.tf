@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_apt_c_12_bluemushroo
   name                       = "potential_apt_c_12_bluemushroom_dll_load_activity_via_regsvr32"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential APT-C-12 BlueMushroom DLL Load Activity Via Regsvr32"
-  description                = "Detects potential BlueMushroom DLL loading activity via regsvr32 from AppData Local"
+  description                = "Detects potential BlueMushroom DLL loading activity via regsvr32 from AppData Local | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/APC-C-12/potential_apt_c_12_bluemushroom_dll_load_activity_via_regsvr32.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

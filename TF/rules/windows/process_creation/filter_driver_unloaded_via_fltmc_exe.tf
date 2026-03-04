@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "filter_driver_unloaded_via_flt
   name                       = "filter_driver_unloaded_via_fltmc_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Filter Driver Unloaded Via Fltmc.EXE"
-  description                = "Detect filter driver unloading activity via fltmc.exe"
+  description                = "Detect filter driver unloading activity via fltmc.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/filter_driver_unloaded_via_fltmc_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: c21da6f0-b7e8-526f-80b4-82adfecf9915
 name: Access To Sysvol Policies Share By Uncommon Process
-description: Detects file access requests to the Windows Sysvol Policies Share by uncommon processes
+description: 'Detects file access requests to the Windows Sysvol Policies Share by uncommon processes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/access_to_sysvol_policies_share_by_uncommon_process.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

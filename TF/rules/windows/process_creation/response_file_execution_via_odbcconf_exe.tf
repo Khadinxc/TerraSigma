@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "response_file_execution_via_od
   name                       = "response_file_execution_via_odbcconf_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Response File Execution Via Odbcconf.EXE"
-  description                = "Detects execution of \"odbcconf\" with the \"-f\" flag in order to load a response file which might contain a malicious action. - The rule is looking for any usage of response file, which might generate false positive when this function is used legitimately. Investigate the contents of the \".rsp\" file to determine if it is malicious and apply additional filters if necessary."
+  description                = "Detects execution of \"odbcconf\" with the \"-f\" flag in order to load a response file which might contain a malicious action. - The rule is looking for any usage of response file, which might generate false positive when this function is used legitimately. Investigate the contents of the \".rsp\" file to determine if it is malicious and apply additional filters if necessary. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/response_file_execution_via_odbcconf_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

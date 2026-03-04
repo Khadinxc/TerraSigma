@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_timeproviders_registered_w
   name                       = "new_timeproviders_registered_with_uncommon_dll_name"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New TimeProviders Registered With Uncommon DLL Name"
-  description                = "Detects processes setting a new DLL in DllName in under HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\W32Time\\TimeProvider. Adversaries may abuse time providers to execute DLLs when the system boots. The Windows Time service (W32Time) enables time synchronization across and within domains."
+  description                = "Detects processes setting a new DLL in DllName in under HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\W32Time\\TimeProvider. Adversaries may abuse time providers to execute DLLs when the system boots. The Windows Time service (W32Time) enables time synchronization across and within domains. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/new_timeproviders_registered_with_uncommon_dll_name.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

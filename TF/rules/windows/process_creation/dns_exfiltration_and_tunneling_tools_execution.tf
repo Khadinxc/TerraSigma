@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dns_exfiltration_and_tunneling
   name                       = "dns_exfiltration_and_tunneling_tools_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DNS Exfiltration and Tunneling Tools Execution"
-  description                = "Well-known DNS Exfiltration tools execution - Unlikely"
+  description                = "Well-known DNS Exfiltration tools execution - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dns_exfiltration_and_tunneling_tools_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

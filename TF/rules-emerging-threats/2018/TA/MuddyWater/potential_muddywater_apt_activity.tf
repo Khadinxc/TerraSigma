@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_muddywater_apt_activ
   name                       = "potential_muddywater_apt_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential MuddyWater APT Activity"
-  description                = "Detects potential Muddywater APT activity - Unlikely"
+  description                = "Detects potential Muddywater APT activity - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/MuddyWater/potential_muddywater_apt_activity.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

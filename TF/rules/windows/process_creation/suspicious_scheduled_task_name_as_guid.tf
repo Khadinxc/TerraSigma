@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_scheduled_task_name
   name                       = "suspicious_scheduled_task_name_as_guid"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Scheduled Task Name As GUID"
-  description                = "Detects creation of a scheduled task with a GUID like name - Legitimate software naming their tasks as GUIDs"
+  description                = "Detects creation of a scheduled task with a GUID like name - Legitimate software naming their tasks as GUIDs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_scheduled_task_name_as_guid.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_history_file_operat
   name                       = "suspicious_history_file_operations"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious History File Operations"
-  description                = "Detects commandline operations on shell history files - Legitimate administrative activity - Legitimate software, cleaning hist file"
+  description                = "Detects commandline operations on shell history files - Legitimate administrative activity - Legitimate software, cleaning hist file | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/suspicious_history_file_operations.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

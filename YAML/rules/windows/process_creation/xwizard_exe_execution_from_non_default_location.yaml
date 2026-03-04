@@ -1,6 +1,6 @@
 id: b1c56f7f-aae5-594b-b839-ead0a80334cf
 name: Xwizard.EXE Execution From Non-Default Location
-description: Detects the execution of Xwizard tool from a non-default directory. When executed from a non-default directory, this utility can be abused in order to side load a custom version of "xwizards.dll". - Windows installed on non-C drive
+description: 'Detects the execution of Xwizard tool from a non-default directory. When executed from a non-default directory, this utility can be abused in order to side load a custom version of "xwizards.dll". - Windows installed on non-C drive | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/xwizard_exe_execution_from_non_default_location.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "launch_agent_daemon_execution_
   name                       = "launch_agent_daemon_execution_via_launchctl"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Launch Agent/Daemon Execution Via Launchctl"
-  description                = "Detects the execution of programs as Launch Agents or Launch Daemons using launchctl on macOS. - Legitimate administration activities is expected to trigger false positives. Investigate the command line being passed to determine if the service or launch agent are suspicious."
+  description                = "Detects the execution of programs as Launch Agents or Launch Daemons using launchctl on macOS. - Legitimate administration activities is expected to trigger false positives. Investigate the command line being passed to determine if the service or launch agent are suspicious. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/launch_agent_daemon_execution_via_launchctl.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

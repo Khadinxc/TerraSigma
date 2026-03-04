@@ -1,6 +1,6 @@
 id: 3d18b852-df67-5aad-b8e2-51e02f5739b1
 name: Fsutil Drive Enumeration
-description: Attackers may leverage fsutil to enumerated connected drives. - Certain software or administrative tasks may trigger false positives.
+description: 'Attackers may leverage fsutil to enumerated connected drives. - Certain software or administrative tasks may trigger false positives. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/fsutil_drive_enumeration.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

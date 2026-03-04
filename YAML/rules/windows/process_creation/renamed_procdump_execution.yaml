@@ -1,6 +1,6 @@
 id: edb80cb7-9cf1-5f78-b9e5-de1c96071c6b
 name: Renamed ProcDump Execution
-description: Detects the execution of a renamed ProcDump executable. This often done by attackers or malware in order to evade defensive mechanisms. - Procdump illegally bundled with legitimate software. - Administrators who rename binaries (should be investigated).
+description: 'Detects the execution of a renamed ProcDump executable. This often done by attackers or malware in order to evade defensive mechanisms. - Procdump illegally bundled with legitimate software. - Administrators who rename binaries (should be investigated). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_procdump_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

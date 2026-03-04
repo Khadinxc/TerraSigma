@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_invoke_webrequest_e
   name                       = "suspicious_invoke_webrequest_execution_with_directip"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Invoke-WebRequest Execution With DirectIP"
-  description                = "Detects calls to PowerShell with Invoke-WebRequest cmdlet using direct IP access"
+  description                = "Detects calls to PowerShell with Invoke-WebRequest cmdlet using direct IP access | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_invoke_webrequest_execution_with_directip.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

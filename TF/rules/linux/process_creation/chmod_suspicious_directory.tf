@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "chmod_suspicious_directory" {
   name                       = "chmod_suspicious_directory"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Chmod Suspicious Directory"
-  description                = "Detects chmod targeting files in abnormal directory paths. - Admin changing file permissions."
+  description                = "Detects chmod targeting files in abnormal directory paths. - Admin changing file permissions. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/chmod_suspicious_directory.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

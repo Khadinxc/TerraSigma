@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_koadic_execution" {
   name                       = "hacktool_koadic_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Koadic Execution"
-  description                = "Detects command line parameters used by Koadic hack tool"
+  description                = "Detects command line parameters used by Koadic hack tool | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_koadic_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "old_tls1_0_tls1_1_protocol_ver
   name                       = "old_tls1_0_tls1_1_protocol_version_enabled"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Old TLS1.0/TLS1.1 Protocol Version Enabled"
-  description                = "Detects applications or users re-enabling old TLS versions by setting the \"Enabled\" value to \"1\" for the \"Protocols\" registry key. - Legitimate enabling of the old tls versions due to incompatibility"
+  description                = "Detects applications or users re-enabling old TLS versions by setting the \"Enabled\" value to \"1\" for the \"Protocols\" registry key. - Legitimate enabling of the old tls versions due to incompatibility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/old_tls1_0_tls1_1_protocol_version_enabled.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

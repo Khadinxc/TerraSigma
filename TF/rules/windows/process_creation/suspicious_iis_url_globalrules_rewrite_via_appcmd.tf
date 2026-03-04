@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_iis_url_globalrules
   name                       = "suspicious_iis_url_globalrules_rewrite_via_appcmd"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious IIS URL GlobalRules Rewrite Via AppCmd"
-  description                = "Detects usage of \"appcmd\" to create new global URL rewrite rules. This behaviour has been observed being used by threat actors to add new rules so they can access their webshells. - Legitimate usage of appcmd to add new URL rewrite rules"
+  description                = "Detects usage of \"appcmd\" to create new global URL rewrite rules. This behaviour has been observed being used by threat actors to add new rules so they can access their webshells. - Legitimate usage of appcmd to add new URL rewrite rules | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_iis_url_globalrules_rewrite_via_appcmd.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

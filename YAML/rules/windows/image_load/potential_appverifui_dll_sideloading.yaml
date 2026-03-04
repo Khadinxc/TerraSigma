@@ -1,6 +1,6 @@
 id: e123bd24-8625-505b-aa36-62142ac29c42
 name: Potential appverifUI.DLL Sideloading
-description: Detects potential DLL sideloading of "appverifUI.dll" - Unlikely
+description: 'Detects potential DLL sideloading of "appverifUI.dll" - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_appverifui_dll_sideloading.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

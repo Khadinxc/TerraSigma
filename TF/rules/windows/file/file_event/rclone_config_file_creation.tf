@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "rclone_config_file_creation" {
   name                       = "rclone_config_file_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Rclone Config File Creation"
-  description                = "Detects Rclone config files being created - Legitimate Rclone usage"
+  description                = "Detects Rclone config files being created - Legitimate Rclone usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/rclone_config_file_creation.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

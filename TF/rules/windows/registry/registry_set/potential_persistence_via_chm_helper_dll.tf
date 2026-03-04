@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_persistence_via_chm_
   name                       = "potential_persistence_via_chm_helper_dll"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via CHM Helper DLL"
-  description                = "Detects when an attacker modifies the registry key \"HtmlHelp Author\" to achieve persistence"
+  description                = "Detects when an attacker modifies the registry key \"HtmlHelp Author\" to achieve persistence | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_persistence_via_chm_helper_dll.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

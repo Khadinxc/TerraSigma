@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hybridconnectionmanager_servic
   name                       = "hybridconnectionmanager_service_installation_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HybridConnectionManager Service Installation - Registry"
-  description                = "Detects the installation of the Azure Hybrid Connection Manager service to allow remote code execution from Azure function."
+  description                = "Detects the installation of the Azure Hybrid Connection Manager service to allow remote code execution from Azure function. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/hybridconnectionmanager_service_installation_registry.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

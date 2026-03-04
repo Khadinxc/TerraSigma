@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "linux_base64_encoded_shebang_i
   name                       = "linux_base64_encoded_shebang_in_cli"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux Base64 Encoded Shebang In CLI"
-  description                = "Detects the presence of a base64 version of the shebang in the commandline, which could indicate a malicious payload about to be decoded - Legitimate administration activities"
+  description                = "Detects the presence of a base64 version of the shebang in the commandline, which could indicate a malicious payload about to be decoded - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_base64_encoded_shebang_in_cli.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

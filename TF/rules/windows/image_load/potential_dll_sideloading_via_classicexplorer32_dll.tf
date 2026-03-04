@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_dll_sideloading_via_
   name                       = "potential_dll_sideloading_via_classicexplorer32_dll"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential DLL Sideloading Via ClassicExplorer32.dll"
-  description                = "Detects potential DLL sideloading using ClassicExplorer32.dll from the Classic Shell software"
+  description                = "Detects potential DLL sideloading using ClassicExplorer32.dll from the Classic Shell software | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_dll_sideloading_via_classicexplorer32_dll.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

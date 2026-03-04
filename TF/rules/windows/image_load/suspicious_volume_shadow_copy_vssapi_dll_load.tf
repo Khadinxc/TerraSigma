@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_volume_shadow_copy_
   name                       = "suspicious_volume_shadow_copy_vssapi_dll_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Volume Shadow Copy Vssapi.dll Load"
-  description                = "Detects the image load of VSS DLL by uncommon executables"
+  description                = "Detects the image load of VSS DLL by uncommon executables | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/suspicious_volume_shadow_copy_vssapi_dll_load.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

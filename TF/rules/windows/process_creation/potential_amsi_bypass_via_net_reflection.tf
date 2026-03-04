@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_amsi_bypass_via_net_
   name                       = "potential_amsi_bypass_via_net_reflection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential AMSI Bypass Via .NET Reflection"
-  description                = "Detects Request to \"amsiInitFailed\" that can be used to disable AMSI Scanning - Unlikely"
+  description                = "Detects Request to \"amsiInitFailed\" that can be used to disable AMSI Scanning - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_amsi_bypass_via_net_reflection.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

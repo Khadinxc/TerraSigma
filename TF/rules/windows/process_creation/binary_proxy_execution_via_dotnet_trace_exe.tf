@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "binary_proxy_execution_via_dot
   name                       = "binary_proxy_execution_via_dotnet_trace_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Binary Proxy Execution Via Dotnet-Trace.EXE"
-  description                = "Detects commandline arguments for executing a child process via dotnet-trace.exe - Legitimate usage of the utility in order to debug and trace a program."
+  description                = "Detects commandline arguments for executing a child process via dotnet-trace.exe - Legitimate usage of the utility in order to debug and trace a program. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/binary_proxy_execution_via_dotnet_trace_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "startup_item_file_created_maco
   name                       = "startup_item_file_created_macos"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Startup Item File Created - MacOS"
-  description                = "Detects the creation of a startup item plist file, that automatically get executed at boot initialization to establish persistence. Adversaries may use startup items automatically executed at boot initialization to establish persistence. Startup items execute during the final phase of the boot process and contain shell scripts or other executable files along with configuration information used by the system to determine the execution order for all startup items. - Legitimate administration activities"
+  description                = "Detects the creation of a startup item plist file, that automatically get executed at boot initialization to establish persistence. Adversaries may use startup items automatically executed at boot initialization to establish persistence. Startup items execute during the final phase of the boot process and contain shell scripts or other executable files along with configuration information used by the system to determine the execution order for all startup items. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/file_event/startup_item_file_created_macos.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "disable_windows_iis_http_loggi
   name                       = "disable_windows_iis_http_logging"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disable Windows IIS HTTP Logging"
-  description                = "Disables HTTP logging on a Windows IIS web server as seen by Threat Group 3390 (Bronze Union)"
+  description                = "Disables HTTP logging on a Windows IIS web server as seen by Threat Group 3390 (Bronze Union) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/disable_windows_iis_http_logging.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

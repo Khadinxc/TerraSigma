@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "security_privileges_enumeratio
   name                       = "security_privileges_enumeration_via_whoami_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Security Privileges Enumeration Via Whoami.EXE"
-  description                = "Detects a whoami.exe executed with the /priv command line flag instructing the tool to show all current user privileges. This is often used after a privilege escalation attempt."
+  description                = "Detects a whoami.exe executed with the /priv command line flag instructing the tool to show all current user privileges. This is often used after a privilege escalation attempt. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/security_privileges_enumeration_via_whoami_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

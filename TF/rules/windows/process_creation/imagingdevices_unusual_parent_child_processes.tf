@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "imagingdevices_unusual_parent_
   name                       = "imagingdevices_unusual_parent_child_processes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ImagingDevices Unusual Parent/Child Processes"
-  description                = "Detects unusual parent or children of the ImagingDevices.exe (Windows Contacts) process as seen being used with Bumblebee activity"
+  description                = "Detects unusual parent or children of the ImagingDevices.exe (Windows Contacts) process as seen being used with Bumblebee activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/imagingdevices_unusual_parent_child_processes.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

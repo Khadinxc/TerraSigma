@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "process_explorer_driver_creati
   name                       = "process_explorer_driver_creation_by_non_sysinternals_binary"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Process Explorer Driver Creation By Non-Sysinternals Binary"
-  description                = "Detects creation of the Process Explorer drivers by processes other than Process Explorer (procexp) itself. Hack tools or malware may use the Process Explorer driver to elevate privileges, drops it to disk for a few moments, runs a service using that driver and removes it afterwards. - Some false positives may occur with legitimate renamed process explorer binaries"
+  description                = "Detects creation of the Process Explorer drivers by processes other than Process Explorer (procexp) itself. Hack tools or malware may use the Process Explorer driver to elevate privileges, drops it to disk for a few moments, runs a service using that driver and removes it afterwards. - Some false positives may occur with legitimate renamed process explorer binaries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/process_explorer_driver_creation_by_non_sysinternals_binary.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

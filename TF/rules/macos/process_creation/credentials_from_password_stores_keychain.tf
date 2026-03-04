@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "credentials_from_password_stor
   name                       = "credentials_from_password_stores_keychain"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Credentials from Password Stores - Keychain"
-  description                = "Detects passwords dumps from Keychain - Legitimate administration activities"
+  description                = "Detects passwords dumps from Keychain - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/credentials_from_password_stores_keychain.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

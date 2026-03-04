@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "setuid_and_setgid" {
   name                       = "setuid_and_setgid"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Setuid and Setgid"
-  description                = "Detects suspicious change of file privileges with chown and chmod commands - Legitimate administration activities"
+  description                = "Detects suspicious change of file privileges with chown and chmod commands - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/setuid_and_setgid.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

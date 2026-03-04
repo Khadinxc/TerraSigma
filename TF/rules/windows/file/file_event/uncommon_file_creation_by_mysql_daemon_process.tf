@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uncommon_file_creation_by_mysq
   name                       = "uncommon_file_creation_by_mysql_daemon_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon File Creation By Mysql Daemon Process"
-  description                = "Detects the creation of files with scripting or executable extensions by Mysql daemon. Which could be an indicator of \"User Defined Functions\" abuse to download malware."
+  description                = "Detects the creation of files with scripting or executable extensions by Mysql daemon. Which could be an indicator of \"User Defined Functions\" abuse to download malware. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/uncommon_file_creation_by_mysql_daemon_process.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

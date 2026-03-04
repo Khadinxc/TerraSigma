@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "tropictrooper_campaign_novembe
   name                       = "tropictrooper_campaign_november_2018"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "TropicTrooper Campaign November 2018"
-  description                = "Detects TropicTrooper activity, an actor who targeted high-profile organizations in the energy and food and beverage sectors in Asia"
+  description                = "Detects TropicTrooper activity, an actor who targeted high-profile organizations in the energy and food and beverage sectors in Asia | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/TropicTrooper/tropictrooper_campaign_november_2018.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

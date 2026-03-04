@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_execution_of_system
   name                       = "suspicious_execution_of_systeminfo"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Execution of Systeminfo"
-  description                = "Detects usage of the \"systeminfo\" command to retrieve information"
+  description                = "Detects usage of the \"systeminfo\" command to retrieve information | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_execution_of_systeminfo.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

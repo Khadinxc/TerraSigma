@@ -1,6 +1,6 @@
 id: 89f825ae-73dc-5d18-9f88-758033f81b37
 name: Communication To Uncommon Destination Ports
-description: Detects programs that connect to uncommon destination ports
+description: 'Detects programs that connect to uncommon destination ports | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/communication_to_uncommon_destination_ports.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

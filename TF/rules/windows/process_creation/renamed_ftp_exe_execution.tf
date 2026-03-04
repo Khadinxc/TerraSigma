@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "renamed_ftp_exe_execution" {
   name                       = "renamed_ftp_exe_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed FTP.EXE Execution"
-  description                = "Detects the execution of a renamed \"ftp.exe\" binary based on the PE metadata fields"
+  description                = "Detects the execution of a renamed \"ftp.exe\" binary based on the PE metadata fields | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_ftp_exe_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

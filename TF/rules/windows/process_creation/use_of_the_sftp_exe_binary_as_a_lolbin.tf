@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "use_of_the_sftp_exe_binary_as_
   name                       = "use_of_the_sftp_exe_binary_as_a_lolbin"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Use Of The SFTP.EXE Binary As A LOLBIN"
-  description                = "Detects the usage of the \"sftp.exe\" binary as a LOLBIN by abusing the \"-D\" flag"
+  description                = "Detects the usage of the \"sftp.exe\" binary as a LOLBIN by abusing the \"-D\" flag | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/use_of_the_sftp_exe_binary_as_a_lolbin.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

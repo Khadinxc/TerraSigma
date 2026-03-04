@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_x509enrollment_proc
   name                       = "suspicious_x509enrollment_process_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious X509Enrollment - Process Creation"
-  description                = "Detect use of X509Enrollment - Legitimate administrative script"
+  description                = "Detect use of X509Enrollment - Legitimate administrative script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_x509enrollment_process_creation.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

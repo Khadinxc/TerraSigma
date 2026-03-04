@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "scheduled_task_created_filecre
   name                       = "scheduled_task_created_filecreation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Scheduled Task Created - FileCreation"
-  description                = "Detects the creation of a scheduled task via file creation. - Normal behaviour on Windows"
+  description                = "Detects the creation of a scheduled task via file creation. - Normal behaviour on Windows | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/scheduled_task_created_filecreation.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

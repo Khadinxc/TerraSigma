@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "browser_execution_in_headless_
   name                       = "browser_execution_in_headless_mode"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Browser Execution In Headless Mode"
-  description                = "Detects execution of Chromium based browser in headless mode"
+  description                = "Detects execution of Chromium based browser in headless mode | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/browser_execution_in_headless_mode.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

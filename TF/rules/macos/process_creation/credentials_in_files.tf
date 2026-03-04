@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "credentials_in_files" {
   name                       = "credentials_in_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Credentials In Files"
-  description                = "Detecting attempts to extract passwords with grep and laZagne"
+  description                = "Detecting attempts to extract passwords with grep and laZagne | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/credentials_in_files.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

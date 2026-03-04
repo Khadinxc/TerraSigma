@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "remote_code_execute_via_winrm_
   name                       = "remote_code_execute_via_winrm_vbs"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Code Execute via Winrm.vbs"
-  description                = "Detects an attempt to execute code or create service on remote host via winrm.vbs."
+  description                = "Detects an attempt to execute code or create service on remote host via winrm.vbs. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_code_execute_via_winrm_vbs.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "powershell_sam_copy" {
   name                       = "powershell_sam_copy"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell SAM Copy"
-  description                = "Detects suspicious PowerShell scripts accessing SAM hives - Some rare backup scenarios - PowerShell scripts fixing HiveNightmare / SeriousSAM ACLs"
+  description                = "Detects suspicious PowerShell scripts accessing SAM hives - Some rare backup scenarios - PowerShell scripts fixing HiveNightmare / SeriousSAM ACLs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_sam_copy.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

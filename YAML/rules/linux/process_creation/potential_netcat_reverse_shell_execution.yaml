@@ -1,6 +1,6 @@
 id: d869b9b1-d2b2-50c9-8bd2-264b6b033ba6
 name: Potential Netcat Reverse Shell Execution
-description: Detects execution of netcat with the "-e" flag followed by common shells. This could be a sign of a potential reverse shell setup. - Unlikely
+description: 'Detects execution of netcat with the "-e" flag followed by common shells. This could be a sign of a potential reverse shell setup. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/potential_netcat_reverse_shell_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

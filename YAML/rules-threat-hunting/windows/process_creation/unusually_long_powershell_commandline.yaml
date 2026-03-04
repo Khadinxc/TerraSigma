@@ -1,6 +1,6 @@
 id: cc46ccfc-2f4d-536d-b8fd-e622b4095c86
 name: Unusually Long PowerShell CommandLine
-description: Detects unusually long PowerShell command lines with a length of 1000 characters or more
+description: 'Detects unusually long PowerShell command lines with a length of 1000 characters or more | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/unusually_long_powershell_commandline.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -1,6 +1,6 @@
 id: 7375ee83-377e-5f8d-a188-e10d77b94c36
 name: Persistence Via Hhctrl.ocx
-description: Detects when an attacker modifies the registry value of the "hhctrl" to point to a custom binary - Unlikely
+description: 'Detects when an attacker modifies the registry value of the "hhctrl" to point to a custom binary - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/persistence_via_hhctrl_ocx.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

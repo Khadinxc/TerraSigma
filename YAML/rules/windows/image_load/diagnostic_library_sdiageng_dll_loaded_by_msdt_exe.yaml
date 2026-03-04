@@ -1,6 +1,6 @@
 id: 33d97c25-65c6-5818-9766-eb8484fad4cb
 name: Diagnostic Library Sdiageng.DLL Loaded By Msdt.EXE
-description: Detects both of CVE-2022-30190 (Follina) and DogWalk vulnerabilities exploiting msdt.exe binary to load the "sdiageng.dll" library
+description: 'Detects both of CVE-2022-30190 (Follina) and DogWalk vulnerabilities exploiting msdt.exe binary to load the "sdiageng.dll" library | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/diagnostic_library_sdiageng_dll_loaded_by_msdt_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

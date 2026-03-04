@@ -1,6 +1,6 @@
 id: e88b4f55-3c48-530c-a325-8657c9a21073
 name: PUA - PingCastle Execution From Potentially Suspicious Parent
-description: Detects the execution of PingCastle, a tool designed to quickly assess the Active Directory security level via a script located in a potentially suspicious or uncommon location.
+description: 'Detects the execution of PingCastle, a tool designed to quickly assess the Active Directory security level via a script located in a potentially suspicious or uncommon location. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_pingcastle_execution_from_potentially_suspicious_parent.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

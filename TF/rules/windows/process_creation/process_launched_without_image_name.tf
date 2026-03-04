@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "process_launched_without_image
   name                       = "process_launched_without_image_name"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Process Launched Without Image Name"
-  description                = "Detect the use of processes with no name (\".exe\"), which can be used to evade Image-based detections. - Rare legitimate software."
+  description                = "Detect the use of processes with no name (\".exe\"), which can be used to evade Image-based detections. - Rare legitimate software. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/process_launched_without_image_name.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "process_memory_dump_via_dotnet
   name                       = "process_memory_dump_via_dotnet_dump"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Process Memory Dump Via Dotnet-Dump"
-  description                = "Detects the execution of \"dotnet-dump\" with the \"collect\" flag. The execution could indicate potential process dumping of critical processes such as LSASS. - Process dumping is the expected behavior of the tool. So false positives are expected in legitimate usage. The PID/Process Name of the process being dumped needs to be investigated"
+  description                = "Detects the execution of \"dotnet-dump\" with the \"collect\" flag. The execution could indicate potential process dumping of critical processes such as LSASS. - Process dumping is the expected behavior of the tool. So false positives are expected in legitimate usage. The PID/Process Name of the process being dumped needs to be investigated | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/process_memory_dump_via_dotnet_dump.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

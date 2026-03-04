@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "using_settingsynchost_exe_as_l
   name                       = "using_settingsynchost_exe_as_lolbin"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Using SettingSyncHost.exe as LOLBin"
-  description                = "Detects using SettingSyncHost.exe to run hijacked binary"
+  description                = "Detects using SettingSyncHost.exe to run hijacked binary | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/using_settingsynchost_exe_as_lolbin.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

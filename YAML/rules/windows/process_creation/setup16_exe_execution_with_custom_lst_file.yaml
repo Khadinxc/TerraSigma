@@ -1,6 +1,6 @@
 id: c7a83134-b5c0-52b2-b37d-66a6124ce77a
 name: Setup16.EXE Execution With Custom .Lst File
-description: Detects the execution of "Setup16.EXE" and old installation utility with a custom ".lst" file. These ".lst" file can contain references to external program that "Setup16.EXE" will execute. Attackers and adversaries might leverage this as a living of the land utility. - On modern Windows system, the "Setup16" utility is practically never used, hence false positive should be very rare.
+description: 'Detects the execution of "Setup16.EXE" and old installation utility with a custom ".lst" file. These ".lst" file can contain references to external program that "Setup16.EXE" will execute. Attackers and adversaries might leverage this as a living of the land utility. - On modern Windows system, the "Setup16" utility is practically never used, hence false positive should be very rare. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/setup16_exe_execution_with_custom_lst_file.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

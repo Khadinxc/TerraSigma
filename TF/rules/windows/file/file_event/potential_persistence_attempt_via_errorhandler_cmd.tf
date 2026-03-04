@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_persistence_attempt_
   name                       = "potential_persistence_attempt_via_errorhandler_cmd"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Attempt Via ErrorHandler.Cmd"
-  description                = "Detects creation of a file named \"ErrorHandler.cmd\" in the \"C:\\WINDOWS\\Setup\\Scripts\\\" directory which could be used as a method of persistence The content of C:\\WINDOWS\\Setup\\Scripts\\ErrorHandler.cmd is read whenever some tools under C:\\WINDOWS\\System32\\oobe\\ (e.g. Setup.exe) fail to run for any reason."
+  description                = "Detects creation of a file named \"ErrorHandler.cmd\" in the \"C:\\WINDOWS\\Setup\\Scripts\\\" directory which could be used as a method of persistence The content of C:\\WINDOWS\\Setup\\Scripts\\ErrorHandler.cmd is read whenever some tools under C:\\WINDOWS\\System32\\oobe\\ (e.g. Setup.exe) fail to run for any reason. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/potential_persistence_attempt_via_errorhandler_cmd.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

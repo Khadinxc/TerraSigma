@@ -1,6 +1,6 @@
 id: cb5af975-73a5-5654-b287-cf5e3eb1604c
 name: ETW Logging Disabled For rpcrt4.dll
-description: Detects changes to the "ExtErrorInformation" key in order to disable ETW logging for rpcrt4.dll
+description: 'Detects changes to the "ExtErrorInformation" key in order to disable ETW logging for rpcrt4.dll | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/etw_logging_disabled_for_rpcrt4_dll.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

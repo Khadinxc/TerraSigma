@@ -1,6 +1,6 @@
 id: 87d380bb-2ade-53ec-92c1-4b2e4cdf1dad
 name: Decode Base64 Encoded Text
-description: Detects usage of base64 utility to decode arbitrary base64-encoded text - Legitimate activities
+description: 'Detects usage of base64 utility to decode arbitrary base64-encoded text - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/decode_base64_encoded_text.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

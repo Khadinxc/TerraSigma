@@ -1,6 +1,6 @@
 id: 06ea744c-d2eb-5330-8f77-5a45e4689ee2
 name: Potential Dropper Script Execution Via WScript/CScript
-description: Detects wscript/cscript executions of scripts located in user directories - Some installers might generate a similar behavior. An initial baseline is required
+description: 'Detects wscript/cscript executions of scripts located in user directories - Some installers might generate a similar behavior. An initial baseline is required | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_dropper_script_execution_via_wscript_cscript.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

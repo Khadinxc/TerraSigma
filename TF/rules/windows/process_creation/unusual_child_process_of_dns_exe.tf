@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "unusual_child_process_of_dns_e
   name                       = "unusual_child_process_of_dns_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Unusual Child Process of dns.exe"
-  description                = "Detects an unexpected process spawning from dns.exe which may indicate activity related to remote code execution or other forms of exploitation as seen in CVE-2020-1350 (SigRed)"
+  description                = "Detects an unexpected process spawning from dns.exe which may indicate activity related to remote code execution or other forms of exploitation as seen in CVE-2020-1350 (SigRed) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/unusual_child_process_of_dns_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

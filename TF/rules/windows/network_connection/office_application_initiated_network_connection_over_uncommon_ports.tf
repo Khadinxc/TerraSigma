@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "office_application_initiated_n
   name                       = "office_application_initiated_network_connection_over_uncommon_ports"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Office Application Initiated Network Connection Over Uncommon Ports"
-  description                = "Detects an office suit application (Word, Excel, PowerPoint, Outlook) communicating to target systems over uncommon ports. - Other ports can be used, apply additional filters accordingly"
+  description                = "Detects an office suit application (Word, Excel, PowerPoint, Outlook) communicating to target systems over uncommon ports. - Other ports can be used, apply additional filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/office_application_initiated_network_connection_over_uncommon_ports.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

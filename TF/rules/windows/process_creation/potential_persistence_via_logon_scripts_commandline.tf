@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_persistence_via_logo
   name                       = "potential_persistence_via_logon_scripts_commandline"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Logon Scripts - CommandLine"
-  description                = "Detects the addition of a new LogonScript to the registry value \"UserInitMprLogonScript\" for potential persistence - Legitimate addition of Logon Scripts via the command line by administrators or third party tools"
+  description                = "Detects the addition of a new LogonScript to the registry value \"UserInitMprLogonScript\" for potential persistence - Legitimate addition of Logon Scripts via the command line by administrators or third party tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_persistence_via_logon_scripts_commandline.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_download_via_bitsadmin" {
   name                       = "file_download_via_bitsadmin"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Download Via Bitsadmin"
-  description                = "Detects usage of bitsadmin downloading a file - Some legitimate apps use this, but limited."
+  description                = "Detects usage of bitsadmin downloading a file - Some legitimate apps use this, but limited. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_via_bitsadmin.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

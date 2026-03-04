@@ -1,6 +1,6 @@
 id: f826e47a-d6dd-5cc9-98be-539966f49e43
 name: Disable Windows Defender Functionalities Via Registry Keys
-description: Detects when attackers or tools disable Windows Defender functionalities via the Windows registry - Administrator actions via the Windows Defender interface - Third party Antivirus
+description: 'Detects when attackers or tools disable Windows Defender functionalities via the Windows registry - Administrator actions via the Windows Defender interface - Third party Antivirus | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/disable_windows_defender_functionalities_via_registry_keys.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

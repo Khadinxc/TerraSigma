@@ -1,6 +1,6 @@
 id: 63e1e767-ac75-5c00-b76c-a5caa2f67891
 name: Registry Modification for OCI DLL Redirection
-description: Detects registry modifications related to 'OracleOciLib' and 'OracleOciLibPath' under 'MSDTC' settings. Threat actors may modify these registry keys to redirect the loading of 'oci.dll' to a malicious DLL, facilitating phantom DLL hijacking via the MSDTC service. - Unlikely
+description: 'Detects registry modifications related to ''OracleOciLib'' and ''OracleOciLibPath'' under ''MSDTC'' settings. Threat actors may modify these registry keys to redirect the loading of ''oci.dll'' to a malicious DLL, facilitating phantom DLL hijacking via the MSDTC service. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_modification_for_oci_dll_redirection.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -27,10 +27,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

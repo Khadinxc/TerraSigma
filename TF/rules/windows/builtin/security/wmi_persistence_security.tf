@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "wmi_persistence_security" {
   name                       = "wmi_persistence_security"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WMI Persistence - Security"
-  description                = "Detects suspicious WMI event filter and command line event consumer based on WMI and Security Logs. - Unknown (data set is too small; further testing needed)"
+  description                = "Detects suspicious WMI event filter and command line event consumer based on WMI and Security Logs. - Unknown (data set is too small; further testing needed) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/wmi_persistence_security.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: 2aa2a24f-7243-52bc-8a38-d190d068786a
 name: Onyx Sleet APT File Creation Indicators
-description: Detects file creation activity that is related to Onyx Sleet APT activity - Unlikely
+description: 'Detects file creation activity that is related to Onyx Sleet APT activity - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Onyx-Sleet/onyx_sleet_apt_file_creation_indicators.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

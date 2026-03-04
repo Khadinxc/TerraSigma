@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_discovery_activity_u
   name                       = "potential_discovery_activity_using_find_macos"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Discovery Activity Using Find - MacOS"
-  description                = "Detects usage of \"find\" binary in a suspicious manner to perform discovery"
+  description                = "Detects usage of \"find\" binary in a suspicious manner to perform discovery | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/potential_discovery_activity_using_find_macos.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

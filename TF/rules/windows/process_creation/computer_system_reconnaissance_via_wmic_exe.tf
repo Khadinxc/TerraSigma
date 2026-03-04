@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "computer_system_reconnaissance
   name                       = "computer_system_reconnaissance_via_wmic_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Computer System Reconnaissance Via Wmic.EXE"
-  description                = "Detects execution of wmic utility with the \"computersystem\" flag in order to obtain information about the machine such as the domain, username, model, etc."
+  description                = "Detects execution of wmic utility with the \"computersystem\" flag in order to obtain information about the machine such as the domain, username, model, etc. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/computer_system_reconnaissance_via_wmic_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

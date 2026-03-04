@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "detected_windows_software_disc
   name                       = "detected_windows_software_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Detected Windows Software Discovery"
-  description                = "Adversaries may attempt to enumerate software for a variety of reasons, such as figuring out what security measures are present or if the compromised system has a version of software that is vulnerable. - Legitimate administration activities"
+  description                = "Adversaries may attempt to enumerate software for a variety of reasons, such as figuring out what security measures are present or if the compromised system has a version of software that is vulnerable. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/detected_windows_software_discovery.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

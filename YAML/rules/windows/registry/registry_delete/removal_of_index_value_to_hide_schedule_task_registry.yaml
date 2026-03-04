@@ -1,6 +1,6 @@
 id: ddf8f9dc-4afb-55b6-8204-ca07f685fb77
 name: Removal Of Index Value to Hide Schedule Task - Registry
-description: Detects when the "index" value of a scheduled task is removed or deleted from the registry. Which effectively hides it from any tooling such as "schtasks /query"
+description: 'Detects when the "index" value of a scheduled task is removed or deleted from the registry. Which effectively hides it from any tooling such as "schtasks /query" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/removal_of_index_value_to_hide_schedule_task_registry.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

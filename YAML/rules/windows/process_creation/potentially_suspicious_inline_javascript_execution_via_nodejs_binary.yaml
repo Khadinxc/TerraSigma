@@ -1,6 +1,6 @@
 id: 66940a90-232d-5a85-8e7b-10e9e0e76843
 name: Potentially Suspicious Inline JavaScript Execution via NodeJS Binary
-description: Detects potentially suspicious inline JavaScript execution using Node.js with specific keywords in the command line. - Legitimate scripts using Node.js with these modules
+description: 'Detects potentially suspicious inline JavaScript execution using Node.js with specific keywords in the command line. - Legitimate scripts using Node.js with these modules | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_inline_javascript_execution_via_nodejs_binary.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

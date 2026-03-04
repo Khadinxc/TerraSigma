@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "shadow_copies_creation_using_o
   name                       = "shadow_copies_creation_using_operating_systems_utilities"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Shadow Copies Creation Using Operating Systems Utilities"
-  description                = "Shadow Copies creation using operating systems utilities, possible credential access - Legitimate administrator working with shadow copies, access for backup purposes"
+  description                = "Shadow Copies creation using operating systems utilities, possible credential access - Legitimate administrator working with shadow copies, access for backup purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/shadow_copies_creation_using_operating_systems_utilities.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

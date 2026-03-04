@@ -1,6 +1,6 @@
 id: b058bb32-696b-5055-baad-b998dcbd06db
 name: WmiPrvSE Spawned A Process
-description: Detects WmiPrvSE spawning a process
+description: 'Detects WmiPrvSE spawning a process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wmiprvse_spawned_a_process.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

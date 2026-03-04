@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "redmimicry_winnti_playbook_reg
   name                       = "redmimicry_winnti_playbook_registry_manipulation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "RedMimicry Winnti Playbook Registry Manipulation"
-  description                = "Detects actions caused by the RedMimicry Winnti playbook"
+  description                = "Detects actions caused by the RedMimicry Winnti playbook | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/redmimicry_winnti_playbook_registry_manipulation.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_jlaive_in_memory_asse
   name                       = "hacktool_jlaive_in_memory_assembly_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Jlaive In-Memory Assembly Execution"
-  description                = "Detects the use of Jlaive to execute assemblies in a copied PowerShell"
+  description                = "Detects the use of Jlaive to execute assemblies in a copied PowerShell | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_jlaive_in_memory_assembly_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

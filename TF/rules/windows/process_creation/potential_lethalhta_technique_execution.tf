@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_lethalhta_technique_
   name                       = "potential_lethalhta_technique_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential LethalHTA Technique Execution"
-  description                = "Detects potential LethalHTA technique where the \"mshta.exe\" is spawned by an \"svchost.exe\" process"
+  description                = "Detects potential LethalHTA technique where the \"mshta.exe\" is spawned by an \"svchost.exe\" process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_lethalhta_technique_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

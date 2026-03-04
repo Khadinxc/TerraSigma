@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "firewall_configuration_discove
   name                       = "firewall_configuration_discovery_via_netsh_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Firewall Configuration Discovery Via Netsh.EXE"
-  description                = "Adversaries may look for details about the network configuration and settings of systems they access or through information discovery of remote systems - Administrative activity"
+  description                = "Adversaries may look for details about the network configuration and settings of systems they access or through information discovery of remote systems - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/firewall_configuration_discovery_via_netsh_exe.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

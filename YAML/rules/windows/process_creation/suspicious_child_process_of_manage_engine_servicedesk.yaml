@@ -1,6 +1,6 @@
 id: b3d130f4-67bc-56ab-b8e1-af02d1456c64
 name: Suspicious Child Process Of Manage Engine ServiceDesk
-description: Detects suspicious child processes of the "Manage Engine ServiceDesk Plus" Java web service - Legitimate sub processes started by Manage Engine ServiceDesk Pro
+description: 'Detects suspicious child processes of the "Manage Engine ServiceDesk Plus" Java web service - Legitimate sub processes started by Manage Engine ServiceDesk Pro | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_child_process_of_manage_engine_servicedesk.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

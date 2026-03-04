@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "stop_windows_service_via_net_e
   name                       = "stop_windows_service_via_net_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Stop Windows Service Via Net.EXE"
-  description                = "Detects the stopping of a Windows service via the \"net\" utility. - There are many legitimate reasons to stop a service. This rule isn't looking for any suspicious behaviour in particular. Filter legitimate activity accordingly"
+  description                = "Detects the stopping of a Windows service via the \"net\" utility. - There are many legitimate reasons to stop a service. This rule isn't looking for any suspicious behaviour in particular. Filter legitimate activity accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/stop_windows_service_via_net_exe.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

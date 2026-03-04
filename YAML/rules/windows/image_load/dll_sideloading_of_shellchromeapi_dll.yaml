@@ -1,6 +1,6 @@
 id: 925eaa1d-b382-5472-bb75-00cf64bdfa5e
 name: DLL Sideloading Of ShellChromeAPI.DLL
-description: Detects processes loading the non-existent DLL "ShellChromeAPI". One known example is the "DeviceEnroller" binary in combination with the "PhoneDeepLink" flag tries to load this DLL. Adversaries can drop their own renamed DLL and execute it via DeviceEnroller.exe using this parameter
+description: 'Detects processes loading the non-existent DLL "ShellChromeAPI". One known example is the "DeviceEnroller" binary in combination with the "PhoneDeepLink" flag tries to load this DLL. Adversaries can drop their own renamed DLL and execute it via DeviceEnroller.exe using this parameter | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/dll_sideloading_of_shellchromeapi_dll.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

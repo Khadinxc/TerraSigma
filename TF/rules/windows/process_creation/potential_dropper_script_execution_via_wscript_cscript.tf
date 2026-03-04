@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_dropper_script_execu
   name                       = "potential_dropper_script_execution_via_wscript_cscript"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Dropper Script Execution Via WScript/CScript"
-  description                = "Detects wscript/cscript executions of scripts located in user directories - Some installers might generate a similar behavior. An initial baseline is required"
+  description                = "Detects wscript/cscript executions of scripts located in user directories - Some installers might generate a similar behavior. An initial baseline is required | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_dropper_script_execution_via_wscript_cscript.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

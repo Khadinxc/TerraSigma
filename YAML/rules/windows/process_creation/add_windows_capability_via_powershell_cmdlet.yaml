@@ -1,6 +1,6 @@
 id: 4909e0e2-4c10-5cac-8b54-8e2ff8544526
 name: Add Windows Capability Via PowerShell Cmdlet
-description: Detects usage of the "Add-WindowsCapability" cmdlet to add Windows capabilities. Notable capabilities could be "OpenSSH" and others. - Legitimate usage of the capabilities by administrators or users. Add additional filters accordingly.
+description: 'Detects usage of the "Add-WindowsCapability" cmdlet to add Windows capabilities. Notable capabilities could be "OpenSSH" and others. - Legitimate usage of the capabilities by administrators or users. Add additional filters accordingly. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/add_windows_capability_via_powershell_cmdlet.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

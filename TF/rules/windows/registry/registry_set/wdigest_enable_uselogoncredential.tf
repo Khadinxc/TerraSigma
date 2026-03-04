@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "wdigest_enable_uselogoncredent
   name                       = "wdigest_enable_uselogoncredential"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Wdigest Enable UseLogonCredential"
-  description                = "Detects potential malicious modification of the property value of UseLogonCredential from HKLM:\\SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\WDigest to enable clear-text credentials"
+  description                = "Detects potential malicious modification of the property value of UseLogonCredential from HKLM:\\SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\WDigest to enable clear-text credentials | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/wdigest_enable_uselogoncredential.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: fbaf2686-0f36-53b3-8f49-c5d3c19efc36
 name: Space After Filename - macOS
-description: Detects attempts to masquerade as legitimate files by adding a space to the end of the filename. - Mistyped commands or legitimate binaries named to match the pattern
+description: 'Detects attempts to masquerade as legitimate files by adding a space to the end of the filename. - Mistyped commands or legitimate binaries named to match the pattern | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/space_after_filename_macos.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

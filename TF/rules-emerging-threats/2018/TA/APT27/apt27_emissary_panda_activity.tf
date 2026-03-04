@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "apt27_emissary_panda_activity"
   name                       = "apt27_emissary_panda_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "APT27 - Emissary Panda Activity"
-  description                = "Detects the execution of DLL side-loading malware used by threat group Emissary Panda aka APT27 - Unlikely"
+  description                = "Detects the execution of DLL side-loading malware used by threat group Emissary Panda aka APT27 - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT27/apt27_emissary_panda_activity.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

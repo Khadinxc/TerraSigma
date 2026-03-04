@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "rundll32_spawning_explorer" {
   name                       = "rundll32_spawning_explorer"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "RunDLL32 Spawning Explorer"
-  description                = "Detects RunDLL32.exe spawning explorer.exe as child, which is very uncommon, often observes Gamarue spawning the explorer.exe process in an unusual way"
+  description                = "Detects RunDLL32.exe spawning explorer.exe as child, which is very uncommon, often observes Gamarue spawning the explorer.exe process in an unusual way | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rundll32_spawning_explorer.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

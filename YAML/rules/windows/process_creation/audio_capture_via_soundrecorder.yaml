@@ -1,6 +1,6 @@
 id: 6d483f4e-26e6-570c-a0e7-e72d0c08da52
 name: Audio Capture via SoundRecorder
-description: Detect attacker collecting audio via SoundRecorder application. - Legitimate audio capture by legitimate user.
+description: 'Detect attacker collecting audio via SoundRecorder application. - Legitimate audio capture by legitimate user. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/audio_capture_via_soundrecorder.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

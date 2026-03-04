@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "iso_or_image_mount_indicator_i
   name                       = "iso_or_image_mount_indicator_in_recent_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ISO or Image Mount Indicator in Recent Files"
-  description                = "Detects the creation of recent element file that points to an .ISO, .IMG, .VHD or .VHDX file as often used in phishing attacks. This can be a false positive on server systems but on workstations users should rarely mount .iso or .img files. - Cases in which a user mounts an image file for legitimate reasons"
+  description                = "Detects the creation of recent element file that points to an .ISO, .IMG, .VHD or .VHDX file as often used in phishing attacks. This can be a false positive on server systems but on workstations users should rarely mount .iso or .img files. - Cases in which a user mounts an image file for legitimate reasons | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/iso_or_image_mount_indicator_in_recent_files.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

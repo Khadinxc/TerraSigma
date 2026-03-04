@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "sysmon_driver_unloaded_via_flt
   name                       = "sysmon_driver_unloaded_via_fltmc_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Sysmon Driver Unloaded Via Fltmc.EXE"
-  description                = "Detects possible Sysmon filter driver unloaded via fltmc.exe - Unlikely"
+  description                = "Detects possible Sysmon filter driver unloaded via fltmc.exe - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sysmon_driver_unloaded_via_fltmc_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

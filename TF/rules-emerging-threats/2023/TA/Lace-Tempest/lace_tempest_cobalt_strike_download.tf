@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "lace_tempest_cobalt_strike_dow
   name                       = "lace_tempest_cobalt_strike_download"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Lace Tempest Cobalt Strike Download"
-  description                = "Detects specific command line execution used by Lace Tempest to download Cobalt Strike as reported by SysAid Team - Unlikely"
+  description                = "Detects specific command line execution used by Lace Tempest to download Cobalt Strike as reported by SysAid Team - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lace-Tempest/lace_tempest_cobalt_strike_download.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

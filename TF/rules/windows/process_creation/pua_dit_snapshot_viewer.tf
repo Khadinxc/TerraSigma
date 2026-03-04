@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_dit_snapshot_viewer" {
   name                       = "pua_dit_snapshot_viewer"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - DIT Snapshot Viewer"
-  description                = "Detects the use of Ditsnap tool, an inspection tool for Active Directory database, ntds.dit. - Legitimate admin usage"
+  description                = "Detects the use of Ditsnap tool, an inspection tool for Active Directory database, ntds.dit. - Legitimate admin usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_dit_snapshot_viewer.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

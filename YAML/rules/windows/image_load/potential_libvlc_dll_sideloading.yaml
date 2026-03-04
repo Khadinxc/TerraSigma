@@ -1,6 +1,6 @@
 id: fe7532c5-1897-5c15-a1ce-aeb42b876c2a
 name: Potential Libvlc.DLL Sideloading
-description: Detects potential DLL sideloading of "libvlc.dll", a DLL that is legitimately used by "VLC.exe"
+description: 'Detects potential DLL sideloading of "libvlc.dll", a DLL that is legitimately used by "VLC.exe" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_libvlc_dll_sideloading.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

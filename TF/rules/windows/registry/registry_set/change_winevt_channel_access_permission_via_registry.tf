@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "change_winevt_channel_access_p
   name                       = "change_winevt_channel_access_permission_via_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Change Winevt Channel Access Permission Via Registry"
-  description                = "Detects tampering with the \"ChannelAccess\" registry key in order to change access to Windows event channel."
+  description                = "Detects tampering with the \"ChannelAccess\" registry key in order to change access to Windows event channel. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/change_winevt_channel_access_permission_via_registry.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: 723437f4-f042-51f2-944f-0d6ca41206ac
 name: UAC Bypass Using MSConfig Token Modification - Process
-description: Detects the pattern of UAC Bypass using a msconfig GUI hack (UACMe 55)
+description: 'Detects the pattern of UAC Bypass using a msconfig GUI hack (UACMe 55) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uac_bypass_using_msconfig_token_modification_process.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

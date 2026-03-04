@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "cloudflared_quick_tunnel_execu
   name                       = "cloudflared_quick_tunnel_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Cloudflared Quick Tunnel Execution"
-  description                = "Detects creation of an ad-hoc Cloudflare Quick Tunnel, which can be used to tunnel local services such as HTTP, RDP, SSH and SMB. The free TryCloudflare Quick Tunnel will generate a random subdomain on trycloudflare[.]com, following a call to api[.]trycloudflare[.]com. The tool has been observed in use by threat groups including Akira ransomware. - Legitimate usage of Cloudflare Quick Tunnel"
+  description                = "Detects creation of an ad-hoc Cloudflare Quick Tunnel, which can be used to tunnel local services such as HTTP, RDP, SSH and SMB. The free TryCloudflare Quick Tunnel will generate a random subdomain on trycloudflare[.]com, following a call to api[.]trycloudflare[.]com. The tool has been observed in use by threat groups including Akira ransomware. - Legitimate usage of Cloudflare Quick Tunnel | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/cloudflared_quick_tunnel_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

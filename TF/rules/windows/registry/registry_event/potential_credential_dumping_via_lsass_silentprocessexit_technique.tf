@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_credential_dumping_v
   name                       = "potential_credential_dumping_via_lsass_silentprocessexit_technique"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Credential Dumping Via LSASS SilentProcessExit Technique"
-  description                = "Detects changes to the Registry in which a monitor program gets registered to dump the memory of the lsass.exe process - Unlikely"
+  description                = "Detects changes to the Registry in which a monitor program gets registered to dump the memory of the lsass.exe process - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/potential_credential_dumping_via_lsass_silentprocessexit_technique.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

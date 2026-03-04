@@ -1,6 +1,6 @@
 id: 3919d3ec-3002-5828-95e0-adc452895336
 name: Hiding User Account Via SpecialAccounts Registry Key - CommandLine
-description: Detects changes to the registry key "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\Userlist" where the value is set to "0" in order to hide user account from being listed on the logon screen. - System administrator activities
+description: 'Detects changes to the registry key "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\Userlist" where the value is set to "0" in order to hide user account from being listed on the logon screen. - System administrator activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hiding_user_account_via_specialaccounts_registry_key_commandline.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

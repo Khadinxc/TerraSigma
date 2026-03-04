@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_file_created_by_arc
   name                       = "suspicious_file_created_by_arcsoc_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Created by ArcSOC.exe"
-  description                = "Detects instances where the ArcGIS Server process ArcSOC.exe, which hosts REST services running on an ArcGIS server, creates a file with suspicious file type, indicating that it may be an executable, script file, or otherwise unusual. - Unlikely"
+  description                = "Detects instances where the ArcGIS Server process ArcSOC.exe, which hosts REST services running on an ArcGIS server, creates a file with suspicious file type, indicating that it may be an executable, script file, or otherwise unusual. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_file_created_by_arcsoc_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

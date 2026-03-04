@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_roboform_dll_sideloa
   name                       = "potential_roboform_dll_sideloading"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential RoboForm.DLL Sideloading"
-  description                = "Detects potential DLL sideloading of \"roboform.dll\", a DLL used by RoboForm Password Manager - If installed on a per-user level, the path would be located in \"AppData\\Local\". Add additional filters to reflect this mode of installation"
+  description                = "Detects potential DLL sideloading of \"roboform.dll\", a DLL used by RoboForm Password Manager - If installed on a per-user level, the path would be located in \"AppData\\Local\". Add additional filters to reflect this mode of installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_roboform_dll_sideloading.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

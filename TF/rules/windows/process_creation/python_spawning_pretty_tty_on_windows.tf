@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "python_spawning_pretty_tty_on_
   name                       = "python_spawning_pretty_tty_on_windows"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Python Spawning Pretty TTY on Windows"
-  description                = "Detects python spawning a pretty tty"
+  description                = "Detects python spawning a pretty tty | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/python_spawning_pretty_tty_on_windows.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

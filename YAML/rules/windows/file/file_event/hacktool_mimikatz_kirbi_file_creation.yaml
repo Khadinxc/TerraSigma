@@ -1,6 +1,6 @@
 id: 149b1d96-fae5-5e68-8f31-cc302a5d5c82
 name: HackTool - Mimikatz Kirbi File Creation
-description: Detects the creation of files created by mimikatz such as ".kirbi", "mimilsa.log", etc. - Unlikely
+description: 'Detects the creation of files created by mimikatz such as ".kirbi", "mimilsa.log", etc. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/hacktool_mimikatz_kirbi_file_creation.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

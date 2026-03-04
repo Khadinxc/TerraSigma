@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dll_names_used_by_svr_for_grap
   name                       = "dll_names_used_by_svr_for_graphicalproton_backdoor"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DLL Names Used By SVR For GraphicalProton Backdoor"
-  description                = "Hunts known SVR-specific DLL names."
+  description                = "Hunts known SVR-specific DLL names. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Cozy-Bear/dll_names_used_by_svr_for_graphicalproton_backdoor.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

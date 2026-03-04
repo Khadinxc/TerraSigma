@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_plink_port_forwardi
   name                       = "suspicious_plink_port_forwarding"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Plink Port Forwarding"
-  description                = "Detects suspicious Plink tunnel port forwarding to a local port - Administrative activity using a remote port forwarding to a local port"
+  description                = "Detects suspicious Plink tunnel port forwarding to a local port - Administrative activity using a remote port forwarding to a local port | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_plink_port_forwarding.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

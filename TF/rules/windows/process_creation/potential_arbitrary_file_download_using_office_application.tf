@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_arbitrary_file_downl
   name                       = "potential_arbitrary_file_download_using_office_application"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Arbitrary File Download Using Office Application"
-  description                = "Detects potential arbitrary file download using a Microsoft Office application"
+  description                = "Detects potential arbitrary file download using a Microsoft Office application | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_arbitrary_file_download_using_office_application.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

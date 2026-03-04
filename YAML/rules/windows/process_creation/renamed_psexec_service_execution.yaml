@@ -1,6 +1,6 @@
 id: 2d32fcce-01fc-51f3-9b6b-e6ff019bcb61
 name: Renamed PsExec Service Execution
-description: Detects suspicious launch of a renamed version of the PSEXESVC service with, which is not often used by legitimate administrators - Legitimate administrative tasks
+description: 'Detects suspicious launch of a renamed version of the PSEXESVC service with, which is not often used by legitimate administrators - Legitimate administrative tasks | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_psexec_service_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_outlook_child_proce
   name                       = "suspicious_outlook_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Outlook Child Process"
-  description                = "Detects a suspicious process spawning from an Outlook process."
+  description                = "Detects a suspicious process spawning from an Outlook process. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_outlook_child_process.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

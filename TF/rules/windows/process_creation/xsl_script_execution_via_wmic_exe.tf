@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "xsl_script_execution_via_wmic_
   name                       = "xsl_script_execution_via_wmic_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "XSL Script Execution Via WMIC.EXE"
-  description                = "Detects the execution of WMIC with the \"format\" flag to potentially load XSL files. Adversaries abuse this functionality to execute arbitrary files while potentially bypassing application whitelisting defenses. Extensible Stylesheet Language (XSL) files are commonly used to describe the processing and rendering of data within XML files. - WMIC.exe FP depend on scripts and administrative methods used in the monitored environment. - Static format arguments - https://petri.com/command-line-wmi-part-3"
+  description                = "Detects the execution of WMIC with the \"format\" flag to potentially load XSL files. Adversaries abuse this functionality to execute arbitrary files while potentially bypassing application whitelisting defenses. Extensible Stylesheet Language (XSL) files are commonly used to describe the processing and rendering of data within XML files. - WMIC.exe FP depend on scripts and administrative methods used in the monitored environment. - Static format arguments - https://petri.com/command-line-wmi-part-3 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/xsl_script_execution_via_wmic_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

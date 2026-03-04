@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "arbitrary_msi_download_via_dev
   name                       = "arbitrary_msi_download_via_devinit_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Arbitrary MSI Download Via Devinit.EXE"
-  description                = "Detects a certain command line flag combination used by \"devinit.exe\", which can be abused as a LOLBIN to download arbitrary MSI packages on a Windows system"
+  description                = "Detects a certain command line flag combination used by \"devinit.exe\", which can be abused as a LOLBIN to download arbitrary MSI packages on a Windows system | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/arbitrary_msi_download_via_devinit_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: 25cf4525-fbfd-55f8-b6ab-e8f0759034b0
 name: PUA - Kernel Driver Utility (KDU) Execution
-description: Detects execution of the Kernel Driver Utility (KDU) tool. KDU can be used to bypass driver signature enforcement and load unsigned or malicious drivers into the Windows kernel. Potentially allowing for privilege escalation, persistence, or evasion of security controls. - Legitimate driver development, testing, or administrative troubleshooting (e.g., enabling/disabling hardware)
+description: 'Detects execution of the Kernel Driver Utility (KDU) tool. KDU can be used to bypass driver signature enforcement and load unsigned or malicious drivers into the Windows kernel. Potentially allowing for privilege escalation, persistence, or evasion of security controls. - Legitimate driver development, testing, or administrative troubleshooting (e.g., enabling/disabling hardware) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_kernel_driver_utility_kdu_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

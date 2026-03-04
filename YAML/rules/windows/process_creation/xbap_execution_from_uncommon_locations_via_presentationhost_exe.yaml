@@ -1,6 +1,6 @@
 id: eef5a077-4898-5308-84bb-8ad1879054d0
 name: XBAP Execution From Uncommon Locations Via PresentationHost.EXE
-description: Detects the execution of ".xbap" (Browser Applications) files via PresentationHost.EXE from an uncommon location. These files can be abused to run malicious ".xbap" files any bypass AWL - Legitimate ".xbap" being executed via "PresentationHost"
+description: 'Detects the execution of ".xbap" (Browser Applications) files via PresentationHost.EXE from an uncommon location. These files can be abused to run malicious ".xbap" files any bypass AWL - Legitimate ".xbap" being executed via "PresentationHost" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/xbap_execution_from_uncommon_locations_via_presentationhost_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

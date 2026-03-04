@@ -1,6 +1,6 @@
 id: 2b648c7a-9519-51d1-a56d-a8651e4e0f31
 name: WMIC Remote Command Execution
-description: Detects the execution of WMIC to query information on a remote system
+description: 'Detects the execution of WMIC to query information on a remote system | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wmic_remote_command_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

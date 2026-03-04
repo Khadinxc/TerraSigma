@@ -1,6 +1,6 @@
 id: c6bb8ea7-dee2-50d6-9825-957ea580e472
 name: Suspicious Process Patterns NTDS.DIT Exfil
-description: Detects suspicious process patterns used in NTDS.DIT exfiltration
+description: 'Detects suspicious process patterns used in NTDS.DIT exfiltration | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_process_patterns_ntds_dit_exfil.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

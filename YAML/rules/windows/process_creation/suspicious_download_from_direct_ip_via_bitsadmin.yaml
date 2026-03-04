@@ -1,6 +1,6 @@
 id: f3f930f9-caf2-5f17-bf0d-46caaa32c027
 name: Suspicious Download From Direct IP Via Bitsadmin
-description: Detects usage of bitsadmin downloading a file using an URL that contains an IP
+description: 'Detects usage of bitsadmin downloading a file using an URL that contains an IP | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_download_from_direct_ip_via_bitsadmin.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

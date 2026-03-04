@@ -1,6 +1,6 @@
 id: 6f1af493-486e-5e77-8fea-842dda58383a
 name: Potential RoboForm.DLL Sideloading
-description: Detects potential DLL sideloading of "roboform.dll", a DLL used by RoboForm Password Manager - If installed on a per-user level, the path would be located in "AppData\Local". Add additional filters to reflect this mode of installation
+description: 'Detects potential DLL sideloading of "roboform.dll", a DLL used by RoboForm Password Manager - If installed on a per-user level, the path would be located in "AppData\Local". Add additional filters to reflect this mode of installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_roboform_dll_sideloading.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

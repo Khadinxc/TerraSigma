@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "execute_code_with_pester_bat" 
   name                       = "execute_code_with_pester_bat"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Execute Code with Pester.bat"
-  description                = "Detects code execution via Pester.bat (Pester - Powershell Modulte for testing) - Legitimate use of Pester for writing tests for Powershell scripts and modules"
+  description                = "Detects code execution via Pester.bat (Pester - Powershell Modulte for testing) - Legitimate use of Pester for writing tests for Powershell scripts and modules | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/execute_code_with_pester_bat.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

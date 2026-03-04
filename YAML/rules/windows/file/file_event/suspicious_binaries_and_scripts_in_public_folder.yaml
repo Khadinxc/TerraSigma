@@ -1,6 +1,6 @@
 id: d9dc8f8b-e177-53a9-9a87-bb296f1d4729
 name: Suspicious Binaries and Scripts in Public Folder
-description: Detects the creation of a file with a suspicious extension in the public folder, which could indicate potential malicious activity. - Administrators deploying legitimate binaries to public folders.
+description: 'Detects the creation of a file with a suspicious extension in the public folder, which could indicate potential malicious activity. - Administrators deploying legitimate binaries to public folders. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_binaries_and_scripts_in_public_folder.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

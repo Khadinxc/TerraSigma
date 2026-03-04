@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_spool_service_child
   name                       = "suspicious_spool_service_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Spool Service Child Process"
-  description                = "Detects suspicious print spool service (spoolsv.exe) child processes."
+  description                = "Detects suspicious print spool service (spoolsv.exe) child processes. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_spool_service_child_process.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "webshell_hacking_activity_patt
   name                       = "webshell_hacking_activity_patterns"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Webshell Hacking Activity Patterns"
-  description                = "Detects certain parent child patterns found in cases in which a web shell is used to perform certain credential dumping or exfiltration activities on a compromised system - Unlikely"
+  description                = "Detects certain parent child patterns found in cases in which a web shell is used to perform certain credential dumping or exfiltration activities on a compromised system - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/webshell_hacking_activity_patterns.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

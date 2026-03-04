@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "csc_exe_execution_form_potenti
   name                       = "csc_exe_execution_form_potentially_suspicious_parent"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Csc.EXE Execution Form Potentially Suspicious Parent"
-  description                = "Detects a potentially suspicious parent of \"csc.exe\", which could be a sign of payload delivery."
+  description                = "Detects a potentially suspicious parent of \"csc.exe\", which could be a sign of payload delivery. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/csc_exe_execution_form_potentially_suspicious_parent.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

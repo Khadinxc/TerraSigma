@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_empire_powershell_lau
   name                       = "hacktool_empire_powershell_launch_parameters"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Empire PowerShell Launch Parameters"
-  description                = "Detects suspicious powershell command line parameters used in Empire - Other tools that incidentally use the same command line parameters"
+  description                = "Detects suspicious powershell command line parameters used in Empire - Other tools that incidentally use the same command line parameters | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_empire_powershell_launch_parameters.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

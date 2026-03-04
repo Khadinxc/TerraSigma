@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "wmi_persistence_command_line_e
   name                       = "wmi_persistence_command_line_event_consumer"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WMI Persistence - Command Line Event Consumer"
-  description                = "Detects WMI command line event consumers - Unknown (data set is too small; further testing needed)"
+  description                = "Detects WMI command line event consumers - Unknown (data set is too small; further testing needed) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/wmi_persistence_command_line_event_consumer.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

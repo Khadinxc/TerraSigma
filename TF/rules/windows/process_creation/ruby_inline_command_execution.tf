@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "ruby_inline_command_execution"
   name                       = "ruby_inline_command_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Ruby Inline Command Execution"
-  description                = "Detects execution of ruby using the \"-e\" flag. This is could be used as a way to launch a reverse shell or execute live ruby code."
+  description                = "Detects execution of ruby using the \"-e\" flag. This is could be used as a way to launch a reverse shell or execute live ruby code. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/ruby_inline_command_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

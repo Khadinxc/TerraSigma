@@ -1,6 +1,6 @@
 id: 6513a559-6b54-55be-bbaf-7e0c7d553548
 name: Cscript/Wscript Uncommon Script Extension Execution
-description: Detects Wscript/Cscript executing a file with an uncommon (i.e. non-script) extension
+description: 'Detects Wscript/Cscript executing a file with an uncommon (i.e. non-script) extension | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/cscript_wscript_uncommon_script_extension_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

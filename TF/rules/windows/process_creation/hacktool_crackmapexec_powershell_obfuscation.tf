@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_crackmapexec_powershe
   name                       = "hacktool_crackmapexec_powershell_obfuscation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - CrackMapExec PowerShell Obfuscation"
-  description                = "The CrachMapExec pentesting framework implements a PowerShell obfuscation with some static strings detected by this rule."
+  description                = "The CrachMapExec pentesting framework implements a PowerShell obfuscation with some static strings detected by this rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_crackmapexec_powershell_obfuscation.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

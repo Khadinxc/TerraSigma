@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_outlook_macro_created" {
   name                       = "new_outlook_macro_created"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Outlook Macro Created"
-  description                = "Detects the creation of a macro file for Outlook. - User genuinely creates a VB Macro for their email"
+  description                = "Detects the creation of a macro file for Outlook. - User genuinely creates a VB Macro for their email | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/new_outlook_macro_created.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

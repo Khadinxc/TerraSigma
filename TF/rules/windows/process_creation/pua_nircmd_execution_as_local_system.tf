@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_nircmd_execution_as_local_
   name                       = "pua_nircmd_execution_as_local_system"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - NirCmd Execution As LOCAL SYSTEM"
-  description                = "Detects the use of NirCmd tool for command execution as SYSTEM user - Legitimate use by administrators"
+  description                = "Detects the use of NirCmd tool for command execution as SYSTEM user - Legitimate use by administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_nircmd_execution_as_local_system.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

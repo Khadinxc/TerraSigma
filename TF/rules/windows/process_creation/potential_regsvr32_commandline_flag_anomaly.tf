@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_regsvr32_commandline
   name                       = "potential_regsvr32_commandline_flag_anomaly"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Regsvr32 Commandline Flag Anomaly"
-  description                = "Detects a potential command line flag anomaly related to \"regsvr32\" in which the \"/i\" flag is used without the \"/n\" which should be uncommon. - Administrator typo might cause some false positives"
+  description                = "Detects a potential command line flag anomaly related to \"regsvr32\" in which the \"/i\" flag is used without the \"/n\" which should be uncommon. - Administrator typo might cause some false positives | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_regsvr32_commandline_flag_anomaly.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

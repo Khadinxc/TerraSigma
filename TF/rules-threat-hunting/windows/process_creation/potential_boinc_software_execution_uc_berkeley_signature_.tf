@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_boinc_software_execu
   name                       = "potential_boinc_software_execution_uc_berkeley_signature"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential BOINC Software Execution (UC-Berkeley Signature)"
-  description                = "Detects the use of software that is related to the University of California, Berkeley via metadata information. This indicates it may be related to BOINC software and can be used maliciously if unauthorized. - This software can be used for legitimate purposes when installed intentionally."
+  description                = "Detects the use of software that is related to the University of California, Berkeley via metadata information. This indicates it may be related to BOINC software and can be used maliciously if unauthorized. - This software can be used for legitimate purposes when installed intentionally. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/potential_boinc_software_execution_uc_berkeley_signature_.yml"
   severity                   = "Informational"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

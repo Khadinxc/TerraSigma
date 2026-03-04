@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "ufw_force_stop_using_ufw_init"
   name                       = "ufw_force_stop_using_ufw_init"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Ufw Force Stop Using Ufw-Init"
-  description                = "Detects attempts to force stop the ufw using ufw-init - Network administrators"
+  description                = "Detects attempts to force stop the ufw using ufw-init - Network administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/ufw_force_stop_using_ufw_init.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

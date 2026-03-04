@@ -1,6 +1,6 @@
 id: ffcb9b0c-e407-55c0-81cb-adcc883d2ce5
 name: DD File Overwrite
-description: Detects potential overwriting and deletion of a file using DD. - Any user deleting files that way.
+description: 'Detects potential overwriting and deletion of a file using DD. - Any user deleting files that way. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/dd_file_overwrite.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

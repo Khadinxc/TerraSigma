@@ -1,6 +1,6 @@
 id: 114ef735-a520-523e-a5cb-6e8071f5a6ec
 name: Imports Registry Key From an ADS
-description: Detects the import of a alternate datastream to the registry with regedit.exe.
+description: 'Detects the import of a alternate datastream to the registry with regedit.exe. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/imports_registry_key_from_an_ads.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

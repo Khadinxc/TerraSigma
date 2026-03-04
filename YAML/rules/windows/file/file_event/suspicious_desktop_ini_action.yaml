@@ -1,6 +1,6 @@
 id: cd103298-4af3-547f-b35b-e03c3729148a
 name: Suspicious desktop.ini Action
-description: Detects unusual processes accessing desktop.ini, which can be leveraged to alter how Explorer displays a folder's content (i.e. renaming files) without changing them on disk. - Operations performed through Windows SCCM or equivalent - Read only access list authority
+description: 'Detects unusual processes accessing desktop.ini, which can be leveraged to alter how Explorer displays a folder''s content (i.e. renaming files) without changing them on disk. - Operations performed through Windows SCCM or equivalent - Read only access list authority | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_desktop_ini_action.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

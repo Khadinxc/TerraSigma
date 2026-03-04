@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "oilrig_apt_registry_persistenc
   name                       = "oilrig_apt_registry_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "OilRig APT Registry Persistence"
-  description                = "Detects OilRig registry persistence as reported by Nyotron in their March 2018 report - Unlikely"
+  description                = "Detects OilRig registry persistence as reported by Nyotron in their March 2018 report - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/OilRig/oilrig_apt_registry_persistence.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

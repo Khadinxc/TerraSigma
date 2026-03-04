@@ -1,6 +1,6 @@
 id: 96b07085-772f-54dd-9a15-89076cdc5a01
 name: COM Hijacking via TreatAs
-description: Detect modification of TreatAs key to enable "rundll32.exe -sta" command - Legitimate use
+description: 'Detect modification of TreatAs key to enable "rundll32.exe -sta" command - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/com_hijacking_via_treatas.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

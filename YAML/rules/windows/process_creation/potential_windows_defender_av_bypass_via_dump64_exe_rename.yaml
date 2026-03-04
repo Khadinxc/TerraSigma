@@ -1,6 +1,6 @@
 id: 334a6834-4c06-53d6-b9a1-e051005339a8
 name: Potential Windows Defender AV Bypass Via Dump64.EXE Rename
-description: Detects when a user is potentially trying to bypass the Windows Defender AV by renaming a tool to dump64.exe and placing it in the Visual Studio folder. Currently the rule is covering only usage of procdump but other utilities can be added in order to increase coverage.
+description: 'Detects when a user is potentially trying to bypass the Windows Defender AV by renaming a tool to dump64.exe and placing it in the Visual Studio folder. Currently the rule is covering only usage of procdump but other utilities can be added in order to increase coverage. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_windows_defender_av_bypass_via_dump64_exe_rename.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

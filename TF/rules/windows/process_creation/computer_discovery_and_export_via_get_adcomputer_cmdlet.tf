@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "computer_discovery_and_export_
   name                       = "computer_discovery_and_export_via_get_adcomputer_cmdlet"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Computer Discovery And Export Via Get-ADComputer Cmdlet"
-  description                = "Detects usage of the Get-ADComputer cmdlet to collect computer information and output it to a file - Legitimate admin scripts may use the same technique, it's better to exclude specific computers or users who execute these commands or scripts often"
+  description                = "Detects usage of the Get-ADComputer cmdlet to collect computer information and output it to a file - Legitimate admin scripts may use the same technique, it's better to exclude specific computers or users who execute these commands or scripts often | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/computer_discovery_and_export_via_get_adcomputer_cmdlet.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

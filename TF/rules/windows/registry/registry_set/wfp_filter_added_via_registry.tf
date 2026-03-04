@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "wfp_filter_added_via_registry"
   name                       = "wfp_filter_added_via_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WFP Filter Added via Registry"
-  description                = "Detects registry modifications that add Windows Filtering Platform (WFP) filters, which may be used to block security tools and EDR agents from reporting events."
+  description                = "Detects registry modifications that add Windows Filtering Platform (WFP) filters, which may be used to block security tools and EDR agents from reporting events. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/wfp_filter_added_via_registry.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

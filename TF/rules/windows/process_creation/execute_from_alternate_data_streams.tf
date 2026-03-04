@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "execute_from_alternate_data_st
   name                       = "execute_from_alternate_data_streams"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Execute From Alternate Data Streams"
-  description                = "Detects execution from an Alternate Data Stream (ADS). Adversaries may use NTFS file attributes to hide their malicious data in order to evade detection"
+  description                = "Detects execution from an Alternate Data Stream (ADS). Adversaries may use NTFS file attributes to hide their malicious data in order to evade detection | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/execute_from_alternate_data_streams.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "cab_file_extraction_via_wusa_e
   name                       = "cab_file_extraction_via_wusa_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Cab File Extraction Via Wusa.EXE"
-  description                = "Detects execution of the \"wusa.exe\" (Windows Update Standalone Installer) utility to extract cab using the \"/extract\" argument that is no longer supported. - The \"extract\" flag still works on older 'wusa.exe' versions, which could be a legitimate use (monitor the path of the cab being extracted)"
+  description                = "Detects execution of the \"wusa.exe\" (Windows Update Standalone Installer) utility to extract cab using the \"/extract\" argument that is no longer supported. - The \"extract\" flag still works on older 'wusa.exe' versions, which could be a legitimate use (monitor the path of the cab being extracted) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/cab_file_extraction_via_wusa_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

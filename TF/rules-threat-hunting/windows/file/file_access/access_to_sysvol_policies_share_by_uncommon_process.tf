@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "access_to_sysvol_policies_shar
   name                       = "access_to_sysvol_policies_share_by_uncommon_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Access To Sysvol Policies Share By Uncommon Process"
-  description                = "Detects file access requests to the Windows Sysvol Policies Share by uncommon processes"
+  description                = "Detects file access requests to the Windows Sysvol Policies Share by uncommon processes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/access_to_sysvol_policies_share_by_uncommon_process.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

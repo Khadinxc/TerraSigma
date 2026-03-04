@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "load_of_rstrtmgr_dll_by_an_unc
   name                       = "load_of_rstrtmgr_dll_by_an_uncommon_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Load Of RstrtMgr.DLL By An Uncommon Process"
-  description                = "Detects the load of RstrtMgr DLL (Restart Manager) by an uncommon process. This library has been used during ransomware campaigns to kill processes that would prevent file encryption by locking them (e.g. Conti ransomware, Cactus ransomware). It has also recently been seen used by the BiBi wiper for Windows. It could also be used for anti-analysis purposes by shut downing specific processes. - Other legitimate Windows processes not currently listed - Processes related to software installation"
+  description                = "Detects the load of RstrtMgr DLL (Restart Manager) by an uncommon process. This library has been used during ransomware campaigns to kill processes that would prevent file encryption by locking them (e.g. Conti ransomware, Cactus ransomware). It has also recently been seen used by the BiBi wiper for Windows. It could also be used for anti-analysis purposes by shut downing specific processes. - Other legitimate Windows processes not currently listed - Processes related to software installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/load_of_rstrtmgr_dll_by_an_uncommon_process.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

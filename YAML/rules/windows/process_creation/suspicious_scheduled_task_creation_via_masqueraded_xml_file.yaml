@@ -1,6 +1,6 @@
 id: c56f4525-d237-5c5c-af23-665facb208ab
 name: Suspicious Scheduled Task Creation via Masqueraded XML File
-description: Detects the creation of a scheduled task using the "-XML" flag with a file without the '.xml' extension. This behavior could be indicative of potential defense evasion attempt during persistence
+description: 'Detects the creation of a scheduled task using the "-XML" flag with a file without the ''.xml'' extension. This behavior could be indicative of potential defense evasion attempt during persistence | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_scheduled_task_creation_via_masqueraded_xml_file.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -28,10 +28,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

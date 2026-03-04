@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_root_or_ca_or_authroot_cer
   name                       = "new_root_or_ca_or_authroot_certificate_to_store"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Root or CA or AuthRoot Certificate to Store"
-  description                = "Detects the addition of new root, CA or AuthRoot certificates to the Windows registry"
+  description                = "Detects the addition of new root, CA or AuthRoot certificates to the Windows registry | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/new_root_or_ca_or_authroot_certificate_to_store.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

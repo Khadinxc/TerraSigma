@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "indirect_command_execution_by_
   name                       = "indirect_command_execution_by_program_compatibility_wizard"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Indirect Command Execution By Program Compatibility Wizard"
-  description                = "Detect indirect command execution via Program Compatibility Assistant pcwrun.exe - Need to use extra processing with 'unique_count' / 'filter' to focus on outliers as opposed to commonly seen artifacts - Legit usage of scripts"
+  description                = "Detect indirect command execution via Program Compatibility Assistant pcwrun.exe - Need to use extra processing with 'unique_count' / 'filter' to focus on outliers as opposed to commonly seen artifacts - Legit usage of scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/indirect_command_execution_by_program_compatibility_wizard.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

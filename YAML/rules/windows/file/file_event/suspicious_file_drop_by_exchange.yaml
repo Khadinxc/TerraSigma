@@ -1,6 +1,6 @@
 id: 8e965c30-f9b0-5493-816a-58d7760af904
 name: Suspicious File Drop by Exchange
-description: Detects suspicious file type dropped by an Exchange component in IIS
+description: 'Detects suspicious file type dropped by an Exchange component in IIS | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_file_drop_by_exchange.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

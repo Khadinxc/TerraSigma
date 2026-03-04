@@ -1,6 +1,6 @@
 id: 784c904a-184f-5a8e-8df4-b18a54ce126b
 name: Invoke-Obfuscation Via Use MSHTA
-description: Detects Obfuscated Powershell via use MSHTA in Scripts
+description: 'Detects Obfuscated Powershell via use MSHTA in Scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/invoke_obfuscation_via_use_mshta.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

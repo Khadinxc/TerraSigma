@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "removal_of_sd_value_to_hide_sc
   name                       = "removal_of_sd_value_to_hide_schedule_task_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Removal Of SD Value to Hide Schedule Task - Registry"
-  description                = "Remove SD (Security Descriptor) value in \\Schedule\\TaskCache\\Tree registry hive to hide schedule task. This technique is used by Tarrask malware"
+  description                = "Remove SD (Security Descriptor) value in \\Schedule\\TaskCache\\Tree registry hive to hide schedule task. This technique is used by Tarrask malware | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/removal_of_sd_value_to_hide_schedule_task_registry.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

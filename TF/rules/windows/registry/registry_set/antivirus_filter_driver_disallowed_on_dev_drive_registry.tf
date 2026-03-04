@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "antivirus_filter_driver_disall
   name                       = "antivirus_filter_driver_disallowed_on_dev_drive_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Antivirus Filter Driver Disallowed On Dev Drive - Registry"
-  description                = "Detects activity that indicates a user disabling the ability for Antivirus mini filter to inspect a \"Dev Drive\". - Unlikely"
+  description                = "Detects activity that indicates a user disabling the ability for Antivirus mini filter to inspect a \"Dev Drive\". - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/antivirus_filter_driver_disallowed_on_dev_drive_registry.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

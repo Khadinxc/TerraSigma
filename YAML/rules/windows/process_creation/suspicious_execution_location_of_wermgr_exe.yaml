@@ -1,6 +1,6 @@
 id: c2b1614d-21be-576c-91fc-24298729de3d
 name: Suspicious Execution Location Of Wermgr.EXE
-description: Detects suspicious Windows Error Reporting manager (wermgr.exe) execution location.
+description: 'Detects suspicious Windows Error Reporting manager (wermgr.exe) execution location. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_execution_location_of_wermgr_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

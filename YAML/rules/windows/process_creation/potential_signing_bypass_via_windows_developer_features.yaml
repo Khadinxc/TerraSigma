@@ -1,6 +1,6 @@
 id: 264c1122-1194-538c-afd5-5654b348e461
 name: Potential Signing Bypass Via Windows Developer Features
-description: Detects when a user enable developer features such as "Developer Mode" or "Application Sideloading". Which allows the user to install untrusted packages.
+description: 'Detects when a user enable developer features such as "Developer Mode" or "Application Sideloading". Which allows the user to install untrusted packages. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_signing_bypass_via_windows_developer_features.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

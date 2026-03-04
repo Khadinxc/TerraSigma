@@ -1,6 +1,6 @@
 id: 680df851-64ab-5481-9877-a2c02e97d421
 name: Raccine Uninstall
-description: Detects commands that indicate a Raccine removal from an end system. Raccine is a free ransomware protection tool. - Legitimate deinstallation by administrative staff
+description: 'Detects commands that indicate a Raccine removal from an end system. Raccine is a free ransomware protection tool. - Legitimate deinstallation by administrative staff | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/raccine_uninstall.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

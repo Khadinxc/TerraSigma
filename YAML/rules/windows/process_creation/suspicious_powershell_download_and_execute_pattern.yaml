@@ -1,6 +1,6 @@
 id: 5ff83150-0580-509c-b9e5-0207a6d6d03f
 name: Suspicious PowerShell Download and Execute Pattern
-description: Detects suspicious PowerShell download patterns that are often used in malicious scripts, stagers or downloaders (make sure that your backend applies the strings case-insensitive) - Software installers that pull packages from remote systems and execute them
+description: 'Detects suspicious PowerShell download patterns that are often used in malicious scripts, stagers or downloaders (make sure that your backend applies the strings case-insensitive) - Software installers that pull packages from remote systems and execute them | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_powershell_download_and_execute_pattern.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

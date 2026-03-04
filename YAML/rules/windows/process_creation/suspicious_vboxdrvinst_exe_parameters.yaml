@@ -1,6 +1,6 @@
 id: b1e4265d-08a2-5fa7-b4c8-ded49fc4977b
 name: Suspicious VBoxDrvInst.exe Parameters
-description: Detect VBoxDrvInst.exe run with parameters allowing processing INF file. This allows to create values in the registry and install drivers. For example one could use this technique to obtain persistence via modifying one of Run or RunOnce registry keys - Legitimate use of VBoxDrvInst.exe utility by VirtualBox Guest Additions installation process
+description: 'Detect VBoxDrvInst.exe run with parameters allowing processing INF file. This allows to create values in the registry and install drivers. For example one could use this technique to obtain persistence via modifying one of Run or RunOnce registry keys - Legitimate use of VBoxDrvInst.exe utility by VirtualBox Guest Additions installation process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_vboxdrvinst_exe_parameters.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -1,6 +1,6 @@
 id: 5ad11126-d6d2-507d-9812-d15e0907ef21
 name: Ruby Inline Command Execution
-description: Detects execution of ruby using the "-e" flag. This is could be used as a way to launch a reverse shell or execute live ruby code.
+description: 'Detects execution of ruby using the "-e" flag. This is could be used as a way to launch a reverse shell or execute live ruby code. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/ruby_inline_command_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

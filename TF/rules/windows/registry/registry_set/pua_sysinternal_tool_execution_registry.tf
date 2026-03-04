@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_sysinternal_tool_execution
   name                       = "pua_sysinternal_tool_execution_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Sysinternal Tool Execution - Registry"
-  description                = "Detects the execution of a Sysinternals Tool via the creation of the \"accepteula\" registry key - Legitimate use of SysInternals tools - Programs that use the same Registry Key"
+  description                = "Detects the execution of a Sysinternals Tool via the creation of the \"accepteula\" registry key - Legitimate use of SysInternals tools - Programs that use the same Registry Key | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/pua_sysinternal_tool_execution_registry.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

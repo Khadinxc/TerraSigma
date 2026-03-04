@@ -1,6 +1,6 @@
 id: d05005fb-bcc1-5a16-9d0a-1ae9f7162610
 name: Potential Persistence Via PlistBuddy
-description: Detects potential persistence activity using LaunchAgents or LaunchDaemons via the PlistBuddy utility
+description: 'Detects potential persistence activity using LaunchAgents or LaunchDaemons via the PlistBuddy utility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/potential_persistence_via_plistbuddy.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

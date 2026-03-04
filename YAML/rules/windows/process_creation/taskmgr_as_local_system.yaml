@@ -1,6 +1,6 @@
 id: d456214c-108b-5133-a9a2-d0239d1e0b29
 name: Taskmgr as LOCAL_SYSTEM
-description: Detects the creation of taskmgr.exe process in context of LOCAL_SYSTEM
+description: 'Detects the creation of taskmgr.exe process in context of LOCAL_SYSTEM | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/taskmgr_as_local_system.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

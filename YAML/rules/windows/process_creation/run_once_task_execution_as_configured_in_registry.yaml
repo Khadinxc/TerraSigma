@@ -1,6 +1,6 @@
 id: c05128c7-2e05-54ef-a0ec-1a9a727d8874
 name: Run Once Task Execution as Configured in Registry
-description: This rule detects the execution of Run Once task as configured in the registry
+description: 'This rule detects the execution of Run Once task as configured in the registry | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/run_once_task_execution_as_configured_in_registry.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "obfuscated_powershell_oneliner
   name                       = "obfuscated_powershell_oneliner_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Obfuscated PowerShell OneLiner Execution"
-  description                = "Detects the execution of a specific OneLiner to download and execute powershell modules in memory."
+  description                = "Detects the execution of a specific OneLiner to download and execute powershell modules in memory. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/obfuscated_powershell_oneliner_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

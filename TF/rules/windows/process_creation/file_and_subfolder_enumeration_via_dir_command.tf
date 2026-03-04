@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_and_subfolder_enumeration
   name                       = "file_and_subfolder_enumeration_via_dir_command"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File And SubFolder Enumeration Via Dir Command"
-  description                = "Detects usage of the \"dir\" command part of Windows CMD with the \"/S\" command line flag in order to enumerate files in a specified directory and all subdirectories. - Likely"
+  description                = "Detects usage of the \"dir\" command part of Windows CMD with the \"/S\" command line flag in order to enumerate files in a specified directory and all subdirectories. - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_and_subfolder_enumeration_via_dir_command.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

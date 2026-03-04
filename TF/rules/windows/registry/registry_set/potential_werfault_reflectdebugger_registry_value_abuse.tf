@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_werfault_reflectdebu
   name                       = "potential_werfault_reflectdebugger_registry_value_abuse"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential WerFault ReflectDebugger Registry Value Abuse"
-  description                = "Detects potential WerFault \"ReflectDebugger\" registry value abuse for persistence."
+  description                = "Detects potential WerFault \"ReflectDebugger\" registry value abuse for persistence. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_werfault_reflectdebugger_registry_value_abuse.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

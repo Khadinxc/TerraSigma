@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "terminal_service_process_spawn
   name                       = "terminal_service_process_spawn"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Terminal Service Process Spawn"
-  description                = "Detects a process spawned by the terminal service server process (this could be an indicator for an exploitation of CVE-2019-0708)"
+  description                = "Detects a process spawned by the terminal service server process (this could be an indicator for an exploitation of CVE-2019-0708) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/terminal_service_process_spawn.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

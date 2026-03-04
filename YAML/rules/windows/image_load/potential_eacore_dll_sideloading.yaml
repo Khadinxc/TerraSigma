@@ -1,6 +1,6 @@
 id: ec77aa88-4ace-5ae6-9174-c324ff9c9be1
 name: Potential EACore.DLL Sideloading
-description: Detects potential DLL sideloading of "EACore.dll" - Unlikely
+description: 'Detects potential DLL sideloading of "EACore.dll" - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_eacore_dll_sideloading.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

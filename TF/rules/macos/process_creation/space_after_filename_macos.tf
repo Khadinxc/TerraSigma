@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "space_after_filename_macos" {
   name                       = "space_after_filename_macos"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Space After Filename - macOS"
-  description                = "Detects attempts to masquerade as legitimate files by adding a space to the end of the filename. - Mistyped commands or legitimate binaries named to match the pattern"
+  description                = "Detects attempts to masquerade as legitimate files by adding a space to the end of the filename. - Mistyped commands or legitimate binaries named to match the pattern | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/space_after_filename_macos.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

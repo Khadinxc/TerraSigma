@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "legitimate_application_dropped
   name                       = "legitimate_application_dropped_archive"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Legitimate Application Dropped Archive"
-  description                = "Detects programs on a Windows system that should not write an archive to disk"
+  description                = "Detects programs on a Windows system that should not write an archive to disk | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/legitimate_application_dropped_archive.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

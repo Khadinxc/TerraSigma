@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "linux_package_uninstall" {
   name                       = "linux_package_uninstall"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux Package Uninstall"
-  description                = "Detects linux package removal using builtin tools such as \"yum\", \"apt\", \"apt-get\" or \"dpkg\". - Administrator or administrator scripts might delete packages for several reasons (debugging, troubleshooting)."
+  description                = "Detects linux package removal using builtin tools such as \"yum\", \"apt\", \"apt-get\" or \"dpkg\". - Administrator or administrator scripts might delete packages for several reasons (debugging, troubleshooting). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_package_uninstall.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

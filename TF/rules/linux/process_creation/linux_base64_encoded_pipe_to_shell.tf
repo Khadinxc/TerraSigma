@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "linux_base64_encoded_pipe_to_s
   name                       = "linux_base64_encoded_pipe_to_shell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux Base64 Encoded Pipe to Shell"
-  description                = "Detects suspicious process command line that uses base64 encoded input for execution with a shell - Legitimate administration activities"
+  description                = "Detects suspicious process command line that uses base64 encoded input for execution with a shell - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_base64_encoded_pipe_to_shell.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_hollowreaper_executio
   name                       = "hacktool_hollowreaper_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - HollowReaper Execution"
-  description                = "Detects usage of HollowReaper, a process hollowing shellcode launcher used for stealth payload execution through process hollowing. It replaces the memory of a legitimate process with custom shellcode, allowing the attacker to execute payloads under the guise of trusted binaries."
+  description                = "Detects usage of HollowReaper, a process hollowing shellcode launcher used for stealth payload execution through process hollowing. It replaces the memory of a legitimate process with custom shellcode, allowing the attacker to execute payloads under the guise of trusted binaries. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_hollowreaper_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

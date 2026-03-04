@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_persistence_via_servi
   name                       = "registry_persistence_via_service_in_safe_mode"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Registry Persistence via Service in Safe Mode"
-  description                = "Detects the modification of the registry to allow a driver or service to persist in Safe Mode."
+  description                = "Detects the modification of the registry to allow a driver or service to persist in Safe Mode. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_persistence_via_service_in_safe_mode.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

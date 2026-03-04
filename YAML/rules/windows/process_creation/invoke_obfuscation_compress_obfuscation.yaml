@@ -1,6 +1,6 @@
 id: 601a61b0-3f29-5cdf-8c6b-34f274f52d29
 name: Invoke-Obfuscation COMPRESS OBFUSCATION
-description: Detects Obfuscated Powershell via COMPRESS OBFUSCATION
+description: 'Detects Obfuscated Powershell via COMPRESS OBFUSCATION | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/invoke_obfuscation_compress_obfuscation.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

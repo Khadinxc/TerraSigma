@@ -1,6 +1,6 @@
 id: 5c277639-441f-5f3c-9c82-57c014d9bd95
 name: Local File Read Using Curl.EXE
-description: Detects execution of "curl.exe" with the "file://" protocol handler in order to read local files.
+description: 'Detects execution of "curl.exe" with the "file://" protocol handler in order to read local files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/local_file_read_using_curl_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "wmiprvse_wbemcomn_dll_hijack" 
   name                       = "wmiprvse_wbemcomn_dll_hijack"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Wmiprvse Wbemcomn DLL Hijack"
-  description                = "Detects a threat actor creating a file named `wbemcomn.dll` in the `C:\\Windows\\System32\\wbem\\` directory over the network and loading it for a WMI DLL Hijack scenario."
+  description                = "Detects a threat actor creating a file named `wbemcomn.dll` in the `C:\\Windows\\System32\\wbem\\` directory over the network and loading it for a WMI DLL Hijack scenario. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/wmiprvse_wbemcomn_dll_hijack.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

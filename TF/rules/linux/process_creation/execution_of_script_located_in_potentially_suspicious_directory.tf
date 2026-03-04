@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "execution_of_script_located_in
   name                       = "execution_of_script_located_in_potentially_suspicious_directory"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Execution Of Script Located In Potentially Suspicious Directory"
-  description                = "Detects executions of scripts located in potentially suspicious locations such as \"/tmp\" via a shell such as \"bash\", \"sh\", etc."
+  description                = "Detects executions of scripts located in potentially suspicious locations such as \"/tmp\" via a shell such as \"bash\", \"sh\", etc. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/execution_of_script_located_in_potentially_suspicious_directory.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

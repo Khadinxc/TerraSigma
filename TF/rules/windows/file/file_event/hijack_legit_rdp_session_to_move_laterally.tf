@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hijack_legit_rdp_session_to_mo
   name                       = "hijack_legit_rdp_session_to_move_laterally"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Hijack Legit RDP Session to Move Laterally"
-  description                = "Detects the usage of tsclient share to place a backdoor on the RDP source machine's startup folder - Unlikely"
+  description                = "Detects the usage of tsclient share to place a backdoor on the RDP source machine's startup folder - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/hijack_legit_rdp_session_to_move_laterally.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

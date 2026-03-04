@@ -1,6 +1,6 @@
 id: 024004c6-7d6f-5ecc-8b4d-d0d8d1c47d62
 name: Uncommon Link.EXE Parent Process
-description: Detects an uncommon parent process of "LINK.EXE". Link.EXE in Microsoft incremental linker. Its a utility usually bundled with Visual Studio installation. Multiple utilities often found in the same folder (editbin.exe, dumpbin.exe, lib.exe, etc) have a hardcode call to the "LINK.EXE" binary without checking its validity. This would allow an attacker to sideload any binary with the name "link.exe" if one of the aforementioned tools get executed from a different location. By filtering the known locations of such utilities we can spot uncommon parent process of LINK.EXE that might be suspicious or malicious.
+description: 'Detects an uncommon parent process of "LINK.EXE". Link.EXE in Microsoft incremental linker. Its a utility usually bundled with Visual Studio installation. Multiple utilities often found in the same folder (editbin.exe, dumpbin.exe, lib.exe, etc) have a hardcode call to the "LINK.EXE" binary without checking its validity. This would allow an attacker to sideload any binary with the name "link.exe" if one of the aforementioned tools get executed from a different location. By filtering the known locations of such utilities we can spot uncommon parent process of LINK.EXE that might be suspicious or malicious. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uncommon_link_exe_parent_process.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

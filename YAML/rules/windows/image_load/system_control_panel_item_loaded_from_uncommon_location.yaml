@@ -1,6 +1,6 @@
 id: f6eda82a-8e77-5f07-adec-b475136da756
 name: System Control Panel Item Loaded From Uncommon Location
-description: Detects image load events of system control panel items (.cpl) from uncommon or non-system locations which might be the result of sideloading.
+description: 'Detects image load events of system control panel items (.cpl) from uncommon or non-system locations which might be the result of sideloading. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/system_control_panel_item_loaded_from_uncommon_location.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

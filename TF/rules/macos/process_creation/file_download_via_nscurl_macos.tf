@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_download_via_nscurl_macos
   name                       = "file_download_via_nscurl_macos"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Download Via Nscurl - MacOS"
-  description                = "Detects the execution of the nscurl utility in order to download files. - Legitimate usage of nscurl by administrators and users."
+  description                = "Detects the execution of the nscurl utility in order to download files. - Legitimate usage of nscurl by administrators and users. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/file_download_via_nscurl_macos.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

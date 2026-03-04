@@ -1,6 +1,6 @@
 id: c6acce9b-b013-5051-bc21-7edbfb09cd15
 name: History File Deletion
-description: Detects events in which a history file gets deleted, e.g. the ~/bash_history to remove traces of malicious activity - Legitimate administration activities
+description: 'Detects events in which a history file gets deleted, e.g. the ~/bash_history to remove traces of malicious activity - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/history_file_deletion.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

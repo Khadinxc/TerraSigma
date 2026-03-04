@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "disable_windows_defender_av_se
   name                       = "disable_windows_defender_av_security_monitoring"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disable Windows Defender AV Security Monitoring"
-  description                = "Detects attackers attempting to disable Windows Defender using Powershell - Minimal, for some older versions of dev tools, such as pycharm, developers were known to sometimes disable Windows Defender to improve performance, but this generally is not considered a good security practice."
+  description                = "Detects attackers attempting to disable Windows Defender using Powershell - Minimal, for some older versions of dev tools, such as pycharm, developers were known to sometimes disable Windows Defender to improve performance, but this generally is not considered a good security practice. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/disable_windows_defender_av_security_monitoring.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

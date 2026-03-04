@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_usage_o
   name                       = "potentially_suspicious_usage_of_qemu"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Usage Of Qemu"
-  description                = "Detects potentially suspicious execution of the Qemu utility in a Windows environment. Threat actors have leveraged this utility and this technique for achieving network access as reported by Kaspersky."
+  description                = "Detects potentially suspicious execution of the Qemu utility in a Windows environment. Threat actors have leveraged this utility and this technique for achieving network access as reported by Kaspersky. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_usage_of_qemu.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

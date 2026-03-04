@@ -1,6 +1,6 @@
 id: 701ba337-b81d-5bbe-9862-5bbe68380b43
 name: Console CodePage Lookup Via CHCP
-description: Detects use of chcp to look up the system locale value as part of host discovery - During Anaconda update the 'conda.exe' process will eventually execution the 'chcp' command. - Discord was seen using chcp to look up code pages
+description: 'Detects use of chcp to look up the system locale value as part of host discovery - During Anaconda update the ''conda.exe'' process will eventually execution the ''chcp'' command. - Discord was seen using chcp to look up code pages | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/console_codepage_lookup_via_chcp.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -1,6 +1,6 @@
 id: a1a4fa8f-7fd4-5fe1-8305-96154d7f3d85
 name: Potential Execution of Sysinternals Tools
-description: Detects command lines that contain the 'accepteula' flag which could be a sign of execution of one of the Sysinternals tools - Legitimate use of SysInternals tools - Programs that use the same command line flag
+description: 'Detects command lines that contain the ''accepteula'' flag which could be a sign of execution of one of the Sysinternals tools - Legitimate use of SysInternals tools - Programs that use the same command line flag | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_execution_of_sysinternals_tools.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

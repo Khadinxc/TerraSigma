@@ -1,6 +1,6 @@
 id: 1c7d52f1-35e3-55f4-9442-a21ba4f17126
 name: Msiexec.EXE Initiated Network Connection Over HTTP
-description: Detects a network connection initiated by an "Msiexec.exe" process over port 80 or 443. Adversaries might abuse "msiexec.exe" to install and execute remotely hosted packages. Use this rule to hunt for potentially anomalous or suspicious communications. - Likely
+description: 'Detects a network connection initiated by an "Msiexec.exe" process over port 80 or 443. Adversaries might abuse "msiexec.exe" to install and execute remotely hosted packages. Use this rule to hunt for potentially anomalous or suspicious communications. - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/msiexec_exe_initiated_network_connection_over_http.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

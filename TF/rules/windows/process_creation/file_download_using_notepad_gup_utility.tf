@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_download_using_notepad_gu
   name                       = "file_download_using_notepad_gup_utility"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Download Using Notepad++ GUP Utility"
-  description                = "Detects execution of the Notepad++ updater (gup) from a process other than Notepad++ to download files. - Other parent processes other than notepad++ using GUP that are not currently identified"
+  description                = "Detects execution of the Notepad++ updater (gup) from a process other than Notepad++ to download files. - Other parent processes other than notepad++ using GUP that are not currently identified | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_download_using_notepad_gup_utility.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

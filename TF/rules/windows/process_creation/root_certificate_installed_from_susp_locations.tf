@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "root_certificate_installed_fro
   name                       = "root_certificate_installed_from_susp_locations"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Root Certificate Installed From Susp Locations"
-  description                = "Adversaries may install a root certificate on a compromised system to avoid warnings when connecting to adversary controlled web servers. - Unlikely"
+  description                = "Adversaries may install a root certificate on a compromised system to avoid warnings when connecting to adversary controlled web servers. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/root_certificate_installed_from_susp_locations.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

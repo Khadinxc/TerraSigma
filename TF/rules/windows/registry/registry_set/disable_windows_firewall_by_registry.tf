@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "disable_windows_firewall_by_re
   name                       = "disable_windows_firewall_by_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disable Windows Firewall by Registry"
-  description                = "Detect set EnableFirewall to 0 to disable the Windows firewall"
+  description                = "Detect set EnableFirewall to 0 to disable the Windows firewall | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/disable_windows_firewall_by_registry.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

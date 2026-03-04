@@ -1,6 +1,6 @@
 id: cef27089-2d3b-5188-bb5a-b4b74866c38a
 name: Potential WMI Lateral Movement WmiPrvSE Spawned PowerShell
-description: Detects Powershell as a child of the WmiPrvSE process. Which could be a sign of lateral movement via WMI. - AppvClient - CCM - WinRM
+description: 'Detects Powershell as a child of the WmiPrvSE process. Which could be a sign of lateral movement via WMI. - AppvClient - CCM - WinRM | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_wmi_lateral_movement_wmiprvse_spawned_powershell.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

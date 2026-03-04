@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "webdav_temporary_local_file_cr
   name                       = "webdav_temporary_local_file_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WebDAV Temporary Local File Creation"
-  description                = "Detects the creation of WebDAV temporary files with potentially suspicious extensions - Legitimate use of WebDAV in an environment"
+  description                = "Detects the creation of WebDAV temporary files with potentially suspicious extensions - Legitimate use of WebDAV in an environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/webdav_temporary_local_file_creation.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "curl_download_and_execute_comb
   name                       = "curl_download_and_execute_combination"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Curl Download And Execute Combination"
-  description                = "Adversaries can use curl to download payloads remotely and execute them. Curl is included by default in Windows 10 build 17063 and later."
+  description                = "Adversaries can use curl to download payloads remotely and execute them. Curl is included by default in Windows 10 build 17063 and later. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/curl_download_and_execute_combination.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

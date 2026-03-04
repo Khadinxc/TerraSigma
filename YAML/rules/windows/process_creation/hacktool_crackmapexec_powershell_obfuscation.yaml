@@ -1,6 +1,6 @@
 id: fb88bab7-ec84-5226-9ad3-974c0f53fecc
 name: HackTool - CrackMapExec PowerShell Obfuscation
-description: The CrachMapExec pentesting framework implements a PowerShell obfuscation with some static strings detected by this rule.
+description: 'The CrachMapExec pentesting framework implements a PowerShell obfuscation with some static strings detected by this rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_crackmapexec_powershell_obfuscation.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

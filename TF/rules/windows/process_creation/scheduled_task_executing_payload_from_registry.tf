@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "scheduled_task_executing_paylo
   name                       = "scheduled_task_executing_payload_from_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Scheduled Task Executing Payload from Registry"
-  description                = "Detects the creation of a schtasks that potentially executes a payload stored in the Windows Registry using PowerShell."
+  description                = "Detects the creation of a schtasks that potentially executes a payload stored in the Windows Registry using PowerShell. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/scheduled_task_executing_payload_from_registry.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: 74f36eaa-36ed-50a3-b5aa-472e7252af48
 name: File Recovery From Backup Via Wbadmin.EXE
-description: Detects the recovery of files from backups via "wbadmin.exe". Attackers can restore sensitive files such as NTDS.DIT or Registry Hives from backups in order to potentially extract credentials.
+description: 'Detects the recovery of files from backups via "wbadmin.exe". Attackers can restore sensitive files such as NTDS.DIT or Registry Hives from backups in order to potentially extract credentials. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_recovery_from_backup_via_wbadmin_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

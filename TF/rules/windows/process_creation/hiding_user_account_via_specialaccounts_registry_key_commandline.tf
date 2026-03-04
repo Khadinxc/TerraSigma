@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hiding_user_account_via_specia
   name                       = "hiding_user_account_via_specialaccounts_registry_key_commandline"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Hiding User Account Via SpecialAccounts Registry Key - CommandLine"
-  description                = "Detects changes to the registry key \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\SpecialAccounts\\Userlist\" where the value is set to \"0\" in order to hide user account from being listed on the logon screen. - System administrator activities"
+  description                = "Detects changes to the registry key \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\SpecialAccounts\\Userlist\" where the value is set to \"0\" in order to hide user account from being listed on the logon screen. - System administrator activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hiding_user_account_via_specialaccounts_registry_key_commandline.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

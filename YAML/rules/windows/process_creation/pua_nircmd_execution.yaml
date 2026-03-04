@@ -1,6 +1,6 @@
 id: b6886e25-f73f-5e12-826d-bbece253ee3c
 name: PUA - NirCmd Execution
-description: Detects the use of NirCmd tool for command execution, which could be the result of legitimate administrative activity - Legitimate use by administrators
+description: 'Detects the use of NirCmd tool for command execution, which could be the result of legitimate administrative activity - Legitimate use by administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_nircmd_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

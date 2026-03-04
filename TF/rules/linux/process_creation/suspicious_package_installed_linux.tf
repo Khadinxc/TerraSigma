@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_package_installed_l
   name                       = "suspicious_package_installed_linux"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Package Installed - Linux"
-  description                = "Detects installation of suspicious packages using system installation utilities - Legitimate administration activities"
+  description                = "Detects installation of suspicious packages using system installation utilities - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/suspicious_package_installed_linux.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

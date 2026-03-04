@@ -1,6 +1,6 @@
 id: 1e6af8f8-dd26-5cb5-856d-f55770367559
 name: Renamed CURL.EXE Execution
-description: Detects the execution of a renamed "CURL.exe" binary based on the PE metadata fields
+description: 'Detects the execution of a renamed "CURL.exe" binary based on the PE metadata fields | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_curl_exe_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

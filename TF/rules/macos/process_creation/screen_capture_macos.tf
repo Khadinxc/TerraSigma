@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "screen_capture_macos" {
   name                       = "screen_capture_macos"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Screen Capture - macOS"
-  description                = "Detects attempts to use screencapture to collect macOS screenshots - Legitimate user activity taking screenshots"
+  description                = "Detects attempts to use screencapture to collect macOS screenshots - Legitimate user activity taking screenshots | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/screen_capture_macos.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

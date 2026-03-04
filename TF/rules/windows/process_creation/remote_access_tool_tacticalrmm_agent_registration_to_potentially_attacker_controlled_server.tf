@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "remote_access_tool_tacticalrmm
   name                       = "remote_access_tool_tacticalrmm_agent_registration_to_potentially_attacker_controlled_server"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Access Tool - TacticalRMM Agent Registration to Potentially Attacker-Controlled Server"
-  description                = "Detects TacticalRMM agent installations where the --api, --auth, and related flags are used on the command line. These parameters configure the agent to connect to a specific RMM server with authentication, client ID, and site ID. This technique could indicate a threat actor attempting to register the agent with an attacker-controlled RMM infrastructure silently. - Legitimate system administrator deploying TacticalRMM"
+  description                = "Detects TacticalRMM agent installations where the --api, --auth, and related flags are used on the command line. These parameters configure the agent to connect to a specific RMM server with authentication, client ID, and site ID. This technique could indicate a threat actor attempting to register the agent with an attacker-controlled RMM infrastructure silently. - Legitimate system administrator deploying TacticalRMM | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/remote_access_tool_tacticalrmm_agent_registration_to_potentially_attacker_controlled_server.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "print_history_file_contents" {
   name                       = "print_history_file_contents"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Print History File Contents"
-  description                = "Detects events in which someone prints the contents of history files to the commandline or redirects it to a file for reconnaissance - Legitimate administration activities"
+  description                = "Detects events in which someone prints the contents of history files to the commandline or redirects it to a file for reconnaissance - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/print_history_file_contents.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

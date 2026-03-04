@@ -1,6 +1,6 @@
 id: 9cd384bc-97b1-504e-b939-f713b1b71583
 name: Suspicious Environment Variable Has Been Registered
-description: Detects the creation of user-specific or system-wide environment variables via the registry. Which contains suspicious commands and strings
+description: 'Detects the creation of user-specific or system-wide environment variables via the registry. Which contains suspicious commands and strings | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/suspicious_environment_variable_has_been_registered.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -23,10 +23,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

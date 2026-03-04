@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "forest_blizzard_apt_process_cr
   name                       = "forest_blizzard_apt_process_creation_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Forest Blizzard APT - Process Creation Activity"
-  description                = "Detects the execution of specific processes and command line combination. These were seen being created by Forest Blizzard as described by MSFT."
+  description                = "Detects the execution of specific processes and command line combination. These were seen being created by Forest Blizzard as described by MSFT. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/forest_blizzard_apt_process_creation_activity.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

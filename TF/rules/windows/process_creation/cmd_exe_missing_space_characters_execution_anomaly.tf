@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "cmd_exe_missing_space_characte
   name                       = "cmd_exe_missing_space_characters_execution_anomaly"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Cmd.EXE Missing Space Characters Execution Anomaly"
-  description                = "Detects Windows command lines that miss a space before or after the /c flag when running a command using the cmd.exe. This could be a sign of obfuscation of a fat finger problem (typo by the developer)."
+  description                = "Detects Windows command lines that miss a space before or after the /c flag when running a command using the cmd.exe. This could be a sign of obfuscation of a fat finger problem (typo by the developer). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/cmd_exe_missing_space_characters_execution_anomaly.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

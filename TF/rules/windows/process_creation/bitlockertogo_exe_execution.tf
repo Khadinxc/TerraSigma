@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "bitlockertogo_exe_execution" {
   name                       = "bitlockertogo_exe_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "BitLockerTogo.EXE Execution"
-  description                = "Detects the execution of \"BitLockerToGo.EXE\". BitLocker To Go is BitLocker Drive Encryption on removable data drives. This feature includes the encryption of, USB flash drives, SD cards, External hard disk drives, Other drives that are formatted by using the NTFS, FAT16, FAT32, or exFAT file system. This is a rarely used application and usage of it at all is worth investigating. Malware such as Lumma stealer has been seen using this process as a target for process hollowing. - Legitimate usage of BitLockerToGo.exe to encrypt portable devices."
+  description                = "Detects the execution of \"BitLockerToGo.EXE\". BitLocker To Go is BitLocker Drive Encryption on removable data drives. This feature includes the encryption of, USB flash drives, SD cards, External hard disk drives, Other drives that are formatted by using the NTFS, FAT16, FAT32, or exFAT file system. This is a rarely used application and usage of it at all is worth investigating. Malware such as Lumma stealer has been seen using this process as a target for process hollowing. - Legitimate usage of BitLockerToGo.exe to encrypt portable devices. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/bitlockertogo_exe_execution.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

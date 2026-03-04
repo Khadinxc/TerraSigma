@@ -1,6 +1,6 @@
 id: 62043214-ac2f-544f-9696-2d5d0c01566c
 name: WSL Kali-Linux Usage
-description: Detects the use of Kali Linux through Windows Subsystem for Linux - Legitimate installation or usage of Kali Linux WSL by administrators or security teams
+description: 'Detects the use of Kali Linux through Windows Subsystem for Linux - Legitimate installation or usage of Kali Linux WSL by administrators or security teams | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wsl_kali_linux_usage.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

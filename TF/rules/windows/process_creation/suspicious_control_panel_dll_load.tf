@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_control_panel_dll_l
   name                       = "suspicious_control_panel_dll_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Control Panel DLL Load"
-  description                = "Detects suspicious Rundll32 execution from control.exe as used by Equation Group and Exploit Kits"
+  description                = "Detects suspicious Rundll32 execution from control.exe as used by Equation Group and Exploit Kits | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_control_panel_dll_load.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "creation_of_a_local_user_accou
   name                       = "creation_of_a_local_user_account"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Creation Of A Local User Account"
-  description                = "Detects the creation of a new user account. Such accounts may be used for persistence that do not require persistent remote access tools to be deployed on the system. - Legitimate administration activities"
+  description                = "Detects the creation of a new user account. Such accounts may be used for persistence that do not require persistent remote access tools to be deployed on the system. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/creation_of_a_local_user_account.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

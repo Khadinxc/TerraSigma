@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "security_software_discovery_ma
   name                       = "security_software_discovery_macos"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Security Software Discovery - MacOs"
-  description                = "Detects usage of system utilities (only grep for now) to discover security software discovery - Legitimate activities"
+  description                = "Detects usage of system utilities (only grep for now) to discover security software discovery - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/security_software_discovery_macos.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "persistence_via_sudoers_files"
   name                       = "persistence_via_sudoers_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Persistence Via Sudoers Files"
-  description                = "Detects creation of sudoers file or files in \"sudoers.d\" directory which can be used a potential method to persiste privileges for a specific user. - Creation of legitimate files in sudoers.d folder part of administrator work"
+  description                = "Detects creation of sudoers file or files in \"sudoers.d\" directory which can be used a potential method to persiste privileges for a specific user. - Creation of legitimate files in sudoers.d folder part of administrator work | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/persistence_via_sudoers_files.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

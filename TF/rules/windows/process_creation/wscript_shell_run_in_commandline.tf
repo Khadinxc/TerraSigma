@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "wscript_shell_run_in_commandli
   name                       = "wscript_shell_run_in_commandline"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Wscript Shell Run In CommandLine"
-  description                = "Detects the presence of the keywords \"Wscript\", \"Shell\" and \"Run\" in the command, which could indicate a suspicious activity - Inline scripting can be used by some rare third party applications or administrators. Investigate and apply additional filters accordingly"
+  description                = "Detects the presence of the keywords \"Wscript\", \"Shell\" and \"Run\" in the command, which could indicate a suspicious activity - Inline scripting can be used by some rare third party applications or administrators. Investigate and apply additional filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/wscript_shell_run_in_commandline.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "launch_vsdevshell_ps1_proxy_ex
   name                       = "launch_vsdevshell_ps1_proxy_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Launch-VsDevShell.PS1 Proxy Execution"
-  description                = "Detects the use of the 'Launch-VsDevShell.ps1' Microsoft signed script to execute commands. - Legitimate usage of the script by a developer"
+  description                = "Detects the use of the 'Launch-VsDevShell.ps1' Microsoft signed script to execute commands. - Legitimate usage of the script by a developer | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/launch_vsdevshell_ps1_proxy_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

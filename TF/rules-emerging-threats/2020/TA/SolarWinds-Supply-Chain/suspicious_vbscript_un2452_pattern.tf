@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_vbscript_un2452_pat
   name                       = "suspicious_vbscript_un2452_pattern"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious VBScript UN2452 Pattern"
-  description                = "Detects suspicious inline VBScript keywords as used by UNC2452"
+  description                = "Detects suspicious inline VBScript keywords as used by UNC2452 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/SolarWinds-Supply-Chain/suspicious_vbscript_un2452_pattern.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "user_added_to_remote_desktop_u
   name                       = "user_added_to_remote_desktop_users_group"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "User Added to Remote Desktop Users Group"
-  description                = "Detects addition of users to the local Remote Desktop Users group via \"Net\" or \"Add-LocalGroupMember\". - Administrative activity"
+  description                = "Detects addition of users to the local Remote Desktop Users group via \"Net\" or \"Add-LocalGroupMember\". - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/user_added_to_remote_desktop_users_group.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

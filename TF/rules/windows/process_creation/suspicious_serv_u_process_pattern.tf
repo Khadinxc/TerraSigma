@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_serv_u_process_patt
   name                       = "suspicious_serv_u_process_pattern"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Serv-U Process Pattern"
-  description                = "Detects a suspicious process pattern which could be a sign of an exploited Serv-U service - Legitimate uses in which users or programs use the SSH service of Serv-U for remote command execution"
+  description                = "Detects a suspicious process pattern which could be a sign of an exploited Serv-U service - Legitimate uses in which users or programs use the SSH service of Serv-U for remote command execution | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_serv_u_process_pattern.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

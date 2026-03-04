@@ -1,6 +1,6 @@
 id: fb0089b0-334c-5455-8f08-4ab6755bdced
 name: Remote Access Tool - ScreenConnect Temporary File
-description: Detects the creation of files in a specific location by ScreenConnect RMM. ScreenConnect has feature to remotely execute binaries on a target machine. These binaries will be dropped to ":\Users\<username>\Documents\ConnectWiseControl\Temp\" before execution. - Legitimate use of ScreenConnect
+description: 'Detects the creation of files in a specific location by ScreenConnect RMM. ScreenConnect has feature to remotely execute binaries on a target machine. These binaries will be dropped to ":\Users\<username>\Documents\ConnectWiseControl\Temp\" before execution. - Legitimate use of ScreenConnect | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/remote_access_tool_screenconnect_temporary_file.yml'
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

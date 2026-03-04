@@ -1,6 +1,6 @@
 id: 4f573dd4-d132-5b83-a8bf-401b2bb210cb
 name: Office Application Initiated Network Connection Over Uncommon Ports
-description: Detects an office suit application (Word, Excel, PowerPoint, Outlook) communicating to target systems over uncommon ports. - Other ports can be used, apply additional filters accordingly
+description: 'Detects an office suit application (Word, Excel, PowerPoint, Outlook) communicating to target systems over uncommon ports. - Other ports can be used, apply additional filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/office_application_initiated_network_connection_over_uncommon_ports.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -23,10 +23,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -1,6 +1,6 @@
 id: 1e5f5167-3f01-53e1-888e-a71dd3deea83
 name: Netsh Allow Group Policy on Microsoft Defender Firewall
-description: Adversaries may modify system firewalls in order to bypass controls limiting network usage - Legitimate administration activity
+description: 'Adversaries may modify system firewalls in order to bypass controls limiting network usage - Legitimate administration activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/netsh_allow_group_policy_on_microsoft_defender_firewall.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

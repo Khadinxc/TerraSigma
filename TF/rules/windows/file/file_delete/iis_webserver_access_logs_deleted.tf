@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "iis_webserver_access_logs_dele
   name                       = "iis_webserver_access_logs_deleted"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "IIS WebServer Access Logs Deleted"
-  description                = "Detects the deletion of IIS WebServer access logs which may indicate an attempt to destroy forensic evidence - During uninstallation of the IIS service - During log rotation"
+  description                = "Detects the deletion of IIS WebServer access logs which may indicate an attempt to destroy forensic evidence - During uninstallation of the IIS service - During log rotation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/iis_webserver_access_logs_deleted.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

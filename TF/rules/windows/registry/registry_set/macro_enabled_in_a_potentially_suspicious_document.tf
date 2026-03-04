@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "macro_enabled_in_a_potentially
   name                       = "macro_enabled_in_a_potentially_suspicious_document"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Macro Enabled In A Potentially Suspicious Document"
-  description                = "Detects registry changes to Office trust records where the path is located in a potentially suspicious location - Unlikely"
+  description                = "Detects registry changes to Office trust records where the path is located in a potentially suspicious location - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/macro_enabled_in_a_potentially_suspicious_document.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: 3fa01cc4-417b-5341-a856-278d55377236
 name: Potential SentinelOne Shell Context Menu Scan Command Tampering
-description: Detects potentially suspicious changes to the SentinelOne context menu scan command by a process other than SentinelOne.
+description: 'Detects potentially suspicious changes to the SentinelOne context menu scan command by a process other than SentinelOne. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_sentinelone_shell_context_menu_scan_command_tampering.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

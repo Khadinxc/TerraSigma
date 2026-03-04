@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "persistence_via_cron_files" {
   name                       = "persistence_via_cron_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Persistence Via Cron Files"
-  description                = "Detects creation of cron file or files in Cron directories which could indicates potential persistence. - Any legitimate cron file."
+  description                = "Detects creation of cron file or files in Cron directories which could indicates potential persistence. - Any legitimate cron file. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/persistence_via_cron_files.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

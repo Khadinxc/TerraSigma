@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "powershell_script_execution_po
   name                       = "powershell_script_execution_policy_enabled"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Script Execution Policy Enabled"
-  description                = "Detects the enabling of the PowerShell script execution policy. Once enabled, this policy allows scripts to be executed. - Likely"
+  description                = "Detects the enabling of the PowerShell script execution policy. Once enabled, this policy allows scripts to be executed. - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/powershell_script_execution_policy_enabled.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: baf07905-85ca-563d-ba83-812ada9a6a48
 name: PowerShell Defender Threat Severity Default Action Set to 'Allow' or 'NoAction'
-description: Detects the use of PowerShell to execute the 'Set-MpPreference' cmdlet to configure Windows Defender's threat severity default action to 'Allow' (value '6') or 'NoAction' (value '9'). This is a highly suspicious configuration change that effectively disables Defender's ability to automatically mitigate threats of a certain severity level. An attacker might use this technique via the command line to bypass defenses before executing payloads. - Highly unlikely
+description: 'Detects the use of PowerShell to execute the ''Set-MpPreference'' cmdlet to configure Windows Defender''s threat severity default action to ''Allow'' (value ''6'') or ''NoAction'' (value ''9''). This is a highly suspicious configuration change that effectively disables Defender''s ability to automatically mitigate threats of a certain severity level. An attacker might use this technique via the command line to bypass defenses before executing payloads. - Highly unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_defender_threat_severity_default_action_set_to_allow_or_noaction_.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_dumpminitool_execut
   name                       = "suspicious_dumpminitool_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious DumpMinitool Execution"
-  description                = "Detects suspicious ways to use the \"DumpMinitool.exe\" binary"
+  description                = "Detects suspicious ways to use the \"DumpMinitool.exe\" binary | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_dumpminitool_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

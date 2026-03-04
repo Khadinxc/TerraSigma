@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "esxi_network_configuration_dis
   name                       = "esxi_network_configuration_discovery_via_esxcli"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ESXi Network Configuration Discovery Via ESXCLI"
-  description                = "Detects execution of the \"esxcli\" command with the \"network\" flag in order to retrieve information about the network configuration. - Legitimate administration activities"
+  description                = "Detects execution of the \"esxcli\" command with the \"network\" flag in order to retrieve information about the network configuration. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/esxi_network_configuration_discovery_via_esxcli.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

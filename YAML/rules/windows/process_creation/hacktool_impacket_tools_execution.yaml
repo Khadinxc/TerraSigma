@@ -1,6 +1,6 @@
 id: 2b508c08-f112-59ef-bb79-9ffa3c8b8a39
 name: HackTool - Impacket Tools Execution
-description: Detects the execution of different compiled Windows binaries of the impacket toolset (based on names or part of their names - could lead to false positives) - Legitimate use of the impacket tools
+description: 'Detects the execution of different compiled Windows binaries of the impacket toolset (based on names or part of their names - could lead to false positives) - Legitimate use of the impacket tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_impacket_tools_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

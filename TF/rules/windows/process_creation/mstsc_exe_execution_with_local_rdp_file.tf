@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "mstsc_exe_execution_with_local
   name                       = "mstsc_exe_execution_with_local_rdp_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Mstsc.EXE Execution With Local RDP File"
-  description                = "Detects potential RDP connection via Mstsc using a local \".rdp\" file - Likely with legitimate usage of \".rdp\" files"
+  description                = "Detects potential RDP connection via Mstsc using a local \".rdp\" file - Likely with legitimate usage of \".rdp\" files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/mstsc_exe_execution_with_local_rdp_file.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

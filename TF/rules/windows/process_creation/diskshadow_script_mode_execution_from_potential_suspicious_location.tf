@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "diskshadow_script_mode_executi
   name                       = "diskshadow_script_mode_execution_from_potential_suspicious_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Diskshadow Script Mode - Execution From Potential Suspicious Location"
-  description                = "Detects execution of \"Diskshadow.exe\" in script mode using the \"/s\" flag where the script is located in a potentially suspicious location."
+  description                = "Detects execution of \"Diskshadow.exe\" in script mode using the \"/s\" flag where the script is located in a potentially suspicious location. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/diskshadow_script_mode_execution_from_potential_suspicious_location.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

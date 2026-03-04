@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "remote_access_tool_team_viewer
   name                       = "remote_access_tool_team_viewer_session_started_on_linux_host"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Access Tool - Team Viewer Session Started On Linux Host"
-  description                = "Detects the command line executed when TeamViewer starts a session started by a remote host. Once a connection has been started, an investigator can verify the connection details by viewing the \"incoming_connections.txt\" log file in the TeamViewer folder. - Legitimate usage of TeamViewer"
+  description                = "Detects the command line executed when TeamViewer starts a session started by a remote host. Once a connection has been started, an investigator can verify the connection details by viewing the \"incoming_connections.txt\" log file in the TeamViewer folder. - Legitimate usage of TeamViewer | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/remote_access_tool_team_viewer_session_started_on_linux_host.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

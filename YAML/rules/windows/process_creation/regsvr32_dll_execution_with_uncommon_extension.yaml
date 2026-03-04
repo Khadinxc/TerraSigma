@@ -1,6 +1,6 @@
 id: 4aaa4c28-7384-5a27-87b1-f681291bf55b
 name: Regsvr32 DLL Execution With Uncommon Extension
-description: Detects a "regsvr32" execution where the DLL doesn't contain a common file extension. - Other legitimate extensions currently not in the list either from third party or specific Windows components.
+description: 'Detects a "regsvr32" execution where the DLL doesn''t contain a common file extension. - Other legitimate extensions currently not in the list either from third party or specific Windows components. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/regsvr32_dll_execution_with_uncommon_extension.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -27,10 +27,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

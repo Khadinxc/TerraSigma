@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "python_inline_command_executio
   name                       = "python_inline_command_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Python Inline Command Execution"
-  description                = "Detects execution of python using the \"-c\" flag. This is could be used as a way to launch a reverse shell or execute live python code. - Python libraries that use a flag starting with \"-c\". Filter according to your environment"
+  description                = "Detects execution of python using the \"-c\" flag. This is could be used as a way to launch a reverse shell or execute live python code. - Python libraries that use a flag starting with \"-c\". Filter according to your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/python_inline_command_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

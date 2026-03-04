@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_inveigh_execution" {
   name                       = "hacktool_inveigh_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Inveigh Execution"
-  description                = "Detects the use of Inveigh a cross-platform .NET IPv4/IPv6 machine-in-the-middle tool - Very unlikely"
+  description                = "Detects the use of Inveigh a cross-platform .NET IPv4/IPv6 machine-in-the-middle tool - Very unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_inveigh_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

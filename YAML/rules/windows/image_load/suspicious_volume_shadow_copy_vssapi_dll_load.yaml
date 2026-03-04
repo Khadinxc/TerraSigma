@@ -1,6 +1,6 @@
 id: a5d0aaee-a99f-5033-8724-0c543fca7392
 name: Suspicious Volume Shadow Copy Vssapi.dll Load
-description: Detects the image load of VSS DLL by uncommon executables
+description: 'Detects the image load of VSS DLL by uncommon executables | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/suspicious_volume_shadow_copy_vssapi_dll_load.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

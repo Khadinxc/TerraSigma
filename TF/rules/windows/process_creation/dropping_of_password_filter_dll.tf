@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "dropping_of_password_filter_dl
   name                       = "dropping_of_password_filter_dll"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Dropping Of Password Filter DLL"
-  description                = "Detects dropping of dll files in system32 that may be used to retrieve user credentials from LSASS"
+  description                = "Detects dropping of dll files in system32 that may be used to retrieve user credentials from LSASS | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dropping_of_password_filter_dll.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

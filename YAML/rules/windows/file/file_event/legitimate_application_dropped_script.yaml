@@ -1,6 +1,6 @@
 id: 0b4fa12a-a416-576b-b56d-c24ca90d1ab4
 name: Legitimate Application Dropped Script
-description: Detects programs on a Windows system that should not write scripts to disk
+description: 'Detects programs on a Windows system that should not write scripts to disk | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/legitimate_application_dropped_script.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

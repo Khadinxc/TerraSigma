@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_file_creation_activ
   name                       = "suspicious_file_creation_activity_from_fake_recycle_bin_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Creation Activity From Fake Recycle.Bin Folder"
-  description                = "Detects file write event from/to a fake recycle bin folder that is often used as a staging directory for malware"
+  description                = "Detects file write event from/to a fake recycle bin folder that is often used as a staging directory for malware | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_file_creation_activity_from_fake_recycle_bin_folder.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

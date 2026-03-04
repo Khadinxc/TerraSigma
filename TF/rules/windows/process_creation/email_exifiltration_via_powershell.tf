@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "email_exifiltration_via_powers
   name                       = "email_exifiltration_via_powershell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Email Exifiltration Via Powershell"
-  description                = "Detects email exfiltration via powershell cmdlets"
+  description                = "Detects email exfiltration via powershell cmdlets | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/email_exifiltration_via_powershell.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

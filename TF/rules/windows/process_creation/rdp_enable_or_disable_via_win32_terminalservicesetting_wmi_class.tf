@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "rdp_enable_or_disable_via_win3
   name                       = "rdp_enable_or_disable_via_win32_terminalservicesetting_wmi_class"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "RDP Enable or Disable via Win32_TerminalServiceSetting WMI Class"
-  description                = "Detects enabling or disabling of Remote Desktop Protocol (RDP) using alternate methods such as WMIC or PowerShell. In PowerShell one-liner commands, the \"SetAllowTSConnections\" method of the \"Win32_TerminalServiceSetting\" class may be used to enable or disable RDP. In WMIC, the \"rdtoggle\" alias or \"Win32_TerminalServiceSetting\" class may be used for the same purpose. - Legitimate system administrators enabling RDP for remote support - System configuration scripts during deployment"
+  description                = "Detects enabling or disabling of Remote Desktop Protocol (RDP) using alternate methods such as WMIC or PowerShell. In PowerShell one-liner commands, the \"SetAllowTSConnections\" method of the \"Win32_TerminalServiceSetting\" class may be used to enable or disable RDP. In WMIC, the \"rdtoggle\" alias or \"Win32_TerminalServiceSetting\" class may be used for the same purpose. - Legitimate system administrators enabling RDP for remote support - System configuration scripts during deployment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rdp_enable_or_disable_via_win32_terminalservicesetting_wmi_class.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

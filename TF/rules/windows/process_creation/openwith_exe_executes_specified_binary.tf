@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "openwith_exe_executes_specifie
   name                       = "openwith_exe_executes_specified_binary"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "OpenWith.exe Executes Specified Binary"
-  description                = "The OpenWith.exe executes other binary"
+  description                = "The OpenWith.exe executes other binary | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/openwith_exe_executes_specified_binary.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

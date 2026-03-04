@@ -1,6 +1,6 @@
 id: b9cc8130-e8d9-5398-a10d-022f29d26651
 name: Suspicious Service Binary Directory
-description: Detects a service binary running in a suspicious directory
+description: 'Detects a service binary running in a suspicious directory | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_service_binary_directory.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

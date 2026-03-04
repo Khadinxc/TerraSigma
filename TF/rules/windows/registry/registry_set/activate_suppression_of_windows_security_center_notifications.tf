@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "activate_suppression_of_window
   name                       = "activate_suppression_of_windows_security_center_notifications"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Activate Suppression of Windows Security Center Notifications"
-  description                = "Detect set Notification_Suppress to 1 to disable the Windows security center notification"
+  description                = "Detect set Notification_Suppress to 1 to disable the Windows security center notification | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/activate_suppression_of_windows_security_center_notifications.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

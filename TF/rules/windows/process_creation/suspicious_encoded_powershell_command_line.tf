@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_encoded_powershell_
   name                       = "suspicious_encoded_powershell_command_line"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Encoded PowerShell Command Line"
-  description                = "Detects suspicious powershell process starts with base64 encoded commands (e.g. Emotet)"
+  description                = "Detects suspicious powershell process starts with base64 encoded commands (e.g. Emotet) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_encoded_powershell_command_line.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

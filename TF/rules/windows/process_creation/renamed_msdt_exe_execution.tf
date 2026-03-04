@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "renamed_msdt_exe_execution" {
   name                       = "renamed_msdt_exe_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed Msdt.EXE Execution"
-  description                = "Detects the execution of a renamed \"Msdt.exe\" binary - Unlikely"
+  description                = "Detects the execution of a renamed \"Msdt.exe\" binary - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_msdt_exe_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

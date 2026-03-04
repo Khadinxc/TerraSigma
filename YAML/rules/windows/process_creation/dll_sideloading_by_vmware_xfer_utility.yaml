@@ -1,6 +1,6 @@
 id: 78172aa8-2a81-56a6-ae71-64ff6127defa
 name: DLL Sideloading by VMware Xfer Utility
-description: Detects execution of VMware Xfer utility (VMwareXferlogs.exe) from the non-default directory which may be an attempt to sideload arbitrary DLL - Unlikely
+description: 'Detects execution of VMware Xfer utility (VMwareXferlogs.exe) from the non-default directory which may be an attempt to sideload arbitrary DLL - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/dll_sideloading_by_vmware_xfer_utility.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

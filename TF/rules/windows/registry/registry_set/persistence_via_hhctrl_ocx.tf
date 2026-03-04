@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "persistence_via_hhctrl_ocx" {
   name                       = "persistence_via_hhctrl_ocx"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Persistence Via Hhctrl.ocx"
-  description                = "Detects when an attacker modifies the registry value of the \"hhctrl\" to point to a custom binary - Unlikely"
+  description                = "Detects when an attacker modifies the registry value of the \"hhctrl\" to point to a custom binary - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/persistence_via_hhctrl_ocx.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: 693d9228-fb42-5bd0-bfc7-eb48782b1bb2
 name: SQLite Firefox Profile Data DB Access
-description: Detect usage of the "sqlite" binary to query databases in Firefox and other Gecko-based browsers for potential data stealing.
+description: 'Detect usage of the "sqlite" binary to query databases in Firefox and other Gecko-based browsers for potential data stealing. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/sqlite_firefox_profile_data_db_access.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

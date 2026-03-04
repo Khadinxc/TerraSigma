@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "malicious_dll_load_by_compromi
   name                       = "malicious_dll_load_by_compromised_3cxdesktopapp"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Malicious DLL Load By Compromised 3CXDesktopApp"
-  description                = "Detects DLL load activity of known compromised DLLs used in by the compromised 3CXDesktopApp - Unlikely"
+  description                = "Detects DLL load activity of known compromised DLLs used in by the compromised 3CXDesktopApp - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/3CX-Supply-Chain/malicious_dll_load_by_compromised_3cxdesktopapp.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

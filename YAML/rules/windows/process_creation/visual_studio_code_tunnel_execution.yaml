@@ -1,6 +1,6 @@
 id: 24a8ea1d-6f80-5800-bc6c-93ca2f9a0bd3
 name: Visual Studio Code Tunnel Execution
-description: Detects Visual Studio Code tunnel execution. Attackers can abuse this functionality to establish a C2 channel - Legitimate use of Visual Studio Code tunnel
+description: 'Detects Visual Studio Code tunnel execution. Attackers can abuse this functionality to establish a C2 channel - Legitimate use of Visual Studio Code tunnel | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/visual_studio_code_tunnel_execution.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

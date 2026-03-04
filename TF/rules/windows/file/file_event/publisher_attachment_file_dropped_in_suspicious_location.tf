@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "publisher_attachment_file_drop
   name                       = "publisher_attachment_file_dropped_in_suspicious_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Publisher Attachment File Dropped In Suspicious Location"
-  description                = "Detects creation of files with the \".pub\" extension in suspicious or uncommon locations. This could be a sign of attackers abusing Publisher documents - Legitimate usage of \".pub\" files from those locations"
+  description                = "Detects creation of files with the \".pub\" extension in suspicious or uncommon locations. This could be a sign of attackers abusing Publisher documents - Legitimate usage of \".pub\" files from those locations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/publisher_attachment_file_dropped_in_suspicious_location.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

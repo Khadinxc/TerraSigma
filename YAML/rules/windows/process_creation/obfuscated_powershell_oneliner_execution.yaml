@@ -1,6 +1,6 @@
 id: 51e941f6-21dd-51db-bf13-d6b7524b9a91
 name: Obfuscated PowerShell OneLiner Execution
-description: Detects the execution of a specific OneLiner to download and execute powershell modules in memory.
+description: 'Detects the execution of a specific OneLiner to download and execute powershell modules in memory. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/obfuscated_powershell_oneliner_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

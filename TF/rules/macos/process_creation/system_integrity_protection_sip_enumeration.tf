@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "system_integrity_protection_si
   name                       = "system_integrity_protection_sip_enumeration"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "System Integrity Protection (SIP) Enumeration"
-  description                = "Detects the use of csrutil to view the Configure System Integrity Protection (SIP) status. This technique is used in post-exploit scenarios. - Legitimate administration activities"
+  description                = "Detects the use of csrutil to view the Configure System Integrity Protection (SIP) status. This technique is used in post-exploit scenarios. - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/system_integrity_protection_sip_enumeration.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

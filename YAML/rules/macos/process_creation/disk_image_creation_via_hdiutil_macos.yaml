@@ -1,6 +1,6 @@
 id: b074c44a-7b13-5283-aaf3-0a90812237dd
 name: Disk Image Creation Via Hdiutil - MacOS
-description: Detects the execution of the hdiutil utility in order to create a disk image. - Legitimate usage of hdiutil by administrators and users.
+description: 'Detects the execution of the hdiutil utility in order to create a disk image. - Legitimate usage of hdiutil by administrators and users. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/disk_image_creation_via_hdiutil_macos.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_encryption_using_gpg4win"
   name                       = "file_encryption_using_gpg4win"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Encryption Using Gpg4win"
-  description                = "Detects usage of Gpg4win to encrypt files"
+  description                = "Detects usage of Gpg4win to encrypt files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/file_encryption_using_gpg4win.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

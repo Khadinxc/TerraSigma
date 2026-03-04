@@ -1,6 +1,6 @@
 id: a8f50432-4c7d-58fd-a87d-7a106b17ccc7
 name: Delete Important Scheduled Task
-description: Detects when adversaries stop services or processes by deleting their respective scheduled tasks in order to conduct data destructive activities - Unlikely
+description: 'Detects when adversaries stop services or processes by deleting their respective scheduled tasks in order to conduct data destructive activities - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/delete_important_scheduled_task.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

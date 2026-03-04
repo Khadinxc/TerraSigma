@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "unusually_long_powershell_comm
   name                       = "unusually_long_powershell_commandline"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Unusually Long PowerShell CommandLine"
-  description                = "Detects unusually long PowerShell command lines with a length of 1000 characters or more"
+  description                = "Detects unusually long PowerShell command lines with a length of 1000 characters or more | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/unusually_long_powershell_commandline.yml"
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

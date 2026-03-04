@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_system_user_process
   name                       = "suspicious_system_user_process_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious SYSTEM User Process Creation"
-  description                = "Detects a suspicious process creation as SYSTEM user (suspicious program or command line parameter) - Administrative activity - Scripts and administrative tools used in the monitored environment - Monitoring activity"
+  description                = "Detects a suspicious process creation as SYSTEM user (suspicious program or command line parameter) - Administrative activity - Scripts and administrative tools used in the monitored environment - Monitoring activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_system_user_process_creation.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

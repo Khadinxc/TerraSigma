@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "php_inline_command_execution" 
   name                       = "php_inline_command_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Php Inline Command Execution"
-  description                = "Detects execution of php using the \"-r\" flag. This is could be used as a way to launch a reverse shell or execute live php code."
+  description                = "Detects execution of php using the \"-r\" flag. This is could be used as a way to launch a reverse shell or execute live php code. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/php_inline_command_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

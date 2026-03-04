@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "renamed_vscode_code_tunnel_exe
   name                       = "renamed_vscode_code_tunnel_execution_file_indicator"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed VsCode Code Tunnel Execution - File Indicator"
-  description                = "Detects the creation of a file with the name \"code_tunnel.json\" which indicate execution and usage of VsCode tunneling utility by an \"Image\" or \"Process\" other than VsCode."
+  description                = "Detects the creation of a file with the name \"code_tunnel.json\" which indicate execution and usage of VsCode tunneling utility by an \"Image\" or \"Process\" other than VsCode. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/renamed_vscode_code_tunnel_execution_file_indicator.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

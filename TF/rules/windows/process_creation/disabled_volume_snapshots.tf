@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "disabled_volume_snapshots" {
   name                       = "disabled_volume_snapshots"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disabled Volume Snapshots"
-  description                = "Detects commands that temporarily turn off Volume Snapshots - Legitimate administration"
+  description                = "Detects commands that temporarily turn off Volume Snapshots - Legitimate administration | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/disabled_volume_snapshots.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

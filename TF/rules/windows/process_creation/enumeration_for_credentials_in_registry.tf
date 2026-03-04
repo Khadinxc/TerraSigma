@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "enumeration_for_credentials_in
   name                       = "enumeration_for_credentials_in_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Enumeration for Credentials in Registry"
-  description                = "Adversaries may search the Registry on compromised systems for insecurely stored credentials. The Windows Registry stores configuration information that can be used by the system or other programs. Adversaries may query the Registry looking for credentials and passwords that have been stored for use by other programs or services"
+  description                = "Adversaries may search the Registry on compromised systems for insecurely stored credentials. The Windows Registry stores configuration information that can be used by the system or other programs. Adversaries may query the Registry looking for credentials and passwords that have been stored for use by other programs or services | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/enumeration_for_credentials_in_registry.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "terminate_linux_process_via_ki
   name                       = "terminate_linux_process_via_kill"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Terminate Linux Process Via Kill"
-  description                = "Detects usage of command line tools such as \"kill\", \"pkill\" or \"killall\" to terminate or signal a running process."
+  description                = "Detects usage of command line tools such as \"kill\", \"pkill\" or \"killall\" to terminate or signal a running process. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/process_creation/terminate_linux_process_via_kill.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "windows_terminal_profile_setti
   name                       = "windows_terminal_profile_settings_modification_by_uncommon_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Terminal Profile Settings Modification By Uncommon Process"
-  description                = "Detects the creation or modification of the Windows Terminal Profile settings file \"settings.json\" by an uncommon process. - Some false positives may occur with admin scripts that set WT settings."
+  description                = "Detects the creation or modification of the Windows Terminal Profile settings file \"settings.json\" by an uncommon process. - Some false positives may occur with admin scripts that set WT settings. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/windows_terminal_profile_settings_modification_by_uncommon_process.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

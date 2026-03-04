@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_reconnaissance_acti
   name                       = "suspicious_reconnaissance_activity_via_gathernetworkinfo_vbs"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Reconnaissance Activity Via GatherNetworkInfo.VBS"
-  description                = "Detects execution of the built-in script located in \"C:\\Windows\\System32\\gatherNetworkInfo.vbs\". Which can be used to gather information about the target machine"
+  description                = "Detects execution of the built-in script located in \"C:\\Windows\\System32\\gatherNetworkInfo.vbs\". Which can be used to gather information about the target machine | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_reconnaissance_activity_via_gathernetworkinfo_vbs.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

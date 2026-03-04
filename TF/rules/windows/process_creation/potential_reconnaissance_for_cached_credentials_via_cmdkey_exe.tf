@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_reconnaissance_for_c
   name                       = "potential_reconnaissance_for_cached_credentials_via_cmdkey_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Reconnaissance For Cached Credentials Via Cmdkey.EXE"
-  description                = "Detects usage of cmdkey to look for cached credentials on the system - Legitimate administrative tasks"
+  description                = "Detects usage of cmdkey to look for cached credentials on the system - Legitimate administrative tasks | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_reconnaissance_for_cached_credentials_via_cmdkey_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

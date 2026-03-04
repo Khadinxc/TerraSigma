@@ -1,6 +1,6 @@
 id: a0301db2-6bda-5336-930a-4e320095a766
 name: Suspicious GUP Usage
-description: Detects execution of the Notepad++ updater in a suspicious directory, which is often used in DLL side-loading attacks - Execution of tools named GUP.exe and located in folders different than Notepad++\updater
+description: 'Detects execution of the Notepad++ updater in a suspicious directory, which is often used in DLL side-loading attacks - Execution of tools named GUP.exe and located in folders different than Notepad++\updater | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_gup_usage.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

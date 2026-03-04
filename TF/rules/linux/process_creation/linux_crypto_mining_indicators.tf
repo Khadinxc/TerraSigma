@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "linux_crypto_mining_indicators
   name                       = "linux_crypto_mining_indicators"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux Crypto Mining Indicators"
-  description                = "Detects command line parameters or strings often used by crypto miners - Legitimate use of crypto miners"
+  description                = "Detects command line parameters or strings often used by crypto miners - Legitimate use of crypto miners | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/linux_crypto_mining_indicators.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

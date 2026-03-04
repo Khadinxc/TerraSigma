@@ -1,6 +1,6 @@
 id: 9938eb09-bd63-5ff1-b011-340bf342448f
 name: Insecure Transfer Via Curl.EXE
-description: Detects execution of "curl.exe" with the "--insecure" flag. - Access to badly maintained internal or development systems
+description: 'Detects execution of "curl.exe" with the "--insecure" flag. - Access to badly maintained internal or development systems | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/insecure_transfer_via_curl_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

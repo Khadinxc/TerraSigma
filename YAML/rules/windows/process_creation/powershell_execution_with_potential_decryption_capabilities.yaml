@@ -1,6 +1,6 @@
 id: badfcb37-86f9-5704-928d-e20e81f14920
 name: PowerShell Execution With Potential Decryption Capabilities
-description: Detects PowerShell commands that decrypt an ".LNK" "file to drop the next stage of the malware. - Unlikely
+description: 'Detects PowerShell commands that decrypt an ".LNK" "file to drop the next stage of the malware. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/powershell_execution_with_potential_decryption_capabilities.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -22,10 +22,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

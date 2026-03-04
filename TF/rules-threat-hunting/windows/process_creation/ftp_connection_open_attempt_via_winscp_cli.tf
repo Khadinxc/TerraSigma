@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "ftp_connection_open_attempt_vi
   name                       = "ftp_connection_open_attempt_via_winscp_cli"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "FTP Connection Open Attempt Via Winscp CLI"
-  description                = "Detects the execution of Winscp with the \"-command\" and the \"open\" flags in order to open an FTP connection. Akira ransomware was seen using this technique in order to exfiltrate data."
+  description                = "Detects the execution of Winscp with the \"-command\" and the \"open\" flags in order to open an FTP connection. Akira ransomware was seen using this technique in order to exfiltrate data. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/ftp_connection_open_attempt_via_winscp_cli.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

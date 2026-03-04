@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "shell_process_spawned_by_java_
   name                       = "shell_process_spawned_by_java_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Shell Process Spawned by Java.EXE"
-  description                = "Detects shell spawned from Java host process, which could be a sign of exploitation (e.g. log4j exploitation) - Legitimate calls to system binaries - Company specific internal usage"
+  description                = "Detects shell spawned from Java host process, which could be a sign of exploitation (e.g. log4j exploitation) - Legitimate calls to system binaries - Company specific internal usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/shell_process_spawned_by_java_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

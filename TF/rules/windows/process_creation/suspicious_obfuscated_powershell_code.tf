@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_obfuscated_powershe
   name                       = "suspicious_obfuscated_powershell_code"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Obfuscated PowerShell Code"
-  description                = "Detects suspicious UTF16 and base64 encoded and often obfuscated PowerShell code often used in command lines"
+  description                = "Detects suspicious UTF16 and base64 encoded and often obfuscated PowerShell code often used in command lines | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_obfuscated_powershell_code.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

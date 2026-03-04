@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_cobaltstrike_process
   name                       = "potential_cobaltstrike_process_patterns"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential CobaltStrike Process Patterns"
-  description                = "Detects potential process patterns related to Cobalt Strike beacon activity"
+  description                = "Detects potential process patterns related to Cobalt Strike beacon activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_cobaltstrike_process_patterns.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

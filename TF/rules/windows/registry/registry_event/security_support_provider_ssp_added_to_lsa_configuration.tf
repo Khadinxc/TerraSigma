@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "security_support_provider_ssp_
   name                       = "security_support_provider_ssp_added_to_lsa_configuration"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Security Support Provider (SSP) Added to LSA Configuration"
-  description                = "Detects the addition of a SSP to the registry. Upon a reboot or API call, SSP DLLs gain access to encrypted and plaintext passwords stored in Windows."
+  description                = "Detects the addition of a SSP to the registry. Upon a reboot or API call, SSP DLLs gain access to encrypted and plaintext passwords stored in Windows. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/security_support_provider_ssp_added_to_lsa_configuration.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

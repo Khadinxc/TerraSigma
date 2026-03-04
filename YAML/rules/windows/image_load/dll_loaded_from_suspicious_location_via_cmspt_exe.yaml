@@ -1,6 +1,6 @@
 id: fc95b57a-86c5-5d96-9308-09b538768e00
 name: DLL Loaded From Suspicious Location Via Cmspt.EXE
-description: Detects cmstp loading "dll" or "ocx" files from suspicious locations - Unikely
+description: 'Detects cmstp loading "dll" or "ocx" files from suspicious locations - Unikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/dll_loaded_from_suspicious_location_via_cmspt_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

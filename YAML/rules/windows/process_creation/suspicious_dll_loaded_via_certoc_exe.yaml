@@ -1,6 +1,6 @@
 id: a9c1a36d-d0bf-5bba-958f-ba9f7c3a9912
 name: Suspicious DLL Loaded via CertOC.EXE
-description: Detects when a user installs certificates by using CertOC.exe to load the target DLL file.
+description: 'Detects when a user installs certificates by using CertOC.exe to load the target DLL file. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_dll_loaded_via_certoc_exe.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

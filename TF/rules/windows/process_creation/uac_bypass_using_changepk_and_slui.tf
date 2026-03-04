@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "uac_bypass_using_changepk_and_
   name                       = "uac_bypass_using_changepk_and_slui"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass Using ChangePK and SLUI"
-  description                = "Detects an UAC bypass that uses changepk.exe and slui.exe (UACMe 61)"
+  description                = "Detects an UAC bypass that uses changepk.exe and slui.exe (UACMe 61) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/uac_bypass_using_changepk_and_slui.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

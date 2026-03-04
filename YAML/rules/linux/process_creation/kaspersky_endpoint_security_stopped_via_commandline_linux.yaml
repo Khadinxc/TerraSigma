@@ -1,6 +1,6 @@
 id: 1e0e7f41-8eb1-52d1-979f-11b552abf239
 name: Kaspersky Endpoint Security Stopped Via CommandLine - Linux
-description: Detects execution of the Kaspersky init.d stop script on Linux systems either directly or via systemctl. This activity may indicate a manual interruption of the antivirus service by an administrator, or it could be a sign of potential tampering or evasion attempts by malicious actors. - System administrator manually stopping Kaspersky services
+description: 'Detects execution of the Kaspersky init.d stop script on Linux systems either directly or via systemctl. This activity may indicate a manual interruption of the antivirus service by an administrator, or it could be a sign of potential tampering or evasion attempts by malicious actors. - System administrator manually stopping Kaspersky services | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/kaspersky_endpoint_security_stopped_via_commandline_linux.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

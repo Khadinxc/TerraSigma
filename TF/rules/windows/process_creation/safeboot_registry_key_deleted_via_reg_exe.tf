@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "safeboot_registry_key_deleted_
   name                       = "safeboot_registry_key_deleted_via_reg_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "SafeBoot Registry Key Deleted Via Reg.EXE"
-  description                = "Detects execution of \"reg.exe\" commands with the \"delete\" flag on safe boot registry keys. Often used by attacker to prevent safeboot execution of security products - Unlikely"
+  description                = "Detects execution of \"reg.exe\" commands with the \"delete\" flag on safe boot registry keys. Often used by attacker to prevent safeboot execution of security products - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/safeboot_registry_key_deleted_via_reg_exe.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

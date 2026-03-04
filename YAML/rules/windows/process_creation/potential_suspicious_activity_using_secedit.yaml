@@ -1,6 +1,6 @@
 id: 39ab3bcc-2540-5abc-a86c-03c361b6e0f8
 name: Potential Suspicious Activity Using SeCEdit
-description: Detects potential suspicious behaviour using secedit.exe. Such as exporting or modifying the security policy - Legitimate administrative use
+description: 'Detects potential suspicious behaviour using secedit.exe. Such as exporting or modifying the security policy - Legitimate administrative use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_suspicious_activity_using_secedit.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -37,10 +37,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

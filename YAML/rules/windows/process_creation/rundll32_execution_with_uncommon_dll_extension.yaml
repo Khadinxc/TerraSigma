@@ -1,6 +1,6 @@
 id: e904b985-343e-5bf0-8020-2dec4d87bc86
 name: Rundll32 Execution With Uncommon DLL Extension
-description: Detects the execution of rundll32 with a command line that doesn't contain a common extension
+description: 'Detects the execution of rundll32 with a command line that doesn''t contain a common extension | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/rundll32_execution_with_uncommon_dll_extension.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

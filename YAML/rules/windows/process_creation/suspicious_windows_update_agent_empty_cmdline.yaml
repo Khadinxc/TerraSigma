@@ -1,6 +1,6 @@
 id: 6a4eba88-a1e5-5514-a6ec-c4d3743a9f03
 name: Suspicious Windows Update Agent Empty Cmdline
-description: Detects suspicious Windows Update Agent activity in which a wuauclt.exe process command line doesn't contain any command line flags
+description: 'Detects suspicious Windows Update Agent activity in which a wuauclt.exe process command line doesn''t contain any command line flags | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_windows_update_agent_empty_cmdline.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

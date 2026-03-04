@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "regasm_exe_initiating_network_
   name                       = "regasm_exe_initiating_network_connection_to_public_ip"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "RegAsm.EXE Initiating Network Connection To Public IP"
-  description                = "Detects \"RegAsm.exe\" initiating a network connection to public IP adresses"
+  description                = "Detects \"RegAsm.exe\" initiating a network connection to public IP adresses | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/regasm_exe_initiating_network_connection_to_public_ip.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

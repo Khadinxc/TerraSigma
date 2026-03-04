@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "capsh_shell_invocation_linux" 
   name                       = "capsh_shell_invocation_linux"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Capsh Shell Invocation - Linux"
-  description                = "Detects the use of the \"capsh\" utility to invoke a shell."
+  description                = "Detects the use of the \"capsh\" utility to invoke a shell. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/capsh_shell_invocation_linux.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

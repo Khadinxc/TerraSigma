@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "renamed_sysinternals_sdelete_e
   name                       = "renamed_sysinternals_sdelete_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed Sysinternals Sdelete Execution"
-  description                = "Detects the use of a renamed SysInternals Sdelete, which is something an administrator shouldn't do (the renaming) - System administrator usage"
+  description                = "Detects the use of a renamed SysInternals Sdelete, which is something an administrator shouldn't do (the renaming) - System administrator usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/renamed_sysinternals_sdelete_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

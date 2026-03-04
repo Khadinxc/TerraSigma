@@ -1,6 +1,6 @@
 id: 692bf04e-d2f2-5782-9010-36cb178022e1
 name: Potential Configuration And Service Reconnaissance Via Reg.EXE
-description: Detects the usage of "reg.exe" in order to query reconnaissance information from the registry. Adversaries may interact with the Windows registry to gather information about credentials, the system, configuration, and installed software. - Discord
+description: 'Detects the usage of "reg.exe" in order to query reconnaissance information from the registry. Adversaries may interact with the Windows registry to gather information about credentials, the system, configuration, and installed software. - Discord | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potential_configuration_and_service_reconnaissance_via_reg_exe.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -25,10 +25,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

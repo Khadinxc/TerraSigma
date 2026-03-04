@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "always_install_elevated_msi_sp
   name                       = "always_install_elevated_msi_spawned_cmd_and_powershell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Always Install Elevated MSI Spawned Cmd And Powershell"
-  description                = "Detects Windows Installer service (msiexec.exe) spawning \"cmd\" or \"powershell\""
+  description                = "Detects Windows Installer service (msiexec.exe) spawning \"cmd\" or \"powershell\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/always_install_elevated_msi_spawned_cmd_and_powershell.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

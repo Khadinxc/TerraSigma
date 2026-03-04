@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "pua_csexec_execution" {
   name                       = "pua_csexec_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - CsExec Execution"
-  description                = "Detects the use of the lesser known remote execution tool named CsExec a PsExec alternative"
+  description                = "Detects the use of the lesser known remote execution tool named CsExec a PsExec alternative | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_csexec_execution.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "obfuscated_powershell_msi_inst
   name                       = "obfuscated_powershell_msi_install_via_windowsinstaller_com"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Obfuscated PowerShell MSI Install via WindowsInstaller COM"
-  description                = "Detects the execution of obfuscated PowerShell commands that attempt to install MSI packages via the Windows Installer COM object (`WindowsInstaller.Installer`). The technique involves manipulating strings to hide functionality, such as constructing class names using string insertion (e.g., 'indowsInstaller.Installer'.Insert(0,'W')) and correcting malformed URLs (e.g., converting 'htps://' to 'https://') at runtime. This behavior is commonly associated with malware loaders or droppers that aim to bypass static detection by hiding intent in runtime-generated strings and using legitimate tools for code execution. The use of `InstallProduct` and COM object creation, particularly combined with hidden window execution and suppressed UI, indicates an attempt to install software (likely malicious) without user interaction."
+  description                = "Detects the execution of obfuscated PowerShell commands that attempt to install MSI packages via the Windows Installer COM object (`WindowsInstaller.Installer`). The technique involves manipulating strings to hide functionality, such as constructing class names using string insertion (e.g., 'indowsInstaller.Installer'.Insert(0,'W')) and correcting malformed URLs (e.g., converting 'htps://' to 'https://') at runtime. This behavior is commonly associated with malware loaders or droppers that aim to bypass static detection by hiding intent in runtime-generated strings and using legitimate tools for code execution. The use of `InstallProduct` and COM object creation, particularly combined with hidden window execution and suppressed UI, indicates an attempt to install software (likely malicious) without user interaction. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/obfuscated_powershell_msi_install_via_windowsinstaller_com.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -1,6 +1,6 @@
 id: b967a18c-4d61-5fc1-ba41-7ab0d9d200c8
 name: Potentially Suspicious Regsvr32 HTTP/FTP Pattern
-description: Detects regsvr32 execution to download/install/register new DLLs that are hosted on Web or FTP servers.
+description: 'Detects regsvr32 execution to download/install/register new DLLs that are hosted on Web or FTP servers. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_regsvr32_http_ftp_pattern.yml'
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

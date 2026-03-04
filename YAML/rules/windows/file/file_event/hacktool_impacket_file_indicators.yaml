@@ -1,6 +1,6 @@
 id: fa583f8b-ae67-544d-9c23-d38eccefb6be
 name: HackTool - Impacket File Indicators
-description: Detects file creation events with filename patterns used by Impacket.
+description: 'Detects file creation events with filename patterns used by Impacket. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/hacktool_impacket_file_indicators.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_ccleanerdu_dll_sidel
   name                       = "potential_ccleanerdu_dll_sideloading"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential CCleanerDU.DLL Sideloading"
-  description                = "Detects potential DLL sideloading of \"CCleanerDU.dll\""
+  description                = "Detects potential DLL sideloading of \"CCleanerDU.dll\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/potential_ccleanerdu_dll_sideloading.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

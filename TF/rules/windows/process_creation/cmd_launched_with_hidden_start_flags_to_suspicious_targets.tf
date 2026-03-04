@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "cmd_launched_with_hidden_start
   name                       = "cmd_launched_with_hidden_start_flags_to_suspicious_targets"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Cmd Launched with Hidden Start Flags to Suspicious Targets"
-  description                = "Detects cmd.exe executing commands with the \"start\" utility using \"/b\" (no window) or \"/min\" (minimized) flags. To reduce false positives from standard background tasks, detection is restricted to scenarios where the target is a known script extension or located in suspicious temporary/public directories. This technique was observed in Chaos, DarkSide, and Emotet malware campaigns. - Legitimate administrative scripts running from temporary folders. - Niche software updaters utilizing hidden batch files in ProgramData."
+  description                = "Detects cmd.exe executing commands with the \"start\" utility using \"/b\" (no window) or \"/min\" (minimized) flags. To reduce false positives from standard background tasks, detection is restricted to scenarios where the target is a known script extension or located in suspicious temporary/public directories. This technique was observed in Chaos, DarkSide, and Emotet malware campaigns. - Legitimate administrative scripts running from temporary folders. - Niche software updaters utilizing hidden batch files in ProgramData. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/cmd_launched_with_hidden_start_flags_to_suspicious_targets.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

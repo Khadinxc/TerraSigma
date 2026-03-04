@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "devtoolslauncher_exe_executes_
   name                       = "devtoolslauncher_exe_executes_specified_binary"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Devtoolslauncher.exe Executes Specified Binary"
-  description                = "The Devtoolslauncher.exe executes other binary - Legitimate use of devtoolslauncher.exe by legitimate user"
+  description                = "The Devtoolslauncher.exe executes other binary - Legitimate use of devtoolslauncher.exe by legitimate user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/devtoolslauncher_exe_executes_specified_binary.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

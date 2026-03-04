@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_extrac32_execution"
   name                       = "suspicious_extrac32_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Extrac32 Execution"
-  description                = "Download or Copy file with Extrac32"
+  description                = "Download or Copy file with Extrac32 | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_extrac32_execution.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

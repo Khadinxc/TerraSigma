@@ -1,6 +1,6 @@
 id: adaa8929-18c3-533d-a9f9-721e1aadac99
 name: Outlook EnableUnsafeClientMailRules Setting Enabled
-description: Detects an attacker trying to enable the outlook security setting "EnableUnsafeClientMailRules" which allows outlook to run applications or execute macros
+description: 'Detects an attacker trying to enable the outlook security setting "EnableUnsafeClientMailRules" which allows outlook to run applications or execute macros | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/outlook_enableunsafeclientmailrules_setting_enabled.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

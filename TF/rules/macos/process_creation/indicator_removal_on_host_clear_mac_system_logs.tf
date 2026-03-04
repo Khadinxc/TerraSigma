@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "indicator_removal_on_host_clea
   name                       = "indicator_removal_on_host_clear_mac_system_logs"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Indicator Removal on Host - Clear Mac System Logs"
-  description                = "Detects deletion of local audit logs - Legitimate administration activities"
+  description                = "Detects deletion of local audit logs - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/indicator_removal_on_host_clear_mac_system_logs.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

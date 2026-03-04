@@ -1,6 +1,6 @@
 id: 3144b116-9aa4-599e-b14e-47a0b5d918b2
 name: PUA - DIT Snapshot Viewer
-description: Detects the use of Ditsnap tool, an inspection tool for Active Directory database, ntds.dit. - Legitimate admin usage
+description: 'Detects the use of Ditsnap tool, an inspection tool for Active Directory database, ntds.dit. - Legitimate admin usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/pua_dit_snapshot_viewer.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

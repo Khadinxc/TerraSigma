@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "self_extracting_package_creati
   name                       = "self_extracting_package_creation_via_iexpress_exe_from_potentially_suspicious_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Self Extracting Package Creation Via Iexpress.EXE From Potentially Suspicious Location"
-  description                = "Detects the use of iexpress.exe to create binaries via Self Extraction Directive (SED) files located in potentially suspicious locations. This behavior has been observed in-the-wild by different threat actors. - Administrators building packages using iexpress.exe"
+  description                = "Detects the use of iexpress.exe to create binaries via Self Extraction Directive (SED) files located in potentially suspicious locations. This behavior has been observed in-the-wild by different threat actors. - Administrators building packages using iexpress.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/self_extracting_package_creation_via_iexpress_exe_from_potentially_suspicious_location.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

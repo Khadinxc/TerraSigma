@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potentially_suspicious_rundll3
   name                       = "potentially_suspicious_rundll32_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Rundll32 Activity"
-  description                = "Detects suspicious execution of rundll32, with specific calls to some DLLs with known LOLBIN functionalities"
+  description                = "Detects suspicious execution of rundll32, with specific calls to some DLLs with known LOLBIN functionalities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/potentially_suspicious_rundll32_activity.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

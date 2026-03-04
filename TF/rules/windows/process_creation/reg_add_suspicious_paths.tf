@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "reg_add_suspicious_paths" {
   name                       = "reg_add_suspicious_paths"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Reg Add Suspicious Paths"
-  description                = "Detects when an adversary uses the reg.exe utility to add or modify new keys or subkeys - Rare legitimate add to registry via cli (to these locations)"
+  description                = "Detects when an adversary uses the reg.exe utility to add or modify new keys or subkeys - Rare legitimate add to registry via cli (to these locations) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/reg_add_suspicious_paths.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

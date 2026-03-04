@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "forest_blizzard_apt_custom_pro
   name                       = "forest_blizzard_apt_custom_protocol_handler_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Forest Blizzard APT - Custom Protocol Handler Creation"
-  description                = "Detects the setting of a custom protocol handler with the name \"rogue\". Seen being created by Forest Blizzard APT as reported by MSFT. - Unlikely"
+  description                = "Detects the setting of a custom protocol handler with the name \"rogue\". Seen being created by Forest Blizzard APT as reported by MSFT. - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/forest_blizzard_apt_custom_protocol_handler_creation.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

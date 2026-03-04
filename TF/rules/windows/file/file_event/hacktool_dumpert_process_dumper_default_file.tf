@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "hacktool_dumpert_process_dumpe
   name                       = "hacktool_dumpert_process_dumper_default_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Dumpert Process Dumper Default File"
-  description                = "Detects the creation of the default dump file used by Outflank Dumpert tool. A process dumper, which dumps the lsass process memory - Very unlikely"
+  description                = "Detects the creation of the default dump file used by Outflank Dumpert tool. A process dumper, which dumps the lsass process memory - Very unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/hacktool_dumpert_process_dumper_default_file.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

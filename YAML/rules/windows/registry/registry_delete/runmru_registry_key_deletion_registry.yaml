@@ -1,6 +1,6 @@
 id: 979daec0-0607-575e-8d1a-0bdedacb6b54
 name: RunMRU Registry Key Deletion - Registry
-description: Detects attempts to delete the RunMRU registry key, which stores the history of commands executed via the run dialog. In the clickfix techniques, the phishing lures instruct users to open a run dialog through (Win + R) and execute malicious commands. Adversaries may delete this key to cover their tracks after executing commands.
+description: 'Detects attempts to delete the RunMRU registry key, which stores the history of commands executed via the run dialog. In the clickfix techniques, the phishing lures instruct users to open a run dialog through (Win + R) and execute malicious commands. Adversaries may delete this key to cover their tracks after executing commands. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/runmru_registry_key_deletion_registry.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "new_root_certificate_installed
   name                       = "new_root_certificate_installed_via_certutil_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Root Certificate Installed Via Certutil.EXE"
-  description                = "Detects execution of \"certutil\" with the \"addstore\" flag in order to install a new certificate on the system. Adversaries may install a root certificate on a compromised system to avoid warnings when connecting to adversary controlled web servers. - Help Desk or IT may need to manually add a corporate Root CA on occasion. Need to test if GPO push doesn't trigger FP"
+  description                = "Detects execution of \"certutil\" with the \"addstore\" flag in order to install a new certificate on the system. Adversaries may install a root certificate on a compromised system to avoid warnings when connecting to adversary controlled web servers. - Help Desk or IT may need to manually add a corporate Root CA on occasion. Need to test if GPO push doesn't trigger FP | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/new_root_certificate_installed_via_certutil_exe.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

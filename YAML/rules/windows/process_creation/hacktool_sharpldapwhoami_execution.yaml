@@ -1,6 +1,6 @@
 id: 89e41e11-39f3-5280-8716-7b7b15d1da07
 name: HackTool - SharpLdapWhoami Execution
-description: Detects SharpLdapWhoami, a whoami alternative that queries the LDAP service on a domain controller - Programs that use the same command line flags
+description: 'Detects SharpLdapWhoami, a whoami alternative that queries the LDAP service on a domain controller - Programs that use the same command line flags | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/hacktool_sharpldapwhoami_execution.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

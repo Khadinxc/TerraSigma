@@ -1,6 +1,6 @@
 id: d3784595-fbc7-5712-91b5-3cfb7ce736d4
 name: Suspicious Microsoft OneNote Child Process
-description: Detects suspicious child processes of the Microsoft OneNote application. This may indicate an attempt to execute malicious embedded objects from a .one file. - File located in the AppData folder with trusted signature
+description: 'Detects suspicious child processes of the Microsoft OneNote application. This may indicate an attempt to execute malicious embedded objects from a .one file. - File located in the AppData folder with trusted signature | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_microsoft_onenote_child_process.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -24,10 +24,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName

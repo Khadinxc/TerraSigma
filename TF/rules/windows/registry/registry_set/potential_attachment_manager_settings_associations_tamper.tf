@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "potential_attachment_manager_s
   name                       = "potential_attachment_manager_settings_associations_tamper"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Attachment Manager Settings Associations Tamper"
-  description                = "Detects tampering with attachment manager settings policies associations to lower the default file type risks (See reference for more information) - Unlikely"
+  description                = "Detects tampering with attachment manager settings policies associations to lower the default file type risks (See reference for more information) - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/potential_attachment_manager_settings_associations_tamper.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -47,14 +47,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "node_process_executions" {
   name                       = "node_process_executions"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Node Process Executions"
-  description                = "Detects the execution of other scripts using the Node executable packaged with Adobe Creative Cloud"
+  description                = "Detects the execution of other scripts using the Node executable packaged with Adobe Creative Cloud | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/node_process_executions.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

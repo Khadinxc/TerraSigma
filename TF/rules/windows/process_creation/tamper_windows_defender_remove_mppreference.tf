@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "tamper_windows_defender_remove
   name                       = "tamper_windows_defender_remove_mppreference"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Tamper Windows Defender Remove-MpPreference"
-  description                = "Detects attempts to remove Windows Defender configurations using the 'MpPreference' cmdlet - Legitimate PowerShell scripts"
+  description                = "Detects attempts to remove Windows Defender configurations using the 'MpPreference' cmdlet - Legitimate PowerShell scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/tamper_windows_defender_remove_mppreference.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

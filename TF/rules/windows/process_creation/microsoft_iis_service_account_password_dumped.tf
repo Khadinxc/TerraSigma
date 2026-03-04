@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "microsoft_iis_service_account_
   name                       = "microsoft_iis_service_account_password_dumped"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Microsoft IIS Service Account Password Dumped"
-  description                = "Detects the Internet Information Services (IIS) command-line tool, AppCmd, being used to list passwords"
+  description                = "Detects the Internet Information Services (IIS) command-line tool, AppCmd, being used to list passwords | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/microsoft_iis_service_account_password_dumped.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

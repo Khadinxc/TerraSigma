@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "suspicious_reg_add_bitlocker" 
   name                       = "suspicious_reg_add_bitlocker"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Reg Add BitLocker"
-  description                = "Detects suspicious addition to BitLocker related registry keys via the reg.exe utility - Unlikely"
+  description                = "Detects suspicious addition to BitLocker related registry keys via the reg.exe utility - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/suspicious_reg_add_bitlocker.yml"
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

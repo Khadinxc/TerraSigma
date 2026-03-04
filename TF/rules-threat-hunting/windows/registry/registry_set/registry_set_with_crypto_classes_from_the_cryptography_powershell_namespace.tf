@@ -2,7 +2,7 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_with_crypto_class
   name                       = "registry_set_with_crypto_classes_from_the_cryptography_powershell_namespace"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Registry Set With Crypto-Classes From The \"Cryptography\" PowerShell Namespace"
-  description                = "Detects the setting of a registry inside the \"\\Shell\\Open\\Command\" value with PowerShell classes from the \"System.Security.Cryptography\" namespace. The PowerShell namespace \"System.Security.Cryptography\" provides classes for on-the-fly encryption and decryption. These can be used for example in decrypting malicious payload for defense evasion. - Classes are legitimately used, but less so when e.g. parents with low prevalence or decryption of content in temporary folders."
+  description                = "Detects the setting of a registry inside the \"\\Shell\\Open\\Command\" value with PowerShell classes from the \"System.Security.Cryptography\" namespace. The PowerShell namespace \"System.Security.Cryptography\" provides classes for on-the-fly encryption and decryption. These can be used for example in decrypting malicious payload for defense evasion. - Classes are legitimately used, but less so when e.g. parents with low prevalence or decryption of content in temporary folders. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_set/registry_set_with_crypto_classes_from_the_cryptography_powershell_namespace.yml"
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents
@@ -48,14 +48,6 @@ QUERY
     field_mapping {
       identifier  = "Sid"
       column_name = "InitiatingProcessAccountSid"
-    }
-    field_mapping {
-      identifier  = "UPNSuffix"
-      column_name = "InitiatingProcessAccountUpn"
-    }
-    field_mapping {
-      identifier  = "AadUserId"
-      column_name = "InitiatingProcessAccountObjectId"
     }
   }
 

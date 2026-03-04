@@ -1,6 +1,6 @@
 id: 6541f018-7cdf-559b-8372-6e1f7aafed8c
 name: Suspicious Scheduled Task Write to System32 Tasks
-description: Detects the creation of tasks from processes executed from suspicious locations
+description: 'Detects the creation of tasks from processes executed from suspicious locations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/suspicious_scheduled_task_write_to_system32_tasks.yml'
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
@@ -26,10 +26,6 @@ entityMappings:
     columnName: InitiatingProcessAccountDomain
   - identifier: Sid
     columnName: InitiatingProcessAccountSid
-  - identifier: UPNSuffix
-    columnName: InitiatingProcessAccountUpn
-  - identifier: AadUserId
-    columnName: InitiatingProcessAccountObjectId
 - entityType: Host
   fieldMappings:
   - identifier: HostName
