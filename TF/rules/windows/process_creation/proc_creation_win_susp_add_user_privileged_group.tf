@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_add_use
   name                       = "proc_creation_win_susp_add_user_privileged_group"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "User Added To Highly Privileged Group"
-  description                = "Detects addition of users to highly privileged groups via \"Net\" or \"Add-LocalGroupMember\". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_add_user_privileged_group.yml - Administrative activity that must be investigated | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_add_user_privileged_group.yml"
+  description                = <<DESC
+    Detects addition of users to highly privileged groups via "Net" or "Add-LocalGroupMember".
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_add_user_privileged_group.yml
+
+    False Positives:
+    - Administrative activity that must be investigated
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

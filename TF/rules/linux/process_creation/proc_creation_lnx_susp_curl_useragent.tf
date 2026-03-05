@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_susp_curl_us
   name                       = "proc_creation_lnx_susp_curl_useragent"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Curl Change User Agents - Linux"
-  description                = "Detects a suspicious curl process start on linux with set useragent options Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_curl_useragent.yml - Scripts created by developers and admins - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_curl_useragent.yml"
+  description                = <<DESC
+    Detects a suspicious curl process start on linux with set useragent options
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_curl_useragent.yml
+
+    False Positives:
+    - Scripts created by developers and admins
+    - Administrative activity
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

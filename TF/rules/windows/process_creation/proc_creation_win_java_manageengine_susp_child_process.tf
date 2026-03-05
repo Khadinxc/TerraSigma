@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_java_managee
   name                       = "proc_creation_win_java_manageengine_susp_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Child Process Of Manage Engine ServiceDesk"
-  description                = "Detects suspicious child processes of the \"Manage Engine ServiceDesk Plus\" Java web service Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_java_manageengine_susp_child_process.yml - Legitimate sub processes started by Manage Engine ServiceDesk Pro | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_java_manageengine_susp_child_process.yml"
+  description                = <<DESC
+    Detects suspicious child processes of the "Manage Engine ServiceDesk Plus" Java web service
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_java_manageengine_susp_child_process.yml
+
+    False Positives:
+    - Legitimate sub processes started by Manage Engine ServiceDesk Pro
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

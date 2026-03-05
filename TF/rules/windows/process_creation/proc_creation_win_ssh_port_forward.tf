@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_ssh_port_for
   name                       = "proc_creation_win_ssh_port_forward"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Port Forwarding Activity Via SSH.EXE"
-  description                = "Detects port forwarding activity via SSH.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ssh_port_forward.yml - Administrative activity using a remote port forwarding to a local port | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ssh_port_forward.yml"
+  description                = <<DESC
+    Detects port forwarding activity via SSH.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ssh_port_forward.yml
+
+    False Positives:
+    - Administrative activity using a remote port forwarding to a local port
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

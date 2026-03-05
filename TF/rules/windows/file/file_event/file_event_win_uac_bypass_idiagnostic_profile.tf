@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_uac_bypass_idia
   name                       = "file_event_win_uac_bypass_idiagnostic_profile"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass Using IDiagnostic Profile - File"
-  description                = "Detects the creation of a file by \"dllhost.exe\" in System32 directory part of \"IDiagnosticProfileUAC\" UAC bypass technique Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_idiagnostic_profile.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_idiagnostic_profile.yml"
+  description                = <<DESC
+    Detects the creation of a file by "dllhost.exe" in System32 directory part of "IDiagnosticProfileUAC" UAC bypass technique
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_idiagnostic_profile.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

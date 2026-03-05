@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_discovery_vi
   name                       = "proc_creation_win_discovery_via_reg_queries"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "System Information Discovery via Registry Queries"
-  description                = "Detects attempts to query system information directly from the Windows Registry. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_discovery_via_reg_queries.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_discovery_via_reg_queries.yml"
+  description                = <<DESC
+    Detects attempts to query system information directly from the Windows Registry.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_discovery_via_reg_queries.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

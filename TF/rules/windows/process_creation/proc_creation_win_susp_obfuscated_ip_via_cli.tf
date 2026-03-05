@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_obfusca
   name                       = "proc_creation_win_susp_obfuscated_ip_via_cli"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Obfuscated IP Via CLI"
-  description                = "Detects usage of an encoded/obfuscated version of an IP address (hex, octal, etc.) via command line Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_obfuscated_ip_via_cli.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_obfuscated_ip_via_cli.yml"
+  description                = <<DESC
+    Detects usage of an encoded/obfuscated version of an IP address (hex, octal, etc.) via command line
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_obfuscated_ip_via_cli.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

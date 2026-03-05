@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_r
   name                       = "proc_creation_win_powershell_remotefxvgpudisablement_abuse"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "RemoteFXvGPUDisablement Abuse Via AtomicTestHarnesses"
-  description                = "Detects calls to the AtomicTestHarnesses \"Invoke-ATHRemoteFXvGPUDisablementCommand\" which is designed to abuse the \"RemoteFXvGPUDisablement.exe\" binary to run custom PowerShell code via module load-order hijacking. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_remotefxvgpudisablement_abuse.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_remotefxvgpudisablement_abuse.yml"
+  description                = <<DESC
+    Detects calls to the AtomicTestHarnesses "Invoke-ATHRemoteFXvGPUDisablementCommand" which is designed to abuse the "RemoteFXvGPUDisablement.exe" binary to run custom PowerShell code via module load-order hijacking.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_remotefxvgpudisablement_abuse.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_side_load_goopdate"
   name                       = "image_load_side_load_goopdate"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Goopdate.DLL Sideloading"
-  description                = "Detects potential DLL sideloading of \"goopdate.dll\", a DLL used by googleupdate.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_goopdate.yml - Other third party chromium browsers located in AppData | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_goopdate.yml"
+  description                = <<DESC
+    Detects potential DLL sideloading of "goopdate.dll", a DLL used by googleupdate.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_goopdate.yml
+
+    False Positives:
+    - False positives are expected from Google Chrome installations running from user locations (AppData) and other custom locations. Apply additional filters accordingly.
+    - Other third party chromium browsers located in AppData
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

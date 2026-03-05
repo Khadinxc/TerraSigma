@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_dll_amsi_suspicious
   name                       = "image_load_dll_amsi_suspicious_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Amsi.DLL Loaded Via LOLBIN Process"
-  description                = "Detects loading of \"Amsi.dll\" by a living of the land process. This could be an indication of a \"PowerShell without PowerShell\" attack Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_amsi_suspicious_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_amsi_suspicious_process.yml"
+  description                = <<DESC
+    Detects loading of "Amsi.dll" by a living of the land process. This could be an indication of a "PowerShell without PowerShell" attack
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_amsi_suspicious_process.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

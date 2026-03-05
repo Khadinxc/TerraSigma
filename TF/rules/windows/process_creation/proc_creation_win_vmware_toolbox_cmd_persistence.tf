@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_vmware_toolb
   name                       = "proc_creation_win_vmware_toolbox_cmd_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via VMwareToolBoxCmd.EXE VM State Change Script"
-  description                = "Detects execution of the \"VMwareToolBoxCmd.exe\" with the \"script\" and \"set\" flag to setup a specific script to run for a specific VM state Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vmware_toolbox_cmd_persistence.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vmware_toolbox_cmd_persistence.yml"
+  description                = <<DESC
+    Detects execution of the "VMwareToolBoxCmd.exe" with the "script" and "set" flag to setup a specific script to run for a specific VM state
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vmware_toolbox_cmd_persistence.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

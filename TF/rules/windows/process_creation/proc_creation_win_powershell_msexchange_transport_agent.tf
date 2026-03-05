@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_m
   name                       = "proc_creation_win_powershell_msexchange_transport_agent"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "MSExchange Transport Agent Installation"
-  description                = "Detects the Installation of a Exchange Transport Agent Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_msexchange_transport_agent.yml - Legitimate installations of exchange TransportAgents. AssemblyPath is a good indicator for this. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_msexchange_transport_agent.yml"
+  description                = <<DESC
+    Detects the Installation of a Exchange Transport Agent
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_msexchange_transport_agent.yml
+
+    False Positives:
+    - Legitimate installations of exchange TransportAgents. AssemblyPath is a good indicator for this.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

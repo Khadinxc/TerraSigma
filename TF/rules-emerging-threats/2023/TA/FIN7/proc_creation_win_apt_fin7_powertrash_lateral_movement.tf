@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_fin7_pow
   name                       = "proc_creation_win_apt_fin7_powertrash_lateral_movement"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential APT FIN7 Reconnaissance/POWERTRASH Related Activity"
-  description                = "Detects specific command line execution used by FIN7 as reported by WithSecureLabs for reconnaissance and POWERTRASH execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/FIN7/proc_creation_win_apt_fin7_powertrash_lateral_movement.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/FIN7/proc_creation_win_apt_fin7_powertrash_lateral_movement.yml"
+  description                = <<DESC
+    Detects specific command line execution used by FIN7 as reported by WithSecureLabs for reconnaissance and POWERTRASH execution
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/FIN7/proc_creation_win_apt_fin7_powertrash_lateral_movement.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

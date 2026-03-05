@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_remote_acces
   name                       = "proc_creation_win_remote_access_tools_rurat_non_default_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Access Tool - RURAT Execution From Unusual Location"
-  description                = "Detects execution of Remote Utilities RAT (RURAT) from an unusual location (outside of 'C:\\Program Files') Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_rurat_non_default_location.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_rurat_non_default_location.yml"
+  description                = <<DESC
+    Detects execution of Remote Utilities RAT (RURAT) from an unusual location (outside of 'C:\Program Files')
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_rurat_non_default_location.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_ntevent
   name                       = "proc_creation_win_susp_nteventlogfile_usage"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Call To Win32_NTEventlogFile Class"
-  description                = "Detects usage of the WMI class \"Win32_NTEventlogFile\" in a potentially suspicious way (delete, backup, change permissions, etc.) from a PowerShell script Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_nteventlogfile_usage.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_nteventlogfile_usage.yml"
+  description                = <<DESC
+    Detects usage of the WMI class "Win32_NTEventlogFile" in a potentially suspicious way (delete, backup, change permissions, etc.) from a PowerShell script
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_nteventlogfile_usage.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

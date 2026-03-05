@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_remote_
   name                       = "proc_creation_win_susp_remote_desktop_tunneling"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Remote Desktop Tunneling"
-  description                = "Detects potential use of an SSH utility to establish RDP over a reverse SSH Tunnel. This can be used by attackers to enable routing of network packets that would otherwise not reach their intended destination. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_remote_desktop_tunneling.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_remote_desktop_tunneling.yml"
+  description                = <<DESC
+    Detects potential use of an SSH utility to establish RDP over a reverse SSH Tunnel. This can be used by attackers to enable routing of network packets that would otherwise not reach their intended destination.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_remote_desktop_tunneling.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

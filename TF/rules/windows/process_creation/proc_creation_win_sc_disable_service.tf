@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sc_disable_s
   name                       = "proc_creation_win_sc_disable_service"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Service StartupType Change Via Sc.EXE"
-  description                = "Detect the use of \"sc.exe\" to change the startup type of a service to \"disabled\" or \"demand\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_disable_service.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_disable_service.yml"
+  description                = <<DESC
+    Detect the use of "sc.exe" to change the startup type of a service to "disabled" or "demand"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_disable_service.yml
+
+    False Positives:
+    - False positives may occur with troubleshooting scripts
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wmic_recon_c
   name                       = "proc_creation_win_wmic_recon_computersystem"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Computer System Reconnaissance Via Wmic.EXE"
-  description                = "Detects execution of wmic utility with the \"computersystem\" flag in order to obtain information about the machine such as the domain, username, model, etc. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_computersystem.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_computersystem.yml"
+  description                = <<DESC
+    Detects execution of wmic utility with the "computersystem" flag in order to obtain information about the machine such as the domain, username, model, etc.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_computersystem.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

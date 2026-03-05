@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wmic_recon_g
   name                       = "proc_creation_win_wmic_recon_group"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Local Groups Reconnaissance Via Wmic.EXE"
-  description                = "Detects the execution of \"wmic\" with the \"group\" flag. Adversaries may attempt to find local system groups and permission settings. The knowledge of local system permission groups can help adversaries determine which groups exist and which users belong to a particular group. Adversaries may use this information to determine which users have elevated permissions, such as the users found within the local administrators group. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_group.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_group.yml"
+  description                = <<DESC
+    Detects the execution of "wmic" with the "group" flag. Adversaries may attempt to find local system groups and permission settings. The knowledge of local system permission groups can help adversaries determine which groups exist and which users belong to a particular group. Adversaries may use this information to determine which users have elevated permissions, such as the users found within the local administrators group.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_group.yml
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

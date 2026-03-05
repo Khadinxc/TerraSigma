@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_e
   name                       = "proc_creation_win_powershell_email_exfil"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Email Exifiltration Via Powershell"
-  description                = "Detects email exfiltration via powershell cmdlets Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_email_exfil.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_email_exfil.yml"
+  description                = <<DESC
+    Detects email exfiltration via powershell cmdlets
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_email_exfil.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_cmd_http_app
   name                       = "proc_creation_win_cmd_http_appdata"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Command Line Execution with Suspicious URL and AppData Strings"
-  description                = "Detects a suspicious command line execution that includes an URL and AppData string in the command line parameters as used by several droppers (js/vbs > powershell) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_http_appdata.yml - High | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_http_appdata.yml"
+  description                = <<DESC
+    Detects a suspicious command line execution that includes an URL and AppData string in the command line parameters as used by several droppers (js/vbs > powershell)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_http_appdata.yml
+
+    False Positives:
+    - High
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

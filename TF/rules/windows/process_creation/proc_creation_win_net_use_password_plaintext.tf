@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_net_use_pass
   name                       = "proc_creation_win_net_use_password_plaintext"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Password Provided In Command Line Of Net.EXE"
-  description                = "Detects a when net.exe is called with a password in the command line Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_use_password_plaintext.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_use_password_plaintext.yml"
+  description                = <<DESC
+    Detects a when net.exe is called with a password in the command line
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_use_password_plaintext.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

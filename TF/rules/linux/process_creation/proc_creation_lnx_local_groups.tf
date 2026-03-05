@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_local_groups
   name                       = "proc_creation_lnx_local_groups"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Local Groups Discovery - Linux"
-  description                = "Detects enumeration of local system groups. Adversaries may attempt to find local system groups and permission settings Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_local_groups.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_local_groups.yml"
+  description                = <<DESC
+    Detects enumeration of local system groups. Adversaries may attempt to find local system groups and permission settings
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_local_groups.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

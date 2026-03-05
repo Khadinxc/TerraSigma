@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_capsh_shell_
   name                       = "proc_creation_lnx_capsh_shell_invocation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Capsh Shell Invocation - Linux"
-  description                = "Detects the use of the \"capsh\" utility to invoke a shell. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_capsh_shell_invocation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_capsh_shell_invocation.yml"
+  description                = <<DESC
+    Detects the use of the "capsh" utility to invoke a shell.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_capsh_shell_invocation.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

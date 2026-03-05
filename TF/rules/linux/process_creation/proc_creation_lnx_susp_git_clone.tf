@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_susp_git_clo
   name                       = "proc_creation_lnx_susp_git_clone"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Git Clone - Linux"
-  description                = "Detects execution of \"git\" in order to clone a remote repository that contain suspicious keywords which might be suspicious Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_git_clone.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_git_clone.yml"
+  description                = <<DESC
+    Detects execution of "git" in order to clone a remote repository that contain suspicious keywords which might be suspicious
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_git_clone.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

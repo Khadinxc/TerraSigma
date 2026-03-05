@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_wmi_persistence_com
   name                       = "image_load_wmi_persistence_commandline_event_consumer"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WMI Persistence - Command Line Event Consumer"
-  description                = "Detects WMI command line event consumers Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_wmi_persistence_commandline_event_consumer.yml - Unknown (data set is too small; further testing needed) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_wmi_persistence_commandline_event_consumer.yml"
+  description                = <<DESC
+    Detects WMI command line event consumers
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_wmi_persistence_commandline_event_consumer.yml
+
+    False Positives:
+    - Unknown (data set is too small; further testing needed)
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

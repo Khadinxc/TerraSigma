@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_susp_macos
   name                       = "proc_creation_macos_susp_macos_firmware_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious MacOS Firmware Activity"
-  description                = "Detects when a user manipulates with Firmward Password on MacOS. NOTE - this command has been disabled on silicon-based apple computers. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_macos_firmware_activity.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_macos_firmware_activity.yml"
+  description                = <<DESC
+    Detects when a user manipulates with Firmward Password on MacOS. NOTE - this command has been disabled on silicon-based apple computers.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_macos_firmware_activity.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

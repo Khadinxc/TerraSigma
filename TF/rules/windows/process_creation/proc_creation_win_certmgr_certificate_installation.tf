@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_certmgr_cert
   name                       = "proc_creation_win_certmgr_certificate_installation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Root Certificate Installed Via CertMgr.EXE"
-  description                = "Detects execution of \"certmgr\" with the \"add\" flag in order to install a new certificate on the system. Adversaries may install a root certificate on a compromised system to avoid warnings when connecting to adversary controlled web servers. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certmgr_certificate_installation.yml - Help Desk or IT may need to manually add a corporate Root CA on occasion. Need to test if GPO push doesn't trigger FP | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certmgr_certificate_installation.yml"
+  description                = <<DESC
+    Detects execution of "certmgr" with the "add" flag in order to install a new certificate on the system. Adversaries may install a root certificate on a compromised system to avoid warnings when connecting to adversary controlled web servers.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certmgr_certificate_installation.yml
+
+    False Positives:
+    - Help Desk or IT may need to manually add a corporate Root CA on occasion. Need to test if GPO push doesn't trigger FP
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

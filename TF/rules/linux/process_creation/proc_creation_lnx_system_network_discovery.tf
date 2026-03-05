@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_system_netwo
   name                       = "proc_creation_lnx_system_network_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "System Network Discovery - Linux"
-  description                = "Detects enumeration of local network configuration Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_system_network_discovery.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_system_network_discovery.yml"
+  description                = <<DESC
+    Detects enumeration of local network configuration
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_system_network_discovery.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Informational"
   query                      = <<QUERY
 DeviceProcessEvents

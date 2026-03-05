@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_event_susp_download_r
   name                       = "registry_event_susp_download_run_key"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Run Key from Download"
-  description                = "Detects the suspicious RUN keys created by software located in Download or temporary Outlook/Internet Explorer directories Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_download_run_key.yml - Software installers downloaded and used by users | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_download_run_key.yml"
+  description                = <<DESC
+    Detects the suspicious RUN keys created by software located in Download or temporary Outlook/Internet Explorer directories
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_download_run_key.yml
+
+    False Positives:
+    - Software installers downloaded and used by users
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

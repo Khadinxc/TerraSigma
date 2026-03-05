@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_dllhost_no_c
   name                       = "proc_creation_win_dllhost_no_cli_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Dllhost.EXE Execution Anomaly"
-  description                = "Detects a \"dllhost\" process spawning with no commandline arguments which is very rare to happen and could indicate process injection activity or malware mimicking similar system processes. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dllhost_no_cli_execution.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dllhost_no_cli_execution.yml"
+  description                = <<DESC
+    Detects a "dllhost" process spawning with no commandline arguments which is very rare to happen and could indicate process injection activity or malware mimicking similar system processes.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dllhost_no_cli_execution.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

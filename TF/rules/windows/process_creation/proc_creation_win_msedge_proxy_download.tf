@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_msedge_proxy
   name                       = "proc_creation_win_msedge_proxy_download"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Arbitrary File Download Via MSEDGE_PROXY.EXE"
-  description                = "Detects usage of \"msedge_proxy.exe\" to download arbitrary files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msedge_proxy_download.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msedge_proxy_download.yml"
+  description                = <<DESC
+    Detects usage of "msedge_proxy.exe" to download arbitrary files
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msedge_proxy_download.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

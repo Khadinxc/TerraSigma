@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_persistence_globa
   name                       = "registry_set_persistence_globalflags"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via GlobalFlags"
-  description                = "Detects registry persistence technique using the GlobalFlags and SilentProcessExit keys Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_globalflags.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_globalflags.yml"
+  description                = <<DESC
+    Detects registry persistence technique using the GlobalFlags and SilentProcessExit keys
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_globalflags.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

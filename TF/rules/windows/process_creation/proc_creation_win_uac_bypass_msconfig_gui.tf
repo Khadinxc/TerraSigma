@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_uac_bypass_m
   name                       = "proc_creation_win_uac_bypass_msconfig_gui"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass Using MSConfig Token Modification - Process"
-  description                = "Detects the pattern of UAC Bypass using a msconfig GUI hack (UACMe 55) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_msconfig_gui.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_msconfig_gui.yml"
+  description                = <<DESC
+    Detects the pattern of UAC Bypass using a msconfig GUI hack (UACMe 55)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_msconfig_gui.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

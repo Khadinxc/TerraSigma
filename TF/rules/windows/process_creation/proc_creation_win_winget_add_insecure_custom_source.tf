@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_winget_add_i
   name                       = "proc_creation_win_winget_add_insecure_custom_source"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Add Insecure Download Source To Winget"
-  description                = "Detects usage of winget to add a new insecure (http) download source. Winget will not allow the addition of insecure sources, hence this could indicate potential suspicious activity (or typos) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winget_add_insecure_custom_source.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winget_add_insecure_custom_source.yml"
+  description                = <<DESC
+    Detects usage of winget to add a new insecure (http) download source. Winget will not allow the addition of insecure sources, hence this could indicate potential suspicious activity (or typos)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winget_add_insecure_custom_source.yml
+
+    False Positives:
+    - False positives might occur if the users are unaware of such control checks
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

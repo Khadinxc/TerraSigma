@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_eqnedt" {
   name                       = "net_connection_win_eqnedt"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Network Connection Initiated By Eqnedt32.EXE"
-  description                = "Detects network connections from the Equation Editor process \"eqnedt32.exe\". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_eqnedt.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_eqnedt.yml"
+  description                = <<DESC
+    Detects network connections from the Equation Editor process "eqnedt32.exe".
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_eqnedt.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents

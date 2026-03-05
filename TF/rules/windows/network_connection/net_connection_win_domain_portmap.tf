@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_domain_port
   name                       = "net_connection_win_domain_portmap"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Network Communication Initiated To Portmap.IO Domain"
-  description                = "Detects an executable accessing the portmap.io domain, which could be a sign of forbidden C2 traffic or data exfiltration by malicious actors Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_portmap.yml - Legitimate use of portmap.io domains | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_portmap.yml"
+  description                = <<DESC
+    Detects an executable accessing the portmap.io domain, which could be a sign of forbidden C2 traffic or data exfiltration by malicious actors
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_portmap.yml
+
+    False Positives:
+    - Legitimate use of portmap.io domains
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

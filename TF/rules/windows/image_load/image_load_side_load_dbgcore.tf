@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_side_load_dbgcore" 
   name                       = "image_load_side_load_dbgcore"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential DLL Sideloading Of DBGCORE.DLL"
-  description                = "Detects DLL sideloading of \"dbgcore.dll\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_dbgcore.yml - Legitimate applications loading their own versions of the DLL mentioned in this rule | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_dbgcore.yml"
+  description                = <<DESC
+    Detects DLL sideloading of "dbgcore.dll"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_dbgcore.yml
+
+    False Positives:
+    - Legitimate applications loading their own versions of the DLL mentioned in this rule
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

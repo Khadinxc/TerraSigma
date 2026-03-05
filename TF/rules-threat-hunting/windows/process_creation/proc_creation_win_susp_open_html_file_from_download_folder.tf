@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_open_ht
   name                       = "proc_creation_win_susp_open_html_file_from_download_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HTML File Opened From Download Folder"
-  description                = "Detects web browser process opening an HTML file from a user's Downloads folder. This behavior is could be associated with phishing attacks where threat actors send HTML attachments to users. When a user opens such an attachment, it can lead to the execution of malicious scripts or the download of malware. During investigation, analyze the HTML file for embedded scripts or links, check for any subsequent downloads or process executions, and investigate the source of the email or message containing the attachment. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_open_html_file_from_download_folder.yml - Opening any HTML file located in users directories via a browser process will trigger this. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_open_html_file_from_download_folder.yml"
+  description                = <<DESC
+    Detects web browser process opening an HTML file from a user's Downloads folder. This behavior is could be associated with phishing attacks where threat actors send HTML attachments to users. When a user opens such an attachment, it can lead to the execution of malicious scripts or the download of malware. During investigation, analyze the HTML file for embedded scripts or links, check for any subsequent downloads or process executions, and investigate the source of the email or message containing the attachment.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_open_html_file_from_download_folder.yml
+
+    False Positives:
+    - Opening any HTML file located in users directories via a browser process will trigger this.
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

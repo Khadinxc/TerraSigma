@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_new_files_in_un
   name                       = "file_event_win_new_files_in_uncommon_appdata_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Creation In Uncommon AppData Folder"
-  description                = "Detects the creation of suspicious files and folders inside the user's AppData folder but not inside any of the common and well known directories (Local, Romaing, LocalLow). This method could be used as a method to bypass detection who exclude the AppData folder in fear of FPs Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_new_files_in_uncommon_appdata_folder.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_new_files_in_uncommon_appdata_folder.yml"
+  description                = <<DESC
+    Detects the creation of suspicious files and folders inside the user's AppData folder but not inside any of the common and well known directories (Local, Romaing, LocalLow). This method could be used as a method to bypass detection who exclude the AppData folder in fear of FPs
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_new_files_in_uncommon_appdata_folder.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

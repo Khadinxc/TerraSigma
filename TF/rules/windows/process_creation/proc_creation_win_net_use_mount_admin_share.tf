@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_net_use_moun
   name                       = "proc_creation_win_net_use_mount_admin_share"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Admin Share Mount Via Net.EXE"
-  description                = "Detects when an admin share is mounted using net.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_use_mount_admin_share.yml - Administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_use_mount_admin_share.yml"
+  description                = <<DESC
+    Detects when an admin share is mounted using net.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_use_mount_admin_share.yml
+
+    False Positives:
+    - Administrators
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

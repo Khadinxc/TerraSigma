@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_disable_winevt_lo
   name                       = "registry_set_disable_winevt_logging"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disable Windows Event Logging Via Registry"
-  description                = "Detects tampering with the \"Enabled\" registry key in order to disable Windows logging of a Windows event channel Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_winevt_logging.yml - Rare falsepositives may occur from legitimate administrators disabling specific event log for troubleshooting | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_winevt_logging.yml"
+  description                = <<DESC
+    Detects tampering with the "Enabled" registry key in order to disable Windows logging of a Windows event channel
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_winevt_logging.yml
+
+    False Positives:
+    - Rare falsepositives may occur from legitimate administrators disabling specific event log for troubleshooting
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

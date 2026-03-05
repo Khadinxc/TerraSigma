@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sysinternals
   name                       = "proc_creation_win_sysinternals_pssuspend_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Sysinternals PsSuspend Execution"
-  description                = "Detects usage of Sysinternals PsSuspend which can be abused to suspend critical processes Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_pssuspend_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_pssuspend_execution.yml"
+  description                = <<DESC
+    Detects usage of Sysinternals PsSuspend which can be abused to suspend critical processes
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_pssuspend_execution.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

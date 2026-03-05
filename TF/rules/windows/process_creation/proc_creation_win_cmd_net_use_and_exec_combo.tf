@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_cmd_net_use_
   name                       = "proc_creation_win_cmd_net_use_and_exec_combo"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Execution From Internet Hosted WebDav Share"
-  description                = "Detects the execution of the \"net use\" command to mount a WebDAV server and then immediately execute some content in it. As seen being used in malicious LNK files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_net_use_and_exec_combo.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_net_use_and_exec_combo.yml"
+  description                = <<DESC
+    Detects the execution of the "net use" command to mount a WebDAV server and then immediately execute some content in it. As seen being used in malicious LNK files
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_net_use_and_exec_combo.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

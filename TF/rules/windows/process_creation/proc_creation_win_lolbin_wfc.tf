@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_wfc" 
   name                       = "proc_creation_win_lolbin_wfc"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Use of Wfc.exe"
-  description                = "The Workflow Command-line Compiler can be used for AWL bypass and is listed in Microsoft's recommended block rules. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_wfc.yml - Legitimate use by a software developer | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_wfc.yml"
+  description                = <<DESC
+    The Workflow Command-line Compiler can be used for AWL bypass and is listed in Microsoft's recommended block rules.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_wfc.yml
+
+    False Positives:
+    - Legitimate use by a software developer
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_lnx_persistence_cro
   name                       = "file_event_lnx_persistence_cron_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Persistence Via Cron Files"
-  description                = "Detects creation of cron file or files in Cron directories which could indicates potential persistence. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_persistence_cron_files.yml - Any legitimate cron file. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_persistence_cron_files.yml"
+  description                = <<DESC
+    Detects creation of cron file or files in Cron directories which could indicates potential persistence.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_persistence_cron_files.yml
+
+    False Positives:
+    - Any legitimate cron file.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_cmstp_initi
   name                       = "net_connection_win_cmstp_initiated_connection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Outbound Network Connection Initiated By Cmstp.EXE"
-  description                = "Detects a network connection initiated by Cmstp.EXE Its uncommon for \"cmstp.exe\" to initiate an outbound network connection. Investigate the source of such requests to determine if they are malicious. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_cmstp_initiated_connection.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_cmstp_initiated_connection.yml"
+  description                = <<DESC
+    Detects a network connection initiated by Cmstp.EXE Its uncommon for "cmstp.exe" to initiate an outbound network connection. Investigate the source of such requests to determine if they are malicious.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_cmstp_initiated_connection.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents

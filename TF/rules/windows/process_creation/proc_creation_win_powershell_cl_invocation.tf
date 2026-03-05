@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_c
   name                       = "proc_creation_win_powershell_cl_invocation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Process Execution Proxy Via CL_Invocation.ps1"
-  description                = "Detects calls to \"SyncInvoke\" that is part of the \"CL_Invocation.ps1\" script to proxy execution using \"System.Diagnostics.Process\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cl_invocation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cl_invocation.yml"
+  description                = <<DESC
+    Detects calls to "SyncInvoke" that is part of the "CL_Invocation.ps1" script to proxy execution using "System.Diagnostics.Process"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cl_invocation.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

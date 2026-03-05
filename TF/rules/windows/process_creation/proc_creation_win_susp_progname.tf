@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_prognam
   name                       = "proc_creation_win_susp_progname"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Program Names"
-  description                = "Detects suspicious patterns in program names or folders that are often found in malicious samples or hacktools Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_progname.yml - Legitimate tools that accidentally match on the searched patterns | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_progname.yml"
+  description                = <<DESC
+    Detects suspicious patterns in program names or folders that are often found in malicious samples or hacktools
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_progname.yml
+
+    False Positives:
+    - Legitimate tools that accidentally match on the searched patterns
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

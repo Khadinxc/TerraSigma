@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_creation_unquot
   name                       = "file_event_win_creation_unquoted_service_path"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Creation Exe for Service with Unquoted Path"
-  description                = "Adversaries may execute their own malicious payloads by hijacking vulnerable file path references. Adversaries can take advantage of paths that lack surrounding quotations by placing an executable in a higher level directory within the path, so that Windows will choose the adversary's executable to launch. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_creation_unquoted_service_path.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_creation_unquoted_service_path.yml"
+  description                = <<DESC
+    Adversaries may execute their own malicious payloads by hijacking vulnerable file path references. Adversaries can take advantage of paths that lack surrounding quotations by placing an executable in a higher level directory within the path, so that Windows will choose the adversary's executable to launch.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_creation_unquoted_service_path.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

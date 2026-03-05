@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_office_outlook_outl
   name                       = "image_load_office_outlook_outlvba_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Microsoft VBA For Outlook Addin Loaded Via Outlook"
-  description                = "Detects outlvba (Microsoft VBA for Outlook Addin) DLL being loaded by the outlook process Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_outlook_outlvba_load.yml - Legitimate macro usage. Add the appropriate filter according to your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_outlook_outlvba_load.yml"
+  description                = <<DESC
+    Detects outlvba (Microsoft VBA for Outlook Addin) DLL being loaded by the outlook process
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_outlook_outlvba_load.yml
+
+    False Positives:
+    - Legitimate macro usage. Add the appropriate filter according to your environment
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

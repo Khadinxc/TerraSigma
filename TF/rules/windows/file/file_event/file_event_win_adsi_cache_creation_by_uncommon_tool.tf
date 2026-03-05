@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_adsi_cache_crea
   name                       = "file_event_win_adsi_cache_creation_by_uncommon_tool"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ADSI-Cache File Creation By Uncommon Tool"
-  description                = "Detects the creation of an \"Active Directory Schema Cache File\" (.sch) file by an uncommon tool. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_adsi_cache_creation_by_uncommon_tool.yml - Other legimate tools, which do ADSI (LDAP) operations, e.g. any remoting activity by MMC, Powershell, Windows etc. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_adsi_cache_creation_by_uncommon_tool.yml"
+  description                = <<DESC
+    Detects the creation of an "Active Directory Schema Cache File" (.sch) file by an uncommon tool.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_adsi_cache_creation_by_uncommon_tool.yml
+
+    False Positives:
+    - Other legimate tools, which do ADSI (LDAP) operations, e.g. any remoting activity by MMC, Powershell, Windows etc.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

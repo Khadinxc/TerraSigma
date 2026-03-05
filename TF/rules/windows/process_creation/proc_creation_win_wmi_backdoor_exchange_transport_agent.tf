@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wmi_backdoor
   name                       = "proc_creation_win_wmi_backdoor_exchange_transport_agent"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WMI Backdoor Exchange Transport Agent"
-  description                = "Detects a WMI backdoor in Exchange Transport Agents via WMI event filters Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmi_backdoor_exchange_transport_agent.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmi_backdoor_exchange_transport_agent.yml"
+  description                = <<DESC
+    Detects a WMI backdoor in Exchange Transport Agents via WMI event filters
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmi_backdoor_exchange_transport_agent.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

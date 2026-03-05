@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_curl_susp_do
   name                       = "proc_creation_win_curl_susp_download"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Curl.EXE Download"
-  description                = "Detects a suspicious curl process start on Windows and outputs the requested document to a local file Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_susp_download.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_susp_download.yml"
+  description                = <<DESC
+    Detects a suspicious curl process start on Windows and outputs the requested document to a local file
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_susp_download.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_diant
   name                       = "proc_creation_win_lolbin_diantz_remote_cab"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Diantz Download and Compress Into a CAB File"
-  description                = "Download and compress a remote file and store it in a cab file on local machine. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_diantz_remote_cab.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_diantz_remote_cab.yml"
+  description                = <<DESC
+    Download and compress a remote file and store it in a cab file on local machine.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_diantz_remote_cab.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

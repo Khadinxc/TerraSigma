@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_event_redmimicry_winn
   name                       = "registry_event_redmimicry_winnti_reg"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "RedMimicry Winnti Playbook Registry Manipulation"
-  description                = "Detects actions caused by the RedMimicry Winnti playbook Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_redmimicry_winnti_reg.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_redmimicry_winnti_reg.yml"
+  description                = <<DESC
+    Detects actions caused by the RedMimicry Winnti playbook
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_redmimicry_winnti_reg.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

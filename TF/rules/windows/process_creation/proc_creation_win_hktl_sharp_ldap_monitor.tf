@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_sharp_l
   name                       = "proc_creation_win_hktl_sharp_ldap_monitor"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - SharpLDAPmonitor Execution"
-  description                = "Detects execution of the SharpLDAPmonitor. Which can monitor the creation, deletion and changes to LDAP objects. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharp_ldap_monitor.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharp_ldap_monitor.yml"
+  description                = <<DESC
+    Detects execution of the SharpLDAPmonitor. Which can monitor the creation, deletion and changes to LDAP objects.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharp_ldap_monitor.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

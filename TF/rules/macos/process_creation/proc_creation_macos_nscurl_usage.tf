@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_nscurl_usa
   name                       = "proc_creation_macos_nscurl_usage"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Download Via Nscurl - MacOS"
-  description                = "Detects the execution of the nscurl utility in order to download files. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_nscurl_usage.yml - Legitimate usage of nscurl by administrators and users. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_nscurl_usage.yml"
+  description                = <<DESC
+    Detects the execution of the nscurl utility in order to download files.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_nscurl_usage.yml
+
+    False Positives:
+    - Legitimate usage of nscurl by administrators and users.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

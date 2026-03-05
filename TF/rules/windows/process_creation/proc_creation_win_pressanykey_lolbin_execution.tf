@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_pressanykey_
   name                       = "proc_creation_win_pressanykey_lolbin_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Visual Studio NodejsTools PressAnyKey Arbitrary Binary Execution"
-  description                = "Detects child processes of Microsoft.NodejsTools.PressAnyKey.exe that can be used to execute any other binary Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pressanykey_lolbin_execution.yml - Legitimate use by developers as part of NodeJS development with Visual Studio Tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pressanykey_lolbin_execution.yml"
+  description                = <<DESC
+    Detects child processes of Microsoft.NodejsTools.PressAnyKey.exe that can be used to execute any other binary
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pressanykey_lolbin_execution.yml
+
+    False Positives:
+    - Legitimate use by developers as part of NodeJS development with Visual Studio Tools
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_dism_remove"
   name                       = "proc_creation_win_dism_remove"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Dism Remove Online Package"
-  description                = "Deployment Image Servicing and Management tool. DISM is used to enumerate, install, uninstall, configure, and update features and packages in Windows images Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dism_remove.yml - Legitimate script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dism_remove.yml"
+  description                = <<DESC
+    Deployment Image Servicing and Management tool. DISM is used to enumerate, install, uninstall, configure, and update features and packages in Windows images
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dism_remove.yml
+
+    False Positives:
+    - Legitimate script
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_powershell_modu
   name                       = "file_event_win_powershell_module_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Module File Created"
-  description                = "Detects the creation of a new PowerShell module \".psm1\", \".psd1\", \".dll\", \".ps1\", etc. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_powershell_module_creation.yml - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_powershell_module_creation.yml"
+  description                = <<DESC
+    Detects the creation of a new PowerShell module ".psm1", ".psd1", ".dll", ".ps1", etc.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_powershell_module_creation.yml
+
+    False Positives:
+    - Likely
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents

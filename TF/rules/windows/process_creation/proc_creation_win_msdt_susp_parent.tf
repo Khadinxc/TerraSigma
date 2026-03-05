@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_msdt_susp_pa
   name                       = "proc_creation_win_msdt_susp_parent"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious MSDT Parent Process"
-  description                = "Detects msdt.exe executed by a suspicious parent as seen in CVE-2022-30190 / Follina exploitation Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msdt_susp_parent.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msdt_susp_parent.yml"
+  description                = <<DESC
+    Detects msdt.exe executed by a suspicious parent as seen in CVE-2022-30190 / Follina exploitation
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msdt_susp_parent.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

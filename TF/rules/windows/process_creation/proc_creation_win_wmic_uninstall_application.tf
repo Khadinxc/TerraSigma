@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wmic_uninsta
   name                       = "proc_creation_win_wmic_uninstall_application"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Application Removed Via Wmic.EXE"
-  description                = "Detects the removal or uninstallation of an application via \"Wmic.EXE\". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_uninstall_application.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_uninstall_application.yml"
+  description                = <<DESC
+    Detects the removal or uninstallation of an application via "Wmic.EXE".
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_uninstall_application.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

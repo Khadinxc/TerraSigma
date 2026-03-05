@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_lsass_d
   name                       = "proc_creation_win_susp_lsass_dmp_cli_keywords"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "LSASS Dump Keyword In CommandLine"
-  description                = "Detects the presence of the keywords \"lsass\" and \".dmp\" in the commandline, which could indicate a potential attempt to dump or create a dump of the lsass process. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_lsass_dmp_cli_keywords.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_lsass_dmp_cli_keywords.yml"
+  description                = <<DESC
+    Detects the presence of the keywords "lsass" and ".dmp" in the commandline, which could indicate a potential attempt to dump or create a dump of the lsass process.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_lsass_dmp_cli_keywords.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

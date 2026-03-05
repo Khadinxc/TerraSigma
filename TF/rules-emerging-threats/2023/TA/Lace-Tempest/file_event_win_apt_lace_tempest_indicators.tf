@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_apt_lace_tempes
   name                       = "file_event_win_apt_lace_tempest_indicators"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Lace Tempest File Indicators"
-  description                = "Detects PowerShell script file creation with specific names or suffixes which was seen being used often in PowerShell scripts by FIN7 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lace-Tempest/file_event_win_apt_lace_tempest_indicators.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lace-Tempest/file_event_win_apt_lace_tempest_indicators.yml"
+  description                = <<DESC
+    Detects PowerShell script file creation with specific names or suffixes which was seen being used often in PowerShell scripts by FIN7
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lace-Tempest/file_event_win_apt_lace_tempest_indicators.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

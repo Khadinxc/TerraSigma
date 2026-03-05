@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_wmiprvse_wbemco
   name                       = "file_event_win_wmiprvse_wbemcomn_dll_hijack"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Wmiprvse Wbemcomn DLL Hijack - File"
-  description                = "Detects a threat actor creating a file named `wbemcomn.dll` in the `C:\\Windows\\System32\\wbem\\` directory over the network and loading it for a WMI DLL Hijack scenario. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_wmiprvse_wbemcomn_dll_hijack.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_wmiprvse_wbemcomn_dll_hijack.yml"
+  description                = <<DESC
+    Detects a threat actor creating a file named `wbemcomn.dll` in the `C:\Windows\System32\wbem\` directory over the network and loading it for a WMI DLL Hijack scenario.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_wmiprvse_wbemcomn_dll_hijack.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

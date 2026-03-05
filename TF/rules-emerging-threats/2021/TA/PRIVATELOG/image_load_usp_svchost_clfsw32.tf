@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_usp_svchost_clfsw32
   name                       = "image_load_usp_svchost_clfsw32"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "APT PRIVATELOG Image Load Pattern"
-  description                = "Detects an image load pattern as seen when a tool named PRIVATELOG is used and rarely observed under legitimate circumstances Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/TA/PRIVATELOG/image_load_usp_svchost_clfsw32.yml - Rarely observed | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/TA/PRIVATELOG/image_load_usp_svchost_clfsw32.yml"
+  description                = <<DESC
+    Detects an image load pattern as seen when a tool named PRIVATELOG is used and rarely observed under legitimate circumstances
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/TA/PRIVATELOG/image_load_usp_svchost_clfsw32.yml
+
+    False Positives:
+    - Rarely observed
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

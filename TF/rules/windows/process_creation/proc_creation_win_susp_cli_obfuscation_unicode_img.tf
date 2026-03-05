@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_cli_obf
   name                       = "proc_creation_win_susp_cli_obfuscation_unicode_img"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential CommandLine Obfuscation Using Unicode Characters From Suspicious Image"
-  description                = "Detects potential commandline obfuscation using unicode characters. Adversaries may attempt to make an executable or file difficult to discover or analyze by encrypting, encoding, or otherwise obfuscating its contents on the system or in transit. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_cli_obfuscation_unicode_img.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_cli_obfuscation_unicode_img.yml"
+  description                = <<DESC
+    Detects potential commandline obfuscation using unicode characters. Adversaries may attempt to make an executable or file difficult to discover or analyze by encrypting, encoding, or otherwise obfuscating its contents on the system or in transit.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_cli_obfuscation_unicode_img.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

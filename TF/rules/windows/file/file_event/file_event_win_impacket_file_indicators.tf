@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_impacket_file_i
   name                       = "file_event_win_impacket_file_indicators"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Impacket File Indicators"
-  description                = "Detects file creation events with filename patterns used by Impacket. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_impacket_file_indicators.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_impacket_file_indicators.yml"
+  description                = <<DESC
+    Detects file creation events with filename patterns used by Impacket.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_impacket_file_indicators.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

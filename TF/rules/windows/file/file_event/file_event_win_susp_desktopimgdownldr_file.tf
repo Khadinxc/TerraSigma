@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_susp_desktopimg
   name                       = "file_event_win_susp_desktopimgdownldr_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Desktopimgdownldr Target File"
-  description                = "Detects a suspicious Microsoft desktopimgdownldr file creation that stores a file to a suspicious location or contains a file with a suspicious extension Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_desktopimgdownldr_file.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_desktopimgdownldr_file.yml"
+  description                = <<DESC
+    Detects a suspicious Microsoft desktopimgdownldr file creation that stores a file to a suspicious location or contains a file with a suspicious extension
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_desktopimgdownldr_file.yml
+
+    False Positives:
+    - False positives depend on scripts and administrative tools used in the monitored environment
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_schtasks_sys
   name                       = "proc_creation_win_schtasks_system"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Schtasks Creation Or Modification With SYSTEM Privileges"
-  description                = "Detects the creation or update of a scheduled task to run with \"NT AUTHORITY\\SYSTEM\" privileges Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_system.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_system.yml"
+  description                = <<DESC
+    Detects the creation or update of a scheduled task to run with "NT AUTHORITY\SYSTEM" privileges
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_system.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

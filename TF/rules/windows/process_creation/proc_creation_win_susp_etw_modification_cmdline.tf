@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_etw_mod
   name                       = "proc_creation_win_susp_etw_modification_cmdline"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ETW Logging Tamper In .NET Processes Via CommandLine"
-  description                = "Detects changes to environment variables related to ETW logging via the CommandLine. This could indicate potential adversaries stopping ETW providers recording loaded .NET assemblies. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_etw_modification_cmdline.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_etw_modification_cmdline.yml"
+  description                = <<DESC
+    Detects changes to environment variables related to ETW logging via the CommandLine. This could indicate potential adversaries stopping ETW providers recording loaded .NET assemblies.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_etw_modification_cmdline.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

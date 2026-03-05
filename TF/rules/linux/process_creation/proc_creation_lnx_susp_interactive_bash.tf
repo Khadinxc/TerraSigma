@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_susp_interac
   name                       = "proc_creation_lnx_susp_interactive_bash"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Interactive Bash Suspicious Children"
-  description                = "Detects suspicious interactive bash as a parent to rather uncommon child processes Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_interactive_bash.yml - Legitimate software that uses these patterns | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_interactive_bash.yml"
+  description                = <<DESC
+    Detects suspicious interactive bash as a parent to rather uncommon child processes
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_interactive_bash.yml
+
+    False Positives:
+    - Legitimate software that uses these patterns
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

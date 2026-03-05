@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_lsass_usermode_du
   name                       = "registry_set_lsass_usermode_dumping"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Lsass Full Dump Request Via DumpType Registry Settings"
-  description                = "Detects the setting of the \"DumpType\" registry value to \"2\" which stands for a \"Full Dump\". Technique such as LSASS Shtinkering requires this value to be \"2\" in order to dump LSASS. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_lsass_usermode_dumping.yml - Legitimate application that needs to do a full dump of their process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_lsass_usermode_dumping.yml"
+  description                = <<DESC
+    Detects the setting of the "DumpType" registry value to "2" which stands for a "Full Dump". Technique such as LSASS Shtinkering requires this value to be "2" in order to dump LSASS.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_lsass_usermode_dumping.yml
+
+    False Positives:
+    - Legitimate application that needs to do a full dump of their process
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_shell_write_sus
   name                       = "file_event_win_shell_write_susp_directory"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Shell/Scripting Application File Write to Suspicious Folder"
-  description                = "Detects Windows shells and scripting applications that write files to suspicious folders Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_shell_write_susp_directory.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_shell_write_susp_directory.yml"
+  description                = <<DESC
+    Detects Windows shells and scripting applications that write files to suspicious folders
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_shell_write_susp_directory.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_creation_service_
   name                       = "registry_set_creation_service_susp_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Service Binary in Suspicious Folder"
-  description                = "Detect the creation of a service with a service binary located in a suspicious directory Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_creation_service_susp_folder.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_creation_service_susp_folder.yml"
+  description                = <<DESC
+    Detect the creation of a service with a service binary located in a suspicious directory
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_creation_service_susp_folder.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_regini_ads" 
   name                       = "proc_creation_win_regini_ads"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Registry Modification From ADS Via Regini.EXE"
-  description                = "Detects the import of an alternate data stream with regini.exe, regini.exe can be used to modify registry keys. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regini_ads.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regini_ads.yml"
+  description                = <<DESC
+    Detects the import of an alternate data stream with regini.exe, regini.exe can be used to modify registry keys.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regini_ads.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

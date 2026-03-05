@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_asep_reg_keys_mod
   name                       = "registry_set_asep_reg_keys_modification_winsock2"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WinSock2 Autorun Keys Modification"
-  description                = "Detects modification of autostart extensibility point (ASEP) in registry. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_winsock2.yml - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reason - Legitimate administrator sets up autorun keys for legitimate reason | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_winsock2.yml"
+  description                = <<DESC
+    Detects modification of autostart extensibility point (ASEP) in registry.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_winsock2.yml
+
+    False Positives:
+    - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reason
+    - Legitimate administrator sets up autorun keys for legitimate reason
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

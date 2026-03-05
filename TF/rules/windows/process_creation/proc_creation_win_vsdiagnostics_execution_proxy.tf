@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_vsdiagnostic
   name                       = "proc_creation_win_vsdiagnostics_execution_proxy"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Binary Proxy Execution Via VSDiagnostics.EXE"
-  description                = "Detects execution of \"VSDiagnostics.exe\" with the \"start\" command in order to launch and proxy arbitrary binaries. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vsdiagnostics_execution_proxy.yml - Legitimate usage for tracing and diagnostics purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vsdiagnostics_execution_proxy.yml"
+  description                = <<DESC
+    Detects execution of "VSDiagnostics.exe" with the "start" command in order to launch and proxy arbitrary binaries.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vsdiagnostics_execution_proxy.yml
+
+    False Positives:
+    - Legitimate usage for tracing and diagnostics purposes
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

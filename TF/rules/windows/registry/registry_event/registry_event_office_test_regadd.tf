@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_event_office_test_reg
   name                       = "registry_event_office_test_regadd"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Office Application Startup - Office Test"
-  description                = "Detects the addition of office test registry that allows a user to specify an arbitrary DLL that will be executed every time an Office application is started Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_office_test_regadd.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_office_test_regadd.yml"
+  description                = <<DESC
+    Detects the addition of office test registry that allows a user to specify an arbitrary DLL that will be executed every time an Office application is started
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_office_test_regadd.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

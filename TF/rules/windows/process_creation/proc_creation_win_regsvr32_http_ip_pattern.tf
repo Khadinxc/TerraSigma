@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_regsvr32_htt
   name                       = "proc_creation_win_regsvr32_http_ip_pattern"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Regsvr32 HTTP IP Pattern"
-  description                = "Detects regsvr32 execution to download and install DLLs located remotely where the address is an IP address. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_http_ip_pattern.yml - FQDNs that start with a number such as \"7-Zip\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_http_ip_pattern.yml"
+  description                = <<DESC
+    Detects regsvr32 execution to download and install DLLs located remotely where the address is an IP address.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_http_ip_pattern.yml
+
+    False Positives:
+    - FQDNs that start with a number such as "7-Zip"
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

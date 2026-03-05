@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_event_ssp_added_lsa_c
   name                       = "registry_event_ssp_added_lsa_config"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Security Support Provider (SSP) Added to LSA Configuration"
-  description                = "Detects the addition of a SSP to the registry. Upon a reboot or API call, SSP DLLs gain access to encrypted and plaintext passwords stored in Windows. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_ssp_added_lsa_config.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_ssp_added_lsa_config.yml"
+  description                = <<DESC
+    Detects the addition of a SSP to the registry. Upon a reboot or API call, SSP DLLs gain access to encrypted and plaintext passwords stored in Windows.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_ssp_added_lsa_config.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

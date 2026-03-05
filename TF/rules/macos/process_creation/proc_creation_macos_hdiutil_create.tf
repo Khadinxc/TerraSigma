@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_hdiutil_cr
   name                       = "proc_creation_macos_hdiutil_create"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disk Image Creation Via Hdiutil - MacOS"
-  description                = "Detects the execution of the hdiutil utility in order to create a disk image. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_hdiutil_create.yml - Legitimate usage of hdiutil by administrators and users. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_hdiutil_create.yml"
+  description                = <<DESC
+    Detects the execution of the hdiutil utility in order to create a disk image.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_hdiutil_create.yml
+
+    False Positives:
+    - Legitimate usage of hdiutil by administrators and users.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

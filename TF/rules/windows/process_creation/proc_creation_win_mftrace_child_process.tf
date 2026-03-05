@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_mftrace_chil
   name                       = "proc_creation_win_mftrace_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Mftrace.EXE Abuse"
-  description                = "Detects child processes of the \"Trace log generation tool for Media Foundation Tools\" (Mftrace.exe) which can abused to execute arbitrary binaries. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mftrace_child_process.yml - Legitimate use for tracing purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mftrace_child_process.yml"
+  description                = <<DESC
+    Detects child processes of the "Trace log generation tool for Media Foundation Tools" (Mftrace.exe) which can abused to execute arbitrary binaries.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mftrace_child_process.yml
+
+    False Positives:
+    - Legitimate use for tracing purposes
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

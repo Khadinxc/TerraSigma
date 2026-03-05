@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_setti
   name                       = "proc_creation_win_lolbin_settingsynchost"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Using SettingSyncHost.exe as LOLBin"
-  description                = "Detects using SettingSyncHost.exe to run hijacked binary Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_settingsynchost.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_settingsynchost.yml"
+  description                = <<DESC
+    Detects using SettingSyncHost.exe to run hijacked binary
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_settingsynchost.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

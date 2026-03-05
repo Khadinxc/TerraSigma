@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_slingsho
   name                       = "proc_creation_win_apt_slingshot"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Defrag Deactivation"
-  description                = "Detects the deactivation and disabling of the Scheduled defragmentation task as seen by Slingshot APT group Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/Slingshot/proc_creation_win_apt_slingshot.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/Slingshot/proc_creation_win_apt_slingshot.yml"
+  description                = <<DESC
+    Detects the deactivation and disabling of the Scheduled defragmentation task as seen by Slingshot APT group
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/Slingshot/proc_creation_win_apt_slingshot.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_vscode_tunne
   name                       = "proc_creation_win_vscode_tunnel_renamed_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed Visual Studio Code Tunnel Execution"
-  description                = "Detects renamed Visual Studio Code tunnel execution. Attackers can abuse this functionality to establish a C2 channel Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_tunnel_renamed_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_tunnel_renamed_execution.yml"
+  description                = <<DESC
+    Detects renamed Visual Studio Code tunnel execution. Attackers can abuse this functionality to establish a C2 channel
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_tunnel_renamed_execution.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

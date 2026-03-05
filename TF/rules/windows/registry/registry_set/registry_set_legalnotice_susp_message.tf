@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_legalnotice_susp_
   name                       = "registry_set_legalnotice_susp_message"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Ransomware Activity Using LegalNotice Message"
-  description                = "Detect changes to the \"LegalNoticeCaption\" or \"LegalNoticeText\" registry values where the message set contains keywords often used in ransomware ransom messages Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_legalnotice_susp_message.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_legalnotice_susp_message.yml"
+  description                = <<DESC
+    Detect changes to the "LegalNoticeCaption" or "LegalNoticeText" registry values where the message set contains keywords often used in ransomware ransom messages
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_legalnotice_susp_message.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

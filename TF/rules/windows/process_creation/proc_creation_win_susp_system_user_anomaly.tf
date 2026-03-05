@@ -2,7 +2,16 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_system_
   name                       = "proc_creation_win_susp_system_user_anomaly"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious SYSTEM User Process Creation"
-  description                = "Detects a suspicious process creation as SYSTEM user (suspicious program or command line parameter) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_system_user_anomaly.yml - Administrative activity - Scripts and administrative tools used in the monitored environment - Monitoring activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_system_user_anomaly.yml"
+  description                = <<DESC
+    Detects a suspicious process creation as SYSTEM user (suspicious program or command line parameter)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_system_user_anomaly.yml
+
+    False Positives:
+    - Administrative activity
+    - Scripts and administrative tools used in the monitored environment
+    - Monitoring activity
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

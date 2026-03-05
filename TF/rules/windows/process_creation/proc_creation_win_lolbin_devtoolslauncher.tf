@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_devto
   name                       = "proc_creation_win_lolbin_devtoolslauncher"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Devtoolslauncher.exe Executes Specified Binary"
-  description                = "The Devtoolslauncher.exe executes other binary Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_devtoolslauncher.yml - Legitimate use of devtoolslauncher.exe by legitimate user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_devtoolslauncher.yml"
+  description                = <<DESC
+    The Devtoolslauncher.exe executes other binary
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_devtoolslauncher.yml
+
+    False Positives:
+    - Legitimate use of devtoolslauncher.exe by legitimate user
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

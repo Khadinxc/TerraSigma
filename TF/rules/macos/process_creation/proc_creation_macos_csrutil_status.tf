@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_csrutil_st
   name                       = "proc_creation_macos_csrutil_status"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "System Integrity Protection (SIP) Enumeration"
-  description                = "Detects the use of csrutil to view the Configure System Integrity Protection (SIP) status. This technique is used in post-exploit scenarios. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_csrutil_status.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_csrutil_status.yml"
+  description                = <<DESC
+    Detects the use of csrutil to view the Configure System Integrity Protection (SIP) status. This technique is used in post-exploit scenarios.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_csrutil_status.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

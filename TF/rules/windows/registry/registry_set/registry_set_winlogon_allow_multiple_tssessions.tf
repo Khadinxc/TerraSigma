@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_winlogon_allow_mu
   name                       = "registry_set_winlogon_allow_multiple_tssessions"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Winlogon AllowMultipleTSSessions Enable"
-  description                = "Detects when the 'AllowMultipleTSSessions' value is enabled. Which allows for multiple Remote Desktop connection sessions to be opened at once. This is often used by attacker as a way to connect to an RDP session without disconnecting the other users Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_winlogon_allow_multiple_tssessions.yml - Legitimate use of the multi session functionality | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_winlogon_allow_multiple_tssessions.yml"
+  description                = <<DESC
+    Detects when the 'AllowMultipleTSSessions' value is enabled. Which allows for multiple Remote Desktop connection sessions to be opened at once. This is often used by attacker as a way to connect to an RDP session without disconnecting the other users
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_winlogon_allow_multiple_tssessions.yml
+
+    False Positives:
+    - Legitimate use of the multi session functionality
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

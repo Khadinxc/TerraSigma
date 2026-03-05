@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_taskmgr_lsass_d
   name                       = "file_event_win_taskmgr_lsass_dump"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "LSASS Process Memory Dump Creation Via Taskmgr.EXE"
-  description                = "Detects the creation of an \"lsass.dmp\" file by the taskmgr process. This indicates a manual dumping of the LSASS.exe process memory using Windows Task Manager. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_taskmgr_lsass_dump.yml - Rare case of troubleshooting by an administrator or support that has to be investigated regardless | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_taskmgr_lsass_dump.yml"
+  description                = <<DESC
+    Detects the creation of an "lsass.dmp" file by the taskmgr process. This indicates a manual dumping of the LSASS.exe process memory using Windows Task Manager.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_taskmgr_lsass_dump.yml
+
+    False Positives:
+    - Rare case of troubleshooting by an administrator or support that has to be investigated regardless
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

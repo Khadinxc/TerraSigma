@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_c
   name                       = "proc_creation_win_powershell_comobject_msi_remote"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell MSI Install via WindowsInstaller COM From Remote Location"
-  description                = "Detects the execution of PowerShell commands that attempt to install MSI packages via the Windows Installer COM object (`WindowsInstaller.Installer`) hosted remotely. This could be indication of malicious software deployment or lateral movement attempts using Windows Installer functionality. And the usage of WindowsInstaller COM object rather than msiexec could be an attempt to bypass the detection. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_comobject_msi_remote.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_comobject_msi_remote.yml"
+  description                = <<DESC
+    Detects the execution of PowerShell commands that attempt to install MSI packages via the Windows Installer COM object (`WindowsInstaller.Installer`) hosted remotely. This could be indication of malicious software deployment or lateral movement attempts using Windows Installer functionality. And the usage of WindowsInstaller COM object rather than msiexec could be an attempt to bypass the detection.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_comobject_msi_remote.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

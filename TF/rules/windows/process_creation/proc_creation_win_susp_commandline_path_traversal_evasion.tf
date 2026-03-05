@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_command
   name                       = "proc_creation_win_susp_commandline_path_traversal_evasion"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Command Line Path Traversal Evasion Attempt"
-  description                = "Detects potential evasion or obfuscation attempts using bogus path traversal via the commandline Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_commandline_path_traversal_evasion.yml - Google Drive - Citrix | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_commandline_path_traversal_evasion.yml"
+  description                = <<DESC
+    Detects potential evasion or obfuscation attempts using bogus path traversal via the commandline
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_commandline_path_traversal_evasion.yml
+
+    False Positives:
+    - Google Drive
+    - Citrix
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_uac_bypass_eventv
   name                       = "registry_set_uac_bypass_eventvwr"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass via Event Viewer"
-  description                = "Detects UAC bypass method using Windows event viewer Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_uac_bypass_eventvwr.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_uac_bypass_eventvwr.yml"
+  description                = <<DESC
+    Detects UAC bypass method using Windows event viewer
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_uac_bypass_eventvwr.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

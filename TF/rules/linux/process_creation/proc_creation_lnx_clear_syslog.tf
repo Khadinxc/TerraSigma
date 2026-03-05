@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_clear_syslog
   name                       = "proc_creation_lnx_clear_syslog"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Syslog Clearing or Removal Via System Utilities"
-  description                = "Detects specific commands commonly used to remove or empty the syslog. Which is a technique often used by attacker as a method to hide their tracks Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_clear_syslog.yml - Log rotation. - Maintenance. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_clear_syslog.yml"
+  description                = <<DESC
+    Detects specific commands commonly used to remove or empty the syslog. Which is a technique often used by attacker as a method to hide their tracks
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_clear_syslog.yml
+
+    False Positives:
+    - Log rotation.
+    - Maintenance.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

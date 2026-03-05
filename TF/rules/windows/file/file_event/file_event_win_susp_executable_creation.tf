@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_susp_executable
   name                       = "file_event_win_susp_executable_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Executable File Creation"
-  description                = "Detect creation of suspicious executable file names. Some strings look for suspicious file extensions, others look for filenames that exploit unquoted service paths. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_executable_creation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_executable_creation.yml"
+  description                = <<DESC
+    Detect creation of suspicious executable file names. Some strings look for suspicious file extensions, others look for filenames that exploit unquoted service paths.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_executable_creation.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

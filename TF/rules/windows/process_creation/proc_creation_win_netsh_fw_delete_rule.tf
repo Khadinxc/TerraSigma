@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_netsh_fw_del
   name                       = "proc_creation_win_netsh_fw_delete_rule"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Firewall Rule Deleted Via Netsh.EXE"
-  description                = "Detects the removal of a port or application rule in the Windows Firewall configuration using netsh Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_delete_rule.yml - Legitimate administration activity - Software installations and removal | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_delete_rule.yml"
+  description                = <<DESC
+    Detects the removal of a port or application rule in the Windows Firewall configuration using netsh
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_delete_rule.yml
+
+    False Positives:
+    - Legitimate administration activity
+    - Software installations and removal
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

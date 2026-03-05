@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_iis_appcmd_s
   name                       = "proc_creation_win_iis_appcmd_susp_rewrite_rule"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious IIS URL GlobalRules Rewrite Via AppCmd"
-  description                = "Detects usage of \"appcmd\" to create new global URL rewrite rules. This behaviour has been observed being used by threat actors to add new rules so they can access their webshells. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_appcmd_susp_rewrite_rule.yml - Legitimate usage of appcmd to add new URL rewrite rules | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_appcmd_susp_rewrite_rule.yml"
+  description                = <<DESC
+    Detects usage of "appcmd" to create new global URL rewrite rules. This behaviour has been observed being used by threat actors to add new rules so they can access their webshells.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_appcmd_susp_rewrite_rule.yml
+
+    False Positives:
+    - Legitimate usage of appcmd to add new URL rewrite rules
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

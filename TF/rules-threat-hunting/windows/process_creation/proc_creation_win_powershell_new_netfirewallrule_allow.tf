@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_n
   name                       = "proc_creation_win_powershell_new_netfirewallrule_allow"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Windows Firewall Rule Added Via New-NetFirewallRule Cmdlet"
-  description                = "Detects calls to the \"New-NetFirewallRule\" cmdlet from PowerShell in order to add a new firewall rule with an \"Allow\" action. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_new_netfirewallrule_allow.yml - Administrator script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_new_netfirewallrule_allow.yml"
+  description                = <<DESC
+    Detects calls to the "New-NetFirewallRule" cmdlet from PowerShell in order to add a new firewall rule with an "Allow" action.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_new_netfirewallrule_allow.yml
+
+    False Positives:
+    - Administrator script
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

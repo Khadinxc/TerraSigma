@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_chcp_codepag
   name                       = "proc_creation_win_chcp_codepage_switch"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious CodePage Switch Via CHCP"
-  description                = "Detects a code page switch in command line or batch scripts to a rare language Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_chcp_codepage_switch.yml - Administrative activity (adjust code pages according to your organization's region) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_chcp_codepage_switch.yml"
+  description                = <<DESC
+    Detects a code page switch in command line or batch scripts to a rare language
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_chcp_codepage_switch.yml
+
+    False Positives:
+    - Administrative activity (adjust code pages according to your organization's region)
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

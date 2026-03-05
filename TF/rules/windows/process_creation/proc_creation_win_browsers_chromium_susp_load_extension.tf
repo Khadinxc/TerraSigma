@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_browsers_chr
   name                       = "proc_creation_win_browsers_chromium_susp_load_extension"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Chromium Browser Instance Executed With Custom Extension"
-  description                = "Detects a suspicious process spawning a Chromium based browser process with the 'load-extension' flag to start an instance with a custom extension Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_susp_load_extension.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_susp_load_extension.yml"
+  description                = <<DESC
+    Detects a suspicious process spawning a Chromium based browser process with the 'load-extension' flag to start an instance with a custom extension
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_susp_load_extension.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

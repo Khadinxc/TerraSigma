@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_sysinternals_li
   name                       = "file_event_win_sysinternals_livekd_driver"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "LiveKD Driver Creation"
-  description                = "Detects the creation of the LiveKD driver, which is used for live kernel debugging Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sysinternals_livekd_driver.yml - Legitimate usage of LiveKD for debugging purposes will also trigger this | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sysinternals_livekd_driver.yml"
+  description                = <<DESC
+    Detects the creation of the LiveKD driver, which is used for live kernel debugging
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sysinternals_livekd_driver.yml
+
+    False Positives:
+    - Legitimate usage of LiveKD for debugging purposes will also trigger this
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

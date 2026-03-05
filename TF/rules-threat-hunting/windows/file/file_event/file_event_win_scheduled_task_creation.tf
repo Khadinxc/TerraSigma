@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_scheduled_task_
   name                       = "file_event_win_scheduled_task_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Scheduled Task Created - FileCreation"
-  description                = "Detects the creation of a scheduled task via file creation. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/file_event_win_scheduled_task_creation.yml - Normal behaviour on Windows | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/file_event_win_scheduled_task_creation.yml"
+  description                = <<DESC
+    Detects the creation of a scheduled task via file creation.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/file_event_win_scheduled_task_creation.yml
+
+    False Positives:
+    - Normal behaviour on Windows
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sc_service_t
   name                       = "proc_creation_win_sc_service_tamper_for_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Attempt Via Existing Service Tampering"
-  description                = "Detects the modification of an existing service in order to execute an arbitrary payload when the service is started or killed as a potential method for persistence. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_service_tamper_for_persistence.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_service_tamper_for_persistence.yml"
+  description                = <<DESC
+    Detects the modification of an existing service in order to execute an arbitrary payload when the service is started or killed as a potential method for persistence.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_service_tamper_for_persistence.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

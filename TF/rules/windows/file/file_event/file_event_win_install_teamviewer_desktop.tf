@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_install_teamvie
   name                       = "file_event_win_install_teamviewer_desktop"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Installation of TeamViewer Desktop"
-  description                = "TeamViewer_Desktop.exe is create during install Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_install_teamviewer_desktop.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_install_teamviewer_desktop.yml"
+  description                = <<DESC
+    TeamViewer_Desktop.exe is create during install
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_install_teamviewer_desktop.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

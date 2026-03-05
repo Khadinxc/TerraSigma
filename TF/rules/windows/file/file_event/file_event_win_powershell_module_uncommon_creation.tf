@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_powershell_modu
   name                       = "file_event_win_powershell_module_uncommon_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Module File Created By Non-PowerShell Process"
-  description                = "Detects the creation of a new PowerShell module \".psm1\", \".psd1\", \".dll\", \".ps1\", etc. by a non-PowerShell process Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_powershell_module_uncommon_creation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_powershell_module_uncommon_creation.yml"
+  description                = <<DESC
+    Detects the creation of a new PowerShell module ".psm1", ".psd1", ".dll", ".ps1", etc. by a non-PowerShell process
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_powershell_module_uncommon_creation.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

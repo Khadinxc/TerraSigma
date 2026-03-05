@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_icacls_deny"
   name                       = "proc_creation_win_icacls_deny"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Use Icacls to Hide File to Everyone"
-  description                = "Detect use of icacls to deny access for everyone in Users folder sometimes used to hide malicious files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_icacls_deny.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_icacls_deny.yml"
+  description                = <<DESC
+    Detect use of icacls to deny access for everyone in Users folder sometimes used to hide malicious files
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_icacls_deny.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

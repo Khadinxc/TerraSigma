@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_macos_susp_startup_
   name                       = "file_event_macos_susp_startup_item_created"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Startup Item File Created - MacOS"
-  description                = "Detects the creation of a startup item plist file, that automatically get executed at boot initialization to establish persistence. Adversaries may use startup items automatically executed at boot initialization to establish persistence. Startup items execute during the final phase of the boot process and contain shell scripts or other executable files along with configuration information used by the system to determine the execution order for all startup items. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/file_event/file_event_macos_susp_startup_item_created.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/file_event/file_event_macos_susp_startup_item_created.yml"
+  description                = <<DESC
+    Detects the creation of a startup item plist file, that automatically get executed at boot initialization to establish persistence. Adversaries may use startup items automatically executed at boot initialization to establish persistence. Startup items execute during the final phase of the boot process and contain shell scripts or other executable files along with configuration information used by the system to determine the execution order for all startup items.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/file_event/file_event_macos_susp_startup_item_created.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents

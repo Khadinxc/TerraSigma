@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_runmru_susp_comma
   name                       = "registry_set_runmru_susp_command_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Command Executed Via Run Dialog Box - Registry"
-  description                = "Detects execution of commands via the run dialog box on Windows by checking values of the \"RunMRU\" registry key. This technique was seen being abused by threat actors to deceive users into pasting and executing malicious commands, often disguised as CAPTCHA verification steps. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_runmru_susp_command_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_runmru_susp_command_execution.yml"
+  description                = <<DESC
+    Detects execution of commands via the run dialog box on Windows by checking values of the "RunMRU" registry key. This technique was seen being abused by threat actors to deceive users into pasting and executing malicious commands, often disguised as CAPTCHA verification steps.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_runmru_susp_command_execution.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

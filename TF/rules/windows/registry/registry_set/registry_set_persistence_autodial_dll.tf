@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_persistence_autod
   name                       = "registry_set_persistence_autodial_dll"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via AutodialDLL"
-  description                = "Detects change the the \"AutodialDLL\" key which could be used as a persistence method to load custom DLL via the \"ws2_32\" library Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_autodial_dll.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_autodial_dll.yml"
+  description                = <<DESC
+    Detects change the the "AutodialDLL" key which could be used as a persistence method to load custom DLL via the "ws2_32" library
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_autodial_dll.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

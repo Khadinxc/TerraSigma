@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_mstsc_remote
   name                       = "proc_creation_win_mstsc_remote_connection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Remote Desktop Connection Initiated Via Mstsc.EXE"
-  description                = "Detects the usage of \"mstsc.exe\" with the \"/v\" flag to initiate a connection to a remote server. Adversaries may use valid accounts to log into a computer using the Remote Desktop Protocol (RDP). The adversary may then perform actions as the logged-on user. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mstsc_remote_connection.yml - WSL (Windows Sub System For Linux) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mstsc_remote_connection.yml"
+  description                = <<DESC
+    Detects the usage of "mstsc.exe" with the "/v" flag to initiate a connection to a remote server. Adversaries may use valid accounts to log into a computer using the Remote Desktop Protocol (RDP). The adversary may then perform actions as the logged-on user.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mstsc_remote_connection.yml
+
+    False Positives:
+    - WSL (Windows Sub System For Linux)
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

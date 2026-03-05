@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_netsh_port_f
   name                       = "proc_creation_win_netsh_port_forwarding"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Port Forwarding Rule Added Via Netsh.EXE"
-  description                = "Detects the execution of netsh commands that configure a new port forwarding (PortProxy) rule Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_port_forwarding.yml - Legitimate administration activity - WSL2 network bridge PowerShell script used for WSL/Kubernetes/Docker (e.g. https://github.com/microsoft/WSL/issues/4150#issuecomment-504209723) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_port_forwarding.yml"
+  description                = <<DESC
+    Detects the execution of netsh commands that configure a new port forwarding (PortProxy) rule
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_port_forwarding.yml
+
+    False Positives:
+    - Legitimate administration activity
+    - WSL2 network bridge PowerShell script used for WSL/Kubernetes/Docker (e.g. https://github.com/microsoft/WSL/issues/4150#issuecomment-504209723)
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

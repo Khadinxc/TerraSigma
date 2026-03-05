@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_uac_disable" {
   name                       = "registry_set_uac_disable"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Disabled"
-  description                = "Detects when an attacker tries to disable User Account Control (UAC) by setting the registry value \"EnableLUA\" to 0. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_uac_disable.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_uac_disable.yml"
+  description                = <<DESC
+    Detects when an attacker tries to disable User Account Control (UAC) by setting the registry value "EnableLUA" to 0.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_uac_disable.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

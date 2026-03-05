@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_cmd_launched
   name                       = "proc_creation_win_cmd_launched_with_hidden_start_flag"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Cmd Launched with Hidden Start Flags to Suspicious Targets"
-  description                = "Detects cmd.exe executing commands with the \"start\" utility using \"/b\" (no window) or \"/min\" (minimized) flags. To reduce false positives from standard background tasks, detection is restricted to scenarios where the target is a known script extension or located in suspicious temporary/public directories. This technique was observed in Chaos, DarkSide, and Emotet malware campaigns. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_launched_with_hidden_start_flag.yml - Legitimate administrative scripts running from temporary folders. - Niche software updaters utilizing hidden batch files in ProgramData. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_launched_with_hidden_start_flag.yml"
+  description                = <<DESC
+    Detects cmd.exe executing commands with the "start" utility using "/b" (no window) or "/min" (minimized) flags. To reduce false positives from standard background tasks, detection is restricted to scenarios where the target is a known script extension or located in suspicious temporary/public directories. This technique was observed in Chaos, DarkSide, and Emotet malware campaigns.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_launched_with_hidden_start_flag.yml
+
+    False Positives:
+    - Legitimate administrative scripts running from temporary folders.
+    - Niche software updaters utilizing hidden batch files in ProgramData.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

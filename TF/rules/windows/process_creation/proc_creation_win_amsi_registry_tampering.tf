@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_amsi_registr
   name                       = "proc_creation_win_amsi_registry_tampering"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows AMSI Related Registry Tampering Via CommandLine"
-  description                = "Detects tampering of AMSI (Anti-Malware Scan Interface) related registry values via command line tools such as reg.exe or PowerShell. AMSI provides a generic interface for applications and services to integrate with antimalware products. Adversaries may disable AMSI to evade detection of malicious scripts and code execution. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_amsi_registry_tampering.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_amsi_registry_tampering.yml"
+  description                = <<DESC
+    Detects tampering of AMSI (Anti-Malware Scan Interface) related registry values via command line tools such as reg.exe or PowerShell. AMSI provides a generic interface for applications and services to integrate with antimalware products. Adversaries may disable AMSI to evade detection of malicious scripts and code execution.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_amsi_registry_tampering.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

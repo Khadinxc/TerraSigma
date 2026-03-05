@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_presentation
   name                       = "proc_creation_win_presentationhost_uncommon_location_exec"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "XBAP Execution From Uncommon Locations Via PresentationHost.EXE"
-  description                = "Detects the execution of \".xbap\" (Browser Applications) files via PresentationHost.EXE from an uncommon location. These files can be abused to run malicious \".xbap\" files any bypass AWL Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_presentationhost_uncommon_location_exec.yml - Legitimate \".xbap\" being executed via \"PresentationHost\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_presentationhost_uncommon_location_exec.yml"
+  description                = <<DESC
+    Detects the execution of ".xbap" (Browser Applications) files via PresentationHost.EXE from an uncommon location. These files can be abused to run malicious ".xbap" files any bypass AWL
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_presentationhost_uncommon_location_exec.yml
+
+    False Positives:
+    - Legitimate ".xbap" being executed via "PresentationHost"
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

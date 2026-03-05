@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_registry_exp
   name                       = "proc_creation_win_registry_export_of_thirdparty_creds"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Registry Export of Third-Party Credentials"
-  description                = "Detects the use of reg.exe to export registry paths associated with third-party credentials. Credential stealers have been known to use this technique to extract sensitive information from the registry. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_export_of_thirdparty_creds.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_export_of_thirdparty_creds.yml"
+  description                = <<DESC
+    Detects the use of reg.exe to export registry paths associated with third-party credentials. Credential stealers have been known to use this technique to extract sensitive information from the registry.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_export_of_thirdparty_creds.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_mode_codepag
   name                       = "proc_creation_win_mode_codepage_change"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "CodePage Modification Via MODE.COM"
-  description                = "Detects a CodePage modification using the \"mode.com\" utility. This behavior has been used by threat actors behind Dharma ransomware. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_mode_codepage_change.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_mode_codepage_change.yml"
+  description                = <<DESC
+    Detects a CodePage modification using the "mode.com" utility. This behavior has been used by threat actors behind Dharma ransomware.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_mode_codepage_change.yml
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

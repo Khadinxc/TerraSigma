@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_event_susp_mic_cam_ac
   name                       = "registry_event_susp_mic_cam_access"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Camera and Microphone Access"
-  description                = "Detects Processes accessing the camera and microphone from suspicious folder Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_mic_cam_access.yml - Unlikely, there could be conferencing software running from a Temp folder accessing the devices | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_mic_cam_access.yml"
+  description                = <<DESC
+    Detects Processes accessing the camera and microphone from suspicious folder
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_mic_cam_access.yml
+
+    False Positives:
+    - Unlikely, there could be conferencing software running from a Temp folder accessing the devices
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

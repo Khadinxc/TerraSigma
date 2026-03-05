@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_sharpev
   name                       = "proc_creation_win_hktl_sharpevtmute"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - SharpEvtMute Execution"
-  description                = "Detects the use of SharpEvtHook, a tool that tampers with the Windows event logs Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpevtmute.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpevtmute.yml"
+  description                = <<DESC
+    Detects the use of SharpEvtHook, a tool that tampers with the Windows event logs
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpevtmute.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

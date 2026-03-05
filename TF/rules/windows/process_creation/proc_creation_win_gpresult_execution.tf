@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_gpresult_exe
   name                       = "proc_creation_win_gpresult_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Gpresult Display Group Policy Information"
-  description                = "Detects cases in which a user uses the built-in Windows utility gpresult to display the Resultant Set of Policy (RSoP) information Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gpresult_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gpresult_execution.yml"
+  description                = <<DESC
+    Detects cases in which a user uses the built-in Windows utility gpresult to display the Resultant Set of Policy (RSoP) information
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gpresult_execution.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_winrar_susp_
   name                       = "proc_creation_win_winrar_susp_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Child Process Of WinRAR.EXE"
-  description                = "Detects potentially suspicious child processes of WinRAR.exe. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winrar_susp_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winrar_susp_child_process.yml"
+  description                = <<DESC
+    Detects potentially suspicious child processes of WinRAR.exe.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winrar_susp_child_process.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

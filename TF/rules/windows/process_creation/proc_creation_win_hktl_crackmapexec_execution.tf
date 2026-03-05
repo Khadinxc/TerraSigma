@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_crackma
   name                       = "proc_creation_win_hktl_crackmapexec_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - CrackMapExec Execution"
-  description                = "This rule detect common flag combinations used by CrackMapExec in order to detect its use even if the binary has been replaced. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_crackmapexec_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_crackmapexec_execution.yml"
+  description                = <<DESC
+    This rule detect common flag combinations used by CrackMapExec in order to detect its use even if the binary has been replaced.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_crackmapexec_execution.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

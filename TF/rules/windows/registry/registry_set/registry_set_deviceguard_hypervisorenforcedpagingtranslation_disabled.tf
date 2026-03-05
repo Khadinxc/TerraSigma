@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_deviceguard_hyper
   name                       = "registry_set_deviceguard_hypervisorenforcedpagingtranslation_disabled"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Hypervisor Enforced Paging Translation Disabled"
-  description                = "Detects changes to the \"DisableHypervisorEnforcedPagingTranslation\" registry value. Where the it is set to \"1\" in order to disable the Hypervisor Enforced Paging Translation feature. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_deviceguard_hypervisorenforcedpagingtranslation_disabled.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_deviceguard_hypervisorenforcedpagingtranslation_disabled.yml"
+  description                = <<DESC
+    Detects changes to the "DisableHypervisorEnforcedPagingTranslation" registry value. Where the it is set to "1" in order to disable the Hypervisor Enforced Paging Translation feature.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_deviceguard_hypervisorenforcedpagingtranslation_disabled.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

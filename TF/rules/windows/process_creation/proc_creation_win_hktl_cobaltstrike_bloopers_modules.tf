@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_cobalts
   name                       = "proc_creation_win_hktl_cobaltstrike_bloopers_modules"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Operator Bloopers Cobalt Strike Modules"
-  description                = "Detects Cobalt Strike module/commands accidentally entered in CMD shell Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_cobaltstrike_bloopers_modules.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_cobaltstrike_bloopers_modules.yml"
+  description                = <<DESC
+    Detects Cobalt Strike module/commands accidentally entered in CMD shell
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_cobaltstrike_bloopers_modules.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

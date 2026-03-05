@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_svchost_term
   name                       = "proc_creation_win_svchost_termserv_proc_spawn"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Terminal Service Process Spawn"
-  description                = "Detects a process spawned by the terminal service server process (this could be an indicator for an exploitation of CVE-2019-0708) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_svchost_termserv_proc_spawn.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_svchost_termserv_proc_spawn.yml"
+  description                = <<DESC
+    Detects a process spawned by the terminal service server process (this could be an indicator for an exploitation of CVE-2019-0708)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_svchost_termserv_proc_spawn.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

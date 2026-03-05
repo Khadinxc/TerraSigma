@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wmic_namespa
   name                       = "proc_creation_win_wmic_namespace_defender"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Windows Defender Tampering Via Wmic.EXE"
-  description                = "Detects potential tampering with Windows Defender settings such as adding exclusion using wmic Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_namespace_defender.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_namespace_defender.yml"
+  description                = <<DESC
+    Detects potential tampering with Windows Defender settings such as adding exclusion using wmic
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_namespace_defender.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

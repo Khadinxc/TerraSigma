@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_net_share_un
   name                       = "proc_creation_win_net_share_unmount"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Unmount Share Via Net.EXE"
-  description                = "Detects when when a mounted share is removed. Adversaries may remove share connections that are no longer useful in order to clean up traces of their operation Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_share_unmount.yml - Administrators or Power users may remove their shares via cmd line | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_share_unmount.yml"
+  description                = <<DESC
+    Detects when when a mounted share is removed. Adversaries may remove share connections that are no longer useful in order to clean up traces of their operation
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_share_unmount.yml
+
+    False Positives:
+    - Administrators or Power users may remove their shares via cmd line
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_fsutil_symli
   name                       = "proc_creation_win_fsutil_symlinkevaluation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious NTFS Symlink Behavior Modification"
-  description                = "Detects the modification of NTFS symbolic link behavior using fsutil, which could be used to enable remote to local or remote to remote symlinks for potential attacks. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_symlinkevaluation.yml - Legitimate usage, investigate the parent process and context to determine if benign. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_symlinkevaluation.yml"
+  description                = <<DESC
+    Detects the modification of NTFS symbolic link behavior using fsutil, which could be used to enable remote to local or remote to remote symlinks for potential attacks.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_symlinkevaluation.yml
+
+    False Positives:
+    - Legitimate usage, investigate the parent process and context to determine if benign.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

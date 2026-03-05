@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_susp_winsxs_bin
   name                       = "file_event_win_susp_winsxs_binary_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WinSxS Executable File Creation By Non-System Process"
-  description                = "Detects the creation of binaries in the WinSxS folder by non-system processes Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_winsxs_binary_creation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_winsxs_binary_creation.yml"
+  description                = <<DESC
+    Detects the creation of binaries in the WinSxS folder by non-system processes
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_winsxs_binary_creation.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

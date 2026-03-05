@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_evtx_file_key_tam
   name                       = "registry_set_evtx_file_key_tamper"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential EventLog File Location Tampering"
-  description                = "Detects tampering with EventLog service \"file\" key. In order to change the default location of an Evtx file. This technique is used to tamper with log collection and alerting Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_evtx_file_key_tamper.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_evtx_file_key_tamper.yml"
+  description                = <<DESC
+    Detects tampering with EventLog service "file" key. In order to change the default location of an Evtx file. This technique is used to tamper with log collection and alerting
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_evtx_file_key_tamper.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

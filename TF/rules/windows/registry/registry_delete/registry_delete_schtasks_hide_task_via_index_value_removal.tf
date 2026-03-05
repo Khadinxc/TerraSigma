@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_delete_schtasks_hide_
   name                       = "registry_delete_schtasks_hide_task_via_index_value_removal"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Removal Of Index Value to Hide Schedule Task - Registry"
-  description                = "Detects when the \"index\" value of a scheduled task is removed or deleted from the registry. Which effectively hides it from any tooling such as \"schtasks /query\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/registry_delete_schtasks_hide_task_via_index_value_removal.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/registry_delete_schtasks_hide_task_via_index_value_removal.yml"
+  description                = <<DESC
+    Detects when the "index" value of a scheduled task is removed or deleted from the registry. Which effectively hides it from any tooling such as "schtasks /query"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/registry_delete_schtasks_hide_task_via_index_value_removal.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

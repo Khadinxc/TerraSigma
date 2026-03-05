@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_s
   name                       = "proc_creation_win_powershell_susp_parent_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious PowerShell Parent Process"
-  description                = "Detects a suspicious or uncommon parent processes of PowerShell Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_susp_parent_process.yml - Other scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_susp_parent_process.yml"
+  description                = <<DESC
+    Detects a suspicious or uncommon parent processes of PowerShell
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_susp_parent_process.yml
+
+    False Positives:
+    - Other scripts
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

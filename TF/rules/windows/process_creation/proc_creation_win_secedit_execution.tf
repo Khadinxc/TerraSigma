@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_secedit_exec
   name                       = "proc_creation_win_secedit_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Suspicious Activity Using SeCEdit"
-  description                = "Detects potential suspicious behaviour using secedit.exe. Such as exporting or modifying the security policy Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_secedit_execution.yml - Legitimate administrative use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_secedit_execution.yml"
+  description                = <<DESC
+    Detects potential suspicious behaviour using secedit.exe. Such as exporting or modifying the security policy
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_secedit_execution.yml
+
+    False Positives:
+    - Legitimate administrative use
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_hafnium"
   name                       = "proc_creation_win_apt_hafnium"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HAFNIUM Exchange Exploitation Activity"
-  description                = "Detects activity observed by different researchers to be HAFNIUM group activity (or related) on Exchange servers Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/TA/HAFNIUM/proc_creation_win_apt_hafnium.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/TA/HAFNIUM/proc_creation_win_apt_hafnium.yml"
+  description                = <<DESC
+    Detects activity observed by different researchers to be HAFNIUM group activity (or related) on Exchange servers
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/TA/HAFNIUM/proc_creation_win_apt_hafnium.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

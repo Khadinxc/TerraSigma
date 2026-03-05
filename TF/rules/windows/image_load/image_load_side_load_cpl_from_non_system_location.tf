@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_side_load_cpl_from_
   name                       = "image_load_side_load_cpl_from_non_system_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "System Control Panel Item Loaded From Uncommon Location"
-  description                = "Detects image load events of system control panel items (.cpl) from uncommon or non-system locations that may indicate DLL sideloading or other abuse techniques. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_cpl_from_non_system_location.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_cpl_from_non_system_location.yml"
+  description                = <<DESC
+    Detects image load events of system control panel items (.cpl) from uncommon or non-system locations that may indicate DLL sideloading or other abuse techniques.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_cpl_from_non_system_location.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

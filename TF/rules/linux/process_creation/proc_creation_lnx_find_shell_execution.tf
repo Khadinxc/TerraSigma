@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_find_shell_e
   name                       = "proc_creation_lnx_find_shell_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Shell Execution via Find - Linux"
-  description                = "Detects the use of the find command to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or exploitation attempt. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_find_shell_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_find_shell_execution.yml"
+  description                = <<DESC
+    Detects the use of the find command to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or exploitation attempt.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_find_shell_execution.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

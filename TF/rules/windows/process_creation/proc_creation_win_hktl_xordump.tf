@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_xordump
   name                       = "proc_creation_win_hktl_xordump"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - XORDump Execution"
-  description                = "Detects suspicious use of XORDump process memory dumping utility Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_xordump.yml - Another tool that uses the command line switches of XORdump | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_xordump.yml"
+  description                = <<DESC
+    Detects suspicious use of XORDump process memory dumping utility
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_xordump.yml
+
+    False Positives:
+    - Another tool that uses the command line switches of XORdump
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

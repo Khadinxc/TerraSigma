@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_c
   name                       = "proc_creation_win_powershell_create_service"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Service Creation Using PowerShell"
-  description                = "Detects the creation of a new service using powershell. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_create_service.yml - Legitimate administrator or user creates a service for legitimate reasons. - Software installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_create_service.yml"
+  description                = <<DESC
+    Detects the creation of a new service using powershell.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_create_service.yml
+
+    False Positives:
+    - Legitimate administrator or user creates a service for legitimate reasons.
+    - Software installation
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

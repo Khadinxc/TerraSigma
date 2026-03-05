@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_sentinelone_shell
   name                       = "registry_set_sentinelone_shell_context_tampering"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential SentinelOne Shell Context Menu Scan Command Tampering"
-  description                = "Detects potentially suspicious changes to the SentinelOne context menu scan command by a process other than SentinelOne. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_sentinelone_shell_context_tampering.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_sentinelone_shell_context_tampering.yml"
+  description                = <<DESC
+    Detects potentially suspicious changes to the SentinelOne context menu scan command by a process other than SentinelOne.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_sentinelone_shell_context_tampering.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

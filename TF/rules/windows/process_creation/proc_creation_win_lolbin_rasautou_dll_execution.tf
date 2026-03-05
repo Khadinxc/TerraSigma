@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_rasau
   name                       = "proc_creation_win_lolbin_rasautou_dll_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DLL Execution via Rasautou.exe"
-  description                = "Detects using Rasautou.exe for loading arbitrary .DLL specified in -d option and executes the export specified in -p. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_rasautou_dll_execution.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_rasautou_dll_execution.yml"
+  description                = <<DESC
+    Detects using Rasautou.exe for loading arbitrary .DLL specified in -d option and executes the export specified in -p.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_rasautou_dll_execution.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

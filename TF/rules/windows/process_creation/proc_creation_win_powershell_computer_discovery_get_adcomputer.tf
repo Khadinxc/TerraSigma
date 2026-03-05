@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_c
   name                       = "proc_creation_win_powershell_computer_discovery_get_adcomputer"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Computer Discovery And Export Via Get-ADComputer Cmdlet"
-  description                = "Detects usage of the Get-ADComputer cmdlet to collect computer information and output it to a file Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_computer_discovery_get_adcomputer.yml - Legitimate admin scripts may use the same technique, it's better to exclude specific computers or users who execute these commands or scripts often | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_computer_discovery_get_adcomputer.yml"
+  description                = <<DESC
+    Detects usage of the Get-ADComputer cmdlet to collect computer information and output it to a file
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_computer_discovery_get_adcomputer.yml
+
+    False Positives:
+    - Legitimate admin scripts may use the same technique, it's better to exclude specific computers or users who execute these commands or scripts often
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

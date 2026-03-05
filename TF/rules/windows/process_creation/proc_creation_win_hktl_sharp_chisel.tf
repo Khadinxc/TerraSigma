@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_sharp_c
   name                       = "proc_creation_win_hktl_sharp_chisel"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - SharpChisel Execution"
-  description                = "Detects usage of the Sharp Chisel via the commandline arguments Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharp_chisel.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharp_chisel.yml"
+  description                = <<DESC
+    Detects usage of the Sharp Chisel via the commandline arguments
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharp_chisel.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

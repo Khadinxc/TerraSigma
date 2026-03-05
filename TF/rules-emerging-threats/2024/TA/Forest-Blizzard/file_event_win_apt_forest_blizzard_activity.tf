@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_apt_forest_bliz
   name                       = "file_event_win_apt_forest_blizzard_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Forest Blizzard APT - File Creation Activity"
-  description                = "Detects the creation of specific files inside of ProgramData directory. These files were seen being created by Forest Blizzard as described by MSFT. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/file_event_win_apt_forest_blizzard_activity.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/file_event_win_apt_forest_blizzard_activity.yml"
+  description                = <<DESC
+    Detects the creation of specific files inside of ProgramData directory. These files were seen being created by Forest Blizzard as described by MSFT.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/file_event_win_apt_forest_blizzard_activity.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

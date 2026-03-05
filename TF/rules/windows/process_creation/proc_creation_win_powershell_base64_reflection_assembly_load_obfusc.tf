@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_b
   name                       = "proc_creation_win_powershell_base64_reflection_assembly_load_obfusc"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Encoded And Obfuscated Reflection Assembly Load Function Call"
-  description                = "Detects suspicious base64 encoded and obfuscated \"LOAD\" keyword used in .NET \"reflection.assembly\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_reflection_assembly_load_obfusc.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_reflection_assembly_load_obfusc.yml"
+  description                = <<DESC
+    Detects suspicious base64 encoded and obfuscated "LOAD" keyword used in .NET "reflection.assembly"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_reflection_assembly_load_obfusc.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_logman_disab
   name                       = "proc_creation_win_logman_disable_eventlog"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Windows Trace ETW Session Tamper Via Logman.EXE"
-  description                = "Detects the execution of \"logman\" utility in order to disable or delete Windows trace sessions Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_logman_disable_eventlog.yml - Legitimate deactivation by administrative staff - Installer tools that disable services, e.g. before log collection agent installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_logman_disable_eventlog.yml"
+  description                = <<DESC
+    Detects the execution of "logman" utility in order to disable or delete Windows trace sessions
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_logman_disable_eventlog.yml
+
+    False Positives:
+    - Legitimate deactivation by administrative staff
+    - Installer tools that disable services, e.g. before log collection agent installation
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

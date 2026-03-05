@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_reg_volsnap_
   name                       = "proc_creation_win_reg_volsnap_disable"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disabled Volume Snapshots"
-  description                = "Detects commands that temporarily turn off Volume Snapshots Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_volsnap_disable.yml - Legitimate administration | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_volsnap_disable.yml"
+  description                = <<DESC
+    Detects commands that temporarily turn off Volume Snapshots
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_volsnap_disable.yml
+
+    False Positives:
+    - Legitimate administration
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

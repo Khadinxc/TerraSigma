@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_findstr_gpp_
   name                       = "proc_creation_win_findstr_gpp_passwords"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Findstr GPP Passwords"
-  description                = "Look for the encrypted cpassword value within Group Policy Preference files on the Domain Controller. This value can be decrypted with gpp-decrypt. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_gpp_passwords.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_gpp_passwords.yml"
+  description                = <<DESC
+    Look for the encrypted cpassword value within Group Policy Preference files on the Domain Controller. This value can be decrypted with gpp-decrypt.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_gpp_passwords.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

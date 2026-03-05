@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wermgr_susp_
   name                       = "proc_creation_win_wermgr_susp_exec_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Execution Location Of Wermgr.EXE"
-  description                = "Detects suspicious Windows Error Reporting manager (wermgr.exe) execution location. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wermgr_susp_exec_location.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wermgr_susp_exec_location.yml"
+  description                = <<DESC
+    Detects suspicious Windows Error Reporting manager (wermgr.exe) execution location.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wermgr_susp_exec_location.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_cmdl32_arbit
   name                       = "proc_creation_win_cmdl32_arbitrary_file_download"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Arbitrary File Download Via Cmdl32.EXE"
-  description                = "Detects execution of Cmdl32 with the \"/vpn\" and \"/lan\" flags. Attackers can abuse this utility in order to download arbitrary files via a configuration file. Inspect the location and the content of the file passed as an argument in order to determine if it is suspicious. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmdl32_arbitrary_file_download.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmdl32_arbitrary_file_download.yml"
+  description                = <<DESC
+    Detects execution of Cmdl32 with the "/vpn" and "/lan" flags. Attackers can abuse this utility in order to download arbitrary files via a configuration file. Inspect the location and the content of the file passed as an argument in order to determine if it is suspicious.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmdl32_arbitrary_file_download.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

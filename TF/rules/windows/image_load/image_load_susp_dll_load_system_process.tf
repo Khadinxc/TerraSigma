@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_susp_dll_load_syste
   name                       = "image_load_susp_dll_load_system_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DLL Load By System Process From Suspicious Locations"
-  description                = "Detects when a system process (i.e. located in system32, syswow64, etc.) loads a DLL from a suspicious location or a location with permissive permissions such as \"C:\\Users\\Public\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_susp_dll_load_system_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_susp_dll_load_system_process.yml"
+  description                = <<DESC
+    Detects when a system process (i.e. located in system32, syswow64, etc.) loads a DLL from a suspicious location or a location with permissive permissions such as "C:\Users\Public"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_susp_dll_load_system_process.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

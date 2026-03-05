@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hostname_exe
   name                       = "proc_creation_win_hostname_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Execution of Hostname"
-  description                = "Use of hostname to get information Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hostname_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hostname_execution.yml"
+  description                = <<DESC
+    Use of hostname to get information
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hostname_execution.yml
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

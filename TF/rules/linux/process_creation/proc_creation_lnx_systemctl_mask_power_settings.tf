@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_systemctl_ma
   name                       = "proc_creation_lnx_systemctl_mask_power_settings"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Mask System Power Settings Via Systemctl"
-  description                = "Detects the use of systemctl mask to disable system power management targets such as suspend, hibernate, or hybrid sleep. Adversaries may mask these targets to prevent a system from entering sleep or shutdown states, ensuring their malicious processes remain active and uninterrupted. This behavior can be associated with persistence or defense evasion, as it impairs normal system power operations to maintain long-term access or avoid termination of malicious activity. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_systemctl_mask_power_settings.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_systemctl_mask_power_settings.yml"
+  description                = <<DESC
+    Detects the use of systemctl mask to disable system power management targets such as suspend, hibernate, or hybrid sleep. Adversaries may mask these targets to prevent a system from entering sleep or shutdown states, ensuring their malicious processes remain active and uninterrupted. This behavior can be associated with persistence or defense evasion, as it impairs normal system power operations to maintain long-term access or avoid termination of malicious activity.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_systemctl_mask_power_settings.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_susp_initia
   name                       = "net_connection_win_susp_initiated_uncommon_or_suspicious_locations"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Network Connection Initiated From Process Located In Potentially Suspicious Or Uncommon Location"
-  description                = "Detects a network connection initiated by programs or processes running from suspicious or uncommon files system locations. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_susp_initiated_uncommon_or_suspicious_locations.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_susp_initiated_uncommon_or_suspicious_locations.yml"
+  description                = <<DESC
+    Detects a network connection initiated by programs or processes running from suspicious or uncommon files system locations.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_susp_initiated_uncommon_or_suspicious_locations.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents

@@ -2,7 +2,17 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_access_win_browsers_crede
   name                       = "file_access_win_browsers_credential"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Access To Browser Credential Files By Uncommon Applications"
-  description                = "Detects file access requests to browser credential stores by uncommon processes. Could indicate potential attempt of credential stealing. Requires heavy baselining before usage Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/file_access_win_browsers_credential.yml - Antivirus, Anti-Spyware, Anti-Malware Software - Backup software - Legitimate software installed on partitions other than \"C:\\\" - Searching software such as \"everything.exe\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/file_access_win_browsers_credential.yml"
+  description                = <<DESC
+    Detects file access requests to browser credential stores by uncommon processes. Could indicate potential attempt of credential stealing. Requires heavy baselining before usage
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/file_access_win_browsers_credential.yml
+
+    False Positives:
+    - Antivirus, Anti-Spyware, Anti-Malware Software
+    - Backup software
+    - Legitimate software installed on partitions other than "C:\"
+    - Searching software such as "everything.exe"
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents

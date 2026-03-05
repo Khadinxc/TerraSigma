@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_hktl_quarkspw_f
   name                       = "file_event_win_hktl_quarkspw_filedump"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - QuarksPwDump Dump File"
-  description                = "Detects a dump file written by QuarksPwDump password dumper Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_quarkspw_filedump.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_quarkspw_filedump.yml"
+  description                = <<DESC
+    Detects a dump file written by QuarksPwDump password dumper
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_quarkspw_filedump.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

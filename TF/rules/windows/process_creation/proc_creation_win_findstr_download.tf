@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_findstr_down
   name                       = "proc_creation_win_findstr_download"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote File Download Via Findstr.EXE"
-  description                = "Detects execution of \"findstr\" with specific flags and a remote share path. This specific set of CLI flags would allow \"findstr\" to download the content of the file located on the remote share as described in the LOLBAS entry. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_download.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_download.yml"
+  description                = <<DESC
+    Detects execution of "findstr" with specific flags and a remote share path. This specific set of CLI flags would allow "findstr" to download the content of the file located on the remote share as described in the LOLBAS entry.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_download.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

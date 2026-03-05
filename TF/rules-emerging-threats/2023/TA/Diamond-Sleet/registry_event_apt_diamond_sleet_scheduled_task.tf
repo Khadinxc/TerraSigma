@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_event_apt_diamond_sle
   name                       = "registry_event_apt_diamond_sleet_scheduled_task"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Diamond Sleet APT Scheduled Task Creation - Registry"
-  description                = "Detects registry event related to the creation of a scheduled task used by Diamond Sleet APT during exploitation of Team City CVE-2023-42793 vulnerability Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/registry_event_apt_diamond_sleet_scheduled_task.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/registry_event_apt_diamond_sleet_scheduled_task.yml"
+  description                = <<DESC
+    Detects registry event related to the creation of a scheduled task used by Diamond Sleet APT during exploitation of Team City CVE-2023-42793 vulnerability
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/registry_event_apt_diamond_sleet_scheduled_task.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

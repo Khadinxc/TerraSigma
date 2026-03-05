@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_susp_contain
   name                       = "proc_creation_lnx_susp_container_residence_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Container Residence Discovery Via Proc Virtual FS"
-  description                = "Detects potential container discovery via listing of certain kernel features in the \"/proc\" virtual filesystem Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_container_residence_discovery.yml - Legitimate system administrator usage of these commands - Some container tools or deployments may use these techniques natively to determine how they proceed with execution, and will need to be filtered | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_container_residence_discovery.yml"
+  description                = <<DESC
+    Detects potential container discovery via listing of certain kernel features in the "/proc" virtual filesystem
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_container_residence_discovery.yml
+
+    False Positives:
+    - Legitimate system administrator usage of these commands
+    - Some container tools or deployments may use these techniques natively to determine how they proceed with execution, and will need to be filtered
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

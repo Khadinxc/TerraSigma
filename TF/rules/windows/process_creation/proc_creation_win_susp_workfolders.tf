@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_workfol
   name                       = "proc_creation_win_susp_workfolders"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Execution via WorkFolders.exe"
-  description                = "Detects using WorkFolders.exe to execute an arbitrary control.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_workfolders.yml - Legitimate usage of the uncommon Windows Work Folders feature. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_workfolders.yml"
+  description                = <<DESC
+    Detects using WorkFolders.exe to execute an arbitrary control.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_workfolders.yml
+
+    False Positives:
+    - Legitimate usage of the uncommon Windows Work Folders feature.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

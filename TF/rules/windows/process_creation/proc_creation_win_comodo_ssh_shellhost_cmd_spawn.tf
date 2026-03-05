@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_comodo_ssh_s
   name                       = "proc_creation_win_comodo_ssh_shellhost_cmd_spawn"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "OpenEDR Spawning Command Shell"
-  description                = "Detects the OpenEDR ssh-shellhost.exe spawning a command shell (cmd.exe) or PowerShell with PTY (pseudo-terminal) capabilities. This may indicate remote command execution through OpenEDR's remote management features, which could be legitimate administrative activity or potential abuse of the remote access tool. Threat actors may leverage OpenEDR's remote shell capabilities to execute commands on compromised systems, facilitating lateral movement or other command-and-control operations. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_comodo_ssh_shellhost_cmd_spawn.yml - Legitimate use of OpenEDR for remote command execution | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_comodo_ssh_shellhost_cmd_spawn.yml"
+  description                = <<DESC
+    Detects the OpenEDR ssh-shellhost.exe spawning a command shell (cmd.exe) or PowerShell with PTY (pseudo-terminal) capabilities. This may indicate remote command execution through OpenEDR's remote management features, which could be legitimate administrative activity or potential abuse of the remote access tool. Threat actors may leverage OpenEDR's remote shell capabilities to execute commands on compromised systems, facilitating lateral movement or other command-and-control operations.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_comodo_ssh_shellhost_cmd_spawn.yml
+
+    False Positives:
+    - Legitimate use of OpenEDR for remote command execution
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

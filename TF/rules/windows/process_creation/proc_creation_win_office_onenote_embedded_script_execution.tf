@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_office_oneno
   name                       = "proc_creation_win_office_onenote_embedded_script_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "OneNote.EXE Execution of Malicious Embedded Scripts"
-  description                = "Detects the execution of malicious OneNote documents that contain embedded scripts. When a user clicks on a OneNote attachment and then on the malicious link inside the \".one\" file, it exports and executes the malicious embedded script from specific directories. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_onenote_embedded_script_execution.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_onenote_embedded_script_execution.yml"
+  description                = <<DESC
+    Detects the execution of malicious OneNote documents that contain embedded scripts. When a user clicks on a OneNote attachment and then on the malicious link inside the ".one" file, it exports and executes the malicious embedded script from specific directories.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_onenote_embedded_script_execution.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

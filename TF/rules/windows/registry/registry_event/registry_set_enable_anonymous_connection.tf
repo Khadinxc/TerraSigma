@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_enable_anonymous_
   name                       = "registry_set_enable_anonymous_connection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Enable Remote Connection Between Anonymous Computer - AllowAnonymousCallback"
-  description                = "Detects enabling of the \"AllowAnonymousCallback\" registry value, which allows a remote connection between computers that do not have a trust relationship. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_set_enable_anonymous_connection.yml - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_set_enable_anonymous_connection.yml"
+  description                = <<DESC
+    Detects enabling of the "AllowAnonymousCallback" registry value, which allows a remote connection between computers that do not have a trust relationship.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_set_enable_anonymous_connection.yml
+
+    False Positives:
+    - Administrative activity
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

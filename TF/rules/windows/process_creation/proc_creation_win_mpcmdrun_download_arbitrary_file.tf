@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_mpcmdrun_dow
   name                       = "proc_creation_win_mpcmdrun_download_arbitrary_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Download Via Windows Defender MpCmpRun.EXE"
-  description                = "Detects the use of Windows Defender MpCmdRun.EXE to download files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mpcmdrun_download_arbitrary_file.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mpcmdrun_download_arbitrary_file.yml"
+  description                = <<DESC
+    Detects the use of Windows Defender MpCmdRun.EXE to download files
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mpcmdrun_download_arbitrary_file.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

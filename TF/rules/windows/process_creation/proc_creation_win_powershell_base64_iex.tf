@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_b
   name                       = "proc_creation_win_powershell_base64_iex"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Base64 Encoded IEX Cmdlet"
-  description                = "Detects usage of a base64 encoded \"IEX\" cmdlet in a process command line Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_iex.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_iex.yml"
+  description                = <<DESC
+    Detects usage of a base64 encoded "IEX" cmdlet in a process command line
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_iex.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

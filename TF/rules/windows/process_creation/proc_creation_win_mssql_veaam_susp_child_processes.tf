@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_mssql_veaam_
   name                       = "proc_creation_win_mssql_veaam_susp_child_processes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Child Process Of Veeam Dabatase"
-  description                = "Detects suspicious child processes of the Veeam service process. This could indicate potential RCE or SQL Injection. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mssql_veaam_susp_child_processes.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mssql_veaam_susp_child_processes.yml"
+  description                = <<DESC
+    Detects suspicious child processes of the Veeam service process. This could indicate potential RCE or SQL Injection.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mssql_veaam_susp_child_processes.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_local_accoun
   name                       = "proc_creation_lnx_local_account"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Local System Accounts Discovery - Linux"
-  description                = "Detects enumeration of local system accounts. This information can help adversaries determine which local accounts exist on a system to aid in follow-on behavior. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_local_account.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_local_account.yml"
+  description                = <<DESC
+    Detects enumeration of local system accounts. This information can help adversaries determine which local accounts exist on a system to aid in follow-on behavior.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_local_account.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

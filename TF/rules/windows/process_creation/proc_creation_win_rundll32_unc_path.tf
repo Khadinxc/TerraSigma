@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_unc
   name                       = "proc_creation_win_rundll32_unc_path"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Rundll32 UNC Path Execution"
-  description                = "Detects rundll32 execution where the DLL is located on a remote location (share) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_unc_path.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_unc_path.yml"
+  description                = <<DESC
+    Detects rundll32 execution where the DLL is located on a remote location (share)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_unc_path.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

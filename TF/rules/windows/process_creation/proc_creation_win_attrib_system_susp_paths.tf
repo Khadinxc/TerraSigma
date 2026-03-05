@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_attrib_syste
   name                       = "proc_creation_win_attrib_system_susp_paths"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Set Suspicious Files as System Files Using Attrib.EXE"
-  description                = "Detects the usage of attrib with the \"+s\" option to set scripts or executables located in suspicious locations as system files to hide them from users and make them unable to be deleted with simple rights. The rule limits the search to specific extensions and directories to avoid FPs Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_attrib_system_susp_paths.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_attrib_system_susp_paths.yml"
+  description                = <<DESC
+    Detects the usage of attrib with the "+s" option to set scripts or executables located in suspicious locations as system files to hide them from users and make them unable to be deleted with simple rights. The rule limits the search to specific extensions and directories to avoid FPs
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_attrib_system_susp_paths.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_b
   name                       = "proc_creation_win_powershell_base64_encoded_obfusc"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Obfuscated PowerShell Code"
-  description                = "Detects suspicious UTF16 and base64 encoded and often obfuscated PowerShell code often used in command lines Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_encoded_obfusc.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_encoded_obfusc.yml"
+  description                = <<DESC
+    Detects suspicious UTF16 and base64 encoded and often obfuscated PowerShell code often used in command lines
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_encoded_obfusc.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

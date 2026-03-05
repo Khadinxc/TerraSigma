@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_reg_susp_pat
   name                       = "proc_creation_win_reg_susp_paths"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Reg Add Suspicious Paths"
-  description                = "Detects when an adversary uses the reg.exe utility to add or modify new keys or subkeys Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_susp_paths.yml - Rare legitimate add to registry via cli (to these locations) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_susp_paths.yml"
+  description                = <<DESC
+    Detects when an adversary uses the reg.exe utility to add or modify new keys or subkeys
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_susp_paths.yml
+
+    False Positives:
+    - Rare legitimate add to registry via cli (to these locations)
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

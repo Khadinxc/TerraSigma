@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_desktop_ini_cre
   name                       = "file_event_win_desktop_ini_created_by_uncommon_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Desktop.INI Created by Uncommon Process"
-  description                = "Detects unusual processes accessing desktop.ini, which can be leveraged to alter how Explorer displays a folder's content (i.e. renaming files) without changing them on disk. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_desktop_ini_created_by_uncommon_process.yml - Operations performed through Windows SCCM or equivalent - Read only access list authority | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_desktop_ini_created_by_uncommon_process.yml"
+  description                = <<DESC
+    Detects unusual processes accessing desktop.ini, which can be leveraged to alter how Explorer displays a folder's content (i.e. renaming files) without changing them on disk.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_desktop_ini_created_by_uncommon_process.yml
+
+    False Positives:
+    - Operations performed through Windows SCCM or equivalent
+    - Read only access list authority
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

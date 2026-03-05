@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_attrib_syste
   name                       = "proc_creation_win_attrib_system"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Set Files as System Files Using Attrib.EXE"
-  description                = "Detects the execution of \"attrib\" with the \"+s\" flag to mark files as system files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_attrib_system.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_attrib_system.yml"
+  description                = <<DESC
+    Detects the execution of "attrib" with the "+s" flag to mark files as system files
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_attrib_system.yml
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

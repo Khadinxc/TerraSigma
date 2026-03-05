@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_registry_log
   name                       = "proc_creation_win_registry_logon_script"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Logon Scripts - CommandLine"
-  description                = "Detects the addition of a new LogonScript to the registry value \"UserInitMprLogonScript\" for potential persistence Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_logon_script.yml - Legitimate addition of Logon Scripts via the command line by administrators or third party tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_logon_script.yml"
+  description                = <<DESC
+    Detects the addition of a new LogonScript to the registry value "UserInitMprLogonScript" for potential persistence
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_logon_script.yml
+
+    False Positives:
+    - Legitimate addition of Logon Scripts via the command line by administrators or third party tools
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

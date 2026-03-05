@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_werfault_lsa
   name                       = "proc_creation_win_werfault_lsass_shtinkering"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Credential Dumping Via WER"
-  description                = "Detects potential credential dumping via Windows Error Reporting LSASS Shtinkering technique which uses the Windows Error Reporting to dump lsass Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_werfault_lsass_shtinkering.yml - Windows Error Reporting might produce similar behavior. In that case, check the PID associated with the \"-p\" parameter in the CommandLine. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_werfault_lsass_shtinkering.yml"
+  description                = <<DESC
+    Detects potential credential dumping via Windows Error Reporting LSASS Shtinkering technique which uses the Windows Error Reporting to dump lsass
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_werfault_lsass_shtinkering.yml
+
+    False Positives:
+    - Windows Error Reporting might produce similar behavior. In that case, check the PID associated with the "-p" parameter in the CommandLine.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

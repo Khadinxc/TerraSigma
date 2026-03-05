@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_uac_bypass_wmp"
   name                       = "file_event_win_uac_bypass_wmp"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass Using Windows Media Player - File"
-  description                = "Detects the pattern of UAC Bypass using Windows Media Player osksupport.dll (UACMe 32) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_wmp.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_wmp.yml"
+  description                = <<DESC
+    Detects the pattern of UAC Bypass using Windows Media Player osksupport.dll (UACMe 32)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_wmp.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

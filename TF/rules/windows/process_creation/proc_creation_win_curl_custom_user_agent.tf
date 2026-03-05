@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_curl_custom_
   name                       = "proc_creation_win_curl_custom_user_agent"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Curl Web Request With Potential Custom User-Agent"
-  description                = "Detects execution of \"curl.exe\" with a potential custom \"User-Agent\". Attackers can leverage this to download or exfiltrate data via \"curl\" to a domain that only accept specific \"User-Agent\" strings Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_custom_user_agent.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_custom_user_agent.yml"
+  description                = <<DESC
+    Detects execution of "curl.exe" with a potential custom "User-Agent". Attackers can leverage this to download or exfiltrate data via "curl" to a domain that only accept specific "User-Agent" strings
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_custom_user_agent.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

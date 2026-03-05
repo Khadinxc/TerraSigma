@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_regasm_regsv
   name                       = "proc_creation_win_regasm_regsvcs_uncommon_location_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Execution Of Regasm/Regsvcs From Uncommon Location"
-  description                = "Detects potentially suspicious execution of the Regasm/Regsvcs utilities from a potentially suspicious location Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regasm_regsvcs_uncommon_location_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regasm_regsvcs_uncommon_location_execution.yml"
+  description                = <<DESC
+    Detects potentially suspicious execution of the Regasm/Regsvcs utilities from a potentially suspicious location
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regasm_regsvcs_uncommon_location_execution.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

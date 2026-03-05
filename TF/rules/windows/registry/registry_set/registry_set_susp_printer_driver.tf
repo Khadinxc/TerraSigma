@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_susp_printer_driv
   name                       = "registry_set_susp_printer_driver"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Printer Driver Empty Manufacturer"
-  description                = "Detects a suspicious printer driver installation with an empty Manufacturer value Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_printer_driver.yml - Alerts on legitimate printer drivers that do not set any more details in the Manufacturer value | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_printer_driver.yml"
+  description                = <<DESC
+    Detects a suspicious printer driver installation with an empty Manufacturer value
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_printer_driver.yml
+
+    False Positives:
+    - Alerts on legitimate printer drivers that do not set any more details in the Manufacturer value
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

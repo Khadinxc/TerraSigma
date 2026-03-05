@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_netsh_helper_dll_
   name                       = "registry_set_netsh_helper_dll_potential_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Netsh Helper DLL - Registry"
-  description                = "Detects changes to the Netsh registry key to add a new DLL value. This change might be an indication of a potential persistence attempt by adding a malicious Netsh helper Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_netsh_helper_dll_potential_persistence.yml - Legitimate helper added by different programs and the OS | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_netsh_helper_dll_potential_persistence.yml"
+  description                = <<DESC
+    Detects changes to the Netsh registry key to add a new DLL value. This change might be an indication of a potential persistence attempt by adding a malicious Netsh helper
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_netsh_helper_dll_potential_persistence.yml
+
+    False Positives:
+    - Legitimate helper added by different programs and the OS
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_persistence_app_c
   name                       = "registry_set_persistence_app_cpmpat_layer_registerapprestart"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via AppCompat RegisterAppRestart Layer"
-  description                = "Detects the setting of the REGISTERAPPRESTART compatibility layer on an application. This compatibility layer allows an application to register for restart using the \"RegisterApplicationRestart\" API. This can be potentially abused as a persistence mechanism. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_app_cpmpat_layer_registerapprestart.yml - Legitimate applications making use of this feature for compatibility reasons | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_app_cpmpat_layer_registerapprestart.yml"
+  description                = <<DESC
+    Detects the setting of the REGISTERAPPRESTART compatibility layer on an application. This compatibility layer allows an application to register for restart using the "RegisterApplicationRestart" API. This can be potentially abused as a persistence mechanism.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_app_cpmpat_layer_registerapprestart.yml
+
+    False Positives:
+    - Legitimate applications making use of this feature for compatibility reasons
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

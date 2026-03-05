@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_pdqdeploy_ru
   name                       = "proc_creation_win_pdqdeploy_runner_susp_children"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Execution Of PDQDeployRunner"
-  description                = "Detects suspicious execution of \"PDQDeployRunner\" which is part of the PDQDeploy service stack that is responsible for executing commands and packages on a remote machines Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pdqdeploy_runner_susp_children.yml - Legitimate use of the PDQDeploy tool to execute these commands | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pdqdeploy_runner_susp_children.yml"
+  description                = <<DESC
+    Detects suspicious execution of "PDQDeployRunner" which is part of the PDQDeploy service stack that is responsible for executing commands and packages on a remote machines
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pdqdeploy_runner_susp_children.yml
+
+    False Positives:
+    - Legitimate use of the PDQDeploy tool to execute these commands
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

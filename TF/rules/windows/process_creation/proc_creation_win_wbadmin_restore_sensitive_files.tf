@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wbadmin_rest
   name                       = "proc_creation_win_wbadmin_restore_sensitive_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Sensitive File Recovery From Backup Via Wbadmin.EXE"
-  description                = "Detects the dump of highly sensitive files such as \"NTDS.DIT\" and \"SECURITY\" hive. Attackers can leverage the \"wbadmin\" utility in order to dump sensitive files that might contain credential or sensitive information. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wbadmin_restore_sensitive_files.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wbadmin_restore_sensitive_files.yml"
+  description                = <<DESC
+    Detects the dump of highly sensitive files such as "NTDS.DIT" and "SECURITY" hive. Attackers can leverage the "wbadmin" utility in order to dump sensitive files that might contain credential or sensitive information.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wbadmin_restore_sensitive_files.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

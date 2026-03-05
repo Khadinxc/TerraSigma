@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_dll_system_manageme
   name                       = "image_load_dll_system_management_automation_susp_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Core DLL Loaded By Non PowerShell Process"
-  description                = "Detects loading of essential DLLs used by PowerShell by non-PowerShell process. Detects behavior similar to meterpreter's \"load powershell\" extension. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_system_management_automation_susp_load.yml - Used by some .NET binaries, minimal on user workstation. - Used by Microsoft SQL Server Management Studio | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_system_management_automation_susp_load.yml"
+  description                = <<DESC
+    Detects loading of essential DLLs used by PowerShell by non-PowerShell process. Detects behavior similar to meterpreter's "load powershell" extension.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_system_management_automation_susp_load.yml
+
+    False Positives:
+    - Used by some .NET binaries, minimal on user workstation.
+    - Used by Microsoft SQL Server Management Studio
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_mmc_default_
   name                       = "proc_creation_win_mmc_default_domain_gpo_modification_via_gpme"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Default Domain GPO Modification via GPME"
-  description                = "Detects the use of the Group Policy Management Editor (GPME) to modify Default Domain or Default Domain Controllers Group Policy Objects (GPOs). Adversaries may leverage GPME to make stealthy changes in these default GPOs to deploy malicious GPOs configurations across the domain without raising suspicion. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mmc_default_domain_gpo_modification_via_gpme.yml - Legitimate use of GPME to modify GPOs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mmc_default_domain_gpo_modification_via_gpme.yml"
+  description                = <<DESC
+    Detects the use of the Group Policy Management Editor (GPME) to modify Default Domain or Default Domain Controllers Group Policy Objects (GPOs). Adversaries may leverage GPME to make stealthy changes in these default GPOs to deploy malicious GPOs configurations across the domain without raising suspicion.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mmc_default_domain_gpo_modification_via_gpme.yml
+
+    False Positives:
+    - Legitimate use of GPME to modify GPOs
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_side_load_classicex
   name                       = "image_load_side_load_classicexplorer32"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential DLL Sideloading Via ClassicExplorer32.dll"
-  description                = "Detects potential DLL sideloading using ClassicExplorer32.dll from the Classic Shell software Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_classicexplorer32.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_classicexplorer32.yml"
+  description                = <<DESC
+    Detects potential DLL sideloading using ClassicExplorer32.dll from the Classic Shell software
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_classicexplorer32.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

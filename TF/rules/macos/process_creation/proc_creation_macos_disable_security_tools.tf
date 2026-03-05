@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_disable_se
   name                       = "proc_creation_macos_disable_security_tools"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disable Security Tools"
-  description                = "Detects disabling security tools Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_disable_security_tools.yml - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_disable_security_tools.yml"
+  description                = <<DESC
+    Detects disabling security tools
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_disable_security_tools.yml
+
+    False Positives:
+    - Legitimate activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

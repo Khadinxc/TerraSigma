@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_pcalu
   name                       = "proc_creation_win_lolbin_pcalua"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Use of Pcalua For Execution"
-  description                = "Detects execition of commands and binaries from the context of The program compatibility assistant (Pcalua.exe). This can be used as a LOLBIN in order to bypass application whitelisting. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_pcalua.yml - Legitimate use by a via a batch script or by an administrator. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_pcalua.yml"
+  description                = <<DESC
+    Detects execition of commands and binaries from the context of The program compatibility assistant (Pcalua.exe). This can be used as a LOLBIN in order to bypass application whitelisting.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_pcalua.yml
+
+    False Positives:
+    - Legitimate use by a via a batch script or by an administrator.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

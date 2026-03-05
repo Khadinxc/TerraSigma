@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_event_apt_oceanlotus_
   name                       = "registry_event_apt_oceanlotus_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "OceanLotus Registry Activity"
-  description                = "Detects registry keys created in OceanLotus (also known as APT32) attacks Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT32-Oceanlotus/registry_event_apt_oceanlotus_registry.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT32-Oceanlotus/registry_event_apt_oceanlotus_registry.yml"
+  description                = <<DESC
+    Detects registry keys created in OceanLotus (also known as APT32) attacks
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT32-Oceanlotus/registry_event_apt_oceanlotus_registry.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_domain_noti
   name                       = "net_connection_win_domain_notion_api_susp_communication"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Network Connection To Notion API"
-  description                = "Detects a non-browser process communicating with the Notion API. This could indicate potential use of a covert C2 channel such as \"OffensiveNotion C2\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_notion_api_susp_communication.yml - Legitimate applications communicating with the \"api.notion.com\" endpoint that are not already in the exclusion list. The desktop and browser applications do not appear to be using the API by default unless integrations are configured. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_notion_api_susp_communication.yml"
+  description                = <<DESC
+    Detects a non-browser process communicating with the Notion API. This could indicate potential use of a covert C2 channel such as "OffensiveNotion C2"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_notion_api_susp_communication.yml
+
+    False Positives:
+    - Legitimate applications communicating with the "api.notion.com" endpoint that are not already in the exclusion list. The desktop and browser applications do not appear to be using the API by default unless integrations are configured.
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceNetworkEvents

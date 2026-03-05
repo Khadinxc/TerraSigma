@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sdbinst_shim
   name                       = "proc_creation_win_sdbinst_shim_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Shim Database Persistence via Sdbinst.EXE"
-  description                = "Detects installation of a new shim using sdbinst.exe. Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by application shims Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sdbinst_shim_persistence.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sdbinst_shim_persistence.yml"
+  description                = <<DESC
+    Detects installation of a new shim using sdbinst.exe. Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by application shims
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sdbinst_shim_persistence.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

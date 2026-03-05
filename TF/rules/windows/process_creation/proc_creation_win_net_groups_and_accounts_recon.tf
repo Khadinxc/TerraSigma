@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_net_groups_a
   name                       = "proc_creation_win_net_groups_and_accounts_recon"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Group And Account Reconnaissance Activity Using Net.EXE"
-  description                = "Detects suspicious reconnaissance command line activity on Windows systems using Net.EXE Check if the user that executed the commands is suspicious (e.g. service accounts, LOCAL_SYSTEM) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_groups_and_accounts_recon.yml - Inventory tool runs - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_groups_and_accounts_recon.yml"
+  description                = <<DESC
+    Detects suspicious reconnaissance command line activity on Windows systems using Net.EXE Check if the user that executed the commands is suspicious (e.g. service accounts, LOCAL_SYSTEM)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_groups_and_accounts_recon.yml
+
+    False Positives:
+    - Inventory tool runs
+    - Administrative activity
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_sliver_
   name                       = "proc_creation_win_hktl_sliver_c2_execution_pattern"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Sliver C2 Implant Activity Pattern"
-  description                = "Detects process activity patterns as seen being used by Sliver C2 framework implants Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sliver_c2_execution_pattern.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sliver_c2_execution_pattern.yml"
+  description                = <<DESC
+    Detects process activity patterns as seen being used by Sliver C2 framework implants
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sliver_c2_execution_pattern.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

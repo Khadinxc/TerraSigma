@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_win_werfaultsecure_
   name                       = "image_load_win_werfaultsecure_dbgcore_dbghelp_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WerFaultSecure Loading DbgCore or DbgHelp - EDR-Freeze"
-  description                = "Detects WerFaultSecure.exe loading dbgcore.dll or dbghelp.dll which contains the MiniDumpWriteDump function. The MiniDumpWriteDump function creates a minidump of a process by suspending all threads in the target process to ensure a consistent memory snapshot. The EDR-Freeze technique abuses WerFaultSecure.exe running as a Protected Process Light (PPL) with WinTCB protection level to suspend EDR/AV processes. By leveraging MiniDumpWriteDump's thread suspension behavior, edr-freeze allows malicious activity to execute undetected during the suspension period. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_win_werfaultsecure_dbgcore_dbghelp_load.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_win_werfaultsecure_dbgcore_dbghelp_load.yml"
+  description                = <<DESC
+    Detects WerFaultSecure.exe loading dbgcore.dll or dbghelp.dll which contains the MiniDumpWriteDump function. The MiniDumpWriteDump function creates a minidump of a process by suspending all threads in the target process to ensure a consistent memory snapshot. The EDR-Freeze technique abuses WerFaultSecure.exe running as a Protected Process Light (PPL) with WinTCB protection level to suspend EDR/AV processes. By leveraging MiniDumpWriteDump's thread suspension behavior, edr-freeze allows malicious activity to execute undetected during the suspension period.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_win_werfaultsecure_dbgcore_dbghelp_load.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

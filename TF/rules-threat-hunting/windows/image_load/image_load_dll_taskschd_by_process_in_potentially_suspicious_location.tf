@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_dll_taskschd_by_pro
   name                       = "image_load_dll_taskschd_by_process_in_potentially_suspicious_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Task Scheduler DLL Loaded By Application Located In Potentially Suspicious Location"
-  description                = "Detects the loading of the \"taskschd.dll\" module from a process that located in a potentially suspicious or uncommon directory. The loading of this DLL might indicate that the application have the capability to create a scheduled task via the \"Schedule.Service\" COM object. Investigation of the loading application and its behavior is required to determining if its malicious. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_dll_taskschd_by_process_in_potentially_suspicious_location.yml - Some installers might generate false positives, apply additional filters accordingly. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_dll_taskschd_by_process_in_potentially_suspicious_location.yml"
+  description                = <<DESC
+    Detects the loading of the "taskschd.dll" module from a process that located in a potentially suspicious or uncommon directory. The loading of this DLL might indicate that the application have the capability to create a scheduled task via the "Schedule.Service" COM object. Investigation of the loading application and its behavior is required to determining if its malicious.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_dll_taskschd_by_process_in_potentially_suspicious_location.yml
+
+    False Positives:
+    - Some installers might generate false positives, apply additional filters accordingly.
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceImageLoadEvents

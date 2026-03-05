@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_control_pane
   name                       = "proc_creation_win_control_panel_item"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Control Panel Items"
-  description                = "Detects the malicious use of a control panel item Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_control_panel_item.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_control_panel_item.yml"
+  description                = <<DESC
+    Detects the malicious use of a control panel item
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_control_panel_item.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_regedit_print_a
   name                       = "file_event_win_regedit_print_as_pdf"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PDF File Created By RegEdit.EXE"
-  description                = "Detects the creation of a file with the \".pdf\" extension by the \"RegEdit.exe\" process. This indicates that a user is trying to print/save a registry key as a PDF in order to potentially extract sensitive information and bypass defenses. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_regedit_print_as_pdf.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_regedit_print_as_pdf.yml"
+  description                = <<DESC
+    Detects the creation of a file with the ".pdf" extension by the "RegEdit.exe" process. This indicates that a user is trying to print/save a registry key as a PDF in order to potentially extract sensitive information and bypass defenses.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_regedit_print_as_pdf.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

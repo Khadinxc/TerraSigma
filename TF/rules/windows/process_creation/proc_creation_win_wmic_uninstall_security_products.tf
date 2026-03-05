@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wmic_uninsta
   name                       = "proc_creation_win_wmic_uninstall_security_products"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Tampering With Security Products Via WMIC"
-  description                = "Detects uninstallation or termination of security products using the WMIC utility Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_uninstall_security_products.yml - Legitimate administration | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_uninstall_security_products.yml"
+  description                = <<DESC
+    Detects uninstallation or termination of security products using the WMIC utility
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_uninstall_security_products.yml
+
+    False Positives:
+    - Legitimate administration
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

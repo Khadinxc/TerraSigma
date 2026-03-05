@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_fax_dll_persistan
   name                       = "registry_set_fax_dll_persistance"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Change the Fax Dll"
-  description                = "Detect possible persistence using Fax DLL load when service restart Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_fax_dll_persistance.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_fax_dll_persistance.yml"
+  description                = <<DESC
+    Detect possible persistence using Fax DLL load when service restart
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_fax_dll_persistance.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

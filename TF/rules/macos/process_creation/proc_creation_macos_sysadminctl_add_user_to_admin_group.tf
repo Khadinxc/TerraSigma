@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_sysadminct
   name                       = "proc_creation_macos_sysadminctl_add_user_to_admin_group"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "User Added To Admin Group Via Sysadminctl"
-  description                = "Detects attempts to create and add an account to the admin group via \"sysadminctl\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_sysadminctl_add_user_to_admin_group.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_sysadminctl_add_user_to_admin_group.yml"
+  description                = <<DESC
+    Detects attempts to create and add an account to the admin group via "sysadminctl"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_sysadminctl_add_user_to_admin_group.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

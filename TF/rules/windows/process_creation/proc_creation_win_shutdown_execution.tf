@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_shutdown_exe
   name                       = "proc_creation_win_shutdown_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Execution of Shutdown"
-  description                = "Use of the commandline to shutdown or reboot windows Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_shutdown_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_shutdown_execution.yml"
+  description                = <<DESC
+    Use of the commandline to shutdown or reboot windows
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_shutdown_execution.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

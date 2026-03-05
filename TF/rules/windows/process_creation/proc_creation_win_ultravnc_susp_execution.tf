@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_ultravnc_sus
   name                       = "proc_creation_win_ultravnc_susp_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious UltraVNC Execution"
-  description                = "Detects suspicious UltraVNC command line flag combination that indicate a auto reconnect upon execution, e.g. startup (as seen being used by Gamaredon threat group) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ultravnc_susp_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ultravnc_susp_execution.yml"
+  description                = <<DESC
+    Detects suspicious UltraVNC command line flag combination that indicate a auto reconnect upon execution, e.g. startup (as seen being used by Gamaredon threat group)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ultravnc_susp_execution.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

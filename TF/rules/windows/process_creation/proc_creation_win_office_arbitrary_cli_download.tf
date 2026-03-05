@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_office_arbit
   name                       = "proc_creation_win_office_arbitrary_cli_download"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Arbitrary File Download Using Office Application"
-  description                = "Detects potential arbitrary file download using a Microsoft Office application Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_arbitrary_cli_download.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_arbitrary_cli_download.yml"
+  description                = <<DESC
+    Detects potential arbitrary file download using a Microsoft Office application
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_arbitrary_cli_download.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

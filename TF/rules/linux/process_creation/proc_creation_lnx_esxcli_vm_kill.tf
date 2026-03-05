@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_esxcli_vm_ki
   name                       = "proc_creation_lnx_esxcli_vm_kill"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ESXi VM Kill Via ESXCLI"
-  description                = "Detects execution of the \"esxcli\" command with the \"vm\" and \"kill\" flag in order to kill/shutdown a specific VM. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_vm_kill.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_vm_kill.yml"
+  description                = <<DESC
+    Detects execution of the "esxcli" command with the "vm" and "kill" flag in order to kill/shutdown a specific VM.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_vm_kill.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

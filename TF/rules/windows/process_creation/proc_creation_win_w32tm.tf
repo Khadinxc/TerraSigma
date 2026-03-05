@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_w32tm" {
   name                       = "proc_creation_win_w32tm"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Use of W32tm as Timer"
-  description                = "When configured with suitable command line arguments, w32tm can act as a delay mechanism Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_w32tm.yml - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_w32tm.yml"
+  description                = <<DESC
+    When configured with suitable command line arguments, w32tm can act as a delay mechanism
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_w32tm.yml
+
+    False Positives:
+    - Legitimate use
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

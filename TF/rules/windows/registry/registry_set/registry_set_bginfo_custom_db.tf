@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_bginfo_custom_db"
   name                       = "registry_set_bginfo_custom_db"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New BgInfo.EXE Custom DB Path Registry Configuration"
-  description                = "Detects setting of a new registry database value related to BgInfo configuration. Attackers can for example set this value to save the results of the commands executed by BgInfo in order to exfiltrate information. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_bginfo_custom_db.yml - Legitimate use of external DB to save the results | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_bginfo_custom_db.yml"
+  description                = <<DESC
+    Detects setting of a new registry database value related to BgInfo configuration. Attackers can for example set this value to save the results of the commands executed by BgInfo in order to exfiltrate information.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_bginfo_custom_db.yml
+
+    False Positives:
+    - Legitimate use of external DB to save the results
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

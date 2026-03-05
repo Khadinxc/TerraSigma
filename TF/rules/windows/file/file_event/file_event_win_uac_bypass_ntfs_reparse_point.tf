@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_uac_bypass_ntfs
   name                       = "file_event_win_uac_bypass_ntfs_reparse_point"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass Using NTFS Reparse Point - File"
-  description                = "Detects the pattern of UAC Bypass using NTFS reparse point and wusa.exe DLL hijacking (UACMe 36) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_ntfs_reparse_point.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_ntfs_reparse_point.yml"
+  description                = <<DESC
+    Detects the pattern of UAC Bypass using NTFS reparse point and wusa.exe DLL hijacking (UACMe 36)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_ntfs_reparse_point.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

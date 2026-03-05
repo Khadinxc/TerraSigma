@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_domain_ngro
   name                       = "net_connection_win_domain_ngrok"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Process Initiated Network Connection To Ngrok Domain"
-  description                = "Detects an executable initiating a network connection to \"ngrok\" domains. Attackers were seen using this \"ngrok\" in order to store their second stage payloads and malware. While communication with such domains can be legitimate, often times is a sign of either data exfiltration by malicious actors or additional download. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_ngrok.yml - Legitimate use of the ngrok service. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_ngrok.yml"
+  description                = <<DESC
+    Detects an executable initiating a network connection to "ngrok" domains. Attackers were seen using this "ngrok" in order to store their second stage payloads and malware. While communication with such domains can be legitimate, often times is a sign of either data exfiltration by malicious actors or additional download.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_ngrok.yml
+
+    False Positives:
+    - Legitimate use of the ngrok service.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents

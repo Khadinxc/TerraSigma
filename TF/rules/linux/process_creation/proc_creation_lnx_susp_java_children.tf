@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_susp_java_ch
   name                       = "proc_creation_lnx_susp_java_children"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Java Children Processes"
-  description                = "Detects java process spawning suspicious children Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_java_children.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_java_children.yml"
+  description                = <<DESC
+    Detects java process spawning suspicious children
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_java_children.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

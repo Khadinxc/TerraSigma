@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_recon" 
   name                       = "proc_creation_win_susp_recon"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Recon Information for Export with Command Prompt"
-  description                = "Once established within a system or network, an adversary may use automated techniques for collecting internal data. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_recon.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_recon.yml"
+  description                = <<DESC
+    Once established within a system or network, an adversary may use automated techniques for collecting internal data.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_recon.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

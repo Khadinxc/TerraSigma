@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_registry_cim
   name                       = "proc_creation_win_registry_cimprovider_dll_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DLL Execution Via Register-cimprovider.exe"
-  description                = "Detects using register-cimprovider.exe to execute arbitrary dll file. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_cimprovider_dll_load.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_cimprovider_dll_load.yml"
+  description                = <<DESC
+    Detects using register-cimprovider.exe to execute arbitrary dll file.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_cimprovider_dll_load.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_office_susp_fil
   name                       = "file_event_win_office_susp_file_extension"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File With Uncommon Extension Created By An Office Application"
-  description                = "Detects the creation of files with an executable or script extension by an Office application. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_susp_file_extension.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_susp_file_extension.yml"
+  description                = <<DESC
+    Detects the creation of files with an executable or script extension by an Office application.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_susp_file_extension.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

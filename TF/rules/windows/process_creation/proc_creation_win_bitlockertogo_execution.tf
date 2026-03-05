@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_bitlockertog
   name                       = "proc_creation_win_bitlockertogo_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "BitLockerTogo.EXE Execution"
-  description                = "Detects the execution of \"BitLockerToGo.EXE\". BitLocker To Go is BitLocker Drive Encryption on removable data drives. This feature includes the encryption of, USB flash drives, SD cards, External hard disk drives, Other drives that are formatted by using the NTFS, FAT16, FAT32, or exFAT file system. This is a rarely used application and usage of it at all is worth investigating. Malware such as Lumma stealer has been seen using this process as a target for process hollowing. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitlockertogo_execution.yml - Legitimate usage of BitLockerToGo.exe to encrypt portable devices. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitlockertogo_execution.yml"
+  description                = <<DESC
+    Detects the execution of "BitLockerToGo.EXE". BitLocker To Go is BitLocker Drive Encryption on removable data drives. This feature includes the encryption of, USB flash drives, SD cards, External hard disk drives, Other drives that are formatted by using the NTFS, FAT16, FAT32, or exFAT file system. This is a rarely used application and usage of it at all is worth investigating. Malware such as Lumma stealer has been seen using this process as a target for process hollowing.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitlockertogo_execution.yml
+
+    False Positives:
+    - Legitimate usage of BitLockerToGo.exe to encrypt portable devices.
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

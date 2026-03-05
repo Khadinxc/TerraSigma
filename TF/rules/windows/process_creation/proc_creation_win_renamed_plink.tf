@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_renamed_plin
   name                       = "proc_creation_win_renamed_plink"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed Plink Execution"
-  description                = "Detects the execution of a renamed version of the Plink binary Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_plink.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_plink.yml"
+  description                = <<DESC
+    Detects the execution of a renamed version of the Plink binary
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_plink.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

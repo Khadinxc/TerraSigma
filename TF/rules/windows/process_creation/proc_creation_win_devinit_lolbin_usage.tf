@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_devinit_lolb
   name                       = "proc_creation_win_devinit_lolbin_usage"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Arbitrary MSI Download Via Devinit.EXE"
-  description                = "Detects a certain command line flag combination used by \"devinit.exe\", which can be abused as a LOLBIN to download arbitrary MSI packages on a Windows system Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_devinit_lolbin_usage.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_devinit_lolbin_usage.yml"
+  description                = <<DESC
+    Detects a certain command line flag combination used by "devinit.exe", which can be abused as a LOLBIN to download arbitrary MSI packages on a Windows system
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_devinit_lolbin_usage.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

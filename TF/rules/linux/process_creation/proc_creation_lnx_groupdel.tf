@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_groupdel" {
   name                       = "proc_creation_lnx_groupdel"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Group Has Been Deleted Via Groupdel"
-  description                = "Detects execution of the \"groupdel\" binary. Which is used to delete a group. This is sometimes abused by threat actors in order to cover their tracks Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_groupdel.yml - Legitimate administrator activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_groupdel.yml"
+  description                = <<DESC
+    Detects execution of the "groupdel" binary. Which is used to delete a group. This is sometimes abused by threat actors in order to cover their tracks
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_groupdel.yml
+
+    False Positives:
+    - Legitimate administrator activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

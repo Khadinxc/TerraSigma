@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_unreg
   name                       = "proc_creation_win_lolbin_unregmp2"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Lolbin Unregmp2.exe Use As Proxy"
-  description                = "Detect usage of the \"unregmp2.exe\" binary as a proxy to launch a custom version of \"wmpnscfg.exe\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_unregmp2.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_unregmp2.yml"
+  description                = <<DESC
+    Detect usage of the "unregmp2.exe" binary as a proxy to launch a custom version of "wmpnscfg.exe"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_unregmp2.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

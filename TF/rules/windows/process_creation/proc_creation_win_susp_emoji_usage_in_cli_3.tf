@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_emoji_u
   name                       = "proc_creation_win_susp_emoji_usage_in_cli_3"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Defense Evasion Activity Via Emoji Usage In CommandLine - 3"
-  description                = "Detects the usage of emojis in the command line, this could be a sign of potential defense evasion activity. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_emoji_usage_in_cli_3.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_emoji_usage_in_cli_3.yml"
+  description                = <<DESC
+    Detects the usage of emojis in the command line, this could be a sign of potential defense evasion activity.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_emoji_usage_in_cli_3.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

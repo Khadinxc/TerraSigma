@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_sysctl_dis
   name                       = "proc_creation_macos_sysctl_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "System Information Discovery Via Sysctl - MacOS"
-  description                = "Detects the execution of \"sysctl\" with specific arguments that have been used by threat actors and malware. It provides system hardware information. This process is primarily used to detect and avoid virtualization and analysis environments. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_sysctl_discovery.yml - Legitimate administrative activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_sysctl_discovery.yml"
+  description                = <<DESC
+    Detects the execution of "sysctl" with specific arguments that have been used by threat actors and malware. It provides system hardware information. This process is primarily used to detect and avoid virtualization and analysis environments.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_sysctl_discovery.yml
+
+    False Positives:
+    - Legitimate administrative activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_abusing
   name                       = "proc_creation_win_susp_abusing_debug_privilege"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Abused Debug Privilege by Arbitrary Parent Processes"
-  description                = "Detection of unusual child processes by different system processes Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_abusing_debug_privilege.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_abusing_debug_privilege.yml"
+  description                = <<DESC
+    Detection of unusual child processes by different system processes
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_abusing_debug_privilege.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

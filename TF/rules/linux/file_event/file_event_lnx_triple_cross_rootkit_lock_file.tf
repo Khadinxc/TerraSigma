@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_lnx_triple_cross_ro
   name                       = "file_event_lnx_triple_cross_rootkit_lock_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Triple Cross eBPF Rootkit Default LockFile"
-  description                = "Detects the creation of the file \"rootlog\" which is used by the TripleCross rootkit as a way to check if the backdoor is already running. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_triple_cross_rootkit_lock_file.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_triple_cross_rootkit_lock_file.yml"
+  description                = <<DESC
+    Detects the creation of the file "rootlog" which is used by the TripleCross rootkit as a way to check if the backdoor is already running.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_triple_cross_rootkit_lock_file.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_shell_context_men
   name                       = "registry_set_shell_context_menu_tampering"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Shell Context Menu Command Tampering"
-  description                = "Detects changes to shell context menu commands. Use this rule to hunt for potential anomalies and suspicious shell commands. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_set/registry_set_shell_context_menu_tampering.yml - Likely from new software installation suggesting to add context menu items. Such as \"PowerShell\", \"Everything\", \"Git\", etc. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_set/registry_set_shell_context_menu_tampering.yml"
+  description                = <<DESC
+    Detects changes to shell context menu commands. Use this rule to hunt for potential anomalies and suspicious shell commands.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_set/registry_set_shell_context_menu_tampering.yml
+
+    False Positives:
+    - Likely from new software installation suggesting to add context menu items. Such as "PowerShell", "Everything", "Git", etc.
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceRegistryEvents

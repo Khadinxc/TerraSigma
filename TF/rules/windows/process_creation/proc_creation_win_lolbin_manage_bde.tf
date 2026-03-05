@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_manag
   name                       = "proc_creation_win_lolbin_manage_bde"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Manage-bde.wsf Abuse To Proxy Execution"
-  description                = "Detects potential abuse of the \"manage-bde.wsf\" script as a LOLBIN to proxy execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_manage_bde.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_manage_bde.yml"
+  description                = <<DESC
+    Detects potential abuse of the "manage-bde.wsf" script as a LOLBIN to proxy execution
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_manage_bde.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

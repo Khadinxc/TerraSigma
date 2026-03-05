@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_k
   name                       = "proc_creation_win_powershell_kerberos_kerberos_ticket_request_via_cli"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Kerberos Ticket Request via CLI"
-  description                = "Detects suspicious Kerberos ticket requests via command line using System.IdentityModel.Tokens.KerberosRequestorSecurityToken class. Threat actors may use command line interfaces to request Kerberos tickets for service accounts in order to perform offline password cracking attacks commonly known as Kerberoasting or other Kerberos ticket abuse techniques like silver ticket attacks. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_kerberos_kerberos_ticket_request_via_cli.yml - Legitimate command line usage by administrators or security tools. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_kerberos_kerberos_ticket_request_via_cli.yml"
+  description                = <<DESC
+    Detects suspicious Kerberos ticket requests via command line using System.IdentityModel.Tokens.KerberosRequestorSecurityToken class. Threat actors may use command line interfaces to request Kerberos tickets for service accounts in order to perform offline password cracking attacks commonly known as Kerberoasting or other Kerberos ticket abuse techniques like silver ticket attacks.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_kerberos_kerberos_ticket_request_via_cli.yml
+
+    False Positives:
+    - Legitimate command line usage by administrators or security tools.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

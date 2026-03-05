@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_pua_sysinternals_
   name                       = "registry_set_pua_sysinternals_renamed_execution_via_eula"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Execution Of Renamed Sysinternals Tools - Registry"
-  description                = "Detects the creation of the \"accepteula\" key related to the Sysinternals tools being created from executables with the wrong name (e.g. a renamed Sysinternals tool) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_pua_sysinternals_renamed_execution_via_eula.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_pua_sysinternals_renamed_execution_via_eula.yml"
+  description                = <<DESC
+    Detects the creation of the "accepteula" key related to the Sysinternals tools being created from executables with the wrong name (e.g. a renamed Sysinternals tool)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_pua_sysinternals_renamed_execution_via_eula.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

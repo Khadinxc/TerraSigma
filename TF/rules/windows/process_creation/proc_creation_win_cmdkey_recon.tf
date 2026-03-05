@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_cmdkey_recon
   name                       = "proc_creation_win_cmdkey_recon"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Reconnaissance For Cached Credentials Via Cmdkey.EXE"
-  description                = "Detects usage of cmdkey to look for cached credentials on the system Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmdkey_recon.yml - Legitimate administrative tasks | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmdkey_recon.yml"
+  description                = <<DESC
+    Detects usage of cmdkey to look for cached credentials on the system
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmdkey_recon.yml
+
+    False Positives:
+    - Legitimate administrative tasks
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

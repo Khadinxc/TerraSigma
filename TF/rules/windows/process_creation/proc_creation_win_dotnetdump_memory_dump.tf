@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_dotnetdump_m
   name                       = "proc_creation_win_dotnetdump_memory_dump"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Process Memory Dump Via Dotnet-Dump"
-  description                = "Detects the execution of \"dotnet-dump\" with the \"collect\" flag. The execution could indicate potential process dumping of critical processes such as LSASS. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dotnetdump_memory_dump.yml - Process dumping is the expected behavior of the tool. So false positives are expected in legitimate usage. The PID/Process Name of the process being dumped needs to be investigated | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dotnetdump_memory_dump.yml"
+  description                = <<DESC
+    Detects the execution of "dotnet-dump" with the "collect" flag. The execution could indicate potential process dumping of critical processes such as LSASS.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dotnetdump_memory_dump.yml
+
+    False Positives:
+    - Process dumping is the expected behavior of the tool. So false positives are expected in legitimate usage. The PID/Process Name of the process being dumped needs to be investigated
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

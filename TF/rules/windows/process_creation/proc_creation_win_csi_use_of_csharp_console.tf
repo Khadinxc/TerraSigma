@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_csi_use_of_c
   name                       = "proc_creation_win_csi_use_of_csharp_console"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Use of CSharp Interactive Console"
-  description                = "Detects the execution of CSharp interactive console by PowerShell Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_csi_use_of_csharp_console.yml - Possible depending on environment. Pair with other factors such as net connections, command-line args, etc. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_csi_use_of_csharp_console.yml"
+  description                = <<DESC
+    Detects the execution of CSharp interactive console by PowerShell
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_csi_use_of_csharp_console.yml
+
+    False Positives:
+    - Possible depending on environment. Pair with other factors such as net connections, command-line args, etc.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

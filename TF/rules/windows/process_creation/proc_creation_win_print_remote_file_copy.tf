@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_print_remote
   name                       = "proc_creation_win_print_remote_file_copy"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Abusing Print Executable"
-  description                = "Attackers can use print.exe for remote file copy Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_print_remote_file_copy.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_print_remote_file_copy.yml"
+  description                = <<DESC
+    Attackers can use print.exe for remote file copy
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_print_remote_file_copy.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

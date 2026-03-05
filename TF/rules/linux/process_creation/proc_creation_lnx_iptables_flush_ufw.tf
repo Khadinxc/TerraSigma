@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_iptables_flu
   name                       = "proc_creation_lnx_iptables_flush_ufw"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Flush Iptables Ufw Chain"
-  description                = "Detect use of iptables to flush all firewall rules, tables and chains and allow all network traffic Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_iptables_flush_ufw.yml - Network administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_iptables_flush_ufw.yml"
+  description                = <<DESC
+    Detect use of iptables to flush all firewall rules, tables and chains and allow all network traffic
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_iptables_flush_ufw.yml
+
+    False Positives:
+    - Network administrators
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

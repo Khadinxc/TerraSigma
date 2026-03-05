@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_scrip
   name                       = "proc_creation_win_lolbin_scriptrunner"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Use of Scriptrunner.exe"
-  description                = "The \"ScriptRunner.exe\" binary can be abused to proxy execution through it and bypass possible whitelisting Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_scriptrunner.yml - Legitimate use when App-v is deployed | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_scriptrunner.yml"
+  description                = <<DESC
+    The "ScriptRunner.exe" binary can be abused to proxy execution through it and bypass possible whitelisting
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_scriptrunner.yml
+
+    False Positives:
+    - Legitimate use when App-v is deployed
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

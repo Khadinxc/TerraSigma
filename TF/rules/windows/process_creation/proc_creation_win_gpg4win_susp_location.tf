@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_gpg4win_susp
   name                       = "proc_creation_win_gpg4win_susp_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Encryption/Decryption Via Gpg4win From Suspicious Locations"
-  description                = "Detects usage of Gpg4win to encrypt/decrypt files located in potentially suspicious locations. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gpg4win_susp_location.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gpg4win_susp_location.yml"
+  description                = <<DESC
+    Detects usage of Gpg4win to encrypt/decrypt files located in potentially suspicious locations.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gpg4win_susp_location.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

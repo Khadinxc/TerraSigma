@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hvci_registr
   name                       = "proc_creation_win_hvci_registry_tampering"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Hypervisor-protected Code Integrity (HVCI) Related Registry Tampering Via CommandLine"
-  description                = "Detects the tampering of Hypervisor-protected Code Integrity (HVCI) related registry values via command line tool reg.exe. HVCI uses virtualization-based security to protect code integrity by ensuring that only trusted code can run in kernel mode. Adversaries may tamper with HVCI to load malicious or unsigned drivers, which can be used to escalate privileges, maintain persistence, or evade security mechanisms. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hvci_registry_tampering.yml - Legitimate system administration tasks that require disabling HVCI for troubleshooting purposes when certain drivers or applications are incompatible with it. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hvci_registry_tampering.yml"
+  description                = <<DESC
+    Detects the tampering of Hypervisor-protected Code Integrity (HVCI) related registry values via command line tool reg.exe. HVCI uses virtualization-based security to protect code integrity by ensuring that only trusted code can run in kernel mode. Adversaries may tamper with HVCI to load malicious or unsigned drivers, which can be used to escalate privileges, maintain persistence, or evade security mechanisms.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hvci_registry_tampering.yml
+
+    False Positives:
+    - Legitimate system administration tasks that require disabling HVCI for troubleshooting purposes when certain drivers or applications are incompatible with it.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_sysinternals_li
   name                       = "file_event_win_sysinternals_livekd_default_dump_name"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "LiveKD Kernel Memory Dump File Created"
-  description                = "Detects the creation of a file that has the same name as the default LiveKD kernel memory dump. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sysinternals_livekd_default_dump_name.yml - In rare occasions administrators might leverage LiveKD to perform live kernel debugging. This should not be allowed on production systems. Investigate and apply additional filters where necessary. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sysinternals_livekd_default_dump_name.yml"
+  description                = <<DESC
+    Detects the creation of a file that has the same name as the default LiveKD kernel memory dump.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sysinternals_livekd_default_dump_name.yml
+
+    False Positives:
+    - In rare occasions administrators might leverage LiveKD to perform live kernel debugging. This should not be allowed on production systems. Investigate and apply additional filters where necessary.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

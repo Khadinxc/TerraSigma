@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_shadow_
   name                       = "proc_creation_win_susp_shadow_copies_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Shadow Copies Creation Using Operating Systems Utilities"
-  description                = "Shadow Copies creation using operating systems utilities, possible credential access Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_shadow_copies_creation.yml - Legitimate administrator working with shadow copies, access for backup purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_shadow_copies_creation.yml"
+  description                = <<DESC
+    Shadow Copies creation using operating systems utilities, possible credential access
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_shadow_copies_creation.yml
+
+    False Positives:
+    - Legitimate administrator working with shadow copies, access for backup purposes
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

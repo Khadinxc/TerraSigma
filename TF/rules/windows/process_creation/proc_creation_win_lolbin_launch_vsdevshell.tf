@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_launc
   name                       = "proc_creation_win_lolbin_launch_vsdevshell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Launch-VsDevShell.PS1 Proxy Execution"
-  description                = "Detects the use of the 'Launch-VsDevShell.ps1' Microsoft signed script to execute commands. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_launch_vsdevshell.yml - Legitimate usage of the script by a developer | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_launch_vsdevshell.yml"
+  description                = <<DESC
+    Detects the use of the 'Launch-VsDevShell.ps1' Microsoft signed script to execute commands.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_launch_vsdevshell.yml
+
+    False Positives:
+    - Legitimate usage of the script by a developer
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

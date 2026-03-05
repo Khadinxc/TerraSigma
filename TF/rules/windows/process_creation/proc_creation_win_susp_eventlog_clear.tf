@@ -2,7 +2,16 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_eventlo
   name                       = "proc_creation_win_susp_eventlog_clear"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Eventlog Clearing or Configuration Change Activity"
-  description                = "Detects the clearing or configuration tampering of EventLog using utilities such as \"wevtutil\", \"powershell\" and \"wmic\". This technique were seen used by threat actors and ransomware strains in order to evade defenses. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_eventlog_clear.yml - Admin activity - Scripts and administrative tools used in the monitored environment - Maintenance activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_eventlog_clear.yml"
+  description                = <<DESC
+    Detects the clearing or configuration tampering of EventLog using utilities such as "wevtutil", "powershell" and "wmic". This technique were seen used by threat actors and ransomware strains in order to evade defenses.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_eventlog_clear.yml
+
+    False Positives:
+    - Admin activity
+    - Scripts and administrative tools used in the monitored environment
+    - Maintenance activity
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

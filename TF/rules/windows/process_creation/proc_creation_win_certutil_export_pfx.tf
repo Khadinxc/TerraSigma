@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_certutil_exp
   name                       = "proc_creation_win_certutil_export_pfx"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Certificate Exported Via Certutil.EXE"
-  description                = "Detects the execution of the certutil with the \"exportPFX\" flag which allows the utility to export certificates. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_export_pfx.yml - There legitimate reasons to export certificates. Investigate the activity to determine if it's benign | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_export_pfx.yml"
+  description                = <<DESC
+    Detects the execution of the certutil with the "exportPFX" flag which allows the utility to export certificates.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_export_pfx.yml
+
+    False Positives:
+    - There legitimate reasons to export certificates. Investigate the activity to determine if it's benign
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

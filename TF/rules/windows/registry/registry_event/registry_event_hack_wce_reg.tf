@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_event_hack_wce_reg" {
   name                       = "registry_event_hack_wce_reg"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Credential Editor Registry"
-  description                = "Detects the use of Windows Credential Editor (WCE) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_hack_wce_reg.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_hack_wce_reg.yml"
+  description                = <<DESC
+    Detects the use of Windows Credential Editor (WCE)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_hack_wce_reg.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

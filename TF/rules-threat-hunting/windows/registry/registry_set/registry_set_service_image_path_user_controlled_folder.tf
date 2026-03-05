@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_service_image_pat
   name                       = "registry_set_service_image_path_user_controlled_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Service Binary in User Controlled Folder"
-  description                = "Detects the setting of the \"ImagePath\" value of a service registry key to a path controlled by a non-administrator user such as \"\\AppData\\\" or \"\\ProgramData\\\". Attackers often use such directories for staging purposes. This rule might also trigger on badly written software, where if an attacker controls an auto starting service, they might achieve persistence or privilege escalation. Note that while ProgramData is a user controlled folder, software might apply strict ACLs which makes them only accessible to admin users. Remove such folders via filters if you experience a lot of noise. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_set/registry_set_service_image_path_user_controlled_folder.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_set/registry_set_service_image_path_user_controlled_folder.yml"
+  description                = <<DESC
+    Detects the setting of the "ImagePath" value of a service registry key to a path controlled by a non-administrator user such as "\AppData\" or "\ProgramData\". Attackers often use such directories for staging purposes. This rule might also trigger on badly written software, where if an attacker controls an auto starting service, they might achieve persistence or privilege escalation. Note that while ProgramData is a user controlled folder, software might apply strict ACLs which makes them only accessible to admin users. Remove such folders via filters if you experience a lot of noise.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_set/registry_set_service_image_path_user_controlled_folder.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

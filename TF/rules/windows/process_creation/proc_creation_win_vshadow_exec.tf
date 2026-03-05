@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_vshadow_exec
   name                       = "proc_creation_win_vshadow_exec"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Proxy Execution via Vshadow"
-  description                = "Detects the invocation of vshadow.exe with the -exec parameter that executes a specified script or command after the shadow copies are created but before the VShadow tool exits. VShadow is a command-line tool that you can use to create and manage volume shadow copies. While legitimate backup or administrative scripts may use this flag, attackers can leverage this parameter to proxy the execution of malware. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vshadow_exec.yml - System backup or administrator tools - Legitimate administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vshadow_exec.yml"
+  description                = <<DESC
+    Detects the invocation of vshadow.exe with the -exec parameter that executes a specified script or command after the shadow copies are created but before the VShadow tool exits. VShadow is a command-line tool that you can use to create and manage volume shadow copies. While legitimate backup or administrative scripts may use this flag, attackers can leverage this parameter to proxy the execution of malware.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vshadow_exec.yml
+
+    False Positives:
+    - System backup or administrator tools
+    - Legitimate administrative scripts
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_change_fil
   name                       = "proc_creation_macos_change_file_time_attr"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Time Attribute Change"
-  description                = "Detect file time attribute change to hide new or changes to existing files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_change_file_time_attr.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_change_file_time_attr.yml"
+  description                = <<DESC
+    Detect file time attribute change to hide new or changes to existing files
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_change_file_time_attr.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

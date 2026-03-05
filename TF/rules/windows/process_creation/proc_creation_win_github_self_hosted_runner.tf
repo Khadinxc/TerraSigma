@@ -2,7 +2,18 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_github_self_
   name                       = "proc_creation_win_github_self_hosted_runner"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Github Self-Hosted Runner Execution"
-  description                = "Detects GitHub self-hosted runners executing workflows on local infrastructure that could be abused for persistence and code execution. Shai-Hulud is an npm supply chain worm targeting CI/CD environments. It installs runners on compromised systems to maintain access after credential theft, leveraging their access to secrets and internal networks. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_github_self_hosted_runner.yml - Legitimate GitHub self-hosted runner installations on designated CI/CD infrastructure - Authorized runner deployments by DevOps/Platform teams following change management - Scheduled runner updates or reconfigurations on existing build agents - Self-hosted runners that follow expected/known naming patterns - Installation via expected/known configuration management tools (reflected mostly as parent process name) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_github_self_hosted_runner.yml"
+  description                = <<DESC
+    Detects GitHub self-hosted runners executing workflows on local infrastructure that could be abused for persistence and code execution. Shai-Hulud is an npm supply chain worm targeting CI/CD environments. It installs runners on compromised systems to maintain access after credential theft, leveraging their access to secrets and internal networks.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_github_self_hosted_runner.yml
+
+    False Positives:
+    - Legitimate GitHub self-hosted runner installations on designated CI/CD infrastructure
+    - Authorized runner deployments by DevOps/Platform teams following change management
+    - Scheduled runner updates or reconfigurations on existing build agents
+    - Self-hosted runners that follow expected/known naming patterns
+    - Installation via expected/known configuration management tools (reflected mostly as parent process name)
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

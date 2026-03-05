@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_executi
   name                       = "proc_creation_win_susp_execution_path_webserver"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Execution From Webserver Root Folder"
-  description                = "Detects a program executing from a web server root folder. Use this rule to hunt for potential interesting activity such as webshell or backdoors Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_execution_path_webserver.yml - Various applications - Tools that include ping or nslookup command invocations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_execution_path_webserver.yml"
+  description                = <<DESC
+    Detects a program executing from a web server root folder. Use this rule to hunt for potential interesting activity such as webshell or backdoors
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_execution_path_webserver.yml
+
+    False Positives:
+    - Various applications
+    - Tools that include ping or nslookup command invocations
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

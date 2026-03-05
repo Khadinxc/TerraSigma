@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_rsync_shell_
   name                       = "proc_creation_lnx_rsync_shell_spawn"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Invocation of Shell via Rsync"
-  description                = "Detects the execution of a shell as sub process of \"rsync\" without the expected command line flag \"-e\" being used, which could be an indication of exploitation as described in CVE-2024-12084. This behavior is commonly associated with attempts to execute arbitrary commands or escalate privileges, potentially leading to unauthorized access or further exploitation. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_rsync_shell_spawn.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_rsync_shell_spawn.yml"
+  description                = <<DESC
+    Detects the execution of a shell as sub process of "rsync" without the expected command line flag "-e" being used, which could be an indication of exploitation as described in CVE-2024-12084. This behavior is commonly associated with attempts to execute arbitrary commands or escalate privileges, potentially leading to unauthorized access or further exploitation.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_rsync_shell_spawn.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

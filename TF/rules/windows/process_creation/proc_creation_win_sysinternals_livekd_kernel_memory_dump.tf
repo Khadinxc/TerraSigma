@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sysinternals
   name                       = "proc_creation_win_sysinternals_livekd_kernel_memory_dump"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Kernel Memory Dump Via LiveKD"
-  description                = "Detects execution of LiveKD with the \"-m\" flag to potentially dump the kernel memory Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_livekd_kernel_memory_dump.yml - Unlikely in production environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_livekd_kernel_memory_dump.yml"
+  description                = <<DESC
+    Detects execution of LiveKD with the "-m" flag to potentially dump the kernel memory
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_livekd_kernel_memory_dump.yml
+
+    False Positives:
+    - Unlikely in production environment
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_a
   name                       = "proc_creation_win_powershell_add_windows_capability"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Add Windows Capability Via PowerShell Cmdlet"
-  description                = "Detects usage of the \"Add-WindowsCapability\" cmdlet to add Windows capabilities. Notable capabilities could be \"OpenSSH\" and others. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_add_windows_capability.yml - Legitimate usage of the capabilities by administrators or users. Add additional filters accordingly. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_add_windows_capability.yml"
+  description                = <<DESC
+    Detects usage of the "Add-WindowsCapability" cmdlet to add Windows capabilities. Notable capabilities could be "OpenSSH" and others.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_add_windows_capability.yml
+
+    False Positives:
+    - Legitimate usage of the capabilities by administrators or users. Add additional filters accordingly.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

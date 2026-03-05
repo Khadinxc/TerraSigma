@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_pua_ditsnap"
   name                       = "proc_creation_win_pua_ditsnap"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - DIT Snapshot Viewer"
-  description                = "Detects the use of Ditsnap tool, an inspection tool for Active Directory database, ntds.dit. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_ditsnap.yml - Legitimate admin usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_ditsnap.yml"
+  description                = <<DESC
+    Detects the use of Ditsnap tool, an inspection tool for Active Directory database, ntds.dit.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_ditsnap.yml
+
+    False Positives:
+    - Legitimate admin usage
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_ntdsutil_usa
   name                       = "proc_creation_win_ntdsutil_usage"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Invocation of Active Directory Diagnostic Tool (ntdsutil.exe)"
-  description                = "Detects execution of ntdsutil.exe, which can be used for various attacks against the NTDS database (NTDS.DIT) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ntdsutil_usage.yml - NTDS maintenance | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ntdsutil_usage.yml"
+  description                = <<DESC
+    Detects execution of ntdsutil.exe, which can be used for various attacks against the NTDS database (NTDS.DIT)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ntdsutil_usage.yml
+
+    False Positives:
+    - NTDS maintenance
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

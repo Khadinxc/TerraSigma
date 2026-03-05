@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_forfiles_chi
   name                       = "proc_creation_win_forfiles_child_process_masquerading"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Forfiles.EXE Child Process Masquerading"
-  description                = "Detects the execution of \"forfiles\" from a non-default location, in order to potentially spawn a custom \"cmd.exe\" from the current working directory. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_forfiles_child_process_masquerading.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_forfiles_child_process_masquerading.yml"
+  description                = <<DESC
+    Detects the execution of "forfiles" from a non-default location, in order to potentially spawn a custom "cmd.exe" from the current working directory.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_forfiles_child_process_masquerading.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

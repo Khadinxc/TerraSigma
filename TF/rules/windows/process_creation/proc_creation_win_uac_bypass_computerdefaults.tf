@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_uac_bypass_c
   name                       = "proc_creation_win_uac_bypass_computerdefaults"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass Tools Using ComputerDefaults"
-  description                = "Detects tools such as UACMe used to bypass UAC with computerdefaults.exe (UACMe 59) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_computerdefaults.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_computerdefaults.yml"
+  description                = <<DESC
+    Detects tools such as UACMe used to bypass UAC with computerdefaults.exe (UACMe 59)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_computerdefaults.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

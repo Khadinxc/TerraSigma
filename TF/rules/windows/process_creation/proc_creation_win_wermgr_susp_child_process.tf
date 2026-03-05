@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wermgr_susp_
   name                       = "proc_creation_win_wermgr_susp_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Child Process Of Wermgr.EXE"
-  description                = "Detects suspicious Windows Error Reporting manager (wermgr.exe) child process Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wermgr_susp_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wermgr_susp_child_process.yml"
+  description                = <<DESC
+    Detects suspicious Windows Error Reporting manager (wermgr.exe) child process
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wermgr_susp_child_process.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

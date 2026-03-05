@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_persistence_com_k
   name                       = "registry_set_persistence_com_key_linking"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential COM Object Hijacking Via TreatAs Subkey - Registry"
-  description                = "Detects COM object hijacking via TreatAs subkey Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_com_key_linking.yml - Maybe some system utilities in rare cases use linking keys for backward compatibility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_com_key_linking.yml"
+  description                = <<DESC
+    Detects COM object hijacking via TreatAs subkey
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_com_key_linking.yml
+
+    False Positives:
+    - Maybe some system utilities in rare cases use linking keys for backward compatibility
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

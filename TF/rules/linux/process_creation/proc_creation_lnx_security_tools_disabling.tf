@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_security_too
   name                       = "proc_creation_lnx_security_tools_disabling"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disabling Security Tools"
-  description                = "Detects disabling security tools Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_security_tools_disabling.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_security_tools_disabling.yml"
+  description                = <<DESC
+    Detects disabling security tools
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_security_tools_disabling.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

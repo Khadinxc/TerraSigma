@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_side_load_edputil" 
   name                       = "image_load_side_load_edputil"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Edputil.DLL Sideloading"
-  description                = "Detects potential DLL sideloading of \"edputil.dll\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_edputil.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_edputil.yml"
+  description                = <<DESC
+    Detects potential DLL sideloading of "edputil.dll"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_edputil.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

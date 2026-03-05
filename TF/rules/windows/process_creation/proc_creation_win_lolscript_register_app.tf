@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolscript_re
   name                       = "proc_creation_win_lolscript_register_app"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Register_App.Vbs LOLScript Abuse"
-  description                = "Detects potential abuse of the \"register_app.vbs\" script that is part of the Windows SDK. The script offers the capability to register new VSS/VDS Provider as a COM+ application. Attackers can use this to install malicious DLLs for persistence and execution. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolscript_register_app.yml - Other VB scripts that leverage the same starting command line flags | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolscript_register_app.yml"
+  description                = <<DESC
+    Detects potential abuse of the "register_app.vbs" script that is part of the Windows SDK. The script offers the capability to register new VSS/VDS Provider as a COM+ application. Attackers can use this to install malicious DLLs for persistence and execution.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolscript_register_app.yml
+
+    False Positives:
+    - Other VB scripts that leverage the same starting command line flags
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

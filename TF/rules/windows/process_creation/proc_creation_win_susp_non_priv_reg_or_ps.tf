@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_non_pri
   name                       = "proc_creation_win_susp_non_priv_reg_or_ps"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Non-privileged Usage of Reg or Powershell"
-  description                = "Search for usage of reg or Powershell by non-privileged users to modify service configuration in registry Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_non_priv_reg_or_ps.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_non_priv_reg_or_ps.yml"
+  description                = <<DESC
+    Search for usage of reg or Powershell by non-privileged users to modify service configuration in registry
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_non_priv_reg_or_ps.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

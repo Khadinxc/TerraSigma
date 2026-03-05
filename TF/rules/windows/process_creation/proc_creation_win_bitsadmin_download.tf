@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_bitsadmin_do
   name                       = "proc_creation_win_bitsadmin_download"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Download Via Bitsadmin"
-  description                = "Detects usage of bitsadmin downloading a file Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download.yml - Some legitimate apps use this, but limited. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download.yml"
+  description                = <<DESC
+    Detects usage of bitsadmin downloading a file
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download.yml
+
+    False Positives:
+    - Some legitimate apps use this, but limited.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

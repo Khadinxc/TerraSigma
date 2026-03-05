@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_uac_bypass_f
   name                       = "proc_creation_win_uac_bypass_fodhelper"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Bypass UAC via Fodhelper.exe"
-  description                = "Identifies use of Fodhelper.exe to bypass User Account Control. Adversaries use this technique to execute privileged processes. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_fodhelper.yml - Legitimate use of fodhelper.exe utility by legitimate user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_fodhelper.yml"
+  description                = <<DESC
+    Identifies use of Fodhelper.exe to bypass User Account Control. Adversaries use this technique to execute privileged processes.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_fodhelper.yml
+
+    False Positives:
+    - Legitimate use of fodhelper.exe utility by legitimate user
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

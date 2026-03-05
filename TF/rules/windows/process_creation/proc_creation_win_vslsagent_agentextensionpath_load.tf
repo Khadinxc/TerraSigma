@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_vslsagent_ag
   name                       = "proc_creation_win_vslsagent_agentextensionpath_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Vsls-Agent Command With AgentExtensionPath Load"
-  description                = "Detects Microsoft Visual Studio vsls-agent.exe lolbin execution with a suspicious library load using the --agentExtensionPath parameter Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vslsagent_agentextensionpath_load.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vslsagent_agentextensionpath_load.yml"
+  description                = <<DESC
+    Detects Microsoft Visual Studio vsls-agent.exe lolbin execution with a suspicious library load using the --agentExtensionPath parameter
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vslsagent_agentextensionpath_load.yml
+
+    False Positives:
+    - False positives depend on custom use of vsls-agent.exe
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wmi_persiste
   name                       = "proc_creation_win_wmi_persistence_script_event_consumer"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WMI Persistence - Script Event Consumer"
-  description                = "Detects WMI script event consumers Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmi_persistence_script_event_consumer.yml - Legitimate event consumers - Dell computers on some versions register an event consumer that is known to cause false positives when brightness is changed by the corresponding keyboard button | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmi_persistence_script_event_consumer.yml"
+  description                = <<DESC
+    Detects WMI script event consumers
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmi_persistence_script_event_consumer.yml
+
+    False Positives:
+    - Legitimate event consumers
+    - Dell computers on some versions register an event consumer that is known to cause false positives when brightness is changed by the corresponding keyboard button
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

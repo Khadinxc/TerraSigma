@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_hh_http_con
   name                       = "net_connection_win_hh_http_connection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HH.EXE Initiated HTTP Network Connection"
-  description                = "Detects a network connection initiated by the \"hh.exe\" process to HTTP destination ports, which could indicate the execution/download of remotely hosted .chm files. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/net_connection_win_hh_http_connection.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/net_connection_win_hh_http_connection.yml"
+  description                = <<DESC
+    Detects a network connection initiated by the "hh.exe" process to HTTP destination ports, which could indicate the execution/download of remotely hosted .chm files.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/net_connection_win_hh_http_connection.yml
+
+    False Positives:
+    - False positive is expected from launching "hh.exe" for the first time on a machine in a while or simply from help files containing reference to external sources. Best correlate this with process creation and file events.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

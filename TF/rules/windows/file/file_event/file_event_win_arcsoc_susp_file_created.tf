@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_arcsoc_susp_fil
   name                       = "file_event_win_arcsoc_susp_file_created"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Created by ArcSOC.exe"
-  description                = "Detects instances where the ArcGIS Server process ArcSOC.exe, which hosts REST services running on an ArcGIS server, creates a file with suspicious file type, indicating that it may be an executable, script file, or otherwise unusual. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_arcsoc_susp_file_created.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_arcsoc_susp_file_created.yml"
+  description                = <<DESC
+    Detects instances where the ArcGIS Server process ArcSOC.exe, which hosts REST services running on an ArcGIS server, creates a file with suspicious file type, indicating that it may be an executable, script file, or otherwise unusual.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_arcsoc_susp_file_created.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

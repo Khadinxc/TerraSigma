@@ -2,7 +2,16 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wmiprvse_spa
   name                       = "proc_creation_win_wmiprvse_spawns_powershell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential WMI Lateral Movement WmiPrvSE Spawned PowerShell"
-  description                = "Detects Powershell as a child of the WmiPrvSE process. Which could be a sign of lateral movement via WMI. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmiprvse_spawns_powershell.yml - AppvClient - CCM - WinRM | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmiprvse_spawns_powershell.yml"
+  description                = <<DESC
+    Detects Powershell as a child of the WmiPrvSE process. Which could be a sign of lateral movement via WMI.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmiprvse_spawns_powershell.yml
+
+    False Positives:
+    - AppvClient
+    - CCM
+    - WinRM
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_msxsl_remote
   name                       = "proc_creation_win_msxsl_remote_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote XSL Execution Via Msxsl.EXE"
-  description                = "Detects the execution of the \"msxsl\" binary with an \"http\" keyword in the command line. This might indicate a potential remote execution of XSL files. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msxsl_remote_execution.yml - Msxsl is not installed by default and is deprecated, so unlikely on most systems. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msxsl_remote_execution.yml"
+  description                = <<DESC
+    Detects the execution of the "msxsl" binary with an "http" keyword in the command line. This might indicate a potential remote execution of XSL files.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msxsl_remote_execution.yml
+
+    False Positives:
+    - Msxsl is not installed by default and is deprecated, so unlikely on most systems.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

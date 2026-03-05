@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_vulnerable_driver
   name                       = "registry_set_vulnerable_driver_blocklist_disable"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Vulnerable Driver Blocklist Disabled"
-  description                = "Detects when the Windows Vulnerable Driver Blocklist is set to disabled. This setting is crucial for preventing the loading of known vulnerable drivers, and its modification may indicate an attempt to bypass security controls. It is often targeted by threat actors to facilitate the installation of malicious or vulnerable drivers, particularly in scenarios involving Endpoint Detection and Response (EDR) bypass techniques. This rule applies to systems that support the Vulnerable Driver Blocklist feature, including Windows 10 version 1903 and later, and Windows Server 2022 and later. Note that this change will require a reboot to take effect, and this rule only detects the registry modification action. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_vulnerable_driver_blocklist_disable.yml - Unlikely and should be investigated immediately. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_vulnerable_driver_blocklist_disable.yml"
+  description                = <<DESC
+    Detects when the Windows Vulnerable Driver Blocklist is set to disabled. This setting is crucial for preventing the loading of known vulnerable drivers, and its modification may indicate an attempt to bypass security controls. It is often targeted by threat actors to facilitate the installation of malicious or vulnerable drivers, particularly in scenarios involving Endpoint Detection and Response (EDR) bypass techniques. This rule applies to systems that support the Vulnerable Driver Blocklist feature, including Windows 10 version 1903 and later, and Windows Server 2022 and later. Note that this change will require a reboot to take effect, and this rule only detects the registry modification action.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_vulnerable_driver_blocklist_disable.yml
+
+    False Positives:
+    - Unlikely and should be investigated immediately.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

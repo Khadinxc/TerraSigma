@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_registry_ins
   name                       = "proc_creation_win_registry_install_reg_debugger_backdoor"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Debugger Registration Cmdline"
-  description                = "Detects the registration of a debugger for a program that is available in the logon screen (sticky key backdoor). Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_install_reg_debugger_backdoor.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_install_reg_debugger_backdoor.yml"
+  description                = <<DESC
+    Detects the registration of a debugger for a program that is available in the logon screen (sticky key backdoor).
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_install_reg_debugger_backdoor.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

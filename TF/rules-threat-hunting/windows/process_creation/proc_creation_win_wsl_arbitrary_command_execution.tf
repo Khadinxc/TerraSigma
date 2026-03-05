@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wsl_arbitrar
   name                       = "proc_creation_win_wsl_arbitrary_command_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Arbitrary Command Execution Using WSL"
-  description                = "Detects potential abuse of Windows Subsystem for Linux (WSL) binary as a Living of the Land binary in order to execute arbitrary Linux or Windows commands. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_wsl_arbitrary_command_execution.yml - Automation and orchestration scripts may use this method to execute scripts etc. - Legitimate use by Windows to kill processes opened via WSL (example VsCode WSL server) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_wsl_arbitrary_command_execution.yml"
+  description                = <<DESC
+    Detects potential abuse of Windows Subsystem for Linux (WSL) binary as a Living of the Land binary in order to execute arbitrary Linux or Windows commands.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_wsl_arbitrary_command_execution.yml
+
+    False Positives:
+    - Automation and orchestration scripts may use this method to execute scripts etc.
+    - Legitimate use by Windows to kill processes opened via WSL (example VsCode WSL server)
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

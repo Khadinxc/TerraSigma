@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_webshell_det
   name                       = "proc_creation_lnx_webshell_detection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux Webshell Indicators"
-  description                = "Detects suspicious sub processes of web server processes Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_webshell_detection.yml - Web applications that invoke Linux command line tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_webshell_detection.yml"
+  description                = <<DESC
+    Detects suspicious sub processes of web server processes
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_webshell_detection.yml
+
+    False Positives:
+    - Web applications that invoke Linux command line tools
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

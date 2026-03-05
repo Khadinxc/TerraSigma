@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_setup16_cust
   name                       = "proc_creation_win_setup16_custom_lst_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Setup16.EXE Execution With Custom .Lst File"
-  description                = "Detects the execution of \"Setup16.EXE\" and old installation utility with a custom \".lst\" file. These \".lst\" file can contain references to external program that \"Setup16.EXE\" will execute. Attackers and adversaries might leverage this as a living of the land utility. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_setup16_custom_lst_execution.yml - On modern Windows system, the \"Setup16\" utility is practically never used, hence false positive should be very rare. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_setup16_custom_lst_execution.yml"
+  description                = <<DESC
+    Detects the execution of "Setup16.EXE" and old installation utility with a custom ".lst" file. These ".lst" file can contain references to external program that "Setup16.EXE" will execute. Attackers and adversaries might leverage this as a living of the land utility.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_setup16_custom_lst_execution.yml
+
+    False Positives:
+    - On modern Windows system, the "Setup16" utility is practically never used, hence false positive should be very rare.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

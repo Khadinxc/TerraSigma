@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_peste
   name                       = "proc_creation_win_lolbin_pester_1"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Execute Code with Pester.bat"
-  description                = "Detects code execution via Pester.bat (Pester - Powershell Modulte for testing) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_pester_1.yml - Legitimate use of Pester for writing tests for Powershell scripts and modules | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_pester_1.yml"
+  description                = <<DESC
+    Detects code execution via Pester.bat (Pester - Powershell Modulte for testing)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_pester_1.yml
+
+    False Positives:
+    - Legitimate use of Pester for writing tests for Powershell scripts and modules
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

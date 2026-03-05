@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_susp_colorcpl" 
   name                       = "file_event_win_susp_colorcpl"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Creation with Colorcpl"
-  description                = "Once executed, colorcpl.exe will copy the arbitrary file to c:\\windows\\system32\\spool\\drivers\\color\\ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_colorcpl.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_colorcpl.yml"
+  description                = <<DESC
+    Once executed, colorcpl.exe will copy the arbitrary file to c:\windows\system32\spool\drivers\color\
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_colorcpl.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_sus
   name                       = "proc_creation_win_rundll32_susp_shimcache_flush"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ShimCache Flush"
-  description                = "Detects actions that clear the local ShimCache and remove forensic evidence Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_shimcache_flush.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_shimcache_flush.yml"
+  description                = <<DESC
+    Detects actions that clear the local ShimCache and remove forensic evidence
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_shimcache_flush.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

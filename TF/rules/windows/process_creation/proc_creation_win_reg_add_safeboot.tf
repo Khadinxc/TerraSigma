@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_reg_add_safe
   name                       = "proc_creation_win_reg_add_safeboot"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Add SafeBoot Keys Via Reg Utility"
-  description                = "Detects execution of \"reg.exe\" commands with the \"add\" or \"copy\" flags on safe boot registry keys. Often used by attacker to allow the ransomware to work in safe mode as some security products do not Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_add_safeboot.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_add_safeboot.yml"
+  description                = <<DESC
+    Detects execution of "reg.exe" commands with the "add" or "copy" flags on safe boot registry keys. Often used by attacker to allow the ransomware to work in safe mode as some security products do not
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_add_safeboot.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

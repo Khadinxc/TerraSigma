@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_adws_unusua
   name                       = "net_connection_win_adws_unusual_connection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon Connection to Active Directory Web Services"
-  description                = "Detects uncommon network connections to the Active Directory Web Services (ADWS) from processes not typically associated with ADWS management. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_adws_unusual_connection.yml - ADWS is used by a number of legitimate applications that need to interact with Active Directory. These applications should be added to the allow-listing to avoid false positives. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_adws_unusual_connection.yml"
+  description                = <<DESC
+    Detects uncommon network connections to the Active Directory Web Services (ADWS) from processes not typically associated with ADWS management.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_adws_unusual_connection.yml
+
+    False Positives:
+    - ADWS is used by a number of legitimate applications that need to interact with Active Directory. These applications should be added to the allow-listing to avoid false positives.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

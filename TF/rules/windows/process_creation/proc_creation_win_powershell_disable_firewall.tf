@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_d
   name                       = "proc_creation_win_powershell_disable_firewall"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Firewall Disabled via PowerShell"
-  description                = "Detects attempts to disable the Windows Firewall using PowerShell Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_disable_firewall.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_disable_firewall.yml"
+  description                = <<DESC
+    Detects attempts to disable the Windows Firewall using PowerShell
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_disable_firewall.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

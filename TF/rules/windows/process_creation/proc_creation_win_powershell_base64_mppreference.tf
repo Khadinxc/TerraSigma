@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_b
   name                       = "proc_creation_win_powershell_base64_mppreference"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Powershell Base64 Encoded MpPreference Cmdlet"
-  description                = "Detects base64 encoded \"MpPreference\" PowerShell cmdlet code that tries to modifies or tamper with Windows Defender AV Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_mppreference.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_mppreference.yml"
+  description                = <<DESC
+    Detects base64 encoded "MpPreference" PowerShell cmdlet code that tries to modifies or tamper with Windows Defender AV
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_mppreference.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

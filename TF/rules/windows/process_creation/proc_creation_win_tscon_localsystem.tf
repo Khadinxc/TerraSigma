@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_tscon_locals
   name                       = "proc_creation_win_tscon_localsystem"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious TSCON Start as SYSTEM"
-  description                = "Detects a tscon.exe start as LOCAL SYSTEM Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tscon_localsystem.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tscon_localsystem.yml"
+  description                = <<DESC
+    Detects a tscon.exe start as LOCAL SYSTEM
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tscon_localsystem.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

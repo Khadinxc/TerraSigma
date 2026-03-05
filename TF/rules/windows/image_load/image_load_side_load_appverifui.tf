@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_side_load_appverifu
   name                       = "image_load_side_load_appverifui"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential appverifUI.DLL Sideloading"
-  description                = "Detects potential DLL sideloading of \"appverifUI.dll\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_appverifui.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_appverifui.yml"
+  description                = <<DESC
+    Detects potential DLL sideloading of "appverifUI.dll"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_appverifui.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

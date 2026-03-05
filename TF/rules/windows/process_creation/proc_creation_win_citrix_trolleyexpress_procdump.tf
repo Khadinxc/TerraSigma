@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_citrix_troll
   name                       = "proc_creation_win_citrix_trolleyexpress_procdump"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Process Access via TrolleyExpress Exclusion"
-  description                = "Detects a possible process memory dump that uses the white-listed Citrix TrolleyExpress.exe filename as a way to dump the lsass process memory Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_citrix_trolleyexpress_procdump.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_citrix_trolleyexpress_procdump.yml"
+  description                = <<DESC
+    Detects a possible process memory dump that uses the white-listed Citrix TrolleyExpress.exe filename as a way to dump the lsass process memory
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_citrix_trolleyexpress_procdump.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_reg_query_re
   name                       = "proc_creation_win_reg_query_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Configuration And Service Reconnaissance Via Reg.EXE"
-  description                = "Detects the usage of \"reg.exe\" in order to query reconnaissance information from the registry. Adversaries may interact with the Windows registry to gather information about credentials, the system, configuration, and installed software. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_query_registry.yml - Discord | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_query_registry.yml"
+  description                = <<DESC
+    Detects the usage of "reg.exe" in order to query reconnaissance information from the registry. Adversaries may interact with the Windows registry to gather information about credentials, the system, configuration, and installed software.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_query_registry.yml
+
+    False Positives:
+    - Discord
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

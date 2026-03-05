@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_diskshadow_c
   name                       = "proc_creation_win_diskshadow_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Diskshadow Child Process Spawned"
-  description                = "Detects any child process spawning from \"Diskshadow.exe\". This could be due to executing Diskshadow in interpreter mode or script mode and using the \"exec\" flag to launch other applications. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_diskshadow_child_process.yml - Likely from legitimate usage of Diskshadow in Interpreter mode. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_diskshadow_child_process.yml"
+  description                = <<DESC
+    Detects any child process spawning from "Diskshadow.exe". This could be due to executing Diskshadow in interpreter mode or script mode and using the "exec" flag to launch other applications.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_diskshadow_child_process.yml
+
+    False Positives:
+    - Likely from legitimate usage of Diskshadow in Interpreter mode.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

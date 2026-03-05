@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_ntds" {
   name                       = "proc_creation_win_susp_ntds"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Process Patterns NTDS.DIT Exfil"
-  description                = "Detects suspicious process patterns used in NTDS.DIT exfiltration Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_ntds.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_ntds.yml"
+  description                = <<DESC
+    Detects suspicious process patterns used in NTDS.DIT exfiltration
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_ntds.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

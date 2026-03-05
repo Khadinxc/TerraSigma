@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_mal_octopus_sca
   name                       = "file_event_win_mal_octopus_scanner"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Octopus Scanner Malware"
-  description                = "Detects Octopus Scanner Malware. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_mal_octopus_scanner.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_mal_octopus_scanner.yml"
+  description                = <<DESC
+    Detects Octopus Scanner Malware.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_mal_octopus_scanner.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

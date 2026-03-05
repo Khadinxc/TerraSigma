@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "win_security_sam_registry_hive
   name                       = "win_security_sam_registry_hive_handle_request"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "SAM Registry Hive Handle Request"
-  description                = "Detects handles requested to SAM registry hive Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_sam_registry_hive_handle_request.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_sam_registry_hive_handle_request.yml"
+  description                = <<DESC
+    Detects handles requested to SAM registry hive
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_sam_registry_hive_handle_request.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

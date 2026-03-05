@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_equation
   name                       = "proc_creation_win_apt_equationgroup_dll_u_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Equation Group DLL_U Export Function Load"
-  description                = "Detects a specific export function name used by one of EquationGroup tools Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/EquationGroup/proc_creation_win_apt_equationgroup_dll_u_load.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/EquationGroup/proc_creation_win_apt_equationgroup_dll_u_load.yml"
+  description                = <<DESC
+    Detects a specific export function name used by one of EquationGroup tools
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/EquationGroup/proc_creation_win_apt_equationgroup_dll_u_load.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

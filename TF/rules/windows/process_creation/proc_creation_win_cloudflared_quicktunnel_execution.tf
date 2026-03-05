@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_cloudflared_
   name                       = "proc_creation_win_cloudflared_quicktunnel_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Cloudflared Quick Tunnel Execution"
-  description                = "Detects creation of an ad-hoc Cloudflare Quick Tunnel, which can be used to tunnel local services such as HTTP, RDP, SSH and SMB. The free TryCloudflare Quick Tunnel will generate a random subdomain on trycloudflare[.]com, following a call to api[.]trycloudflare[.]com. The tool has been observed in use by threat groups including Akira ransomware. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cloudflared_quicktunnel_execution.yml - Legitimate usage of Cloudflare Quick Tunnel | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cloudflared_quicktunnel_execution.yml"
+  description                = <<DESC
+    Detects creation of an ad-hoc Cloudflare Quick Tunnel, which can be used to tunnel local services such as HTTP, RDP, SSH and SMB. The free TryCloudflare Quick Tunnel will generate a random subdomain on trycloudflare[.]com, following a call to api[.]trycloudflare[.]com. The tool has been observed in use by threat groups including Akira ransomware.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cloudflared_quicktunnel_execution.yml
+
+    False Positives:
+    - Legitimate usage of Cloudflare Quick Tunnel
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

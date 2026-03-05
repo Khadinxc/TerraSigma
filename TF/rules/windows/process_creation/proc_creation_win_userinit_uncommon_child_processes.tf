@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_userinit_unc
   name                       = "proc_creation_win_userinit_uncommon_child_processes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon Userinit Child Process"
-  description                = "Detects uncommon \"userinit.exe\" child processes, which could be a sign of uncommon shells or login scripts used for persistence. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_userinit_uncommon_child_processes.yml - Legitimate logon scripts or custom shells may trigger false positives. Apply additional filters accordingly. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_userinit_uncommon_child_processes.yml"
+  description                = <<DESC
+    Detects uncommon "userinit.exe" child processes, which could be a sign of uncommon shells or login scripts used for persistence.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_userinit_uncommon_child_processes.yml
+
+    False Positives:
+    - Legitimate logon scripts or custom shells may trigger false positives. Apply additional filters accordingly.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

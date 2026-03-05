@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_disabled_microsof
   name                       = "registry_set_disabled_microsoft_defender_eventlog"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disabled Windows Defender Eventlog"
-  description                = "Detects the disabling of the Windows Defender eventlog as seen in relation to Lockbit 3.0 infections Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disabled_microsoft_defender_eventlog.yml - Other Antivirus software installations could cause Windows to disable that eventlog (unknown) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disabled_microsoft_defender_eventlog.yml"
+  description                = <<DESC
+    Detects the disabling of the Windows Defender eventlog as seen in relation to Lockbit 3.0 infections
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disabled_microsoft_defender_eventlog.yml
+
+    False Positives:
+    - Other Antivirus software installations could cause Windows to disable that eventlog (unknown)
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

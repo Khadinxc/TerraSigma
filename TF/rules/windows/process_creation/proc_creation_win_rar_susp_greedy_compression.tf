@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rar_susp_gre
   name                       = "proc_creation_win_rar_susp_greedy_compression"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Greedy Compression Using Rar.EXE"
-  description                = "Detects RAR usage that creates an archive from a suspicious folder, either a system folder or one of the folders often used by attackers for staging purposes Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rar_susp_greedy_compression.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rar_susp_greedy_compression.yml"
+  description                = <<DESC
+    Detects RAR usage that creates an archive from a suspicious folder, either a system folder or one of the folders often used by attackers for staging purposes
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rar_susp_greedy_compression.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

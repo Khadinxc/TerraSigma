@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_query_sessio
   name                       = "proc_creation_win_query_session_exfil"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Query Usage To Exfil Data"
-  description                = "Detects usage of \"query.exe\" a system binary to exfil information such as \"sessions\" and \"processes\" for later use Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_query_session_exfil.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_query_session_exfil.yml"
+  description                = <<DESC
+    Detects usage of "query.exe" a system binary to exfil information such as "sessions" and "processes" for later use
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_query_session_exfil.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

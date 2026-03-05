@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_win_trusted_path_by
   name                       = "image_load_win_trusted_path_bypass"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Trusted Path Bypass via Windows Directory Spoofing"
-  description                = "Detects DLLs loading from a spoofed Windows directory path with an extra space (e.g \"C:\\Windows \\System32\") which can bypass Windows trusted path verification. This technique tricks Windows into treating the path as trusted, allowing malicious DLLs to load with high integrity privileges bypassing UAC. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_win_trusted_path_bypass.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_win_trusted_path_bypass.yml"
+  description                = <<DESC
+    Detects DLLs loading from a spoofed Windows directory path with an extra space (e.g "C:\Windows \System32") which can bypass Windows trusted path verification. This technique tricks Windows into treating the path as trusted, allowing malicious DLLs to load with high integrity privileges bypassing UAC.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_win_trusted_path_bypass.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

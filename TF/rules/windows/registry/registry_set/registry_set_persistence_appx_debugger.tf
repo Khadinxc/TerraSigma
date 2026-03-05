@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_persistence_appx_
   name                       = "registry_set_persistence_appx_debugger"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Using DebugPath"
-  description                = "Detects potential persistence using Appx DebugPath Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_appx_debugger.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_appx_debugger.yml"
+  description                = <<DESC
+    Detects potential persistence using Appx DebugPath
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_appx_debugger.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

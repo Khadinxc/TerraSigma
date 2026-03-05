@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_rundll32_remote_sha
   name                       = "image_load_rundll32_remote_share_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote DLL Load Via Rundll32.EXE"
-  description                = "Detects a remote DLL load event via \"rundll32.exe\". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_rundll32_remote_share_load.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_rundll32_remote_share_load.yml"
+  description                = <<DESC
+    Detects a remote DLL load event via "rundll32.exe".
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_rundll32_remote_share_load.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

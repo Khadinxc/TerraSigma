@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_delete_schtasks_hide_
   name                       = "registry_delete_schtasks_hide_task_via_sd_value_removal"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Removal Of SD Value to Hide Schedule Task - Registry"
-  description                = "Remove SD (Security Descriptor) value in \\Schedule\\TaskCache\\Tree registry hive to hide schedule task. This technique is used by Tarrask malware Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/registry_delete_schtasks_hide_task_via_sd_value_removal.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/registry_delete_schtasks_hide_task_via_sd_value_removal.yml"
+  description                = <<DESC
+    Remove SD (Security Descriptor) value in \Schedule\TaskCache\Tree registry hive to hide schedule task. This technique is used by Tarrask malware
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/registry_delete_schtasks_hide_task_via_sd_value_removal.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

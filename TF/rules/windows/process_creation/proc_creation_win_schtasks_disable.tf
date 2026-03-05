@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_schtasks_dis
   name                       = "proc_creation_win_schtasks_disable"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disable Important Scheduled Task"
-  description                = "Detects when adversaries stop services or processes by disabling their respective scheduled tasks in order to conduct data destructive activities Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_disable.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_disable.yml"
+  description                = <<DESC
+    Detects when adversaries stop services or processes by disabling their respective scheduled tasks in order to conduct data destructive activities
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_disable.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

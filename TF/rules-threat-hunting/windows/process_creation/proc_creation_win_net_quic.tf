@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_net_quic" {
   name                       = "proc_creation_win_net_quic"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "SMB over QUIC Via Net.EXE"
-  description                = "Detects the mounting of Windows SMB shares over QUIC, which can be an unexpected event in some enterprise environments. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_net_quic.yml - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_net_quic.yml"
+  description                = <<DESC
+    Detects the mounting of Windows SMB shares over QUIC, which can be an unexpected event in some enterprise environments.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_net_quic.yml
+
+    False Positives:
+    - Administrative activity
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

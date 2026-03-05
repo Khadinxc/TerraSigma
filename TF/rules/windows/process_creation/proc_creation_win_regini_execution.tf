@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_regini_execu
   name                       = "proc_creation_win_regini_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Registry Modification Via Regini.EXE"
-  description                = "Detects the execution of regini.exe which can be used to modify registry keys, the changes are imported from one or more text files. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regini_execution.yml - Legitimate modification of keys | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regini_execution.yml"
+  description                = <<DESC
+    Detects the execution of regini.exe which can be used to modify registry keys, the changes are imported from one or more text files.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regini_execution.yml
+
+    False Positives:
+    - Legitimate modification of keys
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

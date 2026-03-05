@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_persistence_shim_
   name                       = "registry_set_persistence_shim_database_uncommon_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Shim Database In Uncommon Location"
-  description                = "Detects the installation of a new shim database where the file is located in a non-default location Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_shim_database_uncommon_location.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_shim_database_uncommon_location.yml"
+  description                = <<DESC
+    Detects the installation of a new shim database where the file is located in a non-default location
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_shim_database_uncommon_location.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

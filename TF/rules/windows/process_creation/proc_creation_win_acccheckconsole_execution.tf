@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_acccheckcons
   name                       = "proc_creation_win_acccheckconsole_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential DLL Injection Via AccCheckConsole"
-  description                = "Detects the execution \"AccCheckConsole\" a command-line tool for verifying the accessibility implementation of an application's UI. One of the tests that this checker can run are called \"verification routine\", which tests for things like Consistency, Navigation, etc. The tool allows a user to provide a DLL that can contain a custom \"verification routine\". An attacker can build such DLLs and pass it via the CLI, which would then be loaded in the context of the \"AccCheckConsole\" utility. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_acccheckconsole_execution.yml - Legitimate use of the UI Accessibility Checker | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_acccheckconsole_execution.yml"
+  description                = <<DESC
+    Detects the execution "AccCheckConsole" a command-line tool for verifying the accessibility implementation of an application's UI. One of the tests that this checker can run are called "verification routine", which tests for things like Consistency, Navigation, etc. The tool allows a user to provide a DLL that can contain a custom "verification routine". An attacker can build such DLLs and pass it via the CLI, which would then be loaded in the context of the "AccCheckConsole" utility.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_acccheckconsole_execution.yml
+
+    False Positives:
+    - Legitimate use of the UI Accessibility Checker
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

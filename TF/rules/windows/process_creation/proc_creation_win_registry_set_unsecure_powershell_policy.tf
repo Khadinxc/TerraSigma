@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_registry_set
   name                       = "proc_creation_win_registry_set_unsecure_powershell_policy"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential PowerShell Execution Policy Tampering - ProcCreation"
-  description                = "Detects changes to the PowerShell execution policy registry key in order to bypass signing requirements for script execution from the CommandLine Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_set_unsecure_powershell_policy.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_set_unsecure_powershell_policy.yml"
+  description                = <<DESC
+    Detects changes to the PowerShell execution policy registry key in order to bypass signing requirements for script execution from the CommandLine
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_set_unsecure_powershell_policy.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

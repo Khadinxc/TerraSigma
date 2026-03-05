@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_iexpress_sus
   name                       = "proc_creation_win_iexpress_susp_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Self Extracting Package Creation Via Iexpress.EXE From Potentially Suspicious Location"
-  description                = "Detects the use of iexpress.exe to create binaries via Self Extraction Directive (SED) files located in potentially suspicious locations. This behavior has been observed in-the-wild by different threat actors. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iexpress_susp_execution.yml - Administrators building packages using iexpress.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iexpress_susp_execution.yml"
+  description                = <<DESC
+    Detects the use of iexpress.exe to create binaries via Self Extraction Directive (SED) files located in potentially suspicious locations. This behavior has been observed in-the-wild by different threat actors.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iexpress_susp_execution.yml
+
+    False Positives:
+    - Administrators building packages using iexpress.exe
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

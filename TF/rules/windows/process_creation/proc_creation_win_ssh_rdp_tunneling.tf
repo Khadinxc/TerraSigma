@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_ssh_rdp_tunn
   name                       = "proc_creation_win_ssh_rdp_tunneling"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential RDP Tunneling Via SSH"
-  description                = "Execution of ssh.exe to perform data exfiltration and tunneling through RDP Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ssh_rdp_tunneling.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ssh_rdp_tunneling.yml"
+  description                = <<DESC
+    Execution of ssh.exe to perform data exfiltration and tunneling through RDP
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ssh_rdp_tunneling.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

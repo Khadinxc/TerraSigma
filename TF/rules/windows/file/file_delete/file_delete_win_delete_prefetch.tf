@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_delete_win_delete_prefetc
   name                       = "file_delete_win_delete_prefetch"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Prefetch File Deleted"
-  description                = "Detects the deletion of a prefetch file which may indicate an attempt to destroy forensic evidence Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_prefetch.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_prefetch.yml"
+  description                = <<DESC
+    Detects the deletion of a prefetch file which may indicate an attempt to destroy forensic evidence
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_prefetch.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

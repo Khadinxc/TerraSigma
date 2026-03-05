@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_hhctrl_persistenc
   name                       = "registry_set_hhctrl_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Persistence Via Hhctrl.ocx"
-  description                = "Detects when an attacker modifies the registry value of the \"hhctrl\" to point to a custom binary Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_hhctrl_persistence.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_hhctrl_persistence.yml"
+  description                = <<DESC
+    Detects when an attacker modifies the registry value of the "hhctrl" to point to a custom binary
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_hhctrl_persistence.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

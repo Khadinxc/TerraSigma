@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_office_winwo
   name                       = "proc_creation_win_office_winword_dll_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Arbitrary DLL Load Using Winword"
-  description                = "Detects potential DLL sideloading using the Microsoft Office winword process via the '/l' flag. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_winword_dll_load.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_winword_dll_load.yml"
+  description                = <<DESC
+    Detects potential DLL sideloading using the Microsoft Office winword process via the '/l' flag.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_winword_dll_load.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

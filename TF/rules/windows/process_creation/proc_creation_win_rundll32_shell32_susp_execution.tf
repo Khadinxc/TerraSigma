@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_she
   name                       = "proc_creation_win_rundll32_shell32_susp_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Shell32 DLL Execution in Suspicious Directory"
-  description                = "Detects shell32.dll executing a DLL in a suspicious directory Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_shell32_susp_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_shell32_susp_execution.yml"
+  description                = <<DESC
+    Detects shell32.dll executing a DLL in a suspicious directory
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_shell32_susp_execution.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

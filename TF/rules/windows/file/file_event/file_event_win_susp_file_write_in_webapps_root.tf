@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_susp_file_write
   name                       = "file_event_win_susp_file_write_in_webapps_root"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Write to Webapps Root Directory"
-  description                = "Detects suspicious file writes to the root directory of web applications, particularly Apache web servers or Tomcat servers. This may indicate an attempt to deploy malicious files such as web shells or other unauthorized scripts. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_file_write_in_webapps_root.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_file_write_in_webapps_root.yml"
+  description                = <<DESC
+    Detects suspicious file writes to the root directory of web applications, particularly Apache web servers or Tomcat servers. This may indicate an attempt to deploy malicious files such as web shells or other unauthorized scripts.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_file_write_in_webapps_root.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

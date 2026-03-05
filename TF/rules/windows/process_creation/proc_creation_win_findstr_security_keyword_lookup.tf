@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_findstr_secu
   name                       = "proc_creation_win_findstr_security_keyword_lookup"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Security Tools Keyword Lookup Via Findstr.EXE"
-  description                = "Detects execution of \"findstr\" to search for common names of security tools. Attackers often pipe the results of recon commands such as \"tasklist\" or \"whoami\" to \"findstr\" in order to filter out the results. This detection focuses on the keywords that the attacker might use as a filter. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_security_keyword_lookup.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_security_keyword_lookup.yml"
+  description                = <<DESC
+    Detects execution of "findstr" to search for common names of security tools. Attackers often pipe the results of recon commands such as "tasklist" or "whoami" to "findstr" in order to filter out the results. This detection focuses on the keywords that the attacker might use as a filter.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_security_keyword_lookup.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

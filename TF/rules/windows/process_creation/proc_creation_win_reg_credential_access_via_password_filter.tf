@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_reg_credenti
   name                       = "proc_creation_win_reg_credential_access_via_password_filter"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Dropping Of Password Filter DLL"
-  description                = "Detects dropping of dll files in system32 that may be used to retrieve user credentials from LSASS Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_credential_access_via_password_filter.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_credential_access_via_password_filter.yml"
+  description                = <<DESC
+    Detects dropping of dll files in system32 that may be used to retrieve user credentials from LSASS
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_credential_access_via_password_filter.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

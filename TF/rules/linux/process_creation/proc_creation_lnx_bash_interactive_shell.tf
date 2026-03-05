@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_bash_interac
   name                       = "proc_creation_lnx_bash_interactive_shell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Bash Interactive Shell"
-  description                = "Detects execution of the bash shell with the interactive flag \"-i\". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_bash_interactive_shell.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_bash_interactive_shell.yml"
+  description                = <<DESC
+    Detects execution of the bash shell with the interactive flag "-i".
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_bash_interactive_shell.yml
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

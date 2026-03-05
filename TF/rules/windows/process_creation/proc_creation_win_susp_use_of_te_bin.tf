@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_use_of_
   name                       = "proc_creation_win_susp_use_of_te_bin"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Malicious Windows Script Components File Execution by TAEF Detection"
-  description                = "Windows Test Authoring and Execution Framework (TAEF) framework allows you to run automation by executing tests files written on different languages (C, C#, Microsoft COM Scripting interfaces Adversaries may execute malicious code (such as WSC file with VBScript, dll and so on) directly by running te.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_use_of_te_bin.yml - It's not an uncommon to use te.exe directly to execute legal TAEF tests | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_use_of_te_bin.yml"
+  description                = <<DESC
+    Windows Test Authoring and Execution Framework (TAEF) framework allows you to run automation by executing tests files written on different languages (C, C#, Microsoft COM Scripting interfaces Adversaries may execute malicious code (such as WSC file with VBScript, dll and so on) directly by running te.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_use_of_te_bin.yml
+
+    False Positives:
+    - It's not an uncommon to use te.exe directly to execute legal TAEF tests
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

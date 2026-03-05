@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_devcon_disab
   name                       = "proc_creation_win_devcon_disable_vmci_driver"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Devcon Execution Disabling VMware VMCI Device"
-  description                = "Detects execution of devcon.exe with commands that disable the VMware Virtual Machine Communication Interface (VMCI) device. This can be legitimate during VMware Tools troubleshooting or driver conflicts, but may also indicate malware attempting to hijack communication with the hardware via the VMCI device. This has been used to facilitate VMware ESXi vulnerability exploits to escape VMs and execute code on the ESXi host. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_devcon_disable_vmci_driver.yml - Legitimate VMware administration, Tools installation/uninstallation, or troubleshooting driver conflicts. - Automated scripts in virtualized environments for device cleanup. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_devcon_disable_vmci_driver.yml"
+  description                = <<DESC
+    Detects execution of devcon.exe with commands that disable the VMware Virtual Machine Communication Interface (VMCI) device. This can be legitimate during VMware Tools troubleshooting or driver conflicts, but may also indicate malware attempting to hijack communication with the hardware via the VMCI device. This has been used to facilitate VMware ESXi vulnerability exploits to escape VMs and execute code on the ESXi host.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_devcon_disable_vmci_driver.yml
+
+    False Positives:
+    - Legitimate VMware administration, Tools installation/uninstallation, or troubleshooting driver conflicts.
+    - Automated scripts in virtualized environments for device cleanup.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

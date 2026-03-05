@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_esxcli_stora
   name                       = "proc_creation_lnx_esxcli_storage_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ESXi Storage Information Discovery Via ESXCLI"
-  description                = "Detects execution of the \"esxcli\" command with the \"storage\" flag in order to retrieve information about the storage status and other related information. Seen used by malware such as DarkSide and LockBit. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_storage_discovery.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_storage_discovery.yml"
+  description                = <<DESC
+    Detects execution of the "esxcli" command with the "storage" flag in order to retrieve information about the storage status and other related information. Seen used by malware such as DarkSide and LockBit.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_storage_discovery.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

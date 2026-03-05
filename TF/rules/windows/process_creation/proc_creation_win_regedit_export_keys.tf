@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_regedit_expo
   name                       = "proc_creation_win_regedit_export_keys"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Exports Registry Key To a File"
-  description                = "Detects the export of the target Registry key to a file. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regedit_export_keys.yml - Legitimate export of keys | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regedit_export_keys.yml"
+  description                = <<DESC
+    Detects the export of the target Registry key to a file.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regedit_export_keys.yml
+
+    False Positives:
+    - Legitimate export of keys
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

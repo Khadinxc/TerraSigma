@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_certify
   name                       = "proc_creation_win_hktl_certify"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Certify Execution"
-  description                = "Detects Certify a tool for Active Directory certificate abuse based on PE metadata characteristics and common command line arguments. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_certify.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_certify.yml"
+  description                = <<DESC
+    Detects Certify a tool for Active Directory certificate abuse based on PE metadata characteristics and common command line arguments.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_certify.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

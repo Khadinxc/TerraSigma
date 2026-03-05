@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_baaupdate_su
   name                       = "proc_creation_win_baaupdate_susp_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious BitLocker Access Agent Update Utility Execution"
-  description                = "Detects the execution of the BitLocker Access Agent Update Utility (baaupdate.exe) which is not a common parent process for other processes. Suspicious child processes spawned by baaupdate.exe could indicate an attempt at lateral movement via BitLocker DCOM & COM Hijacking. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_baaupdate_susp_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_baaupdate_susp_child_process.yml"
+  description                = <<DESC
+    Detects the execution of the BitLocker Access Agent Update Utility (baaupdate.exe) which is not a common parent process for other processes. Suspicious child processes spawned by baaupdate.exe could indicate an attempt at lateral movement via BitLocker DCOM & COM Hijacking.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_baaupdate_susp_child_process.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

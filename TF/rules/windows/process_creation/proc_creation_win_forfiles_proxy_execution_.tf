@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_forfiles_pro
   name                       = "proc_creation_win_forfiles_proxy_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Forfiles Command Execution"
-  description                = "Detects the execution of \"forfiles\" with the \"/c\" flag. While this is an expected behavior of the tool, it can be abused in order to proxy execution through it with any binary. Can be used to bypass application whitelisting. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_forfiles_proxy_execution_.yml - Legitimate use via a batch script or by an administrator. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_forfiles_proxy_execution_.yml"
+  description                = <<DESC
+    Detects the execution of "forfiles" with the "/c" flag. While this is an expected behavior of the tool, it can be abused in order to proxy execution through it with any binary. Can be used to bypass application whitelisting.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_forfiles_proxy_execution_.yml
+
+    False Positives:
+    - Legitimate use via a batch script or by an administrator.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

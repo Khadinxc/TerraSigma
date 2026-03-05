@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_schtasks_sch
   name                       = "proc_creation_win_schtasks_schedule_type_system"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Schtasks Schedule Type With High Privileges"
-  description                = "Detects scheduled task creations or modification to be run with high privileges on a suspicious schedule type Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_schedule_type_system.yml - Some installers were seen using this method of creation unfortunately. Filter them in your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_schedule_type_system.yml"
+  description                = <<DESC
+    Detects scheduled task creations or modification to be run with high privileges on a suspicious schedule type
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_schedule_type_system.yml
+
+    False Positives:
+    - Some installers were seen using this method of creation unfortunately. Filter them in your environment
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

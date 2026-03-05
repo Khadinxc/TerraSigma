@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_shell_write_sus
   name                       = "file_event_win_shell_write_susp_files_extensions"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Binaries Write Suspicious Extensions"
-  description                = "Detects Windows executables that write files with suspicious extensions Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_shell_write_susp_files_extensions.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_shell_write_susp_files_extensions.yml"
+  description                = <<DESC
+    Detects Windows executables that write files with suspicious extensions
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_shell_write_susp_files_extensions.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

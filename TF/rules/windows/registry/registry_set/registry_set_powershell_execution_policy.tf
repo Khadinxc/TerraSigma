@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_powershell_execut
   name                       = "registry_set_powershell_execution_policy"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential PowerShell Execution Policy Tampering"
-  description                = "Detects changes to the PowerShell execution policy in order to bypass signing requirements for script execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_powershell_execution_policy.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_powershell_execution_policy.yml"
+  description                = <<DESC
+    Detects changes to the PowerShell execution policy in order to bypass signing requirements for script execution
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_powershell_execution_policy.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

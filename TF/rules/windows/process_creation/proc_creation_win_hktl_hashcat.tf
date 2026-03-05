@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_hashcat
   name                       = "proc_creation_win_hktl_hashcat"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Hashcat Password Cracker Execution"
-  description                = "Execute Hashcat.exe with provided SAM file from registry of Windows and Password list to crack against Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_hashcat.yml - Tools that use similar command line flags and values | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_hashcat.yml"
+  description                = <<DESC
+    Execute Hashcat.exe with provided SAM file from registry of Windows and Password list to crack against
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_hashcat.yml
+
+    False Positives:
+    - Tools that use similar command line flags and values
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_findstr_reco
   name                       = "proc_creation_win_findstr_recon_everyone"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Permission Misconfiguration Reconnaissance Via Findstr.EXE"
-  description                = "Detects usage of findstr with the \"EVERYONE\" or \"BUILTIN\" keywords. This was seen being used in combination with \"icacls\" and other utilities to spot misconfigured files or folders permissions. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_recon_everyone.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_recon_everyone.yml"
+  description                = <<DESC
+    Detects usage of findstr with the "EVERYONE" or "BUILTIN" keywords. This was seen being used in combination with "icacls" and other utilities to spot misconfigured files or folders permissions.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_recon_everyone.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

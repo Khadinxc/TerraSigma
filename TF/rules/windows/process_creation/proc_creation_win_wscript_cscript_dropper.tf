@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wscript_cscr
   name                       = "proc_creation_win_wscript_cscript_dropper"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Dropper Script Execution Via WScript/CScript"
-  description                = "Detects wscript/cscript executions of scripts located in user directories Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wscript_cscript_dropper.yml - Some installers might generate a similar behavior. An initial baseline is required | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wscript_cscript_dropper.yml"
+  description                = <<DESC
+    Detects wscript/cscript executions of scripts located in user directories
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wscript_cscript_dropper.yml
+
+    False Positives:
+    - Some installers might generate a similar behavior. An initial baseline is required
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

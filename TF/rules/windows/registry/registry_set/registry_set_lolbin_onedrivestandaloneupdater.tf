@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_lolbin_onedrivest
   name                       = "registry_set_lolbin_onedrivestandaloneupdater"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Lolbas OneDriveStandaloneUpdater.exe Proxy Download"
-  description                = "Detects setting a custom URL for OneDriveStandaloneUpdater.exe to download a file from the Internet without executing any anomalous executables with suspicious arguments. The downloaded file will be in C:\\Users\\redacted\\AppData\\Local\\Microsoft\\OneDrive\\StandaloneUpdaterreSignInSettingsConfig.json Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_lolbin_onedrivestandaloneupdater.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_lolbin_onedrivestandaloneupdater.yml"
+  description                = <<DESC
+    Detects setting a custom URL for OneDriveStandaloneUpdater.exe to download a file from the Internet without executing any anomalous executables with suspicious arguments. The downloaded file will be in C:\Users\redacted\AppData\Local\Microsoft\OneDrive\StandaloneUpdaterreSignInSettingsConfig.json
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_lolbin_onedrivestandaloneupdater.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

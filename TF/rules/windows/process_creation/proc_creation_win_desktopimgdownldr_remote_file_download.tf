@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_desktopimgdo
   name                       = "proc_creation_win_desktopimgdownldr_remote_file_download"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote File Download Via Desktopimgdownldr Utility"
-  description                = "Detects the desktopimgdownldr utility being used to download a remote file. An adversary may use desktopimgdownldr to download arbitrary files as an alternative to certutil. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_desktopimgdownldr_remote_file_download.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_desktopimgdownldr_remote_file_download.yml"
+  description                = <<DESC
+    Detects the desktopimgdownldr utility being used to download a remote file. An adversary may use desktopimgdownldr to download arbitrary files as an alternative to certutil.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_desktopimgdownldr_remote_file_download.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

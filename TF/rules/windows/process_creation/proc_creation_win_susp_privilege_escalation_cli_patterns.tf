@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_privile
   name                       = "proc_creation_win_susp_privilege_escalation_cli_patterns"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious RunAs-Like Flag Combination"
-  description                = "Detects suspicious command line flags that let the user set a target user and command as e.g. seen in PsExec-like tools Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_privilege_escalation_cli_patterns.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_privilege_escalation_cli_patterns.yml"
+  description                = <<DESC
+    Detects suspicious command line flags that let the user set a target user and command as e.g. seen in PsExec-like tools
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_privilege_escalation_cli_patterns.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

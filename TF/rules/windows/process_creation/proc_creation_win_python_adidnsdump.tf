@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_python_adidn
   name                       = "proc_creation_win_python_adidnsdump"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Adidnsdump Execution"
-  description                = "This tool enables enumeration and exporting of all DNS records in the zone for recon purposes of internal networks Python 3 and python.exe must be installed, Usee to Query/modify DNS records for Active Directory integrated DNS via LDAP Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_python_adidnsdump.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_python_adidnsdump.yml"
+  description                = <<DESC
+    This tool enables enumeration and exporting of all DNS records in the zone for recon purposes of internal networks Python 3 and python.exe must be installed, Usee to Query/modify DNS records for Active Directory integrated DNS via LDAP
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_python_adidnsdump.yml
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

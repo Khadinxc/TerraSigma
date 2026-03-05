@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_office_vba_warnin
   name                       = "registry_set_office_vba_warnings_tamper"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Office Macros Warning Disabled"
-  description                = "Detects registry changes to Microsoft Office \"VBAWarning\" to a value of \"1\" which enables the execution of all macros, whether signed or unsigned. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_vba_warnings_tamper.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_vba_warnings_tamper.yml"
+  description                = <<DESC
+    Detects registry changes to Microsoft Office "VBAWarning" to a value of "1" which enables the execution of all macros, whether signed or unsigned.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_vba_warnings_tamper.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

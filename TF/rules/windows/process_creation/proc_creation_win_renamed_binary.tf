@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_renamed_bina
   name                       = "proc_creation_win_renamed_binary"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Defense Evasion Via Binary Rename"
-  description                = "Detects the execution of a renamed binary often used by attackers or malware leveraging new Sysmon OriginalFileName datapoint. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_binary.yml - Custom applications use renamed binaries adding slight change to binary name. Typically this is easy to spot and add to whitelist | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_binary.yml"
+  description                = <<DESC
+    Detects the execution of a renamed binary often used by attackers or malware leveraging new Sysmon OriginalFileName datapoint.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_binary.yml
+
+    False Positives:
+    - Custom applications use renamed binaries adding slight change to binary name. Typically this is easy to spot and add to whitelist
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wmic_recon_c
   name                       = "proc_creation_win_wmic_recon_csproduct"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Hardware Model Reconnaissance Via Wmic.EXE"
-  description                = "Detects the execution of WMIC with the \"csproduct\" which is used to obtain information such as hardware models and vendor information Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_csproduct.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_csproduct.yml"
+  description                = <<DESC
+    Detects the execution of WMIC with the "csproduct" which is used to obtain information such as hardware models and vendor information
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_csproduct.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

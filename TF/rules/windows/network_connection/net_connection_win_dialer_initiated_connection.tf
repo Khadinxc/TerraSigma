@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_dialer_init
   name                       = "net_connection_win_dialer_initiated_connection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Outbound Network Connection Initiated By Microsoft Dialer"
-  description                = "Detects outbound network connection initiated by Microsoft Dialer. The Microsoft Dialer, also known as Phone Dialer, is a built-in utility application included in various versions of the Microsoft Windows operating system. Its primary function is to provide users with a graphical interface for managing phone calls via a modem or a phone line connected to the computer. This is an outdated process in the current conext of it's usage and is a common target for info stealers for process injection, and is used to make C2 connections, common example is \"Rhadamanthys\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_dialer_initiated_connection.yml - In Modern Windows systems, unable to see legitimate usage of this process, However, if an organization has legitimate purpose for this there can be false positives. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_dialer_initiated_connection.yml"
+  description                = <<DESC
+    Detects outbound network connection initiated by Microsoft Dialer. The Microsoft Dialer, also known as Phone Dialer, is a built-in utility application included in various versions of the Microsoft Windows operating system. Its primary function is to provide users with a graphical interface for managing phone calls via a modem or a phone line connected to the computer. This is an outdated process in the current conext of it's usage and is a common target for info stealers for process injection, and is used to make C2 connections, common example is "Rhadamanthys"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_dialer_initiated_connection.yml
+
+    False Positives:
+    - In Modern Windows systems, unable to see legitimate usage of this process, However, if an organization has legitimate purpose for this there can be false positives.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents

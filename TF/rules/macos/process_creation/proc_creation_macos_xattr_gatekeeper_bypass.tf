@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_xattr_gate
   name                       = "proc_creation_macos_xattr_gatekeeper_bypass"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Gatekeeper Bypass via Xattr"
-  description                = "Detects macOS Gatekeeper bypass via xattr utility Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_xattr_gatekeeper_bypass.yml - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_xattr_gatekeeper_bypass.yml"
+  description                = <<DESC
+    Detects macOS Gatekeeper bypass via xattr utility
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_xattr_gatekeeper_bypass.yml
+
+    False Positives:
+    - Legitimate activities
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

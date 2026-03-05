@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_apt27_em
   name                       = "proc_creation_win_apt_apt27_emissary_panda"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "APT27 - Emissary Panda Activity"
-  description                = "Detects the execution of DLL side-loading malware used by threat group Emissary Panda aka APT27 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT27/proc_creation_win_apt_apt27_emissary_panda.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT27/proc_creation_win_apt_apt27_emissary_panda.yml"
+  description                = <<DESC
+    Detects the execution of DLL side-loading malware used by threat group Emissary Panda aka APT27
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT27/proc_creation_win_apt_apt27_emissary_panda.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

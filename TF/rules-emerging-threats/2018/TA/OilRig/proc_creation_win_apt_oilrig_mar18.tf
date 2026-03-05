@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_oilrig_m
   name                       = "proc_creation_win_apt_oilrig_mar18"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "OilRig APT Activity"
-  description                = "Detects OilRig activity as reported by Nyotron in their March 2018 report Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/OilRig/proc_creation_win_apt_oilrig_mar18.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/OilRig/proc_creation_win_apt_oilrig_mar18.yml"
+  description                = <<DESC
+    Detects OilRig activity as reported by Nyotron in their March 2018 report
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/OilRig/proc_creation_win_apt_oilrig_mar18.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

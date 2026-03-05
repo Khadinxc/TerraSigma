@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_office_outlook_en
   name                       = "registry_set_office_outlook_enable_unsafe_client_mail_rules"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Outlook EnableUnsafeClientMailRules Setting Enabled - Registry"
-  description                = "Detects an attacker trying to enable the outlook security setting \"EnableUnsafeClientMailRules\" which allows outlook to run applications or execute macros Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_outlook_enable_unsafe_client_mail_rules.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_outlook_enable_unsafe_client_mail_rules.yml"
+  description                = <<DESC
+    Detects an attacker trying to enable the outlook security setting "EnableUnsafeClientMailRules" which allows outlook to run applications or execute macros
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_outlook_enable_unsafe_client_mail_rules.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

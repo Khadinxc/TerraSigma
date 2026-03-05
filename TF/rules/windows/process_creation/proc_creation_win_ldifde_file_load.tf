@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_ldifde_file_
   name                       = "proc_creation_win_ldifde_file_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Import LDAP Data Interchange Format File Via Ldifde.EXE"
-  description                = "Detects the execution of \"Ldifde.exe\" with the import flag \"-i\". The can be abused to include HTTP-based arguments which will allow the arbitrary download of files from a remote server. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ldifde_file_load.yml - Since the content of the files are unknown, false positives are expected | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ldifde_file_load.yml"
+  description                = <<DESC
+    Detects the execution of "Ldifde.exe" with the import flag "-i". The can be abused to include HTTP-based arguments which will allow the arbitrary download of files from a remote server.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ldifde_file_load.yml
+
+    False Positives:
+    - Since the content of the files are unknown, false positives are expected
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

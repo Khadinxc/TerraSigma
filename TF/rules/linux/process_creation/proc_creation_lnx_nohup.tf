@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_nohup" {
   name                       = "proc_creation_lnx_nohup"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Nohup Execution"
-  description                = "Detects usage of nohup which could be leveraged by an attacker to keep a process running or break out from restricted environments Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_nohup.yml - Administrators or installed processes that leverage nohup | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_nohup.yml"
+  description                = <<DESC
+    Detects usage of nohup which could be leveraged by an attacker to keep a process running or break out from restricted environments
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_nohup.yml
+
+    False Positives:
+    - Administrators or installed processes that leverage nohup
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

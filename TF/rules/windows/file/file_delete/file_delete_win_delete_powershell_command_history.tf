@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_delete_win_delete_powersh
   name                       = "file_delete_win_delete_powershell_command_history"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Console History Logs Deleted"
-  description                = "Detects the deletion of the PowerShell console History logs which may indicate an attempt to destroy forensic evidence Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_powershell_command_history.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_powershell_command_history.yml"
+  description                = <<DESC
+    Detects the deletion of the PowerShell console History logs which may indicate an attempt to destroy forensic evidence
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_powershell_command_history.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

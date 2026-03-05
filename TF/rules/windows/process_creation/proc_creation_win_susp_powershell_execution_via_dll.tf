@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_powersh
   name                       = "proc_creation_win_susp_powershell_execution_via_dll"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential PowerShell Execution Via DLL"
-  description                = "Detects potential PowerShell execution from a DLL instead of the usual PowerShell process as seen used in PowerShdll. This detection assumes that PowerShell commands are passed via the CommandLine. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_powershell_execution_via_dll.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_powershell_execution_via_dll.yml"
+  description                = <<DESC
+    Detects potential PowerShell execution from a DLL instead of the usual PowerShell process as seen used in PowerShdll. This detection assumes that PowerShell commands are passed via the CommandLine.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_powershell_execution_via_dll.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

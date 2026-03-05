@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_system32_local_
   name                       = "file_event_win_system32_local_folder_privilege_escalation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Privilege Escalation Attempt Via .Exe.Local Technique"
-  description                = "Detects potential privilege escalation attempt via the creation of the \"*.Exe.Local\" folder inside the \"System32\" directory in order to sideload \"comctl32.dll\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_system32_local_folder_privilege_escalation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_system32_local_folder_privilege_escalation.yml"
+  description                = <<DESC
+    Detects potential privilege escalation attempt via the creation of the "*.Exe.Local" folder inside the "System32" directory in order to sideload "comctl32.dll"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_system32_local_folder_privilege_escalation.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

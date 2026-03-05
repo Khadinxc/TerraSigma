@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_access_win_susp_unattend_
   name                       = "file_access_win_susp_unattend_xml"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Unattend.XML File Access Attempt"
-  description                = "Detects attempts to access the \"unattend.xml\" file, where credentials might be stored. This file is used during the unattended windows install process. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/file_access_win_susp_unattend_xml.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/file_access_win_susp_unattend_xml.yml"
+  description                = <<DESC
+    Detects attempts to access the "unattend.xml" file, where credentials might be stored. This file is used during the unattended windows install process.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/file_access_win_susp_unattend_xml.yml
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents

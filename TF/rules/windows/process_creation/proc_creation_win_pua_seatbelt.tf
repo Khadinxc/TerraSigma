@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_pua_seatbelt
   name                       = "proc_creation_win_pua_seatbelt"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Seatbelt Execution"
-  description                = "Detects the execution of the PUA/Recon tool Seatbelt via PE information of command line parameters Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_seatbelt.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_seatbelt.yml"
+  description                = <<DESC
+    Detects the execution of the PUA/Recon tool Seatbelt via PE information of command line parameters
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_seatbelt.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_remcom_service"
   name                       = "file_event_win_remcom_service"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "RemCom Service File Creation"
-  description                = "Detects default RemCom service filename which indicates RemCom service installation and execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_remcom_service.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_remcom_service.yml"
+  description                = <<DESC
+    Detects default RemCom service filename which indicates RemCom service installation and execution
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_remcom_service.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

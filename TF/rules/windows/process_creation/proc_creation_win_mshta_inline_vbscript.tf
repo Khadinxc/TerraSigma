@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_mshta_inline
   name                       = "proc_creation_win_mshta_inline_vbscript"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Wscript Shell Run In CommandLine"
-  description                = "Detects the presence of the keywords \"Wscript\", \"Shell\" and \"Run\" in the command, which could indicate a suspicious activity Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_inline_vbscript.yml - Inline scripting can be used by some rare third party applications or administrators. Investigate and apply additional filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_inline_vbscript.yml"
+  description                = <<DESC
+    Detects the presence of the keywords "Wscript", "Shell" and "Run" in the command, which could indicate a suspicious activity
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_inline_vbscript.yml
+
+    False Positives:
+    - Inline scripting can be used by some rare third party applications or administrators. Investigate and apply additional filters accordingly
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

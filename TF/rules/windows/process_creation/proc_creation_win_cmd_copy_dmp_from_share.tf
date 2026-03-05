@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_cmd_copy_dmp
   name                       = "proc_creation_win_cmd_copy_dmp_from_share"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Copy .DMP/.DUMP Files From Remote Share Via Cmd.EXE"
-  description                = "Detects usage of the copy builtin cmd command to copy files with the \".dmp\"/\".dump\" extension from a remote share Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_copy_dmp_from_share.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_copy_dmp_from_share.yml"
+  description                = <<DESC
+    Detects usage of the copy builtin cmd command to copy files with the ".dmp"/".dump" extension from a remote share
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_copy_dmp_from_share.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

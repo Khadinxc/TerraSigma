@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_doas_executi
   name                       = "proc_creation_lnx_doas_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux Doas Tool Execution"
-  description                = "Detects the doas tool execution in linux host platform. This utility tool allow standard users to perform tasks as root, the same way sudo does. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_doas_execution.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_doas_execution.yml"
+  description                = <<DESC
+    Detects the doas tool execution in linux host platform. This utility tool allow standard users to perform tasks as root, the same way sudo does.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_doas_execution.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

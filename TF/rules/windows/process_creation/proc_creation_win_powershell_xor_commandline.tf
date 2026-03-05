@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_x
   name                       = "proc_creation_win_powershell_xor_commandline"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious XOR Encoded PowerShell Command"
-  description                = "Detects presence of a potentially xor encoded powershell command Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_xor_commandline.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_xor_commandline.yml"
+  description                = <<DESC
+    Detects presence of a potentially xor encoded powershell command
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_xor_commandline.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

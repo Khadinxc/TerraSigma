@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_s
   name                       = "proc_creation_win_powershell_susp_parameter_variation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious PowerShell Parameter Substring"
-  description                = "Detects suspicious PowerShell invocation with a parameter substring Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_susp_parameter_variation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_susp_parameter_variation.yml"
+  description                = <<DESC
+    Detects suspicious PowerShell invocation with a parameter substring
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_susp_parameter_variation.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_unc2452_
   name                       = "proc_creation_win_apt_unc2452_vbscript_pattern"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious VBScript UN2452 Pattern"
-  description                = "Detects suspicious inline VBScript keywords as used by UNC2452 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/SolarWinds-Supply-Chain/proc_creation_win_apt_unc2452_vbscript_pattern.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/SolarWinds-Supply-Chain/proc_creation_win_apt_unc2452_vbscript_pattern.yml"
+  description                = <<DESC
+    Detects suspicious inline VBScript keywords as used by UNC2452
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/SolarWinds-Supply-Chain/proc_creation_win_apt_unc2452_vbscript_pattern.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

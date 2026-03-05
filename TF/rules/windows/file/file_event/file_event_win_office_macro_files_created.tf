@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_office_macro_fi
   name                       = "file_event_win_office_macro_files_created"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Office Macro File Creation"
-  description                = "Detects the creation of a new office macro files on the systems Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_macro_files_created.yml - Very common in environments that rely heavily on macro documents | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_macro_files_created.yml"
+  description                = <<DESC
+    Detects the creation of a new office macro files on the systems
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_macro_files_created.yml
+
+    False Positives:
+    - Very common in environments that rely heavily on macro documents
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents

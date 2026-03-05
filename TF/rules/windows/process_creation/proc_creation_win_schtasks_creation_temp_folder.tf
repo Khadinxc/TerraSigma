@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_schtasks_cre
   name                       = "proc_creation_win_schtasks_creation_temp_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Scheduled Task Creation Involving Temp Folder"
-  description                = "Detects the creation of scheduled tasks that involves a temporary folder and runs only once Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_creation_temp_folder.yml - Administrative activity - Software installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_creation_temp_folder.yml"
+  description                = <<DESC
+    Detects the creation of scheduled tasks that involves a temporary folder and runs only once
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_creation_temp_folder.yml
+
+    False Positives:
+    - Administrative activity
+    - Software installation
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

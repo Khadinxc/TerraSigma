@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_renamed_vmna
   name                       = "proc_creation_win_renamed_vmnat"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed Vmnat.exe Execution"
-  description                = "Detects renamed vmnat.exe or portable version that can be used for DLL side-loading Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_vmnat.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_vmnat.yml"
+  description                = <<DESC
+    Detects renamed vmnat.exe or portable version that can be used for DLL side-loading
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_vmnat.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

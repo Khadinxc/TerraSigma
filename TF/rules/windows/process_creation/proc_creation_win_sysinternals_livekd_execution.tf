@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sysinternals
   name                       = "proc_creation_win_sysinternals_livekd_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Memory Dumping Activity Via LiveKD"
-  description                = "Detects execution of LiveKD based on PE metadata or image name Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_livekd_execution.yml - Administration and debugging activity (must be investigated) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_livekd_execution.yml"
+  description                = <<DESC
+    Detects execution of LiveKD based on PE metadata or image name
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_livekd_execution.yml
+
+    False Positives:
+    - Administration and debugging activity (must be investigated)
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

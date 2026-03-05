@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_b
   name                       = "proc_creation_win_powershell_base64_wmi_classes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Base64 Encoded WMI Classes"
-  description                = "Detects calls to base64 encoded WMI class such as \"Win32_ShadowCopy\", \"Win32_ScheduledJob\", etc. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_wmi_classes.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_wmi_classes.yml"
+  description                = <<DESC
+    Detects calls to base64 encoded WMI class such as "Win32_ShadowCopy", "Win32_ScheduledJob", etc.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_wmi_classes.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

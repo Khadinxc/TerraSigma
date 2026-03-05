@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_dnscmd_insta
   name                       = "proc_creation_win_dnscmd_install_new_server_level_plugin_dll"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New DNS ServerLevelPluginDll Installed Via Dnscmd.EXE"
-  description                = "Detects the installation of a DNS plugin DLL via ServerLevelPluginDll parameter in registry, which can be used to execute code in context of the DNS server (restart required) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dnscmd_install_new_server_level_plugin_dll.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dnscmd_install_new_server_level_plugin_dll.yml"
+  description                = <<DESC
+    Detects the installation of a DNS plugin DLL via ServerLevelPluginDll parameter in registry, which can be used to execute code in context of the DNS server (restart required)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dnscmd_install_new_server_level_plugin_dll.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

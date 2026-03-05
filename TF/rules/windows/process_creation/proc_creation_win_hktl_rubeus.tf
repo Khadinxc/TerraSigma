@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_rubeus"
   name                       = "proc_creation_win_hktl_rubeus"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Rubeus Execution"
-  description                = "Detects the execution of the hacktool Rubeus via PE information of command line parameters Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_rubeus.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_rubeus.yml"
+  description                = <<DESC
+    Detects the execution of the hacktool Rubeus via PE information of command line parameters
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_rubeus.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

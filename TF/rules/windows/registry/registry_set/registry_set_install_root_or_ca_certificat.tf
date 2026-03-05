@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_install_root_or_c
   name                       = "registry_set_install_root_or_ca_certificat"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Root or CA or AuthRoot Certificate to Store"
-  description                = "Detects the addition of new root, CA or AuthRoot certificates to the Windows registry Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_install_root_or_ca_certificat.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_install_root_or_ca_certificat.yml"
+  description                = <<DESC
+    Detects the addition of new root, CA or AuthRoot certificates to the Windows registry
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_install_root_or_ca_certificat.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

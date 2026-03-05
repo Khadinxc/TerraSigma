@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_renamed_rura
   name                       = "proc_creation_win_renamed_rurat"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed Remote Utilities RAT (RURAT) Execution"
-  description                = "Detects execution of renamed Remote Utilities (RURAT) via Product PE header field Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_rurat.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_rurat.yml"
+  description                = <<DESC
+    Detects execution of renamed Remote Utilities (RURAT) via Product PE header field
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_rurat.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

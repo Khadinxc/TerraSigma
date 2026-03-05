@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wget_downloa
   name                       = "proc_creation_win_wget_download_susp_locations"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Download From IP Via Wget.EXE - Paths"
-  description                = "Detects potentially suspicious file downloads directly from IP addresses and stored in suspicious locations using Wget.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wget_download_susp_locations.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wget_download_susp_locations.yml"
+  description                = <<DESC
+    Detects potentially suspicious file downloads directly from IP addresses and stored in suspicious locations using Wget.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wget_download_susp_locations.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

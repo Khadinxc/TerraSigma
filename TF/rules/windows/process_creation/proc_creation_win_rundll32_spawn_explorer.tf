@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_spa
   name                       = "proc_creation_win_rundll32_spawn_explorer"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "RunDLL32 Spawning Explorer"
-  description                = "Detects RunDLL32.exe spawning explorer.exe as child, which is very uncommon, often observes Gamarue spawning the explorer.exe process in an unusual way Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_spawn_explorer.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_spawn_explorer.yml"
+  description                = <<DESC
+    Detects RunDLL32.exe spawning explorer.exe as child, which is very uncommon, often observes Gamarue spawning the explorer.exe process in an unusual way
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_spawn_explorer.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

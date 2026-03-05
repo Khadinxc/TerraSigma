@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_sus
   name                       = "proc_creation_win_rundll32_susp_shellexec_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Usage Of ShellExec_RunDLL"
-  description                = "Detects suspicious usage of the ShellExec_RunDLL function to launch other commands as seen in the the raspberry-robin attack Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_shellexec_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_shellexec_execution.yml"
+  description                = <<DESC
+    Detects suspicious usage of the ShellExec_RunDLL function to launch other commands as seen in the the raspberry-robin attack
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_shellexec_execution.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

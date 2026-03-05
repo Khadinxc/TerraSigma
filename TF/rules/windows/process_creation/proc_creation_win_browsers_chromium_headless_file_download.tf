@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_browsers_chr
   name                       = "proc_creation_win_browsers_chromium_headless_file_download"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Download with Headless Browser"
-  description                = "Detects execution of chromium based browser in headless mode using the \"dump-dom\" command line to download files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_headless_file_download.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_headless_file_download.yml"
+  description                = <<DESC
+    Detects execution of chromium based browser in headless mode using the "dump-dom" command line to download files
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_headless_file_download.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

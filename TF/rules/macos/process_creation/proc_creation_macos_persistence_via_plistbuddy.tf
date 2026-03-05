@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_persistenc
   name                       = "proc_creation_macos_persistence_via_plistbuddy"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via PlistBuddy"
-  description                = "Detects potential persistence activity using LaunchAgents or LaunchDaemons via the PlistBuddy utility Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_persistence_via_plistbuddy.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_persistence_via_plistbuddy.yml"
+  description                = <<DESC
+    Detects potential persistence activity using LaunchAgents or LaunchDaemons via the PlistBuddy utility
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_persistence_via_plistbuddy.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

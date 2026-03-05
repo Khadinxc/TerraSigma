@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_lsass_werfault_
   name                       = "file_event_win_lsass_werfault_dump"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WerFault LSASS Process Memory Dump"
-  description                = "Detects WerFault creating a dump file with a name that indicates that the dump file could be an LSASS process memory, which contains user credentials Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_lsass_werfault_dump.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_lsass_werfault_dump.yml"
+  description                = <<DESC
+    Detects WerFault creating a dump file with a name that indicates that the dump file could be an LSASS process memory, which contains user credentials
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_lsass_werfault_dump.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

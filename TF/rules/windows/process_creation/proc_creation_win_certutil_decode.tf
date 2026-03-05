@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_certutil_dec
   name                       = "proc_creation_win_certutil_decode"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Decoded From Base64/Hex Via Certutil.EXE"
-  description                = "Detects the execution of certutil with either the \"decode\" or \"decodehex\" flags to decode base64 or hex encoded files. This can be abused by attackers to decode an encoded payload before execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_decode.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_decode.yml"
+  description                = <<DESC
+    Detects the execution of certutil with either the "decode" or "decodehex" flags to decode base64 or hex encoded files. This can be abused by attackers to decode an encoded payload before execution
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_decode.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

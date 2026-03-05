@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_jwt_tok
   name                       = "proc_creation_win_susp_jwt_token_search"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious JWT Token Search Via CLI"
-  description                = "Detects potentially suspicious search for JWT tokens via CLI by looking for the string \"eyJ0eX\" or \"eyJhbG\". JWT tokens are often used for access-tokens across various applications and services like Microsoft 365, Azure, AWS, Google Cloud, and others. Threat actors may search for these tokens to steal them for lateral movement or privilege escalation. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_jwt_token_search.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_jwt_token_search.yml"
+  description                = <<DESC
+    Detects potentially suspicious search for JWT tokens via CLI by looking for the string "eyJ0eX" or "eyJhbG". JWT tokens are often used for access-tokens across various applications and services like Microsoft 365, Azure, AWS, Google Cloud, and others. Threat actors may search for these tokens to steal them for lateral movement or privilege escalation.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_jwt_token_search.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

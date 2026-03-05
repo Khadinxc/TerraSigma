@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_change_rdp_port" 
   name                       = "registry_set_change_rdp_port"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Default RDP Port Changed to Non Standard Port"
-  description                = "Detects changes to the default RDP port. Remote desktop is a common feature in operating systems. It allows a user to log into a remote system using an interactive session with a graphical user interface. Microsoft refers to its implementation of the Remote Desktop Protocol (RDP) as Remote Desktop Services (RDS). Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_change_rdp_port.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_change_rdp_port.yml"
+  description                = <<DESC
+    Detects changes to the default RDP port. Remote desktop is a common feature in operating systems. It allows a user to log into a remote system using an interactive session with a graphical user interface. Microsoft refers to its implementation of the Remote Desktop Protocol (RDP) as Remote Desktop Services (RDS).
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_change_rdp_port.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_install_susp
   name                       = "proc_creation_lnx_install_suspicious_packages"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Package Installed - Linux"
-  description                = "Detects installation of suspicious packages using system installation utilities Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_install_suspicious_packages.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_install_suspicious_packages.yml"
+  description                = <<DESC
+    Detects installation of suspicious packages using system installation utilities
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_install_suspicious_packages.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

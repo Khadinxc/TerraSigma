@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_web_req
   name                       = "proc_creation_win_susp_web_request_cmd_and_cmdlets"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Usage Of Web Request Commands And Cmdlets"
-  description                = "Detects the use of various web request commands with commandline tools and Windows PowerShell cmdlets (including aliases) via CommandLine Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_web_request_cmd_and_cmdlets.yml - Use of Get-Command and Get-Help modules to reference Invoke-WebRequest and Start-BitsTransfer. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_web_request_cmd_and_cmdlets.yml"
+  description                = <<DESC
+    Detects the use of various web request commands with commandline tools and Windows PowerShell cmdlets (including aliases) via CommandLine
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_web_request_cmd_and_cmdlets.yml
+
+    False Positives:
+    - Use of Get-Command and Get-Help modules to reference Invoke-WebRequest and Start-BitsTransfer.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

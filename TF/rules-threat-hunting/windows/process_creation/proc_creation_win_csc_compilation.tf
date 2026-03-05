@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_csc_compilat
   name                       = "proc_creation_win_csc_compilation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Dynamic .NET Compilation Via Csc.EXE - Hunting"
-  description                = "Detects execution of \"csc.exe\" to compile .NET code. Attackers often leverage this to compile code on the fly and use it in other stages. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_csc_compilation.yml - Many legitimate applications make use of dynamic compilation. Use this rule to hunt for anomalies | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_csc_compilation.yml"
+  description                = <<DESC
+    Detects execution of "csc.exe" to compile .NET code. Attackers often leverage this to compile code on the fly and use it in other stages.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_csc_compilation.yml
+
+    False Positives:
+    - Many legitimate applications make use of dynamic compilation. Use this rule to hunt for anomalies
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

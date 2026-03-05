@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_java_susp_ch
   name                       = "proc_creation_win_java_susp_child_process_2"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Shell Process Spawned by Java.EXE"
-  description                = "Detects shell spawned from Java host process, which could be a sign of exploitation (e.g. log4j exploitation) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_java_susp_child_process_2.yml - Legitimate calls to system binaries - Company specific internal usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_java_susp_child_process_2.yml"
+  description                = <<DESC
+    Detects shell spawned from Java host process, which could be a sign of exploitation (e.g. log4j exploitation)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_java_susp_child_process_2.yml
+
+    False Positives:
+    - Legitimate calls to system binaries
+    - Company specific internal usage
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

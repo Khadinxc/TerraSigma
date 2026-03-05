@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_touch_susp" 
   name                       = "proc_creation_lnx_touch_susp"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Touch Suspicious Service File"
-  description                = "Detects usage of the \"touch\" process in service file. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_touch_susp.yml - Admin changing date of files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_touch_susp.yml"
+  description                = <<DESC
+    Detects usage of the "touch" process in service file.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_touch_susp.yml
+
+    False Positives:
+    - Admin changing date of files.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

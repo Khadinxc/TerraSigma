@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_crypto_
   name                       = "proc_creation_win_susp_crypto_mining_monero"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Crypto Mining Activity"
-  description                = "Detects command line parameters or strings often used by crypto miners Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_crypto_mining_monero.yml - Legitimate use of crypto miners - Some build frameworks | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_crypto_mining_monero.yml"
+  description                = <<DESC
+    Detects command line parameters or strings often used by crypto miners
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_crypto_mining_monero.yml
+
+    False Positives:
+    - Legitimate use of crypto miners
+    - Some build frameworks
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_f
   name                       = "proc_creation_win_powershell_frombase64string"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Base64 Encoded PowerShell Command Detected"
-  description                = "Detects usage of the \"FromBase64String\" function in the commandline which is used to decode a base64 encoded string Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_frombase64string.yml - Administrative script libraries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_frombase64string.yml"
+  description                = <<DESC
+    Detects usage of the "FromBase64String" function in the commandline which is used to decode a base64 encoded string
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_frombase64string.yml
+
+    False Positives:
+    - Administrative script libraries
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_dfsvc_child_
   name                       = "proc_creation_win_dfsvc_child_processes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ClickOnce Deployment Execution - Dfsvc.EXE Child Process"
-  description                = "Detects child processes of \"dfsvc\" which indicates a ClickOnce deployment execution. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_dfsvc_child_processes.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_dfsvc_child_processes.yml"
+  description                = <<DESC
+    Detects child processes of "dfsvc" which indicates a ClickOnce deployment execution.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_dfsvc_child_processes.yml
+
+    False Positives:
+    - False positives are expected in environement leveraging ClickOnce deployments. An initial baselining is required before using this rule in production.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

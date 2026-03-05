@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_sysinternals_ps
   name                       = "file_event_win_sysinternals_psexec_service"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PsExec Service File Creation"
-  description                = "Detects default PsExec service filename which indicates PsExec service installation and execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sysinternals_psexec_service.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sysinternals_psexec_service.yml"
+  description                = <<DESC
+    Detects default PsExec service filename which indicates PsExec service installation and execution
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sysinternals_psexec_service.yml
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents

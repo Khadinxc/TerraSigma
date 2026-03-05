@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_file_and_d
   name                       = "proc_creation_macos_file_and_directory_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File and Directory Discovery - MacOS"
-  description                = "Detects usage of system utilities to discover files and directories Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_file_and_directory_discovery.yml - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_file_and_directory_discovery.yml"
+  description                = <<DESC
+    Detects usage of system utilities to discover files and directories
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_file_and_directory_discovery.yml
+
+    False Positives:
+    - Legitimate activities
+  DESC
   severity                   = "Informational"
   query                      = <<QUERY
 DeviceProcessEvents

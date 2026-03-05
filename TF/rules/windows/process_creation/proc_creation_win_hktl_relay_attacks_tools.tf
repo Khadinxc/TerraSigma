@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_relay_a
   name                       = "proc_creation_win_hktl_relay_attacks_tools"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential SMB Relay Attack Tool Execution"
-  description                = "Detects different hacktools used for relay attacks on Windows for privilege escalation Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_relay_attacks_tools.yml - Legitimate files with these rare hacktool names | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_relay_attacks_tools.yml"
+  description                = <<DESC
+    Detects different hacktools used for relay attacks on Windows for privilege escalation
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_relay_attacks_tools.yml
+
+    False Positives:
+    - Legitimate files with these rare hacktool names
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

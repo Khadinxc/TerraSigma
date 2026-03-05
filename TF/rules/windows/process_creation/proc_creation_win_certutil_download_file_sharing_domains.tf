@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_certutil_dow
   name                       = "proc_creation_win_certutil_download_file_sharing_domains"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Downloaded From File-Sharing Website Via Certutil.EXE"
-  description                = "Detects the execution of certutil with certain flags that allow the utility to download files from file-sharing websites. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_download_file_sharing_domains.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_download_file_sharing_domains.yml"
+  description                = <<DESC
+    Detects the execution of certutil with certain flags that allow the utility to download files from file-sharing websites.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_download_file_sharing_domains.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

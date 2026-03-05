@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_office_access_vbo
   name                       = "registry_set_office_access_vbom_tamper"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Trust Access Disable For VBApplications"
-  description                = "Detects registry changes to Microsoft Office \"AccessVBOM\" to a value of \"1\" which disables trust access for VBA on the victim machine and lets attackers execute malicious macros without any Microsoft Office warnings. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_access_vbom_tamper.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_access_vbom_tamper.yml"
+  description                = <<DESC
+    Detects registry changes to Microsoft Office "AccessVBOM" to a value of "1" which disables trust access for VBA on the victim machine and lets attackers execute malicious macros without any Microsoft Office warnings.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_access_vbom_tamper.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

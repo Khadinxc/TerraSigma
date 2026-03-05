@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_priv_es
   name                       = "proc_creation_win_susp_priv_escalation_via_named_pipe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Privilege Escalation via Named Pipe Impersonation"
-  description                = "Detects a remote file copy attempt to a hidden network share. This may indicate lateral movement or data staging activity. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_priv_escalation_via_named_pipe.yml - Other programs that cause these patterns (please report) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_priv_escalation_via_named_pipe.yml"
+  description                = <<DESC
+    Detects a remote file copy attempt to a hidden network share. This may indicate lateral movement or data staging activity.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_priv_escalation_via_named_pipe.yml
+
+    False Positives:
+    - Other programs that cause these patterns (please report)
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

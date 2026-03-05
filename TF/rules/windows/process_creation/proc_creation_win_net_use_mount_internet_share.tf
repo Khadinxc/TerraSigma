@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_net_use_moun
   name                       = "proc_creation_win_net_use_mount_internet_share"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Internet Hosted WebDav Share Mount Via Net.EXE"
-  description                = "Detects when an internet hosted webdav share is mounted using the \"net.exe\" utility Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_use_mount_internet_share.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_use_mount_internet_share.yml"
+  description                = <<DESC
+    Detects when an internet hosted webdav share is mounted using the "net.exe" utility
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_use_mount_internet_share.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

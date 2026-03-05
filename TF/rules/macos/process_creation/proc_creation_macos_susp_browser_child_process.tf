@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_susp_brows
   name                       = "proc_creation_macos_susp_browser_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Browser Child Process - MacOS"
-  description                = "Detects suspicious child processes spawned from browsers. This could be a result of a potential web browser exploitation. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_browser_child_process.yml - Legitimate browser install, update and recovery scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_browser_child_process.yml"
+  description                = <<DESC
+    Detects suspicious child processes spawned from browsers. This could be a result of a potential web browser exploitation.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_browser_child_process.yml
+
+    False Positives:
+    - Legitimate browser install, update and recovery scripts
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

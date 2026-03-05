@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_virtualbox_e
   name                       = "proc_creation_win_virtualbox_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Virtualbox Driver Installation or Starting of VMs"
-  description                = "Adversaries can carry out malicious operations using a virtual instance to avoid detection. This rule is built to detect the registration of the Virtualbox driver or start of a Virtualbox VM. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_virtualbox_execution.yml - This may have false positives on hosts where Virtualbox is legitimately being used for operations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_virtualbox_execution.yml"
+  description                = <<DESC
+    Adversaries can carry out malicious operations using a virtual instance to avoid detection. This rule is built to detect the registration of the Virtualbox driver or start of a Virtualbox VM.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_virtualbox_execution.yml
+
+    False Positives:
+    - This may have false positives on hosts where Virtualbox is legitimately being used for operations
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

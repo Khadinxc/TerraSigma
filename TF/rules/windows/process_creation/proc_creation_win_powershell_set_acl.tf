@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_s
   name                       = "proc_creation_win_powershell_set_acl"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Script Change Permission Via Set-Acl"
-  description                = "Detects PowerShell execution to set the ACL of a file or a folder Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_set_acl.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_set_acl.yml"
+  description                = <<DESC
+    Detects PowerShell execution to set the ACL of a file or a folder
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_set_acl.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

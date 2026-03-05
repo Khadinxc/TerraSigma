@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_crypto_minin
   name                       = "proc_creation_lnx_crypto_mining"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux Crypto Mining Indicators"
-  description                = "Detects command line parameters or strings often used by crypto miners Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_crypto_mining.yml - Legitimate use of crypto miners | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_crypto_mining.yml"
+  description                = <<DESC
+    Detects command line parameters or strings often used by crypto miners
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_crypto_mining.yml
+
+    False Positives:
+    - Legitimate use of crypto miners
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

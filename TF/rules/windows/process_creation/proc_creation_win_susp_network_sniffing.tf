@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_network
   name                       = "proc_creation_win_susp_network_sniffing"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Network Sniffing Activity Using Network Tools"
-  description                = "Detects potential network sniffing via use of network tools such as \"tshark\", \"windump\". Network sniffing refers to using the network interface on a system to monitor or capture information sent over a wired or wireless connection. An adversary may place a network interface into promiscuous mode to passively access data in transit over the network, or use span ports to capture a larger amount of data. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_network_sniffing.yml - Legitimate administration activity to troubleshoot network issues | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_network_sniffing.yml"
+  description                = <<DESC
+    Detects potential network sniffing via use of network tools such as "tshark", "windump". Network sniffing refers to using the network interface on a system to monitor or capture information sent over a wired or wireless connection. An adversary may place a network interface into promiscuous mode to passively access data in transit over the network, or use span ports to capture a larger amount of data.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_network_sniffing.yml
+
+    False Positives:
+    - Legitimate administration activity to troubleshoot network issues
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

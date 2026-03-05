@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_sysvol_
   name                       = "proc_creation_win_susp_sysvol_access"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious SYSVOL Domain Group Policy Access"
-  description                = "Detects Access to Domain Group Policies stored in SYSVOL Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_sysvol_access.yml - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_sysvol_access.yml"
+  description                = <<DESC
+    Detects Access to Domain Group Policies stored in SYSVOL
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_sysvol_access.yml
+
+    False Positives:
+    - Administrative activity
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

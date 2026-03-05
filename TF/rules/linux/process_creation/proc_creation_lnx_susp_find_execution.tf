@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_susp_find_ex
   name                       = "proc_creation_lnx_susp_find_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Discovery Activity Using Find - Linux"
-  description                = "Detects usage of \"find\" binary in a suspicious manner to perform discovery Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_find_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_find_execution.yml"
+  description                = <<DESC
+    Detects usage of "find" binary in a suspicious manner to perform discovery
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_find_execution.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

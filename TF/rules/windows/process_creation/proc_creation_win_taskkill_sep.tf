@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_taskkill_sep
   name                       = "proc_creation_win_taskkill_sep"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Taskkill Symantec Endpoint Protection"
-  description                = "Detects one of the possible scenarios for disabling Symantec Endpoint Protection. Symantec Endpoint Protection antivirus software services incorrectly implement the protected service mechanism. As a result, the NT AUTHORITY/SYSTEM user can execute the taskkill /im command several times ccSvcHst.exe /f, thereby killing the process belonging to the service, and thus shutting down the service. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_taskkill_sep.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_taskkill_sep.yml"
+  description                = <<DESC
+    Detects one of the possible scenarios for disabling Symantec Endpoint Protection. Symantec Endpoint Protection antivirus software services incorrectly implement the protected service mechanism. As a result, the NT AUTHORITY/SYSTEM user can execute the taskkill /im command several times ccSvcHst.exe /f, thereby killing the process belonging to the service, and thus shutting down the service.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_taskkill_sep.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

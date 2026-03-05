@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_s
   name                       = "proc_creation_win_powershell_sam_access"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell SAM Copy"
-  description                = "Detects suspicious PowerShell scripts accessing SAM hives Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_sam_access.yml - Some rare backup scenarios - PowerShell scripts fixing HiveNightmare / SeriousSAM ACLs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_sam_access.yml"
+  description                = <<DESC
+    Detects suspicious PowerShell scripts accessing SAM hives
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_sam_access.yml
+
+    False Positives:
+    - Some rare backup scenarios
+    - PowerShell scripts fixing HiveNightmare / SeriousSAM ACLs
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

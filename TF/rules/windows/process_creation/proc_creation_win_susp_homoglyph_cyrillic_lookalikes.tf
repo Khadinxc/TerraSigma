@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_homogly
   name                       = "proc_creation_win_susp_homoglyph_cyrillic_lookalikes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Homoglyph Attack Using Lookalike Characters"
-  description                = "Detects the presence of unicode characters which are homoglyphs, or identical in appearance, to ASCII letter characters. This is used as an obfuscation and masquerading techniques. Only \"perfect\" homoglyphs are included; these are characters that are indistinguishable from ASCII characters and thus may make excellent candidates for homoglyph attack characters. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_homoglyph_cyrillic_lookalikes.yml - Commandlines with legitimate Cyrillic text; will likely require tuning (or not be usable) in countries where these alphabets are in use. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_homoglyph_cyrillic_lookalikes.yml"
+  description                = <<DESC
+    Detects the presence of unicode characters which are homoglyphs, or identical in appearance, to ASCII letter characters. This is used as an obfuscation and masquerading techniques. Only "perfect" homoglyphs are included; these are characters that are indistinguishable from ASCII characters and thus may make excellent candidates for homoglyph attack characters.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_homoglyph_cyrillic_lookalikes.yml
+
+    False Positives:
+    - Commandlines with legitimate Cyrillic text; will likely require tuning (or not be usable) in countries where these alphabets are in use.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

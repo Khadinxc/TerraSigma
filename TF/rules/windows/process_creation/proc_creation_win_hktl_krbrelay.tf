@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_krbrela
   name                       = "proc_creation_win_hktl_krbrelay"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - KrbRelay Execution"
-  description                = "Detects the use of KrbRelay, a Kerberos relaying tool Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_krbrelay.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_krbrelay.yml"
+  description                = <<DESC
+    Detects the use of KrbRelay, a Kerberos relaying tool
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_krbrelay.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

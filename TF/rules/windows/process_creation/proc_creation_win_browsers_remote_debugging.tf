@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_browsers_rem
   name                       = "proc_creation_win_browsers_remote_debugging"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Browser Started with Remote Debugging"
-  description                = "Detects browsers starting with the remote debugging flags. Which is a technique often used to perform browser injection attacks Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_remote_debugging.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_remote_debugging.yml"
+  description                = <<DESC
+    Detects browsers starting with the remote debugging flags. Which is a technique often used to perform browser injection attacks
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_remote_debugging.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

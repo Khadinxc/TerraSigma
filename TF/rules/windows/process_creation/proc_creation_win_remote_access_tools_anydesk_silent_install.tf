@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_remote_acces
   name                       = "proc_creation_win_remote_access_tools_anydesk_silent_install"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Access Tool - AnyDesk Silent Installation"
-  description                = "Detects AnyDesk Remote Desktop silent installation. Which can be used by attackers to gain remote access. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_anydesk_silent_install.yml - Legitimate deployment of AnyDesk | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_anydesk_silent_install.yml"
+  description                = <<DESC
+    Detects AnyDesk Remote Desktop silent installation. Which can be used by attackers to gain remote access.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_anydesk_silent_install.yml
+
+    False Positives:
+    - Legitimate deployment of AnyDesk
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

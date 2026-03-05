@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_dll_vss_ps_susp_loa
   name                       = "image_load_dll_vss_ps_susp_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Volume Shadow Copy VSS_PS.dll Load"
-  description                = "Detects the image load of vss_ps.dll by uncommon executables. This DLL is used by the Volume Shadow Copy Service (VSS) to manage shadow copies of files and volumes. It is often abused by attackers to delete or manipulate shadow copies, which can hinder forensic investigations and data recovery efforts. The fact that it is loaded by processes that are not typically associated with VSS operations can indicate suspicious activity. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_vss_ps_susp_load.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_vss_ps_susp_load.yml"
+  description                = <<DESC
+    Detects the image load of vss_ps.dll by uncommon executables. This DLL is used by the Volume Shadow Copy Service (VSS) to manage shadow copies of files and volumes. It is often abused by attackers to delete or manipulate shadow copies, which can hinder forensic investigations and data recovery efforts. The fact that it is loaded by processes that are not typically associated with VSS operations can indicate suspicious activity.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_vss_ps_susp_load.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

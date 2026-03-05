@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_uac_bypass_w
   name                       = "proc_creation_win_uac_bypass_wsreset_integrity_level"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass WSReset"
-  description                = "Detects the pattern of UAC Bypass via WSReset usable by default sysmon-config Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_wsreset_integrity_level.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_wsreset_integrity_level.yml"
+  description                = <<DESC
+    Detects the pattern of UAC Bypass via WSReset usable by default sysmon-config
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_wsreset_integrity_level.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

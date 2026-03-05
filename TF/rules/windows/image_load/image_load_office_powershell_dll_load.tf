@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_office_powershell_d
   name                       = "image_load_office_powershell_dll_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Core DLL Loaded Via Office Application"
-  description                = "Detects PowerShell core DLL being loaded by an Office Product Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_powershell_dll_load.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_powershell_dll_load.yml"
+  description                = <<DESC
+    Detects PowerShell core DLL being loaded by an Office Product
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_powershell_dll_load.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

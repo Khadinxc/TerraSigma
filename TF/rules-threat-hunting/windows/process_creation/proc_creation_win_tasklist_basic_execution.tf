@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_tasklist_bas
   name                       = "proc_creation_win_tasklist_basic_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Tasklist Discovery Command"
-  description                = "Adversaries may attempt to get information about running processes on a system. Information obtained could be used to gain an understanding of common software/applications running on systems within the network Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_tasklist_basic_execution.yml - Likely from users, administrator and different internal and third party applications. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_tasklist_basic_execution.yml"
+  description                = <<DESC
+    Adversaries may attempt to get information about running processes on a system. Information obtained could be used to gain an understanding of common software/applications running on systems within the network
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_tasklist_basic_execution.yml
+
+    False Positives:
+    - Likely from users, administrator and different internal and third party applications.
+  DESC
   severity                   = "Informational"
   query                      = <<QUERY
 DeviceProcessEvents

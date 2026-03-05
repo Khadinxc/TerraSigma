@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_file_pe
   name                       = "proc_creation_win_susp_file_permission_modifications"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File or Folder Permissions Modifications"
-  description                = "Detects a file or folder's permissions being modified or tampered with. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_file_permission_modifications.yml - Users interacting with the files on their own (unlikely unless privileged users). - Dynatrace app | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_file_permission_modifications.yml"
+  description                = <<DESC
+    Detects a file or folder's permissions being modified or tampered with.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_file_permission_modifications.yml
+
+    False Positives:
+    - Users interacting with the files on their own (unlikely unless privileged users).
+    - Dynatrace app
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

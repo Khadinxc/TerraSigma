@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_side_load_aruba_net
   name                       = "image_load_side_load_aruba_networks_virtual_intranet_access"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Aruba Network Service Potential DLL Sideloading"
-  description                = "Detects potential DLL sideloading activity via the Aruba Networks Virtual Intranet Access \"arubanetsvc.exe\" process using DLL Search Order Hijacking Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_aruba_networks_virtual_intranet_access.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_aruba_networks_virtual_intranet_access.yml"
+  description                = <<DESC
+    Detects potential DLL sideloading activity via the Aruba Networks Virtual Intranet Access "arubanetsvc.exe" process using DLL Search Order Hijacking
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_aruba_networks_virtual_intranet_access.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

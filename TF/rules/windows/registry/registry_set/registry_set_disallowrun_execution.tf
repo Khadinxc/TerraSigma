@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_disallowrun_execu
   name                       = "registry_set_disallowrun_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Add DisallowRun Execution to Registry"
-  description                = "Detect set DisallowRun to 1 to prevent user running specific computer program Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disallowrun_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disallowrun_execution.yml"
+  description                = <<DESC
+    Detect set DisallowRun to 1 to prevent user running specific computer program
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disallowrun_execution.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_elavate
   name                       = "proc_creation_win_susp_elavated_msi_spawned_shell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Always Install Elevated MSI Spawned Cmd And Powershell"
-  description                = "Detects Windows Installer service (msiexec.exe) spawning \"cmd\" or \"powershell\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_elavated_msi_spawned_shell.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_elavated_msi_spawned_shell.yml"
+  description                = <<DESC
+    Detects Windows Installer service (msiexec.exe) spawning "cmd" or "powershell"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_elavated_msi_spawned_shell.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_at_interacti
   name                       = "proc_creation_win_at_interactive_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Interactive AT Job"
-  description                = "Detects an interactive AT job, which may be used as a form of privilege escalation. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_at_interactive_execution.yml - Unlikely (at.exe deprecated as of Windows 8) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_at_interactive_execution.yml"
+  description                = <<DESC
+    Detects an interactive AT job, which may be used as a form of privilege escalation.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_at_interactive_execution.yml
+
+    False Positives:
+    - Unlikely (at.exe deprecated as of Windows 8)
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

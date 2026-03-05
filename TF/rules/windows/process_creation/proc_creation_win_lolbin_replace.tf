@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_repla
   name                       = "proc_creation_win_lolbin_replace"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Replace.exe Usage"
-  description                = "Detects the use of Replace.exe which can be used to replace file with another file Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_replace.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_replace.yml"
+  description                = <<DESC
+    Detects the use of Replace.exe which can be used to replace file with another file
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_replace.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

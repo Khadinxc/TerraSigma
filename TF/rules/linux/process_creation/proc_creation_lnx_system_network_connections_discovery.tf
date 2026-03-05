@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_system_netwo
   name                       = "proc_creation_lnx_system_network_connections_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "System Network Connections Discovery - Linux"
-  description                = "Detects usage of system utilities to discover system network connections Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_system_network_connections_discovery.yml - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_system_network_connections_discovery.yml"
+  description                = <<DESC
+    Detects usage of system utilities to discover system network connections
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_system_network_connections_discovery.yml
+
+    False Positives:
+    - Legitimate activities
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

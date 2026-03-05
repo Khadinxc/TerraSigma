@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_truffle
   name                       = "proc_creation_win_hktl_trufflesnout"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - TruffleSnout Execution"
-  description                = "Detects the use of TruffleSnout.exe an iterative AD discovery toolkit for offensive operators, situational awareness and targeted low noise enumeration. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_trufflesnout.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_trufflesnout.yml"
+  description                = <<DESC
+    Detects the use of TruffleSnout.exe an iterative AD discovery toolkit for offensive operators, situational awareness and targeted low noise enumeration.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_trufflesnout.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_node_adobe_c
   name                       = "proc_creation_win_node_adobe_creative_cloud_abuse"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Node Process Executions"
-  description                = "Detects the execution of other scripts using the Node executable packaged with Adobe Creative Cloud Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_node_adobe_creative_cloud_abuse.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_node_adobe_creative_cloud_abuse.yml"
+  description                = <<DESC
+    Detects the execution of other scripts using the Node executable packaged with Adobe Creative Cloud
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_node_adobe_creative_cloud_abuse.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

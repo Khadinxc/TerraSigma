@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_invoke_
   name                       = "proc_creation_win_hktl_invoke_obfuscation_stdin"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Invoke-Obfuscation STDIN+ Launcher"
-  description                = "Detects Obfuscated use of stdin to execute PowerShell Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_stdin.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_stdin.yml"
+  description                = <<DESC
+    Detects Obfuscated use of stdin to execute PowerShell
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_stdin.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

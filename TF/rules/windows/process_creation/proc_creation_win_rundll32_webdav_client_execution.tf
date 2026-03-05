@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_web
   name                       = "proc_creation_win_rundll32_webdav_client_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WebDav Client Execution Via Rundll32.EXE"
-  description                = "Detects \"svchost.exe\" spawning \"rundll32.exe\" with command arguments like \"C:\\windows\\system32\\davclnt.dll,DavSetCookie\". This could be an indicator of exfiltration or use of WebDav to launch code (hosted on a WebDav server). Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_webdav_client_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_webdav_client_execution.yml"
+  description                = <<DESC
+    Detects "svchost.exe" spawning "rundll32.exe" with command arguments like "C:\windows\system32\davclnt.dll,DavSetCookie". This could be an indicator of exfiltration or use of WebDav to launch code (hosted on a WebDav server).
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_webdav_client_execution.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

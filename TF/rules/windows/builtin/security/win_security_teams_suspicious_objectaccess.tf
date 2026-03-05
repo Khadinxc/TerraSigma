@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "win_security_teams_suspicious_
   name                       = "win_security_teams_suspicious_objectaccess"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Teams Application Related ObjectAcess Event"
-  description                = "Detects an access to authentication tokens and accounts of Microsoft Teams desktop application. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_teams_suspicious_objectaccess.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_teams_suspicious_objectaccess.yml"
+  description                = <<DESC
+    Detects an access to authentication tokens and accounts of Microsoft Teams desktop application.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_teams_suspicious_objectaccess.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

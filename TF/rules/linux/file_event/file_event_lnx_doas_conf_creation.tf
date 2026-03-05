@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_lnx_doas_conf_creat
   name                       = "file_event_lnx_doas_conf_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux Doas Conf File Creation"
-  description                = "Detects the creation of doas.conf file in linux host platform. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_doas_conf_creation.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_doas_conf_creation.yml"
+  description                = <<DESC
+    Detects the creation of doas.conf file in linux host platform.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_doas_conf_creation.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

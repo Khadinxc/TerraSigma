@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_curl_usage" 
   name                       = "proc_creation_lnx_curl_usage"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Curl Usage on Linux"
-  description                = "Detects a curl process start on linux, which indicates a file download from a remote location or a simple web request to a remote server Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_curl_usage.yml - Scripts created by developers and admins - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_curl_usage.yml"
+  description                = <<DESC
+    Detects a curl process start on linux, which indicates a file download from a remote location or a simple web request to a remote server
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_curl_usage.yml
+
+    False Positives:
+    - Scripts created by developers and admins
+    - Administrative activity
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

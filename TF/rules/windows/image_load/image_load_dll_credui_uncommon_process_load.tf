@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_dll_credui_uncommon
   name                       = "image_load_dll_credui_uncommon_process_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "CredUI.DLL Loaded By Uncommon Process"
-  description                = "Detects loading of \"credui.dll\" and related DLLs by an uncommon process. Attackers might leverage this DLL for potential use of \"CredUIPromptForCredentials\" or \"CredUnPackAuthenticationBufferW\". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_credui_uncommon_process_load.yml - Other legitimate processes loading those DLLs in your environment. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_credui_uncommon_process_load.yml"
+  description                = <<DESC
+    Detects loading of "credui.dll" and related DLLs by an uncommon process. Attackers might leverage this DLL for potential use of "CredUIPromptForCredentials" or "CredUnPackAuthenticationBufferW".
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_credui_uncommon_process_load.yml
+
+    False Positives:
+    - Other legitimate processes loading those DLLs in your environment.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

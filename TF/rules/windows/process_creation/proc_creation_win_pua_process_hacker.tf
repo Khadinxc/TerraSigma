@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_pua_process_
   name                       = "proc_creation_win_pua_process_hacker"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Process Hacker Execution"
-  description                = "Detects the execution of Process Hacker based on binary metadata information (Image, Hash, Imphash, etc). Process Hacker is a tool to view and manipulate processes, kernel options and other low level options. Threat actors abused older vulnerable versions to manipulate system processes. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_process_hacker.yml - While sometimes 'Process Hacker is used by legitimate administrators, the execution of Process Hacker must be investigated and allowed on a case by case basis | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_process_hacker.yml"
+  description                = <<DESC
+    Detects the execution of Process Hacker based on binary metadata information (Image, Hash, Imphash, etc). Process Hacker is a tool to view and manipulate processes, kernel options and other low level options. Threat actors abused older vulnerable versions to manipulate system processes.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_process_hacker.yml
+
+    False Positives:
+    - While sometimes 'Process Hacker is used by legitimate administrators, the execution of Process Hacker must be investigated and allowed on a case by case basis
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

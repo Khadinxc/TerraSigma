@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_iis_appcmd_s
   name                       = "proc_creation_win_iis_appcmd_susp_module_install"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "IIS Native-Code Module Command Line Installation"
-  description                = "Detects suspicious IIS native-code module installations via command line Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_appcmd_susp_module_install.yml - Unknown as it may vary from organisation to organisation how admins use to install IIS modules | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_appcmd_susp_module_install.yml"
+  description                = <<DESC
+    Detects suspicious IIS native-code module installations via command line
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_appcmd_susp_module_install.yml
+
+    False Positives:
+    - Unknown as it may vary from organisation to organisation how admins use to install IIS modules
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

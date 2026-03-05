@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_uac_bypass_even
   name                       = "file_event_win_uac_bypass_eventvwr"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass Using EventVwr"
-  description                = "Detects the pattern of a UAC bypass using Windows Event Viewer Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_eventvwr.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_eventvwr.yml"
+  description                = <<DESC
+    Detects the pattern of a UAC bypass using Windows Event Viewer
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_eventvwr.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

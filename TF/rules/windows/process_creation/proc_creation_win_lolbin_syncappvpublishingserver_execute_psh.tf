@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_synca
   name                       = "proc_creation_win_lolbin_syncappvpublishingserver_execute_psh"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "SyncAppvPublishingServer Execute Arbitrary PowerShell Code"
-  description                = "Executes arbitrary PowerShell code using SyncAppvPublishingServer.exe. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_syncappvpublishingserver_execute_psh.yml - App-V clients | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_syncappvpublishingserver_execute_psh.yml"
+  description                = <<DESC
+    Executes arbitrary PowerShell code using SyncAppvPublishingServer.exe.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_syncappvpublishingserver_execute_psh.yml
+
+    False Positives:
+    - App-V clients
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

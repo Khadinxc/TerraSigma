@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_create_evtx_non
   name                       = "file_event_win_create_evtx_non_common_locations"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "EVTX Created In Uncommon Location"
-  description                = "Detects the creation of new files with the \".evtx\" extension in non-common or non-standard location. This could indicate tampering with default EVTX locations in order to evade security controls or simply exfiltration of event log to search for sensitive information within. Note that backup software and legitimate administrator might perform similar actions during troubleshooting. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_create_evtx_non_common_locations.yml - Administrator or backup activity - An unknown bug seems to trigger the Windows \"svchost\" process to drop EVTX files in the \"C:\\Windows\\Temp\" directory in the form \"<log_name\">_<uuid>.evtx\". See https://superuser.com/questions/1371229/low-disk-space-after-filling-up-c-windows-temp-with-evtx-and-txt-files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_create_evtx_non_common_locations.yml"
+  description                = <<DESC
+    Detects the creation of new files with the ".evtx" extension in non-common or non-standard location. This could indicate tampering with default EVTX locations in order to evade security controls or simply exfiltration of event log to search for sensitive information within. Note that backup software and legitimate administrator might perform similar actions during troubleshooting.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_create_evtx_non_common_locations.yml
+
+    False Positives:
+    - Administrator or backup activity
+    - An unknown bug seems to trigger the Windows "svchost" process to drop EVTX files in the "C:\Windows\Temp" directory in the form "<log_name">_<uuid>.evtx". See https://superuser.com/questions/1371229/low-disk-space-after-filling-up-c-windows-temp-with-evtx-and-txt-files
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

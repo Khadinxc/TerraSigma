@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_uac_bypass_i
   name                       = "proc_creation_win_uac_bypass_idiagnostic_profile"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass Using IDiagnostic Profile"
-  description                = "Detects the \"IDiagnosticProfileUAC\" UAC bypass technique Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_idiagnostic_profile.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_idiagnostic_profile.yml"
+  description                = <<DESC
+    Detects the "IDiagnosticProfileUAC" UAC bypass technique
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_idiagnostic_profile.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

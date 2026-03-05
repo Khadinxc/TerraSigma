@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_openw
   name                       = "proc_creation_win_lolbin_openwith"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "OpenWith.exe Executes Specified Binary"
-  description                = "The OpenWith.exe executes other binary Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_openwith.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_openwith.yml"
+  description                = <<DESC
+    The OpenWith.exe executes other binary
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_openwith.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

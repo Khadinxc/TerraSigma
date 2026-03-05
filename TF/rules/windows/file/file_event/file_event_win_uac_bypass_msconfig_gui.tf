@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_uac_bypass_msco
   name                       = "file_event_win_uac_bypass_msconfig_gui"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass Using MSConfig Token Modification - File"
-  description                = "Detects the pattern of UAC Bypass using a msconfig GUI hack (UACMe 55) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_msconfig_gui.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_msconfig_gui.yml"
+  description                = <<DESC
+    Detects the pattern of UAC Bypass using a msconfig GUI hack (UACMe 55)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_msconfig_gui.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

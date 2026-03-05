@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_regsvr32_sus
   name                       = "proc_creation_win_regsvr32_susp_extensions"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Regsvr32 DLL Execution With Suspicious File Extension"
-  description                = "Detects the execution of REGSVR32.exe with DLL files masquerading as other files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_susp_extensions.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_susp_extensions.yml"
+  description                = <<DESC
+    Detects the execution of REGSVR32.exe with DLL files masquerading as other files
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_susp_extensions.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

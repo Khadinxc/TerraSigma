@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_persistence_lsa_e
   name                       = "registry_set_persistence_lsa_extension"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via LSA Extensions"
-  description                = "Detects when an attacker modifies the \"REG_MULTI_SZ\" value named \"Extensions\" to include a custom DLL to achieve persistence via lsass. The \"Extensions\" list contains filenames of DLLs being automatically loaded by lsass.exe. Each DLL has its InitializeLsaExtension() method called after loading. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_lsa_extension.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_lsa_extension.yml"
+  description                = <<DESC
+    Detects when an attacker modifies the "REG_MULTI_SZ" value named "Extensions" to include a custom DLL to achieve persistence via lsass. The "Extensions" list contains filenames of DLLs being automatically loaded by lsass.exe. Each DLL has its InitializeLsaExtension() method called after loading.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_lsa_extension.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

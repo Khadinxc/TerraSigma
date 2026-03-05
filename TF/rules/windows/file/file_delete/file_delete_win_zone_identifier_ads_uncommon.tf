@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_delete_win_zone_identifie
   name                       = "file_delete_win_zone_identifier_ads_uncommon"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ADS Zone.Identifier Deleted By Uncommon Application"
-  description                = "Detects the deletion of the \"Zone.Identifier\" ADS by an uncommon process. Attackers can leverage this in order to bypass security restrictions that make use of the ADS such as Microsoft Office apps. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_zone_identifier_ads_uncommon.yml - Other third party applications not listed. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_zone_identifier_ads_uncommon.yml"
+  description                = <<DESC
+    Detects the deletion of the "Zone.Identifier" ADS by an uncommon process. Attackers can leverage this in order to bypass security restrictions that make use of the ADS such as Microsoft Office apps.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_zone_identifier_ads_uncommon.yml
+
+    False Positives:
+    - Other third party applications not listed.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

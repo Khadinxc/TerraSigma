@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_reg_lsa_disa
   name                       = "proc_creation_win_reg_lsa_disable_restricted_admin"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "RestrictedAdminMode Registry Value Tampering - ProcCreation"
-  description                = "Detects changes to the \"DisableRestrictedAdmin\" registry value in order to disable or enable RestrictedAdmin mode. RestrictedAdmin mode prevents the transmission of reusable credentials to the remote system to which you connect using Remote Desktop. This prevents your credentials from being harvested during the initial connection process if the remote server has been compromise Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_lsa_disable_restricted_admin.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_lsa_disable_restricted_admin.yml"
+  description                = <<DESC
+    Detects changes to the "DisableRestrictedAdmin" registry value in order to disable or enable RestrictedAdmin mode. RestrictedAdmin mode prevents the transmission of reusable credentials to the remote system to which you connect using Remote Desktop. This prevents your credentials from being harvested during the initial connection process if the remote server has been compromise
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_lsa_disable_restricted_admin.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

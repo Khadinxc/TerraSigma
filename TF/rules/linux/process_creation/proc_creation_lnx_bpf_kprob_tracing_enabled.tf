@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_bpf_kprob_tr
   name                       = "proc_creation_lnx_bpf_kprob_tracing_enabled"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Enable BPF Kprobes Tracing"
-  description                = "Detects common command used to enable bpf kprobes tracing Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_bpf_kprob_tracing_enabled.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_bpf_kprob_tracing_enabled.yml"
+  description                = <<DESC
+    Detects common command used to enable bpf kprobes tracing
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_bpf_kprob_tracing_enabled.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

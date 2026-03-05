@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_empire_
   name                       = "proc_creation_win_hktl_empire_powershell_launch"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Empire PowerShell Launch Parameters"
-  description                = "Detects suspicious powershell command line parameters used in Empire Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_empire_powershell_launch.yml - Other tools that incidentally use the same command line parameters | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_empire_powershell_launch.yml"
+  description                = <<DESC
+    Detects suspicious powershell command line parameters used in Empire
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_empire_powershell_launch.yml
+
+    False Positives:
+    - Other tools that incidentally use the same command line parameters
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

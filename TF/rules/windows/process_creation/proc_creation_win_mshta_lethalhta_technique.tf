@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_mshta_lethal
   name                       = "proc_creation_win_mshta_lethalhta_technique"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential LethalHTA Technique Execution"
-  description                = "Detects potential LethalHTA technique where the \"mshta.exe\" is spawned by an \"svchost.exe\" process Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_lethalhta_technique.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_lethalhta_technique.yml"
+  description                = <<DESC
+    Detects potential LethalHTA technique where the "mshta.exe" is spawned by an "svchost.exe" process
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_lethalhta_technique.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

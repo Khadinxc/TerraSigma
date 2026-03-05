@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_odbcconf_res
   name                       = "proc_creation_win_odbcconf_response_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Response File Execution Via Odbcconf.EXE"
-  description                = "Detects execution of \"odbcconf\" with the \"-f\" flag in order to load a response file which might contain a malicious action. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_odbcconf_response_file.yml - The rule is looking for any usage of response file, which might generate false positive when this function is used legitimately. Investigate the contents of the \".rsp\" file to determine if it is malicious and apply additional filters if necessary. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_odbcconf_response_file.yml"
+  description                = <<DESC
+    Detects execution of "odbcconf" with the "-f" flag in order to load a response file which might contain a malicious action.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_odbcconf_response_file.yml
+
+    False Positives:
+    - The rule is looking for any usage of response file, which might generate false positive when this function is used legitimately. Investigate the contents of the ".rsp" file to determine if it is malicious and apply additional filters if necessary.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

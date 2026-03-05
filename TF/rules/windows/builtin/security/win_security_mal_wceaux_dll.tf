@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "win_security_mal_wceaux_dll" {
   name                       = "win_security_mal_wceaux_dll"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WCE wceaux.dll Access"
-  description                = "Detects wceaux.dll access while WCE pass-the-hash remote command execution on source host Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_mal_wceaux_dll.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_mal_wceaux_dll.yml"
+  description                = <<DESC
+    Detects wceaux.dll access while WCE pass-the-hash remote command execution on source host
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_mal_wceaux_dll.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

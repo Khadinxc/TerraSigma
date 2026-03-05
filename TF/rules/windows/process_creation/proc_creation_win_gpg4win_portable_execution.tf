@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_gpg4win_port
   name                       = "proc_creation_win_gpg4win_portable_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Portable Gpg.EXE Execution"
-  description                = "Detects the execution of \"gpg.exe\" from uncommon location. Often used by ransomware and loaders to decrypt/encrypt data. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gpg4win_portable_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gpg4win_portable_execution.yml"
+  description                = <<DESC
+    Detects the execution of "gpg.exe" from uncommon location. Often used by ransomware and loaders to decrypt/encrypt data.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gpg4win_portable_execution.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

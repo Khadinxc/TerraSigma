@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sysinternals
   name                       = "proc_creation_win_sysinternals_psservice"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Sysinternals PsService Execution"
-  description                = "Detects usage of Sysinternals PsService which can be abused for service reconnaissance and tampering Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_psservice.yml - Legitimate use of PsService by an administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_psservice.yml"
+  description                = <<DESC
+    Detects usage of Sysinternals PsService which can be abused for service reconnaissance and tampering
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_psservice.yml
+
+    False Positives:
+    - Legitimate use of PsService by an administrator
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_attrib_hidin
   name                       = "proc_creation_win_attrib_hiding_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Hiding Files with Attrib.exe"
-  description                = "Detects usage of attrib.exe to hide files from users. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_attrib_hiding_files.yml - IgfxCUIService.exe hiding *.cui files via .bat script (attrib.exe a child of cmd.exe and igfxCUIService.exe is the parent of the cmd.exe) - Msiexec.exe hiding desktop.ini | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_attrib_hiding_files.yml"
+  description                = <<DESC
+    Detects usage of attrib.exe to hide files from users.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_attrib_hiding_files.yml
+
+    False Positives:
+    - IgfxCUIService.exe hiding *.cui files via .bat script (attrib.exe a child of cmd.exe and igfxCUIService.exe is the parent of the cmd.exe)
+    - Msiexec.exe hiding desktop.ini
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

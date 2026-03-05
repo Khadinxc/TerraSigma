@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rar_compress
   name                       = "proc_creation_win_rar_compression_with_password"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Rar Usage with Password and Compression Level"
-  description                = "Detects the use of rar.exe, on the command line, to create an archive with password protection or with a specific compression level. This is pretty indicative of malicious actions. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rar_compression_with_password.yml - Legitimate use of Winrar command line version - Other command line tools, that use these flags | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rar_compression_with_password.yml"
+  description                = <<DESC
+    Detects the use of rar.exe, on the command line, to create an archive with password protection or with a specific compression level. This is pretty indicative of malicious actions.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rar_compression_with_password.yml
+
+    False Positives:
+    - Legitimate use of Winrar command line version
+    - Other command line tools, that use these flags
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

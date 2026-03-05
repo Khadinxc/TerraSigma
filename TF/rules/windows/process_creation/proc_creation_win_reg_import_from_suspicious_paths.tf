@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_reg_import_f
   name                       = "proc_creation_win_reg_import_from_suspicious_paths"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Suspicious Registry File Imported Via Reg.EXE"
-  description                = "Detects the import of '.reg' files from suspicious paths using the 'reg.exe' utility Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_import_from_suspicious_paths.yml - Legitimate import of keys | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_import_from_suspicious_paths.yml"
+  description                = <<DESC
+    Detects the import of '.reg' files from suspicious paths using the 'reg.exe' utility
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_import_from_suspicious_paths.yml
+
+    False Positives:
+    - Legitimate import of keys
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

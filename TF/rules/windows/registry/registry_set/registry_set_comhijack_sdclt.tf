@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_comhijack_sdclt" 
   name                       = "registry_set_comhijack_sdclt"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "COM Hijack via Sdclt"
-  description                = "Detects changes to 'HKCU\\Software\\Classes\\Folder\\shell\\open\\command\\DelegateExecute' Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_comhijack_sdclt.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_comhijack_sdclt.yml"
+  description                = <<DESC
+    Detects changes to 'HKCU\Software\Classes\Folder\shell\open\command\DelegateExecute'
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_comhijack_sdclt.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_winget_local
   name                       = "proc_creation_win_winget_local_install_via_manifest"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Install New Package Via Winget Local Manifest"
-  description                = "Detects usage of winget to install applications via manifest file. Adversaries can abuse winget to download payloads remotely and execute them. The manifest option enables you to install an application by passing in a YAML file directly to the client. Winget can be used to download and install exe, msi or msix files later. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winget_local_install_via_manifest.yml - Some false positives are expected in some environment that may use this functionality to install and test their custom applications | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winget_local_install_via_manifest.yml"
+  description                = <<DESC
+    Detects usage of winget to install applications via manifest file. Adversaries can abuse winget to download payloads remotely and execute them. The manifest option enables you to install an application by passing in a YAML file directly to the client. Winget can be used to download and install exe, msi or msix files later.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winget_local_install_via_manifest.yml
+
+    False Positives:
+    - Some false positives are expected in some environment that may use this functionality to install and test their custom applications
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

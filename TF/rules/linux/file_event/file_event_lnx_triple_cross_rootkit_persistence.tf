@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_lnx_triple_cross_ro
   name                       = "file_event_lnx_triple_cross_rootkit_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Triple Cross eBPF Rootkit Default Persistence"
-  description                = "Detects the creation of \"ebpfbackdoor\" files in both \"cron.d\" and \"sudoers.d\" directories. Which both are related to the TripleCross persistence method Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_triple_cross_rootkit_persistence.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_triple_cross_rootkit_persistence.yml"
+  description                = <<DESC
+    Detects the creation of "ebpfbackdoor" files in both "cron.d" and "sudoers.d" directories. Which both are related to the TripleCross persistence method
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_triple_cross_rootkit_persistence.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

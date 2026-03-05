@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_sharpsu
   name                       = "proc_creation_win_hktl_sharpsuccessor_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HKTL - SharpSuccessor Privilege Escalation Tool Execution"
-  description                = "Detects the execution of SharpSuccessor, a tool used to exploit the BadSuccessor attack for privilege escalation in WinServer 2025 Active Directory environments. Successful usage of this tool can let the attackers gain the domain admin privileges by exploiting the BadSuccessor vulnerability. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpsuccessor_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpsuccessor_execution.yml"
+  description                = <<DESC
+    Detects the execution of SharpSuccessor, a tool used to exploit the BadSuccessor attack for privilege escalation in WinServer 2025 Active Directory environments. Successful usage of this tool can let the attackers gain the domain admin privileges by exploiting the BadSuccessor vulnerability.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpsuccessor_execution.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

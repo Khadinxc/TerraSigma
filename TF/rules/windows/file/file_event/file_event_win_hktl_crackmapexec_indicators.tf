@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_hktl_crackmapex
   name                       = "file_event_win_hktl_crackmapexec_indicators"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - CrackMapExec File Indicators"
-  description                = "Detects file creation events with filename patterns used by CrackMapExec. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_crackmapexec_indicators.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_crackmapexec_indicators.yml"
+  description                = <<DESC
+    Detects file creation events with filename patterns used by CrackMapExec.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_crackmapexec_indicators.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

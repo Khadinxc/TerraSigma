@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_driverquery_
   name                       = "proc_creation_win_driverquery_recon"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Recon Activity Using DriverQuery.EXE"
-  description                = "Detect usage of the \"driverquery\" utility to perform reconnaissance on installed drivers Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_driverquery_recon.yml - Legitimate usage by some scripts might trigger this as well | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_driverquery_recon.yml"
+  description                = <<DESC
+    Detect usage of the "driverquery" utility to perform reconnaissance on installed drivers
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_driverquery_recon.yml
+
+    False Positives:
+    - Legitimate usage by some scripts might trigger this as well
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

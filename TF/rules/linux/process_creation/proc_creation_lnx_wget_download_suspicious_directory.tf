@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_wget_downloa
   name                       = "proc_creation_lnx_wget_download_suspicious_directory"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Download File To Potentially Suspicious Directory Via Wget"
-  description                = "Detects the use of wget to download content to a suspicious directory Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_wget_download_suspicious_directory.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_wget_download_suspicious_directory.yml"
+  description                = <<DESC
+    Detects the use of wget to download content to a suspicious directory
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_wget_download_suspicious_directory.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

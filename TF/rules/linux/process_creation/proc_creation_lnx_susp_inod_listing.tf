@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_susp_inod_li
   name                       = "proc_creation_lnx_susp_inod_listing"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Container Discovery Via Inodes Listing"
-  description                = "Detects listing of the inodes of the \"/\" directory to determine if the we are running inside of a container. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_inod_listing.yml - Legitimate system administrator usage of these commands - Some container tools or deployments may use these techniques natively to determine how they proceed with execution, and will need to be filtered | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_inod_listing.yml"
+  description                = <<DESC
+    Detects listing of the inodes of the "/" directory to determine if the we are running inside of a container.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_inod_listing.yml
+
+    False Positives:
+    - Legitimate system administrator usage of these commands
+    - Some container tools or deployments may use these techniques natively to determine how they proceed with execution, and will need to be filtered
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

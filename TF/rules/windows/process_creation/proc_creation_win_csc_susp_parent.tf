@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_csc_susp_par
   name                       = "proc_creation_win_csc_susp_parent"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Csc.EXE Execution Form Potentially Suspicious Parent"
-  description                = "Detects a potentially suspicious parent of \"csc.exe\", which could be a sign of payload delivery. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_csc_susp_parent.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_csc_susp_parent.yml"
+  description                = <<DESC
+    Detects a potentially suspicious parent of "csc.exe", which could be a sign of payload delivery.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_csc_susp_parent.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

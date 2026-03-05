@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_errorhandler_pe
   name                       = "file_event_win_errorhandler_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Attempt Via ErrorHandler.Cmd"
-  description                = "Detects creation of a file named \"ErrorHandler.cmd\" in the \"C:\\WINDOWS\\Setup\\Scripts\\\" directory which could be used as a method of persistence The content of C:\\WINDOWS\\Setup\\Scripts\\ErrorHandler.cmd is read whenever some tools under C:\\WINDOWS\\System32\\oobe\\ (e.g. Setup.exe) fail to run for any reason. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_errorhandler_persistence.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_errorhandler_persistence.yml"
+  description                = <<DESC
+    Detects creation of a file named "ErrorHandler.cmd" in the "C:\WINDOWS\Setup\Scripts\" directory which could be used as a method of persistence The content of C:\WINDOWS\Setup\Scripts\ErrorHandler.cmd is read whenever some tools under C:\WINDOWS\System32\oobe\ (e.g. Setup.exe) fail to run for any reason.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_errorhandler_persistence.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

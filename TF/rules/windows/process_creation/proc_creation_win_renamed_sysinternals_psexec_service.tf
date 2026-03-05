@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_renamed_sysi
   name                       = "proc_creation_win_renamed_sysinternals_psexec_service"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed PsExec Service Execution"
-  description                = "Detects suspicious launch of a renamed version of the PSEXESVC service with, which is not often used by legitimate administrators Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_sysinternals_psexec_service.yml - Legitimate administrative tasks | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_sysinternals_psexec_service.yml"
+  description                = <<DESC
+    Detects suspicious launch of a renamed version of the PSEXESVC service with, which is not often used by legitimate administrators
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_sysinternals_psexec_service.yml
+
+    False Positives:
+    - Legitimate administrative tasks
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

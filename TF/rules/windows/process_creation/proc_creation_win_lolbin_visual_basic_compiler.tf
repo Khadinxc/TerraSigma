@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_visua
   name                       = "proc_creation_win_lolbin_visual_basic_compiler"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Visual Basic Command Line Compiler Usage"
-  description                = "Detects successful code compilation via Visual Basic Command Line Compiler that utilizes Windows Resource to Object Converter. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_visual_basic_compiler.yml - Utilization of this tool should not be seen in enterprise environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_visual_basic_compiler.yml"
+  description                = <<DESC
+    Detects successful code compilation via Visual Basic Command Line Compiler that utilizes Windows Resource to Object Converter.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_visual_basic_compiler.yml
+
+    False Positives:
+    - Utilization of this tool should not be seen in enterprise environment
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

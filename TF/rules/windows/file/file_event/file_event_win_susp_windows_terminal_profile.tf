@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_susp_windows_te
   name                       = "file_event_win_susp_windows_terminal_profile"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Terminal Profile Settings Modification By Uncommon Process"
-  description                = "Detects the creation or modification of the Windows Terminal Profile settings file \"settings.json\" by an uncommon process. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_windows_terminal_profile.yml - Some false positives may occur with admin scripts that set WT settings. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_windows_terminal_profile.yml"
+  description                = <<DESC
+    Detects the creation or modification of the Windows Terminal Profile settings file "settings.json" by an uncommon process.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_windows_terminal_profile.yml
+
+    False Positives:
+    - Some false positives may occur with admin scripts that set WT settings.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

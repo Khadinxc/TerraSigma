@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_e
   name                       = "proc_creation_win_powershell_encode"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Execution of Powershell with Base64"
-  description                = "Commandline to launch powershell with a base64 payload Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_encode.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_encode.yml"
+  description                = <<DESC
+    Commandline to launch powershell with a base64 payload
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_encode.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_reg_delete_s
   name                       = "proc_creation_win_reg_delete_safeboot"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "SafeBoot Registry Key Deleted Via Reg.EXE"
-  description                = "Detects execution of \"reg.exe\" commands with the \"delete\" flag on safe boot registry keys. Often used by attacker to prevent safeboot execution of security products Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_delete_safeboot.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_delete_safeboot.yml"
+  description                = <<DESC
+    Detects execution of "reg.exe" commands with the "delete" flag on safe boot registry keys. Often used by attacker to prevent safeboot execution of security products
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_delete_safeboot.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

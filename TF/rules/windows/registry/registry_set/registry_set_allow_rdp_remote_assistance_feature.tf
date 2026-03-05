@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_allow_rdp_remote_
   name                       = "registry_set_allow_rdp_remote_assistance_feature"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Allow RDP Remote Assistance Feature"
-  description                = "Detect enable rdp feature to allow specific user to rdp connect on the targeted machine Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_allow_rdp_remote_assistance_feature.yml - Legitimate use of the feature (alerts should be investigated either way) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_allow_rdp_remote_assistance_feature.yml"
+  description                = <<DESC
+    Detect enable rdp feature to allow specific user to rdp connect on the targeted machine
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_allow_rdp_remote_assistance_feature.yml
+
+    False Positives:
+    - Legitimate use of the feature (alerts should be investigated either way)
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_network_se
   name                       = "proc_creation_macos_network_service_scanning"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "MacOS Network Service Scanning"
-  description                = "Detects enumeration of local or remote network services. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_network_service_scanning.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_network_service_scanning.yml"
+  description                = <<DESC
+    Detects enumeration of local or remote network services.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_network_service_scanning.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sysinternals
   name                       = "proc_creation_win_sysinternals_psexec_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Psexec Execution"
-  description                = "Detects user accept agreement execution in psexec commandline Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_psexec_execution.yml - Administrative scripts. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_psexec_execution.yml"
+  description                = <<DESC
+    Detects user accept agreement execution in psexec commandline
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_psexec_execution.yml
+
+    False Positives:
+    - Administrative scripts.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_regsvr32_sus
   name                       = "proc_creation_win_regsvr32_susp_exec_path_1"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Regsvr32 Execution From Potential Suspicious Location"
-  description                = "Detects execution of regsvr32 where the DLL is located in a potentially suspicious location. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_susp_exec_path_1.yml - Some installers might execute \"regsvr32\" with DLLs located in %TEMP% or in %PROGRAMDATA%. Apply additional filters if necessary. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_susp_exec_path_1.yml"
+  description                = <<DESC
+    Detects execution of regsvr32 where the DLL is located in a potentially suspicious location.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_susp_exec_path_1.yml
+
+    False Positives:
+    - Some installers might execute "regsvr32" with DLLs located in %TEMP% or in %PROGRAMDATA%. Apply additional filters if necessary.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

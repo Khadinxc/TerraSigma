@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_susp_history
   name                       = "proc_creation_lnx_susp_history_recon"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Print History File Contents"
-  description                = "Detects events in which someone prints the contents of history files to the commandline or redirects it to a file for reconnaissance Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_history_recon.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_history_recon.yml"
+  description                = <<DESC
+    Detects events in which someone prints the contents of history files to the commandline or redirects it to a file for reconnaissance
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_history_recon.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

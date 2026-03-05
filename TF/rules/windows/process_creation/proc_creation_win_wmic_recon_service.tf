@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wmic_recon_s
   name                       = "proc_creation_win_wmic_recon_service"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Service Reconnaissance Via Wmic.EXE"
-  description                = "An adversary might use WMI to check if a certain remote service is running on a remote device. When the test completes, a service information will be displayed on the screen if it exists. A common feedback message is that \"No instance(s) Available\" if the service queried is not running. A common error message is \"Node - (provided IP or default) ERROR Description =The RPC server is unavailable\" if the provided remote host is unreachable Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_service.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_service.yml"
+  description                = <<DESC
+    An adversary might use WMI to check if a certain remote service is running on a remote device. When the test completes, a service information will be displayed on the screen if it exists. A common feedback message is that "No instance(s) Available" if the service queried is not running. A common error message is "Node - (provided IP or default) ERROR Description =The RPC server is unavailable" if the provided remote host is unreachable
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_service.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

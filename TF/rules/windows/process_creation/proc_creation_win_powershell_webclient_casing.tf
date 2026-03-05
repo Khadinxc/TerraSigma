@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_w
   name                       = "proc_creation_win_powershell_webclient_casing"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Net WebClient Casing Anomalies"
-  description                = "Detects PowerShell command line contents that include a suspicious abnormal casing in the Net.Webclient (e.g. nEt.WEbCliEnT) string as used in obfuscation techniques Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_webclient_casing.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_webclient_casing.yml"
+  description                = <<DESC
+    Detects PowerShell command line contents that include a suspicious abnormal casing in the Net.Webclient (e.g. nEt.WEbCliEnT) string as used in obfuscation techniques
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_webclient_casing.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

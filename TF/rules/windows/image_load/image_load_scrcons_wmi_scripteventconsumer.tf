@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_scrcons_wmi_scripte
   name                       = "image_load_scrcons_wmi_scripteventconsumer"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WMI ActiveScriptEventConsumers Activity Via Scrcons.EXE DLL Load"
-  description                = "Detects signs of the WMI script host process \"scrcons.exe\" loading scripting DLLs which could indicates WMI ActiveScriptEventConsumers EventConsumers activity. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_scrcons_wmi_scripteventconsumer.yml - Legitimate event consumers - Dell computers on some versions register an event consumer that is known to cause false positives when brightness is changed by the corresponding keyboard button | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_scrcons_wmi_scripteventconsumer.yml"
+  description                = <<DESC
+    Detects signs of the WMI script host process "scrcons.exe" loading scripting DLLs which could indicates WMI ActiveScriptEventConsumers EventConsumers activity.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_scrcons_wmi_scripteventconsumer.yml
+
+    False Positives:
+    - Legitimate event consumers
+    - Dell computers on some versions register an event consumer that is known to cause false positives when brightness is changed by the corresponding keyboard button
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

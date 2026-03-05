@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_domain_goog
   name                       = "net_connection_win_domain_google_api_non_browser_access"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Non-Browser Network Communication With Google API"
-  description                = "Detects a non-browser process interacting with the Google API which could indicate the use of a covert C2 such as Google Sheet C2 (GC2-sheet) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_google_api_non_browser_access.yml - Legitimate applications communicating with the \"googleapis.com\" endpoints that are not already in the exclusion list. This is environmental dependent and requires further testing and tuning. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_google_api_non_browser_access.yml"
+  description                = <<DESC
+    Detects a non-browser process interacting with the Google API which could indicate the use of a covert C2 such as Google Sheet C2 (GC2-sheet)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_google_api_non_browser_access.yml
+
+    False Positives:
+    - Legitimate applications communicating with the "googleapis.com" endpoints that are not already in the exclusion list. This is environmental dependent and requires further testing and tuning.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

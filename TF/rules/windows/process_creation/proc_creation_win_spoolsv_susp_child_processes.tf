@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_spoolsv_susp
   name                       = "proc_creation_win_spoolsv_susp_child_processes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Spool Service Child Process"
-  description                = "Detects suspicious print spool service (spoolsv.exe) child processes. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_spoolsv_susp_child_processes.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_spoolsv_susp_child_processes.yml"
+  description                = <<DESC
+    Detects suspicious print spool service (spoolsv.exe) child processes.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_spoolsv_susp_child_processes.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

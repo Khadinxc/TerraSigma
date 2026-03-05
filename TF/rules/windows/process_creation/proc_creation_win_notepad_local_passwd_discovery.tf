@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_notepad_loca
   name                       = "proc_creation_win_notepad_local_passwd_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Notepad Password Files Discovery"
-  description                = "Detects the execution of Notepad to open a file that has the string \"password\" which may indicate unauthorized access to credentials or suspicious activity. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_notepad_local_passwd_discovery.yml - Legitimate use of opening files from remote hosts by administrators or users. However, storing passwords in text readable format could potentially be a violation of the organization's policy. Any match should be investigated further. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_notepad_local_passwd_discovery.yml"
+  description                = <<DESC
+    Detects the execution of Notepad to open a file that has the string "password" which may indicate unauthorized access to credentials or suspicious activity.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_notepad_local_passwd_discovery.yml
+
+    False Positives:
+    - Legitimate use of opening files from remote hosts by administrators or users. However, storing passwords in text readable format could potentially be a violation of the organization's policy. Any match should be investigated further.
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

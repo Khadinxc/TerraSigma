@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_invoke_
   name                       = "proc_creation_win_hktl_invoke_obfuscation_via_compress"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Invoke-Obfuscation COMPRESS OBFUSCATION"
-  description                = "Detects Obfuscated Powershell via COMPRESS OBFUSCATION Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_via_compress.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_via_compress.yml"
+  description                = <<DESC
+    Detects Obfuscated Powershell via COMPRESS OBFUSCATION
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_via_compress.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

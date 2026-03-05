@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_fsutil_drive
   name                       = "proc_creation_win_fsutil_drive_enumeration"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Fsutil Drive Enumeration"
-  description                = "Attackers may leverage fsutil to enumerated connected drives. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_drive_enumeration.yml - Certain software or administrative tasks may trigger false positives. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_drive_enumeration.yml"
+  description                = <<DESC
+    Attackers may leverage fsutil to enumerated connected drives.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_drive_enumeration.yml
+
+    False Positives:
+    - Certain software or administrative tasks may trigger false positives.
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

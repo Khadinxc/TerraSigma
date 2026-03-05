@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_disable_autologge
   name                       = "registry_set_disable_autologger_sessions"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential AutoLogger Sessions Tampering"
-  description                = "Detects tampering with autologger trace sessions which is a technique used by attackers to disable logging Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_autologger_sessions.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_autologger_sessions.yml"
+  description                = <<DESC
+    Detects tampering with autologger trace sessions which is a technique used by attackers to disable logging
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_autologger_sessions.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

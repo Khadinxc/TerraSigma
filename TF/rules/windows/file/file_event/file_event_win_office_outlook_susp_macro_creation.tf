@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_office_outlook_
   name                       = "file_event_win_office_outlook_susp_macro_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Outlook Macro Created"
-  description                = "Detects the creation of a macro file for Outlook. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_outlook_susp_macro_creation.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_outlook_susp_macro_creation.yml"
+  description                = <<DESC
+    Detects the creation of a macro file for Outlook.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_outlook_susp_macro_creation.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

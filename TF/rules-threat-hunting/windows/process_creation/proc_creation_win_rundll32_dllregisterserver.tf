@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_dll
   name                       = "proc_creation_win_rundll32_dllregisterserver"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Rundll32.EXE Calling DllRegisterServer Export Function Explicitly"
-  description                = "Detects when the DLL export function 'DllRegisterServer' is called in the commandline by Rundll32 explicitly where the DLL is located in a non-standard path. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_rundll32_dllregisterserver.yml - Legitimate usage as part of application installation, but less likely from e.g. temporary paths. - Not every instance is considered malicious, but this rule will capture the malicious usages. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_rundll32_dllregisterserver.yml"
+  description                = <<DESC
+    Detects when the DLL export function 'DllRegisterServer' is called in the commandline by Rundll32 explicitly where the DLL is located in a non-standard path.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_rundll32_dllregisterserver.yml
+
+    False Positives:
+    - Legitimate usage as part of application installation, but less likely from e.g. temporary paths.
+    - Not every instance is considered malicious, but this rule will capture the malicious usages.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

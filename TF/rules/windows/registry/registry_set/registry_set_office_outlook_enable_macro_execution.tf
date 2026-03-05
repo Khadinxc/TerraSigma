@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_office_outlook_en
   name                       = "registry_set_office_outlook_enable_macro_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Outlook Macro Execution Without Warning Setting Enabled"
-  description                = "Detects the modification of Outlook security setting to allow unprompted execution of macros. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_outlook_enable_macro_execution.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_outlook_enable_macro_execution.yml"
+  description                = <<DESC
+    Detects the modification of Outlook security setting to allow unprompted execution of macros.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_outlook_enable_macro_execution.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

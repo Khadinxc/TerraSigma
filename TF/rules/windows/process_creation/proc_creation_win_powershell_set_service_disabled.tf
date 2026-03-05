@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_s
   name                       = "proc_creation_win_powershell_set_service_disabled"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Service StartupType Change Via PowerShell Set-Service"
-  description                = "Detects the use of the PowerShell \"Set-Service\" cmdlet to change the startup type of a service to \"disabled\" or \"manual\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_set_service_disabled.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_set_service_disabled.yml"
+  description                = <<DESC
+    Detects the use of the PowerShell "Set-Service" cmdlet to change the startup type of a service to "disabled" or "manual"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_set_service_disabled.yml
+
+    False Positives:
+    - False positives may occur with troubleshooting scripts
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

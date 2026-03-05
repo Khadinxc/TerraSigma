@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_creds_from
   name                       = "proc_creation_macos_creds_from_keychain"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Credentials from Password Stores - Keychain"
-  description                = "Detects passwords dumps from Keychain Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_creds_from_keychain.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_creds_from_keychain.yml"
+  description                = <<DESC
+    Detects passwords dumps from Keychain
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_creds_from_keychain.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_rdp_reverse
   name                       = "net_connection_win_rdp_reverse_tunnel"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "RDP Over Reverse SSH Tunnel"
-  description                = "Detects svchost hosting RDP termsvcs communicating with the loopback address and on TCP port 3389 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_rdp_reverse_tunnel.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_rdp_reverse_tunnel.yml"
+  description                = <<DESC
+    Detects svchost hosting RDP termsvcs communicating with the loopback address and on TCP port 3389
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_rdp_reverse_tunnel.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents

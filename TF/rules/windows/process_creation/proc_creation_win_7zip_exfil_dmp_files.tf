@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_7zip_exfil_d
   name                       = "proc_creation_win_7zip_exfil_dmp_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "7Zip Compressing Dump Files"
-  description                = "Detects execution of 7z in order to compress a file with a \".dmp\"/\".dump\" extension, which could be a step in a process of dump file exfiltration. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_7zip_exfil_dmp_files.yml - Legitimate use of 7z with a command line in which \".dmp\" or \".dump\" appears accidentally - Legitimate use of 7z to compress WER \".dmp\" files for troubleshooting | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_7zip_exfil_dmp_files.yml"
+  description                = <<DESC
+    Detects execution of 7z in order to compress a file with a ".dmp"/".dump" extension, which could be a step in a process of dump file exfiltration.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_7zip_exfil_dmp_files.yml
+
+    False Positives:
+    - Legitimate use of 7z with a command line in which ".dmp" or ".dump" appears accidentally
+    - Legitimate use of 7z to compress WER ".dmp" files for troubleshooting
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

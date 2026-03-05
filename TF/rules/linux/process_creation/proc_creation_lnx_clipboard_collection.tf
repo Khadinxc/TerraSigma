@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_clipboard_co
   name                       = "proc_creation_lnx_clipboard_collection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Clipboard Collection with Xclip Tool"
-  description                = "Detects attempts to collect data stored in the clipboard from users with the usage of xclip tool. Xclip has to be installed. Highly recommended using rule on servers, due to high usage of clipboard utilities on user workstations. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_clipboard_collection.yml - Legitimate usage of xclip tools. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_clipboard_collection.yml"
+  description                = <<DESC
+    Detects attempts to collect data stored in the clipboard from users with the usage of xclip tool. Xclip has to be installed. Highly recommended using rule on servers, due to high usage of clipboard utilities on user workstations.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_clipboard_collection.yml
+
+    False Positives:
+    - Legitimate usage of xclip tools.
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

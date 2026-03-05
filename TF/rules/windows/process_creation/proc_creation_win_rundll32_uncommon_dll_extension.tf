@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_unc
   name                       = "proc_creation_win_rundll32_uncommon_dll_extension"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Rundll32 Execution With Uncommon DLL Extension"
-  description                = "Detects the execution of rundll32 with a command line that doesn't contain a common extension Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_uncommon_dll_extension.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_uncommon_dll_extension.yml"
+  description                = <<DESC
+    Detects the execution of rundll32 with a command line that doesn't contain a common extension
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_uncommon_dll_extension.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

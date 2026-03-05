@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_muddywat
   name                       = "proc_creation_win_apt_muddywater_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential MuddyWater APT Activity"
-  description                = "Detects potential Muddywater APT activity Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/MuddyWater/proc_creation_win_apt_muddywater_activity.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/MuddyWater/proc_creation_win_apt_muddywater_activity.yml"
+  description                = <<DESC
+    Detects potential Muddywater APT activity
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/MuddyWater/proc_creation_win_apt_muddywater_activity.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

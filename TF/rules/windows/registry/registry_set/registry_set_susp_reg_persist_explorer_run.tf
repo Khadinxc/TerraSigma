@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_susp_reg_persist_
   name                       = "registry_set_susp_reg_persist_explorer_run"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Registry Persistence via Explorer Run Key"
-  description                = "Detects a possible persistence mechanism using RUN key for Windows Explorer and pointing to a suspicious folder Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_reg_persist_explorer_run.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_reg_persist_explorer_run.yml"
+  description                = <<DESC
+    Detects a possible persistence mechanism using RUN key for Windows Explorer and pointing to a suspicious folder
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_reg_persist_explorer_run.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

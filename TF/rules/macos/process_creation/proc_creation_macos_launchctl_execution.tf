@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_launchctl_
   name                       = "proc_creation_macos_launchctl_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Launch Agent/Daemon Execution Via Launchctl"
-  description                = "Detects the execution of programs as Launch Agents or Launch Daemons using launchctl on macOS. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_launchctl_execution.yml - Legitimate administration activities is expected to trigger false positives. Investigate the command line being passed to determine if the service or launch agent are suspicious. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_launchctl_execution.yml"
+  description                = <<DESC
+    Detects the execution of programs as Launch Agents or Launch Daemons using launchctl on macOS.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_launchctl_execution.yml
+
+    False Positives:
+    - Legitimate administration activities is expected to trigger false positives. Investigate the command line being passed to determine if the service or launch agent are suspicious.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

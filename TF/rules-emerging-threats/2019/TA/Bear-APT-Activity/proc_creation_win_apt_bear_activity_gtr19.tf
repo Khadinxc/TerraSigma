@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_bear_act
   name                       = "proc_creation_win_apt_bear_activity_gtr19"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Russian APT Credential Theft Activity"
-  description                = "Detects Russian group activity as described in Global Threat Report 2019 by Crowdstrike Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/Bear-APT-Activity/proc_creation_win_apt_bear_activity_gtr19.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/Bear-APT-Activity/proc_creation_win_apt_bear_activity_gtr19.yml"
+  description                = <<DESC
+    Detects Russian group activity as described in Global Threat Report 2019 by Crowdstrike
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/Bear-APT-Activity/proc_creation_win_apt_bear_activity_gtr19.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

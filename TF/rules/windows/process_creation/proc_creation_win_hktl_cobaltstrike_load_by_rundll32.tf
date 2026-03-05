@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_cobalts
   name                       = "proc_creation_win_hktl_cobaltstrike_load_by_rundll32"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "CobaltStrike Load by Rundll32"
-  description                = "Rundll32 can be use by Cobalt Strike with StartW function to load DLLs from the command line. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_cobaltstrike_load_by_rundll32.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_cobaltstrike_load_by_rundll32.yml"
+  description                = <<DESC
+    Rundll32 can be use by Cobalt Strike with StartW function to load DLLs from the command line.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_cobaltstrike_load_by_rundll32.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_double_
   name                       = "proc_creation_win_susp_double_extension_parent"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Parent Double Extension File Execution"
-  description                = "Detect execution of suspicious double extension files in ParentCommandLine Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_double_extension_parent.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_double_extension_parent.yml"
+  description                = <<DESC
+    Detect execution of suspicious double extension files in ParentCommandLine
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_double_extension_parent.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

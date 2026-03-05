@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_dsenablero
   name                       = "proc_creation_macos_dsenableroot_enable_root_account"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Root Account Enable Via Dsenableroot"
-  description                = "Detects attempts to enable the root account via \"dsenableroot\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_dsenableroot_enable_root_account.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_dsenableroot_enable_root_account.yml"
+  description                = <<DESC
+    Detects attempts to enable the root account via "dsenableroot"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_dsenableroot_enable_root_account.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

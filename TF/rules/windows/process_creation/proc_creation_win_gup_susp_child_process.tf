@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_gup_susp_chi
   name                       = "proc_creation_win_gup_susp_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Child Process of Notepad++ Updater - GUP.Exe"
-  description                = "Detects suspicious child process creation by the Notepad++ updater process (gup.exe). This could indicate potential exploitation of the updater component to deliver unwanted malware. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gup_susp_child_process.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gup_susp_child_process.yml"
+  description                = <<DESC
+    Detects suspicious child process creation by the Notepad++ updater process (gup.exe). This could indicate potential exploitation of the updater component to deliver unwanted malware.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gup_susp_child_process.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

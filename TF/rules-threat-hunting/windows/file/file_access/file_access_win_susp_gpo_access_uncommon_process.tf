@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_access_win_susp_gpo_acces
   name                       = "file_access_win_susp_gpo_access_uncommon_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Access To Sysvol Policies Share By Uncommon Process"
-  description                = "Detects file access requests to the Windows Sysvol Policies Share by uncommon processes Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/file_access_win_susp_gpo_access_uncommon_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/file_access_win_susp_gpo_access_uncommon_process.yml"
+  description                = <<DESC
+    Detects file access requests to the Windows Sysvol Policies Share by uncommon processes
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/file_access_win_susp_gpo_access_uncommon_process.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

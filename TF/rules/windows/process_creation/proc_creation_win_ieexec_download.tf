@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_ieexec_downl
   name                       = "proc_creation_win_ieexec_download"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Download And Execution Via IEExec.EXE"
-  description                = "Detects execution of the IEExec utility to download and execute files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ieexec_download.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ieexec_download.yml"
+  description                = <<DESC
+    Detects execution of the IEExec utility to download and execute files
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ieexec_download.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

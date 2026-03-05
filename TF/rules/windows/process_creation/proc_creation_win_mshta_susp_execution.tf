@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_mshta_susp_e
   name                       = "proc_creation_win_mshta_susp_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "MSHTA Execution with Suspicious File Extensions"
-  description                = "Detects execution of mshta.exe with file types that looks like they do not typically represent HTA (HTML Application) content, such as .png, .jpg, .zip, .pdf, and others, which are often polyglots. MSHTA is a legitimate Windows utility for executing HTML Applications containing VBScript or JScript. Threat actors often abuse this lolbin utility to download and execute malicious scripts disguised as benign files or hosted under misleading extensions to evade detection. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_susp_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_susp_execution.yml"
+  description                = <<DESC
+    Detects execution of mshta.exe with file types that looks like they do not typically represent HTA (HTML Application) content, such as .png, .jpg, .zip, .pdf, and others, which are often polyglots. MSHTA is a legitimate Windows utility for executing HTML Applications containing VBScript or JScript. Threat actors often abuse this lolbin utility to download and execute malicious scripts disguised as benign files or hosted under misleading extensions to evade detection.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_susp_execution.yml
+
+    False Positives:
+    - False positives depend on scripts and administrative tools used in the monitored environment
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

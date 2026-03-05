@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_psr_capture_
   name                       = "proc_creation_win_psr_capture_screenshots"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Screen Capture Activity Via Psr.EXE"
-  description                = "Detects execution of Windows Problem Steps Recorder (psr.exe), a utility used to record the user screen and clicks. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_psr_capture_screenshots.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_psr_capture_screenshots.yml"
+  description                = <<DESC
+    Detects execution of Windows Problem Steps Recorder (psr.exe), a utility used to record the user screen and clicks.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_psr_capture_screenshots.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

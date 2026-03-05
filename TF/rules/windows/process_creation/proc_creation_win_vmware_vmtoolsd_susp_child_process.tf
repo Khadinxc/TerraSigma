@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_vmware_vmtoo
   name                       = "proc_creation_win_vmware_vmtoolsd_susp_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "VMToolsd Suspicious Child Process"
-  description                = "Detects suspicious child process creations of VMware Tools process which may indicate persistence setup Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vmware_vmtoolsd_susp_child_process.yml - Legitimate use by VM administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vmware_vmtoolsd_susp_child_process.yml"
+  description                = <<DESC
+    Detects suspicious child process creations of VMware Tools process which may indicate persistence setup
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vmware_vmtoolsd_susp_child_process.yml
+
+    False Positives:
+    - Legitimate use by VM administrator
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_netsh_packet
   name                       = "proc_creation_win_netsh_packet_capture"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Network Trace Capture Started Via Netsh.EXE"
-  description                = "Detects the execution of netsh with the \"trace\" flag in order to start a network capture Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_packet_capture.yml - Legitimate administration activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_packet_capture.yml"
+  description                = <<DESC
+    Detects the execution of netsh with the "trace" flag in order to start a network capture
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_packet_capture.yml
+
+    False Positives:
+    - Legitimate administration activity
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_pua_truffleh
   name                       = "proc_creation_lnx_pua_trufflehog"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - TruffleHog Execution - Linux"
-  description                = "Detects execution of TruffleHog, a tool used to search for secrets in different platforms like Git, Jira, Slack, SharePoint, etc. that could be used maliciously. While it is a legitimate tool, intended for use in CI pipelines and security assessments, It was observed in the Shai-Hulud malware campaign targeting npm packages to steal sensitive information. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_pua_trufflehog.yml - Legitimate use of TruffleHog by security teams or developers. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_pua_trufflehog.yml"
+  description                = <<DESC
+    Detects execution of TruffleHog, a tool used to search for secrets in different platforms like Git, Jira, Slack, SharePoint, etc. that could be used maliciously. While it is a legitimate tool, intended for use in CI pipelines and security assessments, It was observed in the Shai-Hulud malware campaign targeting npm packages to steal sensitive information.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_pua_trufflehog.yml
+
+    False Positives:
+    - Legitimate use of TruffleHog by security teams or developers.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

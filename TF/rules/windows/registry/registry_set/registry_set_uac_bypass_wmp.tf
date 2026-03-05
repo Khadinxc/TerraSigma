@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_uac_bypass_wmp" {
   name                       = "registry_set_uac_bypass_wmp"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass Using Windows Media Player - Registry"
-  description                = "Detects the pattern of UAC Bypass using Windows Media Player osksupport.dll (UACMe 32) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_uac_bypass_wmp.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_uac_bypass_wmp.yml"
+  description                = <<DESC
+    Detects the pattern of UAC Bypass using Windows Media Player osksupport.dll (UACMe 32)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_uac_bypass_wmp.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_regedit_impo
   name                       = "proc_creation_win_regedit_import_keys_ads"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Imports Registry Key From an ADS"
-  description                = "Detects the import of a alternate datastream to the registry with regedit.exe. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regedit_import_keys_ads.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regedit_import_keys_ads.yml"
+  description                = <<DESC
+    Detects the import of a alternate datastream to the registry with regedit.exe.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regedit_import_keys_ads.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

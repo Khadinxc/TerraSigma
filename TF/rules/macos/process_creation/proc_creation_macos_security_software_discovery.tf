@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_security_s
   name                       = "proc_creation_macos_security_software_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Security Software Discovery - MacOs"
-  description                = "Detects usage of system utilities (only grep for now) to discover security software discovery Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_security_software_discovery.yml - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_security_software_discovery.yml"
+  description                = <<DESC
+    Detects usage of system utilities (only grep for now) to discover security software discovery
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_security_software_discovery.yml
+
+    False Positives:
+    - Legitimate activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

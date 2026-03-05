@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_instalutil_n
   name                       = "proc_creation_win_instalutil_no_log_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Execution of InstallUtil Without Log"
-  description                = "Uses the .NET InstallUtil.exe application in order to execute image without log Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_instalutil_no_log_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_instalutil_no_log_execution.yml"
+  description                = <<DESC
+    Uses the .NET InstallUtil.exe application in order to execute image without log
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_instalutil_no_log_execution.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

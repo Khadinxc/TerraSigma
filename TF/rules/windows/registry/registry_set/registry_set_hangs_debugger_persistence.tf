@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_hangs_debugger_pe
   name                       = "registry_set_hangs_debugger_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Add Debugger Entry To Hangs Key For Persistence"
-  description                = "Detects when an attacker adds a new \"Debugger\" value to the \"Hangs\" key in order to achieve persistence which will get invoked when an application crashes Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_hangs_debugger_persistence.yml - This value is not set by default but could be rarly used by administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_hangs_debugger_persistence.yml"
+  description                = <<DESC
+    Detects when an attacker adds a new "Debugger" value to the "Hangs" key in order to achieve persistence which will get invoked when an application crashes
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_hangs_debugger_persistence.yml
+
+    False Positives:
+    - This value is not set by default but could be rarly used by administrators
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

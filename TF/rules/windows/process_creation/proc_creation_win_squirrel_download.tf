@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_squirrel_dow
   name                       = "proc_creation_win_squirrel_download"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Arbitrary File Download Via Squirrel.EXE"
-  description                = "Detects the usage of the \"Squirrel.exe\" to download arbitrary files. This binary is part of multiple Electron based software installations (Slack, Teams, Discord, etc.) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_squirrel_download.yml - Expected FP with some Electron based applications such as (1Clipboard, Beaker Browser, Caret, Discord, GitHub Desktop, etc.) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_squirrel_download.yml"
+  description                = <<DESC
+    Detects the usage of the "Squirrel.exe" to download arbitrary files. This binary is part of multiple Electron based software installations (Slack, Teams, Discord, etc.)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_squirrel_download.yml
+
+    False Positives:
+    - Expected FP with some Electron based applications such as (1Clipboard, Beaker Browser, Caret, Discord, GitHub Desktop, etc.)
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

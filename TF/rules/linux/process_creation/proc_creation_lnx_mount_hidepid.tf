@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_mount_hidepi
   name                       = "proc_creation_lnx_mount_hidepid"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Mount Execution With Hidepid Parameter"
-  description                = "Detects execution of the \"mount\" command with \"hidepid\" parameter to make invisible processes to other users from the system Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_mount_hidepid.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_mount_hidepid.yml"
+  description                = <<DESC
+    Detects execution of the "mount" command with "hidepid" parameter to make invisible processes to other users from the system
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_mount_hidepid.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

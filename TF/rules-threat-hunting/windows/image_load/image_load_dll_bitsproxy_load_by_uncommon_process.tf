@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_dll_bitsproxy_load_
   name                       = "image_load_dll_bitsproxy_load_by_uncommon_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "BITS Client BitsProxy DLL Loaded By Uncommon Process"
-  description                = "Detects an uncommon process loading the \"BitsProxy.dll\". This DLL is used when the BITS COM instance or API is used. This detection can be used to hunt for uncommon processes loading this DLL in your environment. Which may indicate potential suspicious activity occurring. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_dll_bitsproxy_load_by_uncommon_process.yml - Allowed binaries in the environment that do BITS Jobs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_dll_bitsproxy_load_by_uncommon_process.yml"
+  description                = <<DESC
+    Detects an uncommon process loading the "BitsProxy.dll". This DLL is used when the BITS COM instance or API is used. This detection can be used to hunt for uncommon processes loading this DLL in your environment. Which may indicate potential suspicious activity occurring.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_dll_bitsproxy_load_by_uncommon_process.yml
+
+    False Positives:
+    - Allowed binaries in the environment that do BITS Jobs
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceImageLoadEvents

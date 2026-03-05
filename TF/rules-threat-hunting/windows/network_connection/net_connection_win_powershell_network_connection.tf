@@ -2,7 +2,16 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_powershell_
   name                       = "net_connection_win_powershell_network_connection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Network Connection Initiated By PowerShell Process"
-  description                = "Detects a network connection that was initiated from a PowerShell process. Often times malicious powershell scripts download additional payloads or communicate back to command and control channels via uncommon ports or IPs. Use this rule as a basis for hunting for anomalies. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/net_connection_win_powershell_network_connection.yml - Administrative scripts - Microsoft IP range - Additional filters are required. Adjust to your environment (e.g. extend filters with company's ip range') | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/net_connection_win_powershell_network_connection.yml"
+  description                = <<DESC
+    Detects a network connection that was initiated from a PowerShell process. Often times malicious powershell scripts download additional payloads or communicate back to command and control channels via uncommon ports or IPs. Use this rule as a basis for hunting for anomalies.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/net_connection_win_powershell_network_connection.yml
+
+    False Positives:
+    - Administrative scripts
+    - Microsoft IP range
+    - Additional filters are required. Adjust to your environment (e.g. extend filters with company's ip range')
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceNetworkEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_tapinstall_e
   name                       = "proc_creation_win_tapinstall_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Tap Installer Execution"
-  description                = "Well-known TAP software installation. Possible preparation for data exfiltration using tunneling techniques Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tapinstall_execution.yml - Legitimate OpenVPN TAP installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tapinstall_execution.yml"
+  description                = <<DESC
+    Well-known TAP software installation. Possible preparation for data exfiltration using tunneling techniques
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tapinstall_execution.yml
+
+    False Positives:
+    - Legitimate OpenVPN TAP installation
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

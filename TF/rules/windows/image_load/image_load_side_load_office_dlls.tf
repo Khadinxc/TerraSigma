@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_side_load_office_dl
   name                       = "image_load_side_load_office_dlls"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Microsoft Office DLL Sideload"
-  description                = "Detects DLL sideloading of DLLs that are part of Microsoft Office from non standard location Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_office_dlls.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_office_dlls.yml"
+  description                = <<DESC
+    Detects DLL sideloading of DLLs that are part of Microsoft Office from non standard location
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_office_dlls.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

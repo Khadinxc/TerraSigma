@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_susp_public_fol
   name                       = "file_event_win_susp_public_folder_extension"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Binaries and Scripts in Public Folder"
-  description                = "Detects the creation of a file with a suspicious extension in the public folder, which could indicate potential malicious activity. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_public_folder_extension.yml - Administrators deploying legitimate binaries to public folders. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_public_folder_extension.yml"
+  description                = <<DESC
+    Detects the creation of a file with a suspicious extension in the public folder, which could indicate potential malicious activity.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_public_folder_extension.yml
+
+    False Positives:
+    - Administrators deploying legitimate binaries to public folders.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_office_oneno
   name                       = "proc_creation_win_office_onenote_susp_child_processes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Microsoft OneNote Child Process"
-  description                = "Detects suspicious child processes of the Microsoft OneNote application. This may indicate an attempt to execute malicious embedded objects from a .one file. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_onenote_susp_child_processes.yml - File located in the AppData folder with trusted signature | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_onenote_susp_child_processes.yml"
+  description                = <<DESC
+    Detects suspicious child processes of the Microsoft OneNote application. This may indicate an attempt to execute malicious embedded objects from a .one file.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_onenote_susp_child_processes.yml
+
+    False Positives:
+    - File located in the AppData folder with trusted signature
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_dfsvc_non_l
   name                       = "net_connection_win_dfsvc_non_local_ip"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Dfsvc.EXE Network Connection To Non-Local IPs"
-  description                = "Detects network connections from \"dfsvc.exe\" used to handled ClickOnce applications to non-local IPs Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/net_connection_win_dfsvc_non_local_ip.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/net_connection_win_dfsvc_non_local_ip.yml"
+  description                = <<DESC
+    Detects network connections from "dfsvc.exe" used to handled ClickOnce applications to non-local IPs
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/net_connection_win_dfsvc_non_local_ip.yml
+
+    False Positives:
+    - False positives are expected from ClickOnce manifests hosted on public IPs and domains. Apply additional filters for the accepted IPs in your environement as necessary
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

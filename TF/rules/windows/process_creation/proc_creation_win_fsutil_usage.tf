@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_fsutil_usage
   name                       = "proc_creation_win_fsutil_usage"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Fsutil Suspicious Invocation"
-  description                = "Detects suspicious parameters of fsutil (deleting USN journal, configuring it with small size, etc). Might be used by ransomwares during the attack (seen by NotPetya and others). Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_usage.yml - Admin activity - Scripts and administrative tools used in the monitored environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_usage.yml"
+  description                = <<DESC
+    Detects suspicious parameters of fsutil (deleting USN journal, configuring it with small size, etc). Might be used by ransomwares during the attack (seen by NotPetya and others).
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_usage.yml
+
+    False Positives:
+    - Admin activity
+    - Scripts and administrative tools used in the monitored environment
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

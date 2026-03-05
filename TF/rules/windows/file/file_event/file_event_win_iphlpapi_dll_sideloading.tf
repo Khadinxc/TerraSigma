@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_iphlpapi_dll_si
   name                       = "file_event_win_iphlpapi_dll_sideloading"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Malicious DLL File Dropped in the Teams or OneDrive Folder"
-  description                = "Detects creation of a malicious DLL file in the location where the OneDrive or Team applications Upon execution of the Teams or OneDrive application, the dropped malicious DLL file (\"iphlpapi.dll\") is sideloaded Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_iphlpapi_dll_sideloading.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_iphlpapi_dll_sideloading.yml"
+  description                = <<DESC
+    Detects creation of a malicious DLL file in the location where the OneDrive or Team applications Upon execution of the Teams or OneDrive application, the dropped malicious DLL file ("iphlpapi.dll") is sideloaded
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_iphlpapi_dll_sideloading.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

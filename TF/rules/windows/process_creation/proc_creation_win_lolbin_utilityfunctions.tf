@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_utili
   name                       = "proc_creation_win_lolbin_utilityfunctions"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UtilityFunctions.ps1 Proxy Dll"
-  description                = "Detects the use of a Microsoft signed script executing a managed DLL with PowerShell. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_utilityfunctions.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_utilityfunctions.yml"
+  description                = <<DESC
+    Detects the use of a Microsoft signed script executing a managed DLL with PowerShell.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_utilityfunctions.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

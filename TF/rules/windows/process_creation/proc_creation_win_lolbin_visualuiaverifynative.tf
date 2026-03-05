@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_visua
   name                       = "proc_creation_win_lolbin_visualuiaverifynative"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Use of VisualUiaVerifyNative.exe"
-  description                = "VisualUiaVerifyNative.exe is a Windows SDK that can be used for AWL bypass and is listed in Microsoft's recommended block rules. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_visualuiaverifynative.yml - Legitimate testing of Microsoft UI parts. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_visualuiaverifynative.yml"
+  description                = <<DESC
+    VisualUiaVerifyNative.exe is a Windows SDK that can be used for AWL bypass and is listed in Microsoft's recommended block rules.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_visualuiaverifynative.yml
+
+    False Positives:
+    - Legitimate testing of Microsoft UI parts.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

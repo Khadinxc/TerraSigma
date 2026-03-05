@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_bloodhound_coll
   name                       = "file_event_win_bloodhound_collection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "BloodHound Collection Files"
-  description                = "Detects default file names outputted by the BloodHound collection tool SharpHound Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_bloodhound_collection.yml - Some false positives may arise in some environment and this may require some tuning. Add additional filters or reduce level depending on the level of noise | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_bloodhound_collection.yml"
+  description                = <<DESC
+    Detects default file names outputted by the BloodHound collection tool SharpHound
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_bloodhound_collection.yml
+
+    False Positives:
+    - Some false positives may arise in some environment and this may require some tuning. Add additional filters or reduce level depending on the level of noise
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_i
   name                       = "proc_creation_win_powershell_install_unsigned_appx_packages"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Unsigned AppX Installation Attempt Using Add-AppxPackage"
-  description                = "Detects usage of the \"Add-AppxPackage\" or it's alias \"Add-AppPackage\" to install unsigned AppX packages Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_install_unsigned_appx_packages.yml - Installation of unsigned packages for testing purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_install_unsigned_appx_packages.yml"
+  description                = <<DESC
+    Detects usage of the "Add-AppxPackage" or it's alias "Add-AppPackage" to install unsigned AppX packages
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_install_unsigned_appx_packages.yml
+
+    False Positives:
+    - Installation of unsigned packages for testing purposes
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

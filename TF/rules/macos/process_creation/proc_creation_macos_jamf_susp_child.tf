@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_jamf_susp_
   name                       = "proc_creation_macos_jamf_susp_child"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "JAMF MDM Potential Suspicious Child Process"
-  description                = "Detects potential suspicious child processes of \"jamf\". Could be a sign of potential abuse of Jamf as a C2 server as seen by Typhon MythicAgent. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_jamf_susp_child.yml - Legitimate execution of custom scripts or commands by Jamf administrators. Apply additional filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_jamf_susp_child.yml"
+  description                = <<DESC
+    Detects potential suspicious child processes of "jamf". Could be a sign of potential abuse of Jamf as a C2 server as seen by Typhon MythicAgent.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_jamf_susp_child.yml
+
+    False Positives:
+    - Legitimate execution of custom scripts or commands by Jamf administrators. Apply additional filters accordingly
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

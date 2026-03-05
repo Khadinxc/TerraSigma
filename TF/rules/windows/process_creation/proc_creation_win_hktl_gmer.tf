@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_gmer" {
   name                       = "proc_creation_win_hktl_gmer"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - GMER Rootkit Detector and Remover Execution"
-  description                = "Detects the execution GMER tool based on image and hash fields. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_gmer.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_gmer.yml"
+  description                = <<DESC
+    Detects the execution GMER tool based on image and hash fields.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_gmer.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_uac_bypass_cons
   name                       = "file_event_win_uac_bypass_consent_comctl32"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass Using Consent and Comctl32 - File"
-  description                = "Detects the pattern of UAC Bypass using consent.exe and comctl32.dll (UACMe 22) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_consent_comctl32.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_consent_comctl32.yml"
+  description                = <<DESC
+    Detects the pattern of UAC Bypass using consent.exe and comctl32.dll (UACMe 22)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_consent_comctl32.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

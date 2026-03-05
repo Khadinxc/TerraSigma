@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_susp_initai
   name                       = "net_connection_win_susp_initaited_public_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Network Connection Initiated From Users\\Public Folder"
-  description                = "Detects a network connection initiated from a process located in the \"C:\\Users\\Public\" folder. Attacker are known to drop their malicious payloads and malware in this directory as its writable by everyone. Use this rule to hunt for potential suspicious or uncommon activity in your environement. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/net_connection_win_susp_initaited_public_folder.yml - Likely from legitimate third party application that execute from the \"Public\" directory. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/net_connection_win_susp_initaited_public_folder.yml"
+  description                = <<DESC
+    Detects a network connection initiated from a process located in the "C:\Users\Public" folder. Attacker are known to drop their malicious payloads and malware in this directory as its writable by everyone. Use this rule to hunt for potential suspicious or uncommon activity in your environement.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/net_connection_win_susp_initaited_public_folder.yml
+
+    False Positives:
+    - Likely from legitimate third party application that execute from the "Public" directory.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

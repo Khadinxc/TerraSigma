@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_bginfo_uncom
   name                       = "proc_creation_win_bginfo_uncommon_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon Child Process Of BgInfo.EXE"
-  description                = "Detects uncommon child processes of \"BgInfo.exe\" which could be a sign of potential abuse of the binary to proxy execution via external VBScript Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bginfo_uncommon_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bginfo_uncommon_child_process.yml"
+  description                = <<DESC
+    Detects uncommon child processes of "BgInfo.exe" which could be a sign of potential abuse of the binary to proxy execution via external VBScript
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bginfo_uncommon_child_process.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

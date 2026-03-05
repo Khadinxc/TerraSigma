@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_d
   name                       = "proc_creation_win_powershell_decode_gzip"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Gzip Archive Decode Via PowerShell"
-  description                = "Detects attempts of decoding encoded Gzip archives via PowerShell. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_decode_gzip.yml - Legitimate administrative scripts may use this functionality. Use \"ParentImage\" in combination with the script names and allowed users and applications to filter legitimate executions | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_decode_gzip.yml"
+  description                = <<DESC
+    Detects attempts of decoding encoded Gzip archives via PowerShell.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_decode_gzip.yml
+
+    False Positives:
+    - Legitimate administrative scripts may use this functionality. Use "ParentImage" in combination with the script names and allowed users and applications to filter legitimate executions
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

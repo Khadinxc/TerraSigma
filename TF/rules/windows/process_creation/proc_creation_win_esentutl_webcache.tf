@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_esentutl_web
   name                       = "proc_creation_win_esentutl_webcache"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Esentutl Steals Browser Information"
-  description                = "One way Qbot steals sensitive information is by extracting browser data from Internet Explorer and Microsoft Edge by using the built-in utility esentutl.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_esentutl_webcache.yml - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_esentutl_webcache.yml"
+  description                = <<DESC
+    One way Qbot steals sensitive information is by extracting browser data from Internet Explorer and Microsoft Edge by using the built-in utility esentutl.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_esentutl_webcache.yml
+
+    False Positives:
+    - Legitimate use
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

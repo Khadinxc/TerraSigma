@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_susp_dpapi_back
   name                       = "file_event_win_susp_dpapi_backup_and_cert_export_ioc"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DPAPI Backup Keys And Certificate Export Activity IOC"
-  description                = "Detects file names with specific patterns seen generated and used by tools such as Mimikatz and DSInternals related to exported or stolen DPAPI backup keys and certificates. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_dpapi_backup_and_cert_export_ioc.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_dpapi_backup_and_cert_export_ioc.yml"
+  description                = <<DESC
+    Detects file names with specific patterns seen generated and used by tools such as Mimikatz and DSInternals related to exported or stolen DPAPI backup keys and certificates.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_dpapi_backup_and_cert_export_ioc.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

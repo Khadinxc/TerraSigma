@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sysinternals
   name                       = "proc_creation_win_sysinternals_psexec_paexec_escalate_system"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PsExec/PAExec Escalation to LOCAL SYSTEM"
-  description                = "Detects suspicious commandline flags used by PsExec and PAExec to escalate a command line to LOCAL_SYSTEM rights Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_psexec_paexec_escalate_system.yml - Admins that use PsExec or PAExec to escalate to the SYSTEM account for maintenance purposes (rare) - Users that debug Microsoft Intune issues using the commands mentioned in the official documentation; see https://learn.microsoft.com/en-us/mem/intune/apps/intune-management-extension | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_psexec_paexec_escalate_system.yml"
+  description                = <<DESC
+    Detects suspicious commandline flags used by PsExec and PAExec to escalate a command line to LOCAL_SYSTEM rights
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_psexec_paexec_escalate_system.yml
+
+    False Positives:
+    - Admins that use PsExec or PAExec to escalate to the SYSTEM account for maintenance purposes (rare)
+    - Users that debug Microsoft Intune issues using the commands mentioned in the official documentation; see https://learn.microsoft.com/en-us/mem/intune/apps/intune-management-extension
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

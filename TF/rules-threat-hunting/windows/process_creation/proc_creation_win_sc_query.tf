@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sc_query" {
   name                       = "proc_creation_win_sc_query"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "SC.EXE Query Execution"
-  description                = "Detects execution of \"sc.exe\" to query information about registered services on the system Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_sc_query.yml - Legitimate query of a service by an administrator to get more information such as the state or PID - Keybase process \"kbfsdokan.exe\" query the dokan1 service with the following commandline \"sc query dokan1\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_sc_query.yml"
+  description                = <<DESC
+    Detects execution of "sc.exe" to query information about registered services on the system
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_sc_query.yml
+
+    False Positives:
+    - Legitimate query of a service by an administrator to get more information such as the state or PID
+    - Keybase process "kbfsdokan.exe" query the dokan1 service with the following commandline "sc query dokan1"
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

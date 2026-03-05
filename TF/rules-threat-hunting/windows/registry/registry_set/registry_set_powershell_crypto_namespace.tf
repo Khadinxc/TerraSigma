@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_powershell_crypto
   name                       = "registry_set_powershell_crypto_namespace"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Registry Set With Crypto-Classes From The \"Cryptography\" PowerShell Namespace"
-  description                = "Detects the setting of a registry inside the \"\\Shell\\Open\\Command\" value with PowerShell classes from the \"System.Security.Cryptography\" namespace. The PowerShell namespace \"System.Security.Cryptography\" provides classes for on-the-fly encryption and decryption. These can be used for example in decrypting malicious payload for defense evasion. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_set/registry_set_powershell_crypto_namespace.yml - Classes are legitimately used, but less so when e.g. parents with low prevalence or decryption of content in temporary folders. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_set/registry_set_powershell_crypto_namespace.yml"
+  description                = <<DESC
+    Detects the setting of a registry inside the "\Shell\Open\Command" value with PowerShell classes from the "System.Security.Cryptography" namespace. The PowerShell namespace "System.Security.Cryptography" provides classes for on-the-fly encryption and decryption. These can be used for example in decrypting malicious payload for defense evasion.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_set/registry_set_powershell_crypto_namespace.yml
+
+    False Positives:
+    - Classes are legitimately used, but less so when e.g. parents with low prevalence or decryption of content in temporary folders.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

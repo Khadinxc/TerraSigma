@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_private
   name                       = "proc_creation_win_susp_private_keys_recon"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Private Keys Reconnaissance Via CommandLine Tools"
-  description                = "Adversaries may search for private key certificate files on compromised systems for insecurely stored credential Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_private_keys_recon.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_private_keys_recon.yml"
+  description                = <<DESC
+    Adversaries may search for private key certificate files on compromised systems for insecurely stored credential
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_private_keys_recon.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

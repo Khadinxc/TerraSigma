@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_ms_appi
   name                       = "proc_creation_win_susp_ms_appinstaller_download"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential File Download Via MS-AppInstaller Protocol Handler"
-  description                = "Detects usage of the \"ms-appinstaller\" protocol handler via command line to potentially download arbitrary files via AppInstaller.EXE The downloaded files are temporarly stored in \":\\Users\\%username%\\AppData\\Local\\Packages\\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\\AC\\INetCache\\<RANDOM-8-CHAR-DIRECTORY>\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_ms_appinstaller_download.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_ms_appinstaller_download.yml"
+  description                = <<DESC
+    Detects usage of the "ms-appinstaller" protocol handler via command line to potentially download arbitrary files via AppInstaller.EXE The downloaded files are temporarly stored in ":\Users\%username%\AppData\Local\Packages\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\AC\INetCache\<RANDOM-8-CHAR-DIRECTORY>"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_ms_appinstaller_download.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

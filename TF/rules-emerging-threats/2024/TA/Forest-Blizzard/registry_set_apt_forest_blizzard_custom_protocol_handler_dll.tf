@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_apt_forest_blizza
   name                       = "registry_set_apt_forest_blizzard_custom_protocol_handler_dll"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Forest Blizzard APT - Custom Protocol Handler DLL Registry Set"
-  description                = "Detects the setting of the DLL that handles the custom protocol handler. Seen being created by Forest Blizzard APT as reported by MSFT. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/registry_set_apt_forest_blizzard_custom_protocol_handler_dll.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/registry_set_apt_forest_blizzard_custom_protocol_handler_dll.yml"
+  description                = <<DESC
+    Detects the setting of the DLL that handles the custom protocol handler. Seen being created by Forest Blizzard APT as reported by MSFT.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/registry_set_apt_forest_blizzard_custom_protocol_handler_dll.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

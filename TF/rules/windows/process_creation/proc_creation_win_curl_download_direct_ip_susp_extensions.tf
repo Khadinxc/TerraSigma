@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_curl_downloa
   name                       = "proc_creation_win_curl_download_direct_ip_susp_extensions"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Download From IP Via Curl.EXE"
-  description                = "Detects potentially suspicious file downloads directly from IP addresses using curl.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_download_direct_ip_susp_extensions.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_download_direct_ip_susp_extensions.yml"
+  description                = <<DESC
+    Detects potentially suspicious file downloads directly from IP addresses using curl.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_download_direct_ip_susp_extensions.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

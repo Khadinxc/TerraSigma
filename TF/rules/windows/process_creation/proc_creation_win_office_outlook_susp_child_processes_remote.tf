@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_office_outlo
   name                       = "proc_creation_win_office_outlook_susp_child_processes_remote"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Remote Child Process From Outlook"
-  description                = "Detects a suspicious child process spawning from Outlook where the image is located in a remote location (SMB/WebDav shares). Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_outlook_susp_child_processes_remote.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_outlook_susp_child_processes_remote.yml"
+  description                = <<DESC
+    Detects a suspicious child process spawning from Outlook where the image is located in a remote location (SMB/WebDav shares).
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_outlook_susp_child_processes_remote.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_reg_system_l
   name                       = "proc_creation_win_reg_system_language_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "System Language Discovery via Reg.Exe"
-  description                = "Detects the usage of Reg.Exe to query system language settings. Attackers may discover the system language to determine the geographic location of victims, customize payloads for specific regions, or avoid targeting certain locales to evade detection. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_system_language_discovery.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_system_language_discovery.yml"
+  description                = <<DESC
+    Detects the usage of Reg.Exe to query system language settings. Attackers may discover the system language to determine the geographic location of victims, customize payloads for specific regions, or avoid targeting certain locales to evade detection.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_system_language_discovery.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

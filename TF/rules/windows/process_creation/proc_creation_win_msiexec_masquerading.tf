@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_msiexec_masq
   name                       = "proc_creation_win_msiexec_masquerading"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential MsiExec Masquerading"
-  description                = "Detects the execution of msiexec.exe from an uncommon directory Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_masquerading.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_masquerading.yml"
+  description                = <<DESC
+    Detects the execution of msiexec.exe from an uncommon directory
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_masquerading.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

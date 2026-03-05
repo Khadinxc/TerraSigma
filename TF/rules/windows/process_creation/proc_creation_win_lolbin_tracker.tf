@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_track
   name                       = "proc_creation_win_lolbin_tracker"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential DLL Injection Or Execution Using Tracker.exe"
-  description                = "Detects potential DLL injection and execution using \"Tracker.exe\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_tracker.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_tracker.yml"
+  description                = <<DESC
+    Detects potential DLL injection and execution using "Tracker.exe"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_tracker.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

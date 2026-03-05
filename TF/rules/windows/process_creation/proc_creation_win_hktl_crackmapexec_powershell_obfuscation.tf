@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_crackma
   name                       = "proc_creation_win_hktl_crackmapexec_powershell_obfuscation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - CrackMapExec PowerShell Obfuscation"
-  description                = "The CrachMapExec pentesting framework implements a PowerShell obfuscation with some static strings detected by this rule. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_crackmapexec_powershell_obfuscation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_crackmapexec_powershell_obfuscation.yml"
+  description                = <<DESC
+    The CrachMapExec pentesting framework implements a PowerShell obfuscation with some static strings detected by this rule.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_crackmapexec_powershell_obfuscation.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

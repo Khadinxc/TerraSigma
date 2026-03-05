@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_diskshadow_c
   name                       = "proc_creation_win_diskshadow_child_process_susp"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Child Process Of DiskShadow.EXE"
-  description                = "Detects potentially suspicious child processes of \"Diskshadow.exe\". This could be an attempt to bypass parent/child relationship detection or application whitelisting rules. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_diskshadow_child_process_susp.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_diskshadow_child_process_susp.yml"
+  description                = <<DESC
+    Detects potentially suspicious child processes of "Diskshadow.exe". This could be an attempt to bypass parent/child relationship detection or application whitelisting rules.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_diskshadow_child_process_susp.yml
+
+    False Positives:
+    - False postitve can occur in cases where admin scripts levreage the "exec" flag to execute applications
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

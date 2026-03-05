@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_no_imag
   name                       = "proc_creation_win_susp_no_image_name"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Process Launched Without Image Name"
-  description                = "Detect the use of processes with no name (\".exe\"), which can be used to evade Image-based detections. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_no_image_name.yml - Rare legitimate software. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_no_image_name.yml"
+  description                = <<DESC
+    Detect the use of processes with no name (".exe"), which can be used to evade Image-based detections.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_no_image_name.yml
+
+    False Positives:
+    - Rare legitimate software.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

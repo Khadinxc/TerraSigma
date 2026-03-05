@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_persistence_comhi
   name                       = "registry_set_persistence_comhijack_psfactorybuffer"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential PSFactoryBuffer COM Hijacking"
-  description                = "Detects changes to the PSFactory COM InProcServer32 registry. This technique was used by RomCom to create persistence storing a malicious DLL. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_comhijack_psfactorybuffer.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_comhijack_psfactorybuffer.yml"
+  description                = <<DESC
+    Detects changes to the PSFactory COM InProcServer32 registry. This technique was used by RomCom to create persistence storing a malicious DLL.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_comhijack_psfactorybuffer.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

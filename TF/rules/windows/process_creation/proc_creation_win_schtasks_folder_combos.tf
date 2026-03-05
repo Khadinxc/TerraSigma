@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_schtasks_fol
   name                       = "proc_creation_win_schtasks_folder_combos"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Schtasks From Suspicious Folders"
-  description                = "Detects scheduled task creations that have suspicious action command and folder combinations Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_folder_combos.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_folder_combos.yml"
+  description                = <<DESC
+    Detects scheduled task creations that have suspicious action command and folder combinations
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_folder_combos.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

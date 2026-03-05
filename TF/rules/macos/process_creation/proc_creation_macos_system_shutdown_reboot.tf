@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_system_shu
   name                       = "proc_creation_macos_system_shutdown_reboot"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "System Shutdown/Reboot - MacOs"
-  description                = "Adversaries may shutdown/reboot systems to interrupt access to, or aid in the destruction of, those systems. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_system_shutdown_reboot.yml - Legitimate administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_system_shutdown_reboot.yml"
+  description                = <<DESC
+    Adversaries may shutdown/reboot systems to interrupt access to, or aid in the destruction of, those systems.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_system_shutdown_reboot.yml
+
+    False Positives:
+    - Legitimate administrative activity
+  DESC
   severity                   = "Informational"
   query                      = <<QUERY
 DeviceProcessEvents

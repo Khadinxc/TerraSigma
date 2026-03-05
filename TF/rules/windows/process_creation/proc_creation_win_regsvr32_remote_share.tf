@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_regsvr32_rem
   name                       = "proc_creation_win_regsvr32_remote_share"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Regsvr32 Execution From Remote Share"
-  description                = "Detects REGSVR32.exe to execute DLL hosted on remote shares Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_remote_share.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_remote_share.yml"
+  description                = <<DESC
+    Detects REGSVR32.exe to execute DLL hosted on remote shares
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_remote_share.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

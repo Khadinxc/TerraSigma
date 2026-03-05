@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_executi
   name                       = "proc_creation_win_hktl_execution_via_pe_metadata"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Hacktool Execution - PE Metadata"
-  description                = "Detects the execution of different Windows based hacktools via PE metadata (company, product, etc.) even if the files have been renamed Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_execution_via_pe_metadata.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_execution_via_pe_metadata.yml"
+  description                = <<DESC
+    Detects the execution of different Windows based hacktools via PE metadata (company, product, etc.) even if the files have been renamed
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_execution_via_pe_metadata.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

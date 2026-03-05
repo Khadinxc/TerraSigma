@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_d
   name                       = "proc_creation_win_powershell_disable_ie_features"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disabled IE Security Features"
-  description                = "Detects command lines that indicate unwanted modifications to registry keys that disable important Internet Explorer security features Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_disable_ie_features.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_disable_ie_features.yml"
+  description                = <<DESC
+    Detects command lines that indicate unwanted modifications to registry keys that disable important Internet Explorer security features
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_disable_ie_features.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

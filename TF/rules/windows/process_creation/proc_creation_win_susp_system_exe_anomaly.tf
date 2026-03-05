@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_system_
   name                       = "proc_creation_win_susp_system_exe_anomaly"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "System File Execution Location Anomaly"
-  description                = "Detects the execution of a Windows system binary that is usually located in the system folder from an uncommon location. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_system_exe_anomaly.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_system_exe_anomaly.yml"
+  description                = <<DESC
+    Detects the execution of a Windows system binary that is usually located in the system folder from an uncommon location.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_system_exe_anomaly.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

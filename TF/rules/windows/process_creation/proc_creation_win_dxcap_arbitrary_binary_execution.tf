@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_dxcap_arbitr
   name                       = "proc_creation_win_dxcap_arbitrary_binary_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Capture Session Launched Via DXCap.EXE"
-  description                = "Detects the execution of \"DXCap.EXE\" with the \"-c\" flag, which allows a user to launch any arbitrary binary or windows package through DXCap itself. This can be abused to potentially bypass application whitelisting. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dxcap_arbitrary_binary_execution.yml - Legitimate execution of dxcap.exe by legitimate user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dxcap_arbitrary_binary_execution.yml"
+  description                = <<DESC
+    Detects the execution of "DXCap.EXE" with the "-c" flag, which allows a user to launch any arbitrary binary or windows package through DXCap itself. This can be abused to potentially bypass application whitelisting.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dxcap_arbitrary_binary_execution.yml
+
+    False Positives:
+    - Legitimate execution of dxcap.exe by legitimate user
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

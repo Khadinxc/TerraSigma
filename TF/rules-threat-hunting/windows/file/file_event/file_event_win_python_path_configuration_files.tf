@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_python_path_con
   name                       = "file_event_win_python_path_configuration_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Python Path Configuration File Creation - Windows"
-  description                = "Detects creation of a Python path configuration file (.pth) in Python library folders, which can be maliciously abused for code execution and persistence. Modules referenced by these files are run at every Python startup (v3.5+), regardless of whether the module is imported by the calling script. Default paths are '\\lib\\site-packages\\*.pth' (Windows) and '/lib/pythonX.Y/site-packages/*.pth' (Unix and macOS). Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/file_event_win_python_path_configuration_files.yml - Although .pth files are discouraged due to potential security implications, these are legitimate files by specification. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/file_event_win_python_path_configuration_files.yml"
+  description                = <<DESC
+    Detects creation of a Python path configuration file (.pth) in Python library folders, which can be maliciously abused for code execution and persistence. Modules referenced by these files are run at every Python startup (v3.5+), regardless of whether the module is imported by the calling script. Default paths are '\lib\site-packages\*.pth' (Windows) and '/lib/pythonX.Y/site-packages/*.pth' (Unix and macOS).
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/file_event_win_python_path_configuration_files.yml
+
+    False Positives:
+    - Although .pth files are discouraged due to potential security implications, these are legitimate files by specification.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

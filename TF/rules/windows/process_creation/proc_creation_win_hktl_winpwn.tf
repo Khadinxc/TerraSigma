@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_winpwn"
   name                       = "proc_creation_win_hktl_winpwn"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - WinPwn Execution"
-  description                = "Detects commandline keywords indicative of potential usge of the tool WinPwn. A tool for Windows and Active Directory reconnaissance and exploitation. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_winpwn.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_winpwn.yml"
+  description                = <<DESC
+    Detects commandline keywords indicative of potential usge of the tool WinPwn. A tool for Windows and Active Directory reconnaissance and exploitation.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_winpwn.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

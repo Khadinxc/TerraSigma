@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_enabling_cor_prof
   name                       = "registry_set_enabling_cor_profiler_env_variables"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Enabling COR Profiler Environment Variables"
-  description                = "Detects .NET Framework CLR and .NET Core CLR \"cor_enable_profiling\" and \"cor_profiler\" variables being set and configured. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_enabling_cor_profiler_env_variables.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_enabling_cor_profiler_env_variables.yml"
+  description                = <<DESC
+    Detects .NET Framework CLR and .NET Core CLR "cor_enable_profiling" and "cor_profiler" variables being set and configured.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_enabling_cor_profiler_env_variables.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_jxa_in_mem
   name                       = "proc_creation_macos_jxa_in_memory_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "JXA In-memory Execution Via OSAScript"
-  description                = "Detects possible malicious execution of JXA in-memory via OSAScript Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_jxa_in_memory_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_jxa_in_memory_execution.yml"
+  description                = <<DESC
+    Detects possible malicious execution of JXA in-memory via OSAScript
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_jxa_in_memory_execution.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

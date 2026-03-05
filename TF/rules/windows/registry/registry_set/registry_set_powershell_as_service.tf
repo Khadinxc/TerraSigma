@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_powershell_as_ser
   name                       = "registry_set_powershell_as_service"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell as a Service in Registry"
-  description                = "Detects that a powershell code is written to the registry as a service. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_powershell_as_service.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_powershell_as_service.yml"
+  description                = <<DESC
+    Detects that a powershell code is written to the registry as a service.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_powershell_as_service.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

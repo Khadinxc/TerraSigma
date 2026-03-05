@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_cap_setuid" 
   name                       = "proc_creation_lnx_cap_setuid"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux Setuid Capability Set on a Binary via Setcap Utility"
-  description                = "Detects the use of the 'setcap' utility to set the 'setuid' capability (cap_setuid) on a binary file. This capability allows a non privileged process to make arbitrary manipulations of user IDs (UIDs), including setting its current UID to a value that would otherwise be restricted (i.e. UID 0, the root user). This behavior can be used by adversaries to backdoor a binary in order to escalate privileges again in the future if needed. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_cap_setuid.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_cap_setuid.yml"
+  description                = <<DESC
+    Detects the use of the 'setcap' utility to set the 'setuid' capability (cap_setuid) on a binary file. This capability allows a non privileged process to make arbitrary manipulations of user IDs (UIDs), including setting its current UID to a value that would otherwise be restricted (i.e. UID 0, the root user). This behavior can be used by adversaries to backdoor a binary in order to escalate privileges again in the future if needed.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_cap_setuid.yml
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

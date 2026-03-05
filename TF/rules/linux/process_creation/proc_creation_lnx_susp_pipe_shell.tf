@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_susp_pipe_sh
   name                       = "proc_creation_lnx_susp_pipe_shell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux Shell Pipe to Shell"
-  description                = "Detects suspicious process command line that starts with a shell that executes something and finally gets piped into another shell Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_pipe_shell.yml - Legitimate software that uses these patterns | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_pipe_shell.yml"
+  description                = <<DESC
+    Detects suspicious process command line that starts with a shell that executes something and finally gets piped into another shell
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_pipe_shell.yml
+
+    False Positives:
+    - Legitimate software that uses these patterns
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

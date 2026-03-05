@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_7zip_passwor
   name                       = "proc_creation_win_7zip_password_extraction"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Password Protected Compressed File Extraction Via 7Zip"
-  description                = "Detects usage of 7zip utilities (7z.exe, 7za.exe and 7zr.exe) to extract password protected zip files. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_7zip_password_extraction.yml - Legitimate activity is expected since extracting files with a password can be common in some environment. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_7zip_password_extraction.yml"
+  description                = <<DESC
+    Detects usage of 7zip utilities (7z.exe, 7za.exe and 7zr.exe) to extract password protected zip files.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_7zip_password_extraction.yml
+
+    False Positives:
+    - Legitimate activity is expected since extracting files with a password can be common in some environment.
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

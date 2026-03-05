@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_aspnet_compi
   name                       = "proc_creation_win_aspnet_compiler_exectuion"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "AspNetCompiler Execution"
-  description                = "Detects execution of \"aspnet_compiler.exe\" which can be abused to compile and execute C# code. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_aspnet_compiler_exectuion.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_aspnet_compiler_exectuion.yml"
+  description                = <<DESC
+    Detects execution of "aspnet_compiler.exe" which can be abused to compile and execute C# code.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_aspnet_compiler_exectuion.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

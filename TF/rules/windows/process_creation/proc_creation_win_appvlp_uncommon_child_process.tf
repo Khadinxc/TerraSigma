@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_appvlp_uncom
   name                       = "proc_creation_win_appvlp_uncommon_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon Child Process Of Appvlp.EXE"
-  description                = "Detects uncommon child processes of Appvlp.EXE Appvlp or the Application Virtualization Utility is included with Microsoft Office. Attackers are able to abuse \"AppVLP\" to execute shell commands. Normally, this binary is used for Application Virtualization, but it can also be abused to circumvent the ASR file path rule folder or to mark a file as a system file. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_appvlp_uncommon_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_appvlp_uncommon_child_process.yml"
+  description                = <<DESC
+    Detects uncommon child processes of Appvlp.EXE Appvlp or the Application Virtualization Utility is included with Microsoft Office. Attackers are able to abuse "AppVLP" to execute shell commands. Normally, this binary is used for Application Virtualization, but it can also be abused to circumvent the ASR file path rule folder or to mark a file as a system file.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_appvlp_uncommon_child_process.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

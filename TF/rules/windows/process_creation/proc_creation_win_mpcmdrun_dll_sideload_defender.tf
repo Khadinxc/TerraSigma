@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_mpcmdrun_dll
   name                       = "proc_creation_win_mpcmdrun_dll_sideload_defender"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Mpclient.DLL Sideloading Via Defender Binaries"
-  description                = "Detects potential sideloading of \"mpclient.dll\" by Windows Defender processes (\"MpCmdRun\" and \"NisSrv\") from their non-default directory. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mpcmdrun_dll_sideload_defender.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mpcmdrun_dll_sideload_defender.yml"
+  description                = <<DESC
+    Detects potential sideloading of "mpclient.dll" by Windows Defender processes ("MpCmdRun" and "NisSrv") from their non-default directory.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mpcmdrun_dll_sideload_defender.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_apt29_ph
   name                       = "proc_creation_win_apt_apt29_phishing_campaign_indicators"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "APT29 2018 Phishing Campaign CommandLine Indicators"
-  description                = "Detects indicators of APT 29 (Cozy Bear) phishing-campaign as reported by mandiant Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT29-CozyBear/proc_creation_win_apt_apt29_phishing_campaign_indicators.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT29-CozyBear/proc_creation_win_apt_apt29_phishing_campaign_indicators.yml"
+  description                = <<DESC
+    Detects indicators of APT 29 (Cozy Bear) phishing-campaign as reported by mandiant
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT29-CozyBear/proc_creation_win_apt_apt29_phishing_campaign_indicators.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

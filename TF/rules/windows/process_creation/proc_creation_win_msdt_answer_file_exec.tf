@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_msdt_answer_
   name                       = "proc_creation_win_msdt_answer_file_exec"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "MSDT Execution Via Answer File"
-  description                = "Detects execution of \"msdt.exe\" using an answer file which is simulating the legitimate way of calling msdt via \"pcwrun.exe\" (For example from the compatibility tab). Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msdt_answer_file_exec.yml - Possible undocumented parents of \"msdt\" other than \"pcwrun\". | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msdt_answer_file_exec.yml"
+  description                = <<DESC
+    Detects execution of "msdt.exe" using an answer file which is simulating the legitimate way of calling msdt via "pcwrun.exe" (For example from the compatibility tab).
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msdt_answer_file_exec.yml
+
+    False Positives:
+    - Possible undocumented parents of "msdt" other than "pcwrun".
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

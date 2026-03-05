@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_d
   name                       = "proc_creation_win_powershell_decrypt_pattern"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Execution With Potential Decryption Capabilities"
-  description                = "Detects PowerShell commands that decrypt an \".LNK\" \"file to drop the next stage of the malware. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_decrypt_pattern.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_decrypt_pattern.yml"
+  description                = <<DESC
+    Detects PowerShell commands that decrypt an ".LNK" "file to drop the next stage of the malware.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_decrypt_pattern.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

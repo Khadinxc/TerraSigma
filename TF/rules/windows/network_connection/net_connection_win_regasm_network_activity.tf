@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_regasm_netw
   name                       = "net_connection_win_regasm_network_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "RegAsm.EXE Initiating Network Connection To Public IP"
-  description                = "Detects \"RegAsm.exe\" initiating a network connection to public IP adresses Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_regasm_network_activity.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_regasm_network_activity.yml"
+  description                = <<DESC
+    Detects "RegAsm.exe" initiating a network connection to public IP adresses
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_regasm_network_activity.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

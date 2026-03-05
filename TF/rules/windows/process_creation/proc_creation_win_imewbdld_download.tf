@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_imewbdld_dow
   name                       = "proc_creation_win_imewbdld_download"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Arbitrary File Download Via IMEWDBLD.EXE"
-  description                = "Detects usage of \"IMEWDBLD.exe\" to download arbitrary files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_imewbdld_download.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_imewbdld_download.yml"
+  description                = <<DESC
+    Detects usage of "IMEWDBLD.exe" to download arbitrary files
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_imewbdld_download.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

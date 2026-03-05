@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_remote_acc
   name                       = "proc_creation_macos_remote_access_tools_teamviewer_incoming_connection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Access Tool - Team Viewer Session Started On MacOS Host"
-  description                = "Detects the command line executed when TeamViewer starts a session started by a remote host. Once a connection has been started, an investigator can verify the connection details by viewing the \"incoming_connections.txt\" log file in the TeamViewer folder. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_remote_access_tools_teamviewer_incoming_connection.yml - Legitimate usage of TeamViewer | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_remote_access_tools_teamviewer_incoming_connection.yml"
+  description                = <<DESC
+    Detects the command line executed when TeamViewer starts a session started by a remote host. Once a connection has been started, an investigator can verify the connection details by viewing the "incoming_connections.txt" log file in the TeamViewer folder.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_remote_access_tools_teamviewer_incoming_connection.yml
+
+    False Positives:
+    - Legitimate usage of TeamViewer
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_create_non_exis
   name                       = "file_event_win_create_non_existent_dlls"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Creation Of Non-Existent System DLL"
-  description                = "Detects creation of specific system DLL files that are  usually not present on the system (or at least not in system directories) but may be loaded by legitimate processes. Phantom DLL hijacking involves placing malicious DLLs with names of non-existent system binaries in locations where legitimate applications may search for them, leading to execution of the malicious DLLs. Thus, the creation of such DLLs may indicate preparation for phantom DLL hijacking attacks. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_create_non_existent_dlls.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_create_non_existent_dlls.yml"
+  description                = <<DESC
+    Detects creation of specific system DLL files that are  usually not present on the system (or at least not in system directories) but may be loaded by legitimate processes. Phantom DLL hijacking involves placing malicious DLLs with names of non-existent system binaries in locations where legitimate applications may search for them, leading to execution of the malicious DLLs. Thus, the creation of such DLLs may indicate preparation for phantom DLL hijacking attacks.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_create_non_existent_dlls.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

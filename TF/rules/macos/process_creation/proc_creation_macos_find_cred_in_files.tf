@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_find_cred_
   name                       = "proc_creation_macos_find_cred_in_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Credentials In Files"
-  description                = "Detecting attempts to extract passwords with grep and laZagne Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_find_cred_in_files.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_find_cred_in_files.yml"
+  description                = <<DESC
+    Detecting attempts to extract passwords with grep and laZagne
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_find_cred_in_files.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

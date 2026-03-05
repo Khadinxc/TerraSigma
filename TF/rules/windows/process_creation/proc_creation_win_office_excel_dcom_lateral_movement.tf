@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_office_excel
   name                       = "proc_creation_win_office_excel_dcom_lateral_movement"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Excel.EXE DCOM Lateral Movement Via ActivateMicrosoftApp"
-  description                = "Detects suspicious child processes of Excel which could be an indicator of lateral movement leveraging the \"ActivateMicrosoftApp\" Excel DCOM object. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_excel_dcom_lateral_movement.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_excel_dcom_lateral_movement.yml"
+  description                = <<DESC
+    Detects suspicious child processes of Excel which could be an indicator of lateral movement leveraging the "ActivateMicrosoftApp" Excel DCOM object.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_excel_dcom_lateral_movement.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_perflogs_susp_f
   name                       = "file_event_win_perflogs_susp_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Created In PerfLogs"
-  description                = "Detects suspicious file based on their extension being created in \"C:\\PerfLogs\\\". Note that this directory mostly contains \".etl\" files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_perflogs_susp_files.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_perflogs_susp_files.yml"
+  description                = <<DESC
+    Detects suspicious file based on their extension being created in "C:\PerfLogs\". Note that this directory mostly contains ".etl" files
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_perflogs_susp_files.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

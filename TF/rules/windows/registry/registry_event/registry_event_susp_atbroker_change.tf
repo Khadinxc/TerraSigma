@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_event_susp_atbroker_c
   name                       = "registry_event_susp_atbroker_change"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Atbroker Registry Change"
-  description                = "Detects creation/modification of Assistive Technology applications and persistence with usage of 'at' Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_atbroker_change.yml - Creation of non-default, legitimate at usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_atbroker_change.yml"
+  description                = <<DESC
+    Detects creation/modification of Assistive Technology applications and persistence with usage of 'at'
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_atbroker_change.yml
+
+    False Positives:
+    - Creation of non-default, legitimate at usage
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

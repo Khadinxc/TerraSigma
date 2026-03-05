@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_vsiis
   name                       = "proc_creation_win_lolbin_vsiisexelauncher"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Use of VSIISExeLauncher.exe"
-  description                = "The \"VSIISExeLauncher.exe\" binary part of the Visual Studio/VS Code can be used to execute arbitrary binaries Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_vsiisexelauncher.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_vsiisexelauncher.yml"
+  description                = <<DESC
+    The "VSIISExeLauncher.exe" binary part of the Visual Studio/VS Code can be used to execute arbitrary binaries
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_vsiisexelauncher.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_a
   name                       = "proc_creation_win_powershell_audio_capture"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Audio Capture via PowerShell"
-  description                = "Detects audio capture via PowerShell Cmdlet. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_audio_capture.yml - Legitimate audio capture by legitimate user. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_audio_capture.yml"
+  description                = <<DESC
+    Detects audio capture via PowerShell Cmdlet.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_audio_capture.yml
+
+    False Positives:
+    - Legitimate audio capture by legitimate user.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

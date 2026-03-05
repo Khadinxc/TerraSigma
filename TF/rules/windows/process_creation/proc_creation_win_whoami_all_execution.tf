@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_whoami_all_e
   name                       = "proc_creation_win_whoami_all_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Enumerate All Information With Whoami.EXE"
-  description                = "Detects the execution of \"whoami.exe\" with the \"/all\" flag Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_whoami_all_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_whoami_all_execution.yml"
+  description                = <<DESC
+    Detects the execution of "whoami.exe" with the "/all" flag
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_whoami_all_execution.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

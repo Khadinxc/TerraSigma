@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_gathe
   name                       = "proc_creation_win_lolbin_gather_network_info"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Reconnaissance Activity Via GatherNetworkInfo.VBS"
-  description                = "Detects execution of the built-in script located in \"C:\\Windows\\System32\\gatherNetworkInfo.vbs\". Which can be used to gather information about the target machine Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_gather_network_info.yml - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_gather_network_info.yml"
+  description                = <<DESC
+    Detects execution of the built-in script located in "C:\Windows\System32\gatherNetworkInfo.vbs". Which can be used to gather information about the target machine
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_gather_network_info.yml
+
+    False Positives:
+    - Administrative activity
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

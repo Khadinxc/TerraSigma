@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_office_outlook_
   name                       = "file_event_win_office_outlook_newform"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Outlook Form"
-  description                = "Detects the creation of a new Outlook form which can contain malicious code Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_outlook_newform.yml - Legitimate use of outlook forms | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_outlook_newform.yml"
+  description                = <<DESC
+    Detects the creation of a new Outlook form which can contain malicious code
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_outlook_newform.yml
+
+    False Positives:
+    - Legitimate use of outlook forms
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

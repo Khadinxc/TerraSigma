@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_wdac_policy_cre
   name                       = "file_event_win_wdac_policy_creation_in_codeintegrity_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WDAC Policy File Creation In CodeIntegrity Folder"
-  description                = "Attackers can craft a custom Windows Defender Application Control (WDAC) policy that blocks Endpoint Detection and Response (EDR) components while allowing their own malicious code. The policy is placed in the privileged Windows Code Integrity folder (C:\\Windows\\System32\\CodeIntegrity\\). Upon reboot, the policy prevents EDR drivers from loading, effectively bypassing security measures and may further enable undetected lateral movement within an Active Directory environment. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/file_event_win_wdac_policy_creation_in_codeintegrity_folder.yml - May occur legitimately as part of admin activity, but rarely with interactive elevation. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/file_event_win_wdac_policy_creation_in_codeintegrity_folder.yml"
+  description                = <<DESC
+    Attackers can craft a custom Windows Defender Application Control (WDAC) policy that blocks Endpoint Detection and Response (EDR) components while allowing their own malicious code. The policy is placed in the privileged Windows Code Integrity folder (C:\Windows\System32\CodeIntegrity\). Upon reboot, the policy prevents EDR drivers from loading, effectively bypassing security measures and may further enable undetected lateral movement within an Active Directory environment.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/file_event_win_wdac_policy_creation_in_codeintegrity_folder.yml
+
+    False Positives:
+    - May occur legitimately as part of admin activity, but rarely with interactive elevation.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

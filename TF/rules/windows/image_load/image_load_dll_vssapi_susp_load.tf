@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_dll_vssapi_susp_loa
   name                       = "image_load_dll_vssapi_susp_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Volume Shadow Copy Vssapi.dll Load"
-  description                = "Detects the image load of VSS DLL by uncommon executables Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_vssapi_susp_load.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_vssapi_susp_load.yml"
+  description                = <<DESC
+    Detects the image load of VSS DLL by uncommon executables
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_vssapi_susp_load.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

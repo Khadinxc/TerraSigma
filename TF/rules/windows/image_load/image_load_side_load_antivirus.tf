@@ -2,7 +2,16 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_side_load_antivirus
   name                       = "image_load_side_load_antivirus"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Antivirus Software DLL Sideloading"
-  description                = "Detects potential DLL sideloading of DLLs that are part of antivirus software suchas McAfee, Symantec...etc Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_antivirus.yml - Applications that load the same dlls mentioned in the detection section. Investigate them and filter them out if a lot FPs are caused. - Dell SARemediation plugin folder (C:\\Program Files\\Dell\\SARemediation\\plugin\\log.dll) is known to contain the 'log.dll' file. - The Canon MyPrinter folder 'C:\\Program Files\\Canon\\MyPrinter\\' is known to contain the 'log.dll' file | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_antivirus.yml"
+  description                = <<DESC
+    Detects potential DLL sideloading of DLLs that are part of antivirus software suchas McAfee, Symantec...etc
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_antivirus.yml
+
+    False Positives:
+    - Applications that load the same dlls mentioned in the detection section. Investigate them and filter them out if a lot FPs are caused.
+    - Dell SARemediation plugin folder (C:\Program Files\Dell\SARemediation\plugin\log.dll) is known to contain the 'log.dll' file.
+    - The Canon MyPrinter folder 'C:\Program Files\Canon\MyPrinter\' is known to contain the 'log.dll' file
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

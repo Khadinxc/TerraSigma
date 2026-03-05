@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_c
   name                       = "proc_creation_win_powershell_cmdline_reversed_strings"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential PowerShell Obfuscation Via Reversed Commands"
-  description                = "Detects the presence of reversed PowerShell commands in the CommandLine. This is often used as a method of obfuscation by attackers Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cmdline_reversed_strings.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cmdline_reversed_strings.yml"
+  description                = <<DESC
+    Detects the presence of reversed PowerShell commands in the CommandLine. This is often used as a method of obfuscation by attackers
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cmdline_reversed_strings.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

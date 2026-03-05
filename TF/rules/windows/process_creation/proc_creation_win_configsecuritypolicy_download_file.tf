@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_configsecuri
   name                       = "proc_creation_win_configsecuritypolicy_download_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Arbitrary File Download Via ConfigSecurityPolicy.EXE"
-  description                = "Detects the execution of \"ConfigSecurityPolicy.EXE\", a binary part of Windows Defender used to manage settings in Windows Defender. Users can configure different pilot collections for each of the co-management workloads. It can be abused by attackers in order to upload or download files. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_configsecuritypolicy_download_file.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_configsecuritypolicy_download_file.yml"
+  description                = <<DESC
+    Detects the execution of "ConfigSecurityPolicy.EXE", a binary part of Windows Defender used to manage settings in Windows Defender. Users can configure different pilot collections for each of the co-management workloads. It can be abused by attackers in order to upload or download files.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_configsecuritypolicy_download_file.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_taskkill_exe
   name                       = "proc_creation_win_taskkill_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Process Terminated Via Taskkill"
-  description                = "Detects execution of \"taskkill.exe\" in order to stop a service or a process. Look for suspicious parents executing this command in order to hunt for potential malicious activity. Attackers might leverage this in order to conduct data destruction or data encrypted for impact on the data stores of services like Exchange and SQL Server. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_taskkill_execution.yml - Expected FP with some processes using this techniques to terminate one of their processes during installations and updates | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_taskkill_execution.yml"
+  description                = <<DESC
+    Detects execution of "taskkill.exe" in order to stop a service or a process. Look for suspicious parents executing this command in order to hunt for potential malicious activity. Attackers might leverage this in order to conduct data destruction or data encrypted for impact on the data stores of services like Exchange and SQL Server.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_taskkill_execution.yml
+
+    False Positives:
+    - Expected FP with some processes using this techniques to terminate one of their processes during installations and updates
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

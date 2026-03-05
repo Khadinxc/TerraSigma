@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_dns_susp_chi
   name                       = "proc_creation_win_dns_susp_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Unusual Child Process of dns.exe"
-  description                = "Detects an unexpected process spawning from dns.exe which may indicate activity related to remote code execution or other forms of exploitation as seen in CVE-2020-1350 (SigRed) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dns_susp_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dns_susp_child_process.yml"
+  description                = <<DESC
+    Detects an unexpected process spawning from dns.exe which may indicate activity related to remote code execution or other forms of exploitation as seen in CVE-2020-1350 (SigRed)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dns_susp_child_process.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

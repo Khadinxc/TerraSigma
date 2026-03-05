@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_htran_o
   name                       = "proc_creation_win_hktl_htran_or_natbypass"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Htran/NATBypass Execution"
-  description                = "Detects executable names or flags used by Htran or Htran-like tools (e.g. NATBypass) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_htran_or_natbypass.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_htran_or_natbypass.yml"
+  description                = <<DESC
+    Detects executable names or flags used by Htran or Htran-like tools (e.g. NATBypass)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_htran_or_natbypass.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

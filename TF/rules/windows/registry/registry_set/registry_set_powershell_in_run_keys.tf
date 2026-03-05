@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_powershell_in_run
   name                       = "registry_set_powershell_in_run_keys"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious PowerShell In Registry Run Keys"
-  description                = "Detects potential PowerShell commands or code within registry run keys Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_powershell_in_run_keys.yml - Legitimate admin or third party scripts. Baseline according to your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_powershell_in_run_keys.yml"
+  description                = <<DESC
+    Detects potential PowerShell commands or code within registry run keys
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_powershell_in_run_keys.yml
+
+    False Positives:
+    - Legitimate admin or third party scripts. Baseline according to your environment
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

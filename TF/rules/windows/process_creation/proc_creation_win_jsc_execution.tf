@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_jsc_executio
   name                       = "proc_creation_win_jsc_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "JScript Compiler Execution"
-  description                = "Detects the execution of the \"jsc.exe\" (JScript Compiler). Attacker might abuse this in order to compile JScript files on the fly and bypassing application whitelisting. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_jsc_execution.yml - Legitimate use to compile JScript by developers. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_jsc_execution.yml"
+  description                = <<DESC
+    Detects the execution of the "jsc.exe" (JScript Compiler). Attacker might abuse this in order to compile JScript files on the fly and bypassing application whitelisting.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_jsc_execution.yml
+
+    False Positives:
+    - Legitimate use to compile JScript by developers.
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

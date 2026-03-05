@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_parents
   name                       = "proc_creation_win_susp_parents"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Process Parents"
-  description                = "Detects suspicious parent processes that should not have any children or should only have a single possible child program Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_parents.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_parents.yml"
+  description                = <<DESC
+    Detects suspicious parent processes that should not have any children or should only have a single possible child program
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_parents.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

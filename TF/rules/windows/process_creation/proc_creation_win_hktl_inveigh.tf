@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_inveigh
   name                       = "proc_creation_win_hktl_inveigh"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Inveigh Execution"
-  description                = "Detects the use of Inveigh a cross-platform .NET IPv4/IPv6 machine-in-the-middle tool Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_inveigh.yml - Very unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_inveigh.yml"
+  description                = <<DESC
+    Detects the use of Inveigh a cross-platform .NET IPv4/IPv6 machine-in-the-middle tool
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_inveigh.yml
+
+    False Positives:
+    - Very unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

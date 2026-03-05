@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_apt_fin7_powers
   name                       = "file_event_win_apt_fin7_powershell_scripts_naming_convention"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential APT FIN7 Related PowerShell Script Created"
-  description                = "Detects PowerShell script file creation with specific name or suffix which was seen being used often by FIN7 PowerShell scripts Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/FIN7/file_event_win_apt_fin7_powershell_scripts_naming_convention.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/FIN7/file_event_win_apt_fin7_powershell_scripts_naming_convention.yml"
+  description                = <<DESC
+    Detects PowerShell script file creation with specific name or suffix which was seen being used often by FIN7 PowerShell scripts
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/FIN7/file_event_win_apt_fin7_powershell_scripts_naming_convention.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

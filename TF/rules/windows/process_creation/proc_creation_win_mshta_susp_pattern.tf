@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_mshta_susp_p
   name                       = "proc_creation_win_mshta_susp_pattern"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Mshta.EXE Execution Patterns"
-  description                = "Detects suspicious mshta process execution patterns Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_susp_pattern.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_susp_pattern.yml"
+  description                = <<DESC
+    Detects suspicious mshta process execution patterns
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_susp_pattern.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

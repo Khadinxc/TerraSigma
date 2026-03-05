@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_esxcli_syslo
   name                       = "proc_creation_lnx_esxcli_syslog_config_change"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ESXi Syslog Configuration Change Via ESXCLI"
-  description                = "Detects changes to the ESXi syslog configuration via \"esxcli\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_syslog_config_change.yml - Legitimate administrative activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_syslog_config_change.yml"
+  description                = <<DESC
+    Detects changes to the ESXi syslog configuration via "esxcli"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_syslog_config_change.yml
+
+    False Positives:
+    - Legitimate administrative activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

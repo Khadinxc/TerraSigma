@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_taidoor"
   name                       = "proc_creation_win_apt_taidoor"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "TAIDOOR RAT DLL Load"
-  description                = "Detects specific process characteristics of Chinese TAIDOOR RAT malware load Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/TAIDOOR-RAT/proc_creation_win_apt_taidoor.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/TAIDOOR-RAT/proc_creation_win_apt_taidoor.yml"
+  description                = <<DESC
+    Detects specific process characteristics of Chinese TAIDOOR RAT malware load
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/TAIDOOR-RAT/proc_creation_win_apt_taidoor.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

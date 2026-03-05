@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_winget_add_c
   name                       = "proc_creation_win_winget_add_custom_source"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Add New Download Source To Winget"
-  description                = "Detects usage of winget to add new additional download sources Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winget_add_custom_source.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winget_add_custom_source.yml"
+  description                = <<DESC
+    Detects usage of winget to add new additional download sources
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winget_add_custom_source.yml
+
+    False Positives:
+    - False positive are expected with legitimate sources
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_turla_co
   name                       = "proc_creation_win_apt_turla_commands_critical"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Turla Group Lateral Movement"
-  description                = "Detects automated lateral movement by Turla group Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2014/TA/Turla/proc_creation_win_apt_turla_commands_critical.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2014/TA/Turla/proc_creation_win_apt_turla_commands_critical.yml"
+  description                = <<DESC
+    Detects automated lateral movement by Turla group
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2014/TA/Turla/proc_creation_win_apt_turla_commands_critical.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

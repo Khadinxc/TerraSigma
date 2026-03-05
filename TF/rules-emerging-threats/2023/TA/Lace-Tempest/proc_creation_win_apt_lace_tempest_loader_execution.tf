@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_lace_tem
   name                       = "proc_creation_win_apt_lace_tempest_loader_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Lace Tempest Malware Loader Execution"
-  description                = "Detects execution of a specific binary based on filename and hash used by Lace Tempest to load additional malware as reported by SysAid Team Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lace-Tempest/proc_creation_win_apt_lace_tempest_loader_execution.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lace-Tempest/proc_creation_win_apt_lace_tempest_loader_execution.yml"
+  description                = <<DESC
+    Detects execution of a specific binary based on filename and hash used by Lace Tempest to load additional malware as reported by SysAid Team
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lace-Tempest/proc_creation_win_apt_lace_tempest_loader_execution.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

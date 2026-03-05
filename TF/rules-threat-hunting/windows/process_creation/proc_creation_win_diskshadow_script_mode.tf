@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_diskshadow_s
   name                       = "proc_creation_win_diskshadow_script_mode"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Diskshadow Script Mode Execution"
-  description                = "Detects execution of \"Diskshadow.exe\" in script mode using the \"/s\" flag. Attackers often abuse \"diskshadow\" to execute scripts that deleted the shadow copies on the systems. Investigate the content of the scripts and its location. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_diskshadow_script_mode.yml - Likely from legitimate backup scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_diskshadow_script_mode.yml"
+  description                = <<DESC
+    Detects execution of "Diskshadow.exe" in script mode using the "/s" flag. Attackers often abuse "diskshadow" to execute scripts that deleted the shadow copies on the systems. Investigate the content of the scripts and its location.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_diskshadow_script_mode.yml
+
+    False Positives:
+    - Likely from legitimate backup scripts
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

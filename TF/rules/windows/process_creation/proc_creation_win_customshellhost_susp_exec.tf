@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_customshellh
   name                       = "proc_creation_win_customshellhost_susp_exec"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious CustomShellHost Execution"
-  description                = "Detects the execution of CustomShellHost.exe where the child isn't located in 'C:\\Windows\\explorer.exe'. CustomShellHost is a known LOLBin that can be abused by attackers for defense evasion techniques. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_customshellhost_susp_exec.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_customshellhost_susp_exec.yml"
+  description                = <<DESC
+    Detects the execution of CustomShellHost.exe where the child isn't located in 'C:\Windows\explorer.exe'. CustomShellHost is a known LOLBin that can be abused by attackers for defense evasion techniques.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_customshellhost_susp_exec.yml
+
+    False Positives:
+    - False positives are unlikely, investigate matches carefully.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

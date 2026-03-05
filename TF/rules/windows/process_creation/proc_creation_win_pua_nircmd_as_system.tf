@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_pua_nircmd_a
   name                       = "proc_creation_win_pua_nircmd_as_system"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - NirCmd Execution As LOCAL SYSTEM"
-  description                = "Detects the use of NirCmd tool for command execution as SYSTEM user Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_nircmd_as_system.yml - Legitimate use by administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_nircmd_as_system.yml"
+  description                = <<DESC
+    Detects the use of NirCmd tool for command execution as SYSTEM user
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_nircmd_as_system.yml
+
+    False Positives:
+    - Legitimate use by administrators
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

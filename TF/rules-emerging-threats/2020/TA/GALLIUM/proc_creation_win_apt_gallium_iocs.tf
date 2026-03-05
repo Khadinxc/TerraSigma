@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_gallium_
   name                       = "proc_creation_win_apt_gallium_iocs"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "GALLIUM IOCs"
-  description                = "Detects artifacts associated with GALLIUM cyber espionage group as reported by Microsoft Threat Intelligence Center in the December 2019 report. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/GALLIUM/proc_creation_win_apt_gallium_iocs.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/GALLIUM/proc_creation_win_apt_gallium_iocs.yml"
+  description                = <<DESC
+    Detects artifacts associated with GALLIUM cyber espionage group as reported by Microsoft Threat Intelligence Center in the December 2019 report.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/GALLIUM/proc_creation_win_apt_gallium_iocs.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

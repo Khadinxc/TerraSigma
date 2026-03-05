@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_persistence_custo
   name                       = "registry_set_persistence_custom_protocol_handler"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Custom Protocol Handler"
-  description                = "Detects potential persistence activity via the registering of a new custom protocole handlers. While legitimate applications register protocole handlers often times during installation. And attacker can abuse this by setting a custom handler to be used as a persistence mechanism. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_custom_protocol_handler.yml - Many legitimate applications can register a new custom protocol handler. Additional filters needs to applied according to your environment. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_custom_protocol_handler.yml"
+  description                = <<DESC
+    Detects potential persistence activity via the registering of a new custom protocole handlers. While legitimate applications register protocole handlers often times during installation. And attacker can abuse this by setting a custom handler to be used as a persistence mechanism.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_custom_protocol_handler.yml
+
+    False Positives:
+    - Many legitimate applications can register a new custom protocol handler. Additional filters needs to applied according to your environment.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_embed_e
   name                       = "proc_creation_win_susp_embed_exe_lnk"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Hidden Powershell in Link File Pattern"
-  description                = "Detects events that appear when a user click on a link file with a powershell command in it Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_embed_exe_lnk.yml - Legitimate commands in .lnk files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_embed_exe_lnk.yml"
+  description                = <<DESC
+    Detects events that appear when a user click on a link file with a powershell command in it
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_embed_exe_lnk.yml
+
+    False Positives:
+    - Legitimate commands in .lnk files
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

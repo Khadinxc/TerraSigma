@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_dll_azure_microsoft
   name                       = "image_load_dll_azure_microsoft_account_token_provider_dll_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Azure Browser SSO Abuse"
-  description                = "Detects abusing Azure Browser SSO by requesting OAuth 2.0 refresh tokens for an Azure-AD-authenticated Windows user (i.e. the machine is joined to Azure AD and a user logs in with their Azure AD account) wanting to perform SSO authentication in the browser. An attacker can use this to authenticate to Azure AD in a browser as that user. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_azure_microsoft_account_token_provider_dll_load.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_azure_microsoft_account_token_provider_dll_load.yml"
+  description                = <<DESC
+    Detects abusing Azure Browser SSO by requesting OAuth 2.0 refresh tokens for an Azure-AD-authenticated Windows user (i.e. the machine is joined to Azure AD and a user logs in with their Azure AD account) wanting to perform SSO authentication in the browser. An attacker can use this to authenticate to Azure AD in a browser as that user.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_azure_microsoft_account_token_provider_dll_load.yml
+
+    False Positives:
+    - False positives are expected since this rules is only looking for the DLL load event. This rule is better used in correlation with related activity
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceImageLoadEvents

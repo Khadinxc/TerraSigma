@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_splwow64_cli
   name                       = "proc_creation_win_splwow64_cli_anomaly"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Splwow64 Without Params"
-  description                = "Detects suspicious Splwow64.exe process without any command line parameters Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_splwow64_cli_anomaly.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_splwow64_cli_anomaly.yml"
+  description                = <<DESC
+    Detects suspicious Splwow64.exe process without any command line parameters
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_splwow64_cli_anomaly.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

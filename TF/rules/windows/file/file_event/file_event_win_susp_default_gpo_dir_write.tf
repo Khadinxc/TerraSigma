@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_susp_default_gp
   name                       = "file_event_win_susp_default_gpo_dir_write"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Files in Default GPO Folder"
-  description                = "Detects the creation of copy of suspicious files (EXE/DLL) to the default GPO storage folder Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_default_gpo_dir_write.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_default_gpo_dir_write.yml"
+  description                = <<DESC
+    Detects the creation of copy of suspicious files (EXE/DLL) to the default GPO storage folder
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_default_gpo_dir_write.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

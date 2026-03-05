@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_mal_adwind" {
   name                       = "file_event_win_mal_adwind"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Adwind RAT / JRAT File Artifact"
-  description                = "Detects javaw.exe in AppData folder as used by Adwind / JRAT Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_mal_adwind.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_mal_adwind.yml"
+  description                = <<DESC
+    Detects javaw.exe in AppData folder as used by Adwind / JRAT
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_mal_adwind.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_sysinternals_pr
   name                       = "file_event_win_sysinternals_procmon_driver_susp_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Process Monitor Driver Creation By Non-Sysinternals Binary"
-  description                = "Detects creation of the Process Monitor driver by processes other than Process Monitor (procmon) itself. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sysinternals_procmon_driver_susp_creation.yml - Some false positives may occur with legitimate renamed process monitor binaries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sysinternals_procmon_driver_susp_creation.yml"
+  description                = <<DESC
+    Detects creation of the Process Monitor driver by processes other than Process Monitor (procmon) itself.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sysinternals_procmon_driver_susp_creation.yml
+
+    False Positives:
+    - Some false positives may occur with legitimate renamed process monitor binaries
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

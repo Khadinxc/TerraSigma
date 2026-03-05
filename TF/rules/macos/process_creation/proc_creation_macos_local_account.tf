@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_local_acco
   name                       = "proc_creation_macos_local_account"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Local System Accounts Discovery - MacOs"
-  description                = "Detects enumeration of local systeam accounts on MacOS Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_local_account.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_local_account.yml"
+  description                = <<DESC
+    Detects enumeration of local systeam accounts on MacOS
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_local_account.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

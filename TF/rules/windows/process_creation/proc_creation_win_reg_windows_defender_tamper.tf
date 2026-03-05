@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_reg_windows_
   name                       = "proc_creation_win_reg_windows_defender_tamper"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Windows Defender Registry Key Tampering Via Reg.EXE"
-  description                = "Detects the usage of \"reg.exe\" to tamper with different Windows Defender registry keys in order to disable some important features related to protection and detection Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_windows_defender_tamper.yml - Rare legitimate use by administrators to test software (should always be investigated) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_windows_defender_tamper.yml"
+  description                = <<DESC
+    Detects the usage of "reg.exe" to tamper with different Windows Defender registry keys in order to disable some important features related to protection and detection
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_windows_defender_tamper.yml
+
+    False Positives:
+    - Rare legitimate use by administrators to test software (should always be investigated)
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_regasm_no_fl
   name                       = "proc_creation_win_regasm_no_flag_or_dll_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "RegAsm.EXE Execution Without CommandLine Flags or Files"
-  description                = "Detects the execution of \"RegAsm.exe\" without a commandline flag or file, which might indicate potential process injection activity. Usually \"RegAsm.exe\" should point to a dedicated DLL file or call the help with the \"/?\" flag. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regasm_no_flag_or_dll_execution.yml - Legitimate use of Regasm by developers. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regasm_no_flag_or_dll_execution.yml"
+  description                = <<DESC
+    Detects the execution of "RegAsm.exe" without a commandline flag or file, which might indicate potential process injection activity. Usually "RegAsm.exe" should point to a dedicated DLL file or call the help with the "/?" flag.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regasm_no_flag_or_dll_execution.yml
+
+    False Positives:
+    - Legitimate use of Regasm by developers.
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_atbroker_unc
   name                       = "proc_creation_win_atbroker_uncommon_ats_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon  Assistive Technology Applications Execution Via AtBroker.EXE"
-  description                = "Detects the start of a non built-in assistive technology applications via \"Atbroker.EXE\". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_atbroker_uncommon_ats_execution.yml - Legitimate, non-default assistive technology applications execution | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_atbroker_uncommon_ats_execution.yml"
+  description                = <<DESC
+    Detects the start of a non built-in assistive technology applications via "Atbroker.EXE".
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_atbroker_uncommon_ats_execution.yml
+
+    False Positives:
+    - Legitimate, non-default assistive technology applications execution
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

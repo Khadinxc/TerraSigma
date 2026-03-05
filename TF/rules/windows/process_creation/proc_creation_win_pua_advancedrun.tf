@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_pua_advanced
   name                       = "proc_creation_win_pua_advancedrun"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - AdvancedRun Execution"
-  description                = "Detects the execution of AdvancedRun utility Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_advancedrun.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_advancedrun.yml"
+  description                = <<DESC
+    Detects the execution of AdvancedRun utility
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_advancedrun.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

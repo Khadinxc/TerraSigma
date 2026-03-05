@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_turla_co
   name                       = "proc_creation_win_apt_turla_comrat_may20"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Turla Group Commands May 2020"
-  description                = "Detects commands used by Turla group as reported by ESET in May 2020 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2014/TA/Turla/proc_creation_win_apt_turla_comrat_may20.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2014/TA/Turla/proc_creation_win_apt_turla_comrat_may20.yml"
+  description                = <<DESC
+    Detects commands used by Turla group as reported by ESET in May 2020
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2014/TA/Turla/proc_creation_win_apt_turla_comrat_may20.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

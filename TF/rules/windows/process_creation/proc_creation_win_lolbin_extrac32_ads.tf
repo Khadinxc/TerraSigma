@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_extra
   name                       = "proc_creation_win_lolbin_extrac32_ads"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Extrac32 Alternate Data Stream Execution"
-  description                = "Extract data from cab file and hide it in an alternate data stream Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_extrac32_ads.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_extrac32_ads.yml"
+  description                = <<DESC
+    Extract data from cab file and hide it in an alternate data stream
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_extrac32_ads.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

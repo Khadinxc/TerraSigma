@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_s
   name                       = "proc_creation_win_powershell_susp_child_processes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious PowerShell Child Processes"
-  description                = "Detects potentially suspicious child processes spawned by PowerShell. Use this rule to hunt for potential anomalies initiating from PowerShell scripts and commands. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_susp_child_processes.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_susp_child_processes.yml"
+  description                = <<DESC
+    Detects potentially suspicious child processes spawned by PowerShell. Use this rule to hunt for potential anomalies initiating from PowerShell scripts and commands.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_susp_child_processes.yml
+
+    False Positives:
+    - False positives are to be expected from PowerShell scripts that might make use of additional binaries such as "mshta", "bitsadmin", etc. Apply additional filters for those scripts.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

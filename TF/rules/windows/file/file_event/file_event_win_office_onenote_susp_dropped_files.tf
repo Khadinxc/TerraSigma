@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_office_onenote_
   name                       = "file_event_win_office_onenote_susp_dropped_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Created Via OneNote Application"
-  description                = "Detects suspicious files created via the OneNote application. This could indicate a potential malicious \".one\"/\".onepkg\" file was executed as seen being used in malware activity in the wild Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_onenote_susp_dropped_files.yml - Occasional FPs might occur if OneNote is used internally to share different embedded documents | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_onenote_susp_dropped_files.yml"
+  description                = <<DESC
+    Detects suspicious files created via the OneNote application. This could indicate a potential malicious ".one"/".onepkg" file was executed as seen being used in malware activity in the wild
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_onenote_susp_dropped_files.yml
+
+    False Positives:
+    - False positives should be very low with the extensions list cited. Especially if you don't heavily utilize OneNote.
+    - Occasional FPs might occur if OneNote is used internally to share different embedded documents
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

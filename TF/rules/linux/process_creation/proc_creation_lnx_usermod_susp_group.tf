@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_usermod_susp
   name                       = "proc_creation_lnx_usermod_susp_group"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "User Added To Root/Sudoers Group Using Usermod"
-  description                = "Detects usage of the \"usermod\" binary to add users add users to the root or suoders groups Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_usermod_susp_group.yml - Legitimate administrator activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_usermod_susp_group.yml"
+  description                = <<DESC
+    Detects usage of the "usermod" binary to add users add users to the root or suoders groups
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_usermod_susp_group.yml
+
+    False Positives:
+    - Legitimate administrator activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_ilasm_il_cod
   name                       = "proc_creation_win_ilasm_il_code_compilation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "C# IL Code Compilation Via Ilasm.EXE"
-  description                = "Detects the use of \"Ilasm.EXE\" in order to compile C# intermediate (IL) code to EXE or DLL. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ilasm_il_code_compilation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ilasm_il_code_compilation.yml"
+  description                = <<DESC
+    Detects the use of "Ilasm.EXE" in order to compile C# intermediate (IL) code to EXE or DLL.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ilasm_il_code_compilation.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

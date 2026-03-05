@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_no_
   name                       = "proc_creation_win_rundll32_no_params"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Rundll32 Execution Without CommandLine Parameters"
-  description                = "Detects suspicious start of rundll32.exe without any parameters as found in CobaltStrike beacon activity Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_no_params.yml - Possible but rare | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_no_params.yml"
+  description                = <<DESC
+    Detects suspicious start of rundll32.exe without any parameters as found in CobaltStrike beacon activity
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_no_params.yml
+
+    False Positives:
+    - Possible but rare
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

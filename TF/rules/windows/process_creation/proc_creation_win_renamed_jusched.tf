@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_renamed_jusc
   name                       = "proc_creation_win_renamed_jusched"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed Jusched.EXE Execution"
-  description                = "Detects the execution of a renamed \"jusched.exe\" as seen used by the cobalt group Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_jusched.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_jusched.yml"
+  description                = <<DESC
+    Detects the execution of a renamed "jusched.exe" as seen used by the cobalt group
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_jusched.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

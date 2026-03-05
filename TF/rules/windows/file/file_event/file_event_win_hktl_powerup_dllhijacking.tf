@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_hktl_powerup_dl
   name                       = "file_event_win_hktl_powerup_dllhijacking"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Powerup Write Hijack DLL"
-  description                = "Powerup tool's Write Hijack DLL exploits DLL hijacking for privilege escalation. In it's default mode, it builds a self deleting .bat file which executes malicious command. The detection rule relies on creation of the malicious bat file (debug.bat by default). Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_powerup_dllhijacking.yml - Any powershell script that creates bat files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_powerup_dllhijacking.yml"
+  description                = <<DESC
+    Powerup tool's Write Hijack DLL exploits DLL hijacking for privilege escalation. In it's default mode, it builds a self deleting .bat file which executes malicious command. The detection rule relies on creation of the malicious bat file (debug.bat by default).
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_powerup_dllhijacking.yml
+
+    False Positives:
+    - Any powershell script that creates bat files
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

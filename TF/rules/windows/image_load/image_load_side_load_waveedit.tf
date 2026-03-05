@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_side_load_waveedit"
   name                       = "image_load_side_load_waveedit"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Waveedit.DLL Sideloading"
-  description                = "Detects potential DLL sideloading of \"waveedit.dll\", which is part of the Nero WaveEditor audio editing software. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_waveedit.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_waveedit.yml"
+  description                = <<DESC
+    Detects potential DLL sideloading of "waveedit.dll", which is part of the Nero WaveEditor audio editing software.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_waveedit.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

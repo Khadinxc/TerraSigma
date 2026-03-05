@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_dsacls_passw
   name                       = "proc_creation_win_dsacls_password_spray"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Password Spraying Attempt Using Dsacls.EXE"
-  description                = "Detects possible password spraying attempts using Dsacls Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dsacls_password_spray.yml - Legitimate use of dsacls to bind to an LDAP session | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dsacls_password_spray.yml"
+  description                = <<DESC
+    Detects possible password spraying attempts using Dsacls
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dsacls_password_spray.yml
+
+    False Positives:
+    - Legitimate use of dsacls to bind to an LDAP session
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

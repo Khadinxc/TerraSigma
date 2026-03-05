@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_copy_sy
   name                       = "proc_creation_win_susp_copy_system_dir_lolbin"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "LOL-Binary Copied From System Directory"
-  description                = "Detects a suspicious copy operation that tries to copy a known LOLBIN from system (System32, SysWOW64, WinSxS) directories to another on disk in order to bypass detections based on locations. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_copy_system_dir_lolbin.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_copy_system_dir_lolbin.yml"
+  description                = <<DESC
+    Detects a suspicious copy operation that tries to copy a known LOLBIN from system (System32, SysWOW64, WinSxS) directories to another on disk in order to bypass detections based on locations.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_copy_system_dir_lolbin.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

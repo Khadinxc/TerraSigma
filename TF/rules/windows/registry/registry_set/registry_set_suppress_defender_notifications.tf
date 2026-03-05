@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_suppress_defender
   name                       = "registry_set_suppress_defender_notifications"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Activate Suppression of Windows Security Center Notifications"
-  description                = "Detect set Notification_Suppress to 1 to disable the Windows security center notification Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_suppress_defender_notifications.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_suppress_defender_notifications.yml"
+  description                = <<DESC
+    Detect set Notification_Suppress to 1 to disable the Windows security center notification
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_suppress_defender_notifications.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

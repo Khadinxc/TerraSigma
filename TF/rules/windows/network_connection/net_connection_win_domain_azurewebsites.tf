@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_domain_azur
   name                       = "net_connection_win_domain_azurewebsites"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Network Connection Initiated To AzureWebsites.NET By Non-Browser Process"
-  description                = "Detects an initiated network connection by a non browser process on the system to \"azurewebsites.net\". The latter was often used by threat actors as a malware hosting and exfiltration site. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_azurewebsites.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_azurewebsites.yml"
+  description                = <<DESC
+    Detects an initiated network connection by a non browser process on the system to "azurewebsites.net". The latter was often used by threat actors as a malware hosting and exfiltration site.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_azurewebsites.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

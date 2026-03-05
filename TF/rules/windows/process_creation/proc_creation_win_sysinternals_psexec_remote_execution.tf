@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sysinternals
   name                       = "proc_creation_win_sysinternals_psexec_remote_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential PsExec Remote Execution"
-  description                = "Detects potential psexec command that initiate execution on a remote systems via common commandline flags used by the utility Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_psexec_remote_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_psexec_remote_execution.yml"
+  description                = <<DESC
+    Detects potential psexec command that initiate execution on a remote systems via common commandline flags used by the utility
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_psexec_remote_execution.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

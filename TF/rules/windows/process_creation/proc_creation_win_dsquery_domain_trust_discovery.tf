@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_dsquery_doma
   name                       = "proc_creation_win_dsquery_domain_trust_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Domain Trust Discovery Via Dsquery"
-  description                = "Detects execution of \"dsquery.exe\" for domain trust discovery Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dsquery_domain_trust_discovery.yml - Legitimate use of the utilities by legitimate user for legitimate reason | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dsquery_domain_trust_discovery.yml"
+  description                = <<DESC
+    Detects execution of "dsquery.exe" for domain trust discovery
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dsquery_domain_trust_discovery.yml
+
+    False Positives:
+    - Legitimate use of the utilities by legitimate user for legitimate reason
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

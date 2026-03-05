@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_odbcconf_exe
   name                       = "proc_creation_win_odbcconf_exec_susp_locations"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Odbcconf.EXE Suspicious DLL Location"
-  description                = "Detects execution of \"odbcconf\" where the path of the DLL being registered is located in a potentially suspicious location. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_odbcconf_exec_susp_locations.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_odbcconf_exec_susp_locations.yml"
+  description                = <<DESC
+    Detects execution of "odbcconf" where the path of the DLL being registered is located in a potentially suspicious location.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_odbcconf_exec_susp_locations.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

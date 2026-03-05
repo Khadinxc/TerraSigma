@@ -2,7 +2,16 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_reg_add_run_
   name                       = "proc_creation_win_reg_add_run_key"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Attempt Via Run Keys Using Reg.EXE"
-  description                = "Detects suspicious command line reg.exe tool adding key to RUN key in Registry Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_add_run_key.yml - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reasons. - Legitimate administrator sets up autorun keys for legitimate reasons. - Discord | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_add_run_key.yml"
+  description                = <<DESC
+    Detects suspicious command line reg.exe tool adding key to RUN key in Registry
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_add_run_key.yml
+
+    False Positives:
+    - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reasons.
+    - Legitimate administrator sets up autorun keys for legitimate reasons.
+    - Discord
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_empiremo
   name                       = "proc_creation_win_apt_empiremonkey"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential EmpireMonkey Activity"
-  description                = "Detects potential EmpireMonkey APT activity Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/EmpireMonkey/proc_creation_win_apt_empiremonkey.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/EmpireMonkey/proc_creation_win_apt_empiremonkey.yml"
+  description                = <<DESC
+    Detects potential EmpireMonkey APT activity
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/EmpireMonkey/proc_creation_win_apt_empiremonkey.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

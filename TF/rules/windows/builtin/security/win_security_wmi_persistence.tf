@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "win_security_wmi_persistence" 
   name                       = "win_security_wmi_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WMI Persistence - Security"
-  description                = "Detects suspicious WMI event filter and command line event consumer based on WMI and Security Logs. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_wmi_persistence.yml - Unknown (data set is too small; further testing needed) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_wmi_persistence.yml"
+  description                = <<DESC
+    Detects suspicious WMI event filter and command line event consumer based on WMI and Security Logs.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_wmi_persistence.yml
+
+    False Positives:
+    - Unknown (data set is too small; further testing needed)
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

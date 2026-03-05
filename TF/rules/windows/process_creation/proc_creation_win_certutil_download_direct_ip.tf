@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_certutil_dow
   name                       = "proc_creation_win_certutil_download_direct_ip"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Downloaded From Direct IP Via Certutil.EXE"
-  description                = "Detects the execution of certutil with certain flags that allow the utility to download files from direct IPs. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_download_direct_ip.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_download_direct_ip.yml"
+  description                = <<DESC
+    Detects the execution of certutil with certain flags that allow the utility to download files from direct IPs.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_download_direct_ip.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

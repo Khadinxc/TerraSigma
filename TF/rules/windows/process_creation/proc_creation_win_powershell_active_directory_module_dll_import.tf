@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_a
   name                       = "proc_creation_win_powershell_active_directory_module_dll_import"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Active Directory Enumeration Using AD Module - ProcCreation"
-  description                = "Detects usage of the \"Import-Module\" cmdlet to load the \"Microsoft.ActiveDirectory.Management.dl\" DLL. Which is often used by attackers to perform AD enumeration. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_active_directory_module_dll_import.yml - Legitimate use of the library for administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_active_directory_module_dll_import.yml"
+  description                = <<DESC
+    Detects usage of the "Import-Module" cmdlet to load the "Microsoft.ActiveDirectory.Management.dl" DLL. Which is often used by attackers to perform AD enumeration.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_active_directory_module_dll_import.yml
+
+    False Positives:
+    - Legitimate use of the library for administrative activity
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

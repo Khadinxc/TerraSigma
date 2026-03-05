@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_clear_logs" 
   name                       = "proc_creation_lnx_clear_logs"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Clear Linux Logs"
-  description                = "Detects attempts to clear logs on the system. Adversaries may clear system logs to hide evidence of an intrusion Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_clear_logs.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_clear_logs.yml"
+  description                = <<DESC
+    Detects attempts to clear logs on the system. Adversaries may clear system logs to hide evidence of an intrusion
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_clear_logs.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

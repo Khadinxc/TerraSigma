@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_pcwru
   name                       = "proc_creation_win_lolbin_pcwrun"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Indirect Command Execution By Program Compatibility Wizard"
-  description                = "Detect indirect command execution via Program Compatibility Assistant pcwrun.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_pcwrun.yml - Need to use extra processing with 'unique_count' / 'filter' to focus on outliers as opposed to commonly seen artifacts - Legit usage of scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_pcwrun.yml"
+  description                = <<DESC
+    Detect indirect command execution via Program Compatibility Assistant pcwrun.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_pcwrun.yml
+
+    False Positives:
+    - Need to use extra processing with 'unique_count' / 'filter' to focus on outliers as opposed to commonly seen artifacts
+    - Legit usage of scripts
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_susp_task_write
   name                       = "file_event_win_susp_task_write"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Scheduled Task Write to System32 Tasks"
-  description                = "Detects the creation of tasks from processes executed from suspicious locations Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_task_write.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_task_write.yml"
+  description                = <<DESC
+    Detects the creation of tasks from processes executed from suspicious locations
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_task_write.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

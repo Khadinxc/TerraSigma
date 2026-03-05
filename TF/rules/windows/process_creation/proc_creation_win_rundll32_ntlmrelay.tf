@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_ntl
   name                       = "proc_creation_win_rundll32_ntlmrelay"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious NTLM Authentication on the Printer Spooler Service"
-  description                = "Detects a privilege elevation attempt by coercing NTLM authentication on the Printer Spooler service Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_ntlmrelay.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_ntlmrelay.yml"
+  description                = <<DESC
+    Detects a privilege elevation attempt by coercing NTLM authentication on the Printer Spooler service
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_ntlmrelay.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_inline_
   name                       = "proc_creation_win_susp_inline_win_api_access"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential WinAPI Calls Via CommandLine"
-  description                = "Detects the use of WinAPI Functions via the commandline. As seen used by threat actors via the tool winapiexec Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_inline_win_api_access.yml - Some legitimate action or applications may use these functions. Investigate further to determine the legitimacy of the activity. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_inline_win_api_access.yml"
+  description                = <<DESC
+    Detects the use of WinAPI Functions via the commandline. As seen used by threat actors via the tool winapiexec
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_inline_win_api_access.yml
+
+    False Positives:
+    - Some legitimate action or applications may use these functions. Investigate further to determine the legitimacy of the activity.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_msbuild_susp
   name                       = "proc_creation_win_msbuild_susp_parent_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Msbuild Execution By Uncommon Parent Process"
-  description                = "Detects suspicious execution of 'Msbuild.exe' by a uncommon parent process Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msbuild_susp_parent_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msbuild_susp_parent_process.yml"
+  description                = <<DESC
+    Detects suspicious execution of 'Msbuild.exe' by a uncommon parent process
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msbuild_susp_parent_process.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

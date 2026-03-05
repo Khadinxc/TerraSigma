@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_msra_process
   name                       = "proc_creation_win_msra_process_injection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Process Injection Via Msra.EXE"
-  description                = "Detects potential process injection via Microsoft Remote Asssistance (Msra.exe) by looking at suspicious child processes spawned from the aforementioned process. It has been a target used by many threat actors and used for discovery and persistence tactics Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msra_process_injection.yml - Legitimate use of Msra.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msra_process_injection.yml"
+  description                = <<DESC
+    Detects potential process injection via Microsoft Remote Asssistance (Msra.exe) by looking at suspicious child processes spawned from the aforementioned process. It has been a target used by many threat actors and used for discovery and persistence tactics
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msra_process_injection.yml
+
+    False Positives:
+    - Legitimate use of Msra.exe
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_impacke
   name                       = "proc_creation_win_hktl_impacket_lateral_movement"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Potential Impacket Lateral Movement Activity"
-  description                = "Detects wmiexec/dcomexec/atexec/smbexec from Impacket framework Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_impacket_lateral_movement.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_impacket_lateral_movement.yml"
+  description                = <<DESC
+    Detects wmiexec/dcomexec/atexec/smbexec from Impacket framework
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_impacket_lateral_movement.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

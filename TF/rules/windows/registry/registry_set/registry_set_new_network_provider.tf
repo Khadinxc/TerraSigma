@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_new_network_provi
   name                       = "registry_set_new_network_provider"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Credential Dumping Attempt Using New NetworkProvider - REG"
-  description                = "Detects when an attacker tries to add a new network provider in order to dump clear text credentials, similar to how the NPPSpy tool does it Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_new_network_provider.yml - Other legitimate network providers used and not filtred in this rule | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_new_network_provider.yml"
+  description                = <<DESC
+    Detects when an attacker tries to add a new network provider in order to dump clear text credentials, similar to how the NPPSpy tool does it
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_new_network_provider.yml
+
+    False Positives:
+    - Other legitimate network providers used and not filtred in this rule
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

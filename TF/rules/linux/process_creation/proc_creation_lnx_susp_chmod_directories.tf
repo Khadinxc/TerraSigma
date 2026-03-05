@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_susp_chmod_d
   name                       = "proc_creation_lnx_susp_chmod_directories"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Chmod Suspicious Directory"
-  description                = "Detects chmod targeting files in abnormal directory paths. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_chmod_directories.yml - Admin changing file permissions. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_chmod_directories.yml"
+  description                = <<DESC
+    Detects chmod targeting files in abnormal directory paths.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_chmod_directories.yml
+
+    False Positives:
+    - Admin changing file permissions.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

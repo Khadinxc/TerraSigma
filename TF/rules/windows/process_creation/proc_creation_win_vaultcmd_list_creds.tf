@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_vaultcmd_lis
   name                       = "proc_creation_win_vaultcmd_list_creds"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Credential Manager Access via VaultCmd"
-  description                = "List credentials currently stored in Windows Credential Manager via the native Windows utility vaultcmd.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vaultcmd_list_creds.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vaultcmd_list_creds.yml"
+  description                = <<DESC
+    List credentials currently stored in Windows Credential Manager via the native Windows utility vaultcmd.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vaultcmd_list_creds.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

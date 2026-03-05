@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_koadic"
   name                       = "proc_creation_win_hktl_koadic"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Koadic Execution"
-  description                = "Detects command line parameters used by Koadic hack tool Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_koadic.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_koadic.yml"
+  description                = <<DESC
+    Detects command line parameters used by Koadic hack tool
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_koadic.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_vscode_tunne
   name                       = "proc_creation_win_vscode_tunnel_service_install"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Visual Studio Code Tunnel Service Installation"
-  description                = "Detects the installation of VsCode tunnel (code-tunnel) as a service. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_tunnel_service_install.yml - Legitimate installation of code-tunnel as a service | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_tunnel_service_install.yml"
+  description                = <<DESC
+    Detects the installation of VsCode tunnel (code-tunnel) as a service.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_tunnel_service_install.yml
+
+    False Positives:
+    - Legitimate installation of code-tunnel as a service
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

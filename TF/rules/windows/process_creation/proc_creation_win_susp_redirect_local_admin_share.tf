@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_redirec
   name                       = "proc_creation_win_susp_redirect_local_admin_share"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Redirection to Local Admin Share"
-  description                = "Detects a suspicious output redirection to the local admins share, this technique is often found in malicious scripts or hacktool stagers Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_redirect_local_admin_share.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_redirect_local_admin_share.yml"
+  description                = <<DESC
+    Detects a suspicious output redirection to the local admins share, this technique is often found in malicious scripts or hacktool stagers
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_redirect_local_admin_share.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

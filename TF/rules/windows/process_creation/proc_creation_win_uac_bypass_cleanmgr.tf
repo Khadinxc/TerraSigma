@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_uac_bypass_c
   name                       = "proc_creation_win_uac_bypass_cleanmgr"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass Using Disk Cleanup"
-  description                = "Detects the pattern of UAC Bypass using scheduled tasks and variable expansion of cleanmgr.exe (UACMe 34) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_cleanmgr.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_cleanmgr.yml"
+  description                = <<DESC
+    Detects the pattern of UAC Bypass using scheduled tasks and variable expansion of cleanmgr.exe (UACMe 34)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_cleanmgr.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

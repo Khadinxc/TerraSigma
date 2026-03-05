@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_susp_right_to_l
   name                       = "file_event_win_susp_right_to_left_override_extension_spoofing"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential File Extension Spoofing Using Right-to-Left Override"
-  description                = "Detects suspicious filenames that contain a right-to-left override character and a potentially spoofed file extensions. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_right_to_left_override_extension_spoofing.yml - Filenames that contains scriptures such as arabic or hebrew might make use of this character | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_right_to_left_override_extension_spoofing.yml"
+  description                = <<DESC
+    Detects suspicious filenames that contain a right-to-left override character and a potentially spoofed file extensions.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_right_to_left_override_extension_spoofing.yml
+
+    False Positives:
+    - Filenames that contains scriptures such as arabic or hebrew might make use of this character
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_crackma
   name                       = "proc_creation_win_hktl_crackmapexec_execution_patterns"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - CrackMapExec Execution Patterns"
-  description                = "Detects various execution patterns of the CrackMapExec pentesting framework Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_crackmapexec_execution_patterns.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_crackmapexec_execution_patterns.yml"
+  description                = <<DESC
+    Detects various execution patterns of the CrackMapExec pentesting framework
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_crackmapexec_execution_patterns.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

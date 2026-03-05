@@ -2,7 +2,17 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_wmic_remote_xsl_scr
   name                       = "image_load_wmic_remote_xsl_scripting_dlls"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WMIC Loading Scripting Libraries"
-  description                = "Detects threat actors proxy executing code and bypassing application controls by leveraging wmic and the `/FORMAT` argument switch to download and execute an XSL file (i.e js, vbs, etc). It could be an indicator of SquiblyTwo technique, which uses Windows Management Instrumentation (WMI) to execute malicious code. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_wmic_remote_xsl_scripting_dlls.yml - The command wmic os get lastbootuptime loads vbscript.dll - The command wmic os get locale loads vbscript.dll - Since the ImageLoad event doesn't have enough information in this case. It's better to look at the recent process creation events that spawned the WMIC process and investigate the command line and parent/child processes to get more insights - The command `wmic ntevent` loads vbscript.dll | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_wmic_remote_xsl_scripting_dlls.yml"
+  description                = <<DESC
+    Detects threat actors proxy executing code and bypassing application controls by leveraging wmic and the `/FORMAT` argument switch to download and execute an XSL file (i.e js, vbs, etc). It could be an indicator of SquiblyTwo technique, which uses Windows Management Instrumentation (WMI) to execute malicious code.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_wmic_remote_xsl_scripting_dlls.yml
+
+    False Positives:
+    - The command wmic os get lastbootuptime loads vbscript.dll
+    - The command wmic os get locale loads vbscript.dll
+    - Since the ImageLoad event doesn't have enough information in this case. It's better to look at the recent process creation events that spawned the WMIC process and investigate the command line and parent/child processes to get more insights
+    - The command `wmic ntevent` loads vbscript.dll
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

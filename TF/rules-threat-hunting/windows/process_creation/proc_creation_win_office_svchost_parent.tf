@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_office_svcho
   name                       = "proc_creation_win_office_svchost_parent"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious New Instance Of An Office COM Object"
-  description                = "Detects an svchost process spawning an instance of an office application. This happens when the initial word application creates an instance of one of the Office COM objects such as 'Word.Application', 'Excel.Application', etc. This can be used by malicious actors to create malicious Office documents with macros on the fly. (See vba2clr project in the references) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_office_svchost_parent.yml - Legitimate usage of office automation via scripting | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_office_svchost_parent.yml"
+  description                = <<DESC
+    Detects an svchost process spawning an instance of an office application. This happens when the initial word application creates an instance of one of the Office COM objects such as 'Word.Application', 'Excel.Application', etc. This can be used by malicious actors to create malicious Office documents with macros on the fly. (See vba2clr project in the references)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_office_svchost_parent.yml
+
+    False Positives:
+    - Legitimate usage of office automation via scripting
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

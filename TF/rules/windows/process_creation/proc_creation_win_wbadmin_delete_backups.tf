@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wbadmin_dele
   name                       = "proc_creation_win_wbadmin_delete_backups"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Backup Deleted Via Wbadmin.EXE"
-  description                = "Detects the deletion of backups or system state backups via \"wbadmin.exe\". This technique is used by numerous ransomware families and actors. This may only be successful on server platforms that have Windows Backup enabled. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wbadmin_delete_backups.yml - Legitimate backup activity from administration scripts and software. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wbadmin_delete_backups.yml"
+  description                = <<DESC
+    Detects the deletion of backups or system state backups via "wbadmin.exe". This technique is used by numerous ransomware families and actors. This may only be successful on server platforms that have Windows Backup enabled.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wbadmin_delete_backups.yml
+
+    False Positives:
+    - Legitimate backup activity from administration scripts and software.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

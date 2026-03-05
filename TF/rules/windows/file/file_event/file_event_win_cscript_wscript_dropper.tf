@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_cscript_wscript
   name                       = "file_event_win_cscript_wscript_dropper"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WScript or CScript Dropper - File"
-  description                = "Detects a file ending in jse, vbe, js, vba, vbs written by cscript.exe or wscript.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_cscript_wscript_dropper.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_cscript_wscript_dropper.yml"
+  description                = <<DESC
+    Detects a file ending in jse, vbe, js, vba, vbs written by cscript.exe or wscript.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_cscript_wscript_dropper.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

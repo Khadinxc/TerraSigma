@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_net_user_def
   name                       = "proc_creation_win_net_user_default_accounts_manipulation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Manipulation Of Default Accounts Via Net.EXE"
-  description                = "Detects suspicious manipulations of default accounts such as 'administrator' and 'guest'. For example 'enable' or 'disable' accounts or change the password...etc Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_user_default_accounts_manipulation.yml - Some false positives could occur with the admin or guest account. It depends on the scripts being used by the admins in your env. If you experience a lot of FP you could reduce the level to medium | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_user_default_accounts_manipulation.yml"
+  description                = <<DESC
+    Detects suspicious manipulations of default accounts such as 'administrator' and 'guest'. For example 'enable' or 'disable' accounts or change the password...etc
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_user_default_accounts_manipulation.yml
+
+    False Positives:
+    - Some false positives could occur with the admin or guest account. It depends on the scripts being used by the admins in your env. If you experience a lot of FP you could reduce the level to medium
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

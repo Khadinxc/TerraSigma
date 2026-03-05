@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_d
   name                       = "proc_creation_win_powershell_download_com_cradles"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential COM Objects Download Cradles Usage - Process Creation"
-  description                = "Detects usage of COM objects that can be abused to download files in PowerShell by CLSID Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_download_com_cradles.yml - Legitimate use of the library | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_download_com_cradles.yml"
+  description                = <<DESC
+    Detects usage of COM objects that can be abused to download files in PowerShell by CLSID
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_download_com_cradles.yml
+
+    False Positives:
+    - Legitimate use of the library
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

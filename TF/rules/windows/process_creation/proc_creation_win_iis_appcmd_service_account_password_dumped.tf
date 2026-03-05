@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_iis_appcmd_s
   name                       = "proc_creation_win_iis_appcmd_service_account_password_dumped"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Microsoft IIS Service Account Password Dumped"
-  description                = "Detects the Internet Information Services (IIS) command-line tool, AppCmd, being used to list passwords Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_appcmd_service_account_password_dumped.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_appcmd_service_account_password_dumped.yml"
+  description                = <<DESC
+    Detects the Internet Information Services (IIS) command-line tool, AppCmd, being used to list passwords
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_appcmd_service_account_password_dumped.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

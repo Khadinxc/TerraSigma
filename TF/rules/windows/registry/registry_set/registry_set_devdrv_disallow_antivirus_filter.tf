@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_devdrv_disallow_a
   name                       = "registry_set_devdrv_disallow_antivirus_filter"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Antivirus Filter Driver Disallowed On Dev Drive - Registry"
-  description                = "Detects activity that indicates a user disabling the ability for Antivirus mini filter to inspect a \"Dev Drive\". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_devdrv_disallow_antivirus_filter.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_devdrv_disallow_antivirus_filter.yml"
+  description                = <<DESC
+    Detects activity that indicates a user disabling the ability for Antivirus mini filter to inspect a "Dev Drive".
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_devdrv_disallow_antivirus_filter.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

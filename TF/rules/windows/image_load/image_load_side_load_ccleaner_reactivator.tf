@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_side_load_ccleaner_
   name                       = "image_load_side_load_ccleaner_reactivator"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential CCleanerReactivator.DLL Sideloading"
-  description                = "Detects potential DLL sideloading of \"CCleanerReactivator.dll\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_ccleaner_reactivator.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_ccleaner_reactivator.yml"
+  description                = <<DESC
+    Detects potential DLL sideloading of "CCleanerReactivator.dll"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_ccleaner_reactivator.yml
+
+    False Positives:
+    - False positives could occur from other custom installation paths. Apply additional filters accordingly.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

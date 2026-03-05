@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_bginfo_suspi
   name                       = "proc_creation_win_bginfo_suspicious_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Child Process Of BgInfo.EXE"
-  description                = "Detects suspicious child processes of \"BgInfo.exe\" which could be a sign of potential abuse of the binary to proxy execution via external VBScript Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bginfo_suspicious_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bginfo_suspicious_child_process.yml"
+  description                = <<DESC
+    Detects suspicious child processes of "BgInfo.exe" which could be a sign of potential abuse of the binary to proxy execution via external VBScript
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bginfo_suspicious_child_process.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

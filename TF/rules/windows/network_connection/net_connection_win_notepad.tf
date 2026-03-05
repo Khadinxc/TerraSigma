@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_notepad" {
   name                       = "net_connection_win_notepad"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Network Connection Initiated Via Notepad.EXE"
-  description                = "Detects a network connection that is initiated by the \"notepad.exe\" process. This might be a sign of process injection from a beacon process or something similar. Notepad rarely initiates a network communication except when printing documents for example. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_notepad.yml - Printing documents via notepad might cause communication with the printer via port 9100 or similar. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_notepad.yml"
+  description                = <<DESC
+    Detects a network connection that is initiated by the "notepad.exe" process. This might be a sign of process injection from a beacon process or something similar. Notepad rarely initiates a network communication except when printing documents for example.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_notepad.yml
+
+    False Positives:
+    - Printing documents via notepad might cause communication with the printer via port 9100 or similar.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents

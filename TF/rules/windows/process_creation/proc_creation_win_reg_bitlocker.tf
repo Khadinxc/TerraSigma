@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_reg_bitlocke
   name                       = "proc_creation_win_reg_bitlocker"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Reg Add BitLocker"
-  description                = "Detects suspicious addition to BitLocker related registry keys via the reg.exe utility Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_bitlocker.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_bitlocker.yml"
+  description                = <<DESC
+    Detects suspicious addition to BitLocker related registry keys via the reg.exe utility
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_bitlocker.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

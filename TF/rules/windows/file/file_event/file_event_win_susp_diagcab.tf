@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_susp_diagcab" {
   name                       = "file_event_win_susp_diagcab"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Creation of a Diagcab"
-  description                = "Detects the creation of diagcab file, which could be caused by some legitimate installer or is a sign of exploitation (review the filename and its location) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_diagcab.yml - Legitimate microsoft diagcab | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_diagcab.yml"
+  description                = <<DESC
+    Detects the creation of diagcab file, which could be caused by some legitimate installer or is a sign of exploitation (review the filename and its location)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_diagcab.yml
+
+    False Positives:
+    - Legitimate microsoft diagcab
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

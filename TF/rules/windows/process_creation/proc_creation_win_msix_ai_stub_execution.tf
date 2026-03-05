@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_msix_ai_stub
   name                       = "proc_creation_win_msix_ai_stub_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows MSIX Package Support Framework AI_STUBS Execution"
-  description                = "Detects execution of Advanced Installer MSIX Package Support Framework (PSF) components, specifically AI_STUBS executables with original filename 'popupwrapper.exe'. This activity may indicate malicious MSIX packages build with Advanced Installer leveraging the Package Support Framework to bypass application control restrictions. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msix_ai_stub_execution.yml - Legitimate applications packaged with Advanced Installer using Package Support Framework | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msix_ai_stub_execution.yml"
+  description                = <<DESC
+    Detects execution of Advanced Installer MSIX Package Support Framework (PSF) components, specifically AI_STUBS executables with original filename 'popupwrapper.exe'. This activity may indicate malicious MSIX packages build with Advanced Installer leveraging the Package Support Framework to bypass application control restrictions.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msix_ai_stub_execution.yml
+
+    False Positives:
+    - Legitimate applications packaged with Advanced Installer using Package Support Framework
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_fax_change_servic
   name                       = "registry_set_fax_change_service_user"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Change User Account Associated with the FAX Service"
-  description                = "Detect change of the user account associated with the FAX service to avoid the escalation problem. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_fax_change_service_user.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_fax_change_service_user.yml"
+  description                = <<DESC
+    Detect change of the user account associated with the FAX service to avoid the escalation problem.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_fax_change_service_user.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

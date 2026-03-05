@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_iis_logs_del
   name                       = "proc_creation_win_iis_logs_deletion"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "IIS WebServer Log Deletion via CommandLine Utilities"
-  description                = "Detects attempts to delete Internet Information Services (IIS) log files via command line utilities, which is a common defense evasion technique used by attackers to cover their tracks. Threat actors often abuse vulnerabilities in web applications hosted on IIS servers to gain initial access and later delete IIS logs to evade detection. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_logs_deletion.yml - Deletion of IIS logs that are older than a certain retention period as part of regular maintenance activities. - Legitimate schedule tasks or scripts that clean up log files regularly. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_logs_deletion.yml"
+  description                = <<DESC
+    Detects attempts to delete Internet Information Services (IIS) log files via command line utilities, which is a common defense evasion technique used by attackers to cover their tracks. Threat actors often abuse vulnerabilities in web applications hosted on IIS servers to gain initial access and later delete IIS logs to evade detection.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_logs_deletion.yml
+
+    False Positives:
+    - Deletion of IIS logs that are older than a certain retention period as part of regular maintenance activities.
+    - Legitimate schedule tasks or scripts that clean up log files regularly.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

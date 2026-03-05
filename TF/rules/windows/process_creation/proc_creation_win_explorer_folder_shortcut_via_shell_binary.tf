@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_explorer_fol
   name                       = "proc_creation_win_explorer_folder_shortcut_via_shell_binary"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Explorer Folder Opened Using Explorer Folder Shortcut Via Shell"
-  description                = "Detects the initial execution of \"cmd.exe\" which spawns \"explorer.exe\" with the appropriate command line arguments for opening the \"My Computer\" folder. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_explorer_folder_shortcut_via_shell_binary.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_explorer_folder_shortcut_via_shell_binary.yml"
+  description                = <<DESC
+    Detects the initial execution of "cmd.exe" which spawns "explorer.exe" with the appropriate command line arguments for opening the "My Computer" folder.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_explorer_folder_shortcut_via_shell_binary.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_covenan
   name                       = "proc_creation_win_hktl_covenant"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Covenant PowerShell Launcher"
-  description                = "Detects suspicious command lines used in Covenant luanchers Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_covenant.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_covenant.yml"
+  description                = <<DESC
+    Detects suspicious command lines used in Covenant luanchers
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_covenant.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

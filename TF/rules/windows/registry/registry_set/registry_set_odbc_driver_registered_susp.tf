@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_odbc_driver_regis
   name                       = "registry_set_odbc_driver_registered_susp"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious ODBC Driver Registered"
-  description                = "Detects the registration of a new ODBC driver where the driver is located in a potentially suspicious location Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_odbc_driver_registered_susp.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_odbc_driver_registered_susp.yml"
+  description                = <<DESC
+    Detects the registration of a new ODBC driver where the driver is located in a potentially suspicious location
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_odbc_driver_registered_susp.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

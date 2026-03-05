@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_office_outlook_
   name                       = "file_event_win_office_outlook_susp_file_creation_in_temp_dir"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Created in Outlook Temporary Directory"
-  description                = "Detects the creation of files with suspicious file extensions in the temporary directory that Outlook uses when opening attachments. This can be used to detect spear-phishing campaigns that use suspicious files as attachments, which may contain malicious code. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_outlook_susp_file_creation_in_temp_dir.yml - Opening of headers or footers in email signatures that include SVG images or legitimate SVG attachments | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_outlook_susp_file_creation_in_temp_dir.yml"
+  description                = <<DESC
+    Detects the creation of files with suspicious file extensions in the temporary directory that Outlook uses when opening attachments. This can be used to detect spear-phishing campaigns that use suspicious files as attachments, which may contain malicious code.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_outlook_susp_file_creation_in_temp_dir.yml
+
+    False Positives:
+    - Opening of headers or footers in email signatures that include SVG images or legitimate SVG attachments
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

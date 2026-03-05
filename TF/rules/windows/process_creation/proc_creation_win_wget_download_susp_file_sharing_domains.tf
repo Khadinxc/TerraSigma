@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wget_downloa
   name                       = "proc_creation_win_wget_download_susp_file_sharing_domains"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Download From File Sharing Domain Via Wget.EXE"
-  description                = "Detects potentially suspicious file downloads from file sharing domains using wget.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wget_download_susp_file_sharing_domains.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wget_download_susp_file_sharing_domains.yml"
+  description                = <<DESC
+    Detects potentially suspicious file downloads from file sharing domains using wget.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wget_download_susp_file_sharing_domains.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

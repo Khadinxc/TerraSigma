@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_persistence_app_p
   name                       = "registry_set_persistence_app_paths"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via App Paths Default Property"
-  description                = "Detects changes to the \"Default\" property for keys located in the \\Software\\Microsoft\\Windows\\CurrentVersion\\App Paths\\ registry. Which might be used as a method of persistence The entries found under App Paths are used primarily for the following purposes. First, to map an application's executable file name to that file's fully qualified path. Second, to prepend information to the PATH environment variable on a per-application, per-process basis. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_app_paths.yml - Legitimate applications registering their binary from on of the suspicious locations mentioned above (tune it) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_app_paths.yml"
+  description                = <<DESC
+    Detects changes to the "Default" property for keys located in the \Software\Microsoft\Windows\CurrentVersion\App Paths\ registry. Which might be used as a method of persistence The entries found under App Paths are used primarily for the following purposes. First, to map an application's executable file name to that file's fully qualified path. Second, to prepend information to the PATH environment variable on a per-application, per-process basis.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_app_paths.yml
+
+    False Positives:
+    - Legitimate applications registering their binary from on of the suspicious locations mentioned above (tune it)
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

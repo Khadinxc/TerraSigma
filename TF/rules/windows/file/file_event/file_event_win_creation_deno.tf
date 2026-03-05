@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_creation_deno" 
   name                       = "file_event_win_creation_deno"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Deno File Written from Remote Source"
-  description                = "Detects Deno writing a file from a direct HTTP(s) call and writing to the appdata folder or bringing it's own malicious DLL. This behavior may indicate an attempt to execute remotely hosted, potentially malicious files through deno. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_creation_deno.yml - Legitimate usage of deno to request a file or bring a DLL to a host | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_creation_deno.yml"
+  description                = <<DESC
+    Detects Deno writing a file from a direct HTTP(s) call and writing to the appdata folder or bringing it's own malicious DLL. This behavior may indicate an attempt to execute remotely hosted, potentially malicious files through deno.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_creation_deno.yml
+
+    False Positives:
+    - Legitimate usage of deno to request a file or bring a DLL to a host
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents

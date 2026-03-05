@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_persistence_refle
   name                       = "registry_set_persistence_reflectdebugger"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential WerFault ReflectDebugger Registry Value Abuse"
-  description                = "Detects potential WerFault \"ReflectDebugger\" registry value abuse for persistence. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_reflectdebugger.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_reflectdebugger.yml"
+  description                = <<DESC
+    Detects potential WerFault "ReflectDebugger" registry value abuse for persistence.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_reflectdebugger.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

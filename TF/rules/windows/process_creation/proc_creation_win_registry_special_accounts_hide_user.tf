@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_registry_spe
   name                       = "proc_creation_win_registry_special_accounts_hide_user"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Hiding User Account Via SpecialAccounts Registry Key - CommandLine"
-  description                = "Detects changes to the registry key \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\SpecialAccounts\\Userlist\" where the value is set to \"0\" in order to hide user account from being listed on the logon screen. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_special_accounts_hide_user.yml - System administrator activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_special_accounts_hide_user.yml"
+  description                = <<DESC
+    Detects changes to the registry key "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\Userlist" where the value is set to "0" in order to hide user account from being listed on the logon screen.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_special_accounts_hide_user.yml
+
+    False Positives:
+    - System administrator activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

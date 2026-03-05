@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_auditpol_sus
   name                       = "proc_creation_win_auditpol_susp_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Audit Policy Tampering Via Auditpol"
-  description                = "Threat actors can use auditpol binary to change audit policy configuration to impair detection capability. This can be carried out by selectively disabling/removing certain audit policies as well as restoring a custom policy owned by the threat actor. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_auditpol_susp_execution.yml - Administrator or administrator scripts might leverage the flags mentioned in the detection section. Either way, it should always be monitored | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_auditpol_susp_execution.yml"
+  description                = <<DESC
+    Threat actors can use auditpol binary to change audit policy configuration to impair detection capability. This can be carried out by selectively disabling/removing certain audit policies as well as restoring a custom policy owned by the threat actor.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_auditpol_susp_execution.yml
+
+    False Positives:
+    - Administrator or administrator scripts might leverage the flags mentioned in the detection section. Either way, it should always be monitored
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

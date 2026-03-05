@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_regedit_trus
   name                       = "proc_creation_win_regedit_trustedinstaller"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Regedit as Trusted Installer"
-  description                = "Detects a regedit started with TrustedInstaller privileges or by ProcessHacker.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regedit_trustedinstaller.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regedit_trustedinstaller.yml"
+  description                = <<DESC
+    Detects a regedit started with TrustedInstaller privileges or by ProcessHacker.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regedit_trustedinstaller.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

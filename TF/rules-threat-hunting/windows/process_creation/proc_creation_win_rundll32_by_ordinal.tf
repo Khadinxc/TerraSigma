@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_by_
   name                       = "proc_creation_win_rundll32_by_ordinal"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DLL Call by Ordinal Via Rundll32.EXE"
-  description                = "Detects calls of DLLs exports by ordinal numbers via rundll32.dll. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_rundll32_by_ordinal.yml - Windows control panel elements have been identified as source (mmc). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_rundll32_by_ordinal.yml"
+  description                = <<DESC
+    Detects calls of DLLs exports by ordinal numbers via rundll32.dll.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_rundll32_by_ordinal.yml
+
+    False Positives:
+    - False positives depend on scripts and administrative tools used in the monitored environment.
+    - Windows control panel elements have been identified as source (mmc).
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

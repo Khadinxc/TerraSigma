@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_pua_webbrows
   name                       = "proc_creation_win_pua_webbrowserpassview"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - WebBrowserPassView Execution"
-  description                = "Detects the execution of WebBrowserPassView.exe. A password recovery tool that reveals the passwords stored by the following Web browsers, Internet Explorer (Version 4.0 - 11.0), Mozilla Firefox (All Versions), Google Chrome, Safari, and Opera Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_webbrowserpassview.yml - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_webbrowserpassview.yml"
+  description                = <<DESC
+    Detects the execution of WebBrowserPassView.exe. A password recovery tool that reveals the passwords stored by the following Web browsers, Internet Explorer (Version 4.0 - 11.0), Mozilla Firefox (All Versions), Google Chrome, Safari, and Opera
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_webbrowserpassview.yml
+
+    False Positives:
+    - Legitimate use
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

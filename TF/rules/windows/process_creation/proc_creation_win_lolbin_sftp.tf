@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_sftp"
   name                       = "proc_creation_win_lolbin_sftp"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Use Of The SFTP.EXE Binary As A LOLBIN"
-  description                = "Detects the usage of the \"sftp.exe\" binary as a LOLBIN by abusing the \"-D\" flag Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_sftp.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_sftp.yml"
+  description                = <<DESC
+    Detects the usage of the "sftp.exe" binary as a LOLBIN by abusing the "-D" flag
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_sftp.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

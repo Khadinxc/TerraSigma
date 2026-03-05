@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_schtasks_reg
   name                       = "proc_creation_win_schtasks_reg_loader"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Scheduled Task Executing Payload from Registry"
-  description                = "Detects the creation of a schtasks that potentially executes a payload stored in the Windows Registry using PowerShell. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_reg_loader.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_reg_loader.yml"
+  description                = <<DESC
+    Detects the creation of a schtasks that potentially executes a payload stored in the Windows Registry using PowerShell.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_reg_loader.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

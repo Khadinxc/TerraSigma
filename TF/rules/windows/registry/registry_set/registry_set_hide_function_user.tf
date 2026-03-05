@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_hide_function_use
   name                       = "registry_set_hide_function_user"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Registry Hide Function from User"
-  description                = "Detects registry modifications that hide internal tools or functions from the user (malware like Agent Tesla, Hermetic Wiper uses this technique) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_hide_function_user.yml - Legitimate admin script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_hide_function_user.yml"
+  description                = <<DESC
+    Detects registry modifications that hide internal tools or functions from the user (malware like Agent Tesla, Hermetic Wiper uses this technique)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_hide_function_user.yml
+
+    False Positives:
+    - Legitimate admin script
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

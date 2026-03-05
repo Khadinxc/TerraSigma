@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_hktl_remote_cre
   name                       = "file_event_win_hktl_remote_cred_dump"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Potential Remote Credential Dumping Activity Via CrackMapExec Or Impacket-Secretsdump"
-  description                = "Detects default filenames output from the execution of CrackMapExec and Impacket-secretsdump against an endpoint. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_remote_cred_dump.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_remote_cred_dump.yml"
+  description                = <<DESC
+    Detects default filenames output from the execution of CrackMapExec and Impacket-secretsdump against an endpoint.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_remote_cred_dump.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

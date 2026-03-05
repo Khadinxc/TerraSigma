@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_reagentc_dis
   name                       = "proc_creation_win_reagentc_disable_windows_recovery_environment"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Recovery Environment Disabled Via Reagentc"
-  description                = "Detects attempts to disable windows recovery environment using Reagentc. ReAgentc.exe is a command-line tool in Windows used to manage the Windows Recovery Environment (WinRE). It allows users to enable, disable, and configure WinRE, which is used for troubleshooting and repairing common boot issues. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reagentc_disable_windows_recovery_environment.yml - Legitimate administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reagentc_disable_windows_recovery_environment.yml"
+  description                = <<DESC
+    Detects attempts to disable windows recovery environment using Reagentc. ReAgentc.exe is a command-line tool in Windows used to manage the Windows Recovery Environment (WinRE). It allows users to enable, disable, and configure WinRE, which is used for troubleshooting and repairing common boot issues.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reagentc_disable_windows_recovery_environment.yml
+
+    False Positives:
+    - Legitimate administrative activity
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

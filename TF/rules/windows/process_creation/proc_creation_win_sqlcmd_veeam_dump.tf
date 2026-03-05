@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sqlcmd_veeam
   name                       = "proc_creation_win_sqlcmd_veeam_dump"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "VeeamBackup Database Credentials Dump Via Sqlcmd.EXE"
-  description                = "Detects dump of credentials in VeeamBackup dbo Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sqlcmd_veeam_dump.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sqlcmd_veeam_dump.yml"
+  description                = <<DESC
+    Detects dump of credentials in VeeamBackup dbo
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sqlcmd_veeam_dump.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

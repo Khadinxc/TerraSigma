@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_conhost_susp
   name                       = "proc_creation_win_conhost_susp_winshell_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Child Processes Spawned by ConHost"
-  description                = "Detects suspicious child processes related to Windows Shell utilities spawned by `conhost.exe`, which could indicate malicious activity using trusted system components. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_conhost_susp_winshell_child_process.yml - Legitimate administrative tasks using `conhost.exe` to spawn child processes such as `cmd.exe`, `powershell.exe`, or `regsvr32.exe`. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_conhost_susp_winshell_child_process.yml"
+  description                = <<DESC
+    Detects suspicious child processes related to Windows Shell utilities spawned by `conhost.exe`, which could indicate malicious activity using trusted system components.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_conhost_susp_winshell_child_process.yml
+
+    False Positives:
+    - Legitimate administrative tasks using `conhost.exe` to spawn child processes such as `cmd.exe`, `powershell.exe`, or `regsvr32.exe`.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

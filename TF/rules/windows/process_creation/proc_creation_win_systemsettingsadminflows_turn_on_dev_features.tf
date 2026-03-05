@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_systemsettin
   name                       = "proc_creation_win_systemsettingsadminflows_turn_on_dev_features"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Signing Bypass Via Windows Developer Features"
-  description                = "Detects when a user enable developer features such as \"Developer Mode\" or \"Application Sideloading\". Which allows the user to install untrusted packages. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_systemsettingsadminflows_turn_on_dev_features.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_systemsettingsadminflows_turn_on_dev_features.yml"
+  description                = <<DESC
+    Detects when a user enable developer features such as "Developer Mode" or "Application Sideloading". Which allows the user to install untrusted packages.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_systemsettingsadminflows_turn_on_dev_features.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

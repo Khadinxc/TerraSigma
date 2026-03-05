@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_b
   name                       = "proc_creation_win_powershell_base64_invoke"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Base64 Encoded Invoke Keyword"
-  description                = "Detects UTF-8 and UTF-16 Base64 encoded powershell 'Invoke-' calls Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_invoke.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_invoke.yml"
+  description                = <<DESC
+    Detects UTF-8 and UTF-16 Base64 encoded powershell 'Invoke-' calls
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_invoke.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

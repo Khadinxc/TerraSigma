@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_browsers_chr
   name                       = "proc_creation_win_browsers_chromium_headless_debugging"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Data Stealing Via Chromium Headless Debugging"
-  description                = "Detects chromium based browsers starting in headless and debugging mode and pointing to a user profile. This could be a sign of data stealing or remote control Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_headless_debugging.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_headless_debugging.yml"
+  description                = <<DESC
+    Detects chromium based browsers starting in headless and debugging mode and pointing to a user profile. This could be a sign of data stealing or remote control
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_headless_debugging.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

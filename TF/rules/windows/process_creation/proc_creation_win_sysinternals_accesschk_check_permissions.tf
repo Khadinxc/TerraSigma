@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sysinternals
   name                       = "proc_creation_win_sysinternals_accesschk_check_permissions"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Permission Check Via Accesschk.EXE"
-  description                = "Detects the usage of the \"Accesschk\" utility, an access and privilege audit tool developed by SysInternal and often being abused by attacker to verify process privileges Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_accesschk_check_permissions.yml - System administrator Usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_accesschk_check_permissions.yml"
+  description                = <<DESC
+    Detects the usage of the "Accesschk" utility, an access and privilege audit tool developed by SysInternal and often being abused by attacker to verify process privileges
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_accesschk_check_permissions.yml
+
+    False Positives:
+    - System administrator Usage
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_office_dotnet_gac_d
   name                       = "image_load_office_dotnet_gac_dll_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "GAC DLL Loaded Via Office Applications"
-  description                = "Detects any GAC DLL being loaded by an Office Product Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_dotnet_gac_dll_load.yml - Legitimate macro usage. Add the appropriate filter according to your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_dotnet_gac_dll_load.yml"
+  description                = <<DESC
+    Detects any GAC DLL being loaded by an Office Product
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_dotnet_gac_dll_load.yml
+
+    False Positives:
+    - Legitimate macro usage. Add the appropriate filter according to your environment
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

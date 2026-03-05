@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_registry_pri
   name                       = "proc_creation_win_registry_privilege_escalation_via_service_key"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Privilege Escalation via Service Permissions Weakness"
-  description                = "Detect modification of services configuration (ImagePath, FailureCommand and ServiceDLL) in registry by processes with Medium integrity level Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_privilege_escalation_via_service_key.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_privilege_escalation_via_service_key.yml"
+  description                = <<DESC
+    Detect modification of services configuration (ImagePath, FailureCommand and ServiceDLL) in registry by processes with Medium integrity level
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_privilege_escalation_via_service_key.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

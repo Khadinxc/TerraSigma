@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_pcre_net_temp_f
   name                       = "file_event_win_pcre_net_temp_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PCRE.NET Package Temp Files"
-  description                = "Detects processes creating temp files related to PCRE.NET package Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_pcre_net_temp_file.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_pcre_net_temp_file.yml"
+  description                = <<DESC
+    Detects processes creating temp files related to PCRE.NET package
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_pcre_net_temp_file.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

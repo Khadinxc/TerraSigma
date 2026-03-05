@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_executi
   name                       = "proc_creation_win_susp_execution_from_public_folder_as_parent"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Execution From Parent Process In Public Folder"
-  description                = "Detects a potentially suspicious execution of a parent process located in the \"\\Users\\Public\" folder executing a child process containing references to shell or scripting binaries and commandlines. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_execution_from_public_folder_as_parent.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_execution_from_public_folder_as_parent.yml"
+  description                = <<DESC
+    Detects a potentially suspicious execution of a parent process located in the "\Users\Public" folder executing a child process containing references to shell or scripting binaries and commandlines.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_execution_from_public_folder_as_parent.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

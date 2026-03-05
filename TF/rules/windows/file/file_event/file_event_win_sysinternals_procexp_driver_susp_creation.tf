@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_sysinternals_pr
   name                       = "file_event_win_sysinternals_procexp_driver_susp_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Process Explorer Driver Creation By Non-Sysinternals Binary"
-  description                = "Detects creation of the Process Explorer drivers by processes other than Process Explorer (procexp) itself. Hack tools or malware may use the Process Explorer driver to elevate privileges, drops it to disk for a few moments, runs a service using that driver and removes it afterwards. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sysinternals_procexp_driver_susp_creation.yml - Some false positives may occur with legitimate renamed process explorer binaries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sysinternals_procexp_driver_susp_creation.yml"
+  description                = <<DESC
+    Detects creation of the Process Explorer drivers by processes other than Process Explorer (procexp) itself. Hack tools or malware may use the Process Explorer driver to elevate privileges, drops it to disk for a few moments, runs a service using that driver and removes it afterwards.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sysinternals_procexp_driver_susp_creation.yml
+
+    False Positives:
+    - Some false positives may occur with legitimate renamed process explorer binaries
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_appx_ex
   name                       = "proc_creation_win_susp_appx_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Windows App Activity"
-  description                = "Detects potentially suspicious child process of applications launched from inside the WindowsApps directory. This could be a sign of a rogue \".appx\" package installation/execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_appx_execution.yml - Legitimate packages that make use of external binaries such as Windows Terminal | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_appx_execution.yml"
+  description                = <<DESC
+    Detects potentially suspicious child process of applications launched from inside the WindowsApps directory. This could be a sign of a rogue ".appx" package installation/execution
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_appx_execution.yml
+
+    False Positives:
+    - Legitimate packages that make use of external binaries such as Windows Terminal
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

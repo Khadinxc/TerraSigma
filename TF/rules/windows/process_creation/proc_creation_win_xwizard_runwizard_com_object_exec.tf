@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_xwizard_runw
   name                       = "proc_creation_win_xwizard_runwizard_com_object_exec"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "COM Object Execution via Xwizard.EXE"
-  description                = "Detects the execution of Xwizard tool with the \"RunWizard\" flag and a GUID like argument. This utility can be abused in order to run custom COM object created in the registry. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_xwizard_runwizard_com_object_exec.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_xwizard_runwizard_com_object_exec.yml"
+  description                = <<DESC
+    Detects the execution of Xwizard tool with the "RunWizard" flag and a GUID like argument. This utility can be abused in order to run custom COM object created in the registry.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_xwizard_runwizard_com_object_exec.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

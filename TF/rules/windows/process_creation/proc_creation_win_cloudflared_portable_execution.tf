@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_cloudflared_
   name                       = "proc_creation_win_cloudflared_portable_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Cloudflared Portable Execution"
-  description                = "Detects the execution of the \"cloudflared\" binary from a non standard location. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cloudflared_portable_execution.yml - Legitimate usage of Cloudflared portable versions | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cloudflared_portable_execution.yml"
+  description                = <<DESC
+    Detects the execution of the "cloudflared" binary from a non standard location.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cloudflared_portable_execution.yml
+
+    False Positives:
+    - Legitimate usage of Cloudflared portable versions
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

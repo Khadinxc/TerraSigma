@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_office_exec_
   name                       = "proc_creation_win_office_exec_from_trusted_locations"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Office Document Executed From Trusted Location"
-  description                = "Detects the execution of an Office application that points to a document that is located in a trusted location. Attackers often used this to avoid macro security and execute their malicious code. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_exec_from_trusted_locations.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_exec_from_trusted_locations.yml"
+  description                = <<DESC
+    Detects the execution of an Office application that points to a document that is located in a trusted location. Attackers often used this to avoid macro security and execute their malicious code.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_exec_from_trusted_locations.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

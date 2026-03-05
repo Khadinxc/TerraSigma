@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_access_win_susp_dpapi_mas
   name                       = "file_access_win_susp_dpapi_master_key_access"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Access To Windows DPAPI Master Keys By Uncommon Applications"
-  description                = "Detects file access requests to the the Windows Data Protection API Master keys by an uncommon application. This can be a sign of credential stealing. Example case would be usage of mimikatz \"dpapi::masterkey\" function Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_susp_dpapi_master_key_access.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_susp_dpapi_master_key_access.yml"
+  description                = <<DESC
+    Detects file access requests to the the Windows Data Protection API Master keys by an uncommon application. This can be a sign of credential stealing. Example case would be usage of mimikatz "dpapi::masterkey" function
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_susp_dpapi_master_key_access.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

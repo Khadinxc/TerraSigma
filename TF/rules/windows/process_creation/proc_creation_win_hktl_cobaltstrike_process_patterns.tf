@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_cobalts
   name                       = "proc_creation_win_hktl_cobaltstrike_process_patterns"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential CobaltStrike Process Patterns"
-  description                = "Detects potential process patterns related to Cobalt Strike beacon activity Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_cobaltstrike_process_patterns.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_cobaltstrike_process_patterns.yml"
+  description                = <<DESC
+    Detects potential process patterns related to Cobalt Strike beacon activity
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_cobaltstrike_process_patterns.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

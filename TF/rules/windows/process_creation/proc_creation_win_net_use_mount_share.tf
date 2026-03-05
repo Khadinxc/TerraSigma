@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_net_use_moun
   name                       = "proc_creation_win_net_use_mount_share"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Share Mount Via Net.EXE"
-  description                = "Detects when a share is mounted using the \"net.exe\" utility Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_use_mount_share.yml - Legitimate activity by administrators and scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_use_mount_share.yml"
+  description                = <<DESC
+    Detects when a share is mounted using the "net.exe" utility
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_use_mount_share.yml
+
+    False Positives:
+    - Legitimate activity by administrators and scripts
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

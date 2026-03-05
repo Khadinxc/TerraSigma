@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_s
   name                       = "proc_creation_win_powershell_susp_download_patterns"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious PowerShell Download and Execute Pattern"
-  description                = "Detects suspicious PowerShell download patterns that are often used in malicious scripts, stagers or downloaders (make sure that your backend applies the strings case-insensitive) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_susp_download_patterns.yml - Software installers that pull packages from remote systems and execute them | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_susp_download_patterns.yml"
+  description                = <<DESC
+    Detects suspicious PowerShell download patterns that are often used in malicious scripts, stagers or downloaders (make sure that your backend applies the strings case-insensitive)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_susp_download_patterns.yml
+
+    False Positives:
+    - Software installers that pull packages from remote systems and execute them
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

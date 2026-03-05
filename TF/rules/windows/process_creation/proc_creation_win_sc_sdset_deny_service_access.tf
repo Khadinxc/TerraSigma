@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sc_sdset_den
   name                       = "proc_creation_win_sc_sdset_deny_service_access"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Deny Service Access Using Security Descriptor Tampering Via Sc.EXE"
-  description                = "Detects suspicious DACL modifications to deny access to a service that affects critical trustees. This can be used to hide services or make them unstoppable. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_sdset_deny_service_access.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_sdset_deny_service_access.yml"
+  description                = <<DESC
+    Detects suspicious DACL modifications to deny access to a service that affects critical trustees. This can be used to hide services or make them unstoppable.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_sdset_deny_service_access.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

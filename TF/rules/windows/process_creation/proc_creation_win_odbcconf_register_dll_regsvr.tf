@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_odbcconf_reg
   name                       = "proc_creation_win_odbcconf_register_dll_regsvr"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New DLL Registered Via Odbcconf.EXE"
-  description                = "Detects execution of \"odbcconf\" with \"REGSVR\" in order to register a new DLL (equivalent to running regsvr32). Attackers abuse this to install and run malicious DLLs. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_odbcconf_register_dll_regsvr.yml - Legitimate DLLs being registered via \"odbcconf\" will generate false positives. Investigate the path of the DLL and its content to determine if the action is authorized. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_odbcconf_register_dll_regsvr.yml"
+  description                = <<DESC
+    Detects execution of "odbcconf" with "REGSVR" in order to register a new DLL (equivalent to running regsvr32). Attackers abuse this to install and run malicious DLLs.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_odbcconf_register_dll_regsvr.yml
+
+    False Positives:
+    - Legitimate DLLs being registered via "odbcconf" will generate false positives. Investigate the path of the DLL and its content to determine if the action is authorized.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

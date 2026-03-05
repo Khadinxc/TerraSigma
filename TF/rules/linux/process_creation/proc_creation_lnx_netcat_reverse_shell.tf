@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_netcat_rever
   name                       = "proc_creation_lnx_netcat_reverse_shell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Netcat Reverse Shell Execution"
-  description                = "Detects execution of netcat with the \"-e\" flag followed by common shells. This could be a sign of a potential reverse shell setup. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_netcat_reverse_shell.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_netcat_reverse_shell.yml"
+  description                = <<DESC
+    Detects execution of netcat with the "-e" flag followed by common shells. This could be a sign of a potential reverse shell setup.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_netcat_reverse_shell.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

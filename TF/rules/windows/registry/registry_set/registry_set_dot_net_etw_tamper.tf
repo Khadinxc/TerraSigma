@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_dot_net_etw_tampe
   name                       = "registry_set_dot_net_etw_tamper"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ETW Logging Disabled In .NET Processes - Sysmon Registry"
-  description                = "Potential adversaries stopping ETW providers recording loaded .NET assemblies. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_dot_net_etw_tamper.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_dot_net_etw_tamper.yml"
+  description                = <<DESC
+    Potential adversaries stopping ETW providers recording loaded .NET assemblies.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_dot_net_etw_tamper.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

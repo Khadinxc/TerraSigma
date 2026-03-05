@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_bitsadmin_do
   name                       = "proc_creation_win_bitsadmin_download_file_sharing_domains"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Download From File-Sharing Website Via Bitsadmin"
-  description                = "Detects usage of bitsadmin downloading a file from a suspicious domain Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download_file_sharing_domains.yml - Some legitimate apps use this, but limited. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download_file_sharing_domains.yml"
+  description                = <<DESC
+    Detects usage of bitsadmin downloading a file from a suspicious domain
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download_file_sharing_domains.yml
+
+    False Positives:
+    - Some legitimate apps use this, but limited.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

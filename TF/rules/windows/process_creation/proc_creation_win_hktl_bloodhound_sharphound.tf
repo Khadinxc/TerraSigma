@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_bloodho
   name                       = "proc_creation_win_hktl_bloodhound_sharphound"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Bloodhound/Sharphound Execution"
-  description                = "Detects command line parameters used by Bloodhound and Sharphound hack tools Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_bloodhound_sharphound.yml - Other programs that use these command line option and accepts an 'All' parameter | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_bloodhound_sharphound.yml"
+  description                = <<DESC
+    Detects command line parameters used by Bloodhound and Sharphound hack tools
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_bloodhound_sharphound.yml
+
+    False Positives:
+    - Other programs that use these command line option and accepts an 'All' parameter
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

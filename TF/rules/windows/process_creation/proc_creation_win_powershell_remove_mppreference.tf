@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_r
   name                       = "proc_creation_win_powershell_remove_mppreference"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Tamper Windows Defender Remove-MpPreference"
-  description                = "Detects attempts to remove Windows Defender configurations using the 'MpPreference' cmdlet Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_remove_mppreference.yml - Legitimate PowerShell scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_remove_mppreference.yml"
+  description                = <<DESC
+    Detects attempts to remove Windows Defender configurations using the 'MpPreference' cmdlet
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_remove_mppreference.yml
+
+    False Positives:
+    - Legitimate PowerShell scripts
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

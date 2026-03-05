@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_x
   name                       = "proc_creation_win_powershell_x509enrollment"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious X509Enrollment - Process Creation"
-  description                = "Detect use of X509Enrollment Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_x509enrollment.yml - Legitimate administrative script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_x509enrollment.yml"
+  description                = <<DESC
+    Detect use of X509Enrollment
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_x509enrollment.yml
+
+    False Positives:
+    - Legitimate administrative script
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

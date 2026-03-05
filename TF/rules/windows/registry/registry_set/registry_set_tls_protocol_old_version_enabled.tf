@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_tls_protocol_old_
   name                       = "registry_set_tls_protocol_old_version_enabled"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Old TLS1.0/TLS1.1 Protocol Version Enabled"
-  description                = "Detects applications or users re-enabling old TLS versions by setting the \"Enabled\" value to \"1\" for the \"Protocols\" registry key. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_tls_protocol_old_version_enabled.yml - Legitimate enabling of the old tls versions due to incompatibility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_tls_protocol_old_version_enabled.yml"
+  description                = <<DESC
+    Detects applications or users re-enabling old TLS versions by setting the "Enabled" value to "1" for the "Protocols" registry key.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_tls_protocol_old_version_enabled.yml
+
+    False Positives:
+    - Legitimate enabling of the old tls versions due to incompatibility
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

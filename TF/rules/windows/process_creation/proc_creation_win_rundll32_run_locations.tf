@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_run
   name                       = "proc_creation_win_rundll32_run_locations"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Process Start Locations"
-  description                = "Detects suspicious process run from unusual locations Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_run_locations.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_run_locations.yml"
+  description                = <<DESC
+    Detects suspicious process run from unusual locations
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_run_locations.yml
+
+    False Positives:
+    - False positives depend on scripts and administrative tools used in the monitored environment
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

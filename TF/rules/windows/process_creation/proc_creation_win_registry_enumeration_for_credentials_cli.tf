@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_registry_enu
   name                       = "proc_creation_win_registry_enumeration_for_credentials_cli"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Enumeration for 3rd Party Creds From CLI"
-  description                = "Detects processes that query known 3rd party registry keys that holds credentials via commandline Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_enumeration_for_credentials_cli.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_enumeration_for_credentials_cli.yml"
+  description                = <<DESC
+    Detects processes that query known 3rd party registry keys that holds credentials via commandline
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_enumeration_for_credentials_cli.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

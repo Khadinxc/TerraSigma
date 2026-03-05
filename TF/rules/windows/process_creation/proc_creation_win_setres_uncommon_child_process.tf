@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_setres_uncom
   name                       = "proc_creation_win_setres_uncommon_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon Child Process Of Setres.EXE"
-  description                = "Detects uncommon child process of Setres.EXE. Setres.EXE is a Windows server only process and tool that can be used to set the screen resolution. It can potentially be abused in order to launch any arbitrary file with a name containing the word \"choice\" from the current execution path. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_setres_uncommon_child_process.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_setres_uncommon_child_process.yml"
+  description                = <<DESC
+    Detects uncommon child process of Setres.EXE. Setres.EXE is a Windows server only process and tool that can be used to set the screen resolution. It can potentially be abused in order to launch any arbitrary file with a name containing the word "choice" from the current execution path.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_setres_uncommon_child_process.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_sus
   name                       = "proc_creation_win_rundll32_susp_execution_with_image_extension"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Rundll32 Execution With Image Extension"
-  description                = "Detects the execution of Rundll32.exe with DLL files masquerading as image files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_execution_with_image_extension.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_execution_with_image_extension.yml"
+  description                = <<DESC
+    Detects the execution of Rundll32.exe with DLL files masquerading as image files
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_execution_with_image_extension.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

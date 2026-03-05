@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_certoc_downl
   name                       = "proc_creation_win_certoc_download_direct_ip"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Download From IP Based URL Via CertOC.EXE"
-  description                = "Detects when a user downloads a file from an IP based URL using CertOC.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certoc_download_direct_ip.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certoc_download_direct_ip.yml"
+  description                = <<DESC
+    Detects when a user downloads a file from an IP based URL using CertOC.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certoc_download_direct_ip.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

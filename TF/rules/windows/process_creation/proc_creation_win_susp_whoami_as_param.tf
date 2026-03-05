@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_whoami_
   name                       = "proc_creation_win_susp_whoami_as_param"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WhoAmI as Parameter"
-  description                = "Detects a suspicious process command line that uses whoami as first parameter (as e.g. used by EfsPotato) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_whoami_as_param.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_whoami_as_param.yml"
+  description                = <<DESC
+    Detects a suspicious process command line that uses whoami as first parameter (as e.g. used by EfsPotato)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_whoami_as_param.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

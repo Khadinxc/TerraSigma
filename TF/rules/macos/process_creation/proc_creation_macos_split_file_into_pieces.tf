@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_split_file
   name                       = "proc_creation_macos_split_file_into_pieces"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Split A File Into Pieces"
-  description                = "Detection use of the command \"split\" to split files into parts and possible transfer. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_split_file_into_pieces.yml - Legitimate administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_split_file_into_pieces.yml"
+  description                = <<DESC
+    Detection use of the command "split" to split files into parts and possible transfer.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_split_file_into_pieces.yml
+
+    False Positives:
+    - Legitimate administrative activity
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

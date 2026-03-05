@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_disable_macrorunt
   name                       = "registry_set_disable_macroruntimescanscope"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disable Macro Runtime Scan Scope"
-  description                = "Detects tampering with the MacroRuntimeScanScope registry key to disable runtime scanning of enabled macros Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_macroruntimescanscope.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_macroruntimescanscope.yml"
+  description                = <<DESC
+    Detects tampering with the MacroRuntimeScanScope registry key to disable runtime scanning of enabled macros
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_macroruntimescanscope.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_capa_discove
   name                       = "proc_creation_lnx_capa_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Capabilities Discovery - Linux"
-  description                = "Detects usage of \"getcap\" binary. This is often used during recon activity to determine potential binaries that can be abused as GTFOBins or other. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_capa_discovery.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_capa_discovery.yml"
+  description                = <<DESC
+    Detects usage of "getcap" binary. This is often used during recon activity to determine potential binaries that can be abused as GTFOBins or other.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_capa_discovery.yml
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "win_security_susp_wmi_login" {
   name                       = "win_security_susp_wmi_login"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Successful Account Login Via WMI"
-  description                = "Detects successful logon attempts performed with WMI Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/account_management/win_security_susp_wmi_login.yml - Monitoring tools - Legitimate system administration | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/account_management/win_security_susp_wmi_login.yml"
+  description                = <<DESC
+    Detects successful logon attempts performed with WMI
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/account_management/win_security_susp_wmi_login.yml
+
+    False Positives:
+    - Monitoring tools
+    - Legitimate system administration
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceLogonEvents

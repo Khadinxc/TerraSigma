@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_nltest_execu
   name                       = "proc_creation_win_nltest_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Nltest.EXE Execution"
-  description                = "Detects nltest commands that can be used for information discovery Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_nltest_execution.yml - Legitimate administration activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_nltest_execution.yml"
+  description                = <<DESC
+    Detects nltest commands that can be used for information discovery
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_nltest_execution.yml
+
+    False Positives:
+    - Legitimate administration activity
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

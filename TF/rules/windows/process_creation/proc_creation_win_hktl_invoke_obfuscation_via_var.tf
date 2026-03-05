@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_invoke_
   name                       = "proc_creation_win_hktl_invoke_obfuscation_via_var"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION"
-  description                = "Detects Obfuscated Powershell via VAR++ LAUNCHER Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_via_var.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_via_var.yml"
+  description                = <<DESC
+    Detects Obfuscated Powershell via VAR++ LAUNCHER
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_via_var.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

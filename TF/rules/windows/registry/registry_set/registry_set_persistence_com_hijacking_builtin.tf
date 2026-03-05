@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_persistence_com_h
   name                       = "registry_set_persistence_com_hijacking_builtin"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "COM Object Hijacking Via Modification Of Default System CLSID Default Value"
-  description                = "Detects potential COM object hijacking via modification of default system CLSID. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_com_hijacking_builtin.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_com_hijacking_builtin.yml"
+  description                = <<DESC
+    Detects potential COM object hijacking via modification of default system CLSID.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_com_hijacking_builtin.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_odbcconf_res
   name                       = "proc_creation_win_odbcconf_response_file_susp"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Response File Execution Via Odbcconf.EXE"
-  description                = "Detects execution of \"odbcconf\" with the \"-f\" flag in order to load a response file with a non-\".rsp\" extension. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_odbcconf_response_file_susp.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_odbcconf_response_file_susp.yml"
+  description                = <<DESC
+    Detects execution of "odbcconf" with the "-f" flag in order to load a response file with a non-".rsp" extension.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_odbcconf_response_file_susp.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

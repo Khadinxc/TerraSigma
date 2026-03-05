@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_dumpert
   name                       = "proc_creation_win_hktl_dumpert"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Dumpert Process Dumper Execution"
-  description                = "Detects the use of Dumpert process dumper, which dumps the lsass.exe process memory Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_dumpert.yml - Very unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_dumpert.yml"
+  description                = <<DESC
+    Detects the use of Dumpert process dumper, which dumps the lsass.exe process memory
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_dumpert.yml
+
+    False Positives:
+    - Very unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

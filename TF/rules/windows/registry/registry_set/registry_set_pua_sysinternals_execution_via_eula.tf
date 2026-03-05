@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_pua_sysinternals_
   name                       = "registry_set_pua_sysinternals_execution_via_eula"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Sysinternal Tool Execution - Registry"
-  description                = "Detects the execution of a Sysinternals Tool via the creation of the \"accepteula\" registry key Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_pua_sysinternals_execution_via_eula.yml - Legitimate use of SysInternals tools - Programs that use the same Registry Key | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_pua_sysinternals_execution_via_eula.yml"
+  description                = <<DESC
+    Detects the execution of a Sysinternals Tool via the creation of the "accepteula" registry key
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_pua_sysinternals_execution_via_eula.yml
+
+    False Positives:
+    - Legitimate use of SysInternals tools
+    - Programs that use the same Registry Key
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceRegistryEvents

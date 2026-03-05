@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_cmd_dosfusca
   name                       = "proc_creation_win_cmd_dosfuscation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Dosfuscation Activity"
-  description                = "Detects possible payload obfuscation via the commandline Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_dosfuscation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_dosfuscation.yml"
+  description                = <<DESC
+    Detects possible payload obfuscation via the commandline
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_dosfuscation.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

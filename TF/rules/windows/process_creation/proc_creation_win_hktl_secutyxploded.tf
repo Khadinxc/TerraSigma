@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_secutyx
   name                       = "proc_creation_win_hktl_secutyxploded"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - SecurityXploded Execution"
-  description                = "Detects the execution of SecurityXploded Tools Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_secutyxploded.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_secutyxploded.yml"
+  description                = <<DESC
+    Detects the execution of SecurityXploded Tools
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_secutyxploded.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

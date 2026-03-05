@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_protocolhand
   name                       = "proc_creation_win_protocolhandler_download"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Download Using ProtocolHandler.exe"
-  description                = "Detects usage of \"ProtocolHandler\" to download files. Downloaded files will be located in the cache folder (for example - %LOCALAPPDATA%\\Microsoft\\Windows\\INetCache\\IE) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_protocolhandler_download.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_protocolhandler_download.yml"
+  description                = <<DESC
+    Detects usage of "ProtocolHandler" to download files. Downloaded files will be located in the cache folder (for example - %LOCALAPPDATA%\Microsoft\Windows\INetCache\IE)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_protocolhandler_download.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

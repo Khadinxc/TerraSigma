@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_lace_tem
   name                       = "proc_creation_win_apt_lace_tempest_cobalt_strike_download"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Lace Tempest Cobalt Strike Download"
-  description                = "Detects specific command line execution used by Lace Tempest to download Cobalt Strike as reported by SysAid Team Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lace-Tempest/proc_creation_win_apt_lace_tempest_cobalt_strike_download.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lace-Tempest/proc_creation_win_apt_lace_tempest_cobalt_strike_download.yml"
+  description                = <<DESC
+    Detects specific command line execution used by Lace Tempest to download Cobalt Strike as reported by SysAid Team
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lace-Tempest/proc_creation_win_apt_lace_tempest_cobalt_strike_download.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

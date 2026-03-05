@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_exfil_a
   name                       = "proc_creation_win_susp_exfil_and_tunneling_tool_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Tunneling Tool Execution"
-  description                = "Detects the execution of well known tools that can be abused for data exfiltration and tunneling. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_exfil_and_tunneling_tool_execution.yml - Legitimate administrators using one of these tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_exfil_and_tunneling_tool_execution.yml"
+  description                = <<DESC
+    Detects the execution of well known tools that can be abused for data exfiltration and tunneling.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_exfil_and_tunneling_tool_execution.yml
+
+    False Positives:
+    - Legitimate administrators using one of these tools
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

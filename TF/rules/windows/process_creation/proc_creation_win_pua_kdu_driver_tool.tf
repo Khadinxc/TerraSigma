@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_pua_kdu_driv
   name                       = "proc_creation_win_pua_kdu_driver_tool"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Kernel Driver Utility (KDU) Execution"
-  description                = "Detects execution of the Kernel Driver Utility (KDU) tool. KDU can be used to bypass driver signature enforcement and load unsigned or malicious drivers into the Windows kernel. Potentially allowing for privilege escalation, persistence, or evasion of security controls. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_kdu_driver_tool.yml - Legitimate driver development, testing, or administrative troubleshooting (e.g., enabling/disabling hardware) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_kdu_driver_tool.yml"
+  description                = <<DESC
+    Detects execution of the Kernel Driver Utility (KDU) tool. KDU can be used to bypass driver signature enforcement and load unsigned or malicious drivers into the Windows kernel. Potentially allowing for privilege escalation, persistence, or evasion of security controls.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_kdu_driver_tool.yml
+
+    False Positives:
+    - Legitimate driver development, testing, or administrative troubleshooting (e.g., enabling/disabling hardware)
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

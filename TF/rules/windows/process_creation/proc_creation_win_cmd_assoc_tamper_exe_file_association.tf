@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_cmd_assoc_ta
   name                       = "proc_creation_win_cmd_assoc_tamper_exe_file_association"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Change Default File Association To Executable Via Assoc"
-  description                = "Detects when a program changes the default file association of any extension to an executable. When a file is opened, the default program used to open the file (also called the file association or handler) is checked. File association selections are stored in the Windows Registry and can be edited by users, administrators, or programs that have Registry access or by administrators using the built-in assoc utility. Applications can modify the file association for a given file extension to call an arbitrary program when a file with the given extension is opened. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_assoc_tamper_exe_file_association.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_assoc_tamper_exe_file_association.yml"
+  description                = <<DESC
+    Detects when a program changes the default file association of any extension to an executable. When a file is opened, the default program used to open the file (also called the file association or handler) is checked. File association selections are stored in the Windows Registry and can be edited by users, administrators, or programs that have Registry access or by administrators using the built-in assoc utility. Applications can modify the file association for a given file extension to call an arbitrary program when a file with the given extension is opened.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_assoc_tamper_exe_file_association.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

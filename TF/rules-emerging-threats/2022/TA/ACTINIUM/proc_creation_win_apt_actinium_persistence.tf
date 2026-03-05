@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_actinium
   name                       = "proc_creation_win_apt_actinium_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential ACTINIUM Persistence Activity"
-  description                = "Detects specific process parameters as used by ACTINIUM scheduled task persistence creation. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2022/TA/ACTINIUM/proc_creation_win_apt_actinium_persistence.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2022/TA/ACTINIUM/proc_creation_win_apt_actinium_persistence.yml"
+  description                = <<DESC
+    Detects specific process parameters as used by ACTINIUM scheduled task persistence creation.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2022/TA/ACTINIUM/proc_creation_win_apt_actinium_persistence.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

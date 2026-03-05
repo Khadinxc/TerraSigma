@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_hktl_inveigh_ar
   name                       = "file_event_win_hktl_inveigh_artefacts"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Inveigh Execution Artefacts"
-  description                = "Detects the presence and execution of Inveigh via dropped artefacts Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_inveigh_artefacts.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_inveigh_artefacts.yml"
+  description                = <<DESC
+    Detects the presence and execution of Inveigh via dropped artefacts
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_inveigh_artefacts.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

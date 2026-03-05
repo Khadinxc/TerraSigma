@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_lazarus_
   name                       = "proc_creation_win_apt_lazarus_group_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Lazarus Group Activity"
-  description                = "Detects different process execution behaviors as described in various threat reports on Lazarus group activity Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Lazarus/proc_creation_win_apt_lazarus_group_activity.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Lazarus/proc_creation_win_apt_lazarus_group_activity.yml"
+  description                = <<DESC
+    Detects different process execution behaviors as described in various threat reports on Lazarus group activity
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Lazarus/proc_creation_win_apt_lazarus_group_activity.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

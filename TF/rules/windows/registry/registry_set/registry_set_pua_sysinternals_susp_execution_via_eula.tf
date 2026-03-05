@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_pua_sysinternals_
   name                       = "registry_set_pua_sysinternals_susp_execution_via_eula"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Sysinternals Tools Execution - Registry"
-  description                = "Detects the execution of some potentially unwanted tools such as PsExec, Procdump, etc. (part of the Sysinternals suite) via the creation of the \"accepteula\" registry key. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_pua_sysinternals_susp_execution_via_eula.yml - Legitimate use of SysInternals tools. Filter the legitimate paths used in your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_pua_sysinternals_susp_execution_via_eula.yml"
+  description                = <<DESC
+    Detects the execution of some potentially unwanted tools such as PsExec, Procdump, etc. (part of the Sysinternals suite) via the creation of the "accepteula" registry key.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_pua_sysinternals_susp_execution_via_eula.yml
+
+    False Positives:
+    - Legitimate use of SysInternals tools. Filter the legitimate paths used in your environment
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

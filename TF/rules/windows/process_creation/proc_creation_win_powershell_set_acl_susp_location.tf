@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_s
   name                       = "proc_creation_win_powershell_set_acl_susp_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Set-Acl On Windows Folder"
-  description                = "Detects PowerShell scripts to set the ACL to a file in the Windows folder Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_set_acl_susp_location.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_set_acl_susp_location.yml"
+  description                = <<DESC
+    Detects PowerShell scripts to set the ACL to a file in the Windows folder
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_set_acl_susp_location.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

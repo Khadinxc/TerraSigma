@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_susp_run_key_img_
   name                       = "registry_set_susp_run_key_img_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New RUN Key Pointing to Suspicious Folder"
-  description                = "Detects suspicious new RUN key element pointing to an executable in a suspicious folder Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_run_key_img_folder.yml - Software using weird folders for updates | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_run_key_img_folder.yml"
+  description                = <<DESC
+    Detects suspicious new RUN key element pointing to an executable in a suspicious folder
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_run_key_img_folder.yml
+
+    False Positives:
+    - Software using weird folders for updates
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

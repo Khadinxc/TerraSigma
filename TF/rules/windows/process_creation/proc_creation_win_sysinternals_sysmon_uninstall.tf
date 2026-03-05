@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sysinternals
   name                       = "proc_creation_win_sysinternals_sysmon_uninstall"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uninstall Sysinternals Sysmon"
-  description                = "Detects the removal of Sysmon, which could be a potential attempt at defense evasion Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_sysmon_uninstall.yml - Legitimate administrators might use this command to remove Sysmon for debugging purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_sysmon_uninstall.yml"
+  description                = <<DESC
+    Detects the removal of Sysmon, which could be a potential attempt at defense evasion
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_sysmon_uninstall.yml
+
+    False Positives:
+    - Legitimate administrators might use this command to remove Sysmon for debugging purposes
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_cloudflared_
   name                       = "proc_creation_win_cloudflared_tunnel_run"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Cloudflared Tunnel Execution"
-  description                = "Detects execution of the \"cloudflared\" tool to connect back to a tunnel. This was seen used by threat actors to maintain persistence and remote access to compromised networks. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cloudflared_tunnel_run.yml - Legitimate usage of Cloudflared tunnel. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cloudflared_tunnel_run.yml"
+  description                = <<DESC
+    Detects execution of the "cloudflared" tool to connect back to a tunnel. This was seen used by threat actors to maintain persistence and remote access to compromised networks.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cloudflared_tunnel_run.yml
+
+    False Positives:
+    - Legitimate usage of Cloudflared tunnel.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

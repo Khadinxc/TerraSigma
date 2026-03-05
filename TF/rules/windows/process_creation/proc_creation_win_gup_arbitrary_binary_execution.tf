@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_gup_arbitrar
   name                       = "proc_creation_win_gup_arbitrary_binary_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Arbitrary Binary Execution Using GUP Utility"
-  description                = "Detects execution of the Notepad++ updater (gup) to launch other commands or executables Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gup_arbitrary_binary_execution.yml - Other parent binaries using GUP not currently identified | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gup_arbitrary_binary_execution.yml"
+  description                = <<DESC
+    Detects execution of the Notepad++ updater (gup) to launch other commands or executables
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gup_arbitrary_binary_execution.yml
+
+    False Positives:
+    - Other parent binaries using GUP not currently identified
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

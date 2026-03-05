@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_b
   name                       = "proc_creation_win_powershell_base64_reflection_assembly_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Base64 Encoded Reflective Assembly Load"
-  description                = "Detects base64 encoded .NET reflective loading of Assembly Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_reflection_assembly_load.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_reflection_assembly_load.yml"
+  description                = <<DESC
+    Detects base64 encoded .NET reflective loading of Assembly
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_reflection_assembly_load.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

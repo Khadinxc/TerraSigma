@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_provlaunch_p
   name                       = "proc_creation_win_provlaunch_potential_abuse"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Provlaunch.EXE Binary Proxy Execution Abuse"
-  description                = "Detects child processes of \"provlaunch.exe\" which might indicate potential abuse to proxy execution. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_provlaunch_potential_abuse.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_provlaunch_potential_abuse.yml"
+  description                = <<DESC
+    Detects child processes of "provlaunch.exe" which might indicate potential abuse to proxy execution.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_provlaunch_potential_abuse.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

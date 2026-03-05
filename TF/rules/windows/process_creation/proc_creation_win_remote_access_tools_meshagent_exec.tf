@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_remote_acces
   name                       = "proc_creation_win_remote_access_tools_meshagent_exec"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Access Tool - MeshAgent Command Execution via MeshCentral"
-  description                = "Detects the use of MeshAgent to execute commands on the target host, particularly when threat actors might abuse it to execute commands directly. MeshAgent can execute commands on the target host by leveraging win-console to obscure their activities and win-dispatcher to run malicious code through IPC with child processes. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_meshagent_exec.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_meshagent_exec.yml"
+  description                = <<DESC
+    Detects the use of MeshAgent to execute commands on the target host, particularly when threat actors might abuse it to execute commands directly. MeshAgent can execute commands on the target host by leveraging win-console to obscure their activities and win-dispatcher to run malicious code through IPC with child processes.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_meshagent_exec.yml
+
+    False Positives:
+    - False positives can be found in environments using MeshAgent for remote management, analysis should prioritize the grandparent process, MeshAgent.exe, and scrutinize the resulting child processes triggered by any suspicious interactive commands directed at the target host.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

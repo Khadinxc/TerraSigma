@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_side_load_rjvplatfo
   name                       = "image_load_side_load_rjvplatform_non_default_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential RjvPlatform.DLL Sideloading From Non-Default Location"
-  description                = "Detects potential DLL sideloading of \"RjvPlatform.dll\" by \"SystemResetPlatform.exe\" located in a non-default location. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_rjvplatform_non_default_location.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_rjvplatform_non_default_location.yml"
+  description                = <<DESC
+    Detects potential DLL sideloading of "RjvPlatform.dll" by "SystemResetPlatform.exe" located in a non-default location.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_rjvplatform_non_default_location.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

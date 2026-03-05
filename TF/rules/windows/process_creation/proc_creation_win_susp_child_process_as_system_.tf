@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_child_p
   name                       = "proc_creation_win_susp_child_process_as_system"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Child Process Created as System"
-  description                = "Detection of child processes spawned with SYSTEM privileges by parents with LOCAL SERVICE or NETWORK SERVICE accounts Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_child_process_as_system_.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_child_process_as_system_.yml"
+  description                = <<DESC
+    Detection of child processes spawned with SYSTEM privileges by parents with LOCAL SERVICE or NETWORK SERVICE accounts
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_child_process_as_system_.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

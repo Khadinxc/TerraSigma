@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_persistence_shim_
   name                       = "registry_set_persistence_shim_database_susp_application"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Shim Database Patching Activity"
-  description                = "Detects installation of new shim databases that try to patch sections of known processes for potential process injection or persistence. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_shim_database_susp_application.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_shim_database_susp_application.yml"
+  description                = <<DESC
+    Detects installation of new shim databases that try to patch sections of known processes for potential process injection or persistence.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_shim_database_susp_application.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

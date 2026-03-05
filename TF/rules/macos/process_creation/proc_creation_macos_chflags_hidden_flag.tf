@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_chflags_hi
   name                       = "proc_creation_macos_chflags_hidden_flag"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Hidden Flag Set On File/Directory Via Chflags - MacOS"
-  description                = "Detects the execution of the \"chflags\" utility with the \"hidden\" flag, in order to hide files on MacOS. When a file or directory has this hidden flag set, it becomes invisible to the default file listing commands and in graphical file browsers. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_chflags_hidden_flag.yml - Legitimate usage of chflags by administrators and users. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_chflags_hidden_flag.yml"
+  description                = <<DESC
+    Detects the execution of the "chflags" utility with the "hidden" flag, in order to hide files on MacOS. When a file or directory has this hidden flag set, it becomes invisible to the default file listing commands and in graphical file browsers.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_chflags_hidden_flag.yml
+
+    False Positives:
+    - Legitimate usage of chflags by administrators and users.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

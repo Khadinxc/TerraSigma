@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_office_macro_fi
   name                       = "file_event_win_office_macro_files_from_susp_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Office Macro File Creation From Suspicious Process"
-  description                = "Detects the creation of a office macro file from a a suspicious process Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_macro_files_from_susp_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_macro_files_from_susp_process.yml"
+  description                = <<DESC
+    Detects the creation of a office macro file from a a suspicious process
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_macro_files_from_susp_process.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

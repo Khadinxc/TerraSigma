@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_event_mal_azorult" {
   name                       = "registry_event_mal_azorult"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Registry Entries For Azorult Malware"
-  description                = "Detects the presence of a registry key created during Azorult execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_mal_azorult.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_mal_azorult.yml"
+  description                = <<DESC
+    Detects the presence of a registry key created during Azorult execution
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_mal_azorult.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

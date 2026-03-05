@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_stordiag_sus
   name                       = "proc_creation_win_stordiag_susp_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Execution via stordiag.exe"
-  description                = "Detects the use of stordiag.exe to execute schtasks.exe systeminfo.exe and fltmc.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_stordiag_susp_child_process.yml - Legitimate usage of stordiag.exe. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_stordiag_susp_child_process.yml"
+  description                = <<DESC
+    Detects the use of stordiag.exe to execute schtasks.exe systeminfo.exe and fltmc.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_stordiag_susp_child_process.yml
+
+    False Positives:
+    - Legitimate usage of stordiag.exe.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

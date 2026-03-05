@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_cmd_curl_dow
   name                       = "proc_creation_win_cmd_curl_download_exec_combo"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Curl Download And Execute Combination"
-  description                = "Adversaries can use curl to download payloads remotely and execute them. Curl is included by default in Windows 10 build 17063 and later. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_curl_download_exec_combo.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_curl_download_exec_combo.yml"
+  description                = <<DESC
+    Adversaries can use curl to download payloads remotely and execute them. Curl is included by default in Windows 10 build 17063 and later.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_curl_download_exec_combo.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

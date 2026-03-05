@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_pnscan_binar
   name                       = "proc_creation_lnx_pnscan_binary_cli_pattern"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Pnscan Binary Data Transmission Activity"
-  description                = "Detects command line patterns associated with the use of Pnscan for sending and receiving binary data across the network. This behavior has been identified in a Linux malware campaign targeting Docker, Apache Hadoop, Redis, and Confluence and was previously used by the threat actor known as TeamTNT Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_pnscan_binary_cli_pattern.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_pnscan_binary_cli_pattern.yml"
+  description                = <<DESC
+    Detects command line patterns associated with the use of Pnscan for sending and receiving binary data across the network. This behavior has been identified in a Linux malware campaign targeting Docker, Apache Hadoop, Redis, and Confluence and was previously used by the threat actor known as TeamTNT
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_pnscan_binary_cli_pattern.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_powershell_star
   name                       = "file_event_win_powershell_startup_shortcuts"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Startup Shortcut Persistence Via PowerShell.EXE"
-  description                = "Detects PowerShell writing startup shortcuts. This procedure was highlighted in Red Canary Intel Insights Oct. 2021, \"We frequently observe adversaries using PowerShell to write malicious .lnk files into the startup directory to establish persistence. Accordingly, this detection opportunity is likely to identify persistence mechanisms in multiple threats. In the context of Yellow Cockatoo, this persistence mechanism eventually launches the command-line script that leads to the installation of a malicious DLL\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_powershell_startup_shortcuts.yml - Depending on your environment accepted applications may leverage this at times. It is recommended to search for anomalies inidicative of malware. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_powershell_startup_shortcuts.yml"
+  description                = <<DESC
+    Detects PowerShell writing startup shortcuts. This procedure was highlighted in Red Canary Intel Insights Oct. 2021, "We frequently observe adversaries using PowerShell to write malicious .lnk files into the startup directory to establish persistence. Accordingly, this detection opportunity is likely to identify persistence mechanisms in multiple threats. In the context of Yellow Cockatoo, this persistence mechanism eventually launches the command-line script that leads to the installation of a malicious DLL"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_powershell_startup_shortcuts.yml
+
+    False Positives:
+    - Depending on your environment accepted applications may leverage this at times. It is recommended to search for anomalies inidicative of malware.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

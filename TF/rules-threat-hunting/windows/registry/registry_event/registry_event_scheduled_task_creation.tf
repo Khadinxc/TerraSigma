@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_event_scheduled_task_
   name                       = "registry_event_scheduled_task_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Scheduled Task Created - Registry"
-  description                = "Detects the creation of a scheduled task via Registry keys. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_event/registry_event_scheduled_task_creation.yml - Likely as this is a normal behaviour on Windows | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_event/registry_event_scheduled_task_creation.yml"
+  description                = <<DESC
+    Detects the creation of a scheduled task via Registry keys.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_event/registry_event_scheduled_task_creation.yml
+
+    False Positives:
+    - Likely as this is a normal behaviour on Windows
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceRegistryEvents

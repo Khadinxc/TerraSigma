@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_ssm_agent_ab
   name                       = "proc_creation_lnx_ssm_agent_abuse"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Linux Amazon SSM Agent Hijacking"
-  description                = "Detects potential Amazon SSM agent hijack attempts as outlined in the Mitiga research report. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_ssm_agent_abuse.yml - Legitimate activity of system administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_ssm_agent_abuse.yml"
+  description                = <<DESC
+    Detects potential Amazon SSM agent hijack attempts as outlined in the Mitiga research report.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_ssm_agent_abuse.yml
+
+    False Positives:
+    - Legitimate activity of system administrators
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

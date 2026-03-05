@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_net_user_add
   name                       = "proc_creation_win_net_user_add"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New User Created Via Net.EXE"
-  description                = "Identifies the creation of local users via the net.exe command. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_user_add.yml - Legitimate user creation. - Better use event IDs for user creation rather than command line rules. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_user_add.yml"
+  description                = <<DESC
+    Identifies the creation of local users via the net.exe command.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_user_add.yml
+
+    False Positives:
+    - Legitimate user creation.
+    - Better use event IDs for user creation rather than command line rules.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

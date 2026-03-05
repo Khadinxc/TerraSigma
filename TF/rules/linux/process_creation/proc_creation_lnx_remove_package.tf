@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_remove_packa
   name                       = "proc_creation_lnx_remove_package"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux Package Uninstall"
-  description                = "Detects linux package removal using builtin tools such as \"yum\", \"apt\", \"apt-get\" or \"dpkg\". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_remove_package.yml - Administrator or administrator scripts might delete packages for several reasons (debugging, troubleshooting). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_remove_package.yml"
+  description                = <<DESC
+    Detects linux package removal using builtin tools such as "yum", "apt", "apt-get" or "dpkg".
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_remove_package.yml
+
+    False Positives:
+    - Administrator or administrator scripts might delete packages for several reasons (debugging, troubleshooting).
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

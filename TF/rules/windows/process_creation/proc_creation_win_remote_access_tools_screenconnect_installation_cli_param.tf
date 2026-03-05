@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_remote_acces
   name                       = "proc_creation_win_remote_access_tools_screenconnect_installation_cli_param"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Access Tool - ScreenConnect Installation Execution"
-  description                = "Detects ScreenConnect program starts that establish a remote access to a system. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_screenconnect_installation_cli_param.yml - Legitimate use by administrative staff | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_screenconnect_installation_cli_param.yml"
+  description                = <<DESC
+    Detects ScreenConnect program starts that establish a remote access to a system.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_screenconnect_installation_cli_param.yml
+
+    False Positives:
+    - Legitimate use by administrative staff
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

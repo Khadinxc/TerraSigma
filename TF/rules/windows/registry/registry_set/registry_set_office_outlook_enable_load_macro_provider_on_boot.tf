@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_office_outlook_en
   name                       = "registry_set_office_outlook_enable_load_macro_provider_on_boot"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Outlook LoadMacroProviderOnBoot Setting"
-  description                = "Detects the modification of Outlook setting \"LoadMacroProviderOnBoot\" which if enabled allows the automatic loading of any configured VBA project/module Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_outlook_enable_load_macro_provider_on_boot.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_outlook_enable_load_macro_provider_on_boot.yml"
+  description                = <<DESC
+    Detects the modification of Outlook setting "LoadMacroProviderOnBoot" which if enabled allows the automatic loading of any configured VBA project/module
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_outlook_enable_load_macro_provider_on_boot.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

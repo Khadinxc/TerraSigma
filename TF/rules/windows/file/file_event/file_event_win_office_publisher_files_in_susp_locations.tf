@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_office_publishe
   name                       = "file_event_win_office_publisher_files_in_susp_locations"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Publisher Attachment File Dropped In Suspicious Location"
-  description                = "Detects creation of files with the \".pub\" extension in suspicious or uncommon locations. This could be a sign of attackers abusing Publisher documents Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_publisher_files_in_susp_locations.yml - Legitimate usage of \".pub\" files from those locations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_publisher_files_in_susp_locations.yml"
+  description                = <<DESC
+    Detects creation of files with the ".pub" extension in suspicious or uncommon locations. This could be a sign of attackers abusing Publisher documents
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_publisher_files_in_susp_locations.yml
+
+    False Positives:
+    - Legitimate usage of ".pub" files from those locations
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

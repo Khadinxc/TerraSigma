@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_file_ch
   name                       = "proc_creation_win_susp_file_characteristics"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Characteristics Due to Missing Fields"
-  description                = "Detects Executables in the Downloads folder without FileVersion,Description,Product,Company likely created with py2exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_file_characteristics.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_file_characteristics.yml"
+  description                = <<DESC
+    Detects Executables in the Downloads folder without FileVersion,Description,Product,Company likely created with py2exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_file_characteristics.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

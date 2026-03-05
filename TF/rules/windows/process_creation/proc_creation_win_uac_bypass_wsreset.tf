@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_uac_bypass_w
   name                       = "proc_creation_win_uac_bypass_wsreset"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Bypass UAC via WSReset.exe"
-  description                = "Detects use of WSReset.exe to bypass User Account Control (UAC). Adversaries use this technique to execute privileged processes. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_wsreset.yml - Unknown sub processes of Wsreset.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_wsreset.yml"
+  description                = <<DESC
+    Detects use of WSReset.exe to bypass User Account Control (UAC). Adversaries use this technique to execute privileged processes.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_wsreset.yml
+
+    False Positives:
+    - Unknown sub processes of Wsreset.exe
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

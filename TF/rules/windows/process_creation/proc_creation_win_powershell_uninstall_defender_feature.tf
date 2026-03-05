@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_u
   name                       = "proc_creation_win_powershell_uninstall_defender_feature"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Uninstall of Windows Defender Feature via PowerShell"
-  description                = "Detects the use of PowerShell with Uninstall-WindowsFeature or Remove-WindowsFeature cmdlets to disable or remove the Windows Defender GUI feature, a common technique used by adversaries to evade defenses. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_uninstall_defender_feature.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_uninstall_defender_feature.yml"
+  description                = <<DESC
+    Detects the use of PowerShell with Uninstall-WindowsFeature or Remove-WindowsFeature cmdlets to disable or remove the Windows Defender GUI feature, a common technique used by adversaries to evade defenses.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_uninstall_defender_feature.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

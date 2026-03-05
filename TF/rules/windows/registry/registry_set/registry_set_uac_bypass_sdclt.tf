@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_uac_bypass_sdclt"
   name                       = "registry_set_uac_bypass_sdclt"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass via Sdclt"
-  description                = "Detects the pattern of UAC Bypass using registry key manipulation of sdclt.exe (e.g. UACMe 53) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_uac_bypass_sdclt.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_uac_bypass_sdclt.yml"
+  description                = <<DESC
+    Detects the pattern of UAC Bypass using registry key manipulation of sdclt.exe (e.g. UACMe 53)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_uac_bypass_sdclt.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

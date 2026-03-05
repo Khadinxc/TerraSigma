@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_curl_insecur
   name                       = "proc_creation_win_curl_insecure_connection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Insecure Transfer Via Curl.EXE"
-  description                = "Detects execution of \"curl.exe\" with the \"--insecure\" flag. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_insecure_connection.yml - Access to badly maintained internal or development systems | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_insecure_connection.yml"
+  description                = <<DESC
+    Detects execution of "curl.exe" with the "--insecure" flag.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_insecure_connection.yml
+
+    False Positives:
+    - Access to badly maintained internal or development systems
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

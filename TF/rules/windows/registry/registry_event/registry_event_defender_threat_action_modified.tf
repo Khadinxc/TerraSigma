@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_event_defender_threat
   name                       = "registry_event_defender_threat_action_modified"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Defender Threat Severity Default Action Modified"
-  description                = "Detects modifications or creations of Windows Defender's default threat action settings based on severity to 'allow' or take 'no action'. This is a highly suspicious configuration change that effectively disables Defender's ability to automatically mitigate threats of a certain severity level, allowing malicious software to run unimpeded. An attacker might use this technique to bypass defenses before executing payloads. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_defender_threat_action_modified.yml - Legitimate administration via scripts or tools (e.g., SCCM, Intune, GPO enforcement). Correlate with administrative activity. - Software installations that legitimately modify Defender settings (less common for these specific keys). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_defender_threat_action_modified.yml"
+  description                = <<DESC
+    Detects modifications or creations of Windows Defender's default threat action settings based on severity to 'allow' or take 'no action'. This is a highly suspicious configuration change that effectively disables Defender's ability to automatically mitigate threats of a certain severity level, allowing malicious software to run unimpeded. An attacker might use this technique to bypass defenses before executing payloads.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_defender_threat_action_modified.yml
+
+    False Positives:
+    - Legitimate administration via scripts or tools (e.g., SCCM, Intune, GPO enforcement). Correlate with administrative activity.
+    - Software installations that legitimately modify Defender settings (less common for these specific keys).
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_side_load_avkkid" {
   name                       = "image_load_side_load_avkkid"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential AVKkid.DLL Sideloading"
-  description                = "Detects potential DLL sideloading of \"AVKkid.dll\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_avkkid.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_avkkid.yml"
+  description                = <<DESC
+    Detects potential DLL sideloading of "AVKkid.dll"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_avkkid.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

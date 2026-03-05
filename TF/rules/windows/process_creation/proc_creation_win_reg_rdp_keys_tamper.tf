@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_reg_rdp_keys
   name                       = "proc_creation_win_reg_rdp_keys_tamper"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Tampering With RDP Related Registry Keys Via Reg.EXE"
-  description                = "Detects the execution of \"reg.exe\" for enabling/disabling the RDP service on the host by tampering with the 'CurrentControlSet\\Control\\Terminal Server' values Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_rdp_keys_tamper.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_rdp_keys_tamper.yml"
+  description                = <<DESC
+    Detects the execution of "reg.exe" for enabling/disabling the RDP service on the host by tampering with the 'CurrentControlSet\Control\Terminal Server' values
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_rdp_keys_tamper.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sc_query_int
   name                       = "proc_creation_win_sc_query_interesting_services"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Interesting Service Enumeration Via Sc.EXE"
-  description                = "Detects the enumeration and query of interesting and in some cases sensitive services on the system via \"sc.exe\". Attackers often try to enumerate the services currently running on a system in order to find different attack vectors. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_query_interesting_services.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_query_interesting_services.yml"
+  description                = <<DESC
+    Detects the enumeration and query of interesting and in some cases sensitive services on the system via "sc.exe". Attackers often try to enumerate the services currently running on a system in order to find different attack vectors.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_query_interesting_services.yml
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

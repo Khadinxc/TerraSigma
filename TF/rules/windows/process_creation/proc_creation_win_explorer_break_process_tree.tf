@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_explorer_bre
   name                       = "proc_creation_win_explorer_break_process_tree"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Explorer Process Tree Break"
-  description                = "Detects a command line process that uses explorer.exe to launch arbitrary commands or binaries, which is similar to cmd.exe /c, only it breaks the process tree and makes its parent a new instance of explorer spawning from \"svchost\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_explorer_break_process_tree.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_explorer_break_process_tree.yml"
+  description                = <<DESC
+    Detects a command line process that uses explorer.exe to launch arbitrary commands or binaries, which is similar to cmd.exe /c, only it breaks the process tree and makes its parent a new instance of explorer spawning from "svchost"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_explorer_break_process_tree.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

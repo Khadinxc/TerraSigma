@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_dump_file_susp_
   name                       = "file_event_win_dump_file_susp_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious DMP/HDMP File Creation"
-  description                = "Detects the creation of a file with the \".dmp\"/\".hdmp\" extension by a shell or scripting application such as \"cmd\", \"powershell\", etc. Often created by software during a crash. Memory dumps can sometimes contain sensitive information such as credentials. It's best to determine the source of the crash. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_dump_file_susp_creation.yml - Some administrative PowerShell or VB scripts might have the ability to collect dumps and move them to other folders which might trigger a false positive. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_dump_file_susp_creation.yml"
+  description                = <<DESC
+    Detects the creation of a file with the ".dmp"/".hdmp" extension by a shell or scripting application such as "cmd", "powershell", etc. Often created by software during a crash. Memory dumps can sometimes contain sensitive information such as credentials. It's best to determine the source of the crash.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_dump_file_susp_creation.yml
+
+    False Positives:
+    - Some administrative PowerShell or VB scripts might have the ability to collect dumps and move them to other folders which might trigger a false positive.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

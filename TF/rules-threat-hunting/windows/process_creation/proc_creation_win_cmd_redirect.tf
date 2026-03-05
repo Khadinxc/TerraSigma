@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_cmd_redirect
   name                       = "proc_creation_win_cmd_redirect"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "CMD Shell Output Redirect"
-  description                = "Detects the use of the redirection character \">\" to redirect information on the command line. This technique is sometimes used by malicious actors in order to redirect the output of reconnaissance commands such as \"hostname\" and \"dir\" to files for future exfiltration. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_cmd_redirect.yml - Internet Download Manager extensions use named pipes and redirection via CLI. Filter it out if you use it in your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_cmd_redirect.yml"
+  description                = <<DESC
+    Detects the use of the redirection character ">" to redirect information on the command line. This technique is sometimes used by malicious actors in order to redirect the output of reconnaissance commands such as "hostname" and "dir" to files for future exfiltration.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_cmd_redirect.yml
+
+    False Positives:
+    - Internet Download Manager extensions use named pipes and redirection via CLI. Filter it out if you use it in your environment
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

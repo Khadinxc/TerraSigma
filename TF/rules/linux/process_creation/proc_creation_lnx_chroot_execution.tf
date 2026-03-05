@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_chroot_execu
   name                       = "proc_creation_lnx_chroot_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux Sudo Chroot Execution"
-  description                = "Detects the execution of 'sudo' command with '--chroot' option, which is used to change the root directory for command execution. Attackers may use this technique to evade detection and execute commands in a modified environment. This can be part of a privilege escalation strategy, as it allows the execution of commands with elevated privileges in a controlled environment as seen in CVE-2025-32463. While investigating, look out for unusual or unexpected use of 'sudo --chroot' in conjunction with other commands or scripts such as execution from temporary directories or unusual user accounts. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_chroot_execution.yml - Legitimate administrative tasks or scripts that use 'sudo --chroot' for containerization, testing, or system management. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_chroot_execution.yml"
+  description                = <<DESC
+    Detects the execution of 'sudo' command with '--chroot' option, which is used to change the root directory for command execution. Attackers may use this technique to evade detection and execute commands in a modified environment. This can be part of a privilege escalation strategy, as it allows the execution of commands with elevated privileges in a controlled environment as seen in CVE-2025-32463. While investigating, look out for unusual or unexpected use of 'sudo --chroot' in conjunction with other commands or scripts such as execution from temporary directories or unusual user accounts.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_chroot_execution.yml
+
+    False Positives:
+    - Legitimate administrative tasks or scripts that use 'sudo --chroot' for containerization, testing, or system management.
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

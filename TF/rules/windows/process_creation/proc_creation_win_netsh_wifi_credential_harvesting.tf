@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_netsh_wifi_c
   name                       = "proc_creation_win_netsh_wifi_credential_harvesting"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Harvesting Of Wifi Credentials Via Netsh.EXE"
-  description                = "Detect the harvesting of wifi credentials using netsh.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_wifi_credential_harvesting.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_wifi_credential_harvesting.yml"
+  description                = <<DESC
+    Detect the harvesting of wifi credentials using netsh.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_wifi_credential_harvesting.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

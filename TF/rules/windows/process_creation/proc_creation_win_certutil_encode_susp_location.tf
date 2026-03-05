@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_certutil_enc
   name                       = "proc_creation_win_certutil_encode_susp_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File In Suspicious Location Encoded To Base64 Via Certutil.EXE"
-  description                = "Detects the execution of certutil with the \"encode\" flag to encode a file to base64 where the files are located in potentially suspicious locations Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_encode_susp_location.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_encode_susp_location.yml"
+  description                = <<DESC
+    Detects the execution of certutil with the "encode" flag to encode a file to base64 where the files are located in potentially suspicious locations
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_encode_susp_location.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

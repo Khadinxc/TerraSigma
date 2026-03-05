@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_dotnet_arbit
   name                       = "proc_creation_win_dotnet_arbitrary_dll_csproj_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Arbitrary DLL or Csproj Code Execution Via Dotnet.EXE"
-  description                = "Detects execution of arbitrary DLLs or unsigned code via a \".csproj\" files via Dotnet.EXE. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dotnet_arbitrary_dll_csproj_execution.yml - Legitimate administrator usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dotnet_arbitrary_dll_csproj_execution.yml"
+  description                = <<DESC
+    Detects execution of arbitrary DLLs or unsigned code via a ".csproj" files via Dotnet.EXE.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dotnet_arbitrary_dll_csproj_execution.yml
+
+    False Positives:
+    - Legitimate administrator usage
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

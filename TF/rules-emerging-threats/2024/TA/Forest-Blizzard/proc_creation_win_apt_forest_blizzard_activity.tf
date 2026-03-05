@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_forest_b
   name                       = "proc_creation_win_apt_forest_blizzard_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Forest Blizzard APT - Process Creation Activity"
-  description                = "Detects the execution of specific processes and command line combination. These were seen being created by Forest Blizzard as described by MSFT. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/proc_creation_win_apt_forest_blizzard_activity.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/proc_creation_win_apt_forest_blizzard_activity.yml"
+  description                = <<DESC
+    Detects the execution of specific processes and command line combination. These were seen being created by Forest Blizzard as described by MSFT.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/proc_creation_win_apt_forest_blizzard_activity.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_diskshadow_s
   name                       = "proc_creation_win_diskshadow_script_mode_susp_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Diskshadow Script Mode - Execution From Potential Suspicious Location"
-  description                = "Detects execution of \"Diskshadow.exe\" in script mode using the \"/s\" flag where the script is located in a potentially suspicious location. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_diskshadow_script_mode_susp_location.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_diskshadow_script_mode_susp_location.yml"
+  description                = <<DESC
+    Detects execution of "Diskshadow.exe" in script mode using the "/s" flag where the script is located in a potentially suspicious location.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_diskshadow_script_mode_susp_location.yml
+
+    False Positives:
+    - False positives may occur if you execute the script from one of the paths mentioned in the rule. Apply additional filters that fits your org needs.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

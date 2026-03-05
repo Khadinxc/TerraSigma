@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_browsers_chr
   name                       = "proc_creation_win_browsers_chromium_headless_exec"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Browser Execution In Headless Mode"
-  description                = "Detects execution of Chromium based browser in headless mode Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_headless_exec.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_headless_exec.yml"
+  description                = <<DESC
+    Detects execution of Chromium based browser in headless mode
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_headless_exec.yml
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

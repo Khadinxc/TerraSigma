@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_reg_delete_s
   name                       = "proc_creation_win_reg_delete_services"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Service Registry Key Deleted Via Reg.EXE"
-  description                = "Detects execution of \"reg.exe\" commands with the \"delete\" flag on services registry key. Often used by attacker to remove AV software services Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_delete_services.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_delete_services.yml"
+  description                = <<DESC
+    Detects execution of "reg.exe" commands with the "delete" flag on services registry key. Often used by attacker to remove AV software services
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_delete_services.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

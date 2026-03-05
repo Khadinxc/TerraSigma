@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_ntdsutil_sus
   name                       = "proc_creation_win_ntdsutil_susp_usage"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Usage Of Active Directory Diagnostic Tool (ntdsutil.exe)"
-  description                = "Detects execution of ntdsutil.exe to perform different actions such as restoring snapshots...etc. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ntdsutil_susp_usage.yml - Legitimate usage to restore snapshots - Legitimate admin activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ntdsutil_susp_usage.yml"
+  description                = <<DESC
+    Detects execution of ntdsutil.exe to perform different actions such as restoring snapshots...etc.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ntdsutil_susp_usage.yml
+
+    False Positives:
+    - Legitimate usage to restore snapshots
+    - Legitimate admin activity
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

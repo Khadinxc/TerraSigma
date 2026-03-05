@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "win_security_susp_logon_newcre
   name                       = "win_security_susp_logon_newcredentials"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Outgoing Logon with New Credentials"
-  description                = "Detects logon events that specify new credentials Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/account_management/win_security_susp_logon_newcredentials.yml - Legitimate remote administration activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/account_management/win_security_susp_logon_newcredentials.yml"
+  description                = <<DESC
+    Detects logon events that specify new credentials
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/account_management/win_security_susp_logon_newcredentials.yml
+
+    False Positives:
+    - Legitimate remote administration activity
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceLogonEvents

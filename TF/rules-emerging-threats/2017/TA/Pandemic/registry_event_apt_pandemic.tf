@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_event_apt_pandemic" {
   name                       = "registry_event_apt_pandemic"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Pandemic Registry Key"
-  description                = "Detects Pandemic Windows Implant Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Pandemic/registry_event_apt_pandemic.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Pandemic/registry_event_apt_pandemic.yml"
+  description                = <<DESC
+    Detects Pandemic Windows Implant
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Pandemic/registry_event_apt_pandemic.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

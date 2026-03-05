@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_createdump_l
   name                       = "proc_creation_win_createdump_lolbin_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "CreateDump Process Dump"
-  description                = "Detects uses of the createdump.exe LOLOBIN utility to dump process memory Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_createdump_lolbin_execution.yml - Command lines that use the same flags | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_createdump_lolbin_execution.yml"
+  description                = <<DESC
+    Detects uses of the createdump.exe LOLOBIN utility to dump process memory
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_createdump_lolbin_execution.yml
+
+    False Positives:
+    - Command lines that use the same flags
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

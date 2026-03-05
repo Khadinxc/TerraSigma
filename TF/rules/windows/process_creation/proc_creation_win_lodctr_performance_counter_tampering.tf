@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lodctr_perfo
   name                       = "proc_creation_win_lodctr_performance_counter_tampering"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Rebuild Performance Counter Values Via Lodctr.EXE"
-  description                = "Detects the execution of \"lodctr.exe\" to rebuild the performance counter registry values. This can be abused by attackers by providing a malicious config file to overwrite performance counter configuration to confuse and evade monitoring and security solutions. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lodctr_performance_counter_tampering.yml - Legitimate usage by an administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lodctr_performance_counter_tampering.yml"
+  description                = <<DESC
+    Detects the execution of "lodctr.exe" to rebuild the performance counter registry values. This can be abused by attackers by providing a malicious config file to overwrite performance counter configuration to confuse and evade monitoring and security solutions.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lodctr_performance_counter_tampering.yml
+
+    False Positives:
+    - Legitimate usage by an administrator
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_office_dotnet_clr_d
   name                       = "image_load_office_dotnet_clr_dll_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "CLR DLL Loaded Via Office Applications"
-  description                = "Detects CLR DLL being loaded by an Office Product Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_dotnet_clr_dll_load.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_dotnet_clr_dll_load.yml"
+  description                = <<DESC
+    Detects CLR DLL being loaded by an Office Product
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_dotnet_clr_dll_load.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

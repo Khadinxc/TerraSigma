@@ -2,7 +2,16 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_office_outb
   name                       = "net_connection_win_office_outbound_non_local_ip"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Office Application Initiated Network Connection To Non-Local IP"
-  description                = "Detects an office application (Word, Excel, PowerPoint)  that initiate a network connection to a non-private IP addresses. This rule aims to detect traffic similar to one seen exploited in CVE-2021-42292. This rule will require an initial baseline and tuning that is specific to your organization. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_office_outbound_non_local_ip.yml - You may have to tune certain domains out that Excel may call out to, such as microsoft or other business use case domains. - Office documents commonly have templates that refer to external addresses, like \"sharepoint.ourcompany.com\" may have to be tuned. - It is highly recommended to baseline your activity and tune out common business use cases. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_office_outbound_non_local_ip.yml"
+  description                = <<DESC
+    Detects an office application (Word, Excel, PowerPoint)  that initiate a network connection to a non-private IP addresses. This rule aims to detect traffic similar to one seen exploited in CVE-2021-42292. This rule will require an initial baseline and tuning that is specific to your organization.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_office_outbound_non_local_ip.yml
+
+    False Positives:
+    - You may have to tune certain domains out that Excel may call out to, such as microsoft or other business use case domains.
+    - Office documents commonly have templates that refer to external addresses, like "sharepoint.ourcompany.com" may have to be tuned.
+    - It is highly recommended to baseline your activity and tune out common business use cases.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

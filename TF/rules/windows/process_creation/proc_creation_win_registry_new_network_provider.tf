@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_registry_new
   name                       = "proc_creation_win_registry_new_network_provider"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Credential Dumping Attempt Using New NetworkProvider - CLI"
-  description                = "Detects when an attacker tries to add a new network provider in order to dump clear text credentials, similar to how the NPPSpy tool does it Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_new_network_provider.yml - Other legitimate network providers used and not filtred in this rule | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_new_network_provider.yml"
+  description                = <<DESC
+    Detects when an attacker tries to add a new network provider in order to dump clear text credentials, similar to how the NPPSpy tool does it
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_new_network_provider.yml
+
+    False Positives:
+    - Other legitimate network providers used and not filtred in this rule
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

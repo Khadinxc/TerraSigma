@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rdp_enable_o
   name                       = "proc_creation_win_rdp_enable_or_disable_via_win32_terminalservicesetting_wmi_class"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "RDP Enable or Disable via Win32_TerminalServiceSetting WMI Class"
-  description                = "Detects enabling or disabling of Remote Desktop Protocol (RDP) using alternate methods such as WMIC or PowerShell. In PowerShell one-liner commands, the \"SetAllowTSConnections\" method of the \"Win32_TerminalServiceSetting\" class may be used to enable or disable RDP. In WMIC, the \"rdtoggle\" alias or \"Win32_TerminalServiceSetting\" class may be used for the same purpose. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rdp_enable_or_disable_via_win32_terminalservicesetting_wmi_class.yml - Legitimate system administrators enabling RDP for remote support - System configuration scripts during deployment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rdp_enable_or_disable_via_win32_terminalservicesetting_wmi_class.yml"
+  description                = <<DESC
+    Detects enabling or disabling of Remote Desktop Protocol (RDP) using alternate methods such as WMIC or PowerShell. In PowerShell one-liner commands, the "SetAllowTSConnections" method of the "Win32_TerminalServiceSetting" class may be used to enable or disable RDP. In WMIC, the "rdtoggle" alias or "Win32_TerminalServiceSetting" class may be used for the same purpose.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rdp_enable_or_disable_via_win32_terminalservicesetting_wmi_class.yml
+
+    False Positives:
+    - Legitimate system administrators enabling RDP for remote support
+    - System configuration scripts during deployment
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

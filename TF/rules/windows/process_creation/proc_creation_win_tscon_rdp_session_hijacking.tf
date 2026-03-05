@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_tscon_rdp_se
   name                       = "proc_creation_win_tscon_rdp_session_hijacking"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential RDP Session Hijacking Activity"
-  description                = "Detects potential RDP Session Hijacking activity on Windows systems Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tscon_rdp_session_hijacking.yml - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tscon_rdp_session_hijacking.yml"
+  description                = <<DESC
+    Detects potential RDP Session Hijacking activity on Windows systems
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tscon_rdp_session_hijacking.yml
+
+    False Positives:
+    - Administrative activity
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

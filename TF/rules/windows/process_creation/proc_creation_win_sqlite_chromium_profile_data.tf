@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sqlite_chrom
   name                       = "proc_creation_win_sqlite_chromium_profile_data"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "SQLite Chromium Profile Data DB Access"
-  description                = "Detect usage of the \"sqlite\" binary to query databases in Chromium-based browsers for potential data stealing. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sqlite_chromium_profile_data.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sqlite_chromium_profile_data.yml"
+  description                = <<DESC
+    Detect usage of the "sqlite" binary to query databases in Chromium-based browsers for potential data stealing.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sqlite_chromium_profile_data.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

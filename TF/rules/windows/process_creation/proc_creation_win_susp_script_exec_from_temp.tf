@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_script_
   name                       = "proc_creation_win_susp_script_exec_from_temp"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Script Execution From Temp Folder"
-  description                = "Detects a suspicious script executions from temporary folder Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_script_exec_from_temp.yml - Administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_script_exec_from_temp.yml"
+  description                = <<DESC
+    Detects a suspicious script executions from temporary folder
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_script_exec_from_temp.yml
+
+    False Positives:
+    - Administrative scripts
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

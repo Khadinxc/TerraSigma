@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_disable_function_
   name                       = "registry_set_disable_function_user"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disable Internal Tools or Feature in Registry"
-  description                = "Detects registry modifications that change features of internal Windows tools (malware like Agent Tesla uses this technique) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_function_user.yml - Legitimate admin script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_function_user.yml"
+  description                = <<DESC
+    Detects registry modifications that change features of internal Windows tools (malware like Agent Tesla uses this technique)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_function_user.yml
+
+    False Positives:
+    - Legitimate admin script
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

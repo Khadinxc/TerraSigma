@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_pcwru
   name                       = "proc_creation_win_lolbin_pcwrun_follina"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Execute Pcwrun.EXE To Leverage Follina"
-  description                = "Detects indirect command execution via Program Compatibility Assistant \"pcwrun.exe\" leveraging the follina (CVE-2022-30190) vulnerability Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_pcwrun_follina.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_pcwrun_follina.yml"
+  description                = <<DESC
+    Detects indirect command execution via Program Compatibility Assistant "pcwrun.exe" leveraging the follina (CVE-2022-30190) vulnerability
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_pcwrun_follina.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

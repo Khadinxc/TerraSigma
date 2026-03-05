@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_susp_
   name                       = "proc_creation_win_lolbin_susp_sqldumper_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Dumping Process via Sqldumper.exe"
-  description                = "Detects process dump via legitimate sqldumper.exe binary Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_susp_sqldumper_activity.yml - Legitimate MSSQL Server actions | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_susp_sqldumper_activity.yml"
+  description                = <<DESC
+    Detects process dump via legitimate sqldumper.exe binary
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_susp_sqldumper_activity.yml
+
+    False Positives:
+    - Legitimate MSSQL Server actions
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

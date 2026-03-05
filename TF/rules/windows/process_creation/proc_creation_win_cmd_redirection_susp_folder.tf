@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_cmd_redirect
   name                       = "proc_creation_win_cmd_redirection_susp_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious CMD Shell Output Redirect"
-  description                = "Detects inline Windows shell commands redirecting output via the \">\" symbol to a suspicious location. This technique is sometimes used by malicious actors in order to redirect the output of reconnaissance commands such as \"hostname\" and \"dir\" to files for future exfiltration. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_redirection_susp_folder.yml - Legitimate admin or third party scripts used for diagnostic collection might generate some false positives | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_redirection_susp_folder.yml"
+  description                = <<DESC
+    Detects inline Windows shell commands redirecting output via the ">" symbol to a suspicious location. This technique is sometimes used by malicious actors in order to redirect the output of reconnaissance commands such as "hostname" and "dir" to files for future exfiltration.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_redirection_susp_folder.yml
+
+    False Positives:
+    - Legitimate admin or third party scripts used for diagnostic collection might generate some false positives
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

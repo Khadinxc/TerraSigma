@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_msiexec_web_
   name                       = "proc_creation_win_msiexec_web_install"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "MsiExec Web Install"
-  description                = "Detects suspicious msiexec process starts with web addresses as parameter Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_web_install.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_web_install.yml"
+  description                = <<DESC
+    Detects suspicious msiexec process starts with web addresses as parameter
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_web_install.yml
+
+    False Positives:
+    - False positives depend on scripts and administrative tools used in the monitored environment
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

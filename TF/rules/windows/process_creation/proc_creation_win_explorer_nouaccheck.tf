@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_explorer_nou
   name                       = "proc_creation_win_explorer_nouaccheck"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Explorer NOUACCHECK Flag"
-  description                = "Detects suspicious starts of explorer.exe that use the /NOUACCHECK flag that allows to run all sub processes of that newly started explorer.exe without any UAC checks Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_explorer_nouaccheck.yml - Domain Controller User Logon - Unknown how many legitimate software products use that method | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_explorer_nouaccheck.yml"
+  description                = <<DESC
+    Detects suspicious starts of explorer.exe that use the /NOUACCHECK flag that allows to run all sub processes of that newly started explorer.exe without any UAC checks
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_explorer_nouaccheck.yml
+
+    False Positives:
+    - Domain Controller User Logon
+    - Unknown how many legitimate software products use that method
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

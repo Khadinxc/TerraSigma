@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_cdb_arbitrar
   name                       = "proc_creation_win_cdb_arbitrary_command_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Binary Proxy Execution Via Cdb.EXE"
-  description                = "Detects usage of \"cdb.exe\" to launch arbitrary processes or commands from a debugger script file Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cdb_arbitrary_command_execution.yml - Legitimate use of debugging tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cdb_arbitrary_command_execution.yml"
+  description                = <<DESC
+    Detects usage of "cdb.exe" to launch arbitrary processes or commands from a debugger script file
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cdb_arbitrary_command_execution.yml
+
+    False Positives:
+    - Legitimate use of debugging tools
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

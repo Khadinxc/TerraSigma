@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_remote_acces
   name                       = "proc_creation_win_remote_access_tools_screenconnect_remote_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Access Tool - ScreenConnect Remote Command Execution"
-  description                = "Detects the execution of a system command via the ScreenConnect RMM service. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_screenconnect_remote_execution.yml - Legitimate use of ScreenConnect. Disable this rule if ScreenConnect is heavily used. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_screenconnect_remote_execution.yml"
+  description                = <<DESC
+    Detects the execution of a system command via the ScreenConnect RMM service.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_screenconnect_remote_execution.yml
+
+    False Positives:
+    - Legitimate use of ScreenConnect. Disable this rule if ScreenConnect is heavily used.
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

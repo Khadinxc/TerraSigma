@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_dotnet_trace
   name                       = "proc_creation_win_dotnet_trace_lolbin_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Binary Proxy Execution Via Dotnet-Trace.EXE"
-  description                = "Detects commandline arguments for executing a child process via dotnet-trace.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dotnet_trace_lolbin_execution.yml - Legitimate usage of the utility in order to debug and trace a program. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dotnet_trace_lolbin_execution.yml"
+  description                = <<DESC
+    Detects commandline arguments for executing a child process via dotnet-trace.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dotnet_trace_lolbin_execution.yml
+
+    False Positives:
+    - Legitimate usage of the utility in order to debug and trace a program.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

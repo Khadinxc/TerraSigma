@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_side_load_robform" 
   name                       = "image_load_side_load_robform"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential RoboForm.DLL Sideloading"
-  description                = "Detects potential DLL sideloading of \"roboform.dll\", a DLL used by RoboForm Password Manager Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_robform.yml - If installed on a per-user level, the path would be located in \"AppData\\Local\". Add additional filters to reflect this mode of installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_robform.yml"
+  description                = <<DESC
+    Detects potential DLL sideloading of "roboform.dll", a DLL used by RoboForm Password Manager
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_robform.yml
+
+    False Positives:
+    - If installed on a per-user level, the path would be located in "AppData\Local". Add additional filters to reflect this mode of installation
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

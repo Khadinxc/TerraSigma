@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_side_load_from_non_
   name                       = "image_load_side_load_from_non_system_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential System DLL Sideloading From Non System Locations"
-  description                = "Detects DLL sideloading of DLLs usually located in system locations (System32, SysWOW64, etc.). Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_from_non_system_location.yml - Legitimate applications loading their own versions of the DLLs mentioned in this rule | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_from_non_system_location.yml"
+  description                = <<DESC
+    Detects DLL sideloading of DLLs usually located in system locations (System32, SysWOW64, etc.).
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_from_non_system_location.yml
+
+    False Positives:
+    - Legitimate applications loading their own versions of the DLLs mentioned in this rule
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

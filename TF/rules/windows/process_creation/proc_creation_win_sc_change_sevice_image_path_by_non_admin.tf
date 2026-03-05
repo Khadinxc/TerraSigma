@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sc_change_se
   name                       = "proc_creation_win_sc_change_sevice_image_path_by_non_admin"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Possible Privilege Escalation via Weak Service Permissions"
-  description                = "Detection of sc.exe utility spawning by user with Medium integrity level to change service ImagePath or FailureCommand Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_change_sevice_image_path_by_non_admin.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_change_sevice_image_path_by_non_admin.yml"
+  description                = <<DESC
+    Detection of sc.exe utility spawning by user with Medium integrity level to change service ImagePath or FailureCommand
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_change_sevice_image_path_by_non_admin.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

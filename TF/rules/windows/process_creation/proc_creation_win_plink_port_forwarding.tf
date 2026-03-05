@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_plink_port_f
   name                       = "proc_creation_win_plink_port_forwarding"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Plink Port Forwarding"
-  description                = "Detects suspicious Plink tunnel port forwarding to a local port Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_plink_port_forwarding.yml - Administrative activity using a remote port forwarding to a local port | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_plink_port_forwarding.yml"
+  description                = <<DESC
+    Detects suspicious Plink tunnel port forwarding to a local port
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_plink_port_forwarding.yml
+
+    False Positives:
+    - Administrative activity using a remote port forwarding to a local port
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

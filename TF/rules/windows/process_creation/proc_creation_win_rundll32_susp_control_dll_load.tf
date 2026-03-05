@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_sus
   name                       = "proc_creation_win_rundll32_susp_control_dll_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Control Panel DLL Load"
-  description                = "Detects suspicious Rundll32 execution from control.exe as used by Equation Group and Exploit Kits Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_control_dll_load.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_control_dll_load.yml"
+  description                = <<DESC
+    Detects suspicious Rundll32 execution from control.exe as used by Equation Group and Exploit Kits
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_control_dll_load.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

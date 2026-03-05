@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sc_service_p
   name                       = "proc_creation_win_sc_service_path_modification"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Service Path Modification"
-  description                = "Detects service path modification via the \"sc\" binary to a suspicious command or path Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_service_path_modification.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_service_path_modification.yml"
+  description                = <<DESC
+    Detects service path modification via the "sc" binary to a suspicious command or path
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_service_path_modification.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

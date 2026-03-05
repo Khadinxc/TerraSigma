@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_office_macro_fi
   name                       = "file_event_win_office_macro_files_downloaded"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Office Macro File Download"
-  description                = "Detects the creation of a new office macro files on the system via an application (browser, mail client). This can help identify potential malicious activity, such as the download of macro-enabled documents that could be used for exploitation. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_macro_files_downloaded.yml - Legitimate macro files downloaded from the internet - Legitimate macro files sent as attachments via emails | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_macro_files_downloaded.yml"
+  description                = <<DESC
+    Detects the creation of a new office macro files on the system via an application (browser, mail client). This can help identify potential malicious activity, such as the download of macro-enabled documents that could be used for exploitation.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_macro_files_downloaded.yml
+
+    False Positives:
+    - Legitimate macro files downloaded from the internet
+    - Legitimate macro files sent as attachments via emails
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents

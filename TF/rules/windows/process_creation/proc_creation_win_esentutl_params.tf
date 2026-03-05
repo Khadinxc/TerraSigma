@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_esentutl_par
   name                       = "proc_creation_win_esentutl_params"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Esentutl Gather Credentials"
-  description                = "Conti recommendation to its affiliates to use esentutl to access NTDS dumped file. Trickbot also uses this utilities to get MSEdge info via its module pwgrab. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_esentutl_params.yml - To be determined | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_esentutl_params.yml"
+  description                = <<DESC
+    Conti recommendation to its affiliates to use esentutl to access NTDS dumped file. Trickbot also uses this utilities to get MSEdge info via its module pwgrab.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_esentutl_params.yml
+
+    False Positives:
+    - To be determined
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

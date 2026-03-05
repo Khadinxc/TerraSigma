@@ -2,7 +2,16 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_susp_binary_dro
   name                       = "file_event_win_susp_binary_dropper"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Creation of an Executable by an Executable"
-  description                = "Detects the creation of an executable by another executable. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/file_event_win_susp_binary_dropper.yml - Software installers - Update utilities - 32bit applications launching their 64bit versions | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/file_event_win_susp_binary_dropper.yml"
+  description                = <<DESC
+    Detects the creation of an executable by another executable.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/file_event_win_susp_binary_dropper.yml
+
+    False Positives:
+    - Software installers
+    - Update utilities
+    - 32bit applications launching their 64bit versions
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents

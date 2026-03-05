@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_esxcli_permi
   name                       = "proc_creation_lnx_esxcli_permission_change_admin"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ESXi Admin Permission Assigned To Account Via ESXCLI"
-  description                = "Detects execution of the \"esxcli\" command with the \"system\" and \"permission\" flags in order to assign admin permissions to an account. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_permission_change_admin.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_permission_change_admin.yml"
+  description                = <<DESC
+    Detects execution of the "esxcli" command with the "system" and "permission" flags in order to assign admin permissions to an account.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_permission_change_admin.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

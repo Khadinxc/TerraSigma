@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_addinutil_i
   name                       = "net_connection_win_addinutil_initiated"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Network Connection Initiated By AddinUtil.EXE"
-  description                = "Detects a network connection initiated by the Add-In deployment cache updating utility \"AddInutil.exe\". This could indicate a potential command and control communication as this tool doesn't usually initiate network activity. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_addinutil_initiated.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_addinutil_initiated.yml"
+  description                = <<DESC
+    Detects a network connection initiated by the Add-In deployment cache updating utility "AddInutil.exe". This could indicate a potential command and control communication as this tool doesn't usually initiate network activity.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_addinutil_initiated.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents

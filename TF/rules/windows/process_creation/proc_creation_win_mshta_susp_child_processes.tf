@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_mshta_susp_c
   name                       = "proc_creation_win_mshta_susp_child_processes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious MSHTA Child Process"
-  description                = "Detects a suspicious process spawning from an \"mshta.exe\" process, which could be indicative of a malicious HTA script execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_susp_child_processes.yml - Printer software / driver installations - HP software | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_susp_child_processes.yml"
+  description                = <<DESC
+    Detects a suspicious process spawning from an "mshta.exe" process, which could be indicative of a malicious HTA script execution
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_susp_child_processes.yml
+
+    False Positives:
+    - Printer software / driver installations
+    - HP software
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

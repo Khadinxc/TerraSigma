@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_susp_hktl_ex
   name                       = "proc_creation_lnx_susp_hktl_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux HackTool Execution"
-  description                = "Detects known hacktool execution based on image name. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_hktl_execution.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_hktl_execution.yml"
+  description                = <<DESC
+    Detects known hacktool execution based on image name.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_hktl_execution.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

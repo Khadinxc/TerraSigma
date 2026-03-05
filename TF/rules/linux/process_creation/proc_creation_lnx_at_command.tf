@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_at_command" 
   name                       = "proc_creation_lnx_at_command"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Scheduled Task/Job At"
-  description                = "Detects the use of at/atd which are utilities that are used to schedule tasks. They are often abused by adversaries to maintain persistence or to perform task scheduling for initial or recurring execution of malicious code Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_at_command.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_at_command.yml"
+  description                = <<DESC
+    Detects the use of at/atd which are utilities that are used to schedule tasks. They are often abused by adversaries to maintain persistence or to perform task scheduling for initial or recurring execution of malicious code
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_at_command.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

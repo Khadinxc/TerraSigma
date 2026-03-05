@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_disable_windows_d
   name                       = "registry_set_disable_windows_defender_service"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Defender Service Disabled - Registry"
-  description                = "Detects when an attacker or tool disables the  Windows Defender service (WinDefend) via the registry Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_windows_defender_service.yml - Administrator actions | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_windows_defender_service.yml"
+  description                = <<DESC
+    Detects when an attacker or tool disables the  Windows Defender service (WinDefend) via the registry
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_windows_defender_service.yml
+
+    False Positives:
+    - Administrator actions
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

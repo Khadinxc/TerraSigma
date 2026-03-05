@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_use_of_
   name                       = "proc_creation_win_susp_use_of_vsjitdebugger_bin"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Malicious PE Execution by Microsoft Visual Studio Debugger"
-  description                = "There is an option for a MS VS Just-In-Time Debugger \"vsjitdebugger.exe\" to launch specified executable and attach a debugger. This option may be used adversaries to execute malicious code by signed verified binary. The debugger is installed alongside with Microsoft Visual Studio package. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_use_of_vsjitdebugger_bin.yml - The process spawned by vsjitdebugger.exe is uncommon. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_use_of_vsjitdebugger_bin.yml"
+  description                = <<DESC
+    There is an option for a MS VS Just-In-Time Debugger "vsjitdebugger.exe" to launch specified executable and attach a debugger. This option may be used adversaries to execute malicious code by signed verified binary. The debugger is installed alongside with Microsoft Visual Studio package.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_use_of_vsjitdebugger_bin.yml
+
+    False Positives:
+    - The process spawned by vsjitdebugger.exe is uncommon.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

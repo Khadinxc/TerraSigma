@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_office_excel_xll_lo
   name                       = "image_load_office_excel_xll_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Microsoft Excel Add-In Loaded"
-  description                = "Detects Microsoft Excel loading an Add-In (.xll) file Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_office_excel_xll_load.yml - The rules is only looking for \".xll\" loads. So some false positives are expected with legitimate and allowed XLLs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_office_excel_xll_load.yml"
+  description                = <<DESC
+    Detects Microsoft Excel loading an Add-In (.xll) file
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_office_excel_xll_load.yml
+
+    False Positives:
+    - The rules is only looking for ".xll" loads. So some false positives are expected with legitimate and allowed XLLs
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceImageLoadEvents

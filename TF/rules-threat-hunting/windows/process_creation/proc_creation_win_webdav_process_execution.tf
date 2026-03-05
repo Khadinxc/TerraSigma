@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_webdav_proce
   name                       = "proc_creation_win_webdav_process_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Process Execution From WebDAV Share"
-  description                = "Detects execution of processes with image paths starting with WebDAV shares (\\\\), which might indicate malicious file execution from remote web shares. Execution of processes from WebDAV shares can be a sign of lateral movement or exploitation attempts, especially if the process is not a known legitimate application. Exploitation Attempt of vulnerabilities like CVE-2025-33053 also involves executing processes from WebDAV paths. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_webdav_process_execution.yml - Legitimate use of WebDAV shares for process execution - Known applications executing from WebDAV paths | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_webdav_process_execution.yml"
+  description                = <<DESC
+    Detects execution of processes with image paths starting with WebDAV shares (\\), which might indicate malicious file execution from remote web shares. Execution of processes from WebDAV shares can be a sign of lateral movement or exploitation attempts, especially if the process is not a known legitimate application. Exploitation Attempt of vulnerabilities like CVE-2025-33053 also involves executing processes from WebDAV paths.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_webdav_process_execution.yml
+
+    False Positives:
+    - Legitimate use of WebDAV shares for process execution
+    - Known applications executing from WebDAV paths
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

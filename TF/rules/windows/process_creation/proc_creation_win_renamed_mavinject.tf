@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_renamed_mavi
   name                       = "proc_creation_win_renamed_mavinject"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed Mavinject.EXE Execution"
-  description                = "Detects the execution of a renamed version of the \"Mavinject\" process. Which can be abused to perform process injection using the \"/INJECTRUNNING\" flag Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_mavinject.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_mavinject.yml"
+  description                = <<DESC
+    Detects the execution of a renamed version of the "Mavinject" process. Which can be abused to perform process injection using the "/INJECTRUNNING" flag
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_mavinject.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

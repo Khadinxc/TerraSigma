@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_reg_disable_
   name                       = "proc_creation_win_reg_disable_defender_wmi_autologger"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disabling Windows Defender WMI Autologger Session via Reg.exe"
-  description                = "Detects the use of reg.exe to disable the Event Tracing for Windows (ETW) Autologger session for Windows Defender API and Audit events. By setting the 'Start' value to '0' for the 'DefenderApiLogger' or 'DefenderAuditLogger' session, an attacker can prevent these critical security events from being logged, effectively blinding monitoring tools that rely on this data. This is a powerful defense evasion technique. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_disable_defender_wmi_autologger.yml - Highly unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_disable_defender_wmi_autologger.yml"
+  description                = <<DESC
+    Detects the use of reg.exe to disable the Event Tracing for Windows (ETW) Autologger session for Windows Defender API and Audit events. By setting the 'Start' value to '0' for the 'DefenderApiLogger' or 'DefenderAuditLogger' session, an attacker can prevent these critical security events from being logged, effectively blinding monitoring tools that rely on this data. This is a powerful defense evasion technique.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_disable_defender_wmi_autologger.yml
+
+    False Positives:
+    - Highly unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

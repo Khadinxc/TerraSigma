@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_werfaultsecu
   name                       = "proc_creation_win_werfaultsecure_abuse"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PPL Tampering Via WerFaultSecure"
-  description                = "Detects potential abuse of WerFaultSecure.exe to dump Protected Process Light (PPL) processes like LSASS or to freeze security solutions (EDR/antivirus). This technique is used by tools such as EDR-Freeze and WSASS to bypass PPL protections and access sensitive information or disable security software. Distinct command line patterns help identify the specific tool: - WSASS usage typically shows: \"WSASS.exe WerFaultSecure.exe [PID]\" in ParentCommandLine - EDR-Freeze usage typically shows: \"EDR-Freeze_[version].exe [PID] [timeout]\" in ParentCommandLine Legitimate debugging operations using WerFaultSecure are rare in production environments and should be investigated. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_werfaultsecure_abuse.yml - Legitimate usage of WerFaultSecure for debugging purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_werfaultsecure_abuse.yml"
+  description                = <<DESC
+    Detects potential abuse of WerFaultSecure.exe to dump Protected Process Light (PPL) processes like LSASS or to freeze security solutions (EDR/antivirus). This technique is used by tools such as EDR-Freeze and WSASS to bypass PPL protections and access sensitive information or disable security software. Distinct command line patterns help identify the specific tool: - WSASS usage typically shows: "WSASS.exe WerFaultSecure.exe [PID]" in ParentCommandLine - EDR-Freeze usage typically shows: "EDR-Freeze_[version].exe [PID] [timeout]" in ParentCommandLine Legitimate debugging operations using WerFaultSecure are rare in production environments and should be investigated.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_werfaultsecure_abuse.yml
+
+    False Positives:
+    - Legitimate usage of WerFaultSecure for debugging purposes
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_ta17_293
   name                       = "proc_creation_win_apt_ta17_293a_ps"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Ps.exe Renamed SysInternals Tool"
-  description                = "Detects renamed SysInternals tool execution with a binary named ps.exe as used by Dragonfly APT group and documented in TA17-293A report Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Dragonfly/proc_creation_win_apt_ta17_293a_ps.yml - Renamed SysInternals tool | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Dragonfly/proc_creation_win_apt_ta17_293a_ps.yml"
+  description                = <<DESC
+    Detects renamed SysInternals tool execution with a binary named ps.exe as used by Dragonfly APT group and documented in TA17-293A report
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Dragonfly/proc_creation_win_apt_ta17_293a_ps.yml
+
+    False Positives:
+    - Renamed SysInternals tool
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

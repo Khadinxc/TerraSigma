@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_webdav_tmpfile_
   name                       = "file_event_win_webdav_tmpfile_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WebDAV Temporary Local File Creation"
-  description                = "Detects the creation of WebDAV temporary files with potentially suspicious extensions Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/file_event_win_webdav_tmpfile_creation.yml - Legitimate use of WebDAV in an environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/file_event_win_webdav_tmpfile_creation.yml"
+  description                = <<DESC
+    Detects the creation of WebDAV temporary files with potentially suspicious extensions
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/file_event_win_webdav_tmpfile_creation.yml
+
+    False Positives:
+    - Legitimate use of WebDAV in an environment
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

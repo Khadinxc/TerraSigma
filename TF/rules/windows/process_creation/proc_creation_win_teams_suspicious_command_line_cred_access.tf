@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_teams_suspic
   name                       = "proc_creation_win_teams_suspicious_command_line_cred_access"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Command Targeting Teams Sensitive Files"
-  description                = "Detects a commandline containing references to the Microsoft Teams database or cookies files from a process other than Teams. The database might contain authentication tokens and other sensitive information about the logged in accounts. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_teams_suspicious_command_line_cred_access.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_teams_suspicious_command_line_cred_access.yml"
+  description                = <<DESC
+    Detects a commandline containing references to the Microsoft Teams database or cookies files from a process other than Teams. The database might contain authentication tokens and other sensitive information about the logged in accounts.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_teams_suspicious_command_line_cred_access.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

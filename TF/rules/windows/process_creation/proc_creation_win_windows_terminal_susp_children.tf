@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_windows_term
   name                       = "proc_creation_win_windows_terminal_susp_children"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious WindowsTerminal Child Processes"
-  description                = "Detects suspicious children spawned via the Windows Terminal application which could be a sign of persistence via WindowsTerminal (see references section) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_windows_terminal_susp_children.yml - Other legitimate \"Windows Terminal\" profiles | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_windows_terminal_susp_children.yml"
+  description                = <<DESC
+    Detects suspicious children spawned via the Windows Terminal application which could be a sign of persistence via WindowsTerminal (see references section)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_windows_terminal_susp_children.yml
+
+    False Positives:
+    - Other legitimate "Windows Terminal" profiles
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

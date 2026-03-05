@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sc_sdset_mod
   name                       = "proc_creation_win_sc_sdset_modification"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Service Security Descriptor Tampering Via Sc.EXE"
-  description                = "Detection of sc.exe utility adding a new service with special permission which hides that service. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_sdset_modification.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_sdset_modification.yml"
+  description                = <<DESC
+    Detection of sc.exe utility adding a new service with special permission which hides that service.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_sdset_modification.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_peach_sa
   name                       = "proc_creation_win_apt_peach_sandstorm_indicators"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Peach Sandstorm APT Process Activity Indicators"
-  description                = "Detects process creation activity related to Peach Sandstorm APT Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Peach-Sandstorm/proc_creation_win_apt_peach_sandstorm_indicators.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Peach-Sandstorm/proc_creation_win_apt_peach_sandstorm_indicators.yml"
+  description                = <<DESC
+    Detects process creation activity related to Peach Sandstorm APT
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Peach-Sandstorm/proc_creation_win_apt_peach_sandstorm_indicators.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

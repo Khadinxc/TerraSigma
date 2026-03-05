@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_ripzip_attack" 
   name                       = "file_event_win_ripzip_attack"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential RipZip Attack on Startup Folder"
-  description                = "Detects a phishing attack which expands a ZIP file containing a malicious shortcut. If the victim expands the ZIP file via the explorer process, then the explorer process expands the malicious ZIP file and drops a malicious shortcut redirected to a backdoor into the Startup folder. Additionally, the file name of the malicious shortcut in Startup folder contains {0AFACED1-E828-11D1-9187-B532F1E9575D} meaning the folder shortcut operation. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_ripzip_attack.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_ripzip_attack.yml"
+  description                = <<DESC
+    Detects a phishing attack which expands a ZIP file containing a malicious shortcut. If the victim expands the ZIP file via the explorer process, then the explorer process expands the malicious ZIP file and drops a malicious shortcut redirected to a backdoor into the Startup folder. Additionally, the file name of the malicious shortcut in Startup folder contains {0AFACED1-E828-11D1-9187-B532F1E9575D} meaning the folder shortcut operation.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_ripzip_attack.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

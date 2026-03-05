@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sdclt_child_
   name                       = "proc_creation_win_sdclt_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Sdclt Child Processes"
-  description                = "A General detection for sdclt spawning new processes. This could be an indicator of sdclt being used for bypass UAC techniques. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sdclt_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sdclt_child_process.yml"
+  description                = <<DESC
+    A General detection for sdclt spawning new processes. This could be an indicator of sdclt being used for bypass UAC techniques.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sdclt_child_process.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

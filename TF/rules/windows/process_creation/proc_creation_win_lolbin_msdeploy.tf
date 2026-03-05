@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_msdep
   name                       = "proc_creation_win_lolbin_msdeploy"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Execute Files with Msdeploy.exe"
-  description                = "Detects file execution using the msdeploy.exe lolbin Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_msdeploy.yml - System administrator Usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_msdeploy.yml"
+  description                = <<DESC
+    Detects file execution using the msdeploy.exe lolbin
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_msdeploy.yml
+
+    False Positives:
+    - System administrator Usage
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

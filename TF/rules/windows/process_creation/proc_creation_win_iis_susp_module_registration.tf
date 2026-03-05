@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_iis_susp_mod
   name                       = "proc_creation_win_iis_susp_module_registration"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious IIS Module Registration"
-  description                = "Detects a suspicious IIS module registration as described in Microsoft threat report on IIS backdoors Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_susp_module_registration.yml - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_susp_module_registration.yml"
+  description                = <<DESC
+    Detects a suspicious IIS module registration as described in Microsoft threat report on IIS backdoors
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_susp_module_registration.yml
+
+    False Positives:
+    - Administrative activity
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

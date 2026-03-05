@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_netsh_fw_all
   name                       = "proc_creation_win_netsh_fw_allow_rdp"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "RDP Connection Allowed Via Netsh.EXE"
-  description                = "Detects usage of the netsh command to open and allow connections to port 3389 (RDP). As seen used by Sarwent Malware Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_allow_rdp.yml - Legitimate administration activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_allow_rdp.yml"
+  description                = <<DESC
+    Detects usage of the netsh command to open and allow connections to port 3389 (RDP). As seen used by Sarwent Malware
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_allow_rdp.yml
+
+    False Positives:
+    - Legitimate administration activity
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_hktl_mimikatz_f
   name                       = "file_event_win_hktl_mimikatz_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Mimikatz Kirbi File Creation"
-  description                = "Detects the creation of files created by mimikatz such as \".kirbi\", \"mimilsa.log\", etc. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_mimikatz_files.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_mimikatz_files.yml"
+  description                = <<DESC
+    Detects the creation of files created by mimikatz such as ".kirbi", "mimilsa.log", etc.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_mimikatz_files.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

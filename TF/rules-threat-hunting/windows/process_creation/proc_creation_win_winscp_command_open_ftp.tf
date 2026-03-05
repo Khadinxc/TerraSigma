@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_winscp_comma
   name                       = "proc_creation_win_winscp_command_open_ftp"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "FTP Connection Open Attempt Via Winscp CLI"
-  description                = "Detects the execution of Winscp with the \"-command\" and the \"open\" flags in order to open an FTP connection. Akira ransomware was seen using this technique in order to exfiltrate data. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_winscp_command_open_ftp.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_winscp_command_open_ftp.yml"
+  description                = <<DESC
+    Detects the execution of Winscp with the "-command" and the "open" flags in order to open an FTP connection. Akira ransomware was seen using this technique in order to exfiltrate data.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_winscp_command_open_ftp.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_msiexec_htt
   name                       = "net_connection_win_msiexec_http"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Msiexec.EXE Initiated Network Connection Over HTTP"
-  description                = "Detects a network connection initiated by an \"Msiexec.exe\" process over port 80 or 443. Adversaries might abuse \"msiexec.exe\" to install and execute remotely hosted packages. Use this rule to hunt for potentially anomalous or suspicious communications. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/net_connection_win_msiexec_http.yml - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/net_connection_win_msiexec_http.yml"
+  description                = <<DESC
+    Detects a network connection initiated by an "Msiexec.exe" process over port 80 or 443. Adversaries might abuse "msiexec.exe" to install and execute remotely hosted packages. Use this rule to hunt for potentially anomalous or suspicious communications.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/net_connection_win_msiexec_http.yml
+
+    False Positives:
+    - Likely
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceNetworkEvents

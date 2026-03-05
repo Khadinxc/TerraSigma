@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_persistence_chm" 
   name                       = "registry_set_persistence_chm"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via CHM Helper DLL"
-  description                = "Detects when an attacker modifies the registry key \"HtmlHelp Author\" to achieve persistence Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_chm.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_chm.yml"
+  description                = <<DESC
+    Detects when an attacker modifies the registry key "HtmlHelp Author" to achieve persistence
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_chm.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

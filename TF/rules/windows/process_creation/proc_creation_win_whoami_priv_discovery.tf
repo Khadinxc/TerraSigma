@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_whoami_priv_
   name                       = "proc_creation_win_whoami_priv_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Security Privileges Enumeration Via Whoami.EXE"
-  description                = "Detects a whoami.exe executed with the /priv command line flag instructing the tool to show all current user privileges. This is often used after a privilege escalation attempt. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_whoami_priv_discovery.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_whoami_priv_discovery.yml"
+  description                = <<DESC
+    Detects a whoami.exe executed with the /priv command line flag instructing the tool to show all current user privileges. This is often used after a privilege escalation attempt.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_whoami_priv_discovery.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

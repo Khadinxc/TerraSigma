@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sysinternals
   name                       = "proc_creation_win_sysinternals_eula_accepted"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Execution of Sysinternals Tools"
-  description                = "Detects command lines that contain the 'accepteula' flag which could be a sign of execution of one of the Sysinternals tools Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_eula_accepted.yml - Legitimate use of SysInternals tools - Programs that use the same command line flag | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_eula_accepted.yml"
+  description                = <<DESC
+    Detects command lines that contain the 'accepteula' flag which could be a sign of execution of one of the Sysinternals tools
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_eula_accepted.yml
+
+    False Positives:
+    - Legitimate use of SysInternals tools
+    - Programs that use the same command line flag
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

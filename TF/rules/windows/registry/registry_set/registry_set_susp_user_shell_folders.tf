@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_susp_user_shell_f
   name                       = "registry_set_susp_user_shell_folders"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Modify User Shell Folders Startup Value"
-  description                = "Detect modification of the User Shell Folders registry values for Startup or Common Startup which could indicate persistence attempts. Attackers may modify User Shell Folders registry keys to point to malicious executables or scripts that will be executed during startup. This technique is often used to maintain persistence on a compromised system by ensuring that the malicious payload is executed automatically. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_user_shell_folders.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_user_shell_folders.yml"
+  description                = <<DESC
+    Detect modification of the User Shell Folders registry values for Startup or Common Startup which could indicate persistence attempts. Attackers may modify User Shell Folders registry keys to point to malicious executables or scripts that will be executed during startup. This technique is often used to maintain persistence on a compromised system by ensuring that the malicious payload is executed automatically.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_user_shell_folders.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

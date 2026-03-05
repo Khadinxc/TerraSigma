@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_renamed_bina
   name                       = "proc_creation_win_renamed_binary_highly_relevant"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Defense Evasion Via Rename Of Highly Relevant Binaries"
-  description                = "Detects the execution of a renamed binary often used by attackers or malware leveraging new Sysmon OriginalFileName datapoint. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_binary_highly_relevant.yml - Custom applications use renamed binaries adding slight change to binary name. Typically this is easy to spot and add to whitelist | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_binary_highly_relevant.yml"
+  description                = <<DESC
+    Detects the execution of a renamed binary often used by attackers or malware leveraging new Sysmon OriginalFileName datapoint.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_binary_highly_relevant.yml
+
+    False Positives:
+    - Custom applications use renamed binaries adding slight change to binary name. Typically this is easy to spot and add to whitelist
+    - PsExec installed via Windows Store doesn't contain original filename field (False negative)
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

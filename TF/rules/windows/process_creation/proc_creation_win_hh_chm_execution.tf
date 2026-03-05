@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hh_chm_execu
   name                       = "proc_creation_win_hh_chm_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HH.EXE Execution"
-  description                = "Detects the execution of \"hh.exe\" to open \".chm\" files. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hh_chm_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hh_chm_execution.yml"
+  description                = <<DESC
+    Detects the execution of "hh.exe" to open ".chm" files.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hh_chm_execution.yml
+
+    False Positives:
+    - False positives are expected with legitimate ".CHM"
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

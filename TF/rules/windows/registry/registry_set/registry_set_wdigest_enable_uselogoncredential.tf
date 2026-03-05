@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_wdigest_enable_us
   name                       = "registry_set_wdigest_enable_uselogoncredential"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Wdigest Enable UseLogonCredential"
-  description                = "Detects potential malicious modification of the property value of UseLogonCredential from HKLM:\\SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\WDigest to enable clear-text credentials Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_wdigest_enable_uselogoncredential.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_wdigest_enable_uselogoncredential.yml"
+  description                = <<DESC
+    Detects potential malicious modification of the property value of UseLogonCredential from HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest to enable clear-text credentials
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_wdigest_enable_uselogoncredential.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

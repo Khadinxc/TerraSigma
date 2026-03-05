@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_rclone_config_f
   name                       = "file_event_win_rclone_config_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Rclone Config File Creation"
-  description                = "Detects Rclone config files being created Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_rclone_config_files.yml - Legitimate Rclone usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_rclone_config_files.yml"
+  description                = <<DESC
+    Detects Rclone config files being created
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_rclone_config_files.yml
+
+    False Positives:
+    - Legitimate Rclone usage
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_event_office_trust_re
   name                       = "registry_event_office_trust_record_modification"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Registry Trust Record Modification"
-  description                = "Alerts on trust record modification within the registry, indicating usage of macros Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_office_trust_record_modification.yml - This will alert on legitimate macro usage as well, additional tuning is required | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_office_trust_record_modification.yml"
+  description                = <<DESC
+    Alerts on trust record modification within the registry, indicating usage of macros
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_office_trust_record_modification.yml
+
+    False Positives:
+    - This will alert on legitimate macro usage as well, additional tuning is required
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_ttdin
   name                       = "proc_creation_win_lolbin_ttdinject"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Use of TTDInject.exe"
-  description                = "Detects the executiob of TTDInject.exe, which is used by Windows 10 v1809 and newer to debug time travel (underlying call of tttracer.exe) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_ttdinject.yml - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_ttdinject.yml"
+  description                = <<DESC
+    Detects the executiob of TTDInject.exe, which is used by Windows 10 v1809 and newer to debug time travel (underlying call of tttracer.exe)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_ttdinject.yml
+
+    False Positives:
+    - Legitimate use
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

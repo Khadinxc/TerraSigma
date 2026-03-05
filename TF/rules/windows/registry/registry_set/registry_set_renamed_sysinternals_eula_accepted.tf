@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_renamed_sysintern
   name                       = "registry_set_renamed_sysinternals_eula_accepted"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Usage of Renamed Sysinternals Tools - RegistrySet"
-  description                = "Detects non-sysinternals tools setting the \"accepteula\" key which normally is set on sysinternals tool execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_renamed_sysinternals_eula_accepted.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_renamed_sysinternals_eula_accepted.yml"
+  description                = <<DESC
+    Detects non-sysinternals tools setting the "accepteula" key which normally is set on sysinternals tool execution
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_renamed_sysinternals_eula_accepted.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

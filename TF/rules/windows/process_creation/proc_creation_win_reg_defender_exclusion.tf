@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_reg_defender
   name                       = "proc_creation_win_reg_defender_exclusion"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Windows Defender Folder Exclusion Added Via Reg.EXE"
-  description                = "Detects the usage of \"reg.exe\" to add Defender folder exclusions. Qbot has been seen using this technique to add exclusions for folders within AppData and ProgramData. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_defender_exclusion.yml - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_defender_exclusion.yml"
+  description                = <<DESC
+    Detects the usage of "reg.exe" to add Defender folder exclusions. Qbot has been seen using this technique to add exclusions for folders within AppData and ProgramData.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_defender_exclusion.yml
+
+    False Positives:
+    - Legitimate use
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

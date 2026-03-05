@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wuauclt_dll_
   name                       = "proc_creation_win_wuauclt_dll_loading"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Proxy Execution Via Wuauclt.EXE"
-  description                = "Detects the use of the Windows Update Client binary (wuauclt.exe) for proxy execution. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wuauclt_dll_loading.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wuauclt_dll_loading.yml"
+  description                = <<DESC
+    Detects the use of the Windows Update Client binary (wuauclt.exe) for proxy execution.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wuauclt_dll_loading.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

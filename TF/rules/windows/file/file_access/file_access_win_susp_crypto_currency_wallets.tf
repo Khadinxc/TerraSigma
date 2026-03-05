@@ -2,7 +2,17 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_access_win_susp_crypto_cu
   name                       = "file_access_win_susp_crypto_currency_wallets"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Access To Crypto Currency Wallets By Uncommon Applications"
-  description                = "Detects file access requests to crypto currency files by uncommon processes. Could indicate potential attempt of crypto currency wallet stealing. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_susp_crypto_currency_wallets.yml - Antivirus, Anti-Spyware, Anti-Malware Software - Backup software - Legitimate software installed on partitions other than \"C:\\\" - Searching software such as \"everything.exe\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_susp_crypto_currency_wallets.yml"
+  description                = <<DESC
+    Detects file access requests to crypto currency files by uncommon processes. Could indicate potential attempt of crypto currency wallet stealing.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_susp_crypto_currency_wallets.yml
+
+    False Positives:
+    - Antivirus, Anti-Spyware, Anti-Malware Software
+    - Backup software
+    - Legitimate software installed on partitions other than "C:\"
+    - Searching software such as "everything.exe"
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

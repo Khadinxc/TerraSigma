@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_cp_passwd_or
   name                       = "proc_creation_lnx_cp_passwd_or_shadow_tmp"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Copy Passwd Or Shadow From TMP Path"
-  description                = "Detects when the file \"passwd\" or \"shadow\" is copied from tmp path Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_cp_passwd_or_shadow_tmp.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_cp_passwd_or_shadow_tmp.yml"
+  description                = <<DESC
+    Detects when the file "passwd" or "shadow" is copied from tmp path
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_cp_passwd_or_shadow_tmp.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

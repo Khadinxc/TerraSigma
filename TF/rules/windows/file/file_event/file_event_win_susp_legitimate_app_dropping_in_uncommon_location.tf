@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_susp_legitimate
   name                       = "file_event_win_susp_legitimate_app_dropping_in_uncommon_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Legitimate Application Writing Files In Uncommon Location"
-  description                = "Detects legitimate applications writing any type of file to uncommon or suspicious locations that are not typical for application data storage or execution. Adversaries may leverage legitimate applications (Living off the Land Binaries - LOLBins) to drop or download malicious files to uncommon locations on the system to evade detection by security solutions. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_in_uncommon_location.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_in_uncommon_location.yml"
+  description                = <<DESC
+    Detects legitimate applications writing any type of file to uncommon or suspicious locations that are not typical for application data storage or execution. Adversaries may leverage legitimate applications (Living off the Land Binaries - LOLBins) to drop or download malicious files to uncommon locations on the system to evade detection by security solutions.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_in_uncommon_location.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

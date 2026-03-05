@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_defender_def
   name                       = "proc_creation_win_defender_default_action_modified"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Defender Threat Severity Default Action Set to 'Allow' or 'NoAction'"
-  description                = "Detects the use of PowerShell to execute the 'Set-MpPreference' cmdlet to configure Windows Defender's threat severity default action to 'Allow' (value '6') or 'NoAction' (value '9'). This is a highly suspicious configuration change that effectively disables Defender's ability to automatically mitigate threats of a certain severity level. An attacker might use this technique via the command line to bypass defenses before executing payloads. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_defender_default_action_modified.yml - Highly unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_defender_default_action_modified.yml"
+  description                = <<DESC
+    Detects the use of PowerShell to execute the 'Set-MpPreference' cmdlet to configure Windows Defender's threat severity default action to 'Allow' (value '6') or 'NoAction' (value '9'). This is a highly suspicious configuration change that effectively disables Defender's ability to automatically mitigate threats of a certain severity level. An attacker might use this technique via the command line to bypass defenses before executing payloads.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_defender_default_action_modified.yml
+
+    False Positives:
+    - Highly unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_msiexec_dll"
   name                       = "proc_creation_win_msiexec_dll"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DllUnregisterServer Function Call Via Msiexec.EXE"
-  description                = "Detects MsiExec loading a DLL and calling its DllUnregisterServer function Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_dll.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_dll.yml"
+  description                = <<DESC
+    Detects MsiExec loading a DLL and calling its DllUnregisterServer function
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_dll.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

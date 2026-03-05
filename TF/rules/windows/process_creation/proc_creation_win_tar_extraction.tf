@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_tar_extracti
   name                       = "proc_creation_win_tar_extraction"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Compressed File Extraction Via Tar.EXE"
-  description                = "Detects execution of \"tar.exe\" in order to extract compressed file. Adversaries may abuse various utilities in order to decompress data to avoid detection. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tar_extraction.yml - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tar_extraction.yml"
+  description                = <<DESC
+    Detects execution of "tar.exe" in order to extract compressed file. Adversaries may abuse various utilities in order to decompress data to avoid detection.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tar_extraction.yml
+
+    False Positives:
+    - Likely
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

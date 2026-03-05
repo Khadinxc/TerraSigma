@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_event_cmstp_execution
   name                       = "registry_event_cmstp_execution_by_registry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "CMSTP Execution Registry Event"
-  description                = "Detects various indicators of Microsoft Connection Manager Profile Installer execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_cmstp_execution_by_registry.yml - Legitimate CMSTP use (unlikely in modern enterprise environments) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_cmstp_execution_by_registry.yml"
+  description                = <<DESC
+    Detects various indicators of Microsoft Connection Manager Profile Installer execution
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_cmstp_execution_by_registry.yml
+
+    False Positives:
+    - Legitimate CMSTP use (unlikely in modern enterprise environments)
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

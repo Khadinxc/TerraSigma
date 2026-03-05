@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_suspicious_env_va
   name                       = "registry_set_suspicious_env_variables"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Environment Variable Has Been Registered"
-  description                = "Detects the creation of user-specific or system-wide environment variables via the registry. Which contains suspicious commands and strings Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_suspicious_env_variables.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_suspicious_env_variables.yml"
+  description                = <<DESC
+    Detects the creation of user-specific or system-wide environment variables via the registry. Which contains suspicious commands and strings
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_suspicious_env_variables.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

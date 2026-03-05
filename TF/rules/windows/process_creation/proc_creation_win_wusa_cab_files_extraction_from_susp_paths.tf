@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wusa_cab_fil
   name                       = "proc_creation_win_wusa_cab_files_extraction_from_susp_paths"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Cab File Extraction Via Wusa.EXE From Potentially Suspicious Paths"
-  description                = "Detects the execution of the \"wusa.exe\" (Windows Update Standalone Installer) utility to extract \".cab\" files using the \"/extract\" argument from potentially suspicious paths. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wusa_cab_files_extraction_from_susp_paths.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wusa_cab_files_extraction_from_susp_paths.yml"
+  description                = <<DESC
+    Detects the execution of the "wusa.exe" (Windows Update Standalone Installer) utility to extract ".cab" files using the "/extract" argument from potentially suspicious paths.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wusa_cab_files_extraction_from_susp_paths.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wmic_stdregp
   name                       = "proc_creation_win_wmic_stdregprov_reg_modification"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Registry Manipulation via WMI Stdregprov"
-  description                = "Detects the usage of wmic.exe to manipulate Windows registry via the WMI StdRegProv class. This behaviour could be potentially suspicious because it uses an alternative method to modify registry keys instead of legitimate registry tools like reg.exe or regedit.exe. Attackers specifically choose this technique to evade detection and bypass security monitoring focused on traditional registry modification commands. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_stdregprov_reg_modification.yml - Legitimate administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_stdregprov_reg_modification.yml"
+  description                = <<DESC
+    Detects the usage of wmic.exe to manipulate Windows registry via the WMI StdRegProv class. This behaviour could be potentially suspicious because it uses an alternative method to modify registry keys instead of legitimate registry tools like reg.exe or regedit.exe. Attackers specifically choose this technique to evade detection and bypass security monitoring focused on traditional registry modification commands.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_stdregprov_reg_modification.yml
+
+    False Positives:
+    - Legitimate administrative activity
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

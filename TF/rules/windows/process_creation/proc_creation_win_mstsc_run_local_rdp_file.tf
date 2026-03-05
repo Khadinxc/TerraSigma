@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_mstsc_run_lo
   name                       = "proc_creation_win_mstsc_run_local_rdp_file"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Mstsc.EXE Execution With Local RDP File"
-  description                = "Detects potential RDP connection via Mstsc using a local \".rdp\" file Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mstsc_run_local_rdp_file.yml - Likely with legitimate usage of \".rdp\" files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mstsc_run_local_rdp_file.yml"
+  description                = <<DESC
+    Detects potential RDP connection via Mstsc using a local ".rdp" file
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mstsc_run_local_rdp_file.yml
+
+    False Positives:
+    - Likely with legitimate usage of ".rdp" files
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

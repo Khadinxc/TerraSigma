@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_office_trusted_lo
   name                       = "registry_set_office_trusted_location_uncommon"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon Microsoft Office Trusted Location Added"
-  description                = "Detects changes to registry keys related to \"Trusted Location\" of Microsoft Office where the path is set to something uncommon. Attackers might add additional trusted locations to avoid macro security restrictions. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_trusted_location_uncommon.yml - Other unknown legitimate or custom paths need to be filtered to avoid false positives | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_trusted_location_uncommon.yml"
+  description                = <<DESC
+    Detects changes to registry keys related to "Trusted Location" of Microsoft Office where the path is set to something uncommon. Attackers might add additional trusted locations to avoid macro security restrictions.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_trusted_location_uncommon.yml
+
+    False Positives:
+    - Other unknown legitimate or custom paths need to be filtered to avoid false positives
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_pua_nmap_zen
   name                       = "proc_creation_win_pua_nmap_zenmap"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Nmap/Zenmap Execution"
-  description                = "Detects usage of namp/zenmap. Adversaries may attempt to get a listing of services running on remote hosts, including those that may be vulnerable to remote software exploitation Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_nmap_zenmap.yml - Legitimate administrator activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_nmap_zenmap.yml"
+  description                = <<DESC
+    Detects usage of namp/zenmap. Adversaries may attempt to get a listing of services running on remote hosts, including those that may be vulnerable to remote software exploitation
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_nmap_zenmap.yml
+
+    False Positives:
+    - Legitimate administrator activity
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

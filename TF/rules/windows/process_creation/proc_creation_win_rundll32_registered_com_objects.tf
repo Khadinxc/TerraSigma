@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_reg
   name                       = "proc_creation_win_rundll32_registered_com_objects"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Rundll32 Registered COM Objects"
-  description                = "load malicious registered COM objects Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_registered_com_objects.yml - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_registered_com_objects.yml"
+  description                = <<DESC
+    load malicious registered COM objects
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_registered_com_objects.yml
+
+    False Positives:
+    - Legitimate use
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

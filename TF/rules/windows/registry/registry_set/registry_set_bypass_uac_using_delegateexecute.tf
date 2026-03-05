@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_bypass_uac_using_
   name                       = "registry_set_bypass_uac_using_delegateexecute"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Bypass UAC Using DelegateExecute"
-  description                = "Bypasses User Account Control using a fileless method Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_bypass_uac_using_delegateexecute.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_bypass_uac_using_delegateexecute.yml"
+  description                = <<DESC
+    Bypasses User Account Control using a fileless method
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_bypass_uac_using_delegateexecute.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_base64_dec
   name                       = "proc_creation_macos_base64_decode"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Decode Base64 Encoded Text -MacOs"
-  description                = "Detects usage of base64 utility to decode arbitrary base64-encoded text Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_base64_decode.yml - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_base64_decode.yml"
+  description                = <<DESC
+    Detects usage of base64 utility to decode arbitrary base64-encoded text
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_base64_decode.yml
+
+    False Positives:
+    - Legitimate activities
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

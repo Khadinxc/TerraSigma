@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_p
   name                       = "proc_creation_win_powershell_public_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Execution of Powershell Script in Public Folder"
-  description                = "This rule detects execution of PowerShell scripts located in the \"C:\\Users\\Public\" folder Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_public_folder.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_public_folder.yml"
+  description                = <<DESC
+    This rule detects execution of PowerShell scripts located in the "C:\Users\Public" folder
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_public_folder.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

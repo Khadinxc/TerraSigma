@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_webshell_rec
   name                       = "proc_creation_win_webshell_recon_commands_and_processes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Webshell Detection With Command Line Keywords"
-  description                = "Detects certain command line parameters often used during reconnaissance activity via web shells Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_webshell_recon_commands_and_processes.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_webshell_recon_commands_and_processes.yml"
+  description                = <<DESC
+    Detects certain command line parameters often used during reconnaissance activity via web shells
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_webshell_recon_commands_and_processes.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

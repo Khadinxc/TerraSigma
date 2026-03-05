@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_winnti_p
   name                       = "proc_creation_win_apt_winnti_pipemon"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Winnti Pipemon Characteristics"
-  description                = "Detects specific process characteristics of Winnti Pipemon malware reported by ESET Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Winnti/proc_creation_win_apt_winnti_pipemon.yml - Legitimate setups that use similar flags | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Winnti/proc_creation_win_apt_winnti_pipemon.yml"
+  description                = <<DESC
+    Detects specific process characteristics of Winnti Pipemon malware reported by ESET
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Winnti/proc_creation_win_apt_winnti_pipemon.yml
+
+    False Positives:
+    - Legitimate setups that use similar flags
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

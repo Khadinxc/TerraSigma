@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_crontab_enum
   name                       = "proc_creation_lnx_crontab_enumeration"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Crontab Enumeration"
-  description                = "Detects usage of crontab to list the tasks of the user Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_crontab_enumeration.yml - Legitimate use of crontab | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_crontab_enumeration.yml"
+  description                = <<DESC
+    Detects usage of crontab to list the tasks of the user
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_crontab_enumeration.yml
+
+    False Positives:
+    - Legitimate use of crontab
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

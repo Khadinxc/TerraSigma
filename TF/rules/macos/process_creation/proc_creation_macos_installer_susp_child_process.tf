@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_installer_
   name                       = "proc_creation_macos_installer_susp_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Installer Package Child Process"
-  description                = "Detects the execution of suspicious child processes from macOS installer package parent process. This includes osascript, JXA, curl and wget amongst other interpreters Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_installer_susp_child_process.yml - Legitimate software uses the scripts (preinstall, postinstall) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_installer_susp_child_process.yml"
+  description                = <<DESC
+    Detects the execution of suspicious child processes from macOS installer package parent process. This includes osascript, JXA, curl and wget amongst other interpreters
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_installer_susp_child_process.yml
+
+    False Positives:
+    - Legitimate software uses the scripts (preinstall, postinstall)
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

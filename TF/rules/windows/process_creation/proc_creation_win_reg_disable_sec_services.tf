@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_reg_disable_
   name                       = "proc_creation_win_reg_disable_sec_services"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Security Service Disabled Via Reg.EXE"
-  description                = "Detects execution of \"reg.exe\" to disable security services such as Windows Defender. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_disable_sec_services.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_disable_sec_services.yml"
+  description                = <<DESC
+    Detects execution of "reg.exe" to disable security services such as Windows Defender.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_disable_sec_services.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

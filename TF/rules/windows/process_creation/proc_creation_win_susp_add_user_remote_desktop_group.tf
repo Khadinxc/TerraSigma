@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_add_use
   name                       = "proc_creation_win_susp_add_user_remote_desktop_group"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "User Added to Remote Desktop Users Group"
-  description                = "Detects addition of users to the local Remote Desktop Users group via \"Net\" or \"Add-LocalGroupMember\". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_add_user_remote_desktop_group.yml - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_add_user_remote_desktop_group.yml"
+  description                = <<DESC
+    Detects addition of users to the local Remote Desktop Users group via "Net" or "Add-LocalGroupMember".
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_add_user_remote_desktop_group.yml
+
+    False Positives:
+    - Administrative activity
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

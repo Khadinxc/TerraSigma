@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_bcp_export_d
   name                       = "proc_creation_win_bcp_export_data"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Data Export From MSSQL Table Via BCP.EXE"
-  description                = "Detects the execution of the BCP utility in order to export data from the database. Attackers were seen saving their malware to a database column or table and then later extracting it via \"bcp.exe\" into a file. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bcp_export_data.yml - Legitimate data export operations. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bcp_export_data.yml"
+  description                = <<DESC
+    Detects the execution of the BCP utility in order to export data from the database. Attackers were seen saving their malware to a database column or table and then later extracting it via "bcp.exe" into a file.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bcp_export_data.yml
+
+    False Positives:
+    - Legitimate data export operations.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

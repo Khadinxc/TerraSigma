@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_lazarus_
   name                       = "proc_creation_win_apt_lazarus_binary_masquerading"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Lazarus System Binary Masquerading"
-  description                = "Detects binaries used by the Lazarus group which use system names but are executed and launched from non-default location Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Lazarus/proc_creation_win_apt_lazarus_binary_masquerading.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Lazarus/proc_creation_win_apt_lazarus_binary_masquerading.yml"
+  description                = <<DESC
+    Detects binaries used by the Lazarus group which use system names but are executed and launched from non-default location
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Lazarus/proc_creation_win_apt_lazarus_binary_masquerading.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

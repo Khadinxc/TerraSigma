@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_renamed_sysi
   name                       = "proc_creation_win_renamed_sysinternals_procdump"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed ProcDump Execution"
-  description                = "Detects the execution of a renamed ProcDump executable. This often done by attackers or malware in order to evade defensive mechanisms. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_sysinternals_procdump.yml - Procdump illegally bundled with legitimate software. - Administrators who rename binaries (should be investigated). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_sysinternals_procdump.yml"
+  description                = <<DESC
+    Detects the execution of a renamed ProcDump executable. This often done by attackers or malware in order to evade defensive mechanisms.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_sysinternals_procdump.yml
+
+    False Positives:
+    - Procdump illegally bundled with legitimate software.
+    - Administrators who rename binaries (should be investigated).
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

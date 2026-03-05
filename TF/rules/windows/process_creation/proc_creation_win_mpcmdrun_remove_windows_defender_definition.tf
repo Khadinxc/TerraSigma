@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_mpcmdrun_rem
   name                       = "proc_creation_win_mpcmdrun_remove_windows_defender_definition"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Defender Definition Files Removed"
-  description                = "Adversaries may disable security tools to avoid possible detection of their tools and activities by removing Windows Defender Definition Files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mpcmdrun_remove_windows_defender_definition.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mpcmdrun_remove_windows_defender_definition.yml"
+  description                = <<DESC
+    Adversaries may disable security tools to avoid possible detection of their tools and activities by removing Windows Defender Definition Files
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mpcmdrun_remove_windows_defender_definition.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

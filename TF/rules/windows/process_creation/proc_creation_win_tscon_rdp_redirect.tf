@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_tscon_rdp_re
   name                       = "proc_creation_win_tscon_rdp_redirect"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious RDP Redirect Using TSCON"
-  description                = "Detects a suspicious RDP session redirect using tscon.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tscon_rdp_redirect.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tscon_rdp_redirect.yml"
+  description                = <<DESC
+    Detects a suspicious RDP session redirect using tscon.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tscon_rdp_redirect.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

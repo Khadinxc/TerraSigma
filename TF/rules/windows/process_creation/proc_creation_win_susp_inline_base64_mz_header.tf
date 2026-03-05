@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_inline_
   name                       = "proc_creation_win_susp_inline_base64_mz_header"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Base64 MZ Header In CommandLine"
-  description                = "Detects encoded base64 MZ header in the commandline Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_inline_base64_mz_header.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_inline_base64_mz_header.yml"
+  description                = <<DESC
+    Detects encoded base64 MZ header in the commandline
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_inline_base64_mz_header.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

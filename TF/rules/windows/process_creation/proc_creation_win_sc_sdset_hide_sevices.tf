@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sc_sdset_hid
   name                       = "proc_creation_win_sc_sdset_hide_sevices"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Service DACL Abuse To Hide Services Via Sc.EXE"
-  description                = "Detects usage of the \"sc.exe\" utility adding a new service with special permission seen used by threat actors which makes the service hidden and unremovable. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_sdset_hide_sevices.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_sdset_hide_sevices.yml"
+  description                = <<DESC
+    Detects usage of the "sc.exe" utility adding a new service with special permission seen used by threat actors which makes the service hidden and unremovable.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_sdset_hide_sevices.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

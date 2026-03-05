@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_d
   name                       = "proc_creation_win_powershell_disable_defender_av_security_monitoring"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disable Windows Defender AV Security Monitoring"
-  description                = "Detects attackers attempting to disable Windows Defender using Powershell Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_disable_defender_av_security_monitoring.yml - Minimal, for some older versions of dev tools, such as pycharm, developers were known to sometimes disable Windows Defender to improve performance, but this generally is not considered a good security practice. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_disable_defender_av_security_monitoring.yml"
+  description                = <<DESC
+    Detects attackers attempting to disable Windows Defender using Powershell
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_disable_defender_av_security_monitoring.yml
+
+    False Positives:
+    - Minimal, for some older versions of dev tools, such as pycharm, developers were known to sometimes disable Windows Defender to improve performance, but this generally is not considered a good security practice.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

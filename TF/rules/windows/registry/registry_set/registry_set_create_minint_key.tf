@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_create_minint_key
   name                       = "registry_set_create_minint_key"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Security Event Logging Disabled via MiniNt Registry Key - Registry Set"
-  description                = "Detects the addition of the 'MiniNt' key to the registry. Upon a reboot, Windows Event Log service will stop writing events. Windows Event Log is a service that collects and stores event logs from the operating system and applications. It is an important component of Windows security and auditing. Adversary may want to disable this service to disable logging of security events which could be used to detect their activities. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_create_minint_key.yml - Highly Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_create_minint_key.yml"
+  description                = <<DESC
+    Detects the addition of the 'MiniNt' key to the registry. Upon a reboot, Windows Event Log service will stop writing events. Windows Event Log is a service that collects and stores event logs from the operating system and applications. It is an important component of Windows security and auditing. Adversary may want to disable this service to disable logging of security events which could be used to detect their activities.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_create_minint_key.yml
+
+    False Positives:
+    - Highly Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

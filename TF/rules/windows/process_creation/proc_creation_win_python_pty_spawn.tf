@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_python_pty_s
   name                       = "proc_creation_win_python_pty_spawn"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Python Spawning Pretty TTY on Windows"
-  description                = "Detects python spawning a pretty tty Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_python_pty_spawn.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_python_pty_spawn.yml"
+  description                = <<DESC
+    Detects python spawning a pretty tty
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_python_pty_spawn.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_regsvr32_fla
   name                       = "proc_creation_win_regsvr32_flags_anomaly"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Regsvr32 Commandline Flag Anomaly"
-  description                = "Detects a potential command line flag anomaly related to \"regsvr32\" in which the \"/i\" flag is used without the \"/n\" which should be uncommon. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_flags_anomaly.yml - Administrator typo might cause some false positives | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_flags_anomaly.yml"
+  description                = <<DESC
+    Detects a potential command line flag anomaly related to "regsvr32" in which the "/i" flag is used without the "/n" which should be uncommon.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_flags_anomaly.yml
+
+    False Positives:
+    - Administrator typo might cause some false positives
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

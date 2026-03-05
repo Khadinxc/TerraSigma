@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_cmd_mklink_o
   name                       = "proc_creation_win_cmd_mklink_osk_cmd"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Privilege Escalation Using Symlink Between Osk and Cmd"
-  description                = "Detects the creation of a symbolic link between \"cmd.exe\" and the accessibility on-screen keyboard binary (osk.exe) using \"mklink\". This technique provides an elevated command prompt to the user from the login screen without the need to log in. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_mklink_osk_cmd.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_mklink_osk_cmd.yml"
+  description                = <<DESC
+    Detects the creation of a symbolic link between "cmd.exe" and the accessibility on-screen keyboard binary (osk.exe) using "mklink". This technique provides an elevated command prompt to the user from the login screen without the need to log in.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_mklink_osk_cmd.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_dumpminitool
   name                       = "proc_creation_win_dumpminitool_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DumpMinitool Execution"
-  description                = "Detects the use of \"DumpMinitool.exe\" a tool that allows the dump of process memory via the use of the \"MiniDumpWriteDump\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dumpminitool_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dumpminitool_execution.yml"
+  description                = <<DESC
+    Detects the use of "DumpMinitool.exe" a tool that allows the dump of process memory via the use of the "MiniDumpWriteDump"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dumpminitool_execution.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

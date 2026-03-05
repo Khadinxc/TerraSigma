@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_net_start_se
   name                       = "proc_creation_win_net_start_service"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Start Windows Service Via Net.EXE"
-  description                = "Detects the usage of the \"net.exe\" command to start a service using the \"start\" flag Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_start_service.yml - Legitimate administrator or user executes a service for legitimate reasons. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_start_service.yml"
+  description                = <<DESC
+    Detects the usage of the "net.exe" command to start a service using the "start" flag
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_start_service.yml
+
+    False Positives:
+    - Legitimate administrator or user executes a service for legitimate reasons.
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

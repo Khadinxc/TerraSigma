@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_curl_cookie_
   name                       = "proc_creation_win_curl_cookie_hijacking"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Cookies Session Hijacking"
-  description                = "Detects execution of \"curl.exe\" with the \"-c\" flag in order to save cookie data. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_cookie_hijacking.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_cookie_hijacking.yml"
+  description                = <<DESC
+    Detects execution of "curl.exe" with the "-c" flag in order to save cookie data.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_cookie_hijacking.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

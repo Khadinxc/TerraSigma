@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_event_silentprocessex
   name                       = "registry_event_silentprocessexit_lsass"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Credential Dumping Via LSASS SilentProcessExit Technique"
-  description                = "Detects changes to the Registry in which a monitor program gets registered to dump the memory of the lsass.exe process Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_silentprocessexit_lsass.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_silentprocessexit_lsass.yml"
+  description                = <<DESC
+    Detects changes to the Registry in which a monitor program gets registered to dump the memory of the lsass.exe process
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_silentprocessexit_lsass.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

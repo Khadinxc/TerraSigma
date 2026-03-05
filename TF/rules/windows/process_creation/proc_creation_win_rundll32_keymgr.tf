@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_key
   name                       = "proc_creation_win_rundll32_keymgr"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Key Manager Access"
-  description                = "Detects the invocation of the Stored User Names and Passwords dialogue (Key Manager) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_keymgr.yml - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_keymgr.yml"
+  description                = <<DESC
+    Detects the invocation of the Stored User Names and Passwords dialogue (Key Manager)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_keymgr.yml
+
+    False Positives:
+    - Administrative activity
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

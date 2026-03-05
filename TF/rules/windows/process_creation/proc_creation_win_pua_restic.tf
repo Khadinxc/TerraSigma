@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_pua_restic" 
   name                       = "proc_creation_win_pua_restic"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Restic Backup Tool Execution"
-  description                = "Detects the execution of the Restic backup tool, which can be used for data exfiltration. Threat actors may leverage Restic to back up and exfiltrate sensitive data to remote storage locations, including cloud services. If not legitimately used in the enterprise environment, its presence may indicate malicious activity. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_restic.yml - Legitimate use of Restic for backup purposes within the organization. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_restic.yml"
+  description                = <<DESC
+    Detects the execution of the Restic backup tool, which can be used for data exfiltration. Threat actors may leverage Restic to back up and exfiltrate sensitive data to remote storage locations, including cloud services. If not legitimately used in the enterprise environment, its presence may indicate malicious activity.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_restic.yml
+
+    False Positives:
+    - Legitimate use of Restic for backup purposes within the organization.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

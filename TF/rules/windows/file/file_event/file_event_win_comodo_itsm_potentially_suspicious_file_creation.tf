@@ -2,7 +2,16 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_comodo_itsm_pot
   name                       = "file_event_win_comodo_itsm_potentially_suspicious_file_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious File Creation by OpenEDR's ITSMService"
-  description                = "Detects the creation of potentially suspicious files by OpenEDR's ITSMService process. The ITSMService is responsible for remote management operations and can create files on the system through the Process Explorer or file management features. While legitimate for IT operations, creation of executable or script files could indicate unauthorized file uploads, data staging, or malicious file deployment. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_comodo_itsm_potentially_suspicious_file_creation.yml - Legitimate OpenEDR file management operations - Authorized remote file uploads by IT administrators - Software deployment through OpenEDR console | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_comodo_itsm_potentially_suspicious_file_creation.yml"
+  description                = <<DESC
+    Detects the creation of potentially suspicious files by OpenEDR's ITSMService process. The ITSMService is responsible for remote management operations and can create files on the system through the Process Explorer or file management features. While legitimate for IT operations, creation of executable or script files could indicate unauthorized file uploads, data staging, or malicious file deployment.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_comodo_itsm_potentially_suspicious_file_creation.yml
+
+    False Positives:
+    - Legitimate OpenEDR file management operations
+    - Authorized remote file uploads by IT administrators
+    - Software deployment through OpenEDR console
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

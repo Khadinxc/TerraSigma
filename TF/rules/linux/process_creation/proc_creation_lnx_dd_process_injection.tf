@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_dd_process_i
   name                       = "proc_creation_lnx_dd_process_injection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Linux Process Code Injection Via DD Utility"
-  description                = "Detects the injection of code by overwriting the memory map of a Linux process using the \"dd\" Linux command. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_dd_process_injection.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_dd_process_injection.yml"
+  description                = <<DESC
+    Detects the injection of code by overwriting the memory map of a Linux process using the "dd" Linux command.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_dd_process_injection.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

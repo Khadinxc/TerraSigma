@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_electro
   name                       = "proc_creation_win_susp_electron_execution_proxy"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Electron Application CommandLine"
-  description                = "Detects potentially suspicious CommandLine of electron apps (teams, discord, slack, etc.). This could be a sign of abuse to proxy execution through a signed binary. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_electron_execution_proxy.yml - Legitimate usage for debugging purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_electron_execution_proxy.yml"
+  description                = <<DESC
+    Detects potentially suspicious CommandLine of electron apps (teams, discord, slack, etc.). This could be a sign of abuse to proxy execution through a signed binary.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_electron_execution_proxy.yml
+
+    False Positives:
+    - Legitimate usage for debugging purposes
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

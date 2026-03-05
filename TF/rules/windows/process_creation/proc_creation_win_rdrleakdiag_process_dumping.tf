@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rdrleakdiag_
   name                       = "proc_creation_win_rdrleakdiag_process_dumping"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Process Memory Dump via RdrLeakDiag.EXE"
-  description                = "Detects the use of the Microsoft Windows Resource Leak Diagnostic tool \"rdrleakdiag.exe\" to dump process memory Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rdrleakdiag_process_dumping.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rdrleakdiag_process_dumping.yml"
+  description                = <<DESC
+    Detects the use of the Microsoft Windows Resource Leak Diagnostic tool "rdrleakdiag.exe" to dump process memory
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rdrleakdiag_process_dumping.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

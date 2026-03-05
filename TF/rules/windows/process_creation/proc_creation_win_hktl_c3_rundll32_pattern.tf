@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_c3_rund
   name                       = "proc_creation_win_hktl_c3_rundll32_pattern"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - F-Secure C3 Load by Rundll32"
-  description                = "F-Secure C3 produces DLLs with a default exported StartNodeRelay function. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_c3_rundll32_pattern.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_c3_rundll32_pattern.yml"
+  description                = <<DESC
+    F-Secure C3 produces DLLs with a default exported StartNodeRelay function.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_c3_rundll32_pattern.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

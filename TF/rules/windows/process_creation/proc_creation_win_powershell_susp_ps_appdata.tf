@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_s
   name                       = "proc_creation_win_powershell_susp_ps_appdata"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Script Run in AppData"
-  description                = "Detects a suspicious command line execution that invokes PowerShell with reference to an AppData folder Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_susp_ps_appdata.yml - Administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_susp_ps_appdata.yml"
+  description                = <<DESC
+    Detects a suspicious command line execution that invokes PowerShell with reference to an AppData folder
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_susp_ps_appdata.yml
+
+    False Positives:
+    - Administrative scripts
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

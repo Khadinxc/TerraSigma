@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_proc_wr
   name                       = "proc_creation_win_susp_proc_wrong_parent"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Processes Suspicious Parent Directory"
-  description                = "Detect suspicious parent processes of well-known Windows processes Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_proc_wrong_parent.yml - Some security products seem to spawn these | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_proc_wrong_parent.yml"
+  description                = <<DESC
+    Detect suspicious parent processes of well-known Windows processes
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_proc_wrong_parent.yml
+
+    False Positives:
+    - Some security products seem to spawn these
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

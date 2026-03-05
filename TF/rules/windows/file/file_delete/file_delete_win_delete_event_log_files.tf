@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_delete_win_delete_event_l
   name                       = "file_delete_win_delete_event_log_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "EventLog EVTX File Deleted"
-  description                = "Detects the deletion of the event log files which may indicate an attempt to destroy forensic evidence Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_event_log_files.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_event_log_files.yml"
+  description                = <<DESC
+    Detects the deletion of the event log files which may indicate an attempt to destroy forensic evidence
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_event_log_files.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

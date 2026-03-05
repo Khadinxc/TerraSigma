@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_access_win_susp_reg_and_h
   name                       = "file_access_win_susp_reg_and_hive"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Access To .Reg/.Hive Files By Uncommon Applications"
-  description                = "Detects file access requests to files ending with either the \".hive\"/\".reg\" extension, usually associated with Windows Registry backups. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/file_access_win_susp_reg_and_hive.yml - Third party software installed in the user context might generate a lot of FPs. Heavy baselining and tuning might be required. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/file_access_win_susp_reg_and_hive.yml"
+  description                = <<DESC
+    Detects file access requests to files ending with either the ".hive"/".reg" extension, usually associated with Windows Registry backups.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/file_access_win_susp_reg_and_hive.yml
+
+    False Positives:
+    - Third party software installed in the user context might generate a lot of FPs. Heavy baselining and tuning might be required.
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents

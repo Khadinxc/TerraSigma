@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_reg_dumping_
   name                       = "proc_creation_win_reg_dumping_sensitive_hives"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Dumping of Sensitive Hives Via Reg.EXE"
-  description                = "Detects the usage of \"reg.exe\" in order to dump sensitive registry hives. This includes SAM, SYSTEM and SECURITY hives. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_dumping_sensitive_hives.yml - Dumping hives for legitimate purpouse i.e. backup or forensic investigation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_dumping_sensitive_hives.yml"
+  description                = <<DESC
+    Detects the usage of "reg.exe" in order to dump sensitive registry hives. This includes SAM, SYSTEM and SECURITY hives.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_dumping_sensitive_hives.yml
+
+    False Positives:
+    - Dumping hives for legitimate purpouse i.e. backup or forensic investigation
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

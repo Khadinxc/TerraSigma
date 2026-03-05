@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_tmutil_exc
   name                       = "proc_creation_macos_tmutil_exclude_file_from_backup"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New File Exclusion Added To Time Machine Via Tmutil - MacOS"
-  description                = "Detects the addition of a new file or path exclusion to MacOS Time Machine via the \"tmutil\" utility. An adversary could exclude a path from Time Machine backups to prevent certain files from being backed up. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_tmutil_exclude_file_from_backup.yml - Legitimate administrator activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_tmutil_exclude_file_from_backup.yml"
+  description                = <<DESC
+    Detects the addition of a new file or path exclusion to MacOS Time Machine via the "tmutil" utility. An adversary could exclude a path from Time Machine backups to prevent certain files from being backed up.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_tmutil_exclude_file_from_backup.yml
+
+    False Positives:
+    - Legitimate administrator activity
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

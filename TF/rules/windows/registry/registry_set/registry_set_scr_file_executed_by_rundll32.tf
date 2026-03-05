@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_scr_file_executed
   name                       = "registry_set_scr_file_executed_by_rundll32"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ScreenSaver Registry Key Set"
-  description                = "Detects registry key established after masqueraded .scr file execution using Rundll32 through desk.cpl Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_scr_file_executed_by_rundll32.yml - Legitimate use of screen saver | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_scr_file_executed_by_rundll32.yml"
+  description                = <<DESC
+    Detects registry key established after masqueraded .scr file execution using Rundll32 through desk.cpl
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_scr_file_executed_by_rundll32.yml
+
+    False Positives:
+    - Legitimate use of screen saver
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

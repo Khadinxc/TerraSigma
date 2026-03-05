@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_grep_os_arch
   name                       = "proc_creation_lnx_grep_os_arch_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "OS Architecture Discovery Via Grep"
-  description                = "Detects the use of grep to identify information about the operating system architecture. Often combined beforehand with the execution of \"uname\" or \"cat /proc/cpuinfo\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_grep_os_arch_discovery.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_grep_os_arch_discovery.yml"
+  description                = <<DESC
+    Detects the use of grep to identify information about the operating system architecture. Often combined beforehand with the execution of "uname" or "cat /proc/cpuinfo"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_grep_os_arch_discovery.yml
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

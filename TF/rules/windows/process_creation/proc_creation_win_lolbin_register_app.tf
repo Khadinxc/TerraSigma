@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_regis
   name                       = "proc_creation_win_lolbin_register_app"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "REGISTER_APP.VBS Proxy Execution"
-  description                = "Detects the use of a Microsoft signed script 'REGISTER_APP.VBS' to register a VSS/VDS Provider as a COM+ application. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_register_app.yml - Legitimate usage of the script. Always investigate what's being registered to confirm if it's benign | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_register_app.yml"
+  description                = <<DESC
+    Detects the use of a Microsoft signed script 'REGISTER_APP.VBS' to register a VSS/VDS Provider as a COM+ application.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_register_app.yml
+
+    False Positives:
+    - Legitimate usage of the script. Always investigate what's being registered to confirm if it's benign
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

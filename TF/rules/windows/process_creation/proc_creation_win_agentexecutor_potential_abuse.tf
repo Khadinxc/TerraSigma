@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_agentexecuto
   name                       = "proc_creation_win_agentexecutor_potential_abuse"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "AgentExecutor PowerShell Execution"
-  description                = "Detects execution of the AgentExecutor.exe binary. Which can be abused as a LOLBIN to execute powershell scripts with the ExecutionPolicy \"Bypass\" or any binary named \"powershell.exe\" located in the path provided by 6th positional argument Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_agentexecutor_potential_abuse.yml - Legitimate use via Intune management. You exclude script paths and names to reduce FP rate | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_agentexecutor_potential_abuse.yml"
+  description                = <<DESC
+    Detects execution of the AgentExecutor.exe binary. Which can be abused as a LOLBIN to execute powershell scripts with the ExecutionPolicy "Bypass" or any binary named "powershell.exe" located in the path provided by 6th positional argument
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_agentexecutor_potential_abuse.yml
+
+    False Positives:
+    - Legitimate use via Intune management. You exclude script paths and names to reduce FP rate
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

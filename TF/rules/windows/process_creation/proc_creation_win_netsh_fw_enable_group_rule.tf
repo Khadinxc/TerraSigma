@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_netsh_fw_ena
   name                       = "proc_creation_win_netsh_fw_enable_group_rule"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Netsh Allow Group Policy on Microsoft Defender Firewall"
-  description                = "Adversaries may modify system firewalls in order to bypass controls limiting network usage Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_enable_group_rule.yml - Legitimate administration activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_enable_group_rule.yml"
+  description                = <<DESC
+    Adversaries may modify system firewalls in order to bypass controls limiting network usage
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_enable_group_rule.yml
+
+    False Positives:
+    - Legitimate administration activity
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

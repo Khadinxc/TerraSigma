@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_zipexec
   name                       = "proc_creation_win_hktl_zipexec"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious ZipExec Execution"
-  description                = "ZipExec is a Proof-of-Concept (POC) tool to wrap binary-based tools into a password-protected zip file. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_zipexec.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_zipexec.yml"
+  description                = <<DESC
+    ZipExec is a Proof-of-Concept (POC) tool to wrap binary-based tools into a password-protected zip file.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_zipexec.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

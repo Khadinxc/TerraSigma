@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_non_exe
   name                       = "proc_creation_win_susp_non_exe_image"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Execution of Suspicious File Type Extension"
-  description                = "Detects whether the image specified in a process creation event doesn't refer to an \".exe\" (or other known executable extension) file. This can be caused by process ghosting or other unorthodox methods to start a process. This rule might require some initial baselining to align with some third party tooling in the user environment. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_non_exe_image.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_non_exe_image.yml"
+  description                = <<DESC
+    Detects whether the image specified in a process creation event doesn't refer to an ".exe" (or other known executable extension) file. This can be caused by process ghosting or other unorthodox methods to start a process. This rule might require some initial baselining to align with some third party tooling in the user environment.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_non_exe_image.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

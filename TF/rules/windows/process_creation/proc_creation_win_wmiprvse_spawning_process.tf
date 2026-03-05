@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wmiprvse_spa
   name                       = "proc_creation_win_wmiprvse_spawning_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WmiPrvSE Spawned A Process"
-  description                = "Detects WmiPrvSE spawning a process Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmiprvse_spawning_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmiprvse_spawning_process.yml"
+  description                = <<DESC
+    Detects WmiPrvSE spawning a process
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmiprvse_spawning_process.yml
+
+    False Positives:
+    - False positives are expected (e.g. in environments where WinRM is used legitimately)
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

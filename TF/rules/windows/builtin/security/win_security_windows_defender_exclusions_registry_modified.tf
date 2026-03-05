@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "win_security_windows_defender_
   name                       = "win_security_windows_defender_exclusions_registry_modified"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Defender Exclusion List Modified"
-  description                = "Detects modifications to the Windows Defender exclusion registry key. This could indicate a potentially suspicious or even malicious activity by an attacker trying to add a new exclusion in order to bypass security. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_windows_defender_exclusions_registry_modified.yml - Intended exclusions by administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_windows_defender_exclusions_registry_modified.yml"
+  description                = <<DESC
+    Detects modifications to the Windows Defender exclusion registry key. This could indicate a potentially suspicious or even malicious activity by an attacker trying to add a new exclusion in order to bypass security.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_windows_defender_exclusions_registry_modified.yml
+
+    False Positives:
+    - Intended exclusions by administrators
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

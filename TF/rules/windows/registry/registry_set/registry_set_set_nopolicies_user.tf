@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_set_nopolicies_us
   name                       = "registry_set_set_nopolicies_user"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Registry Explorer Policy Modification"
-  description                = "Detects registry modifications that disable internal tools or functions in explorer (malware like Agent Tesla uses this technique) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_set_nopolicies_user.yml - Legitimate admin script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_set_nopolicies_user.yml"
+  description                = <<DESC
+    Detects registry modifications that disable internal tools or functions in explorer (malware like Agent Tesla uses this technique)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_set_nopolicies_user.yml
+
+    False Positives:
+    - Legitimate admin script
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

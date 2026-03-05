@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_gpscr
   name                       = "proc_creation_win_lolbin_gpscript"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Gpscript Execution"
-  description                = "Detects the execution of the LOLBIN gpscript, which executes logon or startup scripts configured in Group Policy Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_gpscript.yml - Legitimate uses of logon scripts distributed via group policy | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_gpscript.yml"
+  description                = <<DESC
+    Detects the execution of the LOLBIN gpscript, which executes logon or startup scripts configured in Group Policy
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_gpscript.yml
+
+    False Positives:
+    - Legitimate uses of logon scripts distributed via group policy
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

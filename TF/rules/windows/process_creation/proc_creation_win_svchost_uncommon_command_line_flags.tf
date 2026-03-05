@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_svchost_unco
   name                       = "proc_creation_win_svchost_uncommon_command_line_flags"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon Svchost Command Line Parameter"
-  description                = "Detects instances of svchost.exe running with an unusual or uncommon command line parameter by excluding known legitimate or common patterns. This could point at a file masquerading as svchost, a process injection, or hollowing of a legitimate svchost instance. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_svchost_uncommon_command_line_flags.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_svchost_uncommon_command_line_flags.yml"
+  description                = <<DESC
+    Detects instances of svchost.exe running with an unusual or uncommon command line parameter by excluding known legitimate or common patterns. This could point at a file masquerading as svchost, a process injection, or hollowing of a legitimate svchost instance.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_svchost_uncommon_command_line_flags.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

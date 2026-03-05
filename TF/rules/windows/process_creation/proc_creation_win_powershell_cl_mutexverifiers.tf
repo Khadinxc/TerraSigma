@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_c
   name                       = "proc_creation_win_powershell_cl_mutexverifiers"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Script Proxy Execution Via CL_Mutexverifiers.ps1"
-  description                = "Detects the use of the Microsoft signed script \"CL_mutexverifiers\" to proxy the execution of additional PowerShell script commands Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cl_mutexverifiers.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cl_mutexverifiers.yml"
+  description                = <<DESC
+    Detects the use of the Microsoft signed script "CL_mutexverifiers" to proxy the execution of additional PowerShell script commands
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cl_mutexverifiers.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

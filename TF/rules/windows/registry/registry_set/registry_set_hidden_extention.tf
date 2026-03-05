@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_hidden_extention"
   name                       = "registry_set_hidden_extention"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Registry Modification to Hidden File Extension"
-  description                = "Hides the file extension through modification of the registry Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_hidden_extention.yml - Administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_hidden_extention.yml"
+  description                = <<DESC
+    Hides the file extension through modification of the registry
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_hidden_extention.yml
+
+    False Positives:
+    - Administrative scripts
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

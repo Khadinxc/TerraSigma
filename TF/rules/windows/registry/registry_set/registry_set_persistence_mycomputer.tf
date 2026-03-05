@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_persistence_mycom
   name                       = "registry_set_persistence_mycomputer"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via MyComputer Registry Keys"
-  description                = "Detects modification to the \"Default\" value of the \"MyComputer\" key and subkeys to point to a custom binary that will be launched whenever the associated action is executed (see reference section for example) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_mycomputer.yml - Unlikely but if you experience FPs add specific processes and locations you would like to monitor for | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_mycomputer.yml"
+  description                = <<DESC
+    Detects modification to the "Default" value of the "MyComputer" key and subkeys to point to a custom binary that will be launched whenever the associated action is executed (see reference section for example)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_mycomputer.yml
+
+    False Positives:
+    - Unlikely but if you experience FPs add specific processes and locations you would like to monitor for
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_system_lsa_nolmha
   name                       = "registry_set_system_lsa_nolmhash"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Enable LM Hash Storage"
-  description                = "Detects changes to the \"NoLMHash\" registry value in order to allow Windows to store LM Hashes. By setting this registry value to \"0\" (DWORD), Windows will be allowed to store a LAN manager hash of your password in Active Directory and local SAM databases. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_system_lsa_nolmhash.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_system_lsa_nolmhash.yml"
+  description                = <<DESC
+    Detects changes to the "NoLMHash" registry value in order to allow Windows to store LM Hashes. By setting this registry value to "0" (DWORD), Windows will be allowed to store a LAN manager hash of your password in Active Directory and local SAM databases.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_system_lsa_nolmhash.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

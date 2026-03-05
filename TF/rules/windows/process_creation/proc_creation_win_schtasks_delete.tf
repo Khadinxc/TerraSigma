@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_schtasks_del
   name                       = "proc_creation_win_schtasks_delete"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Delete Important Scheduled Task"
-  description                = "Detects when adversaries stop services or processes by deleting their respective scheduled tasks in order to conduct data destructive activities Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_delete.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_delete.yml"
+  description                = <<DESC
+    Detects when adversaries stop services or processes by deleting their respective scheduled tasks in order to conduct data destructive activities
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_delete.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

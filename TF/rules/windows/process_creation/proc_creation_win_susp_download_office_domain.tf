@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_downloa
   name                       = "proc_creation_win_susp_download_office_domain"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Download from Office Domain"
-  description                = "Detects suspicious ways to download files from Microsoft domains that are used to store attachments in Emails or OneNote documents Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_download_office_domain.yml - Scripts or tools that download attachments from these domains (OneNote, Outlook 365) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_download_office_domain.yml"
+  description                = <<DESC
+    Detects suspicious ways to download files from Microsoft domains that are used to store attachments in Emails or OneNote documents
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_download_office_domain.yml
+
+    False Positives:
+    - Scripts or tools that download attachments from these domains (OneNote, Outlook 365)
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

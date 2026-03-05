@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_inl
   name                       = "proc_creation_win_rundll32_inline_vbs"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Rundll32 Invoking Inline VBScript"
-  description                = "Detects suspicious process related to rundll32 based on command line that invokes inline VBScript as seen being used by UNC2452 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_inline_vbs.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_inline_vbs.yml"
+  description                = <<DESC
+    Detects suspicious process related to rundll32 based on command line that invokes inline VBScript as seen being used by UNC2452
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_inline_vbs.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

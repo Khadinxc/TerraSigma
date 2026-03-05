@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_cloudflared_
   name                       = "proc_creation_win_cloudflared_tunnel_cleanup"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Cloudflared Tunnel Connections Cleanup"
-  description                = "Detects execution of the \"cloudflared\" tool with the tunnel \"cleanup\" flag in order to cleanup tunnel connections. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cloudflared_tunnel_cleanup.yml - Legitimate usage of Cloudflared. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cloudflared_tunnel_cleanup.yml"
+  description                = <<DESC
+    Detects execution of the "cloudflared" tool with the tunnel "cleanup" flag in order to cleanup tunnel connections.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cloudflared_tunnel_cleanup.yml
+
+    False Positives:
+    - Legitimate usage of Cloudflared.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_deviceenroll
   name                       = "proc_creation_win_deviceenroller_dll_sideloading"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential DLL Sideloading Via DeviceEnroller.EXE"
-  description                = "Detects the use of the PhoneDeepLink parameter to potentially sideload a DLL file that does not exist. This non-existent DLL file is named \"ShellChromeAPI.dll\". Adversaries can drop their own renamed DLL and execute it via DeviceEnroller.exe using this parameter Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_deviceenroller_dll_sideloading.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_deviceenroller_dll_sideloading.yml"
+  description                = <<DESC
+    Detects the use of the PhoneDeepLink parameter to potentially sideload a DLL file that does not exist. This non-existent DLL file is named "ShellChromeAPI.dll". Adversaries can drop their own renamed DLL and execute it via DeviceEnroller.exe using this parameter
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_deviceenroller_dll_sideloading.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

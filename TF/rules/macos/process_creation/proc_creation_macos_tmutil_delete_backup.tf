@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_tmutil_del
   name                       = "proc_creation_macos_tmutil_delete_backup"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Time Machine Backup Deletion Attempt Via Tmutil - MacOS"
-  description                = "Detects deletion attempts of MacOS Time Machine backups via the native backup utility \"tmutil\". An adversary may perform this action before launching a ransonware attack to prevent the victim from restoring their files. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_tmutil_delete_backup.yml - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_tmutil_delete_backup.yml"
+  description                = <<DESC
+    Detects deletion attempts of MacOS Time Machine backups via the native backup utility "tmutil". An adversary may perform this action before launching a ransonware attack to prevent the victim from restoring their files.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_tmutil_delete_backup.yml
+
+    False Positives:
+    - Legitimate activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

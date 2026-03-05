@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_side_load_windows_d
   name                       = "image_load_side_load_windows_defender"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Mpclient.DLL Sideloading"
-  description                = "Detects potential sideloading of \"mpclient.dll\" by Windows Defender processes (\"MpCmdRun\" and \"NisSrv\") from their non-default directory. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_windows_defender.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_windows_defender.yml"
+  description                = <<DESC
+    Detects potential sideloading of "mpclient.dll" by Windows Defender processes ("MpCmdRun" and "NisSrv") from their non-default directory.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_windows_defender.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

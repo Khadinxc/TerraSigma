@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_b
   name                       = "proc_creation_win_powershell_base64_encoded_cmd_patterns"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious PowerShell Encoded Command Patterns"
-  description                = "Detects PowerShell command line patterns in combincation with encoded commands that often appear in malware infection chains Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_encoded_cmd_patterns.yml - Other tools that work with encoded scripts in the command line instead of script files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_encoded_cmd_patterns.yml"
+  description                = <<DESC
+    Detects PowerShell command line patterns in combincation with encoded commands that often appear in malware infection chains
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_encoded_cmd_patterns.yml
+
+    False Positives:
+    - Other tools that work with encoded scripts in the command line instead of script files
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

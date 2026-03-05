@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_executi
   name                       = "proc_creation_win_susp_execution_path"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Process Execution From A Potentially Suspicious Folder"
-  description                = "Detects a potentially suspicious execution from an uncommon folder. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_execution_path.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_execution_path.yml"
+  description                = <<DESC
+    Detects a potentially suspicious execution from an uncommon folder.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_execution_path.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_access_win_susp_gpo_files
   name                       = "file_access_win_susp_gpo_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Access To Potentially Sensitive Sysvol Files By Uncommon Applications"
-  description                = "Detects file access requests to potentially sensitive files hosted on the Windows Sysvol share. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_susp_gpo_files.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_susp_gpo_files.yml"
+  description                = <<DESC
+    Detects file access requests to potentially sensitive files hosted on the Windows Sysvol share.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_susp_gpo_files.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

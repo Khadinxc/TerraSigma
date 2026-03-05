@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_python_shell
   name                       = "proc_creation_lnx_python_shell_os_system"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Inline Python Execution - Spawn Shell Via OS System Library"
-  description                = "Detects execution of inline Python code via the \"-c\" in order to call the \"system\" function from the \"os\" library, and spawn a shell. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_python_shell_os_system.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_python_shell_os_system.yml"
+  description                = <<DESC
+    Detects execution of inline Python code via the "-c" in order to call the "system" function from the "os" library, and spawn a shell.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_python_shell_os_system.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

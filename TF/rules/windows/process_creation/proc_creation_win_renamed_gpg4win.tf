@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_renamed_gpg4
   name                       = "proc_creation_win_renamed_gpg4win"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed Gpg.EXE Execution"
-  description                = "Detects the execution of a renamed \"gpg.exe\". Often used by ransomware and loaders to decrypt/encrypt data. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_gpg4win.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_gpg4win.yml"
+  description                = <<DESC
+    Detects the execution of a renamed "gpg.exe". Often used by ransomware and loaders to decrypt/encrypt data.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_gpg4win.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

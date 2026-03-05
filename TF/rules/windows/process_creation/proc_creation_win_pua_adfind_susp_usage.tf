@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_pua_adfind_s
   name                       = "proc_creation_win_pua_adfind_susp_usage"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - AdFind Suspicious Execution"
-  description                = "Detects AdFind execution with common flags seen used during attacks Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_adfind_susp_usage.yml - Legitimate admin activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_adfind_susp_usage.yml"
+  description                = <<DESC
+    Detects AdFind execution with common flags seen used during attacks
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_adfind_susp_usage.yml
+
+    False Positives:
+    - Legitimate admin activity
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

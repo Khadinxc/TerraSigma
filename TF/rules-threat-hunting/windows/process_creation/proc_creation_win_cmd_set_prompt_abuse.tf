@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_cmd_set_prom
   name                       = "proc_creation_win_cmd_set_prompt_abuse"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential File Override/Append Via SET Command"
-  description                = "Detects the use of the \"SET\" internal command of Cmd.EXE with the /p flag followed directly by an \"=\" sign. Attackers used this technique along with an append redirection operator \">>\" in order to update the content of a file indirectly. Ex: cmd /c >> example.txt set /p=\"test data\". This will append \"test data\" to contents of \"example.txt\". The typical use case of the \"set /p=\" command is to prompt the user for input. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_cmd_set_prompt_abuse.yml - Legitimate use of the SET with the \"/p\" flag for user prompting. command in administrative scripts or user-generated scripts. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_cmd_set_prompt_abuse.yml"
+  description                = <<DESC
+    Detects the use of the "SET" internal command of Cmd.EXE with the /p flag followed directly by an "=" sign. Attackers used this technique along with an append redirection operator ">>" in order to update the content of a file indirectly. Ex: cmd /c >> example.txt set /p="test data". This will append "test data" to contents of "example.txt". The typical use case of the "set /p=" command is to prompt the user for input.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_cmd_set_prompt_abuse.yml
+
+    False Positives:
+    - Legitimate use of the SET with the "/p" flag for user prompting. command in administrative scripts or user-generated scripts.
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

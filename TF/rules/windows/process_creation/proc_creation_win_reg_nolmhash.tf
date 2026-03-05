@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_reg_nolmhash
   name                       = "proc_creation_win_reg_nolmhash"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Enable LM Hash Storage - ProcCreation"
-  description                = "Detects changes to the \"NoLMHash\" registry value in order to allow Windows to store LM Hashes. By setting this registry value to \"0\" (DWORD), Windows will be allowed to store a LAN manager hash of your password in Active Directory and local SAM databases. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_nolmhash.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_nolmhash.yml"
+  description                = <<DESC
+    Detects changes to the "NoLMHash" registry value in order to allow Windows to store LM Hashes. By setting this registry value to "0" (DWORD), Windows will be allowed to store a LAN manager hash of your password in Active Directory and local SAM databases.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_nolmhash.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

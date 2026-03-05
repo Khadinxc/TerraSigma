@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_dbgmanageddebugge
   name                       = "registry_set_dbgmanageddebugger_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Registry Persistence Attempt Via DbgManagedDebugger"
-  description                = "Detects the addition of the \"Debugger\" value to the \"DbgManagedDebugger\" key in order to achieve persistence. Which will get invoked when an application crashes Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_dbgmanageddebugger_persistence.yml - Legitimate use of the key to setup a debugger. Which is often the case on developers machines | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_dbgmanageddebugger_persistence.yml"
+  description                = <<DESC
+    Detects the addition of the "Debugger" value to the "DbgManagedDebugger" key in order to achieve persistence. Which will get invoked when an application crashes
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_dbgmanageddebugger_persistence.yml
+
+    False Positives:
+    - Legitimate use of the key to setup a debugger. Which is often the case on developers machines
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

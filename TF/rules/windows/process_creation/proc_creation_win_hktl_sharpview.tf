@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_sharpvi
   name                       = "proc_creation_win_hktl_sharpview"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - SharpView Execution"
-  description                = "Adversaries may look for details about the network configuration and settings of systems they access or through information discovery of remote systems Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpview.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpview.yml"
+  description                = <<DESC
+    Adversaries may look for details about the network configuration and settings of systems they access or through information discovery of remote systems
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpview.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

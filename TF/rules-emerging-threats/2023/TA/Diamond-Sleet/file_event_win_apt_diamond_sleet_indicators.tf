@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_apt_diamond_sle
   name                       = "file_event_win_apt_diamond_sleet_indicators"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Diamond Sleet APT File Creation Indicators"
-  description                = "Detects file creation activity that is related to Diamond Sleet APT activity Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/file_event_win_apt_diamond_sleet_indicators.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/file_event_win_apt_diamond_sleet_indicators.yml"
+  description                = <<DESC
+    Detects file creation activity that is related to Diamond Sleet APT activity
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/file_event_win_apt_diamond_sleet_indicators.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

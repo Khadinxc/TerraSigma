@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_imagingdevic
   name                       = "proc_creation_win_imagingdevices_unusual_parents"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ImagingDevices Unusual Parent/Child Processes"
-  description                = "Detects unusual parent or children of the ImagingDevices.exe (Windows Contacts) process as seen being used with Bumblebee activity Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_imagingdevices_unusual_parents.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_imagingdevices_unusual_parents.yml"
+  description                = <<DESC
+    Detects unusual parent or children of the ImagingDevices.exe (Windows Contacts) process as seen being used with Bumblebee activity
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_imagingdevices_unusual_parents.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

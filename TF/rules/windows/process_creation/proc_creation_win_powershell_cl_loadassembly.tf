@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_c
   name                       = "proc_creation_win_powershell_cl_loadassembly"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Assembly Loading Via CL_LoadAssembly.ps1"
-  description                = "Detects calls to \"LoadAssemblyFromPath\" or \"LoadAssemblyFromNS\" that are part of the \"CL_LoadAssembly.ps1\" script. This can be abused to load different assemblies and bypass App locker controls. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cl_loadassembly.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cl_loadassembly.yml"
+  description                = <<DESC
+    Detects calls to "LoadAssemblyFromPath" or "LoadAssemblyFromNS" that are part of the "CL_LoadAssembly.ps1" script. This can be abused to load different assemblies and bypass App locker controls.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cl_loadassembly.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

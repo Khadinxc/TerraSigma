@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sysinternals
   name                       = "proc_creation_win_sysinternals_tools_masquerading"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Binary Impersonating Sysinternals Tools"
-  description                = "Detects binaries that use the same name as legitimate sysinternals tools to evade detection. This rule looks for the execution of binaries that are named similarly to Sysinternals tools. Adversary may rename their malicious tools as legitimate Sysinternals tools to evade detection. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_tools_masquerading.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_tools_masquerading.yml"
+  description                = <<DESC
+    Detects binaries that use the same name as legitimate sysinternals tools to evade detection. This rule looks for the execution of binaries that are named similarly to Sysinternals tools. Adversary may rename their malicious tools as legitimate Sysinternals tools to evade detection.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_tools_masquerading.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_mint_san
   name                       = "proc_creation_win_apt_mint_sandstorm_log4j_wstomcat_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Mint Sandstorm - Log4J Wstomcat Process Execution"
-  description                = "Detects Log4J Wstomcat process execution as seen in Mint Sandstorm activity Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Mint-Sandstorm/proc_creation_win_apt_mint_sandstorm_log4j_wstomcat_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Mint-Sandstorm/proc_creation_win_apt_mint_sandstorm_log4j_wstomcat_execution.yml"
+  description                = <<DESC
+    Detects Log4J Wstomcat process execution as seen in Mint Sandstorm activity
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Mint-Sandstorm/proc_creation_win_apt_mint_sandstorm_log4j_wstomcat_execution.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_file_association_
   name                       = "registry_set_file_association_exefile"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New File Association Using Exefile"
-  description                = "Detects the abuse of the exefile handler in new file association. Used for bypass of security products. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_file_association_exefile.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_file_association_exefile.yml"
+  description                = <<DESC
+    Detects the abuse of the exefile handler in new file association. Used for bypass of security products.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_file_association_exefile.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

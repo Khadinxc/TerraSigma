@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_msiexec_inst
   name                       = "proc_creation_win_msiexec_install_remote"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Msiexec Quiet Install From Remote Location"
-  description                = "Detects usage of Msiexec.exe to install packages hosted remotely quietly Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_install_remote.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_install_remote.yml"
+  description                = <<DESC
+    Detects usage of Msiexec.exe to install packages hosted remotely quietly
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_install_remote.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

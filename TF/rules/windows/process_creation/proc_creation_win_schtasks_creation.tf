@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_schtasks_cre
   name                       = "proc_creation_win_schtasks_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Scheduled Task Creation Via Schtasks.EXE"
-  description                = "Detects the creation of scheduled tasks by user accounts via the \"schtasks\" utility. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_creation.yml - Administrative activity - Software installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_creation.yml"
+  description                = <<DESC
+    Detects the creation of scheduled tasks by user accounts via the "schtasks" utility.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_creation.yml
+
+    False Positives:
+    - Administrative activity
+    - Software installation
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

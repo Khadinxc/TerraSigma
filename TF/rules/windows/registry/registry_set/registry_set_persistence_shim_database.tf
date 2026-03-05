@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_persistence_shim_
   name                       = "registry_set_persistence_shim_database"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Shim Database Modification"
-  description                = "Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by application shims. The Microsoft Windows Application Compatibility Infrastructure/Framework (Application Shim) was created to allow for backward compatibility of software as the operating system codebase changes over time Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_shim_database.yml - Legitimate custom SHIM installations will also trigger this rule | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_shim_database.yml"
+  description                = <<DESC
+    Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by application shims. The Microsoft Windows Application Compatibility Infrastructure/Framework (Application Shim) was created to allow for backward compatibility of software as the operating system codebase changes over time
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_shim_database.yml
+
+    False Positives:
+    - Legitimate custom SHIM installations will also trigger this rule
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

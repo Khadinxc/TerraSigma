@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sc_new_kerne
   name                       = "proc_creation_win_sc_new_kernel_driver"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Kernel Driver Via SC.EXE"
-  description                = "Detects creation of a new service (kernel driver) with the type \"kernel\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_new_kernel_driver.yml - Rare legitimate installation of kernel drivers via sc.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_new_kernel_driver.yml"
+  description                = <<DESC
+    Detects creation of a new service (kernel driver) with the type "kernel"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_new_kernel_driver.yml
+
+    False Positives:
+    - Rare legitimate installation of kernel drivers via sc.exe
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

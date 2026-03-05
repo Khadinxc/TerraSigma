@@ -2,7 +2,16 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_data_
   name                       = "proc_creation_win_lolbin_data_exfiltration_by_using_datasvcutil"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "LOLBAS Data Exfiltration by DataSvcUtil.exe"
-  description                = "Detects when a user performs data exfiltration by using DataSvcUtil.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_data_exfiltration_by_using_datasvcutil.yml - DataSvcUtil.exe being used may be performed by a system administrator. - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment. - DataSvcUtil.exe being executed from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_data_exfiltration_by_using_datasvcutil.yml"
+  description                = <<DESC
+    Detects when a user performs data exfiltration by using DataSvcUtil.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_data_exfiltration_by_using_datasvcutil.yml
+
+    False Positives:
+    - DataSvcUtil.exe being used may be performed by a system administrator.
+    - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.
+    - DataSvcUtil.exe being executed from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

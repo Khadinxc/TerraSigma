@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_sharp_d
   name                       = "proc_creation_win_hktl_sharp_dpapi_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - SharpDPAPI Execution"
-  description                = "Detects the execution of the SharpDPAPI tool based on CommandLine flags and PE metadata. SharpDPAPI is a C# port of some DPAPI functionality from the Mimikatz project. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharp_dpapi_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharp_dpapi_execution.yml"
+  description                = <<DESC
+    Detects the execution of the SharpDPAPI tool based on CommandLine flags and PE metadata. SharpDPAPI is a C# port of some DPAPI functionality from the Mimikatz project.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharp_dpapi_execution.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

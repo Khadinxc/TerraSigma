@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_cmd_type_arb
   name                       = "proc_creation_win_cmd_type_arbitrary_file_download"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Download/Upload Activity Using Type Command"
-  description                = "Detects usage of the \"type\" command to download/upload data from WebDAV server Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_type_arbitrary_file_download.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_type_arbitrary_file_download.yml"
+  description                = <<DESC
+    Detects usage of the "type" command to download/upload data from WebDAV server
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_type_arbitrary_file_download.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

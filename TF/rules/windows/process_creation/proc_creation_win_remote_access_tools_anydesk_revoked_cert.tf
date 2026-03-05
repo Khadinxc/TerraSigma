@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_remote_acces
   name                       = "proc_creation_win_remote_access_tools_anydesk_revoked_cert"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Access Tool - AnyDesk Execution With Known Revoked Signing Certificate"
-  description                = "Detects the execution of an AnyDesk binary with a version prior to 8.0.8. Prior to version 8.0.8, the Anydesk application used a signing certificate that got compromised by threat actors. Use this rule to detect instances of older versions of Anydesk using the compromised certificate This is recommended in order to avoid attackers leveraging the certificate and signing their binaries to bypass detections. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_anydesk_revoked_cert.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_anydesk_revoked_cert.yml"
+  description                = <<DESC
+    Detects the execution of an AnyDesk binary with a version prior to 8.0.8. Prior to version 8.0.8, the Anydesk application used a signing certificate that got compromised by threat actors. Use this rule to detect instances of older versions of Anydesk using the compromised certificate This is recommended in order to avoid attackers leveraging the certificate and signing their binaries to bypass detections.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_anydesk_revoked_cert.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

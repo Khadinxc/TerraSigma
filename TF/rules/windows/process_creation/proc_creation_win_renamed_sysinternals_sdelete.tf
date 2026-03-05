@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_renamed_sysi
   name                       = "proc_creation_win_renamed_sysinternals_sdelete"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed Sysinternals Sdelete Execution"
-  description                = "Detects the use of a renamed SysInternals Sdelete, which is something an administrator shouldn't do (the renaming) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_sysinternals_sdelete.yml - System administrator usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_sysinternals_sdelete.yml"
+  description                = <<DESC
+    Detects the use of a renamed SysInternals Sdelete, which is something an administrator shouldn't do (the renaming)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_sysinternals_sdelete.yml
+
+    False Positives:
+    - System administrator usage
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

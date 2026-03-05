@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_hydra" 
   name                       = "proc_creation_win_hktl_hydra"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Hydra Password Bruteforce Execution"
-  description                = "Detects command line parameters used by Hydra password guessing hack tool Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_hydra.yml - Software that uses the caret encased keywords PASS and USER in its command line | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_hydra.yml"
+  description                = <<DESC
+    Detects command line parameters used by Hydra password guessing hack tool
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_hydra.yml
+
+    False Positives:
+    - Software that uses the caret encased keywords PASS and USER in its command line
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

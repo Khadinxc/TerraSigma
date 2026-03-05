@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_osacompile
   name                       = "proc_creation_macos_osacompile_runonly_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "OSACompile Run-Only Execution"
-  description                = "Detects potential suspicious run-only executions compiled using OSACompile Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_osacompile_runonly_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_osacompile_runonly_execution.yml"
+  description                = <<DESC
+    Detects potential suspicious run-only executions compiled using OSACompile
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_osacompile_runonly_execution.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

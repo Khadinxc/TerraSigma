@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_apt_cozy_bear_graph
   name                       = "image_load_apt_cozy_bear_graphical_proton_dlls"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DLL Names Used By SVR For GraphicalProton Backdoor"
-  description                = "Hunts known SVR-specific DLL names. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Cozy-Bear/image_load_apt_cozy_bear_graphical_proton_dlls.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Cozy-Bear/image_load_apt_cozy_bear_graphical_proton_dlls.yml"
+  description                = <<DESC
+    Hunts known SVR-specific DLL names.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Cozy-Bear/image_load_apt_cozy_bear_graphical_proton_dlls.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

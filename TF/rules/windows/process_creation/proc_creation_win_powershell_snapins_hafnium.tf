@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_s
   name                       = "proc_creation_win_powershell_snapins_hafnium"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Exchange PowerShell Snap-Ins Usage"
-  description                = "Detects adding and using Exchange PowerShell snap-ins to export mailbox data. As seen used by HAFNIUM and APT27 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_snapins_hafnium.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_snapins_hafnium.yml"
+  description                = <<DESC
+    Detects adding and using Exchange PowerShell snap-ins to export mailbox data. As seen used by HAFNIUM and APT27
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_snapins_hafnium.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

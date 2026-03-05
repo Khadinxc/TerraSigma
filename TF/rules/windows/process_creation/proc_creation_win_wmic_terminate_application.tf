@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wmic_termina
   name                       = "proc_creation_win_wmic_terminate_application"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Application Terminated Via Wmic.EXE"
-  description                = "Detects calls to the \"terminate\" function via wmic in order to kill an application Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_terminate_application.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_terminate_application.yml"
+  description                = <<DESC
+    Detects calls to the "terminate" function via wmic in order to kill an application
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_terminate_application.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

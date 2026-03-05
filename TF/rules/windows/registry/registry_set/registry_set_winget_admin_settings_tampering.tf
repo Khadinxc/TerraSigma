@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_winget_admin_sett
   name                       = "registry_set_winget_admin_settings_tampering"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Winget Admin Settings Modification"
-  description                = "Detects changes to the AppInstaller (winget) admin settings. Such as enabling local manifest installations or disabling installer hash checks Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_winget_admin_settings_tampering.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_winget_admin_settings_tampering.yml"
+  description                = <<DESC
+    Detects changes to the AppInstaller (winget) admin settings. Such as enabling local manifest installations or disabling installer hash checks
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_winget_admin_settings_tampering.yml
+
+    False Positives:
+    - The event doesn't contain information about the type of change. False positives are expected with legitimate changes
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceRegistryEvents

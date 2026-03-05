@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_ksetup_passw
   name                       = "proc_creation_win_ksetup_password_change_computer"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Computer Password Change Via Ksetup.EXE"
-  description                = "Detects password change for the computer's domain account or host principal via \"ksetup.exe\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ksetup_password_change_computer.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ksetup_password_change_computer.yml"
+  description                = <<DESC
+    Detects password change for the computer's domain account or host principal via "ksetup.exe"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ksetup_password_change_computer.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

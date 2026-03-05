@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_zxshell"
   name                       = "proc_creation_win_apt_zxshell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ZxShell Malware"
-  description                = "Detects a ZxShell start by the called and well-known function name Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2014/TA/Axiom/proc_creation_win_apt_zxshell.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2014/TA/Axiom/proc_creation_win_apt_zxshell.yml"
+  description                = <<DESC
+    Detects a ZxShell start by the called and well-known function name
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2014/TA/Axiom/proc_creation_win_apt_zxshell.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

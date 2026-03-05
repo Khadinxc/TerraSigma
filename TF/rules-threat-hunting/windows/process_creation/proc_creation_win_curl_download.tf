@@ -2,7 +2,16 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_curl_downloa
   name                       = "proc_creation_win_curl_download"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Download Via Curl.EXE"
-  description                = "Detects file download using curl.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_curl_download.yml - Scripts created by developers and admins - Administrative activity - The \"\\Git\\usr\\bin\\sh.exe\" process uses the \"--output\" flag to download a specific file in the temp directory with the pattern \"gfw-httpget-xxxxxxxx.txt \" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_curl_download.yml"
+  description                = <<DESC
+    Detects file download using curl.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_curl_download.yml
+
+    False Positives:
+    - Scripts created by developers and admins
+    - Administrative activity
+    - The "\Git\usr\bin\sh.exe" process uses the "--output" flag to download a specific file in the temp directory with the pattern "gfw-httpget-xxxxxxxx.txt "
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

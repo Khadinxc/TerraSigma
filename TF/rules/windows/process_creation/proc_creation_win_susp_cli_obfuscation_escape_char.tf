@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_cli_obf
   name                       = "proc_creation_win_susp_cli_obfuscation_escape_char"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Commandline Obfuscation Using Escape Characters"
-  description                = "Detects potential commandline obfuscation using known escape characters Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_cli_obfuscation_escape_char.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_cli_obfuscation_escape_char.yml"
+  description                = <<DESC
+    Detects potential commandline obfuscation using known escape characters
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_cli_obfuscation_escape_char.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sndvol_susp_
   name                       = "proc_creation_win_sndvol_susp_child_processes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon Child Processes Of SndVol.exe"
-  description                = "Detects potentially uncommon child processes of SndVol.exe (the Windows volume mixer) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sndvol_susp_child_processes.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sndvol_susp_child_processes.yml"
+  description                = <<DESC
+    Detects potentially uncommon child processes of SndVol.exe (the Windows volume mixer)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sndvol_susp_child_processes.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

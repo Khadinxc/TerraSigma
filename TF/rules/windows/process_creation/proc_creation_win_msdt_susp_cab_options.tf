@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_msdt_susp_ca
   name                       = "proc_creation_win_msdt_susp_cab_options"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Cabinet File Execution Via Msdt.EXE"
-  description                = "Detects execution of msdt.exe using the \"cab\" flag which could indicates suspicious diagcab files with embedded answer files leveraging CVE-2022-30190 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msdt_susp_cab_options.yml - Legitimate usage of \".diagcab\" files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msdt_susp_cab_options.yml"
+  description                = <<DESC
+    Detects execution of msdt.exe using the "cab" flag which could indicates suspicious diagcab files with embedded answer files leveraging CVE-2022-30190
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msdt_susp_cab_options.yml
+
+    False Positives:
+    - Legitimate usage of ".diagcab" files
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

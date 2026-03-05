@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_remote_acces
   name                       = "proc_creation_win_remote_access_tools_meshagent_arguments"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Access Tool - Potential MeshAgent Execution - Windows"
-  description                = "Detects potential execution of MeshAgent which is a tool used for remote access. Historical data shows that threat actors rename MeshAgent binary to evade detection. Matching command lines with the '--meshServiceName' argument can indicate that the MeshAgent is being used for remote access. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_meshagent_arguments.yml - Environments that legitimately use MeshAgent | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_meshagent_arguments.yml"
+  description                = <<DESC
+    Detects potential execution of MeshAgent which is a tool used for remote access. Historical data shows that threat actors rename MeshAgent binary to evade detection. Matching command lines with the '--meshServiceName' argument can indicate that the MeshAgent is being used for remote access.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_meshagent_arguments.yml
+
+    False Positives:
+    - Environments that legitimately use MeshAgent
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

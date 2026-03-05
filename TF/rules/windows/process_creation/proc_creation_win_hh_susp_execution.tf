@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hh_susp_exec
   name                       = "proc_creation_win_hh_susp_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious HH.EXE Execution"
-  description                = "Detects a suspicious execution of a Microsoft HTML Help (HH.exe) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hh_susp_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hh_susp_execution.yml"
+  description                = <<DESC
+    Detects a suspicious execution of a Microsoft HTML Help (HH.exe)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hh_susp_execution.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

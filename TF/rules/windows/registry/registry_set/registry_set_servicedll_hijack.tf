@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_servicedll_hijack
   name                       = "registry_set_servicedll_hijack"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ServiceDll Hijack"
-  description                = "Detects changes to the \"ServiceDLL\" value related to a service in the registry. This is often used as a method of persistence. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_servicedll_hijack.yml - Administrative scripts - Installation of a service | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_servicedll_hijack.yml"
+  description                = <<DESC
+    Detects changes to the "ServiceDLL" value related to a service in the registry. This is often used as a method of persistence.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_servicedll_hijack.yml
+
+    False Positives:
+    - Administrative scripts
+    - Installation of a service
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

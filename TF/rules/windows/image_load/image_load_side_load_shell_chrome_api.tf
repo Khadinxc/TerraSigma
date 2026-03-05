@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_side_load_shell_chr
   name                       = "image_load_side_load_shell_chrome_api"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DLL Sideloading Of ShellChromeAPI.DLL"
-  description                = "Detects processes loading the non-existent DLL \"ShellChromeAPI\". One known example is the \"DeviceEnroller\" binary in combination with the \"PhoneDeepLink\" flag tries to load this DLL. Adversaries can drop their own renamed DLL and execute it via DeviceEnroller.exe using this parameter Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_shell_chrome_api.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_shell_chrome_api.yml"
+  description                = <<DESC
+    Detects processes loading the non-existent DLL "ShellChromeAPI". One known example is the "DeviceEnroller" binary in combination with the "PhoneDeepLink" flag tries to load this DLL. Adversaries can drop their own renamed DLL and execute it via DeviceEnroller.exe using this parameter
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_shell_chrome_api.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

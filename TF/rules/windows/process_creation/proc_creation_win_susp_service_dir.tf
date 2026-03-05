@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_service
   name                       = "proc_creation_win_susp_service_dir"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Service Binary Directory"
-  description                = "Detects a service binary running in a suspicious directory Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_service_dir.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_service_dir.yml"
+  description                = <<DESC
+    Detects a service binary running in a suspicious directory
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_service_dir.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

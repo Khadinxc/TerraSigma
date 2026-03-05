@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_netsh_fw_set
   name                       = "proc_creation_win_netsh_fw_set_rule"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Firewall Rule Update Via Netsh.EXE"
-  description                = "Detects execution of netsh with the \"advfirewall\" and the \"set\" option in order to set new values for properties of a existing rule Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_set_rule.yml - Legitimate administration activity - Software installations and removal | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_set_rule.yml"
+  description                = <<DESC
+    Detects execution of netsh with the "advfirewall" and the "set" option in order to set new values for properties of a existing rule
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_set_rule.yml
+
+    False Positives:
+    - Legitimate administration activity
+    - Software installations and removal
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

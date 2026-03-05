@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_persistence_outlo
   name                       = "registry_set_persistence_outlook_homepage"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Outlook Home Page"
-  description                = "Detects potential persistence activity via outlook home page. An attacker can set a home page to achieve code execution and persistence by editing the WebView registry keys. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_outlook_homepage.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_outlook_homepage.yml"
+  description                = <<DESC
+    Detects potential persistence activity via outlook home page. An attacker can set a home page to achieve code execution and persistence by editing the WebView registry keys.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_outlook_homepage.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

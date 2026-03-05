@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_e
   name                       = "proc_creation_win_powershell_enable_susp_windows_optional_feature"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Suspicious Windows Feature Enabled - ProcCreation"
-  description                = "Detects usage of the built-in PowerShell cmdlet \"Enable-WindowsOptionalFeature\" used as a Deployment Image Servicing and Management tool. Similar to DISM.exe, this cmdlet is used to enumerate, install, uninstall, configure, and update features and packages in Windows images Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_enable_susp_windows_optional_feature.yml - Legitimate usage of the features listed in the rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_enable_susp_windows_optional_feature.yml"
+  description                = <<DESC
+    Detects usage of the built-in PowerShell cmdlet "Enable-WindowsOptionalFeature" used as a Deployment Image Servicing and Management tool. Similar to DISM.exe, this cmdlet is used to enumerate, install, uninstall, configure, and update features and packages in Windows images
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_enable_susp_windows_optional_feature.yml
+
+    False Positives:
+    - Legitimate usage of the features listed in the rule.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

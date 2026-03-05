@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_dumpsta
   name                       = "proc_creation_win_susp_dumpstack_log_evasion"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DumpStack.log Defender Evasion"
-  description                = "Detects the use of the filename DumpStack.log to evade Microsoft Defender Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_dumpstack_log_evasion.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_dumpstack_log_evasion.yml"
+  description                = <<DESC
+    Detects the use of the filename DumpStack.log to evade Microsoft Defender
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_dumpstack_log_evasion.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

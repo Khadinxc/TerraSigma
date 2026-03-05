@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_domain_drop
   name                       = "net_connection_win_domain_dropbox_api"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Dropbox API Usage"
-  description                = "Detects an executable that isn't dropbox but communicates with the Dropbox API Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_dropbox_api.yml - Legitimate use of the API with a tool that the author wasn't aware of | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_dropbox_api.yml"
+  description                = <<DESC
+    Detects an executable that isn't dropbox but communicates with the Dropbox API
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_dropbox_api.yml
+
+    False Positives:
+    - Legitimate use of the API with a tool that the author wasn't aware of
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_lolbin_gather_n
   name                       = "file_event_win_lolbin_gather_network_info_script_output"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "GatherNetworkInfo.VBS Reconnaissance Script Output"
-  description                = "Detects creation of files which are the results of executing the built-in reconnaissance script \"C:\\Windows\\System32\\gatherNetworkInfo.vbs\". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_lolbin_gather_network_info_script_output.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_lolbin_gather_network_info_script_output.yml"
+  description                = <<DESC
+    Detects creation of files which are the results of executing the built-in reconnaissance script "C:\Windows\System32\gatherNetworkInfo.vbs".
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_lolbin_gather_network_info_script_output.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

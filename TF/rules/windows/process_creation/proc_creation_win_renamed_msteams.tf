@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_renamed_mste
   name                       = "proc_creation_win_renamed_msteams"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed Microsoft Teams Execution"
-  description                = "Detects the execution of a renamed Microsoft Teams binary. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_msteams.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_msteams.yml"
+  description                = <<DESC
+    Detects the execution of a renamed Microsoft Teams binary.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_msteams.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_susp_azuref
   name                       = "net_connection_win_susp_azurefd_connection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Azure Front Door Connection"
-  description                = "Detects connections with Azure Front Door (known legitimate service that can be leveraged for C2) that fall outside of known benign behavioral baseline (not using common apps or common azurefd.net endpoints) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/net_connection_win_susp_azurefd_connection.yml - Results are not inherently suspicious, but should be investigated during threat hunting for potential cloud C2. - Organization-specific Azure Front Door endpoints | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/net_connection_win_susp_azurefd_connection.yml"
+  description                = <<DESC
+    Detects connections with Azure Front Door (known legitimate service that can be leveraged for C2) that fall outside of known benign behavioral baseline (not using common apps or common azurefd.net endpoints)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/net_connection_win_susp_azurefd_connection.yml
+
+    False Positives:
+    - Results are not inherently suspicious, but should be investigated during threat hunting for potential cloud C2.
+    - Organization-specific Azure Front Door endpoints
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

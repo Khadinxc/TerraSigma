@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_local_s
   name                       = "proc_creation_win_susp_local_system_owner_account_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Local Accounts Discovery"
-  description                = "Local accounts, System Owner/User discovery using operating systems utilities Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_local_system_owner_account_discovery.yml - Legitimate administrator or user enumerates local users for legitimate reason | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_local_system_owner_account_discovery.yml"
+  description                = <<DESC
+    Local accounts, System Owner/User discovery using operating systems utilities
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_local_system_owner_account_discovery.yml
+
+    False Positives:
+    - Legitimate administrator or user enumerates local users for legitimate reason
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

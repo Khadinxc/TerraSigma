@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_service
   name                       = "proc_creation_win_susp_service_tamper"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Windows Service Tampering"
-  description                = "Detects the usage of binaries such as 'net', 'sc' or 'powershell' in order to stop, pause, disable or delete critical or important Windows services such as AV, Backup, etc. As seen being used in some ransomware scripts Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_service_tamper.yml - Administrators or tools shutting down the services due to upgrade or removal purposes. If you experience some false positive, please consider adding filters to the parent process launching this command and not removing the entry | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_service_tamper.yml"
+  description                = <<DESC
+    Detects the usage of binaries such as 'net', 'sc' or 'powershell' in order to stop, pause, disable or delete critical or important Windows services such as AV, Backup, etc. As seen being used in some ransomware scripts
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_service_tamper.yml
+
+    False Positives:
+    - Administrators or tools shutting down the services due to upgrade or removal purposes. If you experience some false positive, please consider adding filters to the parent process launching this command and not removing the entry
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

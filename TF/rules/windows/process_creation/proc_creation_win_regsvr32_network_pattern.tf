@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_regsvr32_net
   name                       = "proc_creation_win_regsvr32_network_pattern"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Regsvr32 HTTP/FTP Pattern"
-  description                = "Detects regsvr32 execution to download/install/register new DLLs that are hosted on Web or FTP servers. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_network_pattern.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_network_pattern.yml"
+  description                = <<DESC
+    Detects regsvr32 execution to download/install/register new DLLs that are hosted on Web or FTP servers.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_network_pattern.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

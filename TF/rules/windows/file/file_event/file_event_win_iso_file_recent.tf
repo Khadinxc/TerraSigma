@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_iso_file_recent
   name                       = "file_event_win_iso_file_recent"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ISO or Image Mount Indicator in Recent Files"
-  description                = "Detects the creation of recent element file that points to an .ISO, .IMG, .VHD or .VHDX file as often used in phishing attacks. This can be a false positive on server systems but on workstations users should rarely mount .iso or .img files. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_iso_file_recent.yml - Cases in which a user mounts an image file for legitimate reasons | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_iso_file_recent.yml"
+  description                = <<DESC
+    Detects the creation of recent element file that points to an .ISO, .IMG, .VHD or .VHDX file as often used in phishing attacks. This can be a false positive on server systems but on workstations users should rarely mount .iso or .img files.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_iso_file_recent.yml
+
+    False Positives:
+    - Cases in which a user mounts an image file for legitimate reasons
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

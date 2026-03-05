@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_office_startup_
   name                       = "file_event_win_office_startup_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Microsoft Office Startup Folder"
-  description                = "Detects creation of Microsoft Office files inside of one of the default startup folders in order to achieve persistence. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_startup_persistence.yml - Loading a user environment from a backup or a domain controller - Synchronization of templates | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_startup_persistence.yml"
+  description                = <<DESC
+    Detects creation of Microsoft Office files inside of one of the default startup folders in order to achieve persistence.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_startup_persistence.yml
+
+    False Positives:
+    - Loading a user environment from a backup or a domain controller
+    - Synchronization of templates
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

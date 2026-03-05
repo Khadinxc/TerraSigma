@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_apt_cozy_bear_p
   name                       = "file_event_win_apt_cozy_bear_phishing_campaign_indicators"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "APT29 2018 Phishing Campaign File Indicators"
-  description                = "Detects indicators of APT 29 (Cozy Bear) phishing-campaign as reported by mandiant Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT29-CozyBear/file_event_win_apt_cozy_bear_phishing_campaign_indicators.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT29-CozyBear/file_event_win_apt_cozy_bear_phishing_campaign_indicators.yml"
+  description                = <<DESC
+    Detects indicators of APT 29 (Cozy Bear) phishing-campaign as reported by mandiant
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT29-CozyBear/file_event_win_apt_cozy_bear_phishing_campaign_indicators.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

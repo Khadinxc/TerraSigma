@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_bcdedit_susp
   name                       = "proc_creation_win_bcdedit_susp_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Ransomware or Unauthorized MBR Tampering Via Bcdedit.EXE"
-  description                = "Detects potential malicious and unauthorized usage of bcdedit.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bcdedit_susp_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bcdedit_susp_execution.yml"
+  description                = <<DESC
+    Detects potential malicious and unauthorized usage of bcdedit.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bcdedit_susp_execution.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

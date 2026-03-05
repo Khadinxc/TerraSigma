@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_set
   name                       = "proc_creation_win_rundll32_setupapi_installhinfsection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Rundll32 Setupapi.dll Activity"
-  description                = "setupapi.dll library provide InstallHinfSection function for processing INF files. INF file may contain instructions allowing to create values in the registry, modify files and install drivers. This technique could be used to obtain persistence via modifying one of Run or RunOnce registry keys, run process or use other DLLs chain calls (see references) InstallHinfSection function in setupapi.dll calls runonce.exe executable regardless of actual content of INF file. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_setupapi_installhinfsection.yml - Scripts and administrative tools that use INF files for driver installation with setupapi.dll | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_setupapi_installhinfsection.yml"
+  description                = <<DESC
+    setupapi.dll library provide InstallHinfSection function for processing INF files. INF file may contain instructions allowing to create values in the registry, modify files and install drivers. This technique could be used to obtain persistence via modifying one of Run or RunOnce registry keys, run process or use other DLLs chain calls (see references) InstallHinfSection function in setupapi.dll calls runonce.exe executable regardless of actual content of INF file.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_setupapi_installhinfsection.yml
+
+    False Positives:
+    - Scripts and administrative tools that use INF files for driver installation with setupapi.dll
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

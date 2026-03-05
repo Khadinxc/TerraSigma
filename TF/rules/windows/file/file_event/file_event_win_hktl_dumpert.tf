@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_hktl_dumpert" {
   name                       = "file_event_win_hktl_dumpert"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Dumpert Process Dumper Default File"
-  description                = "Detects the creation of the default dump file used by Outflank Dumpert tool. A process dumper, which dumps the lsass process memory Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_dumpert.yml - Very unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_dumpert.yml"
+  description                = <<DESC
+    Detects the creation of the default dump file used by Outflank Dumpert tool. A process dumper, which dumps the lsass process memory
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_dumpert.yml
+
+    False Positives:
+    - Very unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_ntds_dit_creati
   name                       = "file_event_win_ntds_dit_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "NTDS.DIT Created"
-  description                = "Detects creation of a file named \"ntds.dit\" (Active Directory Database) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_ntds_dit_creation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_ntds_dit_creation.yml"
+  description                = <<DESC
+    Detects creation of a file named "ntds.dit" (Active Directory Database)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_ntds_dit_creation.yml
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents

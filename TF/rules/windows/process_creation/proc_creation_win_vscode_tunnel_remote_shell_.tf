@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_vscode_tunne
   name                       = "proc_creation_win_vscode_tunnel_remote_shell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Visual Studio Code Tunnel Shell Execution"
-  description                = "Detects the execution of a shell (powershell, bash, wsl...) via Visual Studio Code tunnel. Attackers can abuse this functionality to establish a C2 channel and execute arbitrary commands on the system. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_tunnel_remote_shell_.yml - Legitimate use of Visual Studio Code tunnel and running code from there | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_tunnel_remote_shell_.yml"
+  description                = <<DESC
+    Detects the execution of a shell (powershell, bash, wsl...) via Visual Studio Code tunnel. Attackers can abuse this functionality to establish a C2 channel and execute arbitrary commands on the system.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_tunnel_remote_shell_.yml
+
+    False Positives:
+    - Legitimate use of Visual Studio Code tunnel and running code from there
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

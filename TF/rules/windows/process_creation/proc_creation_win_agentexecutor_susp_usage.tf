@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_agentexecuto
   name                       = "proc_creation_win_agentexecutor_susp_usage"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious AgentExecutor PowerShell Execution"
-  description                = "Detects execution of the AgentExecutor.exe binary. Which can be abused as a LOLBIN to execute powershell scripts with the ExecutionPolicy \"Bypass\" or any binary named \"powershell.exe\" located in the path provided by 6th positional argument Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_agentexecutor_susp_usage.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_agentexecutor_susp_usage.yml"
+  description                = <<DESC
+    Detects execution of the AgentExecutor.exe binary. Which can be abused as a LOLBIN to execute powershell scripts with the ExecutionPolicy "Bypass" or any binary named "powershell.exe" located in the path provided by 6th positional argument
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_agentexecutor_susp_usage.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

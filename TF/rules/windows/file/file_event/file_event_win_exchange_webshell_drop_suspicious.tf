@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_exchange_webshe
   name                       = "file_event_win_exchange_webshell_drop_suspicious"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Drop by Exchange"
-  description                = "Detects suspicious file type dropped by an Exchange component in IIS Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_exchange_webshell_drop_suspicious.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_exchange_webshell_drop_suspicious.yml"
+  description                = <<DESC
+    Detects suspicious file type dropped by an Exchange component in IIS
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_exchange_webshell_drop_suspicious.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

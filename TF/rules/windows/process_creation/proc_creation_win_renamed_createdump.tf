@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_renamed_crea
   name                       = "proc_creation_win_renamed_createdump"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed CreateDump Utility Execution"
-  description                = "Detects uses of a renamed legitimate createdump.exe LOLOBIN utility to dump process memory Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_createdump.yml - Command lines that use the same flags | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_createdump.yml"
+  description                = <<DESC
+    Detects uses of a renamed legitimate createdump.exe LOLOBIN utility to dump process memory
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_createdump.yml
+
+    False Positives:
+    - Command lines that use the same flags
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

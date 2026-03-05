@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hh_chm_remot
   name                       = "proc_creation_win_hh_chm_remote_download_or_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote CHM File Download/Execution Via HH.EXE"
-  description                = "Detects the usage of \"hh.exe\" to execute/download remotely hosted \".chm\" files. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hh_chm_remote_download_or_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hh_chm_remote_download_or_execution.yml"
+  description                = <<DESC
+    Detects the usage of "hh.exe" to execute/download remotely hosted ".chm" files.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hh_chm_remote_download_or_execution.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

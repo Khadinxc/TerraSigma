@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_revil_ka
   name                       = "proc_creation_win_apt_revil_kaseya"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "REvil Kaseya Incident Malware Patterns"
-  description                = "Detects process command line patterns and locations used by REvil group in Kaseya incident (can also match on other malware) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/TA/Kaseya-Supply-Chain/proc_creation_win_apt_revil_kaseya.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/TA/Kaseya-Supply-Chain/proc_creation_win_apt_revil_kaseya.yml"
+  description                = <<DESC
+    Detects process command line patterns and locations used by REvil group in Kaseya incident (can also match on other malware)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/TA/Kaseya-Supply-Chain/proc_creation_win_apt_revil_kaseya.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

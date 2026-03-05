@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_netsh_port_f
   name                       = "proc_creation_win_netsh_port_forwarding_3389"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "RDP Port Forwarding Rule Added Via Netsh.EXE"
-  description                = "Detects the execution of netsh to configure a port forwarding of port 3389 (RDP) rule Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_port_forwarding_3389.yml - Legitimate administration activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_port_forwarding_3389.yml"
+  description                = <<DESC
+    Detects the execution of netsh to configure a port forwarding of port 3389 (RDP) rule
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_port_forwarding_3389.yml
+
+    False Positives:
+    - Legitimate administration activity
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

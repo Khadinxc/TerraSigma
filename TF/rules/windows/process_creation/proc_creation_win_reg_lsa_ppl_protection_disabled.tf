@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_reg_lsa_ppl_
   name                       = "proc_creation_win_reg_lsa_ppl_protection_disabled"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "LSA PPL Protection Disabled Via Reg.EXE"
-  description                = "Detects the usage of the \"reg.exe\" utility to disable PPL protection on the LSA process Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_lsa_ppl_protection_disabled.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_lsa_ppl_protection_disabled.yml"
+  description                = <<DESC
+    Detects the usage of the "reg.exe" utility to disable PPL protection on the LSA process
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_lsa_ppl_protection_disabled.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

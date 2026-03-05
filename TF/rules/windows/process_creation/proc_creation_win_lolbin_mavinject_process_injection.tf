@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_mavin
   name                       = "proc_creation_win_lolbin_mavinject_process_injection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Mavinject Inject DLL Into Running Process"
-  description                = "Detects process injection using the signed Windows tool \"Mavinject\" via the \"INJECTRUNNING\" flag Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_mavinject_process_injection.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_mavinject_process_injection.yml"
+  description                = <<DESC
+    Detects process injection using the signed Windows tool "Mavinject" via the "INJECTRUNNING" flag
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_mavinject_process_injection.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

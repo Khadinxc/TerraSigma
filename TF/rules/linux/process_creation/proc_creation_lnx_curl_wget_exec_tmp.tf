@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_curl_wget_ex
   name                       = "proc_creation_lnx_curl_wget_exec_tmp"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Download and Execute Pattern via Curl/Wget"
-  description                = "Detects suspicious use of command-line tools such as curl or wget to download remote content - particularly scripts - into temporary directories (e.g., /dev/shm, /tmp), followed by immediate execution, indicating potential malicious activity. This pattern is commonly used by malicious scripts, stagers, or downloaders in fileless or multi-stage Linux attacks. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_curl_wget_exec_tmp.yml - System update scripts using temporary files - Installer scripts or automated provisioning tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_curl_wget_exec_tmp.yml"
+  description                = <<DESC
+    Detects suspicious use of command-line tools such as curl or wget to download remote content - particularly scripts - into temporary directories (e.g., /dev/shm, /tmp), followed by immediate execution, indicating potential malicious activity. This pattern is commonly used by malicious scripts, stagers, or downloaders in fileless or multi-stage Linux attacks.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_curl_wget_exec_tmp.yml
+
+    False Positives:
+    - System update scripts using temporary files
+    - Installer scripts or automated provisioning tools
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

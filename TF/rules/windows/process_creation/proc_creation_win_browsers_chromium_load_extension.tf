@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_browsers_chr
   name                       = "proc_creation_win_browsers_chromium_load_extension"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Chromium Browser Instance Executed With Custom Extension"
-  description                = "Detects a Chromium based browser process with the 'load-extension' flag to start a instance with a custom extension Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_load_extension.yml - Usage of Chrome Extensions in testing tools such as BurpSuite will trigger this alert | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_load_extension.yml"
+  description                = <<DESC
+    Detects a Chromium based browser process with the 'load-extension' flag to start a instance with a custom extension
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_load_extension.yml
+
+    False Positives:
+    - Usage of Chrome Extensions in testing tools such as BurpSuite will trigger this alert
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

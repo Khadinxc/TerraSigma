@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_iis_connecti
   name                       = "proc_creation_win_iis_connection_strings_decryption"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Microsoft IIS Connection Strings Decryption"
-  description                = "Detects use of aspnet_regiis to decrypt Microsoft IIS connection strings. An attacker with Microsoft IIS web server access via a webshell or alike can decrypt and dump any hardcoded connection strings, such as the MSSQL service account password using aspnet_regiis command. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_connection_strings_decryption.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_connection_strings_decryption.yml"
+  description                = <<DESC
+    Detects use of aspnet_regiis to decrypt Microsoft IIS connection strings. An attacker with Microsoft IIS web server access via a webshell or alike can decrypt and dump any hardcoded connection strings, such as the MSSQL service account password using aspnet_regiis command.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_connection_strings_decryption.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

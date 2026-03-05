@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_binary_pad
   name                       = "proc_creation_macos_binary_padding"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Binary Padding - MacOS"
-  description                = "Adversaries may use binary padding to add junk data and change the on-disk representation of malware. This rule detect using dd and truncate to add a junk data to file. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_binary_padding.yml - Legitimate script work | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_binary_padding.yml"
+  description                = <<DESC
+    Adversaries may use binary padding to add junk data and change the on-disk representation of malware. This rule detect using dd and truncate to add a junk data to file.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_binary_padding.yml
+
+    False Positives:
+    - Legitimate script work
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

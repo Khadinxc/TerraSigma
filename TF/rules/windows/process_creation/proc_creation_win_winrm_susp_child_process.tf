@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_winrm_susp_c
   name                       = "proc_creation_win_winrm_susp_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Processes Spawned by WinRM"
-  description                = "Detects suspicious processes including shells spawnd from WinRM host process Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winrm_susp_child_process.yml - Legitimate WinRM usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winrm_susp_child_process.yml"
+  description                = <<DESC
+    Detects suspicious processes including shells spawnd from WinRM host process
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winrm_susp_child_process.yml
+
+    False Positives:
+    - Legitimate WinRM usage
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

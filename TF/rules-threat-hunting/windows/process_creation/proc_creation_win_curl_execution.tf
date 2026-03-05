@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_curl_executi
   name                       = "proc_creation_win_curl_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Curl.EXE Execution"
-  description                = "Detects a curl process start on Windows, which could indicates a file download from a remote location or a simple web request to a remote server Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_curl_execution.yml - Scripts created by developers and admins - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_curl_execution.yml"
+  description                = <<DESC
+    Detects a curl process start on Windows, which could indicates a file download from a remote location or a simple web request to a remote server
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_curl_execution.yml
+
+    False Positives:
+    - Scripts created by developers and admins
+    - Administrative activity
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_runex
   name                       = "proc_creation_win_lolbin_runexehelper"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Lolbin Runexehelper Use As Proxy"
-  description                = "Detect usage of the \"runexehelper.exe\" binary as a proxy to launch other programs Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_runexehelper.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_runexehelper.yml"
+  description                = <<DESC
+    Detect usage of the "runexehelper.exe" binary as a proxy to launch other programs
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_runexehelper.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

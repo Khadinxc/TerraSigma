@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_m
   name                       = "proc_creation_win_powershell_mailboxexport_share"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious PowerShell Mailbox Export to Share"
-  description                = "Detects usage of the powerShell New-MailboxExportRequest Cmdlet to exports a mailbox to a remote or local share, as used in ProxyShell exploitations Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_mailboxexport_share.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_mailboxexport_share.yml"
+  description                = <<DESC
+    Detects usage of the powerShell New-MailboxExportRequest Cmdlet to exports a mailbox to a remote or local share, as used in ProxyShell exploitations
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_mailboxexport_share.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_svchost_masq
   name                       = "proc_creation_win_svchost_masqueraded_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Process Masquerading As SvcHost.EXE"
-  description                = "Detects a suspicious process that is masquerading as the legitimate \"svchost.exe\" by naming its binary \"svchost.exe\" and executing from an uncommon location. Adversaries often disguise their malicious binaries by naming them after legitimate system processes like \"svchost.exe\" to evade detection. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_svchost_masqueraded_execution.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_svchost_masqueraded_execution.yml"
+  description                = <<DESC
+    Detects a suspicious process that is masquerading as the legitimate "svchost.exe" by naming its binary "svchost.exe" and executing from an uncommon location. Adversaries often disguise their malicious binaries by naming them after legitimate system processes like "svchost.exe" to evade detection.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_svchost_masqueraded_execution.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

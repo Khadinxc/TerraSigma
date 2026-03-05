@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_access_win_teams_sensitiv
   name                       = "file_access_win_teams_sensitive_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Microsoft Teams Sensitive File Access By Uncommon Applications"
-  description                = "Detects file access attempts to sensitive Microsoft teams files (leveldb, cookies) by an uncommon process. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_teams_sensitive_files.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_teams_sensitive_files.yml"
+  description                = <<DESC
+    Detects file access attempts to sensitive Microsoft teams files (leveldb, cookies) by an uncommon process.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_teams_sensitive_files.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

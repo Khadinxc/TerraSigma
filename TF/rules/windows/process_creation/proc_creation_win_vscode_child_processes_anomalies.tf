@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_vscode_child
   name                       = "proc_creation_win_vscode_child_processes_anomalies"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Child Process Of VsCode"
-  description                = "Detects uncommon or suspicious child processes spawning from a VsCode \"code.exe\" process. This could indicate an attempt of persistence via VsCode tasks or terminal profiles. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_child_processes_anomalies.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_child_processes_anomalies.yml"
+  description                = <<DESC
+    Detects uncommon or suspicious child processes spawning from a VsCode "code.exe" process. This could indicate an attempt of persistence via VsCode tasks or terminal profiles.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_child_processes_anomalies.yml
+
+    False Positives:
+    - In development environment where VsCode is used heavily. False positives may occur when developers use task to compile or execute different types of code. Remove or add processes accordingly
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

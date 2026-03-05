@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_side_load_iviewers"
   name                       = "image_load_side_load_iviewers"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Iviewers.DLL Sideloading"
-  description                = "Detects potential DLL sideloading of \"iviewers.dll\" (OLE/COM Object Interface Viewer) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_iviewers.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_iviewers.yml"
+  description                = <<DESC
+    Detects potential DLL sideloading of "iviewers.dll" (OLE/COM Object Interface Viewer)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_iviewers.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

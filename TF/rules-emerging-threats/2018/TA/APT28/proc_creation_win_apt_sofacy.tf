@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_sofacy" 
   name                       = "proc_creation_win_apt_sofacy"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Sofacy Trojan Loader Activity"
-  description                = "Detects Trojan loader activity as used by APT28 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT28/proc_creation_win_apt_sofacy.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT28/proc_creation_win_apt_sofacy.yml"
+  description                = <<DESC
+    Detects Trojan loader activity as used by APT28
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT28/proc_creation_win_apt_sofacy.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

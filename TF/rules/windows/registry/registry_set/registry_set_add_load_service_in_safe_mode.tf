@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_add_load_service_
   name                       = "registry_set_add_load_service_in_safe_mode"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Registry Persistence via Service in Safe Mode"
-  description                = "Detects the modification of the registry to allow a driver or service to persist in Safe Mode. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_add_load_service_in_safe_mode.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_add_load_service_in_safe_mode.yml"
+  description                = <<DESC
+    Detects the modification of the registry to allow a driver or service to persist in Safe Mode.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_add_load_service_in_safe_mode.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

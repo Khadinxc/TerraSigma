@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_boinc_execut
   name                       = "proc_creation_win_boinc_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential BOINC Software Execution (UC-Berkeley Signature)"
-  description                = "Detects the use of software that is related to the University of California, Berkeley via metadata information. This indicates it may be related to BOINC software and can be used maliciously if unauthorized. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_boinc_execution.yml - This software can be used for legitimate purposes when installed intentionally. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_boinc_execution.yml"
+  description                = <<DESC
+    Detects the use of software that is related to the University of California, Berkeley via metadata information. This indicates it may be related to BOINC software and can be used maliciously if unauthorized.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_boinc_execution.yml
+
+    False Positives:
+    - This software can be used for legitimate purposes when installed intentionally.
+  DESC
   severity                   = "Informational"
   query                      = <<QUERY
 DeviceProcessEvents

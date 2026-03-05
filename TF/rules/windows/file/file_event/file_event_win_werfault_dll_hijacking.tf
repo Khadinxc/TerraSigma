@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_werfault_dll_hi
   name                       = "file_event_win_werfault_dll_hijacking"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Creation of WerFault.exe/Wer.dll in Unusual Folder"
-  description                = "Detects the creation of a file named \"WerFault.exe\" or \"wer.dll\" in an uncommon folder, which could be a sign of WerFault DLL hijacking. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_werfault_dll_hijacking.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_werfault_dll_hijacking.yml"
+  description                = <<DESC
+    Detects the creation of a file named "WerFault.exe" or "wer.dll" in an uncommon folder, which could be a sign of WerFault DLL hijacking.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_werfault_dll_hijacking.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

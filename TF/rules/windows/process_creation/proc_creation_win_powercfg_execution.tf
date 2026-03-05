@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powercfg_exe
   name                       = "proc_creation_win_powercfg_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Powercfg Execution To Change Lock Screen Timeout"
-  description                = "Detects suspicious execution of 'Powercfg.exe' to change lock screen timeout Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powercfg_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powercfg_execution.yml"
+  description                = <<DESC
+    Detects suspicious execution of 'Powercfg.exe' to change lock screen timeout
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powercfg_execution.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

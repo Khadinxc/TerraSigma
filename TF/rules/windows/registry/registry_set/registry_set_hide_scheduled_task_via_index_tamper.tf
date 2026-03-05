@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_hide_scheduled_ta
   name                       = "registry_set_hide_scheduled_task_via_index_tamper"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Hide Schedule Task Via Index Value Tamper"
-  description                = "Detects when the \"index\" value of a scheduled task is modified from the registry Which effectively hides it from any tooling such as \"schtasks /query\" (Read the referenced link for more information about the effects of this technique) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_hide_scheduled_task_via_index_tamper.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_hide_scheduled_task_via_index_tamper.yml"
+  description                = <<DESC
+    Detects when the "index" value of a scheduled task is modified from the registry Which effectively hides it from any tooling such as "schtasks /query" (Read the referenced link for more information about the effects of this technique)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_hide_scheduled_task_via_index_tamper.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

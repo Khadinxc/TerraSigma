@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_susp_script_dotnet_
   name                       = "image_load_susp_script_dotnet_clr_dll_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DotNet CLR DLL Loaded By Scripting Applications"
-  description                = "Detects .NET CLR DLLs being loaded by scripting applications such as wscript or cscript. This could be an indication of potential suspicious execution. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_susp_script_dotnet_clr_dll_load.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_susp_script_dotnet_clr_dll_load.yml"
+  description                = <<DESC
+    Detects .NET CLR DLLs being loaded by scripting applications such as wscript or cscript. This could be an indication of potential suspicious execution.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_susp_script_dotnet_clr_dll_load.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

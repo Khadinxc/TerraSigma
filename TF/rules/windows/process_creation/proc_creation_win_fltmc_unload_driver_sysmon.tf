@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_fltmc_unload
   name                       = "proc_creation_win_fltmc_unload_driver_sysmon"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Sysmon Driver Unloaded Via Fltmc.EXE"
-  description                = "Detects possible Sysmon filter driver unloaded via fltmc.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fltmc_unload_driver_sysmon.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fltmc_unload_driver_sysmon.yml"
+  description                = <<DESC
+    Detects possible Sysmon filter driver unloaded via fltmc.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fltmc_unload_driver_sysmon.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

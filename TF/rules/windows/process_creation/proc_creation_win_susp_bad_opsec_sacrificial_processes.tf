@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_bad_ops
   name                       = "proc_creation_win_susp_bad_opsec_sacrificial_processes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Bad Opsec Defaults Sacrificial Processes With Improper Arguments"
-  description                = "Detects attackers using tooling with bad opsec defaults. E.g. spawning a sacrificial process to inject a capability into the process without taking into account how the process is normally run. One trivial example of this is using rundll32.exe without arguments as a sacrificial process (default in CS, now highlighted by c2lint), running WerFault without arguments (Kraken - credit am0nsec), and other examples. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_bad_opsec_sacrificial_processes.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_bad_opsec_sacrificial_processes.yml"
+  description                = <<DESC
+    Detects attackers using tooling with bad opsec defaults. E.g. spawning a sacrificial process to inject a capability into the process without taking into account how the process is normally run. One trivial example of this is using rundll32.exe without arguments as a sacrificial process (default in CS, now highlighted by c2lint), running WerFault without arguments (Kraken - credit am0nsec), and other examples.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_bad_opsec_sacrificial_processes.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

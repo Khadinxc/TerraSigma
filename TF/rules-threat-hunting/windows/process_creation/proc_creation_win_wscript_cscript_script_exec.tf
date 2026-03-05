@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wscript_cscr
   name                       = "proc_creation_win_wscript_cscript_script_exec"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WSF/JSE/JS/VBA/VBE File Execution Via Cscript/Wscript"
-  description                = "Detects script file execution (.js, .jse, .vba, .vbe, .vbs, .wsf) by Wscript/Cscript Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_wscript_cscript_script_exec.yml - Some additional tuning is required. It is recommended to add the user profile path in CommandLine if it is getting too noisy. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_wscript_cscript_script_exec.yml"
+  description                = <<DESC
+    Detects script file execution (.js, .jse, .vba, .vbe, .vbs, .wsf) by Wscript/Cscript
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_wscript_cscript_script_exec.yml
+
+    False Positives:
+    - Some additional tuning is required. It is recommended to add the user profile path in CommandLine if it is getting too noisy.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

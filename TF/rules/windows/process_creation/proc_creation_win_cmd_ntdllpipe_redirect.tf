@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_cmd_ntdllpip
   name                       = "proc_creation_win_cmd_ntdllpipe_redirect"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "NtdllPipe Like Activity Execution"
-  description                = "Detects command that type the content of ntdll.dll to a different file or a pipe in order to evade AV / EDR detection. As seen being used in the POC NtdllPipe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_ntdllpipe_redirect.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_ntdllpipe_redirect.yml"
+  description                = <<DESC
+    Detects command that type the content of ntdll.dll to a different file or a pipe in order to evade AV / EDR detection. As seen being used in the POC NtdllPipe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_ntdllpipe_redirect.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

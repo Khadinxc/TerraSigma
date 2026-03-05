@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_expand_cabin
   name                       = "proc_creation_win_expand_cabinet_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Cabinet File Expansion"
-  description                = "Detects the expansion or decompression of cabinet files from potentially suspicious or uncommon locations, e.g. seen in Iranian MeteorExpress related attacks Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_expand_cabinet_files.yml - System administrator Usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_expand_cabinet_files.yml"
+  description                = <<DESC
+    Detects the expansion or decompression of cabinet files from potentially suspicious or uncommon locations, e.g. seen in Iranian MeteorExpress related attacks
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_expand_cabinet_files.yml
+
+    False Positives:
+    - System administrator Usage
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

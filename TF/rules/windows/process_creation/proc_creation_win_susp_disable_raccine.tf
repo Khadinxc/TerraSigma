@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_disable
   name                       = "proc_creation_win_susp_disable_raccine"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Raccine Uninstall"
-  description                = "Detects commands that indicate a Raccine removal from an end system. Raccine is a free ransomware protection tool. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_disable_raccine.yml - Legitimate deinstallation by administrative staff | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_disable_raccine.yml"
+  description                = <<DESC
+    Detects commands that indicate a Raccine removal from an end system. Raccine is a free ransomware protection tool.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_disable_raccine.yml
+
+    False Positives:
+    - Legitimate deinstallation by administrative staff
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

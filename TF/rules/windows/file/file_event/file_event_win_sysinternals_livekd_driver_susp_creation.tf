@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_sysinternals_li
   name                       = "file_event_win_sysinternals_livekd_driver_susp_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "LiveKD Driver Creation By Uncommon Process"
-  description                = "Detects the creation of the LiveKD driver by a process image other than \"livekd.exe\". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sysinternals_livekd_driver_susp_creation.yml - Administrators might rename LiveKD before its usage which could trigger this. Add additional names you use to the filter | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sysinternals_livekd_driver_susp_creation.yml"
+  description                = <<DESC
+    Detects the creation of the LiveKD driver by a process image other than "livekd.exe".
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sysinternals_livekd_driver_susp_creation.yml
+
+    False Positives:
+    - Administrators might rename LiveKD before its usage which could trigger this. Add additional names you use to the filter
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

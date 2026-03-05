@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_openc
   name                       = "proc_creation_win_lolbin_openconsole"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Use of OpenConsole"
-  description                = "Detects usage of OpenConsole binary as a LOLBIN to launch other binaries to bypass application Whitelisting Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_openconsole.yml - Legitimate use by an administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_openconsole.yml"
+  description                = <<DESC
+    Detects usage of OpenConsole binary as a LOLBIN to launch other binaries to bypass application Whitelisting
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_openconsole.yml
+
+    False Positives:
+    - Legitimate use by an administrator
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

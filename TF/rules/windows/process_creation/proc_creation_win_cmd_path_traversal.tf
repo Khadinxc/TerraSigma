@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_cmd_path_tra
   name                       = "proc_creation_win_cmd_path_traversal"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential CommandLine Path Traversal Via Cmd.EXE"
-  description                = "Detects potential path traversal attempt via cmd.exe. Could indicate possible command/argument confusion/hijacking Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_path_traversal.yml - Java tools are known to produce false-positive when loading libraries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_path_traversal.yml"
+  description                = <<DESC
+    Detects potential path traversal attempt via cmd.exe. Could indicate possible command/argument confusion/hijacking
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_path_traversal.yml
+
+    False Positives:
+    - Java tools are known to produce false-positive when loading libraries
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

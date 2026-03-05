@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_dll_system_drawing_
   name                       = "image_load_dll_system_drawing_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "System Drawing DLL Load"
-  description                = "Detects processes loading \"System.Drawing.ni.dll\". This could be an indicator of potential Screen Capture. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_dll_system_drawing_load.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_dll_system_drawing_load.yml"
+  description                = <<DESC
+    Detects processes loading "System.Drawing.ni.dll". This could be an indicator of potential Screen Capture.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_dll_system_drawing_load.yml
+
+    False Positives:
+    - False positives are very common from system and third party applications, activity needs to be investigated. This rule is best correlated with other events to increase the level of suspiciousness
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceImageLoadEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_domain_vsco
   name                       = "net_connection_win_domain_vscode_tunnel_connection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Network Connection Initiated To Visual Studio Code Tunnels Domain"
-  description                = "Detects network connections to Visual Studio Code tunnel domains initiated by a process on a system. Attackers can abuse that feature to establish a reverse shell or persistence on a machine. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_vscode_tunnel_connection.yml - Legitimate use of Visual Studio Code tunnel will also trigger this. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_vscode_tunnel_connection.yml"
+  description                = <<DESC
+    Detects network connections to Visual Studio Code tunnel domains initiated by a process on a system. Attackers can abuse that feature to establish a reverse shell or persistence on a machine.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_vscode_tunnel_connection.yml
+
+    False Positives:
+    - Legitimate use of Visual Studio Code tunnel will also trigger this.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

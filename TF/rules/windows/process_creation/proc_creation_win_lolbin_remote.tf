@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_remot
   name                       = "proc_creation_win_lolbin_remote"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Use of Remote.exe"
-  description                = "Remote.exe is part of WinDbg in the Windows SDK and can be used for AWL bypass and running remote files. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_remote.yml - Approved installs of Windows SDK with Debugging Tools for Windows (WinDbg). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_remote.yml"
+  description                = <<DESC
+    Remote.exe is part of WinDbg in the Windows SDK and can be used for AWL bypass and running remote files.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_remote.yml
+
+    False Positives:
+    - Approved installs of Windows SDK with Debugging Tools for Windows (WinDbg).
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

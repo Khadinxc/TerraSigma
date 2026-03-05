@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sdiagnhost_s
   name                       = "proc_creation_win_sdiagnhost_susp_child"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Sdiagnhost Calling Suspicious Child Process"
-  description                = "Detects sdiagnhost.exe calling a suspicious child process (e.g. used in exploits for Follina / CVE-2022-30190) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sdiagnhost_susp_child.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sdiagnhost_susp_child.yml"
+  description                = <<DESC
+    Detects sdiagnhost.exe calling a suspicious child process (e.g. used in exploits for Follina / CVE-2022-30190)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sdiagnhost_susp_child.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

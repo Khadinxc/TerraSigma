@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_remote_acces
   name                       = "proc_creation_win_remote_access_tools_screenconnect_remote_execution_susp"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Access Tool - ScreenConnect Potential Suspicious Remote Command Execution"
-  description                = "Detects potentially suspicious child processes launched via the ScreenConnect client service. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_screenconnect_remote_execution_susp.yml - If the script being executed make use of any of the utilities mentioned in the detection then they should filtered out or allowed. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_screenconnect_remote_execution_susp.yml"
+  description                = <<DESC
+    Detects potentially suspicious child processes launched via the ScreenConnect client service.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_screenconnect_remote_execution_susp.yml
+
+    False Positives:
+    - If the script being executed make use of any of the utilities mentioned in the detection then they should filtered out or allowed.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_change_win_unusual_modifi
   name                       = "file_change_win_unusual_modification_by_dns_exe"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Unusual File Modification by dns.exe"
-  description                = "Detects an unexpected file being modified by dns.exe which my indicate activity related to remote code execution or other forms of exploitation as seen in CVE-2020-1350 (SigRed) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_change/file_change_win_unusual_modification_by_dns_exe.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_change/file_change_win_unusual_modification_by_dns_exe.yml"
+  description                = <<DESC
+    Detects an unexpected file being modified by dns.exe which my indicate activity related to remote code execution or other forms of exploitation as seen in CVE-2020-1350 (SigRed)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_change/file_change_win_unusual_modification_by_dns_exe.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

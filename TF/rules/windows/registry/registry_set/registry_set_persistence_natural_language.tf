@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_persistence_natur
   name                       = "registry_set_persistence_natural_language"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via DLLPathOverride"
-  description                = "Detects when an attacker adds a new \"DLLPathOverride\" value to the \"Natural Language\" key in order to achieve persistence which will get invoked by \"SearchIndexer.exe\" process Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_natural_language.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_natural_language.yml"
+  description                = <<DESC
+    Detects when an attacker adds a new "DLLPathOverride" value to the "Natural Language" key in order to achieve persistence which will get invoked by "SearchIndexer.exe" process
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_natural_language.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

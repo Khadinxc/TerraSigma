@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_schtasks_reg
   name                       = "proc_creation_win_schtasks_reg_loader_encoded"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Scheduled Task Executing Encoded Payload from Registry"
-  description                = "Detects the creation of a schtask that potentially executes a base64 encoded payload stored in the Windows Registry using PowerShell. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_reg_loader_encoded.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_reg_loader_encoded.yml"
+  description                = <<DESC
+    Detects the creation of a schtask that potentially executes a base64 encoded payload stored in the Windows Registry using PowerShell.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_reg_loader_encoded.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

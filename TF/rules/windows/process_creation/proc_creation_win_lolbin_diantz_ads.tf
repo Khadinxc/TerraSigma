@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_diant
   name                       = "proc_creation_win_lolbin_diantz_ads"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Diantz Alternate Data Stream Execution"
-  description                = "Compress target file into a cab file stored in the Alternate Data Stream (ADS) of the target file. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_diantz_ads.yml - Very Possible | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_diantz_ads.yml"
+  description                = <<DESC
+    Compress target file into a cab file stored in the Alternate Data Stream (ADS) of the target file.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_diantz_ads.yml
+
+    False Positives:
+    - Very Possible
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

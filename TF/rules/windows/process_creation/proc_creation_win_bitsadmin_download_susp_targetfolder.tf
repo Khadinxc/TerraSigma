@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_bitsadmin_do
   name                       = "proc_creation_win_bitsadmin_download_susp_targetfolder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Download Via Bitsadmin To A Suspicious Target Folder"
-  description                = "Detects usage of bitsadmin downloading a file to a suspicious target folder Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download_susp_targetfolder.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download_susp_targetfolder.yml"
+  description                = <<DESC
+    Detects usage of bitsadmin downloading a file to a suspicious target folder
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download_susp_targetfolder.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

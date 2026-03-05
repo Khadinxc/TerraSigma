@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_data_ex
   name                       = "proc_creation_win_susp_data_exfiltration_via_cli"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Data Exfiltration Activity Via CommandLine Tools"
-  description                = "Detects the use of various CLI utilities exfiltrating data via web requests Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_data_exfiltration_via_cli.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_data_exfiltration_via_cli.yml"
+  description                = <<DESC
+    Detects the use of various CLI utilities exfiltrating data via web requests
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_data_exfiltration_via_cli.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

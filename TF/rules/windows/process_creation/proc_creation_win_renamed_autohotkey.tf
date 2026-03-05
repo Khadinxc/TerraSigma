@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_renamed_auto
   name                       = "proc_creation_win_renamed_autohotkey"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed AutoHotkey.EXE Execution"
-  description                = "Detects execution of a renamed autohotkey.exe binary based on PE metadata fields Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_autohotkey.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_autohotkey.yml"
+  description                = <<DESC
+    Detects execution of a renamed autohotkey.exe binary based on PE metadata fields
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_autohotkey.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

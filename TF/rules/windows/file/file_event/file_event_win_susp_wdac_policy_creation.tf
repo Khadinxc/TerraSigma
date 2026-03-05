@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_susp_wdac_polic
   name                       = "file_event_win_susp_wdac_policy_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious WDAC Policy File Creation"
-  description                = "Detects suspicious Windows Defender Application Control (WDAC) policy file creation from abnormal processes that could be abused by attacker to block EDR/AV components while allowing their own malicious code to run on the system. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_wdac_policy_creation.yml - Administrators and security vendors could leverage WDAC, apply additional filters as needed. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_wdac_policy_creation.yml"
+  description                = <<DESC
+    Detects suspicious Windows Defender Application Control (WDAC) policy file creation from abnormal processes that could be abused by attacker to block EDR/AV components while allowing their own malicious code to run on the system.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_wdac_policy_creation.yml
+
+    False Positives:
+    - Administrators and security vendors could leverage WDAC, apply additional filters as needed.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

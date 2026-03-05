@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_susp_recon_i
   name                       = "proc_creation_lnx_susp_recon_indicators"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux Recon Indicators"
-  description                = "Detects events with patterns found in commands used for reconnaissance on linux systems Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_recon_indicators.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_recon_indicators.yml"
+  description                = <<DESC
+    Detects events with patterns found in commands used for reconnaissance on linux systems
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_recon_indicators.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

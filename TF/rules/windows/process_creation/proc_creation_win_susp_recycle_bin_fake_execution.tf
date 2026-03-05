@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_recycle
   name                       = "proc_creation_win_susp_recycle_bin_fake_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Process Execution From Fake Recycle.Bin Folder"
-  description                = "Detects process execution from a fake recycle bin folder, often used to avoid security solution. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_recycle_bin_fake_execution.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_recycle_bin_fake_execution.yml"
+  description                = <<DESC
+    Detects process execution from a fake recycle bin folder, often used to avoid security solution.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_recycle_bin_fake_execution.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

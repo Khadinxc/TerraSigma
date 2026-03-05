@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_persistence_xll" 
   name                       = "registry_set_persistence_xll"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Excel Add-in - Registry"
-  description                = "Detect potential persistence via the creation of an excel add-in (XLL) file to make it run automatically when Excel is started. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_xll.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_xll.yml"
+  description                = <<DESC
+    Detect potential persistence via the creation of an excel add-in (XLL) file to make it run automatically when Excel is started.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_xll.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_pua_runxcmd"
   name                       = "proc_creation_win_pua_runxcmd"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - RunXCmd Execution"
-  description                = "Detects the use of the RunXCmd tool to execute commands with System or TrustedInstaller accounts Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_runxcmd.yml - Legitimate use by administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_runxcmd.yml"
+  description                = <<DESC
+    Detects the use of the RunXCmd tool to execute commands with System or TrustedInstaller accounts
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_runxcmd.yml
+
+    False Positives:
+    - Legitimate use by administrators
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

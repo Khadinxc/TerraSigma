@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_file_and_dir
   name                       = "proc_creation_lnx_file_and_directory_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File and Directory Discovery - Linux"
-  description                = "Detects usage of system utilities such as \"find\", \"tree\", \"findmnt\", etc, to discover files, directories and network shares. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_file_and_directory_discovery.yml - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_file_and_directory_discovery.yml"
+  description                = <<DESC
+    Detects usage of system utilities such as "find", "tree", "findmnt", etc, to discover files, directories and network shares.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_file_and_directory_discovery.yml
+
+    False Positives:
+    - Legitimate activities
+  DESC
   severity                   = "Informational"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_disk_cleanup_hand
   name                       = "registry_set_disk_cleanup_handler_autorun_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Persistence Via Disk Cleanup Handler - Autorun"
-  description                = "Detects when an attacker modifies values of the Disk Cleanup Handler in the registry to achieve persistence via autorun. The disk cleanup manager is part of the operating system. It displays the dialog box […] The user has the option of enabling or disabling individual handlers by selecting or clearing their check box in the disk cleanup manager's UI. Although Windows comes with a number of disk cleanup handlers, they aren't designed to handle files produced by other applications. Instead, the disk cleanup manager is designed to be flexible and extensible by enabling any developer to implement and register their own disk cleanup handler. Any developer can extend the available disk cleanup services by implementing and registering a disk cleanup handler. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disk_cleanup_handler_autorun_persistence.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disk_cleanup_handler_autorun_persistence.yml"
+  description                = <<DESC
+    Detects when an attacker modifies values of the Disk Cleanup Handler in the registry to achieve persistence via autorun. The disk cleanup manager is part of the operating system. It displays the dialog box […] The user has the option of enabling or disabling individual handlers by selecting or clearing their check box in the disk cleanup manager's UI. Although Windows comes with a number of disk cleanup handlers, they aren't designed to handle files produced by other applications. Instead, the disk cleanup manager is designed to be flexible and extensible by enabling any developer to implement and register their own disk cleanup handler. Any developer can extend the available disk cleanup services by implementing and registering a disk cleanup handler.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disk_cleanup_handler_autorun_persistence.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

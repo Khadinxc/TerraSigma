@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_registry_ie_
   name                       = "proc_creation_win_registry_ie_security_zone_protocol_defaults_downgrade"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "IE ZoneMap Setting Downgraded To MyComputer Zone For HTTP Protocols Via CLI"
-  description                = "Detects changes to Internet Explorer's (IE / Windows Internet properties) ZoneMap configuration of the \"HTTP\" and \"HTTPS\" protocols to point to the \"My Computer\" zone. This allows downloaded files from the Internet to be granted the same level of trust as files stored locally. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_ie_security_zone_protocol_defaults_downgrade.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_ie_security_zone_protocol_defaults_downgrade.yml"
+  description                = <<DESC
+    Detects changes to Internet Explorer's (IE / Windows Internet properties) ZoneMap configuration of the "HTTP" and "HTTPS" protocols to point to the "My Computer" zone. This allows downloaded files from the Internet to be granted the same level of trust as files stored locally.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_ie_security_zone_protocol_defaults_downgrade.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_wmi_module_load_by_
   name                       = "image_load_wmi_module_load_by_uncommon_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WMI Module Loaded By Uncommon Process"
-  description                = "Detects WMI modules being loaded by an uncommon process Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_wmi_module_load_by_uncommon_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_wmi_module_load_by_uncommon_process.yml"
+  description                = <<DESC
+    Detects WMI modules being loaded by an uncommon process
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_wmi_module_load_by_uncommon_process.yml
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceImageLoadEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_schtasks_sus
   name                       = "proc_creation_win_schtasks_susp_pattern"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Command Patterns In Scheduled Task Creation"
-  description                = "Detects scheduled task creation using \"schtasks\" that contain potentially suspicious or uncommon commands Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_susp_pattern.yml - Software installers that run from temporary folders and also install scheduled tasks are expected to generate some false positives | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_susp_pattern.yml"
+  description                = <<DESC
+    Detects scheduled task creation using "schtasks" that contain potentially suspicious or uncommon commands
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_susp_pattern.yml
+
+    False Positives:
+    - Software installers that run from temporary folders and also install scheduled tasks are expected to generate some false positives
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

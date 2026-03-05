@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_curl_userage
   name                       = "proc_creation_win_curl_useragent"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Curl.EXE Execution With Custom UserAgent"
-  description                = "Detects execution of curl.exe with custom useragent options Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_curl_useragent.yml - Scripts created by developers and admins - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_curl_useragent.yml"
+  description                = <<DESC
+    Detects execution of curl.exe with custom useragent options
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_curl_useragent.yml
+
+    False Positives:
+    - Scripts created by developers and admins
+    - Administrative activity
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

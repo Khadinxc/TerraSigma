@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_googleupdate
   name                       = "proc_creation_win_googleupdate_susp_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious GoogleUpdate Child Process"
-  description                = "Detects potentially suspicious child processes of \"GoogleUpdate.exe\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_googleupdate_susp_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_googleupdate_susp_child_process.yml"
+  description                = <<DESC
+    Detects potentially suspicious child processes of "GoogleUpdate.exe"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_googleupdate_susp_child_process.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

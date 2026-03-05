@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_triple_cross
   name                       = "proc_creation_lnx_triple_cross_rootkit_install"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Triple Cross eBPF Rootkit Install Commands"
-  description                = "Detects default install commands of the Triple Cross eBPF rootkit based on the \"deployer.sh\" script Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_triple_cross_rootkit_install.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_triple_cross_rootkit_install.yml"
+  description                = <<DESC
+    Detects default install commands of the Triple Cross eBPF rootkit based on the "deployer.sh" script
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_triple_cross_rootkit_install.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

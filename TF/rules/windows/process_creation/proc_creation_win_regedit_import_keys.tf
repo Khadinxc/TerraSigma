@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_regedit_impo
   name                       = "proc_creation_win_regedit_import_keys"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Imports Registry Key From a File"
-  description                = "Detects the import of the specified file to the registry with regedit.exe. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regedit_import_keys.yml - Legitimate import of keys - Evernote | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regedit_import_keys.yml"
+  description                = <<DESC
+    Detects the import of the specified file to the registry with regedit.exe.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regedit_import_keys.yml
+
+    False Positives:
+    - Legitimate import of keys
+    - Evernote
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

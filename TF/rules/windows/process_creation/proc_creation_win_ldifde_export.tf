@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_ldifde_expor
   name                       = "proc_creation_win_ldifde_export"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Active Directory Structure Export Via Ldifde.EXE"
-  description                = "Detects the execution of \"ldifde.exe\" in order to export organizational Active Directory structure. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ldifde_export.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ldifde_export.yml"
+  description                = <<DESC
+    Detects the execution of "ldifde.exe" in order to export organizational Active Directory structure.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ldifde_export.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

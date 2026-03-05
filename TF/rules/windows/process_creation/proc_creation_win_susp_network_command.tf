@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_network
   name                       = "proc_creation_win_susp_network_command"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Network Command"
-  description                = "Adversaries may look for details about the network configuration and settings of systems they access or through information discovery of remote systems Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_network_command.yml - Administrator, hotline ask to user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_network_command.yml"
+  description                = <<DESC
+    Adversaries may look for details about the network configuration and settings of systems they access or through information discovery of remote systems
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_network_command.yml
+
+    False Positives:
+    - Administrator, hotline ask to user
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

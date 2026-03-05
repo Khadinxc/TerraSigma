@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_udl
   name                       = "proc_creation_win_rundll32_udl_exec"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Rundll32.EXE Execution of UDL File"
-  description                = "Detects the execution of rundll32.exe with the oledb32.dll library to open a UDL file. Threat actors can abuse this technique as a phishing vector to capture authentication credentials or other sensitive data. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_udl_exec.yml - UDL files serve as a convenient and flexible tool for managing and testing database connections in various development and administrative scenarios. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_udl_exec.yml"
+  description                = <<DESC
+    Detects the execution of rundll32.exe with the oledb32.dll library to open a UDL file. Threat actors can abuse this technique as a phishing vector to capture authentication credentials or other sensitive data.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_udl_exec.yml
+
+    False Positives:
+    - UDL files serve as a convenient and flexible tool for managing and testing database connections in various development and administrative scenarios.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

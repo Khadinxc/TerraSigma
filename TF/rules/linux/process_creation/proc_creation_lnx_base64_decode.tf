@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_base64_decod
   name                       = "proc_creation_lnx_base64_decode"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Decode Base64 Encoded Text"
-  description                = "Detects usage of base64 utility to decode arbitrary base64-encoded text Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_base64_decode.yml - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_base64_decode.yml"
+  description                = <<DESC
+    Detects usage of base64 utility to decode arbitrary base64-encoded text
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_base64_decode.yml
+
+    False Positives:
+    - Legitimate activities
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

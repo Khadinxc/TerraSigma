@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_wab_dllpath_reg_c
   name                       = "registry_set_wab_dllpath_reg_change"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Execution DLL of Choice Using WAB.EXE"
-  description                = "This rule detects that the path to the DLL written in the registry is different from the default one. Launched WAB.exe tries to load the DLL from Registry. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_wab_dllpath_reg_change.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_wab_dllpath_reg_change.yml"
+  description                = <<DESC
+    This rule detects that the path to the DLL written in the registry is different from the default one. Launched WAB.exe tries to load the DLL from Registry.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_wab_dllpath_reg_change.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

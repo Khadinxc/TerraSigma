@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_cmd_stdin_re
   name                       = "proc_creation_win_cmd_stdin_redirect"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Read Contents From Stdin Via Cmd.EXE"
-  description                = "Detect the use of \"<\" to read and potentially execute a file via cmd.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_stdin_redirect.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_stdin_redirect.yml"
+  description                = <<DESC
+    Detect the use of "<" to read and potentially execute a file via cmd.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_stdin_redirect.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

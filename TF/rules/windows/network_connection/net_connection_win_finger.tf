@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_finger" {
   name                       = "net_connection_win_finger"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Network Connection Initiated via Finger.EXE"
-  description                = "Detects network connections via finger.exe, which can be abused by threat actors to retrieve remote commands for execution on Windows devices. In one ClickFix malware campaign, adversaries leveraged the finger protocol to fetch commands from a remote server. Since the finger utility is not commonly used in modern Windows environments, its presence already raises suspicion. Investigating such network connections can also help identify potential malicious infrastructure used by threat actors Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_finger.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_finger.yml"
+  description                = <<DESC
+    Detects network connections via finger.exe, which can be abused by threat actors to retrieve remote commands for execution on Windows devices. In one ClickFix malware campaign, adversaries leveraged the finger protocol to fetch commands from a remote server. Since the finger utility is not commonly used in modern Windows environments, its presence already raises suspicion. Investigating such network connections can also help identify potential malicious infrastructure used by threat actors
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_finger.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_delete_removal_com_hi
   name                       = "registry_delete_removal_com_hijacking_registry_key"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Removal of Potential COM Hijacking Registry Keys"
-  description                = "Detects any deletion of entries in \".*\\shell\\open\\command\" registry keys. These registry keys might have been used for COM hijacking activities by a threat actor or an attacker and the deletion could indicate steps to remove its tracks. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/registry_delete_removal_com_hijacking_registry_key.yml - Legitimate software (un)installations are known to cause false positives. Please add them as a filter when encountered | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/registry_delete_removal_com_hijacking_registry_key.yml"
+  description                = <<DESC
+    Detects any deletion of entries in ".*\shell\open\command" registry keys. These registry keys might have been used for COM hijacking activities by a threat actor or an attacker and the deletion could indicate steps to remove its tracks.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/registry_delete_removal_com_hijacking_registry_key.yml
+
+    False Positives:
+    - Legitimate software (un)installations are known to cause false positives. Please add them as a filter when encountered
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

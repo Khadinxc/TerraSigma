@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_change_winevt_cha
   name                       = "registry_set_change_winevt_channelaccess"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Change Winevt Channel Access Permission Via Registry"
-  description                = "Detects tampering with the \"ChannelAccess\" registry key in order to change access to Windows event channel. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_change_winevt_channelaccess.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_change_winevt_channelaccess.yml"
+  description                = <<DESC
+    Detects tampering with the "ChannelAccess" registry key in order to change access to Windows event channel.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_change_winevt_channelaccess.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

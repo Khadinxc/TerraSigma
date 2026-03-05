@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_wsman_provider_imag
   name                       = "image_load_wsman_provider_image_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious WSMAN Provider Image Loads"
-  description                = "Detects signs of potential use of the WSMAN provider from uncommon processes locally and remote execution. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_wsman_provider_image_load.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_wsman_provider_image_load.yml"
+  description                = <<DESC
+    Detects signs of potential use of the WSMAN provider from uncommon processes locally and remote execution.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_wsman_provider_image_load.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

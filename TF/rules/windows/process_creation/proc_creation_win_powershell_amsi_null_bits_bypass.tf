@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_a
   name                       = "proc_creation_win_powershell_amsi_null_bits_bypass"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential AMSI Bypass Using NULL Bits"
-  description                = "Detects usage of special strings/null bits in order to potentially bypass AMSI functionalities Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_amsi_null_bits_bypass.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_amsi_null_bits_bypass.yml"
+  description                = <<DESC
+    Detects usage of special strings/null bits in order to potentially bypass AMSI functionalities
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_amsi_null_bits_bypass.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

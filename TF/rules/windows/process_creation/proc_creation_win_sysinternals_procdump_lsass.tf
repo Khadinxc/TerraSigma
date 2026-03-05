@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sysinternals
   name                       = "proc_creation_win_sysinternals_procdump_lsass"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential LSASS Process Dump Via Procdump"
-  description                = "Detects potential credential harvesting attempts through LSASS memory dumps using ProcDump. This rule identifies suspicious command-line patterns that combine memory dump flags (-ma, -mm, -mp) with LSASS-related process markers. LSASS (Local Security Authority Subsystem Service) contains sensitive authentication data including plaintext passwords, NTLM hashes, and Kerberos tickets in memory. Attackers commonly dump LSASS memory to extract credentials for lateral movement and privilege escalation. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_procdump_lsass.yml - Unlikely, because no one should dump an lsass process memory - Another tool that uses command line flags similar to ProcDump | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_procdump_lsass.yml"
+  description                = <<DESC
+    Detects potential credential harvesting attempts through LSASS memory dumps using ProcDump. This rule identifies suspicious command-line patterns that combine memory dump flags (-ma, -mm, -mp) with LSASS-related process markers. LSASS (Local Security Authority Subsystem Service) contains sensitive authentication data including plaintext passwords, NTLM hashes, and Kerberos tickets in memory. Attackers commonly dump LSASS memory to extract credentials for lateral movement and privilege escalation.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_procdump_lsass.yml
+
+    False Positives:
+    - Unlikely, because no one should dump an lsass process memory
+    - Another tool that uses command line flags similar to ProcDump
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

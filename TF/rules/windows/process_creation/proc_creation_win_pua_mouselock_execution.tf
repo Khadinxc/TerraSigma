@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_pua_mouseloc
   name                       = "proc_creation_win_pua_mouselock_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Mouse Lock Execution"
-  description                = "In Kaspersky's 2020 Incident Response Analyst Report they listed legitimate tool \"Mouse Lock\" as being used for both credential access and collection in security incidents. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_mouselock_execution.yml - Legitimate uses of Mouse Lock software | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_mouselock_execution.yml"
+  description                = <<DESC
+    In Kaspersky's 2020 Incident Response Analyst Report they listed legitimate tool "Mouse Lock" as being used for both credential access and collection in security incidents.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_mouselock_execution.yml
+
+    False Positives:
+    - Legitimate uses of Mouse Lock software
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

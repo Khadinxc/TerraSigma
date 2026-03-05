@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_susp_binary
   name                       = "net_connection_win_susp_binary_no_cmdline"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Network Connection Binary No CommandLine"
-  description                = "Detects suspicious network connections made by a well-known Windows binary run with no command line parameters Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_susp_binary_no_cmdline.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_susp_binary_no_cmdline.yml"
+  description                = <<DESC
+    Detects suspicious network connections made by a well-known Windows binary run with no command line parameters
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_susp_binary_no_cmdline.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents

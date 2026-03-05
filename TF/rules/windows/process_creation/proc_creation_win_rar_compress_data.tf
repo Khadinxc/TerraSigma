@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rar_compress
   name                       = "proc_creation_win_rar_compress_data"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Files Added To An Archive Using Rar.EXE"
-  description                = "Detects usage of \"rar\" to add files to an archive for potential compression. An adversary may compress data (e.g. sensitive documents) that is collected prior to exfiltration in order to make it portable and minimize the amount of data sent over the network. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rar_compress_data.yml - Highly likely if rar is a default archiver in the monitored environment. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rar_compress_data.yml"
+  description                = <<DESC
+    Detects usage of "rar" to add files to an archive for potential compression. An adversary may compress data (e.g. sensitive documents) that is collected prior to exfiltration in order to make it portable and minimize the amount of data sent over the network.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rar_compress_data.yml
+
+    False Positives:
+    - Highly likely if rar is a default archiver in the monitored environment.
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

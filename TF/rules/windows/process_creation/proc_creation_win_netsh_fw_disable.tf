@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_netsh_fw_dis
   name                       = "proc_creation_win_netsh_fw_disable"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Firewall Disabled via Netsh.EXE"
-  description                = "Detects netsh commands that turns off the Windows firewall Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_disable.yml - Legitimate administration activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_disable.yml"
+  description                = <<DESC
+    Detects netsh commands that turns off the Windows firewall
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_disable.yml
+
+    False Positives:
+    - Legitimate administration activity
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

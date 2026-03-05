@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_mercury"
   name                       = "proc_creation_win_apt_mercury"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "MERCURY APT Activity"
-  description                = "Detects suspicious command line patterns seen being used by MERCURY APT Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2022/TA/MERCURY/proc_creation_win_apt_mercury.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2022/TA/MERCURY/proc_creation_win_apt_mercury.yml"
+  description                = <<DESC
+    Detects suspicious command line patterns seen being used by MERCURY APT
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2022/TA/MERCURY/proc_creation_win_apt_mercury.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

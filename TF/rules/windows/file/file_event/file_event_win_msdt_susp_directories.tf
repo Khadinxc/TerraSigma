@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_msdt_susp_direc
   name                       = "file_event_win_msdt_susp_directories"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Creation In Suspicious Directory By Msdt.EXE"
-  description                = "Detects msdt.exe creating files in suspicious directories which could be a sign of exploitation of either Follina or Dogwalk vulnerabilities Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_msdt_susp_directories.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_msdt_susp_directories.yml"
+  description                = <<DESC
+    Detects msdt.exe creating files in suspicious directories which could be a sign of exploitation of either Follina or Dogwalk vulnerabilities
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_msdt_susp_directories.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

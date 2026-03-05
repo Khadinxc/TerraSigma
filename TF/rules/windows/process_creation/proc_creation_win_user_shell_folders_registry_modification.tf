@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_user_shell_f
   name                       = "proc_creation_win_user_shell_folders_registry_modification"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "User Shell Folders Registry Modification via CommandLine"
-  description                = "Detects modifications to User Shell Folders registry values via reg.exe or PowerShell, which could indicate persistence attempts. Attackers may modify User Shell Folders registry values to point to malicious executables or scripts that will be executed during startup. This technique is often used to maintain persistence on a compromised system by ensuring that malicious payloads are executed automatically. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_user_shell_folders_registry_modification.yml - Usage of reg.exe or PowerShell to modify User Shell Folders for legitimate purposes; but rare. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_user_shell_folders_registry_modification.yml"
+  description                = <<DESC
+    Detects modifications to User Shell Folders registry values via reg.exe or PowerShell, which could indicate persistence attempts. Attackers may modify User Shell Folders registry values to point to malicious executables or scripts that will be executed during startup. This technique is often used to maintain persistence on a compromised system by ensuring that malicious payloads are executed automatically.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_user_shell_folders_registry_modification.yml
+
+    False Positives:
+    - Usage of reg.exe or PowerShell to modify User Shell Folders for legitimate purposes; but rare.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

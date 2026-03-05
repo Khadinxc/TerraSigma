@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_hidden_
   name                       = "proc_creation_win_susp_hidden_dir_index_allocation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Hidden Directory Creation Via NTFS INDEX_ALLOCATION Stream - CLI"
-  description                = "Detects command line containing reference to the \"::$index_allocation\" stream, which can be used as a technique to prevent access to folders or files from tooling such as \"explorer.exe\" or \"powershell.exe\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_hidden_dir_index_allocation.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_hidden_dir_index_allocation.yml"
+  description                = <<DESC
+    Detects command line containing reference to the "::$index_allocation" stream, which can be used as a technique to prevent access to folders or files from tooling such as "explorer.exe" or "powershell.exe"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_hidden_dir_index_allocation.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

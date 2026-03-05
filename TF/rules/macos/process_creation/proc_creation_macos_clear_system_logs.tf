@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_clear_syst
   name                       = "proc_creation_macos_clear_system_logs"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Indicator Removal on Host - Clear Mac System Logs"
-  description                = "Detects deletion of local audit logs Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_clear_system_logs.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_clear_system_logs.yml"
+  description                = <<DESC
+    Detects deletion of local audit logs
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_clear_system_logs.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

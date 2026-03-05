@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_pbpaste_ex
   name                       = "proc_creation_macos_pbpaste_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Clipboard Data Collection Via Pbpaste"
-  description                = "Detects execution of the \"pbpaste\" utility, which retrieves the contents of the clipboard (a.k.a. pasteboard) and writes them to the standard output (stdout). The utility is often used for creating new files with the clipboard content or for piping clipboard contents to other commands. It can also be used in shell scripts that may require clipboard content as input. Attackers can abuse this utility in order to collect data from the user clipboard, which may contain passwords or sensitive information. Use this rule to hunt for potential abuse of the utility by looking at the parent process and any potentially suspicious command line content. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/macos/process_creation/proc_creation_macos_pbpaste_execution.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/macos/process_creation/proc_creation_macos_pbpaste_execution.yml"
+  description                = <<DESC
+    Detects execution of the "pbpaste" utility, which retrieves the contents of the clipboard (a.k.a. pasteboard) and writes them to the standard output (stdout). The utility is often used for creating new files with the clipboard content or for piping clipboard contents to other commands. It can also be used in shell scripts that may require clipboard content as input. Attackers can abuse this utility in order to collect data from the user clipboard, which may contain passwords or sensitive information. Use this rule to hunt for potential abuse of the utility by looking at the parent process and any potentially suspicious command line content.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/macos/process_creation/proc_creation_macos_pbpaste_execution.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

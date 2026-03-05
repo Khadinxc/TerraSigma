@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_pua_ngrok" {
   name                       = "proc_creation_win_pua_ngrok"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - Ngrok Execution"
-  description                = "Detects the use of Ngrok, a utility used for port forwarding and tunneling, often used by threat actors to make local protected services publicly available. Involved domains are bin.equinox.io for download and *.ngrok.io for connections. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_ngrok.yml - Another tool that uses the command line switches of Ngrok - Ngrok http 3978 (https://learn.microsoft.com/en-us/azure/bot-service/bot-service-debug-channel-ngrok?view=azure-bot-service-4.0) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_ngrok.yml"
+  description                = <<DESC
+    Detects the use of Ngrok, a utility used for port forwarding and tunneling, often used by threat actors to make local protected services publicly available. Involved domains are bin.equinox.io for download and *.ngrok.io for connections.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_ngrok.yml
+
+    False Positives:
+    - Another tool that uses the command line switches of Ngrok
+    - Ngrok http 3978 (https://learn.microsoft.com/en-us/azure/bot-service/bot-service-debug-channel-ngrok?view=azure-bot-service-4.0)
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

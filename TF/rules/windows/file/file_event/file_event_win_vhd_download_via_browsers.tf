@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_vhd_download_vi
   name                       = "file_event_win_vhd_download_via_browsers"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "VHD Image Download Via Browser"
-  description                = "Detects creation of \".vhd\"/\".vhdx\" files by browser processes. Malware can use mountable Virtual Hard Disk \".vhd\" files to encapsulate payloads and evade security controls. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_vhd_download_via_browsers.yml - Legitimate downloads of \".vhd\" files would also trigger this | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_vhd_download_via_browsers.yml"
+  description                = <<DESC
+    Detects creation of ".vhd"/".vhdx" files by browser processes. Malware can use mountable Virtual Hard Disk ".vhd" files to encapsulate payloads and evade security controls.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_vhd_download_via_browsers.yml
+
+    False Positives:
+    - Legitimate downloads of ".vhd" files would also trigger this
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

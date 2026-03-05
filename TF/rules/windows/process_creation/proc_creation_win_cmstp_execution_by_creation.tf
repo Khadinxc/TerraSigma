@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_cmstp_execut
   name                       = "proc_creation_win_cmstp_execution_by_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "CMSTP Execution Process Creation"
-  description                = "Detects various indicators of Microsoft Connection Manager Profile Installer execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmstp_execution_by_creation.yml - Legitimate CMSTP use (unlikely in modern enterprise environments) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmstp_execution_by_creation.yml"
+  description                = <<DESC
+    Detects various indicators of Microsoft Connection Manager Profile Installer execution
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmstp_execution_by_creation.yml
+
+    False Positives:
+    - Legitimate CMSTP use (unlikely in modern enterprise environments)
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

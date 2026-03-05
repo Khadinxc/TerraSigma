@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_lazagne
   name                       = "proc_creation_win_hktl_lazagne"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - LaZagne Execution"
-  description                = "Detects the execution of the LaZagne. A utility used to retrieve multiple types of passwords stored on a local computer. LaZagne has been leveraged multiple times by threat actors in order to dump credentials. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_lazagne.yml - Some false positive is expected from tools with similar command line flags. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_lazagne.yml"
+  description                = <<DESC
+    Detects the execution of the LaZagne. A utility used to retrieve multiple types of passwords stored on a local computer. LaZagne has been leveraged multiple times by threat actors in order to dump credentials.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_lazagne.yml
+
+    False Positives:
+    - Some false positive is expected from tools with similar command line flags.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_certutil_in
   name                       = "net_connection_win_certutil_initiated_connection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon Network Connection Initiated By Certutil.EXE"
-  description                = "Detects a network connection initiated by the certutil.exe utility. Attackers can abuse the utility in order to download malware or additional payloads. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_certutil_initiated_connection.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_certutil_initiated_connection.yml"
+  description                = <<DESC
+    Detects a network connection initiated by the certutil.exe utility. Attackers can abuse the utility in order to download malware or additional payloads.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_certutil_initiated_connection.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents

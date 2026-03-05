@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_esxcli_syste
   name                       = "proc_creation_lnx_esxcli_system_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ESXi System Information Discovery Via ESXCLI"
-  description                = "Detects execution of the \"esxcli\" command with the \"system\" flag in order to retrieve information about the different component of the system. Such as accounts, modules, NTP, etc. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_system_discovery.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_system_discovery.yml"
+  description                = <<DESC
+    Detects execution of the "esxcli" command with the "system" flag in order to retrieve information about the different component of the system. Such as accounts, modules, NTP, etc.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_system_discovery.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

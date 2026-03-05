@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_office_word_wll_loa
   name                       = "image_load_office_word_wll_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Microsoft Word Add-In Loaded"
-  description                = "Detects Microsoft Word loading an Add-In (.wll) file which can be used by threat actors for initial access or persistence. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_office_word_wll_load.yml - The rules is only looking for \".wll\" loads. So some false positives are expected with legitimate and allowed WLLs. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_office_word_wll_load.yml"
+  description                = <<DESC
+    Detects Microsoft Word loading an Add-In (.wll) file which can be used by threat actors for initial access or persistence.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_office_word_wll_load.yml
+
+    False Positives:
+    - The rules is only looking for ".wll" loads. So some false positives are expected with legitimate and allowed WLLs.
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceImageLoadEvents

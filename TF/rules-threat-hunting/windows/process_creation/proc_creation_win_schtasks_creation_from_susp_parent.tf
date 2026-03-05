@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_schtasks_cre
   name                       = "proc_creation_win_schtasks_creation_from_susp_parent"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Scheduled Task Creation From Potential Suspicious Parent Location"
-  description                = "Detects the execution of \"schtasks.exe\" from a parent that is located in a potentially suspicious location. Multiple malware strains were seen exhibiting a similar behavior in order to achieve persistence. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_schtasks_creation_from_susp_parent.yml - Software installers that run from temporary folders and also install scheduled tasks | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_schtasks_creation_from_susp_parent.yml"
+  description                = <<DESC
+    Detects the execution of "schtasks.exe" from a parent that is located in a potentially suspicious location. Multiple malware strains were seen exhibiting a similar behavior in order to achieve persistence.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_schtasks_creation_from_susp_parent.yml
+
+    False Positives:
+    - Software installers that run from temporary folders and also install scheduled tasks
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_winrar_file_cre
   name                       = "file_event_win_winrar_file_creation_in_startup_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "WinRAR Creating Files in Startup Locations"
-  description                = "Detects WinRAR creating files in Windows startup locations, which may indicate an attempt to establish persistence by adding malicious files to the Startup folder. This kind of behaviour has been associated with exploitation of WinRAR path traversal vulnerability CVE-2025-6218 or CVE-2025-8088. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_winrar_file_creation_in_startup_folder.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_winrar_file_creation_in_startup_folder.yml"
+  description                = <<DESC
+    Detects WinRAR creating files in Windows startup locations, which may indicate an attempt to establish persistence by adding malicious files to the Startup folder. This kind of behaviour has been associated with exploitation of WinRAR path traversal vulnerability CVE-2025-6218 or CVE-2025-8088.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_winrar_file_creation_in_startup_folder.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

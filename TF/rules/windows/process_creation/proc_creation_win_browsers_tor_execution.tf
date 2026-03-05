@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_browsers_tor
   name                       = "proc_creation_win_browsers_tor_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Tor Client/Browser Execution"
-  description                = "Detects the use of Tor or Tor-Browser to connect to onion routing networks Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_tor_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_tor_execution.yml"
+  description                = <<DESC
+    Detects the use of Tor or Tor-Browser to connect to onion routing networks
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_tor_execution.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

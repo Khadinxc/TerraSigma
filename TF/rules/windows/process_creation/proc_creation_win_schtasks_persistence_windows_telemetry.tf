@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_schtasks_per
   name                       = "proc_creation_win_schtasks_persistence_windows_telemetry"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Microsoft Compatibility Appraiser"
-  description                = "Detects manual execution of the \"Microsoft Compatibility Appraiser\" task via schtasks. In order to trigger persistence stored in the \"\\AppCompatFlags\\TelemetryController\" registry key. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_persistence_windows_telemetry.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_persistence_windows_telemetry.yml"
+  description                = <<DESC
+    Detects manual execution of the "Microsoft Compatibility Appraiser" task via schtasks. In order to trigger persistence stored in the "\AppCompatFlags\TelemetryController" registry key.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_persistence_windows_telemetry.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

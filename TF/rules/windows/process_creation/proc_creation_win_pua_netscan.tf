@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_pua_netscan"
   name                       = "proc_creation_win_pua_netscan"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - SoftPerfect Netscan Execution"
-  description                = "Detects usage of SoftPerfect's \"netscan.exe\". An application for scanning networks. It is actively used in-the-wild by threat actors to inspect and understand the network architecture of a victim. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_netscan.yml - Legitimate administrator activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_netscan.yml"
+  description                = <<DESC
+    Detects usage of SoftPerfect's "netscan.exe". An application for scanning networks. It is actively used in-the-wild by threat actors to inspect and understand the network architecture of a victim.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_netscan.yml
+
+    False Positives:
+    - Legitimate administrator activity
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

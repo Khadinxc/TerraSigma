@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_csexec_service"
   name                       = "file_event_win_csexec_service"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "CSExec Service File Creation"
-  description                = "Detects default CSExec service filename which indicates CSExec service installation and execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_csexec_service.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_csexec_service.yml"
+  description                = <<DESC
+    Detects default CSExec service filename which indicates CSExec service installation and execution
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_csexec_service.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

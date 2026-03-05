@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_cmd_ping_cop
   name                       = "proc_creation_win_cmd_ping_copy_combined_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Ping/Copy Command Combination"
-  description                = "Detects uncommon and potentially suspicious one-liner command containing both \"ping\" and \"copy\" at the same time, which is usually used by malware. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_ping_copy_combined_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_ping_copy_combined_execution.yml"
+  description                = <<DESC
+    Detects uncommon and potentially suspicious one-liner command containing both "ping" and "copy" at the same time, which is usually used by malware.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_ping_copy_combined_execution.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_i
   name                       = "proc_creation_win_powershell_invoke_webrequest_download"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Invoke-WebRequest Execution"
-  description                = "Detects a suspicious call to Invoke-WebRequest cmdlet where the and output is located in a suspicious location Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_invoke_webrequest_download.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_invoke_webrequest_download.yml"
+  description                = <<DESC
+    Detects a suspicious call to Invoke-WebRequest cmdlet where the and output is located in a suspicious location
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_invoke_webrequest_download.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

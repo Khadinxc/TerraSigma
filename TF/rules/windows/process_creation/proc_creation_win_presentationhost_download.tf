@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_presentation
   name                       = "proc_creation_win_presentationhost_download"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Arbitrary File Download Via PresentationHost.EXE"
-  description                = "Detects usage of \"PresentationHost\" which is a utility that runs \".xbap\" (Browser Applications) files to download arbitrary files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_presentationhost_download.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_presentationhost_download.yml"
+  description                = <<DESC
+    Detects usage of "PresentationHost" which is a utility that runs ".xbap" (Browser Applications) files to download arbitrary files
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_presentationhost_download.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

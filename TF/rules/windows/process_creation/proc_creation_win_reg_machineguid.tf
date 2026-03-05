@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_reg_machineg
   name                       = "proc_creation_win_reg_machineguid"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Query of MachineGUID"
-  description                = "Use of reg to get MachineGuid information Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_machineguid.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_machineguid.yml"
+  description                = <<DESC
+    Use of reg to get MachineGuid information
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_machineguid.yml
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

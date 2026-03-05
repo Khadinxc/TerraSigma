@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_obf
   name                       = "proc_creation_win_rundll32_obfuscated_ordinal_call"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Obfuscated Ordinal Call Via Rundll32"
-  description                = "Detects execution of \"rundll32\" with potential obfuscated ordinal calls Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_obfuscated_ordinal_call.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_obfuscated_ordinal_call.yml"
+  description                = <<DESC
+    Detects execution of "rundll32" with potential obfuscated ordinal calls
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_obfuscated_ordinal_call.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

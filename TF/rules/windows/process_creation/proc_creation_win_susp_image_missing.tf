@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_image_m
   name                       = "proc_creation_win_susp_image_missing"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Execution Of Non-Existing File"
-  description                = "Checks whether the image specified in a process creation event is not a full, absolute path (caused by process ghosting or other unorthodox methods to start a process) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_image_missing.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_image_missing.yml"
+  description                = <<DESC
+    Checks whether the image specified in a process creation event is not a full, absolute path (caused by process ghosting or other unorthodox methods to start a process)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_image_missing.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_domain_mega
   name                       = "net_connection_win_domain_mega_nz"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Network Connection Initiated To Mega.nz"
-  description                = "Detects a network connection initiated by a binary to \"api.mega.co.nz\". Attackers were seen abusing file sharing websites similar to \"mega.nz\" in order to upload/download additional payloads. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_mega_nz.yml - Legitimate MEGA installers and utilities are expected to communicate with this domain. Exclude hosts that are known to be allowed to use this tool. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_mega_nz.yml"
+  description                = <<DESC
+    Detects a network connection initiated by a binary to "api.mega.co.nz". Attackers were seen abusing file sharing websites similar to "mega.nz" in order to upload/download additional payloads.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_mega_nz.yml
+
+    False Positives:
+    - Legitimate MEGA installers and utilities are expected to communicate with this domain. Exclude hosts that are known to be allowed to use this tool.
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceNetworkEvents

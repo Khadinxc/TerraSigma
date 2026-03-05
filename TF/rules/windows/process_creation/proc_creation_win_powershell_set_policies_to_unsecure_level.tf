@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_s
   name                       = "proc_creation_win_powershell_set_policies_to_unsecure_level"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Change PowerShell Policies to an Insecure Level"
-  description                = "Detects changing the PowerShell script execution policy to a potentially insecure level using the \"-ExecutionPolicy\" flag. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_set_policies_to_unsecure_level.yml - Administrator scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_set_policies_to_unsecure_level.yml"
+  description                = <<DESC
+    Detects changing the PowerShell script execution policy to a potentially insecure level using the "-ExecutionPolicy" flag.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_set_policies_to_unsecure_level.yml
+
+    False Positives:
+    - Administrator scripts
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

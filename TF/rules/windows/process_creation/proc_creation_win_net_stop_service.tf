@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_net_stop_ser
   name                       = "proc_creation_win_net_stop_service"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Stop Windows Service Via Net.EXE"
-  description                = "Detects the stopping of a Windows service via the \"net\" utility. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_stop_service.yml - There are many legitimate reasons to stop a service. This rule isn't looking for any suspicious behaviour in particular. Filter legitimate activity accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_stop_service.yml"
+  description                = <<DESC
+    Detects the stopping of a Windows service via the "net" utility.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_stop_service.yml
+
+    False Positives:
+    - There are many legitimate reasons to stop a service. This rule isn't looking for any suspicious behaviour in particular. Filter legitimate activity accordingly
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_reg_desktop_
   name                       = "proc_creation_win_reg_desktop_background_change"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Desktop Background Change Using Reg.EXE"
-  description                = "Detects the execution of \"reg.exe\" to alter registry keys that would replace the user's desktop background. This is a common technique used by malware to change the desktop background to a ransom note or other image. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_desktop_background_change.yml - Administrative scripts that change the desktop background to a company logo or other image. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_desktop_background_change.yml"
+  description                = <<DESC
+    Detects the execution of "reg.exe" to alter registry keys that would replace the user's desktop background. This is a common technique used by malware to change the desktop background to a ransom note or other image.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_desktop_background_change.yml
+
+    False Positives:
+    - Administrative scripts that change the desktop background to a company logo or other image.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_office_vbadll_load"
   name                       = "image_load_office_vbadll_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "VBA DLL Loaded Via Office Application"
-  description                = "Detects VB DLL's loaded by an office application. Which could indicate the presence of VBA Macros. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_vbadll_load.yml - Legitimate macro usage. Add the appropriate filter according to your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_vbadll_load.yml"
+  description                = <<DESC
+    Detects VB DLL's loaded by an office application. Which could indicate the presence of VBA Macros.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_vbadll_load.yml
+
+    False Positives:
+    - Legitimate macro usage. Add the appropriate filter according to your environment
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

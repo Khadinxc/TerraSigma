@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_python" {
   name                       = "net_connection_win_python"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Python Initiated Connection"
-  description                = "Detects a Python process initiating a network connection. While this often relates to package installation, it can also indicate a potential malicious script communicating with a C&C server. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_python.yml - Legitimate python scripts using the socket library or similar will trigger this. Apply additional filters and perform an initial baseline before deploying. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_python.yml"
+  description                = <<DESC
+    Detects a Python process initiating a network connection. While this often relates to package installation, it can also indicate a potential malicious script communicating with a C&C server.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_python.yml
+
+    False Positives:
+    - Legitimate python scripts using the socket library or similar will trigger this. Apply additional filters and perform an initial baseline before deploying.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

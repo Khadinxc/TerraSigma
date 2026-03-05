@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_tail_base6
   name                       = "proc_creation_macos_tail_base64_decode_from_image"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Base64 Decoded From Images"
-  description                = "Detects the use of tail to extract bytes at an offset from an image and then decode the base64 value to create a new file with the decoded content. The detected execution is a bash one-liner. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_tail_base64_decode_from_image.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_tail_base64_decode_from_image.yml"
+  description                = <<DESC
+    Detects the use of tail to extract bytes at an offset from an image and then decode the base64 value to create a new file with the decoded content. The detected execution is a bash one-liner.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_tail_base64_decode_from_image.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

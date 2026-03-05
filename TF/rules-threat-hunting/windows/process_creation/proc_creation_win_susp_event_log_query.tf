@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_event_l
   name                       = "proc_creation_win_susp_event_log_query"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "EventLog Query Requests By Builtin Utilities"
-  description                = "Detect attempts to query the contents of the event log using command line utilities. Attackers use this technique in order to look for sensitive information in the logs such as passwords, usernames, IPs, etc. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_event_log_query.yml - Legitimate log access by administrators or troubleshooting tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_event_log_query.yml"
+  description                = <<DESC
+    Detect attempts to query the contents of the event log using command line utilities. Attackers use this technique in order to look for sensitive information in the logs such as passwords, usernames, IPs, etc.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_event_log_query.yml
+
+    False Positives:
+    - Legitimate log access by administrators or troubleshooting tools
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

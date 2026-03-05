@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_side_load_smadhook"
   name                       = "image_load_side_load_smadhook"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential SmadHook.DLL Sideloading"
-  description                = "Detects potential DLL sideloading of \"SmadHook.dll\", a DLL used by SmadAV antivirus Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_smadhook.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_smadhook.yml"
+  description                = <<DESC
+    Detects potential DLL sideloading of "SmadHook.dll", a DLL used by SmadAV antivirus
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_smadhook.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

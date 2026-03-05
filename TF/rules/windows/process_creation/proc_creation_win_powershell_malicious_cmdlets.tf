@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_m
   name                       = "proc_creation_win_powershell_malicious_cmdlets"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Malicious PowerShell Commandlets - ProcessCreation"
-  description                = "Detects Commandlet names from well-known PowerShell exploitation frameworks Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_malicious_cmdlets.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_malicious_cmdlets.yml"
+  description                = <<DESC
+    Detects Commandlet names from well-known PowerShell exploitation frameworks
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_malicious_cmdlets.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

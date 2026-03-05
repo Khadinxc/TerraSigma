@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_certutil_ntl
   name                       = "proc_creation_win_certutil_ntlm_coercion"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential NTLM Coercion Via Certutil.EXE"
-  description                = "Detects possible NTLM coercion via certutil using the 'syncwithWU' flag Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_ntlm_coercion.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_ntlm_coercion.yml"
+  description                = <<DESC
+    Detects possible NTLM coercion via certutil using the 'syncwithWU' flag
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_ntlm_coercion.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

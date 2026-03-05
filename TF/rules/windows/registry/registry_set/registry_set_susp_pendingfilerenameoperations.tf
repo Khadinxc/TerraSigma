@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_susp_pendingfiler
   name                       = "registry_set_susp_pendingfilerenameoperations"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential PendingFileRenameOperations Tampering"
-  description                = "Detect changes to the \"PendingFileRenameOperations\" registry key from uncommon or suspicious images locations to stage currently used files for rename or deletion after reboot. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_pendingfilerenameoperations.yml - Installers and updaters may set currently in use files for rename or deletion after a reboot. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_pendingfilerenameoperations.yml"
+  description                = <<DESC
+    Detect changes to the "PendingFileRenameOperations" registry key from uncommon or suspicious images locations to stage currently used files for rename or deletion after reboot.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_pendingfilerenameoperations.yml
+
+    False Positives:
+    - Installers and updaters may set currently in use files for rename or deletion after a reboot.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

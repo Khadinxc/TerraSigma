@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_findstr_sysm
   name                       = "proc_creation_win_findstr_sysmon_discovery_via_default_altitude"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Sysmon Discovery Via Default Driver Altitude Using Findstr.EXE"
-  description                = "Detects usage of \"findstr\" with the argument \"385201\". Which could indicate potential discovery of an installed Sysinternals Sysmon service using the default driver altitude (even if the name is changed). Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_sysmon_discovery_via_default_altitude.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_sysmon_discovery_via_default_altitude.yml"
+  description                = <<DESC
+    Detects usage of "findstr" with the argument "385201". Which could indicate potential discovery of an installed Sysinternals Sysmon service using the default driver altitude (even if the name is changed).
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_sysmon_discovery_via_default_altitude.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

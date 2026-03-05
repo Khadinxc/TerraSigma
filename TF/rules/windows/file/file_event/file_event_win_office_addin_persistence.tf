@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_office_addin_pe
   name                       = "file_event_win_office_addin_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Microsoft Office Add-In"
-  description                = "Detects potential persistence activity via startup add-ins that load when Microsoft Office starts (.wll/.xll are simply .dll fit for Word or Excel). Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_addin_persistence.yml - Legitimate add-ins | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_addin_persistence.yml"
+  description                = <<DESC
+    Detects potential persistence activity via startup add-ins that load when Microsoft Office starts (.wll/.xll are simply .dll fit for Word or Excel).
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_addin_persistence.yml
+
+    False Positives:
+    - Legitimate add-ins
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

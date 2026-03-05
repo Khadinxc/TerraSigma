@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_winrm_execut
   name                       = "proc_creation_win_winrm_execution_via_scripting_api_winrm_vbs"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Code Execute via Winrm.vbs"
-  description                = "Detects an attempt to execute code or create service on remote host via winrm.vbs. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winrm_execution_via_scripting_api_winrm_vbs.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winrm_execution_via_scripting_api_winrm_vbs.yml"
+  description                = <<DESC
+    Detects an attempt to execute code or create service on remote host via winrm.vbs.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winrm_execution_via_scripting_api_winrm_vbs.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

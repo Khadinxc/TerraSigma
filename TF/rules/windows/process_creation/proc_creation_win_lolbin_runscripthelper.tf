@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_runsc
   name                       = "proc_creation_win_lolbin_runscripthelper"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Runscripthelper.exe"
-  description                = "Detects execution of powershell scripts via Runscripthelper.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_runscripthelper.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_runscripthelper.yml"
+  description                = <<DESC
+    Detects execution of powershell scripts via Runscripthelper.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_runscripthelper.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

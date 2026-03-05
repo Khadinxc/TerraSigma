@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wscript_cscr
   name                       = "proc_creation_win_wscript_cscript_susp_child_processes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Cscript/Wscript Potentially Suspicious Child Process"
-  description                = "Detects potentially suspicious child processes of Wscript/Cscript. These include processes such as rundll32 with uncommon exports or PowerShell spawning rundll32 or regsvr32. Malware such as Pikabot and Qakbot were seen using similar techniques as well as many others. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wscript_cscript_susp_child_processes.yml - Some false positives might occur with admin or third party software scripts. Investigate and apply additional filters accordingly. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wscript_cscript_susp_child_processes.yml"
+  description                = <<DESC
+    Detects potentially suspicious child processes of Wscript/Cscript. These include processes such as rundll32 with uncommon exports or PowerShell spawning rundll32 or regsvr32. Malware such as Pikabot and Qakbot were seen using similar techniques as well as many others.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wscript_cscript_susp_child_processes.yml
+
+    False Positives:
+    - Some false positives might occur with admin or third party software scripts. Investigate and apply additional filters accordingly.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

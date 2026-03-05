@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_dll_sideloading
   name                       = "file_event_win_dll_sideloading_space_path"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DLL Search Order Hijackig Via Additional Space in Path"
-  description                = "Detects when an attacker create a similar folder structure to windows system folders such as (Windows, Program Files...) but with a space in order to trick DLL load search order and perform a \"DLL Search Order Hijacking\" attack Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_dll_sideloading_space_path.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_dll_sideloading_space_path.yml"
+  description                = <<DESC
+    Detects when an attacker create a similar folder structure to windows system folders such as (Windows, Program Files...) but with a space in order to trick DLL load search order and perform a "DLL Search Order Hijacking" attack
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_dll_sideloading_space_path.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

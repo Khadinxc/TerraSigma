@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_delete_win_delete_tomcat_
   name                       = "file_delete_win_delete_tomcat_logs"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Tomcat WebServer Logs Deleted"
-  description                = "Detects the deletion of tomcat WebServer logs which may indicate an attempt to destroy forensic evidence Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_tomcat_logs.yml - During uninstallation of the tomcat server - During log rotation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_tomcat_logs.yml"
+  description                = <<DESC
+    Detects the deletion of tomcat WebServer logs which may indicate an attempt to destroy forensic evidence
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_tomcat_logs.yml
+
+    False Positives:
+    - During uninstallation of the tomcat server
+    - During log rotation
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

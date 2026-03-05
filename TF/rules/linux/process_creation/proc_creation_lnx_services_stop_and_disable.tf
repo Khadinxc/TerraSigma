@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_services_sto
   name                       = "proc_creation_lnx_services_stop_and_disable"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disable Or Stop Services"
-  description                = "Detects the usage of utilities such as 'systemctl', 'service'...etc to stop or disable tools and services Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_services_stop_and_disable.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_services_stop_and_disable.yml"
+  description                = <<DESC
+    Detects the usage of utilities such as 'systemctl', 'service'...etc to stop or disable tools and services
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_services_stop_and_disable.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

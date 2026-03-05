@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_pcwut
   name                       = "proc_creation_win_lolbin_pcwutl"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Code Execution via Pcwutl.dll"
-  description                = "Detects launch of executable by calling the LaunchApplication function from pcwutl.dll library. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_pcwutl.yml - Use of Program Compatibility Troubleshooter Helper | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_pcwutl.yml"
+  description                = <<DESC
+    Detects launch of executable by calling the LaunchApplication function from pcwutl.dll library.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_pcwutl.yml
+
+    False Positives:
+    - Use of Program Compatibility Troubleshooter Helper
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

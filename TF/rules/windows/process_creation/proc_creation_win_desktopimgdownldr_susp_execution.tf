@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_desktopimgdo
   name                       = "proc_creation_win_desktopimgdownldr_susp_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Desktopimgdownldr Command"
-  description                = "Detects a suspicious Microsoft desktopimgdownldr execution with parameters used to download files from the Internet Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_desktopimgdownldr_susp_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_desktopimgdownldr_susp_execution.yml"
+  description                = <<DESC
+    Detects a suspicious Microsoft desktopimgdownldr execution with parameters used to download files from the Internet
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_desktopimgdownldr_susp_execution.yml
+
+    False Positives:
+    - False positives depend on scripts and administrative tools used in the monitored environment
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

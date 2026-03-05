@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_pua_nps" {
   name                       = "proc_creation_win_pua_nps"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - NPS Tunneling Tool Execution"
-  description                = "Detects the use of NPS, a port forwarding and intranet penetration proxy server Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_nps.yml - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_nps.yml"
+  description                = <<DESC
+    Detects the use of NPS, a port forwarding and intranet penetration proxy server
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_nps.yml
+
+    False Positives:
+    - Legitimate use
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

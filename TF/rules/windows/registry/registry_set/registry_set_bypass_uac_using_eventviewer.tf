@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_bypass_uac_using_
   name                       = "registry_set_bypass_uac_using_eventviewer"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Bypass UAC Using Event Viewer"
-  description                = "Bypasses User Account Control using Event Viewer and a relevant Windows Registry modification Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_bypass_uac_using_eventviewer.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_bypass_uac_using_eventviewer.yml"
+  description                = <<DESC
+    Bypasses User Account Control using Event Viewer and a relevant Windows Registry modification
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_bypass_uac_using_eventviewer.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

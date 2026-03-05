@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_side_load_dbghelp" 
   name                       = "image_load_side_load_dbghelp"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential DLL Sideloading Of DBGHELP.DLL"
-  description                = "Detects potential DLL sideloading of \"dbghelp.dll\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_dbghelp.yml - Legitimate applications loading their own versions of the DLL mentioned in this rule | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_dbghelp.yml"
+  description                = <<DESC
+    Detects potential DLL sideloading of "dbghelp.dll"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_dbghelp.yml
+
+    False Positives:
+    - Legitimate applications loading their own versions of the DLL mentioned in this rule
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

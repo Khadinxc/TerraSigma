@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_curl_local_f
   name                       = "proc_creation_win_curl_local_file_read"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Local File Read Using Curl.EXE"
-  description                = "Detects execution of \"curl.exe\" with the \"file://\" protocol handler in order to read local files. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_local_file_read.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_local_file_read.yml"
+  description                = <<DESC
+    Detects execution of "curl.exe" with the "file://" protocol handler in order to read local files.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_local_file_read.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

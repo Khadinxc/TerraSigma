@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_e
   name                       = "proc_creation_win_powershell_encoding_patterns"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Encoded PowerShell Patterns In CommandLine"
-  description                = "Detects specific combinations of encoding methods in PowerShell via the commandline Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_encoding_patterns.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_encoding_patterns.yml"
+  description                = <<DESC
+    Detects specific combinations of encoding methods in PowerShell via the commandline
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_encoding_patterns.yml
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

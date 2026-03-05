@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_mshta_javasc
   name                       = "proc_creation_win_mshta_javascript"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious JavaScript Execution Via Mshta.EXE"
-  description                = "Detects execution of javascript code using \"mshta.exe\". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_javascript.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_javascript.yml"
+  description                = <<DESC
+    Detects execution of javascript code using "mshta.exe".
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_javascript.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

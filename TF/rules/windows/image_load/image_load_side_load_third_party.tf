@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_side_load_third_par
   name                       = "image_load_side_load_third_party"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Third Party Software DLL Sideloading"
-  description                = "Detects DLL sideloading of DLLs that are part of third party software (zoom, discord....etc) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_third_party.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_third_party.yml"
+  description                = <<DESC
+    Detects DLL sideloading of DLLs that are part of third party software (zoom, discord....etc)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_third_party.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_pdqdeploy_ex
   name                       = "proc_creation_win_pdqdeploy_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PDQ Deploy Remote Adminstartion Tool Execution"
-  description                = "Detect use of PDQ Deploy remote admin tool Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pdqdeploy_execution.yml - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pdqdeploy_execution.yml"
+  description                = <<DESC
+    Detect use of PDQ Deploy remote admin tool
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pdqdeploy_execution.yml
+
+    False Positives:
+    - Legitimate use
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

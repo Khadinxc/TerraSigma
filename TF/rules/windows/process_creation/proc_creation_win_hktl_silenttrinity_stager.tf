@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_silentt
   name                       = "proc_creation_win_hktl_silenttrinity_stager"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - SILENTTRINITY Stager Execution"
-  description                = "Detects SILENTTRINITY stager use via PE metadata Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_silenttrinity_stager.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_silenttrinity_stager.yml"
+  description                = <<DESC
+    Detects SILENTTRINITY stager use via PE metadata
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_silenttrinity_stager.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

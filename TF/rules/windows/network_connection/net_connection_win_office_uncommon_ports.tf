@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_office_unco
   name                       = "net_connection_win_office_uncommon_ports"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Office Application Initiated Network Connection Over Uncommon Ports"
-  description                = "Detects an office suit application (Word, Excel, PowerPoint, Outlook) communicating to target systems over uncommon ports. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_office_uncommon_ports.yml - Other ports can be used, apply additional filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_office_uncommon_ports.yml"
+  description                = <<DESC
+    Detects an office suit application (Word, Excel, PowerPoint, Outlook) communicating to target systems over uncommon ports.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_office_uncommon_ports.yml
+
+    False Positives:
+    - Other ports can be used, apply additional filters accordingly
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

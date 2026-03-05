@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_powershell_drop
   name                       = "file_event_win_powershell_drop_binary_or_script"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Binary Or Script Dropper Via PowerShell"
-  description                = "Detects PowerShell creating a binary executable or a script file. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_powershell_drop_binary_or_script.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_powershell_drop_binary_or_script.yml"
+  description                = <<DESC
+    Detects PowerShell creating a binary executable or a script file.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_powershell_drop_binary_or_script.yml
+
+    False Positives:
+    - False positives will differ depending on the environment and scripts used. Apply additional filters accordingly.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

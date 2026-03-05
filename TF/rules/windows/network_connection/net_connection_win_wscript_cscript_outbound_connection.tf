@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_wscript_csc
   name                       = "net_connection_win_wscript_cscript_outbound_connection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Outbound Network Connection Initiated By Script Interpreter"
-  description                = "Detects a script interpreter wscript/cscript opening a network connection to a non-local network. Adversaries may use script to download malicious payloads. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_wscript_cscript_outbound_connection.yml - Legitimate scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_wscript_cscript_outbound_connection.yml"
+  description                = <<DESC
+    Detects a script interpreter wscript/cscript opening a network connection to a non-local network. Adversaries may use script to download malicious payloads.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_wscript_cscript_outbound_connection.yml
+
+    False Positives:
+    - Legitimate scripts
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents

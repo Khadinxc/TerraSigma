@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_webshell_sus
   name                       = "proc_creation_win_webshell_susp_process_spawned_from_webserver"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Process By Web Server Process"
-  description                = "Detects potentially suspicious processes being spawned by a web server process which could be the result of a successfully placed web shell or exploitation Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_webshell_susp_process_spawned_from_webserver.yml - Particular web applications may spawn a shell process legitimately | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_webshell_susp_process_spawned_from_webserver.yml"
+  description                = <<DESC
+    Detects potentially suspicious processes being spawned by a web server process which could be the result of a successfully placed web shell or exploitation
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_webshell_susp_process_spawned_from_webserver.yml
+
+    False Positives:
+    - Particular web applications may spawn a shell process legitimately
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

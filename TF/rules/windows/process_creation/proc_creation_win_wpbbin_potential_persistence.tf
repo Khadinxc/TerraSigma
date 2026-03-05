@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wpbbin_poten
   name                       = "proc_creation_win_wpbbin_potential_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UEFI Persistence Via Wpbbin - ProcessCreation"
-  description                = "Detects execution of the binary \"wpbbin\" which is used as part of the UEFI based persistence method described in the reference section Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wpbbin_potential_persistence.yml - Legitimate usage of the file by hardware manufacturer such as lenovo (Thanks @0gtweet for the tip) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wpbbin_potential_persistence.yml"
+  description                = <<DESC
+    Detects execution of the binary "wpbbin" which is used as part of the UEFI based persistence method described in the reference section
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wpbbin_potential_persistence.yml
+
+    False Positives:
+    - Legitimate usage of the file by hardware manufacturer such as lenovo (Thanks @0gtweet for the tip)
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

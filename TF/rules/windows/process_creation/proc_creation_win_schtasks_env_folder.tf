@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_schtasks_env
   name                       = "proc_creation_win_schtasks_env_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Schedule Task Creation From Env Variable Or Potentially Suspicious Path Via Schtasks.EXE"
-  description                = "Detects Schtask creations that point to a suspicious folder or an environment variable often used by malware Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_env_folder.yml - Benign scheduled tasks creations or executions that happen often during software installations - Software that uses the AppData folder and scheduled tasks to update the software in the AppData folders | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_env_folder.yml"
+  description                = <<DESC
+    Detects Schtask creations that point to a suspicious folder or an environment variable often used by malware
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_env_folder.yml
+
+    False Positives:
+    - Benign scheduled tasks creations or executions that happen often during software installations
+    - Software that uses the AppData folder and scheduled tasks to update the software in the AppData folders
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

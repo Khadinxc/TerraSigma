@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_net_cli_ngenassem
   name                       = "registry_set_net_cli_ngenassemblyusagelog"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "NET NGenAssemblyUsageLog Registry Key Tamper"
-  description                = "Detects changes to the NGenAssemblyUsageLog registry key. .NET Usage Log output location can be controlled by setting the NGenAssemblyUsageLog CLR configuration knob in the Registry or by configuring an environment variable (as described in the next section). By simplify specifying an arbitrary value (e.g. fake output location or junk data) for the expected value, a Usage Log file for the .NET execution context will not be created. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_net_cli_ngenassemblyusagelog.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_net_cli_ngenassemblyusagelog.yml"
+  description                = <<DESC
+    Detects changes to the NGenAssemblyUsageLog registry key. .NET Usage Log output location can be controlled by setting the NGenAssemblyUsageLog CLR configuration knob in the Registry or by configuring an environment variable (as described in the next section). By simplify specifying an arbitrary value (e.g. fake output location or junk data) for the expected value, a Usage Log file for the .NET execution context will not be created.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_net_cli_ngenassemblyusagelog.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

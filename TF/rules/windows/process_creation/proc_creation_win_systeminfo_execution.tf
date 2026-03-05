@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_systeminfo_e
   name                       = "proc_creation_win_systeminfo_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Execution of Systeminfo"
-  description                = "Detects usage of the \"systeminfo\" command to retrieve information Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_systeminfo_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_systeminfo_execution.yml"
+  description                = <<DESC
+    Detects usage of the "systeminfo" command to retrieve information
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_systeminfo_execution.yml
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

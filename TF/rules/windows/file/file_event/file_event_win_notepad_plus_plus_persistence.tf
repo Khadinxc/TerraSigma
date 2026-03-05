@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_notepad_plus_pl
   name                       = "file_event_win_notepad_plus_plus_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via Notepad++ Plugins"
-  description                = "Detects creation of new \".dll\" files inside the plugins directory of a notepad++ installation by a process other than \"gup.exe\". Which could indicates possible persistence Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_notepad_plus_plus_persistence.yml - Possible FPs during first installation of Notepad++ - Legitimate use of custom plugins by users in order to enhance notepad++ functionalities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_notepad_plus_plus_persistence.yml"
+  description                = <<DESC
+    Detects creation of new ".dll" files inside the plugins directory of a notepad++ installation by a process other than "gup.exe". Which could indicates possible persistence
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_notepad_plus_plus_persistence.yml
+
+    False Positives:
+    - Possible FPs during first installation of Notepad++
+    - Legitimate use of custom plugins by users in order to enhance notepad++ functionalities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

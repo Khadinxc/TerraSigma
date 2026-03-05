@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_mkfifo_named
   name                       = "proc_creation_lnx_mkfifo_named_pipe_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Named Pipe Created Via Mkfifo"
-  description                = "Detects the creation of a new named pipe using the \"mkfifo\" utility Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_mkfifo_named_pipe_creation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_mkfifo_named_pipe_creation.yml"
+  description                = <<DESC
+    Detects the creation of a new named pipe using the "mkfifo" utility
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_mkfifo_named_pipe_creation.yml
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

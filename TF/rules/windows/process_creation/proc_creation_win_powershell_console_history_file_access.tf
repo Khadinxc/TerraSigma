@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_c
   name                       = "proc_creation_win_powershell_console_history_file_access"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential PowerShell Console History Access Attempt via History File"
-  description                = "Detects potential access attempts to the PowerShell console history directly via history file (ConsoleHost_history.txt). This can give access to plaintext passwords used in PowerShell commands or used for general reconnaissance. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_console_history_file_access.yml - Legitimate access of the console history file is possible | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_console_history_file_access.yml"
+  description                = <<DESC
+    Detects potential access attempts to the PowerShell console history directly via history file (ConsoleHost_history.txt). This can give access to plaintext passwords used in PowerShell commands or used for general reconnaissance.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_console_history_file_access.yml
+
+    False Positives:
+    - Legitimate access of the console history file is possible
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

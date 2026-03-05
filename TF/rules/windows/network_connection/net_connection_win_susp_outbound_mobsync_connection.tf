@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_susp_outbou
   name                       = "net_connection_win_susp_outbound_mobsync_connection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Microsoft Sync Center Suspicious Network Connections"
-  description                = "Detects suspicious connections from Microsoft Sync Center to non-private IPs. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_susp_outbound_mobsync_connection.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_susp_outbound_mobsync_connection.yml"
+  description                = <<DESC
+    Detects suspicious connections from Microsoft Sync Center to non-private IPs.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_susp_outbound_mobsync_connection.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

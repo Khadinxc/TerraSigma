@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_wit
   name                       = "proc_creation_win_rundll32_without_parameters"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Rundll32 Execution Without Parameters"
-  description                = "Detects rundll32 execution without parameters as observed when running Metasploit windows/smb/psexec exploit module Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_without_parameters.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_without_parameters.yml"
+  description                = <<DESC
+    Detects rundll32 execution without parameters as observed when running Metasploit windows/smb/psexec exploit module
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_without_parameters.yml
+
+    False Positives:
+    - False positives may occur if a user called rundll32 from CLI with no options
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_disabled_tamper_p
   name                       = "registry_set_disabled_tamper_protection_on_microsoft_defender"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disable Tamper Protection on Windows Defender"
-  description                = "Detects disabling Windows Defender Tamper Protection Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disabled_tamper_protection_on_microsoft_defender.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disabled_tamper_protection_on_microsoft_defender.yml"
+  description                = <<DESC
+    Detects disabling Windows Defender Tamper Protection
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disabled_tamper_protection_on_microsoft_defender.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

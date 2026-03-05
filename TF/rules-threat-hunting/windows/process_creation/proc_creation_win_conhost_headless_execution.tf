@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_conhost_head
   name                       = "proc_creation_win_conhost_headless_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Headless Process Launched Via Conhost.EXE"
-  description                = "Detects the launch of a child process via \"conhost.exe\" with the \"--headless\" flag. The \"--headless\" flag hides the windows from the user upon execution. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_conhost_headless_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_conhost_headless_execution.yml"
+  description                = <<DESC
+    Detects the launch of a child process via "conhost.exe" with the "--headless" flag. The "--headless" flag hides the windows from the user upon execution.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_conhost_headless_execution.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

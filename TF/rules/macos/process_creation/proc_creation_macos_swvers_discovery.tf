@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_swvers_dis
   name                       = "proc_creation_macos_swvers_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "System Information Discovery Using sw_vers"
-  description                = "Detects the use of \"sw_vers\" for system information discovery Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_swvers_discovery.yml - Legitimate administrative activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_swvers_discovery.yml"
+  description                = <<DESC
+    Detects the use of "sw_vers" for system information discovery
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_swvers_discovery.yml
+
+    False Positives:
+    - Legitimate administrative activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

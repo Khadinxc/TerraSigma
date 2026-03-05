@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_dll_rstrtmgr_uncomm
   name                       = "image_load_dll_rstrtmgr_uncommon_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Load Of RstrtMgr.DLL By An Uncommon Process"
-  description                = "Detects the load of RstrtMgr DLL (Restart Manager) by an uncommon process. This library has been used during ransomware campaigns to kill processes that would prevent file encryption by locking them (e.g. Conti ransomware, Cactus ransomware). It has also recently been seen used by the BiBi wiper for Windows. It could also be used for anti-analysis purposes by shut downing specific processes. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_rstrtmgr_uncommon_load.yml - Other legitimate Windows processes not currently listed - Processes related to software installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_rstrtmgr_uncommon_load.yml"
+  description                = <<DESC
+    Detects the load of RstrtMgr DLL (Restart Manager) by an uncommon process. This library has been used during ransomware campaigns to kill processes that would prevent file encryption by locking them (e.g. Conti ransomware, Cactus ransomware). It has also recently been seen used by the BiBi wiper for Windows. It could also be used for anti-analysis purposes by shut downing specific processes.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_rstrtmgr_uncommon_load.yml
+
+    False Positives:
+    - Other legitimate Windows processes not currently listed
+    - Processes related to software installation
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceImageLoadEvents

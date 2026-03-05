@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_event_runonce_persist
   name                       = "registry_event_runonce_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Run Once Task Configuration in Registry"
-  description                = "Rule to detect the configuration of Run Once registry key. Configured payload can be run by runonce.exe /AlternateShellStartup Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_runonce_persistence.yml - Legitimate modification of the registry key by legitimate program | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_runonce_persistence.yml"
+  description                = <<DESC
+    Rule to detect the configuration of Run Once registry key. Configured payload can be run by runonce.exe /AlternateShellStartup
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_runonce_persistence.yml
+
+    False Positives:
+    - Legitimate modification of the registry key by legitimate program
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

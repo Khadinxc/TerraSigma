@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_susp_
   name                       = "proc_creation_win_lolbin_susp_grpconv"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious GrpConv Execution"
-  description                = "Detects the suspicious execution of a utility to convert Windows 3.x .grp files or for persistence purposes by malicious software or actors Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_susp_grpconv.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_susp_grpconv.yml"
+  description                = <<DESC
+    Detects the suspicious execution of a utility to convert Windows 3.x .grp files or for persistence purposes by malicious software or actors
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_susp_grpconv.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

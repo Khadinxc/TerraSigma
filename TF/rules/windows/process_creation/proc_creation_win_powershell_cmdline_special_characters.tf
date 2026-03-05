@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_c
   name                       = "proc_creation_win_powershell_cmdline_special_characters"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential PowerShell Command Line Obfuscation"
-  description                = "Detects the PowerShell command lines with special characters Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cmdline_special_characters.yml - Amazon SSM Document Worker - Windows Defender ATP | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cmdline_special_characters.yml"
+  description                = <<DESC
+    Detects the PowerShell command lines with special characters
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cmdline_special_characters.yml
+
+    False Positives:
+    - Amazon SSM Document Worker
+    - Windows Defender ATP
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

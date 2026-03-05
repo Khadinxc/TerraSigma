@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_pua_csexec" 
   name                       = "proc_creation_win_pua_csexec"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - CsExec Execution"
-  description                = "Detects the use of the lesser known remote execution tool named CsExec a PsExec alternative Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_csexec.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_csexec.yml"
+  description                = <<DESC
+    Detects the use of the lesser known remote execution tool named CsExec a PsExec alternative
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_csexec.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

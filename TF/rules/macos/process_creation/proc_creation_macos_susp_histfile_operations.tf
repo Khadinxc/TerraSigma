@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_susp_histf
   name                       = "proc_creation_macos_susp_histfile_operations"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious History File Operations"
-  description                = "Detects commandline operations on shell history files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_histfile_operations.yml - Legitimate administrative activity - Legitimate software, cleaning hist file | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_histfile_operations.yml"
+  description                = <<DESC
+    Detects commandline operations on shell history files
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_histfile_operations.yml
+
+    False Positives:
+    - Legitimate administrative activity
+    - Legitimate software, cleaning hist file
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

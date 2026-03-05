@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_access_win_susp_credentia
   name                       = "file_access_win_susp_credential_manager_access"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Credential Manager Access By Uncommon Applications"
-  description                = "Detects suspicious processes based on name and location that access the windows credential manager and vault. Which can be a sign of credential stealing. Example case would be usage of mimikatz \"dpapi::cred\" function Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_susp_credential_manager_access.yml - Legitimate software installed by the users for example in the \"AppData\" directory may access these files (for any reason). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_susp_credential_manager_access.yml"
+  description                = <<DESC
+    Detects suspicious processes based on name and location that access the windows credential manager and vault. Which can be a sign of credential stealing. Example case would be usage of mimikatz "dpapi::cred" function
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_susp_credential_manager_access.yml
+
+    False Positives:
+    - Legitimate software installed by the users for example in the "AppData" directory may access these files (for any reason).
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

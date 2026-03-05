@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_pua_pingcast
   name                       = "proc_creation_win_pua_pingcastle"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - PingCastle Execution"
-  description                = "Detects the execution of PingCastle, a tool designed to quickly assess the Active Directory security level. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_pingcastle.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_pingcastle.yml"
+  description                = <<DESC
+    Detects the execution of PingCastle, a tool designed to quickly assess the Active Directory security level.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_pingcastle.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

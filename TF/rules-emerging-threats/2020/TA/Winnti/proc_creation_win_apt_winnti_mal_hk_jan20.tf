@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_winnti_m
   name                       = "proc_creation_win_apt_winnti_mal_hk_jan20"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Winnti Malware HK University Campaign"
-  description                = "Detects specific process characteristics of Winnti malware noticed in Dec/Jan 2020 in a campaign against Honk Kong universities Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Winnti/proc_creation_win_apt_winnti_mal_hk_jan20.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Winnti/proc_creation_win_apt_winnti_mal_hk_jan20.yml"
+  description                = <<DESC
+    Detects specific process characteristics of Winnti malware noticed in Dec/Jan 2020 in a campaign against Honk Kong universities
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Winnti/proc_creation_win_apt_winnti_mal_hk_jan20.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_proxy_connec
   name                       = "proc_creation_lnx_proxy_connection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Connection Proxy"
-  description                = "Detects setting proxy configuration Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_proxy_connection.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_proxy_connection.yml"
+  description                = <<DESC
+    Detects setting proxy configuration
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_proxy_connection.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

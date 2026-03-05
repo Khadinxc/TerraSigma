@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_python_rever
   name                       = "proc_creation_lnx_python_reverse_shell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Python Reverse Shell Execution Via PTY And Socket Modules"
-  description                = "Detects the execution of python with calls to the socket and pty module in order to connect and spawn a potential reverse shell. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_python_reverse_shell.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_python_reverse_shell.yml"
+  description                = <<DESC
+    Detects the execution of python with calls to the socket and pty module in order to connect and spawn a potential reverse shell.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_python_reverse_shell.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

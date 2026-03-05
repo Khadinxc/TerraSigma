@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_java_keytool
   name                       = "proc_creation_win_java_keytool_susp_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Shells Spawn by Java Utility Keytool"
-  description                = "Detects suspicious shell spawn from Java utility keytool process (e.g. adselfservice plus exploitation) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_java_keytool_susp_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_java_keytool_susp_child_process.yml"
+  description                = <<DESC
+    Detects suspicious shell spawn from Java utility keytool process (e.g. adselfservice plus exploitation)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_java_keytool_susp_child_process.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

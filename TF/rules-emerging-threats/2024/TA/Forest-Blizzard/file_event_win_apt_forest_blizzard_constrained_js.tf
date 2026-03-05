@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_apt_forest_bliz
   name                       = "file_event_win_apt_forest_blizzard_constrained_js"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Forest Blizzard APT - JavaScript Constrained File Creation"
-  description                = "Detects the creation of JavaScript files inside of the DriverStore directory. Forest Blizzard used this to exploit the CVE-2022-38028 vulnerability in Windows Print Spooler service by modifying a JavaScript constraints file and executing it with SYSTEM-level permissions. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/file_event_win_apt_forest_blizzard_constrained_js.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/file_event_win_apt_forest_blizzard_constrained_js.yml"
+  description                = <<DESC
+    Detects the creation of JavaScript files inside of the DriverStore directory. Forest Blizzard used this to exploit the CVE-2022-38028 vulnerability in Windows Print Spooler service by modifying a JavaScript constraints file and executing it with SYSTEM-level permissions.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/file_event_win_apt_forest_blizzard_constrained_js.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sc_stop_serv
   name                       = "proc_creation_win_sc_stop_service"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Stop Windows Service Via Sc.EXE"
-  description                = "Detects the stopping of a Windows service via the \"sc.exe\" utility Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_stop_service.yml - There are many legitimate reasons to stop a service. This rule isn't looking for any suspicious behavior in particular. Filter legitimate activity accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_stop_service.yml"
+  description                = <<DESC
+    Detects the stopping of a Windows service via the "sc.exe" utility
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_stop_service.yml
+
+    False Positives:
+    - There are many legitimate reasons to stop a service. This rule isn't looking for any suspicious behavior in particular. Filter legitimate activity accordingly
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

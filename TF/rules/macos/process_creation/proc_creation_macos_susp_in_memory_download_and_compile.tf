@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_susp_in_me
   name                       = "proc_creation_macos_susp_in_memory_download_and_compile"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential In-Memory Download And Compile Of Payloads"
-  description                = "Detects potential in-memory downloading and compiling of applets using curl and osacompile as seen used by XCSSET malware Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_in_memory_download_and_compile.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_in_memory_download_and_compile.yml"
+  description                = <<DESC
+    Detects potential in-memory downloading and compiling of applets using curl and osacompile as seen used by XCSSET malware
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_in_memory_download_and_compile.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

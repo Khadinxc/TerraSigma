@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_sus
   name                       = "proc_creation_win_rundll32_susp_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Rundll32 Activity"
-  description                = "Detects suspicious execution of rundll32, with specific calls to some DLLs with known LOLBIN functionalities Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_activity.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_activity.yml"
+  description                = <<DESC
+    Detects suspicious execution of rundll32, with specific calls to some DLLs with known LOLBIN functionalities
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_activity.yml
+
+    False Positives:
+    - False positives depend on scripts and administrative tools used in the monitored environment
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

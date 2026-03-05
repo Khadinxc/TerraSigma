@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_taskmgr_loca
   name                       = "proc_creation_win_taskmgr_localsystem"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Taskmgr as LOCAL_SYSTEM"
-  description                = "Detects the creation of taskmgr.exe process in context of LOCAL_SYSTEM Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_taskmgr_localsystem.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_taskmgr_localsystem.yml"
+  description                = <<DESC
+    Detects the creation of taskmgr.exe process in context of LOCAL_SYSTEM
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_taskmgr_localsystem.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

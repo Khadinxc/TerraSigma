@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_she
   name                       = "proc_creation_win_rundll32_shelldispatch_potential_abuse"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential ShellDispatch.DLL Functionality Abuse"
-  description                = "Detects potential \"ShellDispatch.dll\" functionality abuse to execute arbitrary binaries via \"ShellExecute\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_shelldispatch_potential_abuse.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_shelldispatch_potential_abuse.yml"
+  description                = <<DESC
+    Detects potential "ShellDispatch.dll" functionality abuse to execute arbitrary binaries via "ShellExecute"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_shelldispatch_potential_abuse.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

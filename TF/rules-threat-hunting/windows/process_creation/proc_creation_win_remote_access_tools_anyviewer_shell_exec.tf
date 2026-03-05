@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_remote_acces
   name                       = "proc_creation_win_remote_access_tools_anyviewer_shell_exec"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Access Tool - Cmd.EXE Execution via AnyViewer"
-  description                = "Detects execution of \"cmd.exe\" via the AnyViewer RMM agent on a remote management sessions. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_remote_access_tools_anyviewer_shell_exec.yml - Legitimate use for admin activity. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_remote_access_tools_anyviewer_shell_exec.yml"
+  description                = <<DESC
+    Detects execution of "cmd.exe" via the AnyViewer RMM agent on a remote management sessions.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_remote_access_tools_anyviewer_shell_exec.yml
+
+    False Positives:
+    - Legitimate use for admin activity.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

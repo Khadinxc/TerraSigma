@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_triple_cross
   name                       = "proc_creation_lnx_triple_cross_rootkit_execve_hijack"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Triple Cross eBPF Rootkit Execve Hijack"
-  description                = "Detects execution of a the file \"execve_hijack\" which is used by the Triple Cross rootkit as a way to elevate privileges Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_triple_cross_rootkit_execve_hijack.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_triple_cross_rootkit_execve_hijack.yml"
+  description                = <<DESC
+    Detects execution of a the file "execve_hijack" which is used by the Triple Cross rootkit as a way to elevate privileges
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_triple_cross_rootkit_execve_hijack.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

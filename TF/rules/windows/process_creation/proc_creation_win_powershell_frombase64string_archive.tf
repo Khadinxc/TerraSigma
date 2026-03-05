@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_f
   name                       = "proc_creation_win_powershell_frombase64string_archive"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious FromBase64String Usage On Gzip Archive - Process Creation"
-  description                = "Detects attempts of decoding a base64 Gzip archive via PowerShell. This technique is often used as a method to load malicious content into memory afterward. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_frombase64string_archive.yml - Legitimate administrative script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_frombase64string_archive.yml"
+  description                = <<DESC
+    Detects attempts of decoding a base64 Gzip archive via PowerShell. This technique is often used as a method to load malicious content into memory afterward.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_frombase64string_archive.yml
+
+    False Positives:
+    - Legitimate administrative script
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

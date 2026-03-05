@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_plink_susp_t
   name                       = "proc_creation_win_plink_susp_tunneling"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential RDP Tunneling Via Plink"
-  description                = "Execution of plink to perform data exfiltration and tunneling Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_plink_susp_tunneling.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_plink_susp_tunneling.yml"
+  description                = <<DESC
+    Execution of plink to perform data exfiltration and tunneling
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_plink_susp_tunneling.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

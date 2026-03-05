@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_lnx_susp_shell_scri
   name                       = "file_event_lnx_susp_shell_script_under_profile_directory"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Shell Script Creation in Profile Folder"
-  description                = "Detects the creation of shell scripts under the \"profile.d\" path. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_susp_shell_script_under_profile_directory.yml - Legitimate shell scripts in the \"profile.d\" directory could be common in your environment. Apply additional filter accordingly via \"image\", by adding specific filenames you \"trust\" or by correlating it with other events. - Regular file creation during system update or software installation by the package manager | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_susp_shell_script_under_profile_directory.yml"
+  description                = <<DESC
+    Detects the creation of shell scripts under the "profile.d" path.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_susp_shell_script_under_profile_directory.yml
+
+    False Positives:
+    - Legitimate shell scripts in the "profile.d" directory could be common in your environment. Apply additional filter accordingly via "image", by adding specific filenames you "trust" or by correlating it with other events.
+    - Regular file creation during system update or software installation by the package manager
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents

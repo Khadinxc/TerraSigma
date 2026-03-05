@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_java_sysaids
   name                       = "proc_creation_win_java_sysaidserver_susp_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious SysAidServer Child"
-  description                = "Detects suspicious child processes of SysAidServer (as seen in MERCURY threat actor intrusions) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_java_sysaidserver_susp_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_java_sysaidserver_susp_child_process.yml"
+  description                = <<DESC
+    Detects suspicious child processes of SysAidServer (as seen in MERCURY threat actor intrusions)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_java_sysaidserver_susp_child_process.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

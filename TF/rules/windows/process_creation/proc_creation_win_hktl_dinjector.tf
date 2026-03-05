@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_dinject
   name                       = "proc_creation_win_hktl_dinjector"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - DInjector PowerShell Cradle Execution"
-  description                = "Detects the use of the Dinject PowerShell cradle based on the specific flags Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_dinjector.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_dinjector.yml"
+  description                = <<DESC
+    Detects the use of the Dinject PowerShell cradle based on the specific flags
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_dinjector.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

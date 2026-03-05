@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_a
   name                       = "proc_creation_win_powershell_abnormal_commandline_size"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Unusually Long PowerShell CommandLine"
-  description                = "Detects unusually long PowerShell command lines with a length of 1000 characters or more Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_abnormal_commandline_size.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_abnormal_commandline_size.yml"
+  description                = <<DESC
+    Detects unusually long PowerShell command lines with a length of 1000 characters or more
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_abnormal_commandline_size.yml
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

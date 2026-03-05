@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_optimize_file_sha
   name                       = "registry_set_optimize_file_sharing_network"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "MaxMpxCt Registry Value Changed"
-  description                = "Detects changes to the \"MaxMpxCt\" registry value. MaxMpxCt specifies the maximum outstanding network requests for the server per client, which is used when negotiating a Server Message Block (SMB) connection with a client. Note if the value is set beyond 125 older Windows 9x clients will fail to negotiate. Ransomware threat actors and operators (specifically BlackCat) were seen increasing this value in order to handle a higher volume of traffic. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_optimize_file_sharing_network.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_optimize_file_sharing_network.yml"
+  description                = <<DESC
+    Detects changes to the "MaxMpxCt" registry value. MaxMpxCt specifies the maximum outstanding network requests for the server per client, which is used when negotiating a Server Message Block (SMB) connection with a client. Note if the value is set beyond 125 older Windows 9x clients will fail to negotiate. Ransomware threat actors and operators (specifically BlackCat) were seen increasing this value in order to handle a higher volume of traffic.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_optimize_file_sharing_network.yml
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceRegistryEvents

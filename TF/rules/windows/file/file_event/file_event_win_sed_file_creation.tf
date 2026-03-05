@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_sed_file_creati
   name                       = "file_event_win_sed_file_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Self Extraction Directive File Created In Potentially Suspicious Location"
-  description                = "Detects the creation of Self Extraction Directive files (.sed) in a potentially suspicious location. These files are used by the \"iexpress.exe\" utility in order to create self extracting packages. Attackers were seen abusing this utility and creating PE files with embedded \".sed\" entries. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sed_file_creation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sed_file_creation.yml"
+  description                = <<DESC
+    Detects the creation of Self Extraction Directive files (.sed) in a potentially suspicious location. These files are used by the "iexpress.exe" utility in order to create self extracting packages. Attackers were seen abusing this utility and creating PE files with embedded ".sed" entries.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sed_file_creation.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

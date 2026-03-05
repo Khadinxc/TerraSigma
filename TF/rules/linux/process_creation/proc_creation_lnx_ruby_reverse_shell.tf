@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_ruby_reverse
   name                       = "proc_creation_lnx_ruby_reverse_shell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Ruby Reverse Shell"
-  description                = "Detects execution of ruby with the \"-e\" flag and calls to \"socket\" related functions. This could be an indication of a potential attempt to setup a reverse shell Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_ruby_reverse_shell.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_ruby_reverse_shell.yml"
+  description                = <<DESC
+    Detects execution of ruby with the "-e" flag and calls to "socket" related functions. This could be an indication of a potential attempt to setup a reverse shell
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_ruby_reverse_shell.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

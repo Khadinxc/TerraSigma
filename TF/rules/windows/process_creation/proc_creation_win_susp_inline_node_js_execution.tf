@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_inline_
   name                       = "proc_creation_win_susp_inline_node_js_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Inline JavaScript Execution via NodeJS Binary"
-  description                = "Detects potentially suspicious inline JavaScript execution using Node.js with specific keywords in the command line. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_inline_node_js_execution.yml - Legitimate scripts using Node.js with these modules | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_inline_node_js_execution.yml"
+  description                = <<DESC
+    Detects potentially suspicious inline JavaScript execution using Node.js with specific keywords in the command line.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_inline_node_js_execution.yml
+
+    False Positives:
+    - Legitimate scripts using Node.js with these modules
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_registr
   name                       = "proc_creation_win_susp_registry_modification_of_ms_setting_protocol_handler"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Registry Modification of MS-settings Protocol Handler"
-  description                = "Detects registry modifications to the 'ms-settings' protocol handler, which is frequently targeted for UAC bypass or persistence. Attackers can modify this registry to execute malicious code with elevated privileges by hijacking the command execution path. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_registry_modification_of_ms_setting_protocol_handler.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_registry_modification_of_ms_setting_protocol_handler.yml"
+  description                = <<DESC
+    Detects registry modifications to the 'ms-settings' protocol handler, which is frequently targeted for UAC bypass or persistence. Attackers can modify this registry to execute malicious code with elevated privileges by hijacking the command execution path.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_registry_modification_of_ms_setting_protocol_handler.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

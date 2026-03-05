@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_use
   name                       = "proc_creation_win_rundll32_user32_dll"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Workstation Locking via Rundll32"
-  description                = "Detects a suspicious call to the user32.dll function that locks the user workstation Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_user32_dll.yml - Scripts or links on the user desktop used to lock the workstation instead of Windows+L or the menu option | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_user32_dll.yml"
+  description                = <<DESC
+    Detects a suspicious call to the user32.dll function that locks the user workstation
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_user32_dll.yml
+
+    False Positives:
+    - Scripts or links on the user desktop used to lock the workstation instead of Windows+L or the menu option
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

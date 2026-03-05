@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_ntfs_sh
   name                       = "proc_creation_win_susp_ntfs_short_name_use_cli"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Use NTFS Short Name in Command Line"
-  description                = "Detect use of the Windows 8.3 short name. Which could be used as a method to avoid command-line detection Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_ntfs_short_name_use_cli.yml - Applications could use this notation occasionally which might generate some false positives. In that case Investigate the parent and child process. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_ntfs_short_name_use_cli.yml"
+  description                = <<DESC
+    Detect use of the Windows 8.3 short name. Which could be used as a method to avoid command-line detection
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_ntfs_short_name_use_cli.yml
+
+    False Positives:
+    - Applications could use this notation occasionally which might generate some false positives. In that case Investigate the parent and child process.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

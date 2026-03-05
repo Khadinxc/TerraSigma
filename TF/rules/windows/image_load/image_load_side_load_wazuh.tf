@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_side_load_wazuh" {
   name                       = "image_load_side_load_wazuh"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Wazuh Security Platform DLL Sideloading"
-  description                = "Detects potential DLL side loading of DLLs that are part of the Wazuh security platform Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_wazuh.yml - Many legitimate applications leverage this DLL. (Visual Studio, JetBrains, Ruby, Anaconda, GithubDesktop, etc.) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_wazuh.yml"
+  description                = <<DESC
+    Detects potential DLL side loading of DLLs that are part of the Wazuh security platform
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_wazuh.yml
+
+    False Positives:
+    - Many legitimate applications leverage this DLL. (Visual Studio, JetBrains, Ruby, Anaconda, GithubDesktop, etc.)
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

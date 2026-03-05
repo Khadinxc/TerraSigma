@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_hollowr
   name                       = "proc_creation_win_hktl_hollowreaper"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - HollowReaper Execution"
-  description                = "Detects usage of HollowReaper, a process hollowing shellcode launcher used for stealth payload execution through process hollowing. It replaces the memory of a legitimate process with custom shellcode, allowing the attacker to execute payloads under the guise of trusted binaries. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_hollowreaper.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_hollowreaper.yml"
+  description                = <<DESC
+    Detects usage of HollowReaper, a process hollowing shellcode launcher used for stealth payload execution through process hollowing. It replaces the memory of a legitimate process with custom shellcode, allowing the attacker to execute payloads under the guise of trusted binaries.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_hollowreaper.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_squirrel_pro
   name                       = "proc_creation_win_squirrel_proxy_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Process Proxy Execution Via Squirrel.EXE"
-  description                = "Detects the usage of the \"Squirrel.exe\" binary to execute arbitrary processes. This binary is part of multiple Electron based software installations (Slack, Teams, Discord, etc.) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_squirrel_proxy_execution.yml - Expected FP with some Electron based applications such as (1Clipboard, Beaker Browser, Caret, Discord, GitHub Desktop, etc.) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_squirrel_proxy_execution.yml"
+  description                = <<DESC
+    Detects the usage of the "Squirrel.exe" binary to execute arbitrary processes. This binary is part of multiple Electron based software installations (Slack, Teams, Discord, etc.)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_squirrel_proxy_execution.yml
+
+    False Positives:
+    - Expected FP with some Electron based applications such as (1Clipboard, Beaker Browser, Caret, Discord, GitHub Desktop, etc.)
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

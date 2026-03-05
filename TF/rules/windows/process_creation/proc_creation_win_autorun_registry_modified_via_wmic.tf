@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_autorun_regi
   name                       = "proc_creation_win_autorun_registry_modified_via_wmic"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Autorun Registry Modified via WMI"
-  description                = "Detects suspicious activity where the WMIC process is used to create an autorun registry entry via reg.exe, which is often indicative of persistence mechanisms employed by malware. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_autorun_registry_modified_via_wmic.yml - Legitimate administrative activity or software installations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_autorun_registry_modified_via_wmic.yml"
+  description                = <<DESC
+    Detects suspicious activity where the WMIC process is used to create an autorun registry entry via reg.exe, which is often indicative of persistence mechanisms employed by malware.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_autorun_registry_modified_via_wmic.yml
+
+    False Positives:
+    - Legitimate administrative activity or software installations
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

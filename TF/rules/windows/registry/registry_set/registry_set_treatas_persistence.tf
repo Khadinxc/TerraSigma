@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_treatas_persisten
   name                       = "registry_set_treatas_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "COM Hijacking via TreatAs"
-  description                = "Detect modification of TreatAs key to enable \"rundll32.exe -sta\" command Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_treatas_persistence.yml - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_treatas_persistence.yml"
+  description                = <<DESC
+    Detect modification of TreatAs key to enable "rundll32.exe -sta" command
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_treatas_persistence.yml
+
+    False Positives:
+    - Legitimate use
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

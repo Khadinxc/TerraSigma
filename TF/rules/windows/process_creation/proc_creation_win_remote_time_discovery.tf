@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_remote_time_
   name                       = "proc_creation_win_remote_time_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Discovery of a System Time"
-  description                = "Identifies use of various commands to query a systems time. This technique may be used before executing a scheduled task or to discover the time zone of a target system. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_time_discovery.yml - Legitimate use of the system utilities to discover system time for legitimate reason | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_time_discovery.yml"
+  description                = <<DESC
+    Identifies use of various commands to query a systems time. This technique may be used before executing a scheduled task or to discover the time zone of a target system.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_time_discovery.yml
+
+    False Positives:
+    - Legitimate use of the system utilities to discover system time for legitimate reason
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

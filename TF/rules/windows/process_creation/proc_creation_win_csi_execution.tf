@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_csi_executio
   name                       = "proc_creation_win_csi_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Csi.exe Usage"
-  description                = "Csi.exe is a signed binary from Microsoft that comes with Visual Studio and provides C# interactive capabilities. It can be used to run C# code from a file passed as a parameter in command line. Early version of this utility provided with Microsoft “Roslyn” Community Technology Preview was named 'rcsi.exe' Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_csi_execution.yml - Legitimate usage by software developers | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_csi_execution.yml"
+  description                = <<DESC
+    Csi.exe is a signed binary from Microsoft that comes with Visual Studio and provides C# interactive capabilities. It can be used to run C# code from a file passed as a parameter in command line. Early version of this utility provided with Microsoft “Roslyn” Community Technology Preview was named 'rcsi.exe'
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_csi_execution.yml
+
+    False Positives:
+    - Legitimate usage by software developers
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

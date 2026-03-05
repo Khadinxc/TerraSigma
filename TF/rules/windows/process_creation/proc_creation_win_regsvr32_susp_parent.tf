@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_regsvr32_sus
   name                       = "proc_creation_win_regsvr32_susp_parent"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Scripting/CommandLine Process Spawned Regsvr32"
-  description                = "Detects various command line and scripting engines/processes such as \"PowerShell\", \"Wscript\", \"Cmd\", etc. spawning a \"regsvr32\" instance. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_susp_parent.yml - Legitimate \".bat\", \".hta\", \".ps1\" or \".vbs\" scripts leverage legitimately often. Apply additional filter and exclusions as necessary - Some legitimate Windows services | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_susp_parent.yml"
+  description                = <<DESC
+    Detects various command line and scripting engines/processes such as "PowerShell", "Wscript", "Cmd", etc. spawning a "regsvr32" instance.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_susp_parent.yml
+
+    False Positives:
+    - Legitimate ".bat", ".hta", ".ps1" or ".vbs" scripts leverage legitimately often. Apply additional filter and exclusions as necessary
+    - Some legitimate Windows services
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

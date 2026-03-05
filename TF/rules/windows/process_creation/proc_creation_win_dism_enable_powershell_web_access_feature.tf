@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_dism_enable_
   name                       = "proc_creation_win_dism_enable_powershell_web_access_feature"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Web Access Feature Enabled Via DISM"
-  description                = "Detects the use of DISM to enable the PowerShell Web Access feature, which could be used for remote access and potential abuse Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dism_enable_powershell_web_access_feature.yml - Legitimate PowerShell Web Access installations by administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dism_enable_powershell_web_access_feature.yml"
+  description                = <<DESC
+    Detects the use of DISM to enable the PowerShell Web Access feature, which could be used for remote access and potential abuse
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dism_enable_powershell_web_access_feature.yml
+
+    False Positives:
+    - Legitimate PowerShell Web Access installations by administrators
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

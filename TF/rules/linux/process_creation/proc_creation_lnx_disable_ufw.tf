@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_disable_ufw"
   name                       = "proc_creation_lnx_disable_ufw"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Ufw Force Stop Using Ufw-Init"
-  description                = "Detects attempts to force stop the ufw using ufw-init Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_disable_ufw.yml - Network administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_disable_ufw.yml"
+  description                = <<DESC
+    Detects attempts to force stop the ufw using ufw-init
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_disable_ufw.yml
+
+    False Positives:
+    - Network administrators
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

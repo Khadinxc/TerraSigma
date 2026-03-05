@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_dseditgrou
   name                       = "proc_creation_macos_dseditgroup_add_to_admin_group"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "User Added To Admin Group Via DseditGroup"
-  description                = "Detects attempts to create and/or add an account to the admin group, thus granting admin privileges. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_dseditgroup_add_to_admin_group.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_dseditgroup_add_to_admin_group.yml"
+  description                = <<DESC
+    Detects attempts to create and/or add an account to the admin group, thus granting admin privileges.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_dseditgroup_add_to_admin_group.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_clipboard_
   name                       = "proc_creation_macos_clipboard_data_via_osascript"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Clipboard Data Collection Via OSAScript"
-  description                = "Detects possible collection of data from the clipboard via execution of the osascript binary Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_clipboard_data_via_osascript.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_clipboard_data_via_osascript.yml"
+  description                = <<DESC
+    Detects possible collection of data from the clipboard via execution of the osascript binary
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_clipboard_data_via_osascript.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

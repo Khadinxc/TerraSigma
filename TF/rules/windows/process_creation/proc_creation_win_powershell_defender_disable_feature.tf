@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_d
   name                       = "proc_creation_win_powershell_defender_disable_feature"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Powershell Defender Disable Scan Feature"
-  description                = "Detects requests to disable Microsoft Defender features using PowerShell commands Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_defender_disable_feature.yml - Possible administrative activity - Other Cmdlets that may use the same parameters | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_defender_disable_feature.yml"
+  description                = <<DESC
+    Detects requests to disable Microsoft Defender features using PowerShell commands
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_defender_disable_feature.yml
+
+    False Positives:
+    - Possible administrative activity
+    - Other Cmdlets that may use the same parameters
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

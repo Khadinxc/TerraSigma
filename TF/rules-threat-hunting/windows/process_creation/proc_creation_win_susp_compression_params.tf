@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_compres
   name                       = "proc_creation_win_susp_compression_params"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Compression Tool Parameters"
-  description                = "Detects potentially suspicious command line arguments of common data compression tools Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_compression_params.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_compression_params.yml"
+  description                = <<DESC
+    Detects potentially suspicious command line arguments of common data compression tools
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_compression_params.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

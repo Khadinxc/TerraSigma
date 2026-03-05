@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_schtasks_one
   name                       = "proc_creation_win_schtasks_one_time_only_midnight_task"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon One Time Only Scheduled Task At 00:00"
-  description                = "Detects scheduled task creation events that include suspicious actions, and is run once at 00:00 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_one_time_only_midnight_task.yml - Software installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_one_time_only_midnight_task.yml"
+  description                = <<DESC
+    Detects scheduled task creation events that include suspicious actions, and is run once at 00:00
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_one_time_only_midnight_task.yml
+
+    False Positives:
+    - Software installation
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

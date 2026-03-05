@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_impacke
   name                       = "proc_creation_win_hktl_impacket_tools"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Impacket Tools Execution"
-  description                = "Detects the execution of different compiled Windows binaries of the impacket toolset (based on names or part of their names - could lead to false positives) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_impacket_tools.yml - Legitimate use of the impacket tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_impacket_tools.yml"
+  description                = <<DESC
+    Detects the execution of different compiled Windows binaries of the impacket toolset (based on names or part of their names - could lead to false positives)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_impacket_tools.yml
+
+    False Positives:
+    - Legitimate use of the impacket tools
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

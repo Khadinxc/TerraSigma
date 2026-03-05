@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_sharpup
   name                       = "proc_creation_win_hktl_sharpup"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - SharpUp PrivEsc Tool Execution"
-  description                = "Detects the use of SharpUp, a tool for local privilege escalation Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpup.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpup.yml"
+  description                = <<DESC
+    Detects the use of SharpUp, a tool for local privilege escalation
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpup.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

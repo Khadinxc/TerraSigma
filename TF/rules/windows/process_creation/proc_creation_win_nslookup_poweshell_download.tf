@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_nslookup_pow
   name                       = "proc_creation_win_nslookup_poweshell_download"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Nslookup PowerShell Download Cradle - ProcessCreation"
-  description                = "Detects suspicious powershell download cradle using nslookup. This cradle uses nslookup to extract payloads from DNS records Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_nslookup_poweshell_download.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_nslookup_poweshell_download.yml"
+  description                = <<DESC
+    Detects suspicious powershell download cradle using nslookup. This cradle uses nslookup to extract payloads from DNS records
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_nslookup_poweshell_download.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

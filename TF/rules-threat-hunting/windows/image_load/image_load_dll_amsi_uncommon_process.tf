@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_dll_amsi_uncommon_p
   name                       = "image_load_dll_amsi_uncommon_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Amsi.DLL Load By Uncommon Process"
-  description                = "Detects loading of Amsi.dll by uncommon processes Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_dll_amsi_uncommon_process.yml - Legitimate third party apps installed in \"ProgramData\" and \"AppData\" might generate some false positives. Apply additional filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_dll_amsi_uncommon_process.yml"
+  description                = <<DESC
+    Detects loading of Amsi.dll by uncommon processes
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_dll_amsi_uncommon_process.yml
+
+    False Positives:
+    - Legitimate third party apps installed in "ProgramData" and "AppData" might generate some false positives. Apply additional filters accordingly
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceImageLoadEvents

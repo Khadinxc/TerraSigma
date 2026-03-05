@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_esentutl_sen
   name                       = "proc_creation_win_esentutl_sensitive_file_copy"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Copying Sensitive Files with Credential Data"
-  description                = "Files with well-known filenames (sensitive files with credential data) copying Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_esentutl_sensitive_file_copy.yml - Copying sensitive files for legitimate use (eg. backup) or forensic investigation by legitimate incident responder or forensic investigator. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_esentutl_sensitive_file_copy.yml"
+  description                = <<DESC
+    Files with well-known filenames (sensitive files with credential data) copying
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_esentutl_sensitive_file_copy.yml
+
+    False Positives:
+    - Copying sensitive files for legitimate use (eg. backup) or forensic investigation by legitimate incident responder or forensic investigator.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

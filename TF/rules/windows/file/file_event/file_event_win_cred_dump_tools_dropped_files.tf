@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_cred_dump_tools
   name                       = "file_event_win_cred_dump_tools_dropped_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Cred Dump Tools Dropped Files"
-  description                = "Files with well-known filenames (parts of credential dump software or files produced by them) creation Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_cred_dump_tools_dropped_files.yml - Legitimate Administrator using tool for password recovery | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_cred_dump_tools_dropped_files.yml"
+  description                = <<DESC
+    Files with well-known filenames (parts of credential dump software or files produced by them) creation
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_cred_dump_tools_dropped_files.yml
+
+    False Positives:
+    - Legitimate Administrator using tool for password recovery
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

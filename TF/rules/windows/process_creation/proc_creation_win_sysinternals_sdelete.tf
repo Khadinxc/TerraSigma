@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sysinternals
   name                       = "proc_creation_win_sysinternals_sdelete"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential File Overwrite Via Sysinternals SDelete"
-  description                = "Detects the use of SDelete to erase a file not the free space Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_sdelete.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_sdelete.yml"
+  description                = <<DESC
+    Detects the use of SDelete to erase a file not the free space
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_sdelete.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

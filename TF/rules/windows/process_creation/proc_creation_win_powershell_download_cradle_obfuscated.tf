@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_d
   name                       = "proc_creation_win_powershell_download_cradle_obfuscated"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Obfuscated PowerShell OneLiner Execution"
-  description                = "Detects the execution of a specific OneLiner to download and execute powershell modules in memory. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_download_cradle_obfuscated.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_download_cradle_obfuscated.yml"
+  description                = <<DESC
+    Detects the execution of a specific OneLiner to download and execute powershell modules in memory.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_download_cradle_obfuscated.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

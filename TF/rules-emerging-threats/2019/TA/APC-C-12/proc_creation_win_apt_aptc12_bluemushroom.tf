@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_aptc12_b
   name                       = "proc_creation_win_apt_aptc12_bluemushroom"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential APT-C-12 BlueMushroom DLL Load Activity Via Regsvr32"
-  description                = "Detects potential BlueMushroom DLL loading activity via regsvr32 from AppData Local Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/APC-C-12/proc_creation_win_apt_aptc12_bluemushroom.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/APC-C-12/proc_creation_win_apt_aptc12_bluemushroom.yml"
+  description                = <<DESC
+    Detects potential BlueMushroom DLL loading activity via regsvr32 from AppData Local
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/APC-C-12/proc_creation_win_apt_aptc12_bluemushroom.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

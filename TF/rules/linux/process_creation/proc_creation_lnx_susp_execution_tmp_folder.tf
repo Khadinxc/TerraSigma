@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_susp_executi
   name                       = "proc_creation_lnx_susp_execution_tmp_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Execution From Tmp Folder"
-  description                = "Detects a potentially suspicious execution of a process located in the '/tmp/' folder Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_execution_tmp_folder.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_execution_tmp_folder.yml"
+  description                = <<DESC
+    Detects a potentially suspicious execution of a process located in the '/tmp/' folder
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_execution_tmp_folder.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

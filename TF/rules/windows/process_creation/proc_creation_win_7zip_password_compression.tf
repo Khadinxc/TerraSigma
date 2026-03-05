@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_7zip_passwor
   name                       = "proc_creation_win_7zip_password_compression"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Compress Data and Lock With Password for Exfiltration With 7-ZIP"
-  description                = "An adversary may compress or encrypt data that is collected prior to exfiltration using 3rd party utilities Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_7zip_password_compression.yml - Legitimate activity is expected since compressing files with a password is common. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_7zip_password_compression.yml"
+  description                = <<DESC
+    An adversary may compress or encrypt data that is collected prior to exfiltration using 3rd party utilities
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_7zip_password_compression.yml
+
+    False Positives:
+    - Legitimate activity is expected since compressing files with a password is common.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

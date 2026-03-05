@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_eventvwr_sus
   name                       = "proc_creation_win_eventvwr_susp_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Event Viewer Child Process"
-  description                = "Detects uncommon or suspicious child processes of \"eventvwr.exe\" which might indicate a UAC bypass attempt Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_eventvwr_susp_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_eventvwr_susp_child_process.yml"
+  description                = <<DESC
+    Detects uncommon or suspicious child processes of "eventvwr.exe" which might indicate a UAC bypass attempt
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_eventvwr_susp_child_process.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

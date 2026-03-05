@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_script_
   name                       = "proc_creation_win_susp_script_exec_from_env_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Script Interpreter Execution From Suspicious Folder"
-  description                = "Detects a suspicious script execution in temporary folders or folders accessible by environment variables Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_script_exec_from_env_folder.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_script_exec_from_env_folder.yml"
+  description                = <<DESC
+    Detects a suspicious script execution in temporary folders or folders accessible by environment variables
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_script_exec_from_env_folder.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_setgid_setui
   name                       = "proc_creation_lnx_setgid_setuid"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Setuid and Setgid"
-  description                = "Detects suspicious change of file privileges with chown and chmod commands Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_setgid_setuid.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_setgid_setuid.yml"
+  description                = <<DESC
+    Detects suspicious change of file privileges with chown and chmod commands
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_setgid_setuid.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

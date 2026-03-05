@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_lolbin_extra
   name                       = "proc_creation_win_lolbin_extrac32"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Extrac32 Execution"
-  description                = "Download or Copy file with Extrac32 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_extrac32.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_extrac32.yml"
+  description                = <<DESC
+    Download or Copy file with Extrac32
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_extrac32.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

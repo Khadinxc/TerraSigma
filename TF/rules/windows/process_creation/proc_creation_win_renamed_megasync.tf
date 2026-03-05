@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_renamed_mega
   name                       = "proc_creation_win_renamed_megasync"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed MegaSync Execution"
-  description                = "Detects the execution of a renamed MegaSync.exe as seen used by ransomware families like Nefilim, Sodinokibi, Pysa, and Conti. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_megasync.yml - Software that illegally integrates MegaSync in a renamed form - Administrators that have renamed MegaSync | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_megasync.yml"
+  description                = <<DESC
+    Detects the execution of a renamed MegaSync.exe as seen used by ransomware families like Nefilim, Sodinokibi, Pysa, and Conti.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_megasync.yml
+
+    False Positives:
+    - Software that illegally integrates MegaSync in a renamed form
+    - Administrators that have renamed MegaSync
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

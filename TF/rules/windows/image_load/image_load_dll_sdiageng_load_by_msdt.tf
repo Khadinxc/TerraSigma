@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_dll_sdiageng_load_b
   name                       = "image_load_dll_sdiageng_load_by_msdt"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Diagnostic Library Sdiageng.DLL Loaded By Msdt.EXE"
-  description                = "Detects both of CVE-2022-30190 (Follina) and DogWalk vulnerabilities exploiting msdt.exe binary to load the \"sdiageng.dll\" library Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_sdiageng_load_by_msdt.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_sdiageng_load_by_msdt.yml"
+  description                = <<DESC
+    Detects both of CVE-2022-30190 (Follina) and DogWalk vulnerabilities exploiting msdt.exe binary to load the "sdiageng.dll" library
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_sdiageng_load_by_msdt.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

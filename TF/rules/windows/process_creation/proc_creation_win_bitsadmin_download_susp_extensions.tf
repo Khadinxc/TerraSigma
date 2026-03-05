@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_bitsadmin_do
   name                       = "proc_creation_win_bitsadmin_download_susp_extensions"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File With Suspicious Extension Downloaded Via Bitsadmin"
-  description                = "Detects usage of bitsadmin downloading a file with a suspicious extension Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download_susp_extensions.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download_susp_extensions.yml"
+  description                = <<DESC
+    Detects usage of bitsadmin downloading a file with a suspicious extension
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download_susp_extensions.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

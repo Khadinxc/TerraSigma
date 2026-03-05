@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_msh
   name                       = "proc_creation_win_rundll32_mshtml_runhtmlapplication"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Mshtml.DLL RunHTMLApplication Suspicious Usage"
-  description                = "Detects execution of commands that leverage the \"mshtml.dll\" RunHTMLApplication export to run arbitrary code via different protocol handlers (vbscript, javascript, file, http...) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_mshtml_runhtmlapplication.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_mshtml_runhtmlapplication.yml"
+  description                = <<DESC
+    Detects execution of commands that leverage the "mshtml.dll" RunHTMLApplication export to run arbitrary code via different protocol handlers (vbscript, javascript, file, http...)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_mshtml_runhtmlapplication.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

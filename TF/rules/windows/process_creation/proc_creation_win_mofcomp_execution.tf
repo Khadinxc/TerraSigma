@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_mofcomp_exec
   name                       = "proc_creation_win_mofcomp_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Suspicious Mofcomp Execution"
-  description                = "Detects execution of the \"mofcomp\" utility as a child of a suspicious shell or script running utility or by having a suspicious path in the commandline. The \"mofcomp\" utility parses a file containing MOF statements and adds the classes and class instances defined in the file to the WMI repository. Attackers abuse this utility to install malicious MOF scripts Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mofcomp_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mofcomp_execution.yml"
+  description                = <<DESC
+    Detects execution of the "mofcomp" utility as a child of a suspicious shell or script running utility or by having a suspicious path in the commandline. The "mofcomp" utility parses a file containing MOF statements and adds the classes and class instances defined in the file to the WMI repository. Attackers abuse this utility to install malicious MOF scripts
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mofcomp_execution.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

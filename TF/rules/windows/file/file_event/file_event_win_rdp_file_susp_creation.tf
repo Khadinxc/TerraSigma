@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_rdp_file_susp_c
   name                       = "file_event_win_rdp_file_susp_creation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = ".RDP File Created By Uncommon Application"
-  description                = "Detects creation of a file with an \".rdp\" extension by an application that doesn't commonly create such files. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_rdp_file_susp_creation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_rdp_file_susp_creation.yml"
+  description                = <<DESC
+    Detects creation of a file with an ".rdp" extension by an application that doesn't commonly create such files.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_rdp_file_susp_creation.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_susp_running
   name                       = "proc_creation_lnx_susp_running_process_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Process Discovery"
-  description                = "Detects process discovery commands. Adversaries may attempt to get information about running processes on a system. Information obtained could be used to gain an understanding of common software/applications running on systems within the network Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/process_creation/proc_creation_lnx_susp_running_process_discovery.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/process_creation/proc_creation_lnx_susp_running_process_discovery.yml"
+  description                = <<DESC
+    Detects process discovery commands. Adversaries may attempt to get information about running processes on a system. Information obtained could be used to gain an understanding of common software/applications running on systems within the network
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/process_creation/proc_creation_lnx_susp_running_process_discovery.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

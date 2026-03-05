@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_vscode_tunne
   name                       = "proc_creation_win_vscode_tunnel_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Visual Studio Code Tunnel Execution"
-  description                = "Detects Visual Studio Code tunnel execution. Attackers can abuse this functionality to establish a C2 channel Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_tunnel_execution.yml - Legitimate use of Visual Studio Code tunnel | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_tunnel_execution.yml"
+  description                = <<DESC
+    Detects Visual Studio Code tunnel execution. Attackers can abuse this functionality to establish a C2 channel
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_tunnel_execution.yml
+
+    False Positives:
+    - Legitimate use of Visual Studio Code tunnel
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

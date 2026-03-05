@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_susp_file_s
   name                       = "net_connection_win_susp_file_sharing_domains_susp_folders"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Network Communication Initiated To File Sharing Domains From Process Located In Suspicious Folder"
-  description                = "Detects executables located in potentially suspicious directories initiating network connections towards file sharing domains. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_susp_file_sharing_domains_susp_folders.yml - Some installers located in the temp directory might communicate with the Github domains in order to download additional software. Baseline these cases or move the github domain to a lower level hunting rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_susp_file_sharing_domains_susp_folders.yml"
+  description                = <<DESC
+    Detects executables located in potentially suspicious directories initiating network connections towards file sharing domains.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_susp_file_sharing_domains_susp_folders.yml
+
+    False Positives:
+    - Some installers located in the temp directory might communicate with the Github domains in order to download additional software. Baseline these cases or move the github domain to a lower level hunting rule.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents

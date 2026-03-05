@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_disable_windows_f
   name                       = "registry_set_disable_windows_firewall"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disable Windows Firewall by Registry"
-  description                = "Detect set EnableFirewall to 0 to disable the Windows firewall Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_windows_firewall.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_windows_firewall.yml"
+  description                = <<DESC
+    Detect set EnableFirewall to 0 to disable the Windows firewall
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_windows_firewall.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

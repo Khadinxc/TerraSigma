@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_lnx_susp_long_filen
   name                       = "file_event_lnx_susp_long_filename_pattern"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Long Filename Pattern - Linux"
-  description                = "Detects the creation of files with unusually long filenames (100 or more characters), which may indicate obfuscation techniques used by malware such as VShell. This is a hunting rule to identify potential threats that use long filenames to evade detection. Keep in mind that on a legitimate system, such long filenames can and are common. Run this detection in the context of threat hunting rather than alerting. Adjust the threshold of filename length as needed based on your environment. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/file/file_event/file_event_lnx_susp_long_filename_pattern.yml - Legitimate files with long filenames. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/file/file_event/file_event_lnx_susp_long_filename_pattern.yml"
+  description                = <<DESC
+    Detects the creation of files with unusually long filenames (100 or more characters), which may indicate obfuscation techniques used by malware such as VShell. This is a hunting rule to identify potential threats that use long filenames to evade detection. Keep in mind that on a legitimate system, such long filenames can and are common. Run this detection in the context of threat hunting rather than alerting. Adjust the threshold of filename length as needed based on your environment.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/file/file_event/file_event_lnx_susp_long_filename_pattern.yml
+
+    False Positives:
+    - Legitimate files with long filenames.
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents

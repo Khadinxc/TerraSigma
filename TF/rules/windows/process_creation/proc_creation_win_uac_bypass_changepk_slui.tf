@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_uac_bypass_c
   name                       = "proc_creation_win_uac_bypass_changepk_slui"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass Using ChangePK and SLUI"
-  description                = "Detects an UAC bypass that uses changepk.exe and slui.exe (UACMe 61) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_changepk_slui.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_changepk_slui.yml"
+  description                = <<DESC
+    Detects an UAC bypass that uses changepk.exe and slui.exe (UACMe 61)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_changepk_slui.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

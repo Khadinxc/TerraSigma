@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_side_load_solidpdfc
   name                       = "image_load_side_load_solidpdfcreator"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential SolidPDFCreator.DLL Sideloading"
-  description                = "Detects potential DLL sideloading of \"SolidPDFCreator.dll\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_solidpdfcreator.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_solidpdfcreator.yml"
+  description                = <<DESC
+    Detects potential DLL sideloading of "SolidPDFCreator.dll"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_solidpdfcreator.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceImageLoadEvents

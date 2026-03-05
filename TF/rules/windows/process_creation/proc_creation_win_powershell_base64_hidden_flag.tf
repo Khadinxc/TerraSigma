@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_b
   name                       = "proc_creation_win_powershell_base64_hidden_flag"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Malicious Base64 Encoded PowerShell Keywords in Command Lines"
-  description                = "Detects base64 encoded strings used in hidden malicious PowerShell command lines Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_hidden_flag.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_hidden_flag.yml"
+  description                = <<DESC
+    Detects base64 encoded strings used in hidden malicious PowerShell command lines
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_hidden_flag.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

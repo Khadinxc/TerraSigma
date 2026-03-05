@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sdbinst_susp
   name                       = "proc_creation_win_sdbinst_susp_extension"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon Extension Shim Database Installation Via Sdbinst.EXE"
-  description                = "Detects installation of a potentially suspicious new shim with an uncommon extension using sdbinst.exe. Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by application shims Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sdbinst_susp_extension.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sdbinst_susp_extension.yml"
+  description                = <<DESC
+    Detects installation of a potentially suspicious new shim with an uncommon extension using sdbinst.exe. Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by application shims
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sdbinst_susp_extension.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

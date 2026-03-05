@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_lsass_shtinkeri
   name                       = "file_event_win_lsass_shtinkering"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "LSASS Process Dump Artefact In CrashDumps Folder"
-  description                = "Detects the presence of an LSASS dump file in the \"CrashDumps\" folder. This could be a sign of LSASS credential dumping. Techniques such as the LSASS Shtinkering have been seen abusing the Windows Error Reporting to dump said process. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_lsass_shtinkering.yml - Rare legitimate dump of the process by the operating system due to a crash of lsass | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_lsass_shtinkering.yml"
+  description                = <<DESC
+    Detects the presence of an LSASS dump file in the "CrashDumps" folder. This could be a sign of LSASS credential dumping. Techniques such as the LSASS Shtinkering have been seen abusing the Windows Error Reporting to dump said process.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_lsass_shtinkering.yml
+
+    False Positives:
+    - Rare legitimate dump of the process by the operating system due to a crash of lsass
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

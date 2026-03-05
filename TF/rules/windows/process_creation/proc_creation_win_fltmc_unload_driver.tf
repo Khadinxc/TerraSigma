@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_fltmc_unload
   name                       = "proc_creation_win_fltmc_unload_driver"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Filter Driver Unloaded Via Fltmc.EXE"
-  description                = "Detect filter driver unloading activity via fltmc.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fltmc_unload_driver.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fltmc_unload_driver.yml"
+  description                = <<DESC
+    Detect filter driver unloading activity via fltmc.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fltmc_unload_driver.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

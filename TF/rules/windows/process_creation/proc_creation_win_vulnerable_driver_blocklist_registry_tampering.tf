@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_vulnerable_d
   name                       = "proc_creation_win_vulnerable_driver_blocklist_registry_tampering"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Vulnerable Driver Blocklist Registry Tampering Via CommandLine"
-  description                = "Detects tampering of the Vulnerable Driver Blocklist registry via command line tools such as PowerShell or REG.EXE. The Vulnerable Driver Blocklist is a security feature that helps prevent the loading of known vulnerable drivers. Disabling this feature may indicate an attempt to bypass security controls, often targeted by threat actors to facilitate the installation of malicious or vulnerable drivers, particularly in scenarios involving Endpoint Detection and Response Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vulnerable_driver_blocklist_registry_tampering.yml - It is very unlikely for legitimate activities to disable the Vulnerable Driver Blocklist via command line tools; thus it is recommended to investigate promptly. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vulnerable_driver_blocklist_registry_tampering.yml"
+  description                = <<DESC
+    Detects tampering of the Vulnerable Driver Blocklist registry via command line tools such as PowerShell or REG.EXE. The Vulnerable Driver Blocklist is a security feature that helps prevent the loading of known vulnerable drivers. Disabling this feature may indicate an attempt to bypass security controls, often targeted by threat actors to facilitate the installation of malicious or vulnerable drivers, particularly in scenarios involving Endpoint Detection and Response
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vulnerable_driver_blocklist_registry_tampering.yml
+
+    False Positives:
+    - It is very unlikely for legitimate activities to disable the Vulnerable Driver Blocklist via command line tools; thus it is recommended to investigate promptly.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -115,6 +115,7 @@ class KQLToTerraform:
         metadata = {}
         query_lines = []
         in_query = False
+        in_false_positives = False
         
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
@@ -129,22 +130,37 @@ class KQLToTerraform:
                     
                     if comment.startswith('Title:'):
                         metadata['title'] = comment[6:].strip()
+                        in_false_positives = False
                     elif comment.startswith('Author:'):
                         metadata['author'] = comment[7:].strip()
+                        in_false_positives = False
                     elif comment.startswith('Date:'):
                         metadata['date'] = comment[5:].strip()
+                        in_false_positives = False
                     elif comment.startswith('Level:'):
                         metadata['level'] = comment[6:].strip()
+                        in_false_positives = False
                     elif comment.startswith('Description:'):
                         metadata['description'] = comment[12:].strip()
+                        in_false_positives = False
                     elif comment.startswith('MITRE Tactic:'):
                         metadata['tactic'] = comment[13:].strip()
+                        in_false_positives = False
                     elif comment.startswith('Tags:'):
                         metadata['tags'] = comment[5:].strip()
+                        in_false_positives = False
+                    elif comment.startswith('Reference:'):
+                        metadata['reference'] = comment[10:].strip()
+                        in_false_positives = False
                     elif comment.startswith('False Positives:'):
-                        continue
-                    elif 'description' in metadata and not any(x in comment for x in ['MITRE', 'Tags:', 'False']):
-                        # Multi-line description
+                        metadata['false_positives'] = []
+                        in_false_positives = True
+                    elif in_false_positives:
+                        fp_item = comment.lstrip('- ').strip()
+                        if fp_item:
+                            metadata['false_positives'].append(fp_item)
+                    elif 'description' in metadata and not any(x in comment for x in ['MITRE', 'Tags:']):
+                        # Multi-line description (not reference or false positives)
                         metadata['description'] += ' ' + comment
                 
                 # Detect start of query
@@ -290,10 +306,23 @@ class KQLToTerraform:
         
         # Description
         if metadata.get('description'):
-            desc = self.escape_terraform_string(metadata['description'])
-            if metadata.get('sigma_reference'):
-                desc += f" | Source: {metadata['sigma_reference']}"
-            tf_lines.append(f'  description                = "{desc}"')
+            desc_body = self.escape_terraform_heredoc(metadata['description'])
+            tf_lines.append('  description                = <<DESC')
+            tf_lines.append(f'    {desc_body}')
+            if metadata.get('reference'):
+                tf_lines.append('')
+                tf_lines.append(f'    Reference: {self.escape_terraform_heredoc(metadata["reference"])}')
+            if metadata.get('false_positives'):
+                tf_lines.append('')
+                tf_lines.append('    False Positives:')
+                for fp in metadata['false_positives']:
+                    tf_lines.append(f'    - {self.escape_terraform_heredoc(fp)}')
+            # Only include Source if it differs from the inline Reference
+            sigma_ref = metadata.get('sigma_reference')
+            if sigma_ref and sigma_ref != metadata.get('reference'):
+                tf_lines.append('')
+                tf_lines.append(f'    Source: {sigma_ref}')
+            tf_lines.append('  DESC')
         
         # Severity
         severity_map = {
@@ -430,7 +459,7 @@ class KQLToTerraform:
             if sigma_parts and sigma_parts[0].upper() == 'KQL':
                 sigma_rel = Path(*sigma_parts[1:])
             metadata['sigma_reference'] = (
-                f"https://github.com/SigmaHQ/sigma/blob/master/{sigma_rel.with_suffix('.yml')}"
+                f"https://github.com/SigmaHQ/sigma/blob/master/{sigma_rel.with_suffix('.yml').as_posix()}"
             )
 
             # Compute output directory based on desired output structure

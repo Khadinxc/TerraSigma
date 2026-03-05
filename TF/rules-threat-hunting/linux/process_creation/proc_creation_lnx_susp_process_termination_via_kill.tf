@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_susp_process
   name                       = "proc_creation_lnx_susp_process_termination_via_kill"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Terminate Linux Process Via Kill"
-  description                = "Detects usage of command line tools such as \"kill\", \"pkill\" or \"killall\" to terminate or signal a running process. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/process_creation/proc_creation_lnx_susp_process_termination_via_kill.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/process_creation/proc_creation_lnx_susp_process_termination_via_kill.yml"
+  description                = <<DESC
+    Detects usage of command line tools such as "kill", "pkill" or "killall" to terminate or signal a running process.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/process_creation/proc_creation_lnx_susp_process_termination_via_kill.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

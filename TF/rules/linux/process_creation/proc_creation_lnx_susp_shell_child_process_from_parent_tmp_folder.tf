@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_susp_shell_c
   name                       = "proc_creation_lnx_susp_shell_child_process_from_parent_tmp_folder"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Shell Execution Of Process Located In Tmp Directory"
-  description                = "Detects execution of shells from a parent process located in a temporary (/tmp) directory Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_shell_child_process_from_parent_tmp_folder.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_shell_child_process_from_parent_tmp_folder.yml"
+  description                = <<DESC
+    Detects execution of shells from a parent process located in a temporary (/tmp) directory
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_shell_child_process_from_parent_tmp_folder.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

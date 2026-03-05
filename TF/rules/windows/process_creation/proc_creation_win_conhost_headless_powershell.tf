@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_conhost_head
   name                       = "proc_creation_win_conhost_headless_powershell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Powershell Executed From Headless ConHost Process"
-  description                = "Detects the use of powershell commands from headless ConHost window. The \"--headless\" flag hides the windows from the user upon execution. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_conhost_headless_powershell.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_conhost_headless_powershell.yml"
+  description                = <<DESC
+    Detects the use of powershell commands from headless ConHost window. The "--headless" flag hides the windows from the user upon execution.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_conhost_headless_powershell.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

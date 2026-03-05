@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_format_uncom
   name                       = "proc_creation_win_format_uncommon_filesystem_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Uncommon FileSystem Load Attempt By Format.com"
-  description                = "Detects the execution of format.com with an uncommon filesystem selection that could indicate a defense evasion activity in which \"format.com\" is used to load malicious DLL files or other programs. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_format_uncommon_filesystem_load.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_format_uncommon_filesystem_load.yml"
+  description                = <<DESC
+    Detects the execution of format.com with an uncommon filesystem selection that could indicate a defense evasion activity in which "format.com" is used to load malicious DLL files or other programs.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_format_uncommon_filesystem_load.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_sip_persistence" 
   name                       = "registry_set_sip_persistence"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Persistence Via New SIP Provider"
-  description                = "Detects when an attacker register a new SIP provider for persistence and defense evasion Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_sip_persistence.yml - Legitimate SIP being registered by the OS or different software. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_sip_persistence.yml"
+  description                = <<DESC
+    Detects when an attacker register a new SIP provider for persistence and defense evasion
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_sip_persistence.yml
+
+    False Positives:
+    - Legitimate SIP being registered by the OS or different software.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

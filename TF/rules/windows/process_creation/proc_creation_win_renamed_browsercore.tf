@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_renamed_brow
   name                       = "proc_creation_win_renamed_browsercore"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed BrowserCore.EXE Execution"
-  description                = "Detects process creation with a renamed BrowserCore.exe (used to extract Azure tokens) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_browsercore.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_browsercore.yml"
+  description                = <<DESC
+    Detects process creation with a renamed BrowserCore.exe (used to extract Azure tokens)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_browsercore.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_change_security_z
   name                       = "registry_set_change_security_zones"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "IE Change Domain Zone"
-  description                = "Hides the file extension through modification of the registry Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_change_security_zones.yml - Administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_change_security_zones.yml"
+  description                = <<DESC
+    Hides the file extension through modification of the registry
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_change_security_zones.yml
+
+    False Positives:
+    - Administrative scripts
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

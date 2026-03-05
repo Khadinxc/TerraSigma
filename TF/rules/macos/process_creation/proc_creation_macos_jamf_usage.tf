@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_jamf_usage
   name                       = "proc_creation_macos_jamf_usage"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "JAMF MDM Execution"
-  description                = "Detects execution of the \"jamf\" binary to create user accounts and run commands. For example, the binary can be abused by attackers on the system in order to bypass security controls or remove application control polices. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_jamf_usage.yml - Legitimate use of the JAMF CLI tool by IT support and administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_jamf_usage.yml"
+  description                = <<DESC
+    Detects execution of the "jamf" binary to create user accounts and run commands. For example, the binary can be abused by attackers on the system in order to bypass security controls or remove application control polices.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_jamf_usage.yml
+
+    False Positives:
+    - Legitimate use of the JAMF CLI tool by IT support and administrators
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

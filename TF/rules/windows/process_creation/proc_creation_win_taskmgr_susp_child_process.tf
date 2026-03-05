@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_taskmgr_susp
   name                       = "proc_creation_win_taskmgr_susp_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Process Created Via Taskmgr.EXE"
-  description                = "Detects the creation of a process via the Windows task manager. This might be an attempt to bypass UAC Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_taskmgr_susp_child_process.yml - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_taskmgr_susp_child_process.yml"
+  description                = <<DESC
+    Detects the creation of a process via the Windows task manager. This might be an attempt to bypass UAC
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_taskmgr_susp_child_process.yml
+
+    False Positives:
+    - Administrative activity
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_iis_appcmd_h
   name                       = "proc_creation_win_iis_appcmd_http_logging"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disable Windows IIS HTTP Logging"
-  description                = "Disables HTTP logging on a Windows IIS web server as seen by Threat Group 3390 (Bronze Union) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_appcmd_http_logging.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_appcmd_http_logging.yml"
+  description                = <<DESC
+    Disables HTTP logging on a Windows IIS web server as seen by Threat Group 3390 (Bronze Union)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_appcmd_http_logging.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

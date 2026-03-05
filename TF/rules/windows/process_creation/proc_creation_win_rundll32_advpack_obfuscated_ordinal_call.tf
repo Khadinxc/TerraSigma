@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_adv
   name                       = "proc_creation_win_rundll32_advpack_obfuscated_ordinal_call"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Advpack Call Via Rundll32.EXE"
-  description                = "Detects execution of \"rundll32\" calling \"advpack.dll\" with potential obfuscated ordinal calls in order to leverage the \"RegisterOCX\" function Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_advpack_obfuscated_ordinal_call.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_advpack_obfuscated_ordinal_call.yml"
+  description                = <<DESC
+    Detects execution of "rundll32" calling "advpack.dll" with potential obfuscated ordinal calls in order to leverage the "RegisterOCX" function
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_advpack_obfuscated_ordinal_call.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

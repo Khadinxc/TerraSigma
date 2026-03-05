@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_dtrace_kerne
   name                       = "proc_creation_win_dtrace_kernel_dump"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Kernel Dump Using Dtrace"
-  description                = "Detects suspicious way to dump the kernel on Windows systems using dtrace.exe, which is available on Windows systems since Windows 10 19H1 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dtrace_kernel_dump.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dtrace_kernel_dump.yml"
+  description                = <<DESC
+    Detects suspicious way to dump the kernel on Windows systems using dtrace.exe, which is available on Windows systems since Windows 10 19H1
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dtrace_kernel_dump.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

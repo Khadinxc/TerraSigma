@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_powershell_enable
   name                       = "registry_set_powershell_enablescripts_enabled"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Script Execution Policy Enabled"
-  description                = "Detects the enabling of the PowerShell script execution policy. Once enabled, this policy allows scripts to be executed. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_powershell_enablescripts_enabled.yml - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_powershell_enablescripts_enabled.yml"
+  description                = <<DESC
+    Detects the enabling of the PowerShell script execution policy. Once enabled, this policy allows scripts to be executed.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_powershell_enablescripts_enabled.yml
+
+    False Positives:
+    - Likely
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceRegistryEvents

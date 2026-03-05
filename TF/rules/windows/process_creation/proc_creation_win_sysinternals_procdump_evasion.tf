@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_sysinternals
   name                       = "proc_creation_win_sysinternals_procdump_evasion"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential SysInternals ProcDump Evasion"
-  description                = "Detects uses of the SysInternals ProcDump utility in which ProcDump or its output get renamed, or a dump file is moved or copied to a different name Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_procdump_evasion.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_procdump_evasion.yml"
+  description                = <<DESC
+    Detects uses of the SysInternals ProcDump utility in which ProcDump or its output get renamed, or a dump file is moved or copied to a different name
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_procdump_evasion.yml
+
+    False Positives:
+    - False positives are expected in cases in which ProcDump just gets copied to a different directory without any renaming
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_netsh_fw_rul
   name                       = "proc_creation_win_netsh_fw_rules_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Firewall Configuration Discovery Via Netsh.EXE"
-  description                = "Adversaries may look for details about the network configuration and settings of systems they access or through information discovery of remote systems Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_rules_discovery.yml - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_rules_discovery.yml"
+  description                = <<DESC
+    Adversaries may look for details about the network configuration and settings of systems they access or through information discovery of remote systems
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_rules_discovery.yml
+
+    False Positives:
+    - Administrative activity
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

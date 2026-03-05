@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_env_shell_in
   name                       = "proc_creation_lnx_env_shell_invocation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Shell Invocation via Env Command - Linux"
-  description                = "Detects the use of the env command to invoke a shell. This may indicate an attempt to bypass restricted environments, escalate privileges, or execute arbitrary commands. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_env_shell_invocation.yml - Github operations such as ghe-backup | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_env_shell_invocation.yml"
+  description                = <<DESC
+    Detects the use of the env command to invoke a shell. This may indicate an attempt to bypass restricted environments, escalate privileges, or execute arbitrary commands.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_env_shell_invocation.yml
+
+    False Positives:
+    - Github operations such as ghe-backup
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

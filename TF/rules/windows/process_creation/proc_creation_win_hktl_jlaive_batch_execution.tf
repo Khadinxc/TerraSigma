@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_jlaive_
   name                       = "proc_creation_win_hktl_jlaive_batch_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Jlaive In-Memory Assembly Execution"
-  description                = "Detects the use of Jlaive to execute assemblies in a copied PowerShell Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_jlaive_batch_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_jlaive_batch_execution.yml"
+  description                = <<DESC
+    Detects the use of Jlaive to execute assemblies in a copied PowerShell
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_jlaive_batch_execution.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

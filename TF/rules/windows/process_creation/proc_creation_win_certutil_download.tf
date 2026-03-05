@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_certutil_dow
   name                       = "proc_creation_win_certutil_download"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Download Via Certutil.EXE"
-  description                = "Detects the execution of certutil with certain flags that allow the utility to download files. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_download.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_download.yml"
+  description                = <<DESC
+    Detects the execution of certutil with certain flags that allow the utility to download files.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_download.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

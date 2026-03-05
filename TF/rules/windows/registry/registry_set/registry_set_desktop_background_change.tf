@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_desktop_backgroun
   name                       = "registry_set_desktop_background_change"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Desktop Background Change Via Registry"
-  description                = "Detects registry value settings that would replace the user's desktop background. This is a common technique used by malware to change the desktop background to a ransom note or other image. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_desktop_background_change.yml - Administrative scripts that change the desktop background to a company logo or other image. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_desktop_background_change.yml"
+  description                = <<DESC
+    Detects registry value settings that would replace the user's desktop background. This is a common technique used by malware to change the desktop background to a ransom note or other image.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_desktop_background_change.yml
+
+    False Positives:
+    - Administrative scripts that change the desktop background to a company logo or other image.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_findstr_pass
   name                       = "proc_creation_win_findstr_password_recon"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Password Reconnaissance Via Findstr.EXE"
-  description                = "Detects command line usage of \"findstr\" to search for the \"passwords\" keyword in a variety of different languages Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_findstr_password_recon.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_findstr_password_recon.yml"
+  description                = <<DESC
+    Detects command line usage of "findstr" to search for the "passwords" keyword in a variety of different languages
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_findstr_password_recon.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_setspn_spn_e
   name                       = "proc_creation_win_setspn_spn_enumeration"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential SPN Enumeration Via Setspn.EXE"
-  description                = "Detects service principal name (SPN) enumeration used for Kerberoasting Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_setspn_spn_enumeration.yml - Administration activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_setspn_spn_enumeration.yml"
+  description                = <<DESC
+    Detects service principal name (SPN) enumeration used for Kerberoasting
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_setspn_spn_enumeration.yml
+
+    False Positives:
+    - Administration activity
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

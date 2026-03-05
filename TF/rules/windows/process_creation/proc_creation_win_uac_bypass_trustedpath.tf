@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_uac_bypass_t
   name                       = "proc_creation_win_uac_bypass_trustedpath"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "TrustedPath UAC Bypass Pattern"
-  description                = "Detects indicators of a UAC bypass method by mocking directories Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_trustedpath.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_trustedpath.yml"
+  description                = <<DESC
+    Detects indicators of a UAC bypass method by mocking directories
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_trustedpath.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

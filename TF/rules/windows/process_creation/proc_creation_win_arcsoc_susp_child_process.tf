@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_arcsoc_susp_
   name                       = "proc_creation_win_arcsoc_susp_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious ArcSOC.exe Child Process"
-  description                = "Detects script interpreters, command-line tools, and similar suspicious child processes of ArcSOC.exe. ArcSOC.exe is the process name which hosts ArcGIS Server REST services. If an attacker compromises an ArcGIS Server system and uploads a malicious Server Object Extension (SOE), they can send crafted requests to the corresponding service endpoint and remotely execute code from the ArcSOC.exe process. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_arcsoc_susp_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_arcsoc_susp_child_process.yml"
+  description                = <<DESC
+    Detects script interpreters, command-line tools, and similar suspicious child processes of ArcSOC.exe. ArcSOC.exe is the process name which hosts ArcGIS Server REST services. If an attacker compromises an ArcGIS Server system and uploads a malicious Server Object Extension (SOE), they can send crafted requests to the corresponding service endpoint and remotely execute code from the ArcSOC.exe process.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_arcsoc_susp_child_process.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

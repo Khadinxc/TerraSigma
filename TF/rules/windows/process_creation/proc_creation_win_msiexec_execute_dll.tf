@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_msiexec_exec
   name                       = "proc_creation_win_msiexec_execute_dll"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Msiexec Execute Arbitrary DLL"
-  description                = "Adversaries may abuse msiexec.exe to proxy execution of malicious payloads. Msiexec.exe is the command-line utility for the Windows Installer and is thus commonly associated with executing installation packages (.msi) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_execute_dll.yml - Legitimate script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_execute_dll.yml"
+  description                = <<DESC
+    Adversaries may abuse msiexec.exe to proxy execution of malicious payloads. Msiexec.exe is the command-line utility for the Windows Installer and is thus commonly associated with executing installation packages (.msi)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_execute_dll.yml
+
+    False Positives:
+    - Legitimate script
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

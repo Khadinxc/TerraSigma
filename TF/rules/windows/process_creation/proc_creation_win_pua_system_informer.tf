@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_pua_system_i
   name                       = "proc_creation_win_pua_system_informer"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - System Informer Execution"
-  description                = "Detects the execution of System Informer, a task manager tool to view and manipulate processes, kernel options and other low level operations Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_system_informer.yml - System Informer is regularly used legitimately by system administrators or developers. Apply additional filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_system_informer.yml"
+  description                = <<DESC
+    Detects the execution of System Informer, a task manager tool to view and manipulate processes, kernel options and other low level operations
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_system_informer.yml
+
+    False Positives:
+    - System Informer is regularly used legitimately by system administrators or developers. Apply additional filters accordingly
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

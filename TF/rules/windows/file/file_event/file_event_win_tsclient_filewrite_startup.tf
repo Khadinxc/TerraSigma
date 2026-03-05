@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_tsclient_filewr
   name                       = "file_event_win_tsclient_filewrite_startup"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Hijack Legit RDP Session to Move Laterally"
-  description                = "Detects the usage of tsclient share to place a backdoor on the RDP source machine's startup folder Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_tsclient_filewrite_startup.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_tsclient_filewrite_startup.yml"
+  description                = <<DESC
+    Detects the usage of tsclient share to place a backdoor on the RDP source machine's startup folder
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_tsclient_filewrite_startup.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

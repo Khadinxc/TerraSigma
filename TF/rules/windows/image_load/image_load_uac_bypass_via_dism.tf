@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_uac_bypass_via_dism
   name                       = "image_load_uac_bypass_via_dism"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "UAC Bypass With Fake DLL"
-  description                = "Attempts to load dismcore.dll after dropping it Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_uac_bypass_via_dism.yml - Actions of a legitimate telnet client | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_uac_bypass_via_dism.yml"
+  description                = <<DESC
+    Attempts to load dismcore.dll after dropping it
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_uac_bypass_via_dism.yml
+
+    False Positives:
+    - Actions of a legitimate telnet client
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

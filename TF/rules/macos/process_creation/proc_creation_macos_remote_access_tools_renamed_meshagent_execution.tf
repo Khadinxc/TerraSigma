@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_remote_acc
   name                       = "proc_creation_macos_remote_access_tools_renamed_meshagent_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Access Tool - Renamed MeshAgent Execution - MacOS"
-  description                = "Detects the execution of a renamed instance of the Remote Monitoring and Management (RMM) tool, MeshAgent. RMM tools such as MeshAgent are commonly utilized by IT administrators for legitimate remote support and system management. However, malicious actors may exploit these tools by renaming them to bypass detection mechanisms, enabling unauthorized access and control over compromised systems. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_remote_access_tools_renamed_meshagent_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_remote_access_tools_renamed_meshagent_execution.yml"
+  description                = <<DESC
+    Detects the execution of a renamed instance of the Remote Monitoring and Management (RMM) tool, MeshAgent. RMM tools such as MeshAgent are commonly utilized by IT administrators for legitimate remote support and system management. However, malicious actors may exploit these tools by renaming them to bypass detection mechanisms, enabling unauthorized access and control over compromised systems.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_remote_access_tools_renamed_meshagent_execution.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

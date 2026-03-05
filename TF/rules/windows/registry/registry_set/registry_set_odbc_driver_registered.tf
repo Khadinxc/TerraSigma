@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_odbc_driver_regis
   name                       = "registry_set_odbc_driver_registered"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New ODBC Driver Registered"
-  description                = "Detects the registration of a new ODBC driver. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_odbc_driver_registered.yml - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_odbc_driver_registered.yml"
+  description                = <<DESC
+    Detects the registration of a new ODBC driver.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_odbc_driver_registered.yml
+
+    False Positives:
+    - Likely
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceRegistryEvents

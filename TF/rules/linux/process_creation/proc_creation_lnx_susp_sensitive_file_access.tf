@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_susp_sensiti
   name                       = "proc_creation_lnx_susp_sensitive_file_access"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Suspicious Change To Sensitive/Critical Files"
-  description                = "Detects changes of sensitive and critical files. Monitors files that you don't expect to change without planning on Linux system. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_sensitive_file_access.yml - Some false positives are to be expected on user or administrator machines. Apply additional filters as needed. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_sensitive_file_access.yml"
+  description                = <<DESC
+    Detects changes of sensitive and critical files. Monitors files that you don't expect to change without planning on Linux system.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_sensitive_file_access.yml
+
+    False Positives:
+    - Some false positives are to be expected on user or administrator machines. Apply additional filters as needed.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

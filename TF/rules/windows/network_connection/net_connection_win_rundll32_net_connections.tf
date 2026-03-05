@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_rundll32_ne
   name                       = "net_connection_win_rundll32_net_connections"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Rundll32 Internet Connection"
-  description                = "Detects a rundll32 that communicates with public IP addresses Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_rundll32_net_connections.yml - Communication to other corporate systems that use IP addresses from public address spaces | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_rundll32_net_connections.yml"
+  description                = <<DESC
+    Detects a rundll32 that communicates with public IP addresses
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_rundll32_net_connections.yml
+
+    False Positives:
+    - Communication to other corporate systems that use IP addresses from public address spaces
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

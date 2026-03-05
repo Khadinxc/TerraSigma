@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_r
   name                       = "proc_creation_win_powershell_reverse_shell_connection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Powershell ReverseShell Connection"
-  description                = "Detects usage of the \"TcpClient\" class. Which can be abused to establish remote connections and reverse-shells. As seen used by the Nishang \"Invoke-PowerShellTcpOneLine\" reverse shell and other. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_reverse_shell_connection.yml - In rare administrative cases, this function might be used to check network connectivity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_reverse_shell_connection.yml"
+  description                = <<DESC
+    Detects usage of the "TcpClient" class. Which can be abused to establish remote connections and reverse-shells. As seen used by the Nishang "Invoke-PowerShellTcpOneLine" reverse shell and other.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_reverse_shell_connection.yml
+
+    False Positives:
+    - In rare administrative cases, this function might be used to check network connectivity
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

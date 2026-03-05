@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_aspnet_compi
   name                       = "proc_creation_win_aspnet_compiler_susp_paths"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious ASP.NET Compilation Via AspNetCompiler"
-  description                = "Detects execution of \"aspnet_compiler.exe\" with potentially suspicious paths for compilation. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_aspnet_compiler_susp_paths.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_aspnet_compiler_susp_paths.yml"
+  description                = <<DESC
+    Detects execution of "aspnet_compiler.exe" with potentially suspicious paths for compilation.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_aspnet_compiler_susp_paths.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

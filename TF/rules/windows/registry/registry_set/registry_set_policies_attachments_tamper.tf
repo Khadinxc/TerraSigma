@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_policies_attachme
   name                       = "registry_set_policies_attachments_tamper"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Attachment Manager Settings Attachments Tamper"
-  description                = "Detects tampering with attachment manager settings policies attachments (See reference for more information) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_policies_attachments_tamper.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_policies_attachments_tamper.yml"
+  description                = <<DESC
+    Detects tampering with attachment manager settings policies attachments (See reference for more information)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_policies_attachments_tamper.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceRegistryEvents

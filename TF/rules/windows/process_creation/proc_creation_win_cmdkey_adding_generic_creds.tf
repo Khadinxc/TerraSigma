@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_cmdkey_addin
   name                       = "proc_creation_win_cmdkey_adding_generic_creds"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Generic Credentials Added Via Cmdkey.EXE"
-  description                = "Detects usage of \"cmdkey.exe\" to add generic credentials. As an example, this can be used before connecting to an RDP session via command line interface. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmdkey_adding_generic_creds.yml - Legitimate usage for administration purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmdkey_adding_generic_creds.yml"
+  description                = <<DESC
+    Detects usage of "cmdkey.exe" to add generic credentials. As an example, this can be used before connecting to an RDP session via command line interface.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmdkey_adding_generic_creds.yml
+
+    False Positives:
+    - Legitimate usage for administration purposes
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_susp_curl_fi
   name                       = "proc_creation_lnx_susp_curl_fileupload"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Curl File Upload - Linux"
-  description                = "Detects a suspicious curl process start the adds a file to a web request Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_curl_fileupload.yml - Scripts created by developers and admins | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_curl_fileupload.yml"
+  description                = <<DESC
+    Detects a suspicious curl process start the adds a file to a web request
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_curl_fileupload.yml
+
+    False Positives:
+    - Scripts created by developers and admins
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

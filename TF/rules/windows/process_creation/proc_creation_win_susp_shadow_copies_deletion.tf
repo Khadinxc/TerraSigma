@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_shadow_
   name                       = "proc_creation_win_susp_shadow_copies_deletion"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Shadow Copies Deletion Using Operating Systems Utilities"
-  description                = "Shadow Copies deletion using operating systems utilities Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_shadow_copies_deletion.yml - Legitimate Administrator deletes Shadow Copies using operating systems utilities for legitimate reason - LANDesk LDClient Ivanti-PSModule (PS EncodedCommand) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_shadow_copies_deletion.yml"
+  description                = <<DESC
+    Shadow Copies deletion using operating systems utilities
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_shadow_copies_deletion.yml
+
+    False Positives:
+    - Legitimate Administrator deletes Shadow Copies using operating systems utilities for legitimate reason
+    - LANDesk LDClient Ivanti-PSModule (PS EncodedCommand)
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

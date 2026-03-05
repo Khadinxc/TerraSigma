@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_wmic_recon_p
   name                       = "proc_creation_win_wmic_recon_product_class"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Product Class Reconnaissance Via Wmic.EXE"
-  description                = "Detects the execution of WMIC in order to get a list of firewall, antivirus and antispywware products. Adversaries often enumerate security products installed on a system to identify security controls and potential ways to evade detection or disable protection mechanisms. This information helps them plan their next attack steps and choose appropriate techniques to bypass security measures. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_product_class.yml - Legitimate use of wmic.exe for reconnaissance of firewall, antivirus and antispywware products. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_product_class.yml"
+  description                = <<DESC
+    Detects the execution of WMIC in order to get a list of firewall, antivirus and antispywware products. Adversaries often enumerate security products installed on a system to identify security controls and potential ways to evade detection or disable protection mechanisms. This information helps them plan their next attack steps and choose appropriate techniques to bypass security measures.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_product_class.yml
+
+    False Positives:
+    - Legitimate use of wmic.exe for reconnaissance of firewall, antivirus and antispywware products.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

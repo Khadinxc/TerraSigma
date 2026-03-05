@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_persistence_amsi_
   name                       = "registry_set_persistence_amsi_providers"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential Persistence Via New AMSI Providers - Registry"
-  description                = "Detects when an attacker adds a new AMSI provider via the Windows Registry to bypass AMSI (Antimalware Scan Interface) protections. Attackers may add custom AMSI providers to persist on the system and evade detection by security software that relies on AMSI for scanning scripts and other content. This technique is often used in conjunction with fileless malware and script-based attacks to maintain persistence while avoiding detection. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_amsi_providers.yml - Legitimate security products adding their own AMSI providers. Filter these according to your environment. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_amsi_providers.yml"
+  description                = <<DESC
+    Detects when an attacker adds a new AMSI provider via the Windows Registry to bypass AMSI (Antimalware Scan Interface) protections. Attackers may add custom AMSI providers to persist on the system and evade detection by security software that relies on AMSI for scanning scripts and other content. This technique is often used in conjunction with fileless malware and script-based attacks to maintain persistence while avoiding detection.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_amsi_providers.yml
+
+    False Positives:
+    - Legitimate security products adding their own AMSI providers. Filter these according to your environment.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

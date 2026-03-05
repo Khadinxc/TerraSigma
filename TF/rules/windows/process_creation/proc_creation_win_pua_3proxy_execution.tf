@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_pua_3proxy_e
   name                       = "proc_creation_win_pua_3proxy_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA - 3Proxy Execution"
-  description                = "Detects the use of 3proxy, a tiny free proxy server Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_3proxy_execution.yml - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_3proxy_execution.yml"
+  description                = <<DESC
+    Detects the use of 3proxy, a tiny free proxy server
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_3proxy_execution.yml
+
+    False Positives:
+    - Administrative activity
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

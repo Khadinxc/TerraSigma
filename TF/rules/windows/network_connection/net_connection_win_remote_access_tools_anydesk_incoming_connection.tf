@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_remote_acce
   name                       = "net_connection_win_remote_access_tools_anydesk_incoming_connection"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Remote Access Tool - AnyDesk Incoming Connection"
-  description                = "Detects incoming connections to AnyDesk. This could indicate a potential remote attacker trying to connect to a listening instance of AnyDesk and use it as potential command and control channel. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_remote_access_tools_anydesk_incoming_connection.yml - Legitimate incoming connections (e.g. sysadmin activity). Most of the time I would expect outgoing connections (initiated locally). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_remote_access_tools_anydesk_incoming_connection.yml"
+  description                = <<DESC
+    Detects incoming connections to AnyDesk. This could indicate a potential remote attacker trying to connect to a listening instance of AnyDesk and use it as potential command and control channel.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_remote_access_tools_anydesk_incoming_connection.yml
+
+    False Positives:
+    - Legitimate incoming connections (e.g. sysadmin activity). Most of the time I would expect outgoing connections (initiated locally).
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

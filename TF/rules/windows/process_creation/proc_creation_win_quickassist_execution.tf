@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_quickassist_
   name                       = "proc_creation_win_quickassist_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "QuickAssist Execution"
-  description                = "Detects the execution of Microsoft Quick Assist tool \"QuickAssist.exe\". This utility can be used by attackers to gain remote access. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_quickassist_execution.yml - Legitimate use of Quick Assist in the environment. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_quickassist_execution.yml"
+  description                = <<DESC
+    Detects the execution of Microsoft Quick Assist tool "QuickAssist.exe". This utility can be used by attackers to gain remote access.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_quickassist_execution.yml
+
+    False Positives:
+    - Legitimate use of Quick Assist in the environment.
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

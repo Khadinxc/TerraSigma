@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hh_html_help
   name                       = "proc_creation_win_hh_html_help_susp_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HTML Help HH.EXE Suspicious Child Process"
-  description                = "Detects a suspicious child process of a Microsoft HTML Help (HH.exe) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hh_html_help_susp_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hh_html_help_susp_child_process.yml"
+  description                = <<DESC
+    Detects a suspicious child process of a Microsoft HTML Help (HH.exe)
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hh_html_help_susp_child_process.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

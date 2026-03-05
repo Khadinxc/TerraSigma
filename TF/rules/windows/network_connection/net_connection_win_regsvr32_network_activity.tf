@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_regsvr32_ne
   name                       = "net_connection_win_regsvr32_network_activity"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Network Connection Initiated By Regsvr32.EXE"
-  description                = "Detects a network connection initiated by \"Regsvr32.exe\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_regsvr32_network_activity.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_regsvr32_network_activity.yml"
+  description                = <<DESC
+    Detects a network connection initiated by "Regsvr32.exe"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_regsvr32_network_activity.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceNetworkEvents

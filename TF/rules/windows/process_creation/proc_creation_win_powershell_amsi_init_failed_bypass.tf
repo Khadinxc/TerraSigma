@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_a
   name                       = "proc_creation_win_powershell_amsi_init_failed_bypass"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential AMSI Bypass Via .NET Reflection"
-  description                = "Detects Request to \"amsiInitFailed\" that can be used to disable AMSI Scanning Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_amsi_init_failed_bypass.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_amsi_init_failed_bypass.yml"
+  description                = <<DESC
+    Detects Request to "amsiInitFailed" that can be used to disable AMSI Scanning
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_amsi_init_failed_bypass.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

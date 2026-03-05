@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_apt10_cl
   name                       = "proc_creation_win_apt_apt10_cloud_hopper"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential APT10 Cloud Hopper Activity"
-  description                = "Detects potential process and execution activity related to APT10 Cloud Hopper operation Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/APT10/proc_creation_win_apt_apt10_cloud_hopper.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/APT10/proc_creation_win_apt_apt10_cloud_hopper.yml"
+  description                = <<DESC
+    Detects potential process and execution activity related to APT10 Cloud Hopper operation
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/APT10/proc_creation_win_apt_apt10_cloud_hopper.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

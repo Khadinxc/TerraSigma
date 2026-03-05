@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_rdp_to_http
   name                       = "net_connection_win_rdp_to_http"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "RDP to HTTP or HTTPS Target Ports"
-  description                = "Detects svchost hosting RDP termsvcs communicating to target systems on TCP port 80 or 443 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_rdp_to_http.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_rdp_to_http.yml"
+  description                = <<DESC
+    Detects svchost hosting RDP termsvcs communicating to target systems on TCP port 80 or 443
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_rdp_to_http.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents

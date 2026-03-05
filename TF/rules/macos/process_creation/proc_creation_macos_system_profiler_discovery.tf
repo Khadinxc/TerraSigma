@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_system_pro
   name                       = "proc_creation_macos_system_profiler_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "System Information Discovery Using System_Profiler"
-  description                = "Detects the execution of \"system_profiler\" with specific \"Data Types\" that have been seen being used by threat actors and malware. It provides system hardware and software configuration information. This process is primarily used for system information discovery. However, \"system_profiler\" can also be used to determine if virtualization software is being run for defense evasion purposes. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_system_profiler_discovery.yml - Legitimate administrative activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_system_profiler_discovery.yml"
+  description                = <<DESC
+    Detects the execution of "system_profiler" with specific "Data Types" that have been seen being used by threat actors and malware. It provides system hardware and software configuration information. This process is primarily used for system information discovery. However, "system_profiler" can also be used to determine if virtualization software is being run for defense evasion purposes.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_system_profiler_discovery.yml
+
+    False Positives:
+    - Legitimate administrative activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

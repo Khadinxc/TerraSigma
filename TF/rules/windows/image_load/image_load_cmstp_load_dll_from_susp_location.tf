@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "image_load_cmstp_load_dll_from
   name                       = "image_load_cmstp_load_dll_from_susp_location"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DLL Loaded From Suspicious Location Via Cmspt.EXE"
-  description                = "Detects cmstp loading \"dll\" or \"ocx\" files from suspicious locations Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_cmstp_load_dll_from_susp_location.yml - Unikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_cmstp_load_dll_from_susp_location.yml"
+  description                = <<DESC
+    Detects cmstp loading "dll" or "ocx" files from suspicious locations
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_cmstp_load_dll_from_susp_location.yml
+
+    False Positives:
+    - Unikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceImageLoadEvents

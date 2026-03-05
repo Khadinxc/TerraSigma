@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_net_view_sha
   name                       = "proc_creation_win_net_view_share_and_sessions_enum"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Share And Session Enumeration Using Net.EXE"
-  description                = "Detects attempts to enumerate file shares, printer shares and sessions using \"net.exe\" with the \"view\" flag. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_view_share_and_sessions_enum.yml - Legitimate use of net.exe utility by legitimate user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_view_share_and_sessions_enum.yml"
+  description                = <<DESC
+    Detects attempts to enumerate file shares, printer shares and sessions using "net.exe" with the "view" flag.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_view_share_and_sessions_enum.yml
+
+    False Positives:
+    - Legitimate use of net.exe utility by legitimate user
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents

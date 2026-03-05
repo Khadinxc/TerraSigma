@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_apt_mint_san
   name                       = "proc_creation_win_apt_mint_sandstorm_aspera_faspex_susp_child_process"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Mint Sandstorm - AsperaFaspex Suspicious Process Execution"
-  description                = "Detects suspicious execution from AsperaFaspex as seen used by Mint Sandstorm Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Mint-Sandstorm/proc_creation_win_apt_mint_sandstorm_aspera_faspex_susp_child_process.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Mint-Sandstorm/proc_creation_win_apt_mint_sandstorm_aspera_faspex_susp_child_process.yml"
+  description                = <<DESC
+    Detects suspicious execution from AsperaFaspex as seen used by Mint Sandstorm
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Mint-Sandstorm/proc_creation_win_apt_mint_sandstorm_aspera_faspex_susp_child_process.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

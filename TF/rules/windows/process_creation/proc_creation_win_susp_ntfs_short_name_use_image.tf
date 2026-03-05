@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_ntfs_sh
   name                       = "proc_creation_win_susp_ntfs_short_name_use_image"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Use NTFS Short Name in Image"
-  description                = "Detect use of the Windows 8.3 short name. Which could be used as a method to avoid Image based detection Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_ntfs_short_name_use_image.yml - Software Installers | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_ntfs_short_name_use_image.yml"
+  description                = <<DESC
+    Detect use of the Windows 8.3 short name. Which could be used as a method to avoid Image based detection
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_ntfs_short_name_use_image.yml
+
+    False Positives:
+    - Software Installers
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_wmiexec
   name                       = "proc_creation_win_hktl_wmiexec_default_powershell"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - Wmiexec Default Powershell Command"
-  description                = "Detects the execution of PowerShell with a specific flag sequence that is used by the Wmiexec script Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_wmiexec_default_powershell.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_wmiexec_default_powershell.yml"
+  description                = <<DESC
+    Detects the execution of PowerShell with a specific flag sequence that is used by the Wmiexec script
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_wmiexec_default_powershell.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_dfsvc_suspic
   name                       = "proc_creation_win_dfsvc_suspicious_child_processes"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potentially Suspicious Child Process Of ClickOnce Application"
-  description                = "Detects potentially suspicious child processes of a ClickOnce deployment application Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dfsvc_suspicious_child_processes.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dfsvc_suspicious_child_processes.yml"
+  description                = <<DESC
+    Detects potentially suspicious child processes of a ClickOnce deployment application
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dfsvc_suspicious_child_processes.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

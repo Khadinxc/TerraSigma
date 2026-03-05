@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_lnx_wget_download_f
   name                       = "file_event_lnx_wget_download_file_in_tmp_dir"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Wget Creating Files in Tmp Directory"
-  description                = "Detects the use of wget to download content in a temporary directory such as \"/tmp\" or \"/var/tmp\" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_wget_download_file_in_tmp_dir.yml - Legitimate downloads of files in the tmp folder. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_wget_download_file_in_tmp_dir.yml"
+  description                = <<DESC
+    Detects the use of wget to download content in a temporary directory such as "/tmp" or "/var/tmp"
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_wget_download_file_in_tmp_dir.yml
+
+    False Positives:
+    - Legitimate downloads of files in the tmp folder.
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

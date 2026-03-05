@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_sharp_i
   name                       = "proc_creation_win_hktl_sharp_impersonation"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - SharpImpersonation Execution"
-  description                = "Detects execution of the SharpImpersonation tool. Which can be used to manipulate tokens on a Windows computers remotely (PsExec/WmiExec) or interactively Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharp_impersonation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharp_impersonation.yml"
+  description                = <<DESC
+    Detects execution of the SharpImpersonation tool. Which can be used to manipulate tokens on a Windows computers remotely (PsExec/WmiExec) or interactively
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharp_impersonation.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

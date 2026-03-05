@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_disable_defender_
   name                       = "registry_set_disable_defender_firewall"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Disable Microsoft Defender Firewall via Registry"
-  description                = "Adversaries may disable or modify system firewalls in order to bypass controls limiting network usage Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_defender_firewall.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_defender_firewall.yml"
+  description                = <<DESC
+    Adversaries may disable or modify system firewalls in order to bypass controls limiting network usage
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_defender_firewall.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

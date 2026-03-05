@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_susp_spool_driv
   name                       = "file_event_win_susp_spool_drivers_color_drop"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Drop Binaries Into Spool Drivers Color Folder"
-  description                = "Detects the creation of suspcious binary files inside the \"\\windows\\system32\\spool\\drivers\\color\\\" as seen in the blog referenced below Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_spool_drivers_color_drop.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_spool_drivers_color_drop.yml"
+  description                = <<DESC
+    Detects the creation of suspcious binary files inside the "\windows\system32\spool\drivers\color\" as seen in the blog referenced below
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_spool_drivers_color_drop.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceFileEvents

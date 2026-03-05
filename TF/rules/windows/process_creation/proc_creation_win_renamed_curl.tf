@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_renamed_curl
   name                       = "proc_creation_win_renamed_curl"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Renamed CURL.EXE Execution"
-  description                = "Detects the execution of a renamed \"CURL.exe\" binary based on the PE metadata fields Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_curl.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_curl.yml"
+  description                = <<DESC
+    Detects the execution of a renamed "CURL.exe" binary based on the PE metadata fields
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_curl.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,15 @@ resource "azurerm_sentinel_alert_rule_scheduled" "net_connection_win_domain_dead
   name                       = "net_connection_win_domain_dead_drop_resolvers"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "New Connection Initiated To Potential Dead Drop Resolver Domain"
-  description                = "Detects an executable, which is not an internet browser or known application, initiating network connections to legit popular websites, which were seen to be used as dead drop resolvers in previous attacks. In this context attackers leverage known websites such as \"facebook\", \"youtube\", etc. In order to pass through undetected. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_dead_drop_resolvers.yml - One might need to exclude other internet browsers found in it's network or other applications like ones mentioned above from Microsoft Defender. - Ninite contacting githubusercontent.com | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_dead_drop_resolvers.yml"
+  description                = <<DESC
+    Detects an executable, which is not an internet browser or known application, initiating network connections to legit popular websites, which were seen to be used as dead drop resolvers in previous attacks. In this context attackers leverage known websites such as "facebook", "youtube", etc. In order to pass through undetected.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_dead_drop_resolvers.yml
+
+    False Positives:
+    - One might need to exclude other internet browsers found in it's network or other applications like ones mentioned above from Microsoft Defender.
+    - Ninite contacting githubusercontent.com
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceNetworkEvents

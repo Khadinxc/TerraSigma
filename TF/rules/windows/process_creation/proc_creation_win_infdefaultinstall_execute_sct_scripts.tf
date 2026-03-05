@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_infdefaultin
   name                       = "proc_creation_win_infdefaultinstall_execute_sct_scripts"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "InfDefaultInstall.exe .inf Execution"
-  description                = "Executes SCT script using scrobj.dll from a command in entered into a specially prepared INF file. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_infdefaultinstall_execute_sct_scripts.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_infdefaultinstall_execute_sct_scripts.yml"
+  description                = <<DESC
+    Executes SCT script using scrobj.dll from a command in entered into a specially prepared INF file.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_infdefaultinstall_execute_sct_scripts.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

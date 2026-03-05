@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_set_susp_keyboard_lay
   name                       = "registry_set_susp_keyboard_layout_load"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Keyboard Layout Load"
-  description                = "Detects the keyboard preload installation with a suspicious keyboard layout, e.g. Chinese, Iranian or Vietnamese layout load in user session on systems maintained by US staff only Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_keyboard_layout_load.yml - Administrators or users that actually use the selected keyboard layouts (heavily depends on the organisation's user base) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_keyboard_layout_load.yml"
+  description                = <<DESC
+    Detects the keyboard preload installation with a suspicious keyboard layout, e.g. Chinese, Iranian or Vietnamese layout load in user session on systems maintained by US staff only
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_keyboard_layout_load.yml
+
+    False Positives:
+    - Administrators or users that actually use the selected keyboard layouts (heavily depends on the organisation's user base)
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

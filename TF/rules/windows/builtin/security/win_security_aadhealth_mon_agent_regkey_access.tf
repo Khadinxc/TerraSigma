@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "win_security_aadhealth_mon_age
   name                       = "win_security_aadhealth_mon_agent_regkey_access"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Azure AD Health Monitoring Agent Registry Keys Access"
-  description                = "This detection uses Windows security events to detect suspicious access attempts to the registry key of Azure AD Health monitoring agent. This detection requires an access control entry (ACE) on the system access control list (SACL) of the following securable object HKLM\\SOFTWARE\\Microsoft\\Microsoft Online\\Reporting\\MonitoringAgent. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_aadhealth_mon_agent_regkey_access.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_aadhealth_mon_agent_regkey_access.yml"
+  description                = <<DESC
+    This detection uses Windows security events to detect suspicious access attempts to the registry key of Azure AD Health monitoring agent. This detection requires an access control entry (ACE) on the system access control list (SACL) of the following securable object HKLM\SOFTWARE\Microsoft\Microsoft Online\Reporting\MonitoringAgent.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_aadhealth_mon_agent_regkey_access.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

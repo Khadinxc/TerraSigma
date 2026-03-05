@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_rundll32_ins
   name                       = "proc_creation_win_rundll32_installscreensaver"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Rundll32 InstallScreenSaver Execution"
-  description                = "An attacker may execute an application as a SCR File using rundll32.exe desk.cpl,InstallScreenSaver Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_installscreensaver.yml - Legitimate installation of a new screensaver | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_installscreensaver.yml"
+  description                = <<DESC
+    An attacker may execute an application as a SCR File using rundll32.exe desk.cpl,InstallScreenSaver
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_installscreensaver.yml
+
+    False Positives:
+    - Legitimate installation of a new screensaver
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

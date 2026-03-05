@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_create_hid
   name                       = "proc_creation_macos_create_hidden_account"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Hidden User Creation"
-  description                = "Detects creation of a hidden user account on macOS (UserID < 500) or with IsHidden option Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_create_hidden_account.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_create_hidden_account.yml"
+  description                = <<DESC
+    Detects creation of a hidden user account on macOS (UserID < 500) or with IsHidden option
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_create_hidden_account.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

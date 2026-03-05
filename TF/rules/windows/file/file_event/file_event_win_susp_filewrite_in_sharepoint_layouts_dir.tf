@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_susp_filewrite_
   name                       = "file_event_win_susp_filewrite_in_sharepoint_layouts_dir"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Write to SharePoint Layouts Directory"
-  description                = "Detects suspicious file writes to SharePoint layouts directory which could indicate webshell activity or post-exploitation. This behavior has been observed in the exploitation of SharePoint vulnerabilities such as CVE-2025-49704, CVE-2025-49706 or CVE-2025-53770. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_filewrite_in_sharepoint_layouts_dir.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_filewrite_in_sharepoint_layouts_dir.yml"
+  description                = <<DESC
+    Detects suspicious file writes to SharePoint layouts directory which could indicate webshell activity or post-exploitation. This behavior has been observed in the exploitation of SharePoint vulnerabilities such as CVE-2025-49704, CVE-2025-49706 or CVE-2025-53770.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_filewrite_in_sharepoint_layouts_dir.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

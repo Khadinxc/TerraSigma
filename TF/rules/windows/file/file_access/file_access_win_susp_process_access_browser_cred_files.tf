@@ -2,7 +2,16 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_access_win_susp_process_a
   name                       = "file_access_win_susp_process_access_browser_cred_files"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Access to Browser Credential Storage"
-  description                = "Detects file access to browser credential storage paths by non-browser processes, which may indicate credential access attempts. Adversaries may attempt to access browser credential storage to extract sensitive information such as usernames and passwords or cookies. This behavior is often commonly observed in credential stealing malware. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_susp_process_access_browser_cred_files.yml - Antivirus, Anti-Spyware, Anti-Malware Software - Legitimate software accessing browser data for synchronization or backup purposes. - Legitimate software installed on partitions other than \"C:\\\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_susp_process_access_browser_cred_files.yml"
+  description                = <<DESC
+    Detects file access to browser credential storage paths by non-browser processes, which may indicate credential access attempts. Adversaries may attempt to access browser credential storage to extract sensitive information such as usernames and passwords or cookies. This behavior is often commonly observed in credential stealing malware.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_susp_process_access_browser_cred_files.yml
+
+    False Positives:
+    - Antivirus, Anti-Spyware, Anti-Malware Software
+    - Legitimate software accessing browser data for synchronization or backup purposes.
+    - Legitimate software installed on partitions other than "C:\"
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceFileEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_o
   name                       = "proc_creation_win_powershell_obfuscation_via_utf8"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Potential PowerShell Obfuscation Via WCHAR/CHAR"
-  description                = "Detects suspicious encoded character syntax often used for defense evasion Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_obfuscation_via_utf8.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_obfuscation_via_utf8.yml"
+  description                = <<DESC
+    Detects suspicious encoded character syntax often used for defense evasion
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_obfuscation_via_utf8.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

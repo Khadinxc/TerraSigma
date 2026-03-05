@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_auditctl_cle
   name                       = "proc_creation_lnx_auditctl_clear_rules"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Audit Rules Deleted Via Auditctl"
-  description                = "Detects the execution of 'auditctl' with the '-D' command line parameter, which deletes all configured audit rules and watches on Linux systems. This technique is commonly used by attackers to disable audit logging and cover their tracks by removing monitoring capabilities. Removal of audit rules can significantly impair detection of malicious activities on the affected system. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_auditctl_clear_rules.yml - An administrator troubleshooting. Investigate all attempts. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_auditctl_clear_rules.yml"
+  description                = <<DESC
+    Detects the execution of 'auditctl' with the '-D' command line parameter, which deletes all configured audit rules and watches on Linux systems. This technique is commonly used by attackers to disable audit logging and cover their tracks by removing monitoring capabilities. Removal of audit rules can significantly impair detection of malicious activities on the affected system.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_auditctl_clear_rules.yml
+
+    False Positives:
+    - An administrator troubleshooting. Investigate all attempts.
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

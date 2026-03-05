@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_schtasks_cha
   name                       = "proc_creation_win_schtasks_change"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Modification Of Scheduled Tasks"
-  description                = "Detects when an attacker tries to modify an already existing scheduled tasks to run from a suspicious location Attackers can create a simple looking task in order to avoid detection on creation as it's often the most focused on Instead they modify the task after creation to include their malicious payload Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_change.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_change.yml"
+  description                = <<DESC
+    Detects when an attacker tries to modify an already existing scheduled tasks to run from a suspicious location Attackers can create a simple looking task in order to avoid detection on creation as it's often the most focused on Instead they modify the task after creation to include their malicious payload
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_change.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

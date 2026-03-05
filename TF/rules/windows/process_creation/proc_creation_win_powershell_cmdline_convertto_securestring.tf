@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_c
   name                       = "proc_creation_win_powershell_cmdline_convertto_securestring"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "ConvertTo-SecureString Cmdlet Usage Via CommandLine"
-  description                = "Detects usage of the \"ConvertTo-SecureString\" cmdlet via the commandline. Which is fairly uncommon and could indicate potential suspicious activity Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cmdline_convertto_securestring.yml - Legitimate use to pass password to different powershell commands | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cmdline_convertto_securestring.yml"
+  description                = <<DESC
+    Detects usage of the "ConvertTo-SecureString" cmdlet via the commandline. Which is fairly uncommon and could indicate potential suspicious activity
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cmdline_convertto_securestring.yml
+
+    False Positives:
+    - Legitimate use to pass password to different powershell commands
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

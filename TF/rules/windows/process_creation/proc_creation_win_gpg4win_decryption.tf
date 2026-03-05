@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_gpg4win_decr
   name                       = "proc_creation_win_gpg4win_decryption"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Decryption Using Gpg4win"
-  description                = "Detects usage of Gpg4win to decrypt files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gpg4win_decryption.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gpg4win_decryption.yml"
+  description                = <<DESC
+    Detects usage of Gpg4win to decrypt files
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gpg4win_decryption.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

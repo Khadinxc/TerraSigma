@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_curl_downloa
   name                       = "proc_creation_win_curl_download_direct_ip_exec"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "File Download From IP URL Via Curl.EXE"
-  description                = "Detects file downloads directly from IP address URL using curl.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_download_direct_ip_exec.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_download_direct_ip_exec.yml"
+  description                = <<DESC
+    Detects file downloads directly from IP address URL using curl.exe
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_download_direct_ip_exec.yml
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

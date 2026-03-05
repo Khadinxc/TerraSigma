@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_device_crede
   name                       = "proc_creation_win_device_credential_deployment"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "DeviceCredentialDeployment Execution"
-  description                = "Detects the execution of DeviceCredentialDeployment to hide a process from view. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_device_credential_deployment.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_device_credential_deployment.yml"
+  description                = <<DESC
+    Detects the execution of DeviceCredentialDeployment to hide a process from view.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_device_credential_deployment.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

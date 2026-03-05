@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "registry_delete_enable_windows
   name                       = "registry_delete_enable_windows_recall"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Windows Recall Feature Enabled - DisableAIDataAnalysis Value Deleted"
-  description                = "Detects the enabling of the Windows Recall feature via registry manipulation. Windows Recall can be enabled by deleting the existing \"DisableAIDataAnalysis\" registry value. Adversaries may enable Windows Recall as part of post-exploitation discovery and collection activities. This rule assumes that Recall is already explicitly disabled on the host, and subsequently enabled by the adversary. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/registry_delete_enable_windows_recall.yml - Legitimate use/activation of Windows Recall | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/registry_delete_enable_windows_recall.yml"
+  description                = <<DESC
+    Detects the enabling of the Windows Recall feature via registry manipulation. Windows Recall can be enabled by deleting the existing "DisableAIDataAnalysis" registry value. Adversaries may enable Windows Recall as part of post-exploitation discovery and collection activities. This rule assumes that Recall is already explicitly disabled on the host, and subsequently enabled by the adversary.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/registry_delete_enable_windows_recall.yml
+
+    False Positives:
+    - Legitimate use/activation of Windows Recall
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceRegistryEvents

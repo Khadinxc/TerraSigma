@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_schtasks_gui
   name                       = "proc_creation_win_schtasks_guid_task_name"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Scheduled Task Name As GUID"
-  description                = "Detects creation of a scheduled task with a GUID like name Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_guid_task_name.yml - Legitimate software naming their tasks as GUIDs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_guid_task_name.yml"
+  description                = <<DESC
+    Detects creation of a scheduled task with a GUID like name
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_guid_task_name.yml
+
+    False Positives:
+    - Legitimate software naming their tasks as GUIDs
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_webshell_too
   name                       = "proc_creation_win_webshell_tool_recon"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Webshell Tool Reconnaissance Activity"
-  description                = "Detects processes spawned from web servers (PHP, Tomcat, IIS, etc.) that perform reconnaissance looking for the existence of popular scripting tools (perl, python, wget) on the system via the help commands Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_webshell_tool_recon.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_webshell_tool_recon.yml"
+  description                = <<DESC
+    Detects processes spawned from web servers (PHP, Tomcat, IIS, etc.) that perform reconnaissance looking for the existence of popular scripting tools (perl, python, wget) on the system via the help commands
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_webshell_tool_recon.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

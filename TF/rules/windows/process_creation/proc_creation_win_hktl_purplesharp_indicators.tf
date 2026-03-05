@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_hktl_purples
   name                       = "proc_creation_win_hktl_purplesharp_indicators"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "HackTool - PurpleSharp Execution"
-  description                = "Detects the execution of the PurpleSharp adversary simulation tool Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_purplesharp_indicators.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_purplesharp_indicators.yml"
+  description                = <<DESC
+    Detects the execution of the PurpleSharp adversary simulation tool
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_purplesharp_indicators.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

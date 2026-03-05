@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_susp_lnk_exe
   name                       = "proc_creation_win_susp_lnk_exec_hidden_cmd"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious LNK Command-Line Padding with Whitespace Characters"
-  description                = "Detects exploitation of LNK file command-line length discrepancy, where attackers hide malicious commands beyond the 260-character UI limit while the actual command-line argument field supports 4096 characters using whitespace padding (e.g., 0x20, 0x09-0x0D). Adversaries insert non-printable whitespace characters (e.g., Line Feed \\x0A, Carriage Return \\x0D) to pad the visible section of the LNK file, pushing malicious commands past the UI-visible boundary. The hidden payload, executed at runtime but invisible in Windows Explorer properties, enables stealthy execution and evasion—commonly used for social engineering attacks. This rule flags suspicious use of such padding observed in real-world attacks. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_lnk_exec_hidden_cmd.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_lnk_exec_hidden_cmd.yml"
+  description                = <<DESC
+    Detects exploitation of LNK file command-line length discrepancy, where attackers hide malicious commands beyond the 260-character UI limit while the actual command-line argument field supports 4096 characters using whitespace padding (e.g., 0x20, 0x09-0x0D). Adversaries insert non-printable whitespace characters (e.g., Line Feed \x0A, Carriage Return \x0D) to pad the visible section of the LNK file, pushing malicious commands past the UI-visible boundary. The hidden payload, executed at runtime but invisible in Windows Explorer properties, enables stealthy execution and evasion—commonly used for social engineering attacks. This rule flags suspicious use of such padding observed in real-world attacks.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_lnk_exec_hidden_cmd.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

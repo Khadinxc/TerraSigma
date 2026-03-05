@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_macos_network_sn
   name                       = "proc_creation_macos_network_sniffing"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Network Sniffing - MacOs"
-  description                = "Detects the usage of tooling to sniff network traffic. An adversary may place a network interface into promiscuous mode to passively access data in transit over the network, or use span ports to capture a larger amount of data. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_network_sniffing.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_network_sniffing.yml"
+  description                = <<DESC
+    Detects the usage of tooling to sniff network traffic. An adversary may place a network interface into promiscuous mode to passively access data in transit over the network, or use span ports to capture a larger amount of data.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_network_sniffing.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Informational"
   query                      = <<QUERY
 DeviceProcessEvents

@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_nslookup_dom
   name                       = "proc_creation_win_nslookup_domain_discovery"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Network Reconnaissance Activity"
-  description                = "Detects a set of suspicious network related commands often used in recon stages Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_nslookup_domain_discovery.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_nslookup_domain_discovery.yml"
+  description                = <<DESC
+    Detects a set of suspicious network related commands often used in recon stages
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_nslookup_domain_discovery.yml
+
+    False Positives:
+    - False positives depend on scripts and administrative tools used in the monitored environment
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

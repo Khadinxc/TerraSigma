@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_powershell_d
   name                       = "proc_creation_win_powershell_download_iex"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PowerShell Download and Execution Cradles"
-  description                = "Detects PowerShell download and execution cradles. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_download_iex.yml - Some PowerShell installers were seen using similar combinations. Apply filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_download_iex.yml"
+  description                = <<DESC
+    Detects PowerShell download and execution cradles.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_download_iex.yml
+
+    False Positives:
+    - Some PowerShell installers were seen using similar combinations. Apply filters accordingly
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

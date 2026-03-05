@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_lnx_base64_execu
   name                       = "proc_creation_lnx_base64_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Linux Base64 Encoded Pipe to Shell"
-  description                = "Detects suspicious process command line that uses base64 encoded input for execution with a shell Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_base64_execution.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_base64_execution.yml"
+  description                = <<DESC
+    Detects suspicious process command line that uses base64 encoded input for execution with a shell
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_base64_execution.yml
+
+    False Positives:
+    - Legitimate administration activities
+  DESC
   severity                   = "Medium"
   query                      = <<QUERY
 DeviceProcessEvents

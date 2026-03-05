@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_pua_iox" {
   name                       = "proc_creation_win_pua_iox"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "PUA- IOX Tunneling Tool Execution"
-  description                = "Detects the use of IOX - a tool for port forwarding and intranet proxy purposes Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_iox.yml - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_iox.yml"
+  description                = <<DESC
+    Detects the use of IOX - a tool for port forwarding and intranet proxy purposes
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_iox.yml
+
+    False Positives:
+    - Legitimate use
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceProcessEvents

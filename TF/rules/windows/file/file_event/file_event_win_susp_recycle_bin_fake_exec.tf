@@ -2,7 +2,11 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_susp_recycle_bi
   name                       = "file_event_win_susp_recycle_bin_fake_exec"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious File Creation Activity From Fake Recycle.Bin Folder"
-  description                = "Detects file write event from/to a fake recycle bin folder that is often used as a staging directory for malware Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_recycle_bin_fake_exec.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_recycle_bin_fake_exec.yml"
+  description                = <<DESC
+    Detects file write event from/to a fake recycle bin folder that is often used as a staging directory for malware
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_recycle_bin_fake_exec.yml
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

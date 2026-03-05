@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "file_event_win_susp_double_ext
   name                       = "file_event_win_susp_double_extension"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "Suspicious Double Extension Files"
-  description                = "Detects dropped files with double extensions, which is often used by malware as a method to abuse the fact that Windows hide default extensions by default. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_double_extension.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_double_extension.yml"
+  description                = <<DESC
+    Detects dropped files with double extensions, which is often used by malware as a method to abuse the fact that Windows hide default extensions by default.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_double_extension.yml
+
+    False Positives:
+    - Unlikely
+  DESC
   severity                   = "High"
   query                      = <<QUERY
 DeviceFileEvents

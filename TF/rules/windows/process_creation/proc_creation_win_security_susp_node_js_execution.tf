@@ -2,7 +2,14 @@ resource "azurerm_sentinel_alert_rule_scheduled" "proc_creation_win_security_sus
   name                       = "proc_creation_win_security_susp_node_js_execution"
   log_analytics_workspace_id = var.workspace_id
   display_name               = "NodeJS Execution of JavaScript File"
-  description                = "Detects execution of JavaScript or JSC files using NodeJs binary node.exe, that could be potentially suspicious. Node.js is a popular open-source JavaScript runtime that runs code outside browsers and is widely used for both frontend and backend development. Adversaries have been observed abusing Node.js to disguise malware as legitimate processes, evade security defenses, and maintain persistence within target systems. Because Node.js is commonly used, this rule may generate false positives in some environments. However, if such activity is unusual in your environment, it is highly suspicious and warrants immediate investigation. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_security_susp_node_js_execution.yml - Legitimate use of node.exe to execute JavaScript or JSC files on your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_security_susp_node_js_execution.yml"
+  description                = <<DESC
+    Detects execution of JavaScript or JSC files using NodeJs binary node.exe, that could be potentially suspicious. Node.js is a popular open-source JavaScript runtime that runs code outside browsers and is widely used for both frontend and backend development. Adversaries have been observed abusing Node.js to disguise malware as legitimate processes, evade security defenses, and maintain persistence within target systems. Because Node.js is commonly used, this rule may generate false positives in some environments. However, if such activity is unusual in your environment, it is highly suspicious and warrants immediate investigation.
+
+    Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_security_susp_node_js_execution.yml
+
+    False Positives:
+    - Legitimate use of node.exe to execute JavaScript or JSC files on your environment
+  DESC
   severity                   = "Low"
   query                      = <<QUERY
 DeviceProcessEvents
