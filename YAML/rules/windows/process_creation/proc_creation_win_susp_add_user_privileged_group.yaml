@@ -1,6 +1,6 @@
 id: 460bf4a3-3870-56b1-88eb-a80c9c3d1ff4
 name: User Added To Highly Privileged Group
-description: 'Detects addition of users to highly privileged groups via "Net" or "Add-LocalGroupMember". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_add_user_privileged_group.yml - Administrative activity that must be investigated | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_add_user_privileged_group.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

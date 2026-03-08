@@ -1,6 +1,6 @@
 id: c12945ac-a3ab-5ca2-adc8-55f5097103b2
 name: Rundll32 Execution With Uncommon DLL Extension
-description: 'Detects the execution of rundll32 with a command line that doesn''t contain a common extension Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_uncommon_dll_extension.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_uncommon_dll_extension.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

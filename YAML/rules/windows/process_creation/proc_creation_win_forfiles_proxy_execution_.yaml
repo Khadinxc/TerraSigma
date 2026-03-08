@@ -1,6 +1,6 @@
 id: 1ce07922-da97-5fa5-9bf7-88412e166eea
 name: Forfiles Command Execution
-description: 'Detects the execution of "forfiles" with the "/c" flag. While this is an expected behavior of the tool, it can be abused in order to proxy execution through it with any binary. Can be used to bypass application whitelisting. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_forfiles_proxy_execution_.yml - Legitimate use via a batch script or by an administrator. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_forfiles_proxy_execution_.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

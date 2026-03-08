@@ -1,6 +1,6 @@
 id: 26292725-992d-5517-94f3-cc4e91ae1440
 name: UEFI Persistence Via Wpbbin - ProcessCreation
-description: 'Detects execution of the binary "wpbbin" which is used as part of the UEFI based persistence method described in the reference section Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wpbbin_potential_persistence.yml - Legitimate usage of the file by hardware manufacturer such as lenovo (Thanks @0gtweet for the tip) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wpbbin_potential_persistence.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 190a405d-d683-5e3d-8096-4ad6977fde73
 name: Linux Remote System Discovery
-description: 'Detects the enumeration of other remote systems. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_remote_system_discovery.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_remote_system_discovery.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

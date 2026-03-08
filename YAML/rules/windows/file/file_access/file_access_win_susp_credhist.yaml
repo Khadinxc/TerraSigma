@@ -1,6 +1,6 @@
 id: 8aa454c7-464b-5f0f-888b-47158b6f9fc4
 name: Access To Windows Credential History File By Uncommon Applications
-description: 'Detects file access requests to the Windows Credential History File by an uncommon application. This can be a sign of credential stealing. Example case would be usage of mimikatz "dpapi::credhist" function Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_susp_credhist.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_susp_credhist.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

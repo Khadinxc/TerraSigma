@@ -1,6 +1,6 @@
 id: def68080-c754-58fb-82df-bd007f80f8c5
 name: DotNET Assembly DLL Loaded Via Office Application
-description: 'Detects any assembly DLL being loaded by an Office Product Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_dotnet_assembly_dll_load.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_dotnet_assembly_dll_load.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

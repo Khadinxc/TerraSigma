@@ -1,6 +1,6 @@
 id: 27c8b726-c953-5568-bbfd-caa94e0fb09e
 name: New Process Created Via Wmic.EXE
-description: 'Detects new process creation using WMIC via the "process call create" flag Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_process_creation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_process_creation.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: d2019635-9f0c-5990-b69e-bfe895d52b75
 name: Use of VSIISExeLauncher.exe
-description: 'The "VSIISExeLauncher.exe" binary part of the Visual Studio/VS Code can be used to execute arbitrary binaries Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_vsiisexelauncher.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_vsiisexelauncher.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

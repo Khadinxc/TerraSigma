@@ -1,6 +1,6 @@
 id: 993b8086-8d34-5ef9-8c86-8164eaa0009b
 name: Suspicious Parent Double Extension File Execution
-description: 'Detect execution of suspicious double extension files in ParentCommandLine Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_double_extension_parent.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_double_extension_parent.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 0e34736a-dff7-5d54-a3fc-8ff8cd16e2dc
 name: Fsutil Drive Enumeration
-description: 'Attackers may leverage fsutil to enumerated connected drives. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_drive_enumeration.yml - Certain software or administrative tasks may trigger false positives. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_drive_enumeration.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

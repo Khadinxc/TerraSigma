@@ -1,6 +1,6 @@
 id: 4af1875c-23de-5cc0-9615-6fea37ef62b8
 name: Potential DLL Injection Via AccCheckConsole
-description: 'Detects the execution "AccCheckConsole" a command-line tool for verifying the accessibility implementation of an application''s UI. One of the tests that this checker can run are called "verification routine", which tests for things like Consistency, Navigation, etc. The tool allows a user to provide a DLL that can contain a custom "verification routine". An attacker can build such DLLs and pass it via the CLI, which would then be loaded in the context of the "AccCheckConsole" utility. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_acccheckconsole_execution.yml - Legitimate use of the UI Accessibility Checker | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_acccheckconsole_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

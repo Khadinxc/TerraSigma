@@ -1,6 +1,6 @@
 id: 35082d2f-1a74-540a-b065-6a8b5af6f05e
 name: Hiding User Account Via SpecialAccounts Registry Key - CommandLine
-description: 'Detects changes to the registry key "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\Userlist" where the value is set to "0" in order to hide user account from being listed on the logon screen. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_special_accounts_hide_user.yml - System administrator activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_special_accounts_hide_user.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

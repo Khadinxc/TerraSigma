@@ -1,6 +1,6 @@
 id: 12ba3022-c335-5b02-8f8d-f8cdf6be6865
 name: Certificate Exported Via Certutil.EXE
-description: 'Detects the execution of the certutil with the "exportPFX" flag which allows the utility to export certificates. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_export_pfx.yml - There legitimate reasons to export certificates. Investigate the activity to determine if it''s benign | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_export_pfx.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

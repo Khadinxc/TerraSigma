@@ -1,6 +1,6 @@
 id: 1620ca20-c490-547c-94af-b0ca6ac8a611
 name: TeamViewer Log File Deleted
-description: 'Detects the deletion of the TeamViewer log files which may indicate an attempt to destroy forensic evidence Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_teamviewer_logs.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_teamviewer_logs.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

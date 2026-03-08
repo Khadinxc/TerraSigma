@@ -1,6 +1,6 @@
 id: 4bb0457c-6c8f-5e6f-819c-55a09db8d86a
 name: Esentutl Volume Shadow Copy Service Keys
-description: 'Detects the volume shadow copy service initialization and processing via esentutl. Registry keys such as HKLM\\System\\CurrentControlSet\\Services\\VSS\\Diag\\VolSnap\\Volume are captured. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_esentutl_volume_shadow_copy_service_keys.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_esentutl_volume_shadow_copy_service_keys.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 7ea61212-bfb8-56c5-b122-09ae2422d644
 name: Tomcat WebServer Logs Deleted
-description: 'Detects the deletion of tomcat WebServer logs which may indicate an attempt to destroy forensic evidence Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_tomcat_logs.yml - During uninstallation of the tomcat server - During log rotation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_tomcat_logs.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

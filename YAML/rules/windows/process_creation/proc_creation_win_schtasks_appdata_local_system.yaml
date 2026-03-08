@@ -1,6 +1,6 @@
 id: f234a553-fb53-5a5f-9a54-16496129acf6
 name: Suspicious Schtasks Execution AppData Folder
-description: 'Detects the creation of a schtask that executes a file from C:\Users\<USER>\AppData\Local Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_appdata_local_system.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_appdata_local_system.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

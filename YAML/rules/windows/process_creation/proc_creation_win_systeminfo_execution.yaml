@@ -1,6 +1,6 @@
 id: 7bad70b2-786d-5cc1-bb51-1787bb1954e5
 name: Suspicious Execution of Systeminfo
-description: 'Detects usage of the "systeminfo" command to retrieve information Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_systeminfo_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_systeminfo_execution.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

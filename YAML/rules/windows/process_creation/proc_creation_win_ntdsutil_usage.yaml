@@ -1,6 +1,6 @@
 id: 89c06dd9-26a2-5027-994b-ecd518a0439f
 name: Invocation of Active Directory Diagnostic Tool (ntdsutil.exe)
-description: 'Detects execution of ntdsutil.exe, which can be used for various attacks against the NTDS database (NTDS.DIT) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ntdsutil_usage.yml - NTDS maintenance | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ntdsutil_usage.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

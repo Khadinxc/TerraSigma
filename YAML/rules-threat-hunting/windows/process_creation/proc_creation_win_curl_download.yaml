@@ -1,6 +1,6 @@
 id: 63db643e-b4d5-56ed-9a69-fb795a4cab0f
 name: File Download Via Curl.EXE
-description: 'Detects file download using curl.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_curl_download.yml - Scripts created by developers and admins - Administrative activity - The "\Git\usr\bin\sh.exe" process uses the "--output" flag to download a specific file in the temp directory with the pattern "gfw-httpget-xxxxxxxx.txt " | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_curl_download.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

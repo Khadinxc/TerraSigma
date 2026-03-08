@@ -1,6 +1,6 @@
 id: 98fe9856-0b3c-51d8-ab24-072aca8ca5a7
 name: Credentials from Password Stores - Keychain
-description: 'Detects passwords dumps from Keychain Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_creds_from_keychain.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_creds_from_keychain.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

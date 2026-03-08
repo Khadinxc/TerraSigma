@@ -1,6 +1,6 @@
 id: 5bda927d-878a-58fe-bcfa-82b5ee4d2598
 name: Suspicious History File Operations
-description: 'Detects commandline operations on shell history files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_histfile_operations.yml - Legitimate administrative activity - Legitimate software, cleaning hist file | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_histfile_operations.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

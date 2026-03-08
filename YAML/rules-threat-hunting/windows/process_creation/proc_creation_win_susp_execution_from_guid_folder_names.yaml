@@ -1,6 +1,6 @@
 id: 9abc6a5a-52b6-5996-9b72-28b3380032a8
 name: Potential Suspicious Execution From GUID Like Folder Names
-description: 'Detects potential suspicious execution of a GUID like folder name located in a suspicious location such as %TEMP% as seen being used in IcedID attacks. Use this rule to hunt for potentially suspicious activity stemming from uncommon folders. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_execution_from_guid_folder_names.yml - Installers are sometimes known for creating temporary folders with GUID like names. Add appropriate filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_execution_from_guid_folder_names.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

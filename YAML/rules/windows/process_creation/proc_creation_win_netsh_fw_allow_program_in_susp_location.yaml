@@ -1,6 +1,6 @@
 id: 780d6049-5970-5ff1-a9f1-34e402cb61ba
 name: Suspicious Program Location Whitelisted In Firewall Via Netsh.EXE
-description: 'Detects Netsh command execution that whitelists a program located in a suspicious location in the Windows Firewall Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_allow_program_in_susp_location.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_allow_program_in_susp_location.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

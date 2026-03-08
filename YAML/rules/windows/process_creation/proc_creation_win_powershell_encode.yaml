@@ -1,6 +1,6 @@
 id: 0a532b64-fdb0-52fe-a3ac-d84b5b818955
 name: Suspicious Execution of Powershell with Base64
-description: 'Commandline to launch powershell with a base64 payload Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_encode.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_encode.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

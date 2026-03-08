@@ -1,6 +1,6 @@
 id: b8f1d9ff-c7ed-5af1-a9da-0f4beb435ee0
 name: Uncommon Userinit Child Process
-description: 'Detects uncommon "userinit.exe" child processes, which could be a sign of uncommon shells or login scripts used for persistence. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_userinit_uncommon_child_processes.yml - Legitimate logon scripts or custom shells may trigger false positives. Apply additional filters accordingly. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_userinit_uncommon_child_processes.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 0358bc3f-94df-50e4-a5f0-01cfe0072194
 name: Tunneling Tool Execution
-description: 'Detects the execution of well known tools that can be abused for data exfiltration and tunneling. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_exfil_and_tunneling_tool_execution.yml - Legitimate administrators using one of these tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_exfil_and_tunneling_tool_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

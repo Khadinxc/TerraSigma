@@ -1,6 +1,6 @@
 id: f6d4e278-a0ce-5f7a-908d-56d504159ca4
 name: Remote Access Tool - ScreenConnect Potential Suspicious Remote Command Execution
-description: 'Detects potentially suspicious child processes launched via the ScreenConnect client service. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_screenconnect_remote_execution_susp.yml - If the script being executed make use of any of the utilities mentioned in the detection then they should filtered out or allowed. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_screenconnect_remote_execution_susp.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

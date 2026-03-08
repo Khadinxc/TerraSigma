@@ -1,6 +1,6 @@
 id: aa231232-fd54-537c-b16b-6e93a056e8b0
 name: Renamed Microsoft Teams Execution
-description: 'Detects the execution of a renamed Microsoft Teams binary. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_msteams.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_msteams.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

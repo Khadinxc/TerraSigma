@@ -1,6 +1,6 @@
 id: 63fb2fad-d322-55c8-8b0c-f15c7c0de070
 name: Cloudflared Tunnel Connections Cleanup
-description: 'Detects execution of the "cloudflared" tool with the tunnel "cleanup" flag in order to cleanup tunnel connections. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cloudflared_tunnel_cleanup.yml - Legitimate usage of Cloudflared. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cloudflared_tunnel_cleanup.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

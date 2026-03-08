@@ -1,6 +1,6 @@
 id: 33371d03-0419-5fa5-b149-2e8a9a23ce17
 name: Potential APT10 Cloud Hopper Activity
-description: 'Detects potential process and execution activity related to APT10 Cloud Hopper operation Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/APT10/proc_creation_win_apt_apt10_cloud_hopper.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/APT10/proc_creation_win_apt_apt10_cloud_hopper.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

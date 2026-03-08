@@ -1,6 +1,6 @@
 id: 97ea73e4-a6dd-550a-ac8a-e6917d2bf9de
 name: Suspicious Process Execution From Fake Recycle.Bin Folder
-description: 'Detects process execution from a fake recycle bin folder, often used to avoid security solution. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_recycle_bin_fake_execution.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_recycle_bin_fake_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

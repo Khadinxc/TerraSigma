@@ -1,6 +1,6 @@
 id: a1c66536-50b9-58a3-a000-03129a3ec00d
 name: Renamed AutoHotkey.EXE Execution
-description: 'Detects execution of a renamed autohotkey.exe binary based on PE metadata fields Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_autohotkey.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_autohotkey.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

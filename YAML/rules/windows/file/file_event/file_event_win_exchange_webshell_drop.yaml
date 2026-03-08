@@ -1,6 +1,6 @@
 id: bf4dcfed-4de0-5688-9cf7-173b444ee216
 name: Suspicious ASPX File Drop by Exchange
-description: 'Detects suspicious file type dropped by an Exchange component in IIS into a suspicious folder Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_exchange_webshell_drop.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_exchange_webshell_drop.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

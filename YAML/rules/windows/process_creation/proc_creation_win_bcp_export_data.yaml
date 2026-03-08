@@ -1,6 +1,6 @@
 id: ca2ab8fd-7e48-5b95-9ac6-d54042f52adf
 name: Data Export From MSSQL Table Via BCP.EXE
-description: 'Detects the execution of the BCP utility in order to export data from the database. Attackers were seen saving their malware to a database column or table and then later extracting it via "bcp.exe" into a file. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bcp_export_data.yml - Legitimate data export operations. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bcp_export_data.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

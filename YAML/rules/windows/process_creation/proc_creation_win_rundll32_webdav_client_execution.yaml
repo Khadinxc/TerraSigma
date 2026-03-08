@@ -1,6 +1,6 @@
 id: a01a039b-779f-5850-a767-232ae6affbe9
 name: WebDav Client Execution Via Rundll32.EXE
-description: 'Detects "svchost.exe" spawning "rundll32.exe" with command arguments like "C:\windows\system32\davclnt.dll,DavSetCookie". This could be an indicator of exfiltration or use of WebDav to launch code (hosted on a WebDav server). Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_webdav_client_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_webdav_client_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

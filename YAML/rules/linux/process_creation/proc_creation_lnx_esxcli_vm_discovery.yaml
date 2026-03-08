@@ -1,6 +1,6 @@
 id: 2cc2c4a5-3c6d-569d-a484-d22065d86453
 name: ESXi VM List Discovery Via ESXCLI
-description: 'Detects execution of the "esxcli" command with the "vm" flag in order to retrieve information about the installed VMs. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_vm_discovery.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_vm_discovery.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

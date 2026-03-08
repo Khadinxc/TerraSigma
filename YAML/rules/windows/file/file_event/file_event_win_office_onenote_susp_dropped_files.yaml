@@ -1,6 +1,6 @@
 id: 1a4c1375-818c-5d32-9ad1-0b54aaab02be
 name: Suspicious File Created Via OneNote Application
-description: 'Detects suspicious files created via the OneNote application. This could indicate a potential malicious ".one"/".onepkg" file was executed as seen being used in malware activity in the wild Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_onenote_susp_dropped_files.yml - Occasional FPs might occur if OneNote is used internally to share different embedded documents | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_onenote_susp_dropped_files.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

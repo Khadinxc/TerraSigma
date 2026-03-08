@@ -1,6 +1,6 @@
 id: 9c06157b-f3c6-52c6-b4b9-1bfc280decc5
 name: Suspicious RunAs-Like Flag Combination
-description: 'Detects suspicious command line flags that let the user set a target user and command as e.g. seen in PsExec-like tools Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_privilege_escalation_cli_patterns.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_privilege_escalation_cli_patterns.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

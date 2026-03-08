@@ -1,6 +1,6 @@
 id: a5898f5a-3ff3-5ad2-a52e-f6e0f90b43ac
 name: Local System Accounts Discovery - MacOs
-description: 'Detects enumeration of local systeam accounts on MacOS Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_local_account.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_local_account.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

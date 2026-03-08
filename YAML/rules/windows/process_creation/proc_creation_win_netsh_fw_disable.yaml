@@ -1,6 +1,6 @@
 id: 55d16d47-6200-5eb6-a0c2-15ed367cbf8d
 name: Firewall Disabled via Netsh.EXE
-description: 'Detects netsh commands that turns off the Windows firewall Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_disable.yml - Legitimate administration activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_disable.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

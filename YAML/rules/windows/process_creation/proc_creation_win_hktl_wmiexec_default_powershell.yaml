@@ -1,6 +1,6 @@
 id: 3ad2424b-3032-5b28-8376-9708a04a5907
 name: HackTool - Wmiexec Default Powershell Command
-description: 'Detects the execution of PowerShell with a specific flag sequence that is used by the Wmiexec script Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_wmiexec_default_powershell.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_wmiexec_default_powershell.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

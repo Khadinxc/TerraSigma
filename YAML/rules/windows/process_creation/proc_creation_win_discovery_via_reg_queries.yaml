@@ -1,6 +1,6 @@
 id: 091811f5-6826-5a2e-bfe5-8e6cbed69730
 name: System Information Discovery via Registry Queries
-description: 'Detects attempts to query system information directly from the Windows Registry. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_discovery_via_reg_queries.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_discovery_via_reg_queries.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

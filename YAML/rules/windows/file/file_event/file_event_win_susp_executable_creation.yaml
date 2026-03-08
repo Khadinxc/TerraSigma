@@ -1,6 +1,6 @@
 id: 79dee7ae-8e50-520e-be99-63bdaa1edbff
 name: Suspicious Executable File Creation
-description: 'Detect creation of suspicious executable file names. Some strings look for suspicious file extensions, others look for filenames that exploit unquoted service paths. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_executable_creation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_executable_creation.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

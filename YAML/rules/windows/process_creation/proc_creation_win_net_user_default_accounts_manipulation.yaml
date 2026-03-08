@@ -1,6 +1,6 @@
 id: b9982689-f8ff-568e-96a5-f2ae44df374e
 name: Suspicious Manipulation Of Default Accounts Via Net.EXE
-description: 'Detects suspicious manipulations of default accounts such as ''administrator'' and ''guest''. For example ''enable'' or ''disable'' accounts or change the password...etc Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_user_default_accounts_manipulation.yml - Some false positives could occur with the admin or guest account. It depends on the scripts being used by the admins in your env. If you experience a lot of FP you could reduce the level to medium | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_user_default_accounts_manipulation.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

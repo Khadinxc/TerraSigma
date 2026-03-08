@@ -1,6 +1,6 @@
 id: 9e2a2abb-4ad3-57b4-b957-37527b217478
 name: Pnscan Binary Data Transmission Activity
-description: 'Detects command line patterns associated with the use of Pnscan for sending and receiving binary data across the network. This behavior has been identified in a Linux malware campaign targeting Docker, Apache Hadoop, Redis, and Confluence and was previously used by the threat actor known as TeamTNT Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_pnscan_binary_cli_pattern.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_pnscan_binary_cli_pattern.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

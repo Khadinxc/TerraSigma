@@ -1,6 +1,6 @@
 id: 3edd92da-61cb-564a-90d3-3c7ed26b51a8
 name: Renamed Remote Utilities RAT (RURAT) Execution
-description: 'Detects execution of renamed Remote Utilities (RURAT) via Product PE header field Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_rurat.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_rurat.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

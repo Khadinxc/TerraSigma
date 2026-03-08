@@ -1,6 +1,6 @@
 id: 90fec841-79ae-57cb-b9e8-dc65b4b79a13
 name: Headless Process Launched Via Conhost.EXE
-description: 'Detects the launch of a child process via "conhost.exe" with the "--headless" flag. The "--headless" flag hides the windows from the user upon execution. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_conhost_headless_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_conhost_headless_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

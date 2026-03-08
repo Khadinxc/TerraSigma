@@ -1,6 +1,6 @@
 id: c53b01e9-cb2f-57c1-8770-c123b8781acf
 name: Potential Excel.EXE DCOM Lateral Movement Via ActivateMicrosoftApp
-description: 'Detects suspicious child processes of Excel which could be an indicator of lateral movement leveraging the "ActivateMicrosoftApp" Excel DCOM object. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_excel_dcom_lateral_movement.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_excel_dcom_lateral_movement.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

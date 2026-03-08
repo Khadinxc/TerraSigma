@@ -1,6 +1,6 @@
 id: abf0be33-7b27-51f0-9ab1-994109f65047
 name: Potential Recon Activity Using DriverQuery.EXE
-description: 'Detect usage of the "driverquery" utility to perform reconnaissance on installed drivers Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_driverquery_recon.yml - Legitimate usage by some scripts might trigger this as well | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_driverquery_recon.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

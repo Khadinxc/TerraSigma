@@ -1,6 +1,6 @@
 id: 66fe4438-84c8-5bf1-870d-f541e5823a40
 name: New Remote Desktop Connection Initiated Via Mstsc.EXE
-description: 'Detects the usage of "mstsc.exe" with the "/v" flag to initiate a connection to a remote server. Adversaries may use valid accounts to log into a computer using the Remote Desktop Protocol (RDP). The adversary may then perform actions as the logged-on user. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mstsc_remote_connection.yml - WSL (Windows Sub System For Linux) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mstsc_remote_connection.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

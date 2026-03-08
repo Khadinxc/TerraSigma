@@ -1,6 +1,6 @@
 id: c06528cd-140b-50ae-b7f1-bd2e359f9276
 name: UAC Bypass Using ChangePK and SLUI
-description: 'Detects an UAC bypass that uses changepk.exe and slui.exe (UACMe 61) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_changepk_slui.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_changepk_slui.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

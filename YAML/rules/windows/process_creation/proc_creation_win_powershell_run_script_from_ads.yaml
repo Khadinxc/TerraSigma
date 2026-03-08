@@ -1,6 +1,6 @@
 id: 18852629-acbc-524f-acc8-47fc33adf57a
 name: Run PowerShell Script from ADS
-description: 'Detects PowerShell script execution from Alternate Data Stream (ADS) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_run_script_from_ads.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_run_script_from_ads.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 5769b4ec-2ce1-5b32-b9f0-54bd7f011a3b
 name: UEFI Persistence Via Wpbbin - FileCreation
-description: 'Detects creation of a file named "wpbbin" in the "%systemroot%\system32\" directory. Which could be indicative of UEFI based persistence method Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_wpbbin_persistence.yml - Legitimate usage of the file by hardware manufacturer such as lenovo (Thanks @0gtweet for the tip) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_wpbbin_persistence.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

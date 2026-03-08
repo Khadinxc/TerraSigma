@@ -1,6 +1,6 @@
 id: 41783de4-5ff6-5bf3-a8e1-a561743a058a
 name: Suspicious Outlook Child Process
-description: 'Detects a suspicious process spawning from an Outlook process. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_outlook_susp_child_processes.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_outlook_susp_child_processes.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

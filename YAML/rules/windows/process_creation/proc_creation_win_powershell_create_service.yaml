@@ -1,6 +1,6 @@
 id: 7af94766-4b86-57b9-8367-b29c44e8adf9
 name: New Service Creation Using PowerShell
-description: 'Detects the creation of a new service using powershell. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_create_service.yml - Legitimate administrator or user creates a service for legitimate reasons. - Software installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_create_service.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

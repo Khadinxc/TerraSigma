@@ -1,6 +1,6 @@
 id: 8b14127c-0676-5121-bd36-aacfc1debd0b
 name: Curl Download And Execute Combination
-description: 'Adversaries can use curl to download payloads remotely and execute them. Curl is included by default in Windows 10 build 17063 and later. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_curl_download_exec_combo.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_curl_download_exec_combo.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

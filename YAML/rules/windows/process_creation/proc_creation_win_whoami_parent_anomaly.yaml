@@ -1,6 +1,6 @@
 id: 51e8c9bf-be48-5350-ab84-8b1ed1507c56
 name: Whoami.EXE Execution Anomaly
-description: 'Detects the execution of whoami.exe with suspicious parent processes. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_whoami_parent_anomaly.yml - Admin activity - Scripts and administrative tools used in the monitored environment - Monitoring activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_whoami_parent_anomaly.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

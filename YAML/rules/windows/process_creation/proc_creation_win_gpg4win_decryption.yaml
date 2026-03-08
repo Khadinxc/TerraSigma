@@ -1,6 +1,6 @@
 id: 3fe569ad-f5ff-5481-872c-0e252f1b9f74
 name: File Decryption Using Gpg4win
-description: 'Detects usage of Gpg4win to decrypt files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gpg4win_decryption.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gpg4win_decryption.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

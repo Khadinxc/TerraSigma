@@ -1,6 +1,6 @@
 id: bb5ac7cc-3036-5187-a145-08f555741be3
 name: Suspicious PowerShell In Registry Run Keys
-description: 'Detects potential PowerShell commands or code within registry run keys Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_powershell_in_run_keys.yml - Legitimate admin or third party scripts. Baseline according to your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_powershell_in_run_keys.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

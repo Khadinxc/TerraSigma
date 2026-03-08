@@ -1,6 +1,6 @@
 id: a4ef17a9-2d4c-5a8b-a668-f499b34fad57
 name: Scheduled Task Executing Encoded Payload from Registry
-description: 'Detects the creation of a schtask that potentially executes a base64 encoded payload stored in the Windows Registry using PowerShell. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_reg_loader_encoded.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_reg_loader_encoded.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

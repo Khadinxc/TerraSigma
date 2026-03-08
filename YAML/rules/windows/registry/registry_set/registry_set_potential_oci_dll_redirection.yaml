@@ -1,6 +1,6 @@
 id: 2c32c82c-dfbc-5287-b087-2daf29ef954d
 name: Registry Modification for OCI DLL Redirection
-description: 'Detects registry modifications related to ''OracleOciLib'' and ''OracleOciLibPath'' under ''MSDTC'' settings. Threat actors may modify these registry keys to redirect the loading of ''oci.dll'' to a malicious DLL, facilitating phantom DLL hijacking via the MSDTC service. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_potential_oci_dll_redirection.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_potential_oci_dll_redirection.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

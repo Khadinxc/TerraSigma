@@ -1,6 +1,6 @@
 id: 235d8819-1b23-50a4-8681-ae5f518b3f5f
 name: Indirect Command Execution From Script File Via Bash.EXE
-description: 'Detects execution of Microsoft bash launcher without any flags to execute the content of a bash script directly. This can be used to potentially bypass defenses and execute Linux or Windows-based binaries directly via bash. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bash_file_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bash_file_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

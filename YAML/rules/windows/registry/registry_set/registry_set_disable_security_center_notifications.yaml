@@ -1,6 +1,6 @@
 id: 9966cabc-aabe-52e2-a507-de716644784b
 name: Disable Windows Security Center Notifications
-description: 'Detect set UseActionCenterExperience to 0 to disable the Windows security center notification Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_security_center_notifications.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_security_center_notifications.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

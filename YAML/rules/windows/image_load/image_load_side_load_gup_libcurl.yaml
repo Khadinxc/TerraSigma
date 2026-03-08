@@ -1,6 +1,6 @@
 id: 207d3262-55b8-5489-b6ae-8242de506cee
 name: Potential DLL Sideloading Of Libcurl.DLL Via GUP.EXE
-description: 'Detects potential DLL sideloading of "libcurl.dll" by the "gup.exe" process from an uncommon location Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_gup_libcurl.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_gup_libcurl.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

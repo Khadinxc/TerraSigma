@@ -1,6 +1,6 @@
 id: 6a467289-c927-5361-bf96-a011db5fa737
 name: Permission Misconfiguration Reconnaissance Via Findstr.EXE
-description: 'Detects usage of findstr with the "EVERYONE" or "BUILTIN" keywords. This was seen being used in combination with "icacls" and other utilities to spot misconfigured files or folders permissions. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_recon_everyone.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_recon_everyone.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

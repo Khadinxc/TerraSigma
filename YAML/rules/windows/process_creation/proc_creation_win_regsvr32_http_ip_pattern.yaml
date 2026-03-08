@@ -1,6 +1,6 @@
 id: 4e484ecb-e90f-57ea-b613-b2fbc23d173e
 name: Potentially Suspicious Regsvr32 HTTP IP Pattern
-description: 'Detects regsvr32 execution to download and install DLLs located remotely where the address is an IP address. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_http_ip_pattern.yml - FQDNs that start with a number such as "7-Zip" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_http_ip_pattern.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

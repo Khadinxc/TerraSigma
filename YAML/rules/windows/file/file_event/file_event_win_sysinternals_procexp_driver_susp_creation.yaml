@@ -1,6 +1,6 @@
 id: b03585b9-e005-5a53-8fb1-57670834433c
 name: Process Explorer Driver Creation By Non-Sysinternals Binary
-description: 'Detects creation of the Process Explorer drivers by processes other than Process Explorer (procexp) itself. Hack tools or malware may use the Process Explorer driver to elevate privileges, drops it to disk for a few moments, runs a service using that driver and removes it afterwards. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sysinternals_procexp_driver_susp_creation.yml - Some false positives may occur with legitimate renamed process explorer binaries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_sysinternals_procexp_driver_susp_creation.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

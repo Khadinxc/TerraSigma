@@ -1,6 +1,6 @@
 id: b1e3d64e-7d3c-519e-95e8-bfc6500d925d
 name: UAC Bypass Using .NET Code Profiler on MMC
-description: 'Detects the pattern of UAC Bypass using .NET Code Profiler and mmc.exe DLL hijacking (UACMe 39) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_dotnet_profiler.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_dotnet_profiler.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

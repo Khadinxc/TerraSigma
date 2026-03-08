@@ -1,6 +1,6 @@
 id: b9c95c66-4a86-5776-b48f-3df137808f3f
 name: Windows Internet Hosted WebDav Share Mount Via Net.EXE
-description: 'Detects when an internet hosted webdav share is mounted using the "net.exe" utility Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_use_mount_internet_share.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_use_mount_internet_share.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

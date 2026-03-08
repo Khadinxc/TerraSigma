@@ -1,6 +1,6 @@
 id: c8389c1a-6de3-54bf-833d-f4904c0c6ed0
 name: Suspicious Reconnaissance Activity Via GatherNetworkInfo.VBS
-description: 'Detects execution of the built-in script located in "C:\Windows\System32\gatherNetworkInfo.vbs". Which can be used to gather information about the target machine Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_gather_network_info_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_gather_network_info_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

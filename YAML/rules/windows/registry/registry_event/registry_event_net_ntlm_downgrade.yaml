@@ -1,6 +1,6 @@
 id: 363d7028-0a03-5b40-b351-6e5cb487993a
 name: NetNTLM Downgrade Attack - Registry
-description: 'Detects NetNTLM downgrade attack Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_net_ntlm_downgrade.yml - Services or tools that set the values to more restrictive values | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_net_ntlm_downgrade.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

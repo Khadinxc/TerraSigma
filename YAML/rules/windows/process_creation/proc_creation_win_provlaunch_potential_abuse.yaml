@@ -1,6 +1,6 @@
 id: 03279882-8842-5e5b-bf7f-dbe722a92b27
 name: Potential Provlaunch.EXE Binary Proxy Execution Abuse
-description: 'Detects child processes of "provlaunch.exe" which might indicate potential abuse to proxy execution. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_provlaunch_potential_abuse.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_provlaunch_potential_abuse.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

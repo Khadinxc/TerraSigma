@@ -1,6 +1,6 @@
 id: a5f0f5c5-bfff-50c5-9ce0-bffee64092c9
 name: Triple Cross eBPF Rootkit Execve Hijack
-description: 'Detects execution of a the file "execve_hijack" which is used by the Triple Cross rootkit as a way to elevate privileges Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_triple_cross_rootkit_execve_hijack.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_triple_cross_rootkit_execve_hijack.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

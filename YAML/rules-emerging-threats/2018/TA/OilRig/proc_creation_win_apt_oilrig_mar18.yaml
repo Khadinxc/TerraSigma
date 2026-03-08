@@ -1,6 +1,6 @@
 id: fbd46ef7-3422-51c4-ae63-9251b489a5c3
 name: OilRig APT Activity
-description: 'Detects OilRig activity as reported by Nyotron in their March 2018 report Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/OilRig/proc_creation_win_apt_oilrig_mar18.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/OilRig/proc_creation_win_apt_oilrig_mar18.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: e68d0be4-7252-5c39-9f81-d53151196383
 name: Stop Windows Service Via Sc.EXE
-description: 'Detects the stopping of a Windows service via the "sc.exe" utility Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_stop_service.yml - There are many legitimate reasons to stop a service. This rule isn''t looking for any suspicious behavior in particular. Filter legitimate activity accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_stop_service.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

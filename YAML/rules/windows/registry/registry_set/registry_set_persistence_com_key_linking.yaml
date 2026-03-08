@@ -1,6 +1,6 @@
 id: c34170ce-85df-5e11-b6b2-8c3a54c09fc0
 name: Potential COM Object Hijacking Via TreatAs Subkey - Registry
-description: 'Detects COM object hijacking via TreatAs subkey Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_com_key_linking.yml - Maybe some system utilities in rare cases use linking keys for backward compatibility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_com_key_linking.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

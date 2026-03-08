@@ -1,6 +1,6 @@
 id: 92df5ad4-59ab-5e3e-9add-dcbe87353f47
 name: Suspicious Rundll32 Activity Invoking Sys File
-description: 'Detects suspicious process related to rundll32 based on command line that includes a *.sys file as seen being used by UNC2452 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_sys.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_sys.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

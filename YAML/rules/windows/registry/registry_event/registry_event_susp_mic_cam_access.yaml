@@ -1,6 +1,6 @@
 id: aacce8f3-5c97-53cb-ad06-9629e4919ccf
 name: Suspicious Camera and Microphone Access
-description: 'Detects Processes accessing the camera and microphone from suspicious folder Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_mic_cam_access.yml - Unlikely, there could be conferencing software running from a Temp folder accessing the devices | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_mic_cam_access.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

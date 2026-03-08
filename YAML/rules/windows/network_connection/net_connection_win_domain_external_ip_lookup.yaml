@@ -1,6 +1,6 @@
 id: 9256365e-560d-5ac0-8423-07bb022926e1
 name: Suspicious Network Connection to IP Lookup Service APIs
-description: 'Detects external IP address lookups by non-browser processes via services such as "api.ipify.org". This could be indicative of potential post compromise internet test activity. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_external_ip_lookup.yml - Legitimate use of the external websites for troubleshooting or network monitoring | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_external_ip_lookup.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

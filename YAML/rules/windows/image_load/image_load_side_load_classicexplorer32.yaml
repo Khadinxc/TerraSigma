@@ -1,6 +1,6 @@
 id: e33fb90a-357c-5519-ab90-d20c06f299cb
 name: Potential DLL Sideloading Via ClassicExplorer32.dll
-description: 'Detects potential DLL sideloading using ClassicExplorer32.dll from the Classic Shell software Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_classicexplorer32.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_classicexplorer32.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

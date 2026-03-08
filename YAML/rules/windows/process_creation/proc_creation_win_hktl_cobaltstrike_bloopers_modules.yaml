@@ -1,6 +1,6 @@
 id: f7c98521-7dd2-54ab-863c-a35d3cf3bfc1
 name: Operator Bloopers Cobalt Strike Modules
-description: 'Detects Cobalt Strike module/commands accidentally entered in CMD shell Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_cobaltstrike_bloopers_modules.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_cobaltstrike_bloopers_modules.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

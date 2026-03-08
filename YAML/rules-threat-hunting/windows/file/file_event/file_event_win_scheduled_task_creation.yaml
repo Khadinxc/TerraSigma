@@ -1,6 +1,6 @@
 id: ea1ca972-14ed-5b82-bd18-2ba4590c233f
 name: Scheduled Task Created - FileCreation
-description: 'Detects the creation of a scheduled task via file creation. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/file_event_win_scheduled_task_creation.yml - Normal behaviour on Windows | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/file_event_win_scheduled_task_creation.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

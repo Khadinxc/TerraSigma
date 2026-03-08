@@ -1,6 +1,6 @@
 id: dffd9522-ca0b-5e87-ab7f-bbf77a1fcf53
 name: Suspicious Desktopimgdownldr Command
-description: 'Detects a suspicious Microsoft desktopimgdownldr execution with parameters used to download files from the Internet Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_desktopimgdownldr_susp_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_desktopimgdownldr_susp_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

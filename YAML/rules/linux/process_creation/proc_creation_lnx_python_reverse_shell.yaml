@@ -1,6 +1,6 @@
 id: 9c54da7b-4ab9-5bb2-a680-32b0ceaf7797
 name: Python Reverse Shell Execution Via PTY And Socket Modules
-description: 'Detects the execution of python with calls to the socket and pty module in order to connect and spawn a potential reverse shell. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_python_reverse_shell.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_python_reverse_shell.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 79cb36a1-bc72-5fd2-be54-a2ef8503b593
 name: Suspicious File Created by ArcSOC.exe
-description: 'Detects instances where the ArcGIS Server process ArcSOC.exe, which hosts REST services running on an ArcGIS server, creates a file with suspicious file type, indicating that it may be an executable, script file, or otherwise unusual. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_arcsoc_susp_file_created.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_arcsoc_susp_file_created.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

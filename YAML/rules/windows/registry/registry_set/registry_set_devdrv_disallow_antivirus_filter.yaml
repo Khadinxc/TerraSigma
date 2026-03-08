@@ -1,6 +1,6 @@
 id: c671d633-7395-5956-97d0-cfbd7dfdafa5
 name: Antivirus Filter Driver Disallowed On Dev Drive - Registry
-description: 'Detects activity that indicates a user disabling the ability for Antivirus mini filter to inspect a "Dev Drive". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_devdrv_disallow_antivirus_filter.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_devdrv_disallow_antivirus_filter.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 6a41375d-0e8f-51b4-8678-a00706ff0bbf
 name: History File Deletion
-description: 'Detects events in which a history file gets deleted, e.g. the ~/bash_history to remove traces of malicious activity Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_history_delete.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_history_delete.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

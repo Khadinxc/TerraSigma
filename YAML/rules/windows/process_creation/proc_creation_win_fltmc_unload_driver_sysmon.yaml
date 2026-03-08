@@ -1,6 +1,6 @@
 id: 373cd0fe-ff9b-593f-8cc8-7ad12e52f987
 name: Sysmon Driver Unloaded Via Fltmc.EXE
-description: 'Detects possible Sysmon filter driver unloaded via fltmc.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fltmc_unload_driver_sysmon.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fltmc_unload_driver_sysmon.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

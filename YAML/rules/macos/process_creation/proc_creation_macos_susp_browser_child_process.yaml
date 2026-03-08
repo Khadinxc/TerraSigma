@@ -1,6 +1,6 @@
 id: 6f685d5e-9226-5811-9953-411880fe697e
 name: Suspicious Browser Child Process - MacOS
-description: 'Detects suspicious child processes spawned from browsers. This could be a result of a potential web browser exploitation. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_browser_child_process.yml - Legitimate browser install, update and recovery scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_browser_child_process.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

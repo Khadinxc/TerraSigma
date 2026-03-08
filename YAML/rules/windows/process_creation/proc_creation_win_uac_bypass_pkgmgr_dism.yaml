@@ -1,6 +1,6 @@
 id: f43aa7f8-7bc4-52b4-8293-3bf97346053c
 name: UAC Bypass Using PkgMgr and DISM
-description: 'Detects the pattern of UAC Bypass using pkgmgr.exe and dism.exe (UACMe 23) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_pkgmgr_dism.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_pkgmgr_dism.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

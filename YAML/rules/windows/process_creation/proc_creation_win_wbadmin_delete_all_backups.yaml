@@ -1,6 +1,6 @@
 id: 99109a81-86a4-56a7-bddb-3b2e1576da72
 name: All Backups Deleted Via Wbadmin.EXE
-description: 'Detects the deletion of all backups or system state backups via "wbadmin.exe". This technique is used by numerous ransomware families and actors. This may only be successful on server platforms that have Windows Backup enabled. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wbadmin_delete_all_backups.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wbadmin_delete_all_backups.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

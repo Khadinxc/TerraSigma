@@ -1,6 +1,6 @@
 id: 62cebca9-ae38-520e-b06b-127d64893886
 name: Potential Discovery Activity Using Find - MacOS
-description: 'Detects usage of "find" binary in a suspicious manner to perform discovery Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_find_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_find_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

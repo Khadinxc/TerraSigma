@@ -1,6 +1,6 @@
 id: f9165e12-d267-5bd6-b48e-6f5cb2bae875
 name: Uncommon Svchost Parent Process
-description: 'Detects an uncommon svchost parent process Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_svchost_uncommon_parent_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_svchost_uncommon_parent_process.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

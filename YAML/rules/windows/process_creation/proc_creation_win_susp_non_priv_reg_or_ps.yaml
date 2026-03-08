@@ -1,6 +1,6 @@
 id: afae84ef-411c-5873-bb67-9cbdc48c3752
 name: Non-privileged Usage of Reg or Powershell
-description: 'Search for usage of reg or Powershell by non-privileged users to modify service configuration in registry Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_non_priv_reg_or_ps.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_non_priv_reg_or_ps.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

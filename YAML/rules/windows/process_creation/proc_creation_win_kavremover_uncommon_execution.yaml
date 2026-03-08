@@ -1,6 +1,6 @@
 id: 7d664d6c-1b7c-5774-a98e-4b226bd0d2bb
 name: Kavremover Dropped Binary LOLBIN Usage
-description: 'Detects the execution of a signed binary dropped by Kaspersky Lab Products Remover (kavremover) which can be abused as a LOLBIN to execute arbitrary commands and binaries. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_kavremover_uncommon_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_kavremover_uncommon_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

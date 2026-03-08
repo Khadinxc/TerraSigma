@@ -1,6 +1,6 @@
 id: 9dd65f2c-4875-53b7-88e0-ff78a0d3bc7f
 name: OceanLotus Registry Activity
-description: 'Detects registry keys created in OceanLotus (also known as APT32) attacks Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT32-Oceanlotus/registry_event_apt_oceanlotus_registry.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT32-Oceanlotus/registry_event_apt_oceanlotus_registry.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

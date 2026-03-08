@@ -1,6 +1,6 @@
 id: 173e2a24-e8ec-55ec-a521-7fe2a7be2a7c
 name: Creation Of A Local User Account
-description: 'Detects the creation of a new user account. Such accounts may be used for persistence that do not require persistent remote access tools to be deployed on the system. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_create_account.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_create_account.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

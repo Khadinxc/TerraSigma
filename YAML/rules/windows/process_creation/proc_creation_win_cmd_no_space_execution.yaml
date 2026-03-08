@@ -1,6 +1,6 @@
 id: b5e88c84-6d80-5ba1-ac8f-0e35dc1d775b
 name: Cmd.EXE Missing Space Characters Execution Anomaly
-description: 'Detects Windows command lines that miss a space before or after the /c flag when running a command using the cmd.exe. This could be a sign of obfuscation of a fat finger problem (typo by the developer). Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_no_space_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_no_space_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

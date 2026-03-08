@@ -1,6 +1,6 @@
 id: 92e20229-8548-575d-83cd-a515b0908f72
 name: Enable Remote Connection Between Anonymous Computer - AllowAnonymousCallback
-description: 'Detects enabling of the "AllowAnonymousCallback" registry value, which allows a remote connection between computers that do not have a trust relationship. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_set_enable_anonymous_connection.yml - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_set_enable_anonymous_connection.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

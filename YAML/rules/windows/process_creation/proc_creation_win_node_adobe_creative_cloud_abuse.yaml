@@ -1,6 +1,6 @@
 id: 9bf51f84-99b0-5368-ab49-77b8d6aef748
 name: Node Process Executions
-description: 'Detects the execution of other scripts using the Node executable packaged with Adobe Creative Cloud Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_node_adobe_creative_cloud_abuse.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_node_adobe_creative_cloud_abuse.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

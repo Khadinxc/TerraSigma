@@ -1,6 +1,6 @@
 id: 10a3cf39-1d5b-5b66-b5fa-8d290cc3d7e1
 name: Interactive Bash Suspicious Children
-description: 'Detects suspicious interactive bash as a parent to rather uncommon child processes Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_interactive_bash.yml - Legitimate software that uses these patterns | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_interactive_bash.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

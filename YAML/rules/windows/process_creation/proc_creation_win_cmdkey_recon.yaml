@@ -1,6 +1,6 @@
 id: 9bf47027-e872-5106-957e-caf6ecc1a416
 name: Potential Reconnaissance For Cached Credentials Via Cmdkey.EXE
-description: 'Detects usage of cmdkey to look for cached credentials on the system Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmdkey_recon.yml - Legitimate administrative tasks | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmdkey_recon.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

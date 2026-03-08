@@ -1,6 +1,6 @@
 id: 37a90970-8c2a-5770-a381-8aab6ed991c8
 name: Veeam Backup Database Suspicious Query
-description: 'Detects potentially suspicious SQL queries using SQLCmd targeting the Veeam backup databases in order to steal information. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sqlcmd_veeam_db_recon.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sqlcmd_veeam_db_recon.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 1d398c95-487b-5f06-bc9e-928bcafc05b9
 name: Potential PowerShell Execution Policy Tampering - ProcCreation
-description: 'Detects changes to the PowerShell execution policy registry key in order to bypass signing requirements for script execution from the CommandLine Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_set_unsecure_powershell_policy.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_set_unsecure_powershell_policy.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: a3bc089c-f3fc-5cc3-b493-58ff57dd8686
 name: Potential ReflectDebugger Content Execution Via WerFault.EXE
-description: 'Detects execution of "WerFault.exe" with the "-pr" commandline flag that is used to run files stored in the ReflectDebugger key which could be used to store the path to the malware in order to masquerade the execution flow Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_werfault_reflect_debugger_exec.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_werfault_reflect_debugger_exec.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

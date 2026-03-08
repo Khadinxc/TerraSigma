@@ -1,6 +1,6 @@
 id: 01714a39-244b-5019-9fe0-7bc23b77c3da
 name: PUA - System Informer Execution
-description: 'Detects the execution of System Informer, a task manager tool to view and manipulate processes, kernel options and other low level operations Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_system_informer.yml - System Informer is regularly used legitimately by system administrators or developers. Apply additional filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_system_informer.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

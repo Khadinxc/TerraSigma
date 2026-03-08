@@ -1,6 +1,6 @@
 id: 94a70e7b-35c5-55ba-8570-db631fd870fb
 name: Base64 MZ Header In CommandLine
-description: 'Detects encoded base64 MZ header in the commandline Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_inline_base64_mz_header.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_inline_base64_mz_header.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

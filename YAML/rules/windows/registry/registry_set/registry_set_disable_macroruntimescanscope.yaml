@@ -1,6 +1,6 @@
 id: 2ec8916c-892e-5c77-b62a-0d84a2a4d1b3
 name: Disable Macro Runtime Scan Scope
-description: 'Detects tampering with the MacroRuntimeScanScope registry key to disable runtime scanning of enabled macros Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_macroruntimescanscope.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_macroruntimescanscope.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

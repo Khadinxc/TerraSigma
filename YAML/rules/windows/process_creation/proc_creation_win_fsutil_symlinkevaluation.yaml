@@ -1,6 +1,6 @@
 id: 465faadd-d45f-5b6a-8eb6-f2dc1dc7f0f1
 name: Potentially Suspicious NTFS Symlink Behavior Modification
-description: 'Detects the modification of NTFS symbolic link behavior using fsutil, which could be used to enable remote to local or remote to remote symlinks for potential attacks. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_symlinkevaluation.yml - Legitimate usage, investigate the parent process and context to determine if benign. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_symlinkevaluation.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

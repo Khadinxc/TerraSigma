@@ -1,6 +1,6 @@
 id: eb8b9850-1afc-5d60-a1ab-5bd1b6f4d532
 name: Security Service Disabled Via Reg.EXE
-description: 'Detects execution of "reg.exe" to disable security services such as Windows Defender. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_disable_sec_services.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_disable_sec_services.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 0896a0db-bdf4-5118-8236-e7f4a317c1d8
 name: New ActiveScriptEventConsumer Created Via Wmic.EXE
-description: 'Detects WMIC executions in which an event consumer gets created. This could be used to establish persistence Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_eventconsumer_creation.yml - Legitimate software creating script event consumers | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_eventconsumer_creation.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

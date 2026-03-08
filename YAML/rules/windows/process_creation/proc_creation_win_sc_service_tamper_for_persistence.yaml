@@ -1,6 +1,6 @@
 id: 6ff1ce26-a214-58d0-bcc8-8fcb28c60265
 name: Potential Persistence Attempt Via Existing Service Tampering
-description: 'Detects the modification of an existing service in order to execute an arbitrary payload when the service is started or killed as a potential method for persistence. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_service_tamper_for_persistence.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_service_tamper_for_persistence.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

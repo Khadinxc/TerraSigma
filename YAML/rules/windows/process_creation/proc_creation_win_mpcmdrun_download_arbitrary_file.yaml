@@ -1,6 +1,6 @@
 id: c51ba886-47c8-51b8-883d-28cda4898c96
 name: File Download Via Windows Defender MpCmpRun.EXE
-description: 'Detects the use of Windows Defender MpCmdRun.EXE to download files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mpcmdrun_download_arbitrary_file.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mpcmdrun_download_arbitrary_file.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

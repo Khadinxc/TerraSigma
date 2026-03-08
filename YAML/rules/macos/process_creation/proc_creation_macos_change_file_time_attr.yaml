@@ -1,6 +1,6 @@
 id: 83555145-414c-5ebc-aa28-e28899d57a9f
 name: File Time Attribute Change
-description: 'Detect file time attribute change to hide new or changes to existing files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_change_file_time_attr.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_change_file_time_attr.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

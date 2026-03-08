@@ -1,6 +1,6 @@
 id: 2d0b5603-c7bc-5488-9fb4-09225c958623
 name: WSF/JSE/JS/VBA/VBE File Execution Via Cscript/Wscript
-description: 'Detects script file execution (.js, .jse, .vba, .vbe, .vbs, .wsf) by Wscript/Cscript Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_wscript_cscript_script_exec.yml - Some additional tuning is required. It is recommended to add the user profile path in CommandLine if it is getting too noisy. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_wscript_cscript_script_exec.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: c5425026-b3f5-5c6b-8013-8a469fbd59cc
 name: ESXi Admin Permission Assigned To Account Via ESXCLI
-description: 'Detects execution of the "esxcli" command with the "system" and "permission" flags in order to assign admin permissions to an account. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_permission_change_admin.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_permission_change_admin.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

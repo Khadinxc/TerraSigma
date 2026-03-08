@@ -1,6 +1,6 @@
 id: 9fde4e78-332a-581e-ab7c-2d6fba1eb5f4
 name: Cscript/Wscript Uncommon Script Extension Execution
-description: 'Detects Wscript/Cscript executing a file with an uncommon (i.e. non-script) extension Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wscript_cscript_uncommon_extension_exec.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wscript_cscript_uncommon_extension_exec.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

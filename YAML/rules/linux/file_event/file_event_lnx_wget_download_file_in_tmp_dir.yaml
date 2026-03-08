@@ -1,6 +1,6 @@
 id: 147b0de3-03e0-5698-b668-51b0cbc25a1e
 name: Wget Creating Files in Tmp Directory
-description: 'Detects the use of wget to download content in a temporary directory such as "/tmp" or "/var/tmp" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_wget_download_file_in_tmp_dir.yml - Legitimate downloads of files in the tmp folder. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_wget_download_file_in_tmp_dir.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 7caefd7c-7739-596c-b635-81ad95d7b0d6
 name: Potential Edputil.DLL Sideloading
-description: 'Detects potential DLL sideloading of "edputil.dll" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_edputil.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_edputil.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

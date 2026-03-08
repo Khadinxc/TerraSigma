@@ -1,6 +1,6 @@
 id: ac8b8aed-cf39-53ec-8527-4063492ed37d
 name: Potential Defense Evasion Activity Via Emoji Usage In CommandLine - 3
-description: 'Detects the usage of emojis in the command line, this could be a sign of potential defense evasion activity. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_emoji_usage_in_cli_3.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_emoji_usage_in_cli_3.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: ab01f445-47eb-50a7-918e-f47c77ed806a
 name: OpenEDR Spawning Command Shell
-description: 'Detects the OpenEDR ssh-shellhost.exe spawning a command shell (cmd.exe) or PowerShell with PTY (pseudo-terminal) capabilities. This may indicate remote command execution through OpenEDR''s remote management features, which could be legitimate administrative activity or potential abuse of the remote access tool. Threat actors may leverage OpenEDR''s remote shell capabilities to execute commands on compromised systems, facilitating lateral movement or other command-and-control operations. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_comodo_ssh_shellhost_cmd_spawn.yml - Legitimate use of OpenEDR for remote command execution | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_comodo_ssh_shellhost_cmd_spawn.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

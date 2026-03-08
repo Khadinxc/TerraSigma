@@ -1,6 +1,6 @@
 id: 844c4e44-71a4-5383-99eb-af31c524611d
 name: User Added to Local Administrators Group
-description: 'Detects addition of users to the local administrator group via "Net" or "Add-LocalGroupMember". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_add_user_local_admin_group.yml - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_add_user_local_admin_group.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

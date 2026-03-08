@@ -1,6 +1,6 @@
 id: 21882995-202a-55f8-93d9-5fc541ae0094
 name: Potential Persistence Via Visual Studio Tools for Office
-description: 'Detects persistence via Visual Studio Tools for Office (VSTO) add-ins in Office applications. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_office_vsto.yml - Legitimate Addin Installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_office_vsto.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

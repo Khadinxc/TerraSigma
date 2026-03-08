@@ -1,6 +1,6 @@
 id: 627f1276-63fb-50dd-9281-bc4e87e15d0b
 name: Suspicious XOR Encoded PowerShell Command
-description: 'Detects presence of a potentially xor encoded powershell command Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_xor_commandline.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_xor_commandline.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

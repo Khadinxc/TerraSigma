@@ -1,6 +1,6 @@
 id: a68d49c9-c1c5-5cca-83fd-7cf7f1b15f0e
 name: Suspicious Service Path Modification
-description: 'Detects service path modification via the "sc" binary to a suspicious command or path Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_service_path_modification.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_service_path_modification.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

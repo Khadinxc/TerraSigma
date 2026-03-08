@@ -1,6 +1,6 @@
 id: ee40644c-002f-5b1e-94c3-9f3f214e8251
 name: Chmod Suspicious Directory
-description: 'Detects chmod targeting files in abnormal directory paths. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_chmod_directories.yml - Admin changing file permissions. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_chmod_directories.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

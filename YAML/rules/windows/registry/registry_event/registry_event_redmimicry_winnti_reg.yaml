@@ -1,6 +1,6 @@
 id: dee6953c-7cb8-562d-a1a2-7d2a27d7d195
 name: RedMimicry Winnti Playbook Registry Manipulation
-description: 'Detects actions caused by the RedMimicry Winnti playbook Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_redmimicry_winnti_reg.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_redmimicry_winnti_reg.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

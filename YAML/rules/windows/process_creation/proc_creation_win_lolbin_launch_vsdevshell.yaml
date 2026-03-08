@@ -1,6 +1,6 @@
 id: 39b3dbf5-67b2-5bd4-a8f5-47727bd78546
 name: Launch-VsDevShell.PS1 Proxy Execution
-description: 'Detects the use of the ''Launch-VsDevShell.ps1'' Microsoft signed script to execute commands. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_launch_vsdevshell.yml - Legitimate usage of the script by a developer | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_launch_vsdevshell.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

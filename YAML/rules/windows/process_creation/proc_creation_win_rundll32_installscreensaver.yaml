@@ -1,6 +1,6 @@
 id: 53e5ed56-9fab-5099-a018-556cb28e84dd
 name: Rundll32 InstallScreenSaver Execution
-description: 'An attacker may execute an application as a SCR File using rundll32.exe desk.cpl,InstallScreenSaver Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_installscreensaver.yml - Legitimate installation of a new screensaver | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_installscreensaver.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

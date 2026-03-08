@@ -1,6 +1,6 @@
 id: fef68a37-d2e8-5e39-be91-e5104b4d1ebc
 name: DLL Execution via Rasautou.exe
-description: 'Detects using Rasautou.exe for loading arbitrary .DLL specified in -d option and executes the export specified in -p. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_rasautou_dll_execution.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_rasautou_dll_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

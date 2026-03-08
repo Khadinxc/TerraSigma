@@ -1,6 +1,6 @@
 id: 32f94aea-58cc-54c4-8296-5a4a64a99f32
 name: Octopus Scanner Malware
-description: 'Detects Octopus Scanner Malware. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_mal_octopus_scanner.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_mal_octopus_scanner.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

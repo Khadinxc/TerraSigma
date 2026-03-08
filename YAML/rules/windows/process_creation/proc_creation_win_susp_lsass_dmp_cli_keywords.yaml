@@ -1,6 +1,6 @@
 id: a542b9e2-71d6-5844-8482-2ddb96dff072
 name: LSASS Dump Keyword In CommandLine
-description: 'Detects the presence of the keywords "lsass" and ".dmp" in the commandline, which could indicate a potential attempt to dump or create a dump of the lsass process. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_lsass_dmp_cli_keywords.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_lsass_dmp_cli_keywords.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

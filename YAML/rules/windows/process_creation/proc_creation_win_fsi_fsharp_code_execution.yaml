@@ -1,6 +1,6 @@
 id: c342d672-9409-5231-ba29-f9757f220e4a
 name: Use of FSharp Interpreters
-description: 'Detects the execution of FSharp Interpreters "FsiAnyCpu.exe" and "FSi.exe" Both can be used for AWL bypass and to execute F# code via scripts or inline. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsi_fsharp_code_execution.yml - Legitimate use by a software developer. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsi_fsharp_code_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

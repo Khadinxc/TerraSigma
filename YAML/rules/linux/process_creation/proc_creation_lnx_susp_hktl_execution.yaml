@@ -1,6 +1,6 @@
 id: caf66dc8-1117-5466-87e3-4553cb6b64e5
 name: Linux HackTool Execution
-description: 'Detects known hacktool execution based on image name. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_hktl_execution.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_hktl_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

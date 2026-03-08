@@ -1,6 +1,6 @@
 id: b8225d8c-e02d-50d1-bf90-bc82ef1c1c09
 name: Potential Russian APT Credential Theft Activity
-description: 'Detects Russian group activity as described in Global Threat Report 2019 by Crowdstrike Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/Bear-APT-Activity/proc_creation_win_apt_bear_activity_gtr19.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/Bear-APT-Activity/proc_creation_win_apt_bear_activity_gtr19.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

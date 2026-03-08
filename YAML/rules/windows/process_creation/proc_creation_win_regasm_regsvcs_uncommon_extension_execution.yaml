@@ -1,6 +1,6 @@
 id: bff00242-7fc9-5ca6-9c7d-08ca01251f24
 name: Potentially Suspicious Execution Of Regasm/Regsvcs With Uncommon Extension
-description: 'Detects potentially suspicious execution of the Regasm/Regsvcs utilities with an uncommon extension. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regasm_regsvcs_uncommon_extension_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regasm_regsvcs_uncommon_extension_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

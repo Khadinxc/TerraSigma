@@ -1,6 +1,6 @@
 id: 8a136f4d-d14b-59ed-825f-86514a8044eb
 name: Delete Defender Scan ShellEx Context Menu Registry Key
-description: 'Detects deletion of registry key that adds ''Scan with Defender'' option in context menu. Attackers may use this to make it harder for users to scan files that are suspicious. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/registry_delete_defender_context_menu.yml - Unlikely as this weakens defenses and normally would not be done even if using another AV. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/registry_delete_defender_context_menu.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

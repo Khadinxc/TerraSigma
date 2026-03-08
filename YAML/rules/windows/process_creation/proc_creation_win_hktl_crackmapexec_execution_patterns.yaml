@@ -1,6 +1,6 @@
 id: f5167c0d-6532-525f-af42-57ac716f01ad
 name: HackTool - CrackMapExec Execution Patterns
-description: 'Detects various execution patterns of the CrackMapExec pentesting framework Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_crackmapexec_execution_patterns.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_crackmapexec_execution_patterns.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

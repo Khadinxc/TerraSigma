@@ -1,6 +1,6 @@
 id: 4cf50269-4bde-51e2-827d-fdbba8b4832a
 name: DriverQuery.EXE Execution
-description: 'Detect usage of the "driverquery" utility. Which can be used to perform reconnaissance on installed drivers Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_driverquery_usage.yml - Legitimate use by third party tools in order to investigate installed drivers | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_driverquery_usage.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

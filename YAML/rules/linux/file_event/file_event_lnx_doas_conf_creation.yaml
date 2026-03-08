@@ -1,6 +1,6 @@
 id: f0e08498-f77c-5613-8769-303c0106c1f7
 name: Linux Doas Conf File Creation
-description: 'Detects the creation of doas.conf file in linux host platform. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_doas_conf_creation.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_doas_conf_creation.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 6324b412-4f6b-5868-8c3c-49a20f15ce48
 name: DLL Load By System Process From Suspicious Locations
-description: 'Detects when a system process (i.e. located in system32, syswow64, etc.) loads a DLL from a suspicious location or a location with permissive permissions such as "C:\Users\Public" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_susp_dll_load_system_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_susp_dll_load_system_process.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 83889eee-7b93-5f8e-b0a6-2a5677446b3d
 name: Suspicious Script Execution From Temp Folder
-description: 'Detects a suspicious script executions from temporary folder Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_script_exec_from_temp.yml - Administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_script_exec_from_temp.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

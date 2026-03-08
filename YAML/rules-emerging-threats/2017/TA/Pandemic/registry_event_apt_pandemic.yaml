@@ -1,6 +1,6 @@
 id: 25249508-f931-5f9f-ab7d-7133f092881f
 name: Pandemic Registry Key
-description: 'Detects Pandemic Windows Implant Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Pandemic/registry_event_apt_pandemic.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Pandemic/registry_event_apt_pandemic.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

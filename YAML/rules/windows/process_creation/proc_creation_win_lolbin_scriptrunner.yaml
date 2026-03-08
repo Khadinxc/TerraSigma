@@ -1,6 +1,6 @@
 id: 029bbffc-0412-5bb9-b4e2-b132ebe271d3
 name: Use of Scriptrunner.exe
-description: 'The "ScriptRunner.exe" binary can be abused to proxy execution through it and bypass possible whitelisting Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_scriptrunner.yml - Legitimate use when App-v is deployed | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_scriptrunner.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

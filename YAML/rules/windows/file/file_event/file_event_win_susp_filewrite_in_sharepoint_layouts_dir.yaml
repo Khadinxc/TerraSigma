@@ -1,6 +1,6 @@
 id: a523ee3a-d6f7-5d13-a753-2a132fdd4e53
 name: Suspicious File Write to SharePoint Layouts Directory
-description: 'Detects suspicious file writes to SharePoint layouts directory which could indicate webshell activity or post-exploitation. This behavior has been observed in the exploitation of SharePoint vulnerabilities such as CVE-2025-49704, CVE-2025-49706 or CVE-2025-53770. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_filewrite_in_sharepoint_layouts_dir.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_filewrite_in_sharepoint_layouts_dir.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

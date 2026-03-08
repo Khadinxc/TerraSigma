@@ -1,6 +1,6 @@
 id: 59022b0f-6f41-5c7d-90d5-b34e9f3e8a66
 name: HackTool - CrackMapExec PowerShell Obfuscation
-description: 'The CrachMapExec pentesting framework implements a PowerShell obfuscation with some static strings detected by this rule. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_crackmapexec_powershell_obfuscation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_crackmapexec_powershell_obfuscation.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

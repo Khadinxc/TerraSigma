@@ -1,6 +1,6 @@
 id: 475fb6a6-dd58-5b32-8eb6-f16c5afcab8c
 name: Bypass UAC via Fodhelper.exe
-description: 'Identifies use of Fodhelper.exe to bypass User Account Control. Adversaries use this technique to execute privileged processes. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_fodhelper.yml - Legitimate use of fodhelper.exe utility by legitimate user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_fodhelper.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

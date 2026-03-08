@@ -1,6 +1,6 @@
 id: d929c1e8-c4a9-551b-bb37-f6e5670139d3
 name: Windows Share Mount Via Net.EXE
-description: 'Detects when a share is mounted using the "net.exe" utility Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_use_mount_share.yml - Legitimate activity by administrators and scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_use_mount_share.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

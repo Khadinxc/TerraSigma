@@ -1,6 +1,6 @@
 id: b17f9c1c-b9f1-5699-90fb-dd406f0d1cca
 name: DLL Sideloading by VMware Xfer Utility
-description: 'Detects execution of VMware Xfer utility (VMwareXferlogs.exe) from the non-default directory which may be an attempt to sideload arbitrary DLL Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dll_sideload_vmware_xfer.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dll_sideload_vmware_xfer.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

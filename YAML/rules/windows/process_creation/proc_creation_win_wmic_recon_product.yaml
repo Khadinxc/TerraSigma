@@ -1,6 +1,6 @@
 id: 256cb766-18cd-5067-84a5-a56724db3366
 name: Potential Product Reconnaissance Via Wmic.EXE
-description: 'Detects the execution of WMIC in order to get a list of firewall and antivirus products Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_product.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_product.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

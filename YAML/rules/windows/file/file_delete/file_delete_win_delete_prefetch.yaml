@@ -1,6 +1,6 @@
 id: 4bd329c6-2bca-549f-8c10-2d91cb2dd13d
 name: Prefetch File Deleted
-description: 'Detects the deletion of a prefetch file which may indicate an attempt to destroy forensic evidence Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_prefetch.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_prefetch.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

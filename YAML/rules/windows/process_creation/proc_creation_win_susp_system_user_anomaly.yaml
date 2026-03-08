@@ -1,6 +1,6 @@
 id: 5f5f6b0b-b21a-53b8-8834-ffe53eceab1d
 name: Suspicious SYSTEM User Process Creation
-description: 'Detects a suspicious process creation as SYSTEM user (suspicious program or command line parameter) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_system_user_anomaly.yml - Administrative activity - Scripts and administrative tools used in the monitored environment - Monitoring activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_system_user_anomaly.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

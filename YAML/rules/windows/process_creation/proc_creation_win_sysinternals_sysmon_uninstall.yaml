@@ -1,6 +1,6 @@
 id: b1790fb8-fe40-5489-b71f-0019db5fafa5
 name: Uninstall Sysinternals Sysmon
-description: 'Detects the removal of Sysmon, which could be a potential attempt at defense evasion Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_sysmon_uninstall.yml - Legitimate administrators might use this command to remove Sysmon for debugging purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_sysmon_uninstall.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

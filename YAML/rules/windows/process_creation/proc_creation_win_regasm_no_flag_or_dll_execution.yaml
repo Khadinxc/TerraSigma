@@ -1,6 +1,6 @@
 id: ed2a5fec-82bc-50fa-bda4-bbe53d4dd4fd
 name: RegAsm.EXE Execution Without CommandLine Flags or Files
-description: 'Detects the execution of "RegAsm.exe" without a commandline flag or file, which might indicate potential process injection activity. Usually "RegAsm.exe" should point to a dedicated DLL file or call the help with the "/?" flag. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regasm_no_flag_or_dll_execution.yml - Legitimate use of Regasm by developers. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regasm_no_flag_or_dll_execution.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

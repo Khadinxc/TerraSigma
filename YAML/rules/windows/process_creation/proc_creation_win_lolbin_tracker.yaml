@@ -1,6 +1,6 @@
 id: 19af9b11-b8a4-5035-b877-dee72ce5d88a
 name: Potential DLL Injection Or Execution Using Tracker.exe
-description: 'Detects potential DLL injection and execution using "Tracker.exe" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_tracker.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_tracker.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

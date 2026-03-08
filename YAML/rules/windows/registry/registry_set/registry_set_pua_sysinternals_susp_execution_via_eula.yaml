@@ -1,6 +1,6 @@
 id: 190915f8-3f0d-5548-a6a7-48a4c2952540
 name: PUA - Sysinternals Tools Execution - Registry
-description: 'Detects the execution of some potentially unwanted tools such as PsExec, Procdump, etc. (part of the Sysinternals suite) via the creation of the "accepteula" registry key. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_pua_sysinternals_susp_execution_via_eula.yml - Legitimate use of SysInternals tools. Filter the legitimate paths used in your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_pua_sysinternals_susp_execution_via_eula.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

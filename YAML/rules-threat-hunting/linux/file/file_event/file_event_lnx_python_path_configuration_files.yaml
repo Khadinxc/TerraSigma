@@ -1,6 +1,6 @@
 id: 8ca55e0e-755d-5fdf-ac0a-453ced0ef5ab
 name: Python Path Configuration File Creation - Linux
-description: 'Detects creation of a Python path configuration file (.pth) in Python library folders, which can be maliciously abused for code execution and persistence. Modules referenced by these files are run at every Python startup (v3.5+), regardless of whether the module is imported by the calling script. Default paths are ''\lib\site-packages\*.pth'' (Windows) and ''/lib/pythonX.Y/site-packages/*.pth'' (Unix and macOS). Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/file/file_event/file_event_lnx_python_path_configuration_files.yml - Although .pth files are discouraged due to potential security implications, these are legitimate files by specification. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/file/file_event/file_event_lnx_python_path_configuration_files.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

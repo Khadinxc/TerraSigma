@@ -1,6 +1,6 @@
 id: 22bbd992-d54c-5212-84e2-b2835c0994ea
 name: Renamed Whoami Execution
-description: 'Detects the execution of whoami that has been renamed to a different name to avoid detection Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_whoami.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_whoami.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: ffc1c604-4f2e-504c-9917-aaefa2d4ab8c
 name: Potential DLL Sideloading Via VMware Xfer
-description: 'Detects loading of a DLL by the VMware Xfer utility from the non-default directory which may be an attempt to sideload arbitrary DLL Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_vmware_xfer.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_vmware_xfer.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 6c2f6795-236e-5c33-aa83-ee10335089c2
 name: HTML Help HH.EXE Suspicious Child Process
-description: 'Detects a suspicious child process of a Microsoft HTML Help (HH.exe) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hh_html_help_susp_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hh_html_help_susp_child_process.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: d280f895-1b78-5254-8bf5-1914e42da232
 name: HackTool - SharpDPAPI Execution
-description: 'Detects the execution of the SharpDPAPI tool based on CommandLine flags and PE metadata. SharpDPAPI is a C# port of some DPAPI functionality from the Mimikatz project. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharp_dpapi_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharp_dpapi_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: afdc54cc-4775-5d96-bff9-0fac0930533a
 name: DD File Overwrite
-description: 'Detects potential overwriting and deletion of a file using DD. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_dd_file_overwrite.yml - Any user deleting files that way. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_dd_file_overwrite.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

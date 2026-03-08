@@ -1,6 +1,6 @@
 id: 18bb6a4a-d97c-5360-a985-aa8b8c71370c
 name: File Download And Execution Via IEExec.EXE
-description: 'Detects execution of the IEExec utility to download and execute files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ieexec_download.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ieexec_download.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

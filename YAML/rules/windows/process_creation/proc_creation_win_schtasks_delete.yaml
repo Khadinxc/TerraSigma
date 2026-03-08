@@ -1,6 +1,6 @@
 id: 2b404e9c-d2e7-5df9-adb1-26dfbf275f4c
 name: Delete Important Scheduled Task
-description: 'Detects when adversaries stop services or processes by deleting their respective scheduled tasks in order to conduct data destructive activities Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_delete.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_delete.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: aa974693-d7b2-5765-b7b2-496ce2c69f73
 name: Microsoft Teams Sensitive File Access By Uncommon Applications
-description: 'Detects file access attempts to sensitive Microsoft teams files (leveldb, cookies) by an uncommon process. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_teams_sensitive_files.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_teams_sensitive_files.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

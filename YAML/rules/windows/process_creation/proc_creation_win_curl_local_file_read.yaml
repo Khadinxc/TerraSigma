@@ -1,6 +1,6 @@
 id: bb3ebfac-0dd3-5844-9f08-f50a4bca0df6
 name: Local File Read Using Curl.EXE
-description: 'Detects execution of "curl.exe" with the "file://" protocol handler in order to read local files. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_local_file_read.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_local_file_read.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

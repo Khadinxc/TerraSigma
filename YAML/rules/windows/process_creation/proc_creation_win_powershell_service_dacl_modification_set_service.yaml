@@ -1,6 +1,6 @@
 id: 4d1792d8-7fe6-5a3e-9ef3-5e286e100966
 name: Suspicious Service DACL Modification Via Set-Service Cmdlet
-description: 'Detects suspicious DACL modifications via the "Set-Service" cmdlet using the "SecurityDescriptorSddl" flag (Only available with PowerShell 7) that can be used to hide services or make them unstopable Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_service_dacl_modification_set_service.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_service_dacl_modification_set_service.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

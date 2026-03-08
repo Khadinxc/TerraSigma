@@ -1,6 +1,6 @@
 id: 20cd1343-3c35-5d8c-82a3-a94fa894b457
 name: Download File To Potentially Suspicious Directory Via Wget
-description: 'Detects the use of wget to download content to a suspicious directory Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_wget_download_suspicious_directory.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_wget_download_suspicious_directory.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

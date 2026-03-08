@@ -1,6 +1,6 @@
 id: 4631a25e-5c22-5bc4-a6c9-37fedd11128e
 name: Forest Blizzard APT - Custom Protocol Handler DLL Registry Set
-description: 'Detects the setting of the DLL that handles the custom protocol handler. Seen being created by Forest Blizzard APT as reported by MSFT. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/registry_set_apt_forest_blizzard_custom_protocol_handler_dll.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/registry_set_apt_forest_blizzard_custom_protocol_handler_dll.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

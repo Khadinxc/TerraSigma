@@ -1,6 +1,6 @@
 id: d47938b4-4d15-5414-92c3-008f17a310c9
 name: Suspicious Windows Defender Registry Key Tampering Via Reg.EXE
-description: 'Detects the usage of "reg.exe" to tamper with different Windows Defender registry keys in order to disable some important features related to protection and detection Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_windows_defender_tamper.yml - Rare legitimate use by administrators to test software (should always be investigated) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_windows_defender_tamper.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

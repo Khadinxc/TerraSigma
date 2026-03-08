@@ -1,6 +1,6 @@
 id: 857be8f0-b6f4-5c4e-b858-2c1560b76085
 name: Potential Defense Evasion Via Rename Of Highly Relevant Binaries
-description: 'Detects the execution of a renamed binary often used by attackers or malware leveraging new Sysmon OriginalFileName datapoint. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_binary_highly_relevant.yml - Custom applications use renamed binaries adding slight change to binary name. Typically this is easy to spot and add to whitelist | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_binary_highly_relevant.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

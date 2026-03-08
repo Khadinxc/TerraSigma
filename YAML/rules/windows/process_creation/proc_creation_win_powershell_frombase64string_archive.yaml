@@ -1,6 +1,6 @@
 id: c22d42d7-d419-591a-9420-f2b55c0d8e7d
 name: Suspicious FromBase64String Usage On Gzip Archive - Process Creation
-description: 'Detects attempts of decoding a base64 Gzip archive via PowerShell. This technique is often used as a method to load malicious content into memory afterward. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_frombase64string_archive.yml - Legitimate administrative script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_frombase64string_archive.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

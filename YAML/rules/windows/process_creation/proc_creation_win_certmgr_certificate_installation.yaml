@@ -1,6 +1,6 @@
 id: b9596b40-db64-54fb-87af-f6d8c5a90bf8
 name: New Root Certificate Installed Via CertMgr.EXE
-description: 'Detects execution of "certmgr" with the "add" flag in order to install a new certificate on the system. Adversaries may install a root certificate on a compromised system to avoid warnings when connecting to adversary controlled web servers. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certmgr_certificate_installation.yml - Help Desk or IT may need to manually add a corporate Root CA on occasion. Need to test if GPO push doesn''t trigger FP | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certmgr_certificate_installation.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

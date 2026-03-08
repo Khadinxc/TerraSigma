@@ -1,6 +1,6 @@
 id: 63c5f765-2a1c-55d1-9a4d-7f489530780b
 name: Screen Capture Activity Via Psr.EXE
-description: 'Detects execution of Windows Problem Steps Recorder (psr.exe), a utility used to record the user screen and clicks. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_psr_capture_screenshots.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_psr_capture_screenshots.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

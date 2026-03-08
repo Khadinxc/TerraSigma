@@ -1,6 +1,6 @@
 id: 235b0c04-b2db-5b78-98fd-4bde3497321b
 name: VHD Image Download Via Browser
-description: 'Detects creation of ".vhd"/".vhdx" files by browser processes. Malware can use mountable Virtual Hard Disk ".vhd" files to encapsulate payloads and evade security controls. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_vhd_download_via_browsers.yml - Legitimate downloads of ".vhd" files would also trigger this | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_vhd_download_via_browsers.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

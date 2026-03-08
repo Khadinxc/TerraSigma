@@ -1,6 +1,6 @@
 id: 585627c1-98b4-5024-ab7f-01745f8dab82
 name: Mount Execution With Hidepid Parameter
-description: 'Detects execution of the "mount" command with "hidepid" parameter to make invisible processes to other users from the system Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_mount_hidepid.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_mount_hidepid.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

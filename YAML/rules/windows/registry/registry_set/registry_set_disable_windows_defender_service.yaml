@@ -1,6 +1,6 @@
 id: d049bc9a-0be8-5796-ba24-4484d30ffe7e
 name: Windows Defender Service Disabled - Registry
-description: 'Detects when an attacker or tool disables the  Windows Defender service (WinDefend) via the registry Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_windows_defender_service.yml - Administrator actions | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_windows_defender_service.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 34dbd5a2-0858-557d-96ce-b7ff3acadf55
 name: HackTool - SharpEvtMute Execution
-description: 'Detects the use of SharpEvtHook, a tool that tampers with the Windows event logs Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpevtmute.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpevtmute.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

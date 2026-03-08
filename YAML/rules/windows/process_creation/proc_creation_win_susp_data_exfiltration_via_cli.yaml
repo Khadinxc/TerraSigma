@@ -1,6 +1,6 @@
 id: 083030cb-88d2-5d90-831e-798eae61892b
 name: Potential Data Exfiltration Activity Via CommandLine Tools
-description: 'Detects the use of various CLI utilities exfiltrating data via web requests Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_data_exfiltration_via_cli.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_data_exfiltration_via_cli.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

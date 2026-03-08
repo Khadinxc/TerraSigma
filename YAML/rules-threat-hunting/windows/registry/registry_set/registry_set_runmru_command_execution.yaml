@@ -1,6 +1,6 @@
 id: 73ddee8b-4f11-59d9-a114-0aa8d9729708
 name: Command Executed Via Run Dialog Box - Registry
-description: 'Detects execution of commands via the run dialog box on Windows by checking values of the "RunMRU" registry key. This technique was seen being abused by threat actors to deceive users into pasting and executing malicious commands, often disguised as CAPTCHA verification steps. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_set/registry_set_runmru_command_execution.yml - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_set/registry_set_runmru_command_execution.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

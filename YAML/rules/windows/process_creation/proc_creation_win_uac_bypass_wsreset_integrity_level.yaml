@@ -1,6 +1,6 @@
 id: a494c1ba-ddc8-5a74-ad2a-6c124c927433
 name: UAC Bypass WSReset
-description: 'Detects the pattern of UAC Bypass via WSReset usable by default sysmon-config Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_wsreset_integrity_level.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_wsreset_integrity_level.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

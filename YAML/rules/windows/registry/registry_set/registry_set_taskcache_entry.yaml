@@ -1,6 +1,6 @@
 id: 55b49324-c54c-5849-a402-e5e3ab0cfa7d
 name: Scheduled TaskCache Change by Uncommon Program
-description: 'Monitor the creation of a new key under ''TaskCache'' when a new scheduled task is registered by a process that is not svchost.exe, which is suspicious Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_taskcache_entry.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_taskcache_entry.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

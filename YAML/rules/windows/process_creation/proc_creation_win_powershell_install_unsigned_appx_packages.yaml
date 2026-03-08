@@ -1,6 +1,6 @@
 id: e2ffed42-fab1-5daa-b46b-2e4c050312e2
 name: Unsigned AppX Installation Attempt Using Add-AppxPackage
-description: 'Detects usage of the "Add-AppxPackage" or it''s alias "Add-AppPackage" to install unsigned AppX packages Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_install_unsigned_appx_packages.yml - Installation of unsigned packages for testing purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_install_unsigned_appx_packages.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

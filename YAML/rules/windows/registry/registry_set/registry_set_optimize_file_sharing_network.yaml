@@ -1,6 +1,6 @@
 id: 30a25fa5-c789-5ce9-9867-65e8fbee9869
 name: MaxMpxCt Registry Value Changed
-description: 'Detects changes to the "MaxMpxCt" registry value. MaxMpxCt specifies the maximum outstanding network requests for the server per client, which is used when negotiating a Server Message Block (SMB) connection with a client. Note if the value is set beyond 125 older Windows 9x clients will fail to negotiate. Ransomware threat actors and operators (specifically BlackCat) were seen increasing this value in order to handle a higher volume of traffic. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_optimize_file_sharing_network.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_optimize_file_sharing_network.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

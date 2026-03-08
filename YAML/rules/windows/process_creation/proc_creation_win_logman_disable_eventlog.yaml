@@ -1,6 +1,6 @@
 id: ba26f7b7-097b-57ac-843c-039206df866a
 name: Suspicious Windows Trace ETW Session Tamper Via Logman.EXE
-description: 'Detects the execution of "logman" utility in order to disable or delete Windows trace sessions Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_logman_disable_eventlog.yml - Legitimate deactivation by administrative staff - Installer tools that disable services, e.g. before log collection agent installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_logman_disable_eventlog.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

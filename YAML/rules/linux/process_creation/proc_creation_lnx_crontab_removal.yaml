@@ -1,6 +1,6 @@
 id: 7e7974f3-917d-54a8-b72a-751b171f6e5e
 name: Remove Scheduled Cron Task/Job
-description: 'Detects usage of the ''crontab'' utility to remove the current crontab. This is a common occurrence where cryptocurrency miners compete against each other by removing traces of other miners to hijack the maximum amount of resources possible Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_crontab_removal.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_crontab_removal.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

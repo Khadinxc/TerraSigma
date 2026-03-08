@@ -1,6 +1,6 @@
 id: e47e0e6b-610e-5961-8222-51159471b1b5
 name: AspNetCompiler Execution
-description: 'Detects execution of "aspnet_compiler.exe" which can be abused to compile and execute C# code. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_aspnet_compiler_exectuion.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_aspnet_compiler_exectuion.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

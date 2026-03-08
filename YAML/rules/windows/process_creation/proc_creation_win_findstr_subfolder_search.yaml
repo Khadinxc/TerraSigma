@@ -1,6 +1,6 @@
 id: 41f88890-42c7-5c03-bf87-cd6498766fa7
 name: Insensitive Subfolder Search Via Findstr.EXE
-description: 'Detects execution of findstr with the "s" and "i" flags for a "subfolder" and "insensitive" search respectively. Attackers sometimes leverage this built-in utility to search the system for interesting files or filter through results of commands. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_subfolder_search.yml - Administrative or software activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_findstr_subfolder_search.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

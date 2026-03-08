@@ -1,6 +1,6 @@
 id: ae8aeb3f-d104-5921-a80a-1d9f426884e1
 name: PowerShell Download and Execution Cradles
-description: 'Detects PowerShell download and execution cradles. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_download_iex.yml - Some PowerShell installers were seen using similar combinations. Apply filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_download_iex.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

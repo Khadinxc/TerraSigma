@@ -1,6 +1,6 @@
 id: 9bf06638-c0fa-5caf-ab5a-1b2644bc8bb3
 name: Adwind RAT / JRAT File Artifact
-description: 'Detects javaw.exe in AppData folder as used by Adwind / JRAT Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_mal_adwind.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_mal_adwind.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

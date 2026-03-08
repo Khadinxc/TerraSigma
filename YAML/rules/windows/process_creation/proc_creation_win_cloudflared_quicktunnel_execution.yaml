@@ -1,6 +1,6 @@
 id: e8c74123-da46-5b3e-8b90-99ed3e632fee
 name: Cloudflared Quick Tunnel Execution
-description: 'Detects creation of an ad-hoc Cloudflare Quick Tunnel, which can be used to tunnel local services such as HTTP, RDP, SSH and SMB. The free TryCloudflare Quick Tunnel will generate a random subdomain on trycloudflare[.]com, following a call to api[.]trycloudflare[.]com. The tool has been observed in use by threat groups including Akira ransomware. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cloudflared_quicktunnel_execution.yml - Legitimate usage of Cloudflare Quick Tunnel | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cloudflared_quicktunnel_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

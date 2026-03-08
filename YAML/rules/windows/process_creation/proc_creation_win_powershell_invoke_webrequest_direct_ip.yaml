@@ -1,6 +1,6 @@
 id: 413d50ff-10bf-596f-bfd2-b9539aebf0ea
 name: Suspicious Invoke-WebRequest Execution With DirectIP
-description: 'Detects calls to PowerShell with Invoke-WebRequest cmdlet using direct IP access Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_invoke_webrequest_direct_ip.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_invoke_webrequest_direct_ip.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

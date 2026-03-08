@@ -1,6 +1,6 @@
 id: d20469b2-dc3a-5ae7-8dbc-448c80af0944
 name: Security Software Discovery - MacOs
-description: 'Detects usage of system utilities (only grep for now) to discover security software discovery Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_security_software_discovery.yml - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_security_software_discovery.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

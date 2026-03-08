@@ -1,6 +1,6 @@
 id: 44230f5b-80ec-516e-abb1-6ff1831194a9
 name: Sysmon Configuration Update
-description: 'Detects updates to Sysmon''s configuration. Attackers might update or replace the Sysmon configuration with a bare bone one to avoid monitoring without shutting down the service completely Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_sysmon_config_update.yml - Legitimate administrators might use this command to update Sysmon configuration. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_sysmon_config_update.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

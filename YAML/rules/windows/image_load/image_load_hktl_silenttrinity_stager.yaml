@@ -1,6 +1,6 @@
 id: d6addff0-03f4-5b27-bd48-fd375f1171fe
 name: HackTool - SILENTTRINITY Stager DLL Load
-description: 'Detects SILENTTRINITY stager dll loading activity Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_hktl_silenttrinity_stager.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_hktl_silenttrinity_stager.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

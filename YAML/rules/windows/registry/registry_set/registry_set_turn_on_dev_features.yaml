@@ -1,6 +1,6 @@
 id: 5044cf63-76b8-5172-a645-f282679b6b7f
 name: Potential Signing Bypass Via Windows Developer Features - Registry
-description: 'Detects when the enablement of developer features such as "Developer Mode" or "Application Sideloading". Which allows the user to install untrusted packages. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_turn_on_dev_features.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_turn_on_dev_features.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

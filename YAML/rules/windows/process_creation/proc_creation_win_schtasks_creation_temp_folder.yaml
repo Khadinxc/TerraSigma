@@ -1,6 +1,6 @@
 id: 395ce7ca-e1fa-5ec7-8b86-583e3cc38c0d
 name: Suspicious Scheduled Task Creation Involving Temp Folder
-description: 'Detects the creation of scheduled tasks that involves a temporary folder and runs only once Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_creation_temp_folder.yml - Administrative activity - Software installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_creation_temp_folder.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

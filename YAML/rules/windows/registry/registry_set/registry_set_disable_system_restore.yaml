@@ -1,6 +1,6 @@
 id: 614c835c-b649-50d6-9b9e-a91277c5bb54
 name: Registry Disable System Restore
-description: 'Detects the modification of the registry to disable a system restore on the computer Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_system_restore.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_system_restore.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

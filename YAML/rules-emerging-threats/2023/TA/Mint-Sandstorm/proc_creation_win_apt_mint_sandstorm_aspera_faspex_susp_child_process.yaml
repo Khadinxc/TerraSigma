@@ -1,6 +1,6 @@
 id: 5a0d68df-df8e-52bb-a78b-862b29de437f
 name: Mint Sandstorm - AsperaFaspex Suspicious Process Execution
-description: 'Detects suspicious execution from AsperaFaspex as seen used by Mint Sandstorm Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Mint-Sandstorm/proc_creation_win_apt_mint_sandstorm_aspera_faspex_susp_child_process.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Mint-Sandstorm/proc_creation_win_apt_mint_sandstorm_aspera_faspex_susp_child_process.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

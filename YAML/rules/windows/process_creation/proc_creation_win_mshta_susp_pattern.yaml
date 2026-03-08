@@ -1,6 +1,6 @@
 id: 90acacd8-2b27-58e4-960a-ae3346c23de7
 name: Suspicious Mshta.EXE Execution Patterns
-description: 'Detects suspicious mshta process execution patterns Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_susp_pattern.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_susp_pattern.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

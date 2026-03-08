@@ -1,6 +1,6 @@
 id: 67bed5fa-e5d0-59ec-bd61-9947d9294deb
 name: Arbitrary Command Execution Using WSL
-description: 'Detects potential abuse of Windows Subsystem for Linux (WSL) binary as a Living of the Land binary in order to execute arbitrary Linux or Windows commands. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_wsl_arbitrary_command_execution.yml - Automation and orchestration scripts may use this method to execute scripts etc. - Legitimate use by Windows to kill processes opened via WSL (example VsCode WSL server) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_wsl_arbitrary_command_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

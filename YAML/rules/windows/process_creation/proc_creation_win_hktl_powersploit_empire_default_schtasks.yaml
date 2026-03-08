@@ -1,6 +1,6 @@
 id: 5e39ebf3-273d-5fad-8cc8-5b7beb82f9df
 name: HackTool - Default PowerSploit/Empire Scheduled Task Creation
-description: 'Detects the creation of a schtask via PowerSploit or Empire Default Configuration. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_powersploit_empire_default_schtasks.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_powersploit_empire_default_schtasks.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

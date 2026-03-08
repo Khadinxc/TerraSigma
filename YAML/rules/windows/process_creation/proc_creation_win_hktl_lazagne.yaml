@@ -1,6 +1,6 @@
 id: 370ca7db-a399-581a-a9fb-ab879d548406
 name: HackTool - LaZagne Execution
-description: 'Detects the execution of the LaZagne. A utility used to retrieve multiple types of passwords stored on a local computer. LaZagne has been leveraged multiple times by threat actors in order to dump credentials. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_lazagne.yml - Some false positive is expected from tools with similar command line flags. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_lazagne.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

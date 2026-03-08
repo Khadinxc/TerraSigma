@@ -1,6 +1,6 @@
 id: da3b3e89-5781-514c-9c72-d203d9bd050f
 name: PUA - Nmap/Zenmap Execution
-description: 'Detects usage of namp/zenmap. Adversaries may attempt to get a listing of services running on remote hosts, including those that may be vulnerable to remote software exploitation Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_nmap_zenmap.yml - Legitimate administrator activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_nmap_zenmap.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

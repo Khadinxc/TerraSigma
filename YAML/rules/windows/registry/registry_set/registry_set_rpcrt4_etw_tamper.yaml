@@ -1,6 +1,6 @@
 id: 030cc922-e491-5fae-aaaf-ecad39c1540d
 name: ETW Logging Disabled For rpcrt4.dll
-description: 'Detects changes to the "ExtErrorInformation" key in order to disable ETW logging for rpcrt4.dll Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_rpcrt4_etw_tamper.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_rpcrt4_etw_tamper.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

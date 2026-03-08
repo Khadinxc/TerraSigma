@@ -1,6 +1,6 @@
 id: 48b2d3aa-7997-5a14-97ac-fcb0dca25b94
 name: Windows Shell/Scripting Application File Write to Suspicious Folder
-description: 'Detects Windows shells and scripting applications that write files to suspicious folders Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_shell_write_susp_directory.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_shell_write_susp_directory.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

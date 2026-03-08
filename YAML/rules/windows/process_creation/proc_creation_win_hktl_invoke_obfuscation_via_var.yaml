@@ -1,6 +1,6 @@
 id: 0a14dbc6-0a30-5e2b-ad6f-30a43a2c2924
 name: Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION
-description: 'Detects Obfuscated Powershell via VAR++ LAUNCHER Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_via_var.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_via_var.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

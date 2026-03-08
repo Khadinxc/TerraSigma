@@ -1,6 +1,6 @@
 id: 21ad2878-ed17-5601-a779-eed96f42df0b
 name: Potential Persistence Via TypedPaths
-description: 'Detects modification addition to the ''TypedPaths'' key in the user or admin registry from a non standard application. Which might indicate persistence attempt Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_typed_paths.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_typed_paths.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 78e675ea-7377-52c9-9790-9295ce0b8471
 name: Suspicious Service Binary Directory
-description: 'Detects a service binary running in a suspicious directory Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_service_dir.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_service_dir.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

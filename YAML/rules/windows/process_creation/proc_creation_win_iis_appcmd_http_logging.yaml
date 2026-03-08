@@ -1,6 +1,6 @@
 id: 16d2616f-5338-586e-9976-9e403fab09d8
 name: Disable Windows IIS HTTP Logging
-description: 'Disables HTTP logging on a Windows IIS web server as seen by Threat Group 3390 (Bronze Union) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_appcmd_http_logging.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_appcmd_http_logging.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

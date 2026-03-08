@@ -1,6 +1,6 @@
 id: cf17ce1e-f4f7-5d5e-9579-9f54e897fc1a
 name: Decode Base64 Encoded Text -MacOs
-description: 'Detects usage of base64 utility to decode arbitrary base64-encoded text Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_base64_decode.yml - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_base64_decode.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

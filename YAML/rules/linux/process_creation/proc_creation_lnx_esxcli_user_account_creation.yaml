@@ -1,6 +1,6 @@
 id: 0687838a-da37-5f13-a8bb-2f0c33e2722e
 name: ESXi Account Creation Via ESXCLI
-description: 'Detects user account creation on ESXi system via esxcli Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_user_account_creation.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_esxcli_user_account_creation.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

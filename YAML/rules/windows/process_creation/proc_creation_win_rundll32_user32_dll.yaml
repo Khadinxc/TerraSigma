@@ -1,6 +1,6 @@
 id: 7aecf861-b122-5e66-86cd-c899d32a1723
 name: Suspicious Workstation Locking via Rundll32
-description: 'Detects a suspicious call to the user32.dll function that locks the user workstation Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_user32_dll.yml - Scripts or links on the user desktop used to lock the workstation instead of Windows+L or the menu option | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_user32_dll.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

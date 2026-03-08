@@ -1,6 +1,6 @@
 id: 4549c2c6-a408-571f-a10e-f991abecc51a
 name: Suspicious File Creation In Uncommon AppData Folder
-description: 'Detects the creation of suspicious files and folders inside the user''s AppData folder but not inside any of the common and well known directories (Local, Romaing, LocalLow). This method could be used as a method to bypass detection who exclude the AppData folder in fear of FPs Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_new_files_in_uncommon_appdata_folder.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_new_files_in_uncommon_appdata_folder.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

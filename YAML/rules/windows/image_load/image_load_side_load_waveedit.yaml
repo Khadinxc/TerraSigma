@@ -1,6 +1,6 @@
 id: 789d0ca3-4f33-5ba4-ad73-0bacb9a30f17
 name: Potential Waveedit.DLL Sideloading
-description: 'Detects potential DLL sideloading of "waveedit.dll", which is part of the Nero WaveEditor audio editing software. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_waveedit.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_waveedit.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

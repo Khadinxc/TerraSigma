@@ -1,6 +1,6 @@
 id: 6b92c4c0-f578-5025-b22f-2130ab1293f3
 name: Macro Enabled In A Potentially Suspicious Document
-description: 'Detects registry changes to Office trust records where the path is located in a potentially suspicious location Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_trust_record_susp_location.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_trust_record_susp_location.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

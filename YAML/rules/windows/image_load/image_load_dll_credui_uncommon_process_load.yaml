@@ -1,6 +1,6 @@
 id: e793eed6-fb05-5497-aa53-23c68074677c
 name: CredUI.DLL Loaded By Uncommon Process
-description: 'Detects loading of "credui.dll" and related DLLs by an uncommon process. Attackers might leverage this DLL for potential use of "CredUIPromptForCredentials" or "CredUnPackAuthenticationBufferW". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_credui_uncommon_process_load.yml - Other legitimate processes loading those DLLs in your environment. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_credui_uncommon_process_load.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

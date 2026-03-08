@@ -1,6 +1,6 @@
 id: 23a6eedf-edc2-5ba7-b9de-c8e451e8725a
 name: HackTool - Quarks PwDump Execution
-description: 'Detects usage of the Quarks PwDump tool via commandline arguments Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_quarks_pwdump.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_quarks_pwdump.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

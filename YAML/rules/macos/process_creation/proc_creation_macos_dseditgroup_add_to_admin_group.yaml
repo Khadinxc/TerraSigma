@@ -1,6 +1,6 @@
 id: babe088b-2213-5898-9184-a550b6b864b8
 name: User Added To Admin Group Via DseditGroup
-description: 'Detects attempts to create and/or add an account to the admin group, thus granting admin privileges. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_dseditgroup_add_to_admin_group.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_dseditgroup_add_to_admin_group.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

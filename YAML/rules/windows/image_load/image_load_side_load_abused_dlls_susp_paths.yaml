@@ -1,6 +1,6 @@
 id: ff176df2-284c-5124-9d30-301903929f62
 name: Abusable DLL Potential Sideloading From Suspicious Location
-description: 'Detects potential DLL sideloading of DLLs that are known to be abused from suspicious locations Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_abused_dlls_susp_paths.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_abused_dlls_susp_paths.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

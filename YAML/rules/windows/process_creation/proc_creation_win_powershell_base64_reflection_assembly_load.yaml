@@ -1,6 +1,6 @@
 id: f7418213-0ac7-59c6-a1a0-4492d7674e3c
 name: PowerShell Base64 Encoded Reflective Assembly Load
-description: 'Detects base64 encoded .NET reflective loading of Assembly Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_reflection_assembly_load.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_reflection_assembly_load.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

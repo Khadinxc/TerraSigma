@@ -1,6 +1,6 @@
 id: d0b53073-a7d5-508d-b973-1bc4391904cc
 name: GUI Input Capture - macOS
-description: 'Detects attempts to use system dialog prompts to capture user credentials Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_gui_input_capture.yml - Legitimate administration tools and activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_gui_input_capture.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

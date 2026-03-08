@@ -1,6 +1,6 @@
 id: add6d5db-3500-59fd-8fe2-4a8c1ee9e55e
 name: Sysinternals PsService Execution
-description: 'Detects usage of Sysinternals PsService which can be abused for service reconnaissance and tampering Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_psservice.yml - Legitimate use of PsService by an administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_psservice.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

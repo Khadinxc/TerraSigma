@@ -1,6 +1,6 @@
 id: 96e54a3b-b9d4-57d3-9aa8-c139f50fd485
 name: VeeamBackup Database Credentials Dump Via Sqlcmd.EXE
-description: 'Detects dump of credentials in VeeamBackup dbo Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sqlcmd_veeam_dump.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sqlcmd_veeam_dump.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 733669eb-9f27-554b-8d62-1d1e7de93359
 name: HackTool - SharpLDAPmonitor Execution
-description: 'Detects execution of the SharpLDAPmonitor. Which can monitor the creation, deletion and changes to LDAP objects. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharp_ldap_monitor.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharp_ldap_monitor.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: fad1dde0-a5d8-5d7f-8752-161f311a74aa
 name: Tamper With Sophos AV Registry Keys
-description: 'Detects tamper attempts to sophos av functionality via registry key modification Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_sophos_av_tamper.yml - Some FP may occur when the feature is disabled by the AV itself, you should always investigate if the action was legitimate | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_sophos_av_tamper.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

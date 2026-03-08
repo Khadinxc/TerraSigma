@@ -1,6 +1,6 @@
 id: 22f309c4-3e7a-5f30-8b3a-753d95bdff4f
 name: MacOS Network Service Scanning
-description: 'Detects enumeration of local or remote network services. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_network_service_scanning.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_network_service_scanning.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

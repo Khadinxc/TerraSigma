@@ -1,6 +1,6 @@
 id: 6c9799b3-60f3-5094-aeda-e5600a69cd49
 name: Suspicious Scheduled Task Creation via Masqueraded XML File
-description: 'Detects the creation of a scheduled task using the "-XML" flag with a file without the ''.xml'' extension. This behavior could be indicative of potential defense evasion attempt during persistence Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_schedule_via_masqueraded_xml_file.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_schedule_via_masqueraded_xml_file.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

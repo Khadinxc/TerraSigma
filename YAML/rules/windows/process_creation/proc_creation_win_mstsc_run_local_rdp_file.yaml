@@ -1,6 +1,6 @@
 id: f4f9897d-e5fc-563e-bffd-c72681ddc358
 name: Mstsc.EXE Execution With Local RDP File
-description: 'Detects potential RDP connection via Mstsc using a local ".rdp" file Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mstsc_run_local_rdp_file.yml - Likely with legitimate usage of ".rdp" files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mstsc_run_local_rdp_file.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

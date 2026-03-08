@@ -1,6 +1,6 @@
 id: dbcc9f11-0e1f-510f-82b9-b91a4bad588a
 name: Procdump Execution
-description: 'Detects usage of the SysInternals Procdump utility Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_procdump.yml - Legitimate use of procdump by a developer or administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_procdump.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

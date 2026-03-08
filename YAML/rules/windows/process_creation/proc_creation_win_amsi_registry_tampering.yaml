@@ -1,6 +1,6 @@
 id: 105ef413-b56f-5695-b23f-8338bd10ef35
 name: Windows AMSI Related Registry Tampering Via CommandLine
-description: 'Detects tampering of AMSI (Anti-Malware Scan Interface) related registry values via command line tools such as reg.exe or PowerShell. AMSI provides a generic interface for applications and services to integrate with antimalware products. Adversaries may disable AMSI to evade detection of malicious scripts and code execution. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_amsi_registry_tampering.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_amsi_registry_tampering.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

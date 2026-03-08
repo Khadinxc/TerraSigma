@@ -1,6 +1,6 @@
 id: 60402e69-3a06-5a0c-a4fd-21c397c0558f
 name: Potential Suspicious Windows Feature Enabled - ProcCreation
-description: 'Detects usage of the built-in PowerShell cmdlet "Enable-WindowsOptionalFeature" used as a Deployment Image Servicing and Management tool. Similar to DISM.exe, this cmdlet is used to enumerate, install, uninstall, configure, and update features and packages in Windows images Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_enable_susp_windows_optional_feature.yml - Legitimate usage of the features listed in the rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_enable_susp_windows_optional_feature.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

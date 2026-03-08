@@ -1,6 +1,6 @@
 id: 2f97b25a-fc7d-5a55-a578-523abeeee9c7
 name: PUA - CleanWipe Execution
-description: 'Detects the use of CleanWipe a tool usually used to delete Symantec antivirus. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_cleanwipe.yml - Legitimate administrative use (Should be investigated either way) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_cleanwipe.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

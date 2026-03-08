@@ -1,6 +1,6 @@
 id: 3697ffe6-1c05-53a4-beec-5ed636e0a5f7
 name: Chopper Webshell Process Pattern
-description: 'Detects patterns found in process executions cause by China Chopper like tiny (ASPX) webshells Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_webshell_chopper.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_webshell_chopper.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

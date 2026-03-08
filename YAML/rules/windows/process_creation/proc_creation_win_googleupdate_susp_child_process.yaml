@@ -1,6 +1,6 @@
 id: d21b85fa-4369-56ac-b3c4-7c7e8d5043d5
 name: Potentially Suspicious GoogleUpdate Child Process
-description: 'Detects potentially suspicious child processes of "GoogleUpdate.exe" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_googleupdate_susp_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_googleupdate_susp_child_process.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

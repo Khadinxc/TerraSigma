@@ -1,6 +1,6 @@
 id: bc247def-a6e5-51df-95ad-974087668ba7
 name: Suspicious File Download From IP Via Curl.EXE
-description: 'Detects potentially suspicious file downloads directly from IP addresses using curl.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_download_direct_ip_susp_extensions.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_download_direct_ip_susp_extensions.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

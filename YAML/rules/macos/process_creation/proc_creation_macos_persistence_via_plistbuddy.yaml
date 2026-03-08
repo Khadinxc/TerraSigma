@@ -1,6 +1,6 @@
 id: 00cfc289-c190-5c4c-a736-1ba0ed424fa8
 name: Potential Persistence Via PlistBuddy
-description: 'Detects potential persistence activity using LaunchAgents or LaunchDaemons via the PlistBuddy utility Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_persistence_via_plistbuddy.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_persistence_via_plistbuddy.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

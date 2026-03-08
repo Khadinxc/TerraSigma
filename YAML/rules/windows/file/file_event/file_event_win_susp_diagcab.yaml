@@ -1,6 +1,6 @@
 id: f8c755d0-0681-5666-bed7-bb6adf2d0aa5
 name: Creation of a Diagcab
-description: 'Detects the creation of diagcab file, which could be caused by some legitimate installer or is a sign of exploitation (review the filename and its location) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_diagcab.yml - Legitimate microsoft diagcab | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_diagcab.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

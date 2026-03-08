@@ -1,6 +1,6 @@
 id: 3c40f604-6808-50c2-8f71-50e48d304a2e
 name: Add New Download Source To Winget
-description: 'Detects usage of winget to add new additional download sources Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winget_add_custom_source.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winget_add_custom_source.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

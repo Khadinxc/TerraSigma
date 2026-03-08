@@ -1,6 +1,6 @@
 id: 89adbb93-0534-579d-a292-7ed178226a11
 name: Malicious Base64 Encoded PowerShell Keywords in Command Lines
-description: 'Detects base64 encoded strings used in hidden malicious PowerShell command lines Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_hidden_flag.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_hidden_flag.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

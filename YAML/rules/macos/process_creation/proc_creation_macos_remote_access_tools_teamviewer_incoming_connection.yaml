@@ -1,6 +1,6 @@
 id: db61ba67-da90-5491-a65d-57e6eb4d7149
 name: Remote Access Tool - Team Viewer Session Started On MacOS Host
-description: 'Detects the command line executed when TeamViewer starts a session started by a remote host. Once a connection has been started, an investigator can verify the connection details by viewing the "incoming_connections.txt" log file in the TeamViewer folder. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_remote_access_tools_teamviewer_incoming_connection.yml - Legitimate usage of TeamViewer | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_remote_access_tools_teamviewer_incoming_connection.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

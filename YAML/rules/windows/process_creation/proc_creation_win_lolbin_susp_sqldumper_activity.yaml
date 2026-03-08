@@ -1,6 +1,6 @@
 id: b7cbd6ac-5cf6-522d-ac33-08ee41528144
 name: Dumping Process via Sqldumper.exe
-description: 'Detects process dump via legitimate sqldumper.exe binary Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_susp_sqldumper_activity.yml - Legitimate MSSQL Server actions | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_susp_sqldumper_activity.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

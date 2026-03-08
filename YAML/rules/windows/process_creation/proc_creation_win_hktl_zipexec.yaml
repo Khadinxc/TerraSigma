@@ -1,6 +1,6 @@
 id: 08e0e4c0-f1b0-5620-aba0-7e6526f13298
 name: Suspicious ZipExec Execution
-description: 'ZipExec is a Proof-of-Concept (POC) tool to wrap binary-based tools into a password-protected zip file. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_zipexec.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_zipexec.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

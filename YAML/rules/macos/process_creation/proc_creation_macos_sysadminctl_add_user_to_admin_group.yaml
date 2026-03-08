@@ -1,6 +1,6 @@
 id: 0adc56d1-6c98-5be1-b337-6cb8f0329e9f
 name: User Added To Admin Group Via Sysadminctl
-description: 'Detects attempts to create and add an account to the admin group via "sysadminctl" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_sysadminctl_add_user_to_admin_group.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_sysadminctl_add_user_to_admin_group.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

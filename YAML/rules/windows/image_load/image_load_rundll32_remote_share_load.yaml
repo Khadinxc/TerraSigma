@@ -1,6 +1,6 @@
 id: 09c2022d-a111-5c5f-9add-a227673df0ea
 name: Remote DLL Load Via Rundll32.EXE
-description: 'Detects a remote DLL load event via "rundll32.exe". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_rundll32_remote_share_load.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_rundll32_remote_share_load.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

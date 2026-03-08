@@ -1,6 +1,6 @@
 id: 239d6862-5b24-501d-a5b3-37b909729adc
 name: Suspicious Scheduled Task Name As GUID
-description: 'Detects creation of a scheduled task with a GUID like name Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_guid_task_name.yml - Legitimate software naming their tasks as GUIDs | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_guid_task_name.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

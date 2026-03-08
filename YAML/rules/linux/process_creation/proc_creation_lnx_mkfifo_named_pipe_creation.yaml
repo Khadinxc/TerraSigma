@@ -1,6 +1,6 @@
 id: e7a0c77f-06b0-55b7-80db-6da15e0a4885
 name: Named Pipe Created Via Mkfifo
-description: 'Detects the creation of a new named pipe using the "mkfifo" utility Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_mkfifo_named_pipe_creation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_mkfifo_named_pipe_creation.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

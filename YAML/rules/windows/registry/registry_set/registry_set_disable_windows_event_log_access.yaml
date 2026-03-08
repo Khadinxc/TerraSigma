@@ -1,6 +1,6 @@
 id: bb1cb5ab-34d2-5251-b6f0-b26f2a2ea881
 name: Windows Event Log Access Tampering Via Registry
-description: 'Detects changes to the Windows EventLog channel permission values. It focuses on changes to the Security Descriptor Definition Language (SDDL) string, as modifications to these values can restrict access to specific users or groups, potentially aiding in defense evasion by controlling who can view or modify a event log channel. Upon execution, the user shouldn''t be able to access the event log channel via the event viewer or via utilities such as "Get-EventLog" or "wevtutil". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_windows_event_log_access.yml - Administrative activity, still unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_windows_event_log_access.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

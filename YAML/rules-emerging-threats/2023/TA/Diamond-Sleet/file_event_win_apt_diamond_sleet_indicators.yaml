@@ -1,6 +1,6 @@
 id: 2bb4fa66-6ec7-5a93-8bc3-3bd20f258f60
 name: Diamond Sleet APT File Creation Indicators
-description: 'Detects file creation activity that is related to Diamond Sleet APT activity Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/file_event_win_apt_diamond_sleet_indicators.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/file_event_win_apt_diamond_sleet_indicators.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

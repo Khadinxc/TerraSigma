@@ -1,6 +1,6 @@
 id: 4b731ed4-52c8-59c5-89ca-1c19a8944b18
 name: Scheduled Task Creation Masquerading as System Processes
-description: 'Detects the creation of scheduled tasks that involve system processes, which may indicate malicious actors masquerading as or abusing these processes to execute payloads or maintain persistence. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_system_process.yml - Legitimate system administration tasks scheduling trusted system processes. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_system_process.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

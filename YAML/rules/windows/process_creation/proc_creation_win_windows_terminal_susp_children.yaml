@@ -1,6 +1,6 @@
 id: 8762e668-9c7e-5e60-baa7-efad4a0d3201
 name: Suspicious WindowsTerminal Child Processes
-description: 'Detects suspicious children spawned via the Windows Terminal application which could be a sign of persistence via WindowsTerminal (see references section) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_windows_terminal_susp_children.yml - Other legitimate "Windows Terminal" profiles | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_windows_terminal_susp_children.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

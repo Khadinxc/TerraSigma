@@ -1,6 +1,6 @@
 id: de1ce179-de0c-5586-828e-4d90702e4e69
 name: Potential Network Sniffing Activity Using Network Tools
-description: 'Detects potential network sniffing via use of network tools such as "tshark", "windump". Network sniffing refers to using the network interface on a system to monitor or capture information sent over a wired or wireless connection. An adversary may place a network interface into promiscuous mode to passively access data in transit over the network, or use span ports to capture a larger amount of data. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_network_sniffing.yml - Legitimate administration activity to troubleshoot network issues | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_network_sniffing.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

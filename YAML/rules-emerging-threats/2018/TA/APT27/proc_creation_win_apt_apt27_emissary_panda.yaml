@@ -1,6 +1,6 @@
 id: bdd66df9-1c72-5b8c-bb06-896b30d0b2a6
 name: APT27 - Emissary Panda Activity
-description: 'Detects the execution of DLL side-loading malware used by threat group Emissary Panda aka APT27 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT27/proc_creation_win_apt_apt27_emissary_panda.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT27/proc_creation_win_apt_apt27_emissary_panda.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

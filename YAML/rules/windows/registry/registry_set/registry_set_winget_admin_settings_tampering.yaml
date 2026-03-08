@@ -1,6 +1,6 @@
 id: a67c2840-29cc-56bd-ad81-4a387a5afa8a
 name: Winget Admin Settings Modification
-description: 'Detects changes to the AppInstaller (winget) admin settings. Such as enabling local manifest installations or disabling installer hash checks Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_winget_admin_settings_tampering.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_winget_admin_settings_tampering.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

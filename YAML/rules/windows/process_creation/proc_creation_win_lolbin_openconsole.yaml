@@ -1,6 +1,6 @@
 id: bbae5976-9137-583b-b035-7cd53b8b2a06
 name: Use of OpenConsole
-description: 'Detects usage of OpenConsole binary as a LOLBIN to launch other binaries to bypass application Whitelisting Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_openconsole.yml - Legitimate use by an administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_openconsole.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

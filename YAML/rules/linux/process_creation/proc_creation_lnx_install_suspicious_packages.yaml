@@ -1,6 +1,6 @@
 id: 151c292c-3a5a-515f-916d-9a57060558d0
 name: Suspicious Package Installed - Linux
-description: 'Detects installation of suspicious packages using system installation utilities Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_install_suspicious_packages.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_install_suspicious_packages.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

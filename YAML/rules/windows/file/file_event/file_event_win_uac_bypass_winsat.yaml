@@ -1,6 +1,6 @@
 id: 200ca560-dc89-5cb9-bd81-581ce5b13490
 name: UAC Bypass Abusing Winsat Path Parsing - File
-description: 'Detects the pattern of UAC Bypass using a path parsing issue in winsat.exe (UACMe 52) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_winsat.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_winsat.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 10ddb6c9-b627-5964-a1ee-4ed12215eafb
 name: Potentially Suspicious ASP.NET Compilation Via AspNetCompiler
-description: 'Detects execution of "aspnet_compiler.exe" with potentially suspicious paths for compilation. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_aspnet_compiler_susp_paths.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_aspnet_compiler_susp_paths.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

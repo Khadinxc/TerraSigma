@@ -1,6 +1,6 @@
 id: 054e33a3-a979-53dd-a734-2691cfeb1963
 name: Service Registry Key Deleted Via Reg.EXE
-description: 'Detects execution of "reg.exe" commands with the "delete" flag on services registry key. Often used by attacker to remove AV software services Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_delete_services.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_delete_services.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

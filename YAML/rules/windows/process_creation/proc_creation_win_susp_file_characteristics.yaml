@@ -1,6 +1,6 @@
 id: 3cc2ca85-c212-59ea-946c-46be0e713d96
 name: Suspicious File Characteristics Due to Missing Fields
-description: 'Detects Executables in the Downloads folder without FileVersion,Description,Product,Company likely created with py2exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_file_characteristics.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_file_characteristics.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

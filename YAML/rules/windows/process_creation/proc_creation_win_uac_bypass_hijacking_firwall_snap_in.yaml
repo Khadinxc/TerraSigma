@@ -1,6 +1,6 @@
 id: 1fd03396-3ef0-5ad1-9768-cbfb728f2310
 name: UAC Bypass via Windows Firewall Snap-In Hijack
-description: 'Detects attempts to bypass User Account Control (UAC) by hijacking the Microsoft Management Console (MMC) Windows Firewall snap-in Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_hijacking_firwall_snap_in.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_hijacking_firwall_snap_in.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

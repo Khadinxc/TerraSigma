@@ -1,6 +1,6 @@
 id: 66717773-37ca-5978-99c0-1708d5b78b0e
 name: COM Object Hijacking Via Modification Of Default System CLSID Default Value
-description: 'Detects potential COM object hijacking via modification of default system CLSID. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_com_hijacking_builtin.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_com_hijacking_builtin.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: e7d0c2aa-f942-5e8c-b8c7-52f97e198294
 name: Suspicious MacOS Firmware Activity
-description: 'Detects when a user manipulates with Firmward Password on MacOS. NOTE - this command has been disabled on silicon-based apple computers. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_macos_firmware_activity.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_macos_firmware_activity.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

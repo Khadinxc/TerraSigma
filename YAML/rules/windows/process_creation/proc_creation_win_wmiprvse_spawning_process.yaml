@@ -1,6 +1,6 @@
 id: 893ddba2-93f6-522d-8698-6062c2189ad7
 name: WmiPrvSE Spawned A Process
-description: 'Detects WmiPrvSE spawning a process Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmiprvse_spawning_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmiprvse_spawning_process.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

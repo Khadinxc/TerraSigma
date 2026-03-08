@@ -1,6 +1,6 @@
 id: 524d5d77-227d-57db-8c6b-61cf208445d5
 name: Suspicious MSDT Parent Process
-description: 'Detects msdt.exe executed by a suspicious parent as seen in CVE-2022-30190 / Follina exploitation Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msdt_susp_parent.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msdt_susp_parent.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

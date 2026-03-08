@@ -1,6 +1,6 @@
 id: 279b68d9-ead7-53f3-a268-f129b7f9dca0
 name: Winscp Execution From Non Standard Folder
-description: 'Detects the execution of Winscp from an a non standard folder. This could indicate the execution of Winscp portable. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_winscp_portable_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_winscp_portable_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

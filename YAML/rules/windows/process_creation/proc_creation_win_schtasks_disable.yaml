@@ -1,6 +1,6 @@
 id: ea3f2f00-77fb-5077-a7f4-104f4dec59eb
 name: Disable Important Scheduled Task
-description: 'Detects when adversaries stop services or processes by disabling their respective scheduled tasks in order to conduct data destructive activities Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_disable.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_disable.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

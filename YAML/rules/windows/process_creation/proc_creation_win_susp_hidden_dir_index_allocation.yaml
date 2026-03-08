@@ -1,6 +1,6 @@
 id: 378b8f92-3687-5a41-8a7e-63a2e81318a1
 name: Potential Hidden Directory Creation Via NTFS INDEX_ALLOCATION Stream - CLI
-description: 'Detects command line containing reference to the "::$index_allocation" stream, which can be used as a technique to prevent access to folders or files from tooling such as "explorer.exe" or "powershell.exe" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_hidden_dir_index_allocation.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_hidden_dir_index_allocation.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

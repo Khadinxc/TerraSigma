@@ -1,6 +1,6 @@
 id: 5accbde6-e0ab-50fd-9ef6-f33269f9f623
 name: Potential Webshell Creation On Static Website
-description: 'Detects the creation of files with certain extensions on a static web site. This can be indicative of potential uploads of a web shell. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_webshell_creation_detect.yml - Legitimate administrator or developer creating legitimate executable files in a web application folder | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_webshell_creation_detect.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 4e911122-9436-57e5-8156-41677806b3b1
 name: WSL Kali-Linux Usage
-description: 'Detects the use of Kali Linux through Windows Subsystem for Linux Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wsl_kali_linux_usage.yml - Legitimate installation or usage of Kali Linux WSL by administrators or security teams | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wsl_kali_linux_usage.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

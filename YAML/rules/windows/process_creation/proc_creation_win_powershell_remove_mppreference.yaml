@@ -1,6 +1,6 @@
 id: da54b730-074d-52e6-874b-9653cca86422
 name: Tamper Windows Defender Remove-MpPreference
-description: 'Detects attempts to remove Windows Defender configurations using the ''MpPreference'' cmdlet Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_remove_mppreference.yml - Legitimate PowerShell scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_remove_mppreference.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

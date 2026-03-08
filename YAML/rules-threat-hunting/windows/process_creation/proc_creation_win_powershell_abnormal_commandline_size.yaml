@@ -1,6 +1,6 @@
 id: 5f46dbfa-e50a-54ed-9638-9c8b6d9f642b
 name: Unusually Long PowerShell CommandLine
-description: 'Detects unusually long PowerShell command lines with a length of 1000 characters or more Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_abnormal_commandline_size.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_abnormal_commandline_size.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

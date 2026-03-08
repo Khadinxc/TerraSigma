@@ -1,6 +1,6 @@
 id: 5f7412aa-61c8-5bd4-ae18-53bee19877cf
 name: Change User Account Associated with the FAX Service
-description: 'Detect change of the user account associated with the FAX service to avoid the escalation problem. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_fax_change_service_user.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_fax_change_service_user.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 699e95cf-3206-5d03-b31b-059458920dd7
 name: Suspicious Spool Service Child Process
-description: 'Detects suspicious print spool service (spoolsv.exe) child processes. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_spoolsv_susp_child_processes.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_spoolsv_susp_child_processes.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

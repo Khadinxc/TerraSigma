@@ -1,6 +1,6 @@
 id: 7e6ee09d-7a86-51a7-9819-e78871d5c57a
 name: PUA - Suspicious ActiveDirectory Enumeration Via AdFind.EXE
-description: 'Detects active directory enumeration activity using known AdFind CLI flags Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_adfind_enumeration.yml - Authorized administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_adfind_enumeration.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: b789cf15-fe80-5b41-85ad-81d3017b6a29
 name: Suspicious Serv-U Process Pattern
-description: 'Detects a suspicious process pattern which could be a sign of an exploited Serv-U service Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_servu_susp_child_process.yml - Legitimate uses in which users or programs use the SSH service of Serv-U for remote command execution | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_servu_susp_child_process.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

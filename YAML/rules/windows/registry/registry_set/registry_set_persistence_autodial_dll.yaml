@@ -1,6 +1,6 @@
 id: 77374a56-3fbd-51a1-8f87-d9c544b63748
 name: Potential Persistence Via AutodialDLL
-description: 'Detects change the the "AutodialDLL" key which could be used as a persistence method to load custom DLL via the "ws2_32" library Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_autodial_dll.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_autodial_dll.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

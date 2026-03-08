@@ -1,6 +1,6 @@
 id: 312dace9-45ba-5c4d-83c3-e726c91ad9c6
 name: Potentially Suspicious Rundll32 Activity
-description: 'Detects suspicious execution of rundll32, with specific calls to some DLLs with known LOLBIN functionalities Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_activity.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_activity.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

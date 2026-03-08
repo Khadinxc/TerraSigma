@@ -1,6 +1,6 @@
 id: 19a40596-ab02-588b-9a5b-00a1d181db55
 name: Suspicious Download From File-Sharing Website Via Bitsadmin
-description: 'Detects usage of bitsadmin downloading a file from a suspicious domain Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download_file_sharing_domains.yml - Some legitimate apps use this, but limited. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download_file_sharing_domains.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

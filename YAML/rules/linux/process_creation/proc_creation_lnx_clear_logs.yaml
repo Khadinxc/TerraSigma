@@ -1,6 +1,6 @@
 id: 638e00c4-e524-52a7-9d10-da503233a77d
 name: Clear Linux Logs
-description: 'Detects attempts to clear logs on the system. Adversaries may clear system logs to hide evidence of an intrusion Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_clear_logs.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_clear_logs.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

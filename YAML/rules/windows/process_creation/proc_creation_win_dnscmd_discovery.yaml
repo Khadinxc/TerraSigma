@@ -1,6 +1,6 @@
 id: 98131a83-f459-578d-9c63-e1e9e890f454
 name: Potential Discovery Activity Via Dnscmd.EXE
-description: 'Detects an attempt to leverage dnscmd.exe to enumerate the DNS zones of a domain. DNS zones used to host the DNS records for a particular domain. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dnscmd_discovery.yml - Legitimate administration use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dnscmd_discovery.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

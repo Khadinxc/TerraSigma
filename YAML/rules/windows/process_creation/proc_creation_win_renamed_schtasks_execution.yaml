@@ -1,6 +1,6 @@
 id: 1c1ecc20-f7fb-52ac-96f9-39bb6f529f43
 name: Renamed Schtasks Execution
-description: 'Detects the execution of renamed schtasks.exe binary, which is a legitimate Windows utility used for scheduling tasks. One of the very common persistence techniques is schedule malicious tasks using schtasks.exe. Since, it is heavily abused, it is also heavily monitored by security products. To evade detection, threat actors may rename the schtasks.exe binary to schedule their malicious tasks. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_schtasks_execution.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_schtasks_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

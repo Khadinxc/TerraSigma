@@ -1,6 +1,6 @@
 id: 53634dca-d03a-5994-ae80-ba1e33a8b959
 name: Suspicious New Service Creation
-description: 'Detects creation of a new service via "sc" command or the powershell "new-service" cmdlet with suspicious binary paths Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_service_creation.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_service_creation.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

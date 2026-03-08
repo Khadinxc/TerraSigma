@@ -1,6 +1,6 @@
 id: af92aa33-ba66-5454-8328-62db96b9a414
 name: Set Files as System Files Using Attrib.EXE
-description: 'Detects the execution of "attrib" with the "+s" flag to mark files as system files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_attrib_system.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_attrib_system.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

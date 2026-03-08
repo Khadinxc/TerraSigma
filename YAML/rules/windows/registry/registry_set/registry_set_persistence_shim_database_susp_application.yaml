@@ -1,6 +1,6 @@
 id: bfe88406-b751-5f9d-bacc-efea0d190683
 name: Suspicious Shim Database Patching Activity
-description: 'Detects installation of new shim databases that try to patch sections of known processes for potential process injection or persistence. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_shim_database_susp_application.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_shim_database_susp_application.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

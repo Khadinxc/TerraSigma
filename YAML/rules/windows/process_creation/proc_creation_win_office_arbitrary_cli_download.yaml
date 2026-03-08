@@ -1,6 +1,6 @@
 id: 207ce611-61a0-58b1-acf2-f8ef475ade7d
 name: Potential Arbitrary File Download Using Office Application
-description: 'Detects potential arbitrary file download using a Microsoft Office application Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_arbitrary_cli_download.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_arbitrary_cli_download.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

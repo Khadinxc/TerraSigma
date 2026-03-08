@@ -1,6 +1,6 @@
 id: 01102acf-1a19-5ecb-b630-be5a7512c1e3
 name: Shadow Copies Creation Using Operating Systems Utilities
-description: 'Shadow Copies creation using operating systems utilities, possible credential access Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_shadow_copies_creation.yml - Legitimate administrator working with shadow copies, access for backup purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_shadow_copies_creation.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

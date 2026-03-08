@@ -1,6 +1,6 @@
 id: a24ce30a-7a45-5527-8476-b207418c0039
 name: PUA - Sysinternal Tool Execution - Registry
-description: 'Detects the execution of a Sysinternals Tool via the creation of the "accepteula" registry key Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_pua_sysinternals_execution_via_eula.yml - Legitimate use of SysInternals tools - Programs that use the same Registry Key | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_pua_sysinternals_execution_via_eula.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 6c8cd35e-28ed-5f20-bfe4-79f2aa56ffe2
 name: UAC Bypass Using DismHost
-description: 'Detects the pattern of UAC Bypass using DismHost DLL hijacking (UACMe 63) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_dismhost.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_dismhost.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

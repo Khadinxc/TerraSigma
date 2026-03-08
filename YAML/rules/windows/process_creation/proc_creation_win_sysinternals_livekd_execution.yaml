@@ -1,6 +1,6 @@
 id: cb89bc8e-da32-504e-bc9c-b6f834ff1d8d
 name: Potential Memory Dumping Activity Via LiveKD
-description: 'Detects execution of LiveKD based on PE metadata or image name Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_livekd_execution.yml - Administration and debugging activity (must be investigated) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_livekd_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

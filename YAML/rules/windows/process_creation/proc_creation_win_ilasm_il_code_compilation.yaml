@@ -1,6 +1,6 @@
 id: af481f7e-7e81-5019-9b66-7a2dc926948b
 name: C# IL Code Compilation Via Ilasm.EXE
-description: 'Detects the use of "Ilasm.EXE" in order to compile C# intermediate (IL) code to EXE or DLL. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ilasm_il_code_compilation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ilasm_il_code_compilation.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

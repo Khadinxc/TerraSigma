@@ -1,6 +1,6 @@
 id: fa8b216c-f3ca-53e1-9b0a-b58afdeee98d
 name: Execution Of Script Located In Potentially Suspicious Directory
-description: 'Detects executions of scripts located in potentially suspicious locations such as "/tmp" via a shell such as "bash", "sh", etc. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_shell_script_exec_from_susp_location.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_shell_script_exec_from_susp_location.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: c6aebdd8-84eb-5842-9ead-04b3dfd5dfa0
 name: Suspicious File Download From File Sharing Domain Via Curl.EXE
-description: 'Detects potentially suspicious file download from file sharing domains using curl.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_download_susp_file_sharing_domains.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_download_susp_file_sharing_domains.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

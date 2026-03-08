@@ -1,6 +1,6 @@
 id: 0e65dbbb-0ec6-50c5-b9c9-2a7c06b8bb80
 name: Office Macro File Creation
-description: 'Detects the creation of a new office macro files on the systems Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_macro_files_created.yml - Very common in environments that rely heavily on macro documents | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_macro_files_created.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

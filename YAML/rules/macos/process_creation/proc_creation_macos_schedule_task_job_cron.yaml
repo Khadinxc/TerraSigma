@@ -1,6 +1,6 @@
 id: 5334fa4c-b853-5477-b665-cab3bbcfe879
 name: Scheduled Cron Task/Job - MacOs
-description: 'Detects abuse of the cron utility to perform task scheduling for initial or recurring execution of malicious code. Detection will focus on crontab jobs uploaded from the tmp folder. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_schedule_task_job_cron.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_schedule_task_job_cron.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

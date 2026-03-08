@@ -1,6 +1,6 @@
 id: ca67fadd-562c-5702-bc3f-a1fcdcc1001b
 name: File Download Via Bitsadmin
-description: 'Detects usage of bitsadmin downloading a file Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download.yml - Some legitimate apps use this, but limited. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 1be970c5-374e-51fc-b588-b1c58f5d1d01
 name: Potential Configuration And Service Reconnaissance Via Reg.EXE
-description: 'Detects the usage of "reg.exe" in order to query reconnaissance information from the registry. Adversaries may interact with the Windows registry to gather information about credentials, the system, configuration, and installed software. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_query_registry.yml - Discord | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_query_registry.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: f17cdc8f-cede-5c12-a67b-6377acb596f1
 name: Suspicious Extrac32 Execution
-description: 'Download or Copy file with Extrac32 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_extrac32.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_extrac32.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

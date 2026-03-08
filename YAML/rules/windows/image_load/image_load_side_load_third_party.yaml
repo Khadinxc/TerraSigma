@@ -1,6 +1,6 @@
 id: 43666c19-8af9-57c6-9eba-3bff3527ceda
 name: Third Party Software DLL Sideloading
-description: 'Detects DLL sideloading of DLLs that are part of third party software (zoom, discord....etc) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_third_party.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_third_party.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

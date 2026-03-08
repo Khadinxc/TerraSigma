@@ -1,6 +1,6 @@
 id: c6f7c8a8-a064-58d5-9ccd-638239356b43
 name: Old TLS1.0/TLS1.1 Protocol Version Enabled
-description: 'Detects applications or users re-enabling old TLS versions by setting the "Enabled" value to "1" for the "Protocols" registry key. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_tls_protocol_old_version_enabled.yml - Legitimate enabling of the old tls versions due to incompatibility | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_tls_protocol_old_version_enabled.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

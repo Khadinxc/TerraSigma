@@ -1,6 +1,6 @@
 id: 41cd9b36-47fd-51f3-98d4-efc6abddf7b7
 name: Windows Credential Editor Registry
-description: 'Detects the use of Windows Credential Editor (WCE) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_hack_wce_reg.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_hack_wce_reg.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

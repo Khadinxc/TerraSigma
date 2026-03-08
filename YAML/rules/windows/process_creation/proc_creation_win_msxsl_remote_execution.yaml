@@ -1,6 +1,6 @@
 id: 1c3363ca-4ca2-5c4d-971c-26c9e1f1e608
 name: Remote XSL Execution Via Msxsl.EXE
-description: 'Detects the execution of the "msxsl" binary with an "http" keyword in the command line. This might indicate a potential remote execution of XSL files. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msxsl_remote_execution.yml - Msxsl is not installed by default and is deprecated, so unlikely on most systems. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msxsl_remote_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

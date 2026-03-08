@@ -1,6 +1,6 @@
 id: 31945bfa-4092-584c-b5ef-30977f731b0d
 name: HackTool - Empire PowerShell Launch Parameters
-description: 'Detects suspicious powershell command line parameters used in Empire Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_empire_powershell_launch.yml - Other tools that incidentally use the same command line parameters | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_empire_powershell_launch.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

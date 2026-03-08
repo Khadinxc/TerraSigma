@@ -1,6 +1,6 @@
 id: f408c8c6-0419-5c45-8911-4b9f7d7c19cd
 name: Terminal Service Process Spawn
-description: 'Detects a process spawned by the terminal service server process (this could be an indicator for an exploitation of CVE-2019-0708) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_svchost_termserv_proc_spawn.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_svchost_termserv_proc_spawn.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

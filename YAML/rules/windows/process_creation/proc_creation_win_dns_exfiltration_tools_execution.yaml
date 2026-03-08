@@ -1,6 +1,6 @@
 id: 4e3c280a-c7fc-5981-9758-5cfc563ec8c9
 name: DNS Exfiltration and Tunneling Tools Execution
-description: 'Well-known DNS Exfiltration tools execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dns_exfiltration_tools_execution.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dns_exfiltration_tools_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

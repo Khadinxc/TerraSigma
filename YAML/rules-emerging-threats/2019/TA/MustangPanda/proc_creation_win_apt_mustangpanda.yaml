@@ -1,6 +1,6 @@
 id: b3c755d3-10d2-57c5-984a-0394d4183367
 name: Mustang Panda Dropper
-description: 'Detects specific process parameters as used by Mustang Panda droppers Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/MustangPanda/proc_creation_win_apt_mustangpanda.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/MustangPanda/proc_creation_win_apt_mustangpanda.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

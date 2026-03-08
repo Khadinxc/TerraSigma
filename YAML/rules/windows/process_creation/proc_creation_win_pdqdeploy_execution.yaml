@@ -1,6 +1,6 @@
 id: ed02f638-7649-5900-b587-f7289e162050
 name: PDQ Deploy Remote Adminstartion Tool Execution
-description: 'Detect use of PDQ Deploy remote admin tool Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pdqdeploy_execution.yml - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pdqdeploy_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

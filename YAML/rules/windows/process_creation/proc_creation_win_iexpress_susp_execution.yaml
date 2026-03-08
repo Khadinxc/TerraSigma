@@ -1,6 +1,6 @@
 id: c40f6a87-ca7a-5f63-9906-da41b54cb156
 name: Self Extracting Package Creation Via Iexpress.EXE From Potentially Suspicious Location
-description: 'Detects the use of iexpress.exe to create binaries via Self Extraction Directive (SED) files located in potentially suspicious locations. This behavior has been observed in-the-wild by different threat actors. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iexpress_susp_execution.yml - Administrators building packages using iexpress.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iexpress_susp_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

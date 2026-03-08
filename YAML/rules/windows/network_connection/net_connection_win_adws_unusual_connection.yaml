@@ -1,6 +1,6 @@
 id: cc322334-42c5-5413-a64c-68d5fe4d6dc0
 name: Uncommon Connection to Active Directory Web Services
-description: 'Detects uncommon network connections to the Active Directory Web Services (ADWS) from processes not typically associated with ADWS management. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_adws_unusual_connection.yml - ADWS is used by a number of legitimate applications that need to interact with Active Directory. These applications should be added to the allow-listing to avoid false positives. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_adws_unusual_connection.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

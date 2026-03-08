@@ -1,6 +1,6 @@
 id: e6f8acd2-97a1-5f17-b8a7-5eb3a69bb5e2
 name: Suspicious LNK Double Extension File Created
-description: 'Detects the creation of files with an "LNK" as a second extension. This is sometimes used by malware as a method to abuse the fact that Windows hides the "LNK" extension by default. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_lnk_double_extension.yml - Some tuning is required for other general purpose directories of third party apps | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_lnk_double_extension.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

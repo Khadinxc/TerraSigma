@@ -1,6 +1,6 @@
 id: d35005a8-7e75-5715-926d-94aa4ab249ef
 name: Uncommon Child Process Of Setres.EXE
-description: 'Detects uncommon child process of Setres.EXE. Setres.EXE is a Windows server only process and tool that can be used to set the screen resolution. It can potentially be abused in order to launch any arbitrary file with a name containing the word "choice" from the current execution path. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_setres_uncommon_child_process.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_setres_uncommon_child_process.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

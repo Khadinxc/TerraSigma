@@ -1,6 +1,6 @@
 id: ec3c70ce-97b3-5224-a59e-c069bcc87930
 name: WinSxS Executable File Creation By Non-System Process
-description: 'Detects the creation of binaries in the WinSxS folder by non-system processes Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_winsxs_binary_creation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_winsxs_binary_creation.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

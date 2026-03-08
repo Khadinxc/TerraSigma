@@ -1,6 +1,6 @@
 id: 91f44db5-e31a-5394-b9b1-8ba817a6ed1f
 name: Suspicious Child Process of AspNetCompiler
-description: 'Detects potentially suspicious child processes of "aspnet_compiler.exe". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_aspnet_compiler_susp_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_aspnet_compiler_susp_child_process.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

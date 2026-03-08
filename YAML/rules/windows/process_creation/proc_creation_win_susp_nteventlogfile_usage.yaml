@@ -1,6 +1,6 @@
 id: 22ab993d-3c39-592e-a497-36232d04a6f5
 name: Potentially Suspicious Call To Win32_NTEventlogFile Class
-description: 'Detects usage of the WMI class "Win32_NTEventlogFile" in a potentially suspicious way (delete, backup, change permissions, etc.) from a PowerShell script Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_nteventlogfile_usage.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_nteventlogfile_usage.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

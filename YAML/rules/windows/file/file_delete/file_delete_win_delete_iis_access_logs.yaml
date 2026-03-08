@@ -1,6 +1,6 @@
 id: 2872a79f-83ff-5763-94cd-68895eee057a
 name: IIS WebServer Access Logs Deleted
-description: 'Detects the deletion of IIS WebServer access logs which may indicate an attempt to destroy forensic evidence Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_iis_access_logs.yml - During uninstallation of the IIS service - During log rotation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_iis_access_logs.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

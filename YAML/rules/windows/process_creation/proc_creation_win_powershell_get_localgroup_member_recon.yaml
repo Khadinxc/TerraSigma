@@ -1,6 +1,6 @@
 id: b5308933-0558-55f8-9994-e2a32d5f0f62
 name: Suspicious Reconnaissance Activity Using Get-LocalGroupMember Cmdlet
-description: 'Detects suspicious reconnaissance command line activity on Windows systems using the PowerShell Get-LocalGroupMember Cmdlet Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_get_localgroup_member_recon.yml - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_get_localgroup_member_recon.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

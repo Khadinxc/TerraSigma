@@ -1,6 +1,6 @@
 id: 97518f7a-be7c-56f6-baf7-b2316ff9226f
 name: Suspicious IIS Module Registration
-description: 'Detects a suspicious IIS module registration as described in Microsoft threat report on IIS backdoors Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_susp_module_registration.yml - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_susp_module_registration.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

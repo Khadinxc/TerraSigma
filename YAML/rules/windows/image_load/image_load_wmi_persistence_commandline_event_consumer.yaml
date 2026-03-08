@@ -1,6 +1,6 @@
 id: ec193e96-1019-5fa6-8ae7-8f4b6f383084
 name: WMI Persistence - Command Line Event Consumer
-description: 'Detects WMI command line event consumers Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_wmi_persistence_commandline_event_consumer.yml - Unknown (data set is too small; further testing needed) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_wmi_persistence_commandline_event_consumer.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

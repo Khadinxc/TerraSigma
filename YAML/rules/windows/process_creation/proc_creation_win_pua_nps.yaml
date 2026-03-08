@@ -1,6 +1,6 @@
 id: 6b5e5833-3f0c-5d99-a910-f9ee5f5c7148
 name: PUA - NPS Tunneling Tool Execution
-description: 'Detects the use of NPS, a port forwarding and intranet penetration proxy server Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_nps.yml - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_nps.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

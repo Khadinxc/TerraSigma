@@ -1,6 +1,6 @@
 id: e9279bee-983c-5e8a-a36c-ee5c3119ac5f
 name: Potential SmadHook.DLL Sideloading
-description: 'Detects potential DLL sideloading of "SmadHook.dll", a DLL used by SmadAV antivirus Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_smadhook.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_smadhook.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

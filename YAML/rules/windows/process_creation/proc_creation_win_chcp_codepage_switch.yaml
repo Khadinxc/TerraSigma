@@ -1,6 +1,6 @@
 id: 80129391-d0c9-585c-931a-4f29c9ff01d8
 name: Suspicious CodePage Switch Via CHCP
-description: 'Detects a code page switch in command line or batch scripts to a rare language Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_chcp_codepage_switch.yml - Administrative activity (adjust code pages according to your organization''s region) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_chcp_codepage_switch.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 25f51379-e4bf-5e3d-977d-355cec00cca9
 name: CobaltStrike Load by Rundll32
-description: 'Rundll32 can be use by Cobalt Strike with StartW function to load DLLs from the command line. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_cobaltstrike_load_by_rundll32.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_cobaltstrike_load_by_rundll32.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

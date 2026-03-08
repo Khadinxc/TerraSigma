@@ -1,6 +1,6 @@
 id: b1653919-e837-518d-b70e-1abb4c1f2bb3
 name: Use Icacls to Hide File to Everyone
-description: 'Detect use of icacls to deny access for everyone in Users folder sometimes used to hide malicious files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_icacls_deny.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_icacls_deny.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

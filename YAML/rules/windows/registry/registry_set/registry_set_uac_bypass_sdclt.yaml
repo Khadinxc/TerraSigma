@@ -1,6 +1,6 @@
 id: 89d30cac-3298-5226-b028-791e09d8df96
 name: UAC Bypass via Sdclt
-description: 'Detects the pattern of UAC Bypass using registry key manipulation of sdclt.exe (e.g. UACMe 53) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_uac_bypass_sdclt.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_uac_bypass_sdclt.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

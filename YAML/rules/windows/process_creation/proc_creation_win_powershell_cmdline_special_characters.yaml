@@ -1,6 +1,6 @@
 id: 85d7c2a3-2452-57cb-a33b-3fc30ad4a225
 name: Potential PowerShell Command Line Obfuscation
-description: 'Detects the PowerShell command lines with special characters Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cmdline_special_characters.yml - Amazon SSM Document Worker - Windows Defender ATP | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cmdline_special_characters.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

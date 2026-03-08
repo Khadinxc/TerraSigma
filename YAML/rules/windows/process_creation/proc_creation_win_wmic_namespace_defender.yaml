@@ -1,6 +1,6 @@
 id: f7b8372d-b441-5032-8e49-91a3fa47bc47
 name: Potential Windows Defender Tampering Via Wmic.EXE
-description: 'Detects potential tampering with Windows Defender settings such as adding exclusion using wmic Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_namespace_defender.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_namespace_defender.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: eccffbcd-5e2a-5cbb-bb25-2ef5e7025308
 name: Potentially Suspicious Office Document Executed From Trusted Location
-description: 'Detects the execution of an Office application that points to a document that is located in a trusted location. Attackers often used this to avoid macro security and execute their malicious code. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_exec_from_trusted_locations.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_exec_from_trusted_locations.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

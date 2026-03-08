@@ -1,6 +1,6 @@
 id: dbdf6ba0-9ce6-5813-83ab-66f7aaf47778
 name: Change the Fax Dll
-description: 'Detect possible persistence using Fax DLL load when service restart Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_fax_dll_persistance.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_fax_dll_persistance.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

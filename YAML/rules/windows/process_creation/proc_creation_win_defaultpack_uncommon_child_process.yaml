@@ -1,6 +1,6 @@
 id: f03e7a53-7ff1-58bf-8f9e-13865494f180
 name: Uncommon Child Process Of Defaultpack.EXE
-description: 'Detects uncommon child processes of "DefaultPack.EXE" binary as a proxy to launch other programs Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_defaultpack_uncommon_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_defaultpack_uncommon_child_process.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

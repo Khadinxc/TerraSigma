@@ -1,6 +1,6 @@
 id: d2822166-2021-5c5a-9ccb-762496623036
 name: PowerShell Base64 Encoded IEX Cmdlet
-description: 'Detects usage of a base64 encoded "IEX" cmdlet in a process command line Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_iex.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_iex.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

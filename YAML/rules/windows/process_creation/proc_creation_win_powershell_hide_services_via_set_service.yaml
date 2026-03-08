@@ -1,6 +1,6 @@
 id: 8a9fc3ea-1ac5-5ac3-8678-756da71eb338
 name: Abuse of Service Permissions to Hide Services Via Set-Service
-description: 'Detects usage of the "Set-Service" powershell cmdlet to configure a new SecurityDescriptor that allows a service to be hidden from other utilities such as "sc.exe", "Get-Service"...etc. (Works only in powershell 7) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_hide_services_via_set_service.yml - Rare intended use of hidden services | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_hide_services_via_set_service.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

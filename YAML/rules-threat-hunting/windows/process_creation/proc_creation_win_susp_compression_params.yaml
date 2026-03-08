@@ -1,6 +1,6 @@
 id: 94ed698f-2509-57d5-912e-b85e27526c84
 name: Potentially Suspicious Compression Tool Parameters
-description: 'Detects potentially suspicious command line arguments of common data compression tools Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_compression_params.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_compression_params.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

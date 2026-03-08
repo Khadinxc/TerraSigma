@@ -1,6 +1,6 @@
 id: 08b956b2-eac9-597b-98a4-89b690222fa4
 name: Successful Account Login Via WMI
-description: 'Detects successful logon attempts performed with WMI Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/account_management/win_security_susp_wmi_login.yml - Monitoring tools - Legitimate system administration | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/account_management/win_security_susp_wmi_login.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

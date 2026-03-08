@@ -1,6 +1,6 @@
 id: ebe54ffc-8e74-5746-ba09-e25bbbdd1c26
 name: Suspicious PowerShell Encoded Command Patterns
-description: 'Detects PowerShell command line patterns in combincation with encoded commands that often appear in malware infection chains Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_encoded_cmd_patterns.yml - Other tools that work with encoded scripts in the command line instead of script files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_encoded_cmd_patterns.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

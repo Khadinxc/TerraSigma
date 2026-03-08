@@ -1,6 +1,6 @@
 id: 5bbb4702-037f-5ba6-b661-a6c754a9d723
 name: Potential RoboForm.DLL Sideloading
-description: 'Detects potential DLL sideloading of "roboform.dll", a DLL used by RoboForm Password Manager Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_robform.yml - If installed on a per-user level, the path would be located in "AppData\Local". Add additional filters to reflect this mode of installation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_robform.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

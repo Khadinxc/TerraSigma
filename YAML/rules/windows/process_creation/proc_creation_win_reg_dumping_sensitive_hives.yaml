@@ -1,6 +1,6 @@
 id: b48d07e1-1105-5cb9-a0c9-51bd7963d4d5
 name: Dumping of Sensitive Hives Via Reg.EXE
-description: 'Detects the usage of "reg.exe" in order to dump sensitive registry hives. This includes SAM, SYSTEM and SECURITY hives. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_dumping_sensitive_hives.yml - Dumping hives for legitimate purpouse i.e. backup or forensic investigation | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_dumping_sensitive_hives.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

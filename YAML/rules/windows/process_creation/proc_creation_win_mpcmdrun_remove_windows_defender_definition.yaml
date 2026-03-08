@@ -1,6 +1,6 @@
 id: b90f2e20-c936-5f84-99a9-3a32b10e4b83
 name: Windows Defender Definition Files Removed
-description: 'Adversaries may disable security tools to avoid possible detection of their tools and activities by removing Windows Defender Definition Files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mpcmdrun_remove_windows_defender_definition.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mpcmdrun_remove_windows_defender_definition.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

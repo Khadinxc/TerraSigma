@@ -1,6 +1,6 @@
 id: ffea7bd3-0ffb-509a-acf4-082f0c3f4a74
 name: Suspicious Schtasks Schedule Types
-description: 'Detects scheduled task creations or modification on a suspicious schedule type Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_schedule_type.yml - Legitimate processes that run at logon. Filter according to your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_schedule_type.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

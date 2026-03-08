@@ -1,6 +1,6 @@
 id: 0153771a-48ec-5360-9fb2-fdc3dbecfb24
 name: WMI Persistence - Script Event Consumer
-description: 'Detects WMI script event consumers Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmi_persistence_script_event_consumer.yml - Legitimate event consumers - Dell computers on some versions register an event consumer that is known to cause false positives when brightness is changed by the corresponding keyboard button | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmi_persistence_script_event_consumer.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

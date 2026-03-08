@@ -1,6 +1,6 @@
 id: 31fcab9e-a55d-531d-903e-dc0bd803fc0f
 name: Arbitrary File Download Via IMEWDBLD.EXE
-description: 'Detects usage of "IMEWDBLD.exe" to download arbitrary files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_imewbdld_download.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_imewbdld_download.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

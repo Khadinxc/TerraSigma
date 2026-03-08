@@ -1,6 +1,6 @@
 id: 6573c6cd-d9f9-5035-9720-33e5b2622d8b
 name: Diskshadow Script Mode - Uncommon Script Extension Execution
-description: 'Detects execution of "Diskshadow.exe" in script mode to execute an script with a potentially uncommon extension. Initial baselining of the allowed extension list is required. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_diskshadow_script_mode_susp_ext.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_diskshadow_script_mode_susp_ext.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

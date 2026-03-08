@@ -1,6 +1,6 @@
 id: f00d5bbf-4979-53f6-9f4e-c00fd23e1fd0
 name: Network Connection Initiated From Users\Public Folder
-description: 'Detects a network connection initiated from a process located in the "C:\Users\Public" folder. Attacker are known to drop their malicious payloads and malware in this directory as its writable by everyone. Use this rule to hunt for potential suspicious or uncommon activity in your environement. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/net_connection_win_susp_initaited_public_folder.yml - Likely from legitimate third party application that execute from the "Public" directory. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/network_connection/net_connection_win_susp_initaited_public_folder.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

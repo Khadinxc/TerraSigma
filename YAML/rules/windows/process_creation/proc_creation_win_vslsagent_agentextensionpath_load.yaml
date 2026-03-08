@@ -1,6 +1,6 @@
 id: b892dcef-15c6-54b6-b9d8-dc1f62d76fcc
 name: Suspicious Vsls-Agent Command With AgentExtensionPath Load
-description: 'Detects Microsoft Visual Studio vsls-agent.exe lolbin execution with a suspicious library load using the --agentExtensionPath parameter Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vslsagent_agentextensionpath_load.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vslsagent_agentextensionpath_load.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: ecf80212-b1d4-5a62-9dcc-b9fbf4fae5b4
 name: ETW Logging Tamper In .NET Processes Via CommandLine
-description: 'Detects changes to environment variables related to ETW logging via the CommandLine. This could indicate potential adversaries stopping ETW providers recording loaded .NET assemblies. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_etw_modification_cmdline.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_etw_modification_cmdline.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

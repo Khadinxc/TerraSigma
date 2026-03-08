@@ -1,6 +1,6 @@
 id: 6968aa51-4b82-587c-92f9-943f7cc48d0a
 name: Suspicious Execution via macOS Script Editor
-description: 'Detects when the macOS Script Editor utility spawns an unusual child process. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_execution_macos_script_editor.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_execution_macos_script_editor.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

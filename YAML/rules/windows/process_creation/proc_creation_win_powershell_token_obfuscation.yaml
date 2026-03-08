@@ -1,6 +1,6 @@
 id: ecfe4261-3b3f-5c7b-9e9f-5561025d6376
 name: Powershell Token Obfuscation - Process Creation
-description: 'Detects TOKEN OBFUSCATION technique from Invoke-Obfuscation Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_token_obfuscation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_token_obfuscation.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

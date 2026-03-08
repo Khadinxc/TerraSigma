@@ -1,6 +1,6 @@
 id: da8b0823-7ee9-58b9-911d-8c079869a996
 name: Potential CobaltStrike Service Installations - Registry
-description: 'Detects known malicious service installs that appear in cases in which a Cobalt Strike beacon elevates privileges or lateral movement. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_cobaltstrike_service_installs.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_cobaltstrike_service_installs.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

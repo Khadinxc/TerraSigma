@@ -1,6 +1,6 @@
 id: 4b1b2803-06c2-595d-aa00-e24aaa7fdbb6
 name: Invoke-Obfuscation Via Stdin
-description: 'Detects Obfuscated Powershell via Stdin in Scripts Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_via_stdin.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_via_stdin.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

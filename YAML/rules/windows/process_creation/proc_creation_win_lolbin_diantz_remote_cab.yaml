@@ -1,6 +1,6 @@
 id: ee6f4101-08c9-530b-aad7-6ad602971540
 name: Suspicious Diantz Download and Compress Into a CAB File
-description: 'Download and compress a remote file and store it in a cab file on local machine. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_diantz_remote_cab.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_diantz_remote_cab.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

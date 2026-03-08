@@ -1,6 +1,6 @@
 id: c3ab77c6-c6f8-50cf-9100-48bb26aeeb0b
 name: Connection Proxy
-description: 'Detects setting proxy configuration Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_proxy_connection.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_proxy_connection.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

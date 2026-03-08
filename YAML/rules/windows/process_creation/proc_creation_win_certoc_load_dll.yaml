@@ -1,6 +1,6 @@
 id: a3756bb2-4a94-59fa-b710-2a74792a29f2
 name: DLL Loaded via CertOC.EXE
-description: 'Detects when a user installs certificates by using CertOC.exe to loads the target DLL file. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certoc_load_dll.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certoc_load_dll.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

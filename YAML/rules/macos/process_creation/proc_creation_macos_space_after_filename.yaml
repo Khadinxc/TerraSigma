@@ -1,6 +1,6 @@
 id: eb501d01-da88-5ac9-9c56-aa69682f7ca9
 name: Space After Filename - macOS
-description: 'Detects attempts to masquerade as legitimate files by adding a space to the end of the filename. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_space_after_filename.yml - Mistyped commands or legitimate binaries named to match the pattern | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_space_after_filename.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

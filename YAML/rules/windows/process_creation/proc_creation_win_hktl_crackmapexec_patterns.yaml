@@ -1,6 +1,6 @@
 id: c97d4125-e7dd-5f25-ae88-0f19c97b5c8d
 name: HackTool - CrackMapExec Process Patterns
-description: 'Detects suspicious process patterns found in logs when CrackMapExec is used Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_crackmapexec_patterns.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_crackmapexec_patterns.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

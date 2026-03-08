@@ -1,6 +1,6 @@
 id: b43d12d8-8867-5cc0-b567-47fe66bd6aa5
 name: Suspicious Curl File Upload - Linux
-description: 'Detects a suspicious curl process start the adds a file to a web request Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_curl_fileupload.yml - Scripts created by developers and admins | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_curl_fileupload.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

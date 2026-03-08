@@ -1,6 +1,6 @@
 id: 04342d09-f4a3-5af2-9fb1-df41a4b3e8dd
 name: Mint Sandstorm - Log4J Wstomcat Process Execution
-description: 'Detects Log4J Wstomcat process execution as seen in Mint Sandstorm activity Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Mint-Sandstorm/proc_creation_win_apt_mint_sandstorm_log4j_wstomcat_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Mint-Sandstorm/proc_creation_win_apt_mint_sandstorm_log4j_wstomcat_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

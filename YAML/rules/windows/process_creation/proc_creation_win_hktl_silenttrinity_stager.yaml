@@ -1,6 +1,6 @@
 id: 3b485103-d7c2-5ff5-866a-3210f5a9f29b
 name: HackTool - SILENTTRINITY Stager Execution
-description: 'Detects SILENTTRINITY stager use via PE metadata Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_silenttrinity_stager.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_silenttrinity_stager.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

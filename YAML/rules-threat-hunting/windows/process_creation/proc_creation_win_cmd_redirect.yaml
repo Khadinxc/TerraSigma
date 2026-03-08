@@ -1,6 +1,6 @@
 id: 3ed0552c-043a-5e47-b53f-c3f7dd3a10c4
 name: CMD Shell Output Redirect
-description: 'Detects the use of the redirection character ">" to redirect information on the command line. This technique is sometimes used by malicious actors in order to redirect the output of reconnaissance commands such as "hostname" and "dir" to files for future exfiltration. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_cmd_redirect.yml - Internet Download Manager extensions use named pipes and redirection via CLI. Filter it out if you use it in your environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_cmd_redirect.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

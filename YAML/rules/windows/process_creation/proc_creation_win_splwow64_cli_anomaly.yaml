@@ -1,6 +1,6 @@
 id: adc09bc8-3005-535c-b411-5dd765b4984c
 name: Suspicious Splwow64 Without Params
-description: 'Detects suspicious Splwow64.exe process without any command line parameters Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_splwow64_cli_anomaly.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_splwow64_cli_anomaly.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

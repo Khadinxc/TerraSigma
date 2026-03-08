@@ -1,6 +1,6 @@
 id: f1975051-1597-53c6-b242-13b1692eba51
 name: Disable Windows Event Logging Via Registry
-description: 'Detects tampering with the "Enabled" registry key in order to disable Windows logging of a Windows event channel Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_winevt_logging.yml - Rare falsepositives may occur from legitimate administrators disabling specific event log for troubleshooting | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_winevt_logging.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

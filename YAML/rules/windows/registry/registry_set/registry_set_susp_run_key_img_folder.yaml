@@ -1,6 +1,6 @@
 id: 730fd806-643d-579d-8517-d9b3f3bb843b
 name: New RUN Key Pointing to Suspicious Folder
-description: 'Detects suspicious new RUN key element pointing to an executable in a suspicious folder Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_run_key_img_folder.yml - Software using weird folders for updates | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_run_key_img_folder.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

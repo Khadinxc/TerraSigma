@@ -1,6 +1,6 @@
 id: 5c136a6c-8ff4-59d1-8427-47c0bdba0462
 name: Forest Blizzard APT - Process Creation Activity
-description: 'Detects the execution of specific processes and command line combination. These were seen being created by Forest Blizzard as described by MSFT. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/proc_creation_win_apt_forest_blizzard_activity.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2024/TA/Forest-Blizzard/proc_creation_win_apt_forest_blizzard_activity.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: ca902094-f0d7-5c4f-8fb1-f6e678b25880
 name: Hidden Flag Set On File/Directory Via Chflags - MacOS
-description: 'Detects the execution of the "chflags" utility with the "hidden" flag, in order to hide files on MacOS. When a file or directory has this hidden flag set, it becomes invisible to the default file listing commands and in graphical file browsers. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_chflags_hidden_flag.yml - Legitimate usage of chflags by administrators and users. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_chflags_hidden_flag.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

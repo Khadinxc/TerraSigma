@@ -1,6 +1,6 @@
 id: c0f9af14-7690-5f4e-bc01-114f7fc80990
 name: Suspicious Msiexec Quiet Install From Remote Location
-description: 'Detects usage of Msiexec.exe to install packages hosted remotely quietly Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_install_remote.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_install_remote.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

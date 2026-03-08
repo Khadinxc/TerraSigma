@@ -1,6 +1,6 @@
 id: 6b119e39-a661-5b76-a148-5e0c6ab30176
 name: Visual Studio Code Tunnel Service Installation
-description: 'Detects the installation of VsCode tunnel (code-tunnel) as a service. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_tunnel_service_install.yml - Legitimate installation of code-tunnel as a service | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_tunnel_service_install.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

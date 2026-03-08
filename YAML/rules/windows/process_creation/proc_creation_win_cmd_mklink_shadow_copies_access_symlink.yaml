@@ -1,6 +1,6 @@
 id: 4f8afc40-a4c1-5ebe-8344-ba9c9ccb4fbe
 name: VolumeShadowCopy Symlink Creation Via Mklink
-description: 'Shadow Copies storage symbolic link creation using operating systems utilities Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_mklink_shadow_copies_access_symlink.yml - Legitimate administrator working with shadow copies, access for backup purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_mklink_shadow_copies_access_symlink.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

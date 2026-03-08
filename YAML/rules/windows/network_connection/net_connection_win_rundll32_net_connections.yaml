@@ -1,6 +1,6 @@
 id: 2a66b772-1612-59ee-9118-19f7916226fe
 name: Rundll32 Internet Connection
-description: 'Detects a rundll32 that communicates with public IP addresses Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_rundll32_net_connections.yml - Communication to other corporate systems that use IP addresses from public address spaces | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_rundll32_net_connections.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

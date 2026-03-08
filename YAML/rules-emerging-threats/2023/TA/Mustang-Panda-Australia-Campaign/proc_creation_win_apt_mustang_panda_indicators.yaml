@@ -1,6 +1,6 @@
 id: e203e216-483a-5040-938b-84991adc7218
 name: Potential APT Mustang Panda Activity Against Australian Gov
-description: 'Detects specific command line execution used by Mustang Panda in a targeted attack against the Australian government as reported by Lab52 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Mustang-Panda-Australia-Campaign/proc_creation_win_apt_mustang_panda_indicators.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Mustang-Panda-Australia-Campaign/proc_creation_win_apt_mustang_panda_indicators.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 7a56f4b5-b266-5f3e-9e5a-58408cad7e57
 name: Suspicious IIS URL GlobalRules Rewrite Via AppCmd
-description: 'Detects usage of "appcmd" to create new global URL rewrite rules. This behaviour has been observed being used by threat actors to add new rules so they can access their webshells. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_appcmd_susp_rewrite_rule.yml - Legitimate usage of appcmd to add new URL rewrite rules | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_appcmd_susp_rewrite_rule.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

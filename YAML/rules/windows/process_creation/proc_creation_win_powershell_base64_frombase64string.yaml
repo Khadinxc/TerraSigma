@@ -1,6 +1,6 @@
 id: 06665ebd-3fb7-5a49-b801-f55c0a563554
 name: PowerShell Base64 Encoded FromBase64String Cmdlet
-description: 'Detects usage of a base64 encoded "FromBase64String" cmdlet in a process command line Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_frombase64string.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_frombase64string.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

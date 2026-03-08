@@ -1,6 +1,6 @@
 id: 5313e28b-0513-56d0-b86b-2bd18a87b7b2
 name: Use NTFS Short Name in Command Line
-description: 'Detect use of the Windows 8.3 short name. Which could be used as a method to avoid command-line detection Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_ntfs_short_name_use_cli.yml - Applications could use this notation occasionally which might generate some false positives. In that case Investigate the parent and child process. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_ntfs_short_name_use_cli.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

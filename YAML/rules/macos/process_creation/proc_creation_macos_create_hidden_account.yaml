@@ -1,6 +1,6 @@
 id: bb7d5971-d28b-5396-8b32-75f3d1988c06
 name: Hidden User Creation
-description: 'Detects creation of a hidden user account on macOS (UserID < 500) or with IsHidden option Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_create_hidden_account.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_create_hidden_account.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

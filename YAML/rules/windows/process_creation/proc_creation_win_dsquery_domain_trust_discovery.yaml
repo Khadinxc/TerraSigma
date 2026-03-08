@@ -1,6 +1,6 @@
 id: dcfc5189-ce42-5058-a5a5-2add38ed0e81
 name: Domain Trust Discovery Via Dsquery
-description: 'Detects execution of "dsquery.exe" for domain trust discovery Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dsquery_domain_trust_discovery.yml - Legitimate use of the utilities by legitimate user for legitimate reason | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dsquery_domain_trust_discovery.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

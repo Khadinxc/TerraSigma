@@ -1,6 +1,6 @@
 id: 93a2452c-7c27-5e9d-9404-9e72824e455e
 name: Potential Credential Dumping Via LSASS SilentProcessExit Technique
-description: 'Detects changes to the Registry in which a monitor program gets registered to dump the memory of the lsass.exe process Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_silentprocessexit_lsass.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_silentprocessexit_lsass.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

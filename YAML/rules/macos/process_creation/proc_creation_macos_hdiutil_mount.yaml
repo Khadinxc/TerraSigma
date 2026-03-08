@@ -1,6 +1,6 @@
 id: f68ec464-a3e0-50db-8d21-f8aaec2b1923
 name: Disk Image Mounting Via Hdiutil - MacOS
-description: 'Detects the execution of the hdiutil utility in order to mount disk images. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_hdiutil_mount.yml - Legitimate usage of hdiutil by administrators and users. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_hdiutil_mount.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

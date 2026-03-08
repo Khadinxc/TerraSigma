@@ -1,6 +1,6 @@
 id: 2ba96c0d-e37e-5e13-b7fb-8eee56d22b19
 name: IE Change Domain Zone
-description: 'Hides the file extension through modification of the registry Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_change_security_zones.yml - Administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_change_security_zones.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

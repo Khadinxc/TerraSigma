@@ -1,6 +1,6 @@
 id: bfb7bfb5-0add-5681-8524-55e03ee8bb7d
 name: CodePage Modification Via MODE.COM
-description: 'Detects a CodePage modification using the "mode.com" utility. This behavior has been used by threat actors behind Dharma ransomware. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_mode_codepage_change.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_mode_codepage_change.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 23ca6be2-148d-57bf-9498-2f06816d5f1b
 name: PowerShell Set-Acl On Windows Folder
-description: 'Detects PowerShell scripts to set the ACL to a file in the Windows folder Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_set_acl_susp_location.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_set_acl_susp_location.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

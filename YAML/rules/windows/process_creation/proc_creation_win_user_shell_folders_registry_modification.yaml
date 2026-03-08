@@ -1,6 +1,6 @@
 id: 9a1b5932-8270-5764-aa87-886186bd538b
 name: User Shell Folders Registry Modification via CommandLine
-description: 'Detects modifications to User Shell Folders registry values via reg.exe or PowerShell, which could indicate persistence attempts. Attackers may modify User Shell Folders registry values to point to malicious executables or scripts that will be executed during startup. This technique is often used to maintain persistence on a compromised system by ensuring that malicious payloads are executed automatically. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_user_shell_folders_registry_modification.yml - Usage of reg.exe or PowerShell to modify User Shell Folders for legitimate purposes; but rare. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_user_shell_folders_registry_modification.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
