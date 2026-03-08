@@ -1,6 +1,6 @@
 id: df9db065-77be-5075-850c-9bdef4048f33
 name: Disabled Volume Snapshots
-description: 'Detects commands that temporarily turn off Volume Snapshots Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_volsnap_disable.yml - Legitimate administration | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_volsnap_disable.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

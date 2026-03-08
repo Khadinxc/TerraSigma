@@ -1,6 +1,6 @@
 id: 811bb664-1f0e-5707-ab98-44fe207a6915
 name: HackTool - SecurityXploded Execution
-description: 'Detects the execution of SecurityXploded Tools Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_secutyxploded.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_secutyxploded.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

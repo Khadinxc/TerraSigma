@@ -1,6 +1,6 @@
 id: 1c4cdf49-b16a-53ba-a67f-cdf01fb6636c
 name: Disk Image Creation Via Hdiutil - MacOS
-description: 'Detects the execution of the hdiutil utility in order to create a disk image. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_hdiutil_create.yml - Legitimate usage of hdiutil by administrators and users. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_hdiutil_create.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

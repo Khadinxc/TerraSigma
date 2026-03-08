@@ -1,6 +1,6 @@
 id: b47328c8-2a10-5842-a0c6-9cd5408e2ee8
 name: System Shutdown/Reboot - MacOs
-description: 'Adversaries may shutdown/reboot systems to interrupt access to, or aid in the destruction of, those systems. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_system_shutdown_reboot.yml - Legitimate administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_system_shutdown_reboot.yml'
+description: No description provided
 severity: Informational
 queryFrequency: PT1H
 queryPeriod: PT1H

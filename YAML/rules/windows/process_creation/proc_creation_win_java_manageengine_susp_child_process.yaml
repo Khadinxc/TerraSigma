@@ -1,6 +1,6 @@
 id: 127b5436-02c4-5feb-a2ff-3fbd5be2bcf9
 name: Suspicious Child Process Of Manage Engine ServiceDesk
-description: 'Detects suspicious child processes of the "Manage Engine ServiceDesk Plus" Java web service Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_java_manageengine_susp_child_process.yml - Legitimate sub processes started by Manage Engine ServiceDesk Pro | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_java_manageengine_susp_child_process.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: ce1e1835-1b08-5761-bea6-edd7825940b3
 name: Bypass UAC Using Event Viewer
-description: 'Bypasses User Account Control using Event Viewer and a relevant Windows Registry modification Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_bypass_uac_using_eventviewer.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_bypass_uac_using_eventviewer.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

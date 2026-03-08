@@ -1,6 +1,6 @@
 id: dd6d04dc-07f5-59c8-beb2-af428e0ef883
 name: Potential Azure Browser SSO Abuse
-description: 'Detects abusing Azure Browser SSO by requesting OAuth 2.0 refresh tokens for an Azure-AD-authenticated Windows user (i.e. the machine is joined to Azure AD and a user logs in with their Azure AD account) wanting to perform SSO authentication in the browser. An attacker can use this to authenticate to Azure AD in a browser as that user. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_azure_microsoft_account_token_provider_dll_load.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_azure_microsoft_account_token_provider_dll_load.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

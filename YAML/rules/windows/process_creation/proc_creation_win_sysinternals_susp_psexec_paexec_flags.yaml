@@ -1,6 +1,6 @@
 id: 5f9b0f4c-d2f1-53ee-b3c4-f0eea2d204d4
 name: Potential Privilege Escalation To LOCAL SYSTEM
-description: 'Detects unknown program using commandline flags usually used by tools such as PsExec and PAExec to start programs with SYSTEM Privileges Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_susp_psexec_paexec_flags.yml - Weird admins that rename their tools - Software companies that bundle PsExec/PAExec with their software and rename it, so that it is less embarrassing | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_susp_psexec_paexec_flags.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 373e9280-fd4c-5cc1-ba6e-602774c87f0a
 name: Outlook Security Settings Updated - Registry
-description: 'Detects changes to the registry values related to outlook security settings Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_outlook_security_settings.yml - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_outlook_security_settings.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

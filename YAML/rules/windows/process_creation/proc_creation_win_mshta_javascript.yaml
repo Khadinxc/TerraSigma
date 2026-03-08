@@ -1,6 +1,6 @@
 id: 4fa2d826-ba7b-5a56-86fc-2d07ae3008d5
 name: Suspicious JavaScript Execution Via Mshta.EXE
-description: 'Detects execution of javascript code using "mshta.exe". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_javascript.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_javascript.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

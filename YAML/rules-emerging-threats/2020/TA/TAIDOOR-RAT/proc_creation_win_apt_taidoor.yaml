@@ -1,6 +1,6 @@
 id: 30d0f4c3-47ab-5fca-b47f-6435ca9b6ecf
 name: TAIDOOR RAT DLL Load
-description: 'Detects specific process characteristics of Chinese TAIDOOR RAT malware load Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/TAIDOOR-RAT/proc_creation_win_apt_taidoor.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/TAIDOOR-RAT/proc_creation_win_apt_taidoor.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

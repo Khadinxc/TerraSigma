@@ -1,6 +1,6 @@
 id: 6c243ca0-ff91-5d4e-ae05-aafb17df5a37
 name: Copy Passwd Or Shadow From TMP Path
-description: 'Detects when the file "passwd" or "shadow" is copied from tmp path Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_cp_passwd_or_shadow_tmp.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_cp_passwd_or_shadow_tmp.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

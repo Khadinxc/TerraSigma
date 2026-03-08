@@ -1,6 +1,6 @@
 id: 7541c031-9562-592e-bee7-4d7bc4e496ba
 name: NET NGenAssemblyUsageLog Registry Key Tamper
-description: 'Detects changes to the NGenAssemblyUsageLog registry key. .NET Usage Log output location can be controlled by setting the NGenAssemblyUsageLog CLR configuration knob in the Registry or by configuring an environment variable (as described in the next section). By simplify specifying an arbitrary value (e.g. fake output location or junk data) for the expected value, a Usage Log file for the .NET execution context will not be created. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_net_cli_ngenassemblyusagelog.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_net_cli_ngenassemblyusagelog.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

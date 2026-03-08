@@ -1,6 +1,6 @@
 id: cb573546-9d67-567e-8456-6bd5f7428996
 name: Network Connection Initiated To AzureWebsites.NET By Non-Browser Process
-description: 'Detects an initiated network connection by a non browser process on the system to "azurewebsites.net". The latter was often used by threat actors as a malware hosting and exfiltration site. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_azurewebsites.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_domain_azurewebsites.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

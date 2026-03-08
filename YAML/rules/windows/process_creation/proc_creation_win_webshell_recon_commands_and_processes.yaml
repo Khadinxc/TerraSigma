@@ -1,6 +1,6 @@
 id: 8b5324b1-ab2a-5b6e-acdc-af6d2576adca
 name: Webshell Detection With Command Line Keywords
-description: 'Detects certain command line parameters often used during reconnaissance activity via web shells Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_webshell_recon_commands_and_processes.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_webshell_recon_commands_and_processes.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

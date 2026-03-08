@@ -1,6 +1,6 @@
 id: 38c55d5c-e2a8-52ec-8964-40af4b52c3de
 name: WINEKEY Registry Modification
-description: 'Detects potential malicious modification of run keys by winekey or team9 backdoor Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_runkey_winekey.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_runkey_winekey.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

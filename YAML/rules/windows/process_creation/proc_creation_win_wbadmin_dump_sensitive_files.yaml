@@ -1,6 +1,6 @@
 id: ff99cf77-b607-5966-8391-2778a2e65f49
 name: Sensitive File Dump Via Wbadmin.EXE
-description: 'Detects the dump of highly sensitive files such as "NTDS.DIT" and "SECURITY" hive. Attackers can leverage the "wbadmin" utility in order to dump sensitive files that might contain credential or sensitive information. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wbadmin_dump_sensitive_files.yml - Legitimate backup operation by authorized administrators. Matches must be investigated and allowed on a case by case basis. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wbadmin_dump_sensitive_files.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

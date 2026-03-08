@@ -1,6 +1,6 @@
 id: 2ed09d2b-3b26-5fc0-9321-62b644a8d58b
 name: Use of Remote.exe
-description: 'Remote.exe is part of WinDbg in the Windows SDK and can be used for AWL bypass and running remote files. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_remote.yml - Approved installs of Windows SDK with Debugging Tools for Windows (WinDbg). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_remote.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

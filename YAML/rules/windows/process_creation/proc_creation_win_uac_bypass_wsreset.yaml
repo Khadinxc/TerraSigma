@@ -1,6 +1,6 @@
 id: 1d7656d2-80ae-5af2-a5c3-b476f4f2069e
 name: Bypass UAC via WSReset.exe
-description: 'Detects use of WSReset.exe to bypass User Account Control (UAC). Adversaries use this technique to execute privileged processes. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_wsreset.yml - Unknown sub processes of Wsreset.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_wsreset.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 3bb037e4-52fe-54d2-9adf-7264f8b4c964
 name: OpenWith.exe Executes Specified Binary
-description: 'The OpenWith.exe executes other binary Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_openwith.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_openwith.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

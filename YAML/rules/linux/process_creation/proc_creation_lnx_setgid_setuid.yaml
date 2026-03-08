@@ -1,6 +1,6 @@
 id: 3ec73a3e-3a61-566a-99fd-9af4ee200221
 name: Setuid and Setgid
-description: 'Detects suspicious change of file privileges with chown and chmod commands Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_setgid_setuid.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_setgid_setuid.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

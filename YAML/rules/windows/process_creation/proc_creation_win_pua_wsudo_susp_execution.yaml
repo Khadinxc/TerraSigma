@@ -1,6 +1,6 @@
 id: 809fbdd9-9cd4-51d3-86ac-8f8ea4a28625
 name: PUA - Wsudo Suspicious Execution
-description: 'Detects usage of wsudo (Windows Sudo Utility). Which is a tool that let the user execute programs with different permissions (System, Trusted Installer, Administrator...etc) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_wsudo_susp_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_wsudo_susp_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

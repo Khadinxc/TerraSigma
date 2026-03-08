@@ -1,6 +1,6 @@
 id: dae86112-9e48-5f24-a702-48b8d3088724
 name: Suspicious Curl.EXE Download
-description: 'Detects a suspicious curl process start on Windows and outputs the requested document to a local file Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_susp_download.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_susp_download.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

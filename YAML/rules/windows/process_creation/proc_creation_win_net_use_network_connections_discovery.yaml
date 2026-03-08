@@ -1,6 +1,6 @@
 id: 81a8a278-a326-5c28-aa04-3783733cab9b
 name: System Network Connections Discovery Via Net.EXE
-description: 'Adversaries may attempt to get a listing of network connections to or from the compromised system they are currently accessing or from remote systems by querying for information over the network. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_use_network_connections_discovery.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_use_network_connections_discovery.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

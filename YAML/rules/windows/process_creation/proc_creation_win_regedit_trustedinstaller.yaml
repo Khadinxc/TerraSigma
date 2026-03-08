@@ -1,6 +1,6 @@
 id: 223c2363-fcd6-5393-9a59-2c0c2ced68f9
 name: Regedit as Trusted Installer
-description: 'Detects a regedit started with TrustedInstaller privileges or by ProcessHacker.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regedit_trustedinstaller.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regedit_trustedinstaller.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

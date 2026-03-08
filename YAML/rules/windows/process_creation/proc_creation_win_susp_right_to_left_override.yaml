@@ -1,6 +1,6 @@
 id: 903638f6-7a47-5ece-ab43-b2ebf6fb7b99
 name: Potential Defense Evasion Via Right-to-Left Override
-description: 'Detects the presence of the "u202+E" character, which causes a terminal, browser, or operating system to render text in a right-to-left sequence. This is used as an obfuscation and masquerading techniques. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_right_to_left_override.yml - Commandlines that contains scriptures such as arabic or hebrew might make use of this character | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_right_to_left_override.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 7e7f83b6-c241-5d6b-982c-912ca24185d0
 name: Diagnostic Library Sdiageng.DLL Loaded By Msdt.EXE
-description: 'Detects both of CVE-2022-30190 (Follina) and DogWalk vulnerabilities exploiting msdt.exe binary to load the "sdiageng.dll" library Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_sdiageng_load_by_msdt.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_sdiageng_load_by_msdt.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

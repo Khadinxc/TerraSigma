@@ -1,6 +1,6 @@
 id: b74b53e2-5e8e-53f5-818e-931607368b29
 name: Tor Client/Browser Execution
-description: 'Detects the use of Tor or Tor-Browser to connect to onion routing networks Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_tor_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_tor_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: e070d0f6-5a55-5995-a981-d7976a377bc4
 name: APT31 Judgement Panda Activity
-description: 'Detects APT31 Judgement Panda activity as described in the Crowdstrike 2019 Global Threat Report Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/APT31/proc_creation_win_apt_apt31_judgement_panda.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/APT31/proc_creation_win_apt_apt31_judgement_panda.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

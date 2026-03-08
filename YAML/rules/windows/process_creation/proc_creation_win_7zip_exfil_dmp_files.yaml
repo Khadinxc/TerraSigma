@@ -1,6 +1,6 @@
 id: b164dbd0-9666-5a0a-8e8e-f43316bd724e
 name: 7Zip Compressing Dump Files
-description: 'Detects execution of 7z in order to compress a file with a ".dmp"/".dump" extension, which could be a step in a process of dump file exfiltration. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_7zip_exfil_dmp_files.yml - Legitimate use of 7z with a command line in which ".dmp" or ".dump" appears accidentally - Legitimate use of 7z to compress WER ".dmp" files for troubleshooting | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_7zip_exfil_dmp_files.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

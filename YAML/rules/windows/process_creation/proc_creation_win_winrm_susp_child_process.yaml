@@ -1,6 +1,6 @@
 id: a00bb7f5-d7ae-559e-853f-c7d77704b9f3
 name: Suspicious Processes Spawned by WinRM
-description: 'Detects suspicious processes including shells spawnd from WinRM host process Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winrm_susp_child_process.yml - Legitimate WinRM usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winrm_susp_child_process.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

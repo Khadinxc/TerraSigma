@@ -1,6 +1,6 @@
 id: 3ea81a75-624a-524f-8c51-195febee6c3d
 name: PowerShell Profile Modification
-description: 'Detects the creation or modification of a powershell profile which could indicate suspicious activity as the profile can be used as a mean of persistence Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_powershell_profile.yml - System administrator creating Powershell profile manually | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_powershell_profile.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

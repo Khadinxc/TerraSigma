@@ -1,6 +1,6 @@
 id: f55db5ff-ea49-5020-8a79-0a6bcc50bd3a
 name: Add Potential Suspicious New Download Source To Winget
-description: 'Detects usage of winget to add new potentially suspicious download sources Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winget_add_susp_custom_source.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winget_add_susp_custom_source.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

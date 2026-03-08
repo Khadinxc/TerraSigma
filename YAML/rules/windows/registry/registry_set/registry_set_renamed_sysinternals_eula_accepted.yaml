@@ -1,6 +1,6 @@
 id: 4756f140-9368-5245-bdca-6944f0eeb1c0
 name: Usage of Renamed Sysinternals Tools - RegistrySet
-description: 'Detects non-sysinternals tools setting the "accepteula" key which normally is set on sysinternals tool execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_renamed_sysinternals_eula_accepted.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_renamed_sysinternals_eula_accepted.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

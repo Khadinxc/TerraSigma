@@ -1,6 +1,6 @@
 id: 8063e0cf-f63a-5dee-9634-321b9fb3f5b2
 name: Always Install Elevated MSI Spawned Cmd And Powershell
-description: 'Detects Windows Installer service (msiexec.exe) spawning "cmd" or "powershell" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_elavated_msi_spawned_shell.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_elavated_msi_spawned_shell.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

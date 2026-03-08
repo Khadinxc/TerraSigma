@@ -1,6 +1,6 @@
 id: 6ec88288-a827-5133-ac7f-9773fe3c1ff3
 name: Access To .Reg/.Hive Files By Uncommon Applications
-description: 'Detects file access requests to files ending with either the ".hive"/".reg" extension, usually associated with Windows Registry backups. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/file_access_win_susp_reg_and_hive.yml - Third party software installed in the user context might generate a lot of FPs. Heavy baselining and tuning might be required. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/file_access_win_susp_reg_and_hive.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: b548aafe-2dac-5165-887b-4c26a984e4b7
 name: Rundll32 Execution Without CommandLine Parameters
-description: 'Detects suspicious start of rundll32.exe without any parameters as found in CobaltStrike beacon activity Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_no_params.yml - Possible but rare | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_no_params.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 636d0de5-8145-5652-8804-cf7466003778
 name: Potentially Suspicious Inline JavaScript Execution via NodeJS Binary
-description: 'Detects potentially suspicious inline JavaScript execution using Node.js with specific keywords in the command line. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_inline_node_js_execution.yml - Legitimate scripts using Node.js with these modules | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_inline_node_js_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: b04f75e9-6121-5576-8a08-1716755ae957
 name: Potential Dosfuscation Activity
-description: 'Detects possible payload obfuscation via the commandline Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_dosfuscation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_dosfuscation.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

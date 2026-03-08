@@ -1,6 +1,6 @@
 id: 53a34a3a-b00c-5282-8fd6-b6c4f4c3aea3
 name: PUA - Mouse Lock Execution
-description: 'In Kaspersky''s 2020 Incident Response Analyst Report they listed legitimate tool "Mouse Lock" as being used for both credential access and collection in security incidents. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_mouselock_execution.yml - Legitimate uses of Mouse Lock software | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_mouselock_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

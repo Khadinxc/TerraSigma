@@ -1,6 +1,6 @@
 id: be816a85-2b3f-5118-b1ee-cb7d6f96cb33
 name: IIS Native-Code Module Command Line Installation
-description: 'Detects suspicious IIS native-code module installations via command line Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_appcmd_susp_module_install.yml - Unknown as it may vary from organisation to organisation how admins use to install IIS modules | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_iis_appcmd_susp_module_install.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

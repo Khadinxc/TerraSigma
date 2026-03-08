@@ -1,6 +1,6 @@
 id: d444ac3e-8890-579f-8711-a22e551fd3d2
 name: Potentially Suspicious Regsvr32 HTTP/FTP Pattern
-description: 'Detects regsvr32 execution to download/install/register new DLLs that are hosted on Web or FTP servers. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_network_pattern.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_network_pattern.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 4cc8c1f7-bbe2-5d61-be36-ee78195e67e3
 name: Renamed Office Binary Execution
-description: 'Detects the execution of a renamed office binary Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_office_processes.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_office_processes.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

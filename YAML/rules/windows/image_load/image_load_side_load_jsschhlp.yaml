@@ -1,6 +1,6 @@
 id: 2c8edda4-5fbf-5834-9880-6ea9a92069b7
 name: Potential DLL Sideloading Via JsSchHlp
-description: 'Detects potential DLL sideloading using JUSTSYSTEMS Japanese word processor Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_jsschhlp.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_jsschhlp.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

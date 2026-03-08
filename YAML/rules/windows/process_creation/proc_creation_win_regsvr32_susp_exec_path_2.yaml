@@ -1,6 +1,6 @@
 id: ed3c9572-0b42-56e6-bae2-2afc6b88dc48
 name: Regsvr32 Execution From Highly Suspicious Location
-description: 'Detects execution of regsvr32 where the DLL is located in a highly suspicious locations Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_susp_exec_path_2.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_susp_exec_path_2.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

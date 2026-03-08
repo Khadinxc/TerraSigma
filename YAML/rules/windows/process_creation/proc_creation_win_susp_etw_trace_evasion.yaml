@@ -1,6 +1,6 @@
 id: 094aca33-ba91-5d24-a4d8-c7239da8b0dd
 name: ETW Trace Evasion Activity
-description: 'Detects command line activity that tries to clear or disable any ETW trace log which could be a sign of logging evasion. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_etw_trace_evasion.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_etw_trace_evasion.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

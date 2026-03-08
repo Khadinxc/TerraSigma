@@ -1,6 +1,6 @@
 id: 3125fd13-8c53-5139-825b-e1c0ea240b02
 name: UAC Disabled
-description: 'Detects when an attacker tries to disable User Account Control (UAC) by setting the registry value "EnableLUA" to 0. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_uac_disable.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_uac_disable.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

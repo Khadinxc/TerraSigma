@@ -1,6 +1,6 @@
 id: 8d6d77a8-3f41-5706-8d40-50ab31730b94
 name: Osacompile Execution By Potentially Suspicious Applet/Osascript
-description: 'Detects potential suspicious applet or osascript executing "osacompile". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_suspicious_applet_behaviour.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_suspicious_applet_behaviour.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: b116088e-005d-5b49-a660-702cc2a01fc7
 name: Registry Modification Via Regini.EXE
-description: 'Detects the execution of regini.exe which can be used to modify registry keys, the changes are imported from one or more text files. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regini_execution.yml - Legitimate modification of keys | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regini_execution.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

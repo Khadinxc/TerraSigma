@@ -1,6 +1,6 @@
 id: dbf68c83-92b2-5485-8aa5-c8c45898826d
 name: PUA - DIT Snapshot Viewer
-description: 'Detects the use of Ditsnap tool, an inspection tool for Active Directory database, ntds.dit. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_ditsnap.yml - Legitimate admin usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_ditsnap.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

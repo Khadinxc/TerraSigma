@@ -1,6 +1,6 @@
 id: 1856db8a-fc99-52b5-8289-f44843afb83f
 name: File Deleted Via Sysinternals SDelete
-description: 'Detects the deletion of files by the Sysinternals SDelete utility. It looks for the common name pattern used to rename files. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_sysinternals_sdelete_file_deletion.yml - Legitimate usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_sysinternals_sdelete_file_deletion.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

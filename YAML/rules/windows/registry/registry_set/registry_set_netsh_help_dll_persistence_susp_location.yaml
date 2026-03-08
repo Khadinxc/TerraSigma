@@ -1,6 +1,6 @@
 id: e1e8a33a-1b80-50a9-b9c1-26f29f5e88da
 name: New Netsh Helper DLL Registered From A Suspicious Location
-description: 'Detects changes to the Netsh registry key to add a new DLL value that is located on a suspicious location. This change might be an indication of a potential persistence attempt by adding a malicious Netsh helper Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_netsh_help_dll_persistence_susp_location.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_netsh_help_dll_persistence_susp_location.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 2de0708e-3f6b-5368-9437-42dc9d007f25
 name: Group Has Been Deleted Via Groupdel
-description: 'Detects execution of the "groupdel" binary. Which is used to delete a group. This is sometimes abused by threat actors in order to cover their tracks Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_groupdel.yml - Legitimate administrator activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_groupdel.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

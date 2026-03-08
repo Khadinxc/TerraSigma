@@ -1,6 +1,6 @@
 id: 2bc3e907-2aa1-583b-95a1-c296e21fedb9
 name: Potential EventLog File Location Tampering
-description: 'Detects tampering with EventLog service "file" key. In order to change the default location of an Evtx file. This technique is used to tamper with log collection and alerting Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_evtx_file_key_tamper.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_evtx_file_key_tamper.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

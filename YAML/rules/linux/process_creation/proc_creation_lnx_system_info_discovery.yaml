@@ -1,6 +1,6 @@
 id: c1f4406a-6226-56a0-b56b-0853bd544680
 name: System Information Discovery
-description: 'Detects system information discovery commands Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_system_info_discovery.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_system_info_discovery.yml'
+description: No description provided
 severity: Informational
 queryFrequency: PT1H
 queryPeriod: PT1H

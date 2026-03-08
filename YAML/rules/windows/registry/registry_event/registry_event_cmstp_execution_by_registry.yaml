@@ -1,6 +1,6 @@
 id: a1c2e65d-7c51-56f6-a589-7d7e86a35121
 name: CMSTP Execution Registry Event
-description: 'Detects various indicators of Microsoft Connection Manager Profile Installer execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_cmstp_execution_by_registry.yml - Legitimate CMSTP use (unlikely in modern enterprise environments) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_cmstp_execution_by_registry.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 1f8d5f06-a559-5838-9f02-2b3dddac173b
 name: BPFtrace Unsafe Option Usage
-description: 'Detects the usage of the unsafe bpftrace option Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_bpftrace_unsafe_option_usage.yml - Legitimate usage of the unsafe option | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_bpftrace_unsafe_option_usage.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

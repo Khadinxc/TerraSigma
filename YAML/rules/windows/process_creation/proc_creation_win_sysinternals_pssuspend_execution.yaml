@@ -1,6 +1,6 @@
 id: 60775ecf-5192-5e08-9070-5464a44d6faf
 name: Sysinternals PsSuspend Execution
-description: 'Detects usage of Sysinternals PsSuspend which can be abused to suspend critical processes Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_pssuspend_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_pssuspend_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

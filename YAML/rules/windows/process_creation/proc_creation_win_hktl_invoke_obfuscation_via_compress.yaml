@@ -1,6 +1,6 @@
 id: d3024e2a-ef50-535d-934f-0ca153a539c5
 name: Invoke-Obfuscation COMPRESS OBFUSCATION
-description: 'Detects Obfuscated Powershell via COMPRESS OBFUSCATION Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_via_compress.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_via_compress.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

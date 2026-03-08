@@ -1,6 +1,6 @@
 id: ef73a7cd-58ce-581f-97e7-2b8579715373
 name: PUA - 3Proxy Execution
-description: 'Detects the use of 3proxy, a tiny free proxy server Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_3proxy_execution.yml - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_3proxy_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

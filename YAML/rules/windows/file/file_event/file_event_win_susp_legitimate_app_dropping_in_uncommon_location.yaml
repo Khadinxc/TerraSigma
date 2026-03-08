@@ -1,6 +1,6 @@
 id: 8683cb55-812f-50d3-b78a-f5f5d3766e81
 name: Legitimate Application Writing Files In Uncommon Location
-description: 'Detects legitimate applications writing any type of file to uncommon or suspicious locations that are not typical for application data storage or execution. Adversaries may leverage legitimate applications (Living off the Land Binaries - LOLBins) to drop or download malicious files to uncommon locations on the system to evade detection by security solutions. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_in_uncommon_location.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_in_uncommon_location.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

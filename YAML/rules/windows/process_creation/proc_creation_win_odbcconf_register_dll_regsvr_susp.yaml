@@ -1,6 +1,6 @@
 id: d682575b-944a-566f-ad05-90d6c87316bb
 name: Potentially Suspicious DLL Registered Via Odbcconf.EXE
-description: 'Detects execution of "odbcconf" with the "REGSVR" action where the DLL in question doesn''t contain a ".dll" extension. Which is often used as a method to evade defenses. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_odbcconf_register_dll_regsvr_susp.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_odbcconf_register_dll_regsvr_susp.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

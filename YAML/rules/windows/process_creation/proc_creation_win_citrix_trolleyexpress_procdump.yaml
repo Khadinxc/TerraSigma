@@ -1,6 +1,6 @@
 id: a6021a00-6203-508c-9411-96f7e77a4110
 name: Process Access via TrolleyExpress Exclusion
-description: 'Detects a possible process memory dump that uses the white-listed Citrix TrolleyExpress.exe filename as a way to dump the lsass process memory Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_citrix_trolleyexpress_procdump.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_citrix_trolleyexpress_procdump.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: bca694ae-6db1-5a46-9052-2862dc7afd33
 name: New Outlook Macro Created
-description: 'Detects the creation of a macro file for Outlook. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_outlook_macro_creation.yml - User genuinely creates a VB Macro for their email | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_outlook_macro_creation.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

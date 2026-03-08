@@ -1,6 +1,6 @@
 id: 9c77399a-0570-5a4a-a183-7454b26ce43c
 name: HackTool - Sliver C2 Implant Activity Pattern
-description: 'Detects process activity patterns as seen being used by Sliver C2 framework implants Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sliver_c2_execution_pattern.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sliver_c2_execution_pattern.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

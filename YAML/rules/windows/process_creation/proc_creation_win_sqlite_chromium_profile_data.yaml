@@ -1,6 +1,6 @@
 id: 623d09b8-098e-5cdc-b6a9-717c53797318
 name: SQLite Chromium Profile Data DB Access
-description: 'Detect usage of the "sqlite" binary to query databases in Chromium-based browsers for potential data stealing. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sqlite_chromium_profile_data.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sqlite_chromium_profile_data.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

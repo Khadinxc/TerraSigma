@@ -1,6 +1,6 @@
 id: 0e08dcae-c1ef-55d9-8254-2cfc22c0d4f4
 name: Suspicious Msiexec Execute Arbitrary DLL
-description: 'Adversaries may abuse msiexec.exe to proxy execution of malicious payloads. Msiexec.exe is the command-line utility for the Windows Installer and is thus commonly associated with executing installation packages (.msi) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_execute_dll.yml - Legitimate script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_execute_dll.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

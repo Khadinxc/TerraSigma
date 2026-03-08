@@ -1,6 +1,6 @@
 id: 1e03a10a-5d9d-5d05-93a3-a6185871f5eb
 name: SQLite Firefox Profile Data DB Access
-description: 'Detect usage of the "sqlite" binary to query databases in Firefox and other Gecko-based browsers for potential data stealing. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sqlite_firefox_gecko_profile_data.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sqlite_firefox_gecko_profile_data.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

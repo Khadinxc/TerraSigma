@@ -1,6 +1,6 @@
 id: f13757af-4868-58b7-8212-e0a492851294
 name: Winnti Pipemon Characteristics
-description: 'Detects specific process characteristics of Winnti Pipemon malware reported by ESET Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Winnti/proc_creation_win_apt_winnti_pipemon.yml - Legitimate setups that use similar flags | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Winnti/proc_creation_win_apt_winnti_pipemon.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

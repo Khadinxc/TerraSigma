@@ -1,6 +1,6 @@
 id: 693c9173-ced2-58cb-a648-5e32da2c7d55
 name: Remote Access Tool - ScreenConnect Remote Command Execution - Hunting
-description: 'Detects remote binary or command execution via the ScreenConnect Service. Use this rule in order to hunt for potentially anomalous executions originating from ScreenConnect Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_remote_access_tools_screenconnect_child_proc.yml - Legitimate commands launched from ScreenConnect will also trigger this rule. Look for anomalies. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_remote_access_tools_screenconnect_child_proc.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

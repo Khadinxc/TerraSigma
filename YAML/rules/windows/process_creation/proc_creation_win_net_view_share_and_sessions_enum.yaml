@@ -1,6 +1,6 @@
 id: 34be7225-3a0b-567e-a947-17533c9856f3
 name: Share And Session Enumeration Using Net.EXE
-description: 'Detects attempts to enumerate file shares, printer shares and sessions using "net.exe" with the "view" flag. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_view_share_and_sessions_enum.yml - Legitimate use of net.exe utility by legitimate user | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_net_view_share_and_sessions_enum.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

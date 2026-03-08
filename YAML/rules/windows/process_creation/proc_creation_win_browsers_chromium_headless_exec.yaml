@@ -1,6 +1,6 @@
 id: 1b4e7f4a-4fa3-5ec1-89a7-926de5f31299
 name: Browser Execution In Headless Mode
-description: 'Detects execution of Chromium based browser in headless mode Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_headless_exec.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_headless_exec.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

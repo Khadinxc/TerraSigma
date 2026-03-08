@@ -1,6 +1,6 @@
 id: 5e441768-d921-5df0-8094-3738f1e6d050
 name: Change Winevt Channel Access Permission Via Registry
-description: 'Detects tampering with the "ChannelAccess" registry key in order to change access to Windows event channel. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_change_winevt_channelaccess.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_change_winevt_channelaccess.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

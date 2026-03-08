@@ -1,6 +1,6 @@
 id: 79347554-a2d8-5b39-a798-ddd76bd814ea
 name: Suspicious PowerShell Parameter Substring
-description: 'Detects suspicious PowerShell invocation with a parameter substring Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_susp_parameter_variation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_susp_parameter_variation.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

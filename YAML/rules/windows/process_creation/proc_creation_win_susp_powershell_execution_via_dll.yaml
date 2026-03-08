@@ -1,6 +1,6 @@
 id: 1af04b1f-8647-5dfc-be37-3c9011ce800e
 name: Potential PowerShell Execution Via DLL
-description: 'Detects potential PowerShell execution from a DLL instead of the usual PowerShell process as seen used in PowerShdll. This detection assumes that PowerShell commands are passed via the CommandLine. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_powershell_execution_via_dll.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_powershell_execution_via_dll.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

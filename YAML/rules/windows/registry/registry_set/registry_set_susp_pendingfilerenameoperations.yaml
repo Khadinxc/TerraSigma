@@ -1,6 +1,6 @@
 id: 88f8c48d-2b5c-5a02-91d5-ab34dc62324e
 name: Potential PendingFileRenameOperations Tampering
-description: 'Detect changes to the "PendingFileRenameOperations" registry key from uncommon or suspicious images locations to stage currently used files for rename or deletion after reboot. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_pendingfilerenameoperations.yml - Installers and updaters may set currently in use files for rename or deletion after a reboot. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_pendingfilerenameoperations.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

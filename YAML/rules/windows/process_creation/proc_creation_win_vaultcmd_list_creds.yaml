@@ -1,6 +1,6 @@
 id: e11486b5-3ef8-5eb2-a5de-6e04e1b9f37b
 name: Windows Credential Manager Access via VaultCmd
-description: 'List credentials currently stored in Windows Credential Manager via the native Windows utility vaultcmd.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vaultcmd_list_creds.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vaultcmd_list_creds.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

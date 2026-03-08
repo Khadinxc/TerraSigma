@@ -1,6 +1,6 @@
 id: f6ec79e6-aa4a-556a-934e-e1f2329ace89
 name: Service Binary in User Controlled Folder
-description: 'Detects the setting of the "ImagePath" value of a service registry key to a path controlled by a non-administrator user such as "\AppData\" or "\ProgramData\". Attackers often use such directories for staging purposes. This rule might also trigger on badly written software, where if an attacker controls an auto starting service, they might achieve persistence or privilege escalation. Note that while ProgramData is a user controlled folder, software might apply strict ACLs which makes them only accessible to admin users. Remove such folders via filters if you experience a lot of noise. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_set/registry_set_service_image_path_user_controlled_folder.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/registry/registry_set/registry_set_service_image_path_user_controlled_folder.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

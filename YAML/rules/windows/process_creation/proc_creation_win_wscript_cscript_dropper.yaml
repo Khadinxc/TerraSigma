@@ -1,6 +1,6 @@
 id: 94cdf1a4-299c-5291-9277-9a951e44339b
 name: Potential Dropper Script Execution Via WScript/CScript
-description: 'Detects wscript/cscript executions of scripts located in user directories Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wscript_cscript_dropper.yml - Some installers might generate a similar behavior. An initial baseline is required | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wscript_cscript_dropper.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: a9275f0c-0a69-5605-99f1-6b2ec0b73821
 name: Potential CommandLine Path Traversal Via Cmd.EXE
-description: 'Detects potential path traversal attempt via cmd.exe. Could indicate possible command/argument confusion/hijacking Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_path_traversal.yml - Java tools are known to produce false-positive when loading libraries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_path_traversal.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

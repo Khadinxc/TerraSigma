@@ -1,6 +1,6 @@
 id: 670cc35a-9204-5084-9a96-f2efed7e3189
 name: UAC Bypass via ICMLuaUtil
-description: 'Detects the pattern of UAC Bypass using ICMLuaUtil Elevated COM interface Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_icmluautil.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_icmluautil.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

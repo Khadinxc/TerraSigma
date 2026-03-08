@@ -1,6 +1,6 @@
 id: a6b424c5-12ad-5ae7-acd2-8956bb39310f
 name: Root Certificate Installed From Susp Locations
-description: 'Adversaries may install a root certificate on a compromised system to avoid warnings when connecting to adversary controlled web servers. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_import_cert_susp_locations.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_import_cert_susp_locations.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

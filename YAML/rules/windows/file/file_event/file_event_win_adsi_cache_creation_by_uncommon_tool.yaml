@@ -1,6 +1,6 @@
 id: 0de9bfda-8361-56ea-b151-2ac41c962ab9
 name: ADSI-Cache File Creation By Uncommon Tool
-description: 'Detects the creation of an "Active Directory Schema Cache File" (.sch) file by an uncommon tool. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_adsi_cache_creation_by_uncommon_tool.yml - Other legimate tools, which do ADSI (LDAP) operations, e.g. any remoting activity by MMC, Powershell, Windows etc. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_adsi_cache_creation_by_uncommon_tool.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

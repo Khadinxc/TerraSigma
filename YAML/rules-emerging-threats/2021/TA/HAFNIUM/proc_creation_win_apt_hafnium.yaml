@@ -1,6 +1,6 @@
 id: 0fe8d681-523e-5de7-b9ba-011b352fc02d
 name: HAFNIUM Exchange Exploitation Activity
-description: 'Detects activity observed by different researchers to be HAFNIUM group activity (or related) on Exchange servers Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/TA/HAFNIUM/proc_creation_win_apt_hafnium.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/TA/HAFNIUM/proc_creation_win_apt_hafnium.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

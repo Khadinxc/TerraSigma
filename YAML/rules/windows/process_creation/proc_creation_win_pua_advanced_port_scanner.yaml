@@ -1,6 +1,6 @@
 id: f2d04a0f-5d9f-5335-ba63-fdc6746eb7e2
 name: PUA - Advanced Port Scanner Execution
-description: 'Detects the use of Advanced Port Scanner. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_advanced_port_scanner.yml - Legitimate administrative use - Tools with similar commandline (very rare) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_advanced_port_scanner.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

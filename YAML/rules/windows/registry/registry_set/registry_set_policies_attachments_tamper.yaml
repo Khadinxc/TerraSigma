@@ -1,6 +1,6 @@
 id: fd1a9076-9c65-563a-8746-063929c9b68b
 name: Potential Attachment Manager Settings Attachments Tamper
-description: 'Detects tampering with attachment manager settings policies attachments (See reference for more information) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_policies_attachments_tamper.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_policies_attachments_tamper.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

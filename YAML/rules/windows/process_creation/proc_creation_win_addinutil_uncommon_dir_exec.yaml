@@ -1,6 +1,6 @@
 id: efc28806-ebe4-5cb0-b0fe-0f126dc71a7e
 name: AddinUtil.EXE Execution From Uncommon Directory
-description: 'Detects execution of the Add-In deployment cache updating utility (AddInutil.exe) from a non-standard directory. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_addinutil_uncommon_dir_exec.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_addinutil_uncommon_dir_exec.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

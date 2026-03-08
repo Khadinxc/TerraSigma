@@ -1,6 +1,6 @@
 id: b26c4664-4a56-5ac7-a05e-32ba69a271e4
 name: Use NTFS Short Name in Image
-description: 'Detect use of the Windows 8.3 short name. Which could be used as a method to avoid Image based detection Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_ntfs_short_name_use_image.yml - Software Installers | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_ntfs_short_name_use_image.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

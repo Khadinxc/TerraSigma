@@ -1,6 +1,6 @@
 id: f299b0a9-e688-5595-bfea-75523f7d20fc
 name: MsiExec Web Install
-description: 'Detects suspicious msiexec process starts with web addresses as parameter Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_web_install.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_web_install.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

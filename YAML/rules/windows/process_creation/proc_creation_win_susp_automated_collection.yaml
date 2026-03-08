@@ -1,6 +1,6 @@
 id: 8d0b1b03-fd51-5270-898b-a1272e8cdd7d
 name: Automated Collection Command Prompt
-description: 'Once established within a system or network, an adversary may use automated techniques for collecting internal data. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_automated_collection.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_automated_collection.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

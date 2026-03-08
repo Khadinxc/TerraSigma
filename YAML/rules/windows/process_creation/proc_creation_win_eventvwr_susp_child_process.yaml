@@ -1,6 +1,6 @@
 id: e4e3cd30-7e78-5afd-93cc-ddfcae4755ea
 name: Potentially Suspicious Event Viewer Child Process
-description: 'Detects uncommon or suspicious child processes of "eventvwr.exe" which might indicate a UAC bypass attempt Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_eventvwr_susp_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_eventvwr_susp_child_process.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 01d1ea62-97c8-5a7f-94a7-0722f42eb5cf
 name: Amsi.DLL Loaded Via LOLBIN Process
-description: 'Detects loading of "Amsi.dll" by a living of the land process. This could be an indication of a "PowerShell without PowerShell" attack Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_amsi_suspicious_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_amsi_suspicious_process.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

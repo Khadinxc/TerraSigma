@@ -1,6 +1,6 @@
 id: 43ce8170-a009-5004-a938-5b7cd4a8eacc
 name: Control Panel Items
-description: 'Detects the malicious use of a control panel item Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_control_panel_item.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_control_panel_item.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

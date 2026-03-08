@@ -1,6 +1,6 @@
 id: e3e8b45e-1888-5dad-b696-de343eac3ec6
 name: Change PowerShell Policies to an Insecure Level
-description: 'Detects changing the PowerShell script execution policy to a potentially insecure level using the "-ExecutionPolicy" flag. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_set_policies_to_unsecure_level.yml - Administrator scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_set_policies_to_unsecure_level.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

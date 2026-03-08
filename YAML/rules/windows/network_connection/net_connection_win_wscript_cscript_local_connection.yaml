@@ -1,6 +1,6 @@
 id: 2b834c95-b148-5308-9ae5-c9b93cc46e1b
 name: Local Network Connection Initiated By Script Interpreter
-description: 'Detects a script interpreter (Wscript/Cscript) initiating a local network connection to download or execute a script hosted on a shared folder. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_wscript_cscript_local_connection.yml - Legitimate scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_wscript_cscript_local_connection.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

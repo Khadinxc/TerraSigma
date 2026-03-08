@@ -1,6 +1,6 @@
 id: 19dc1dfe-1b83-530d-b4f3-746f540dd232
 name: CMSTP Execution Process Creation
-description: 'Detects various indicators of Microsoft Connection Manager Profile Installer execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmstp_execution_by_creation.yml - Legitimate CMSTP use (unlikely in modern enterprise environments) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmstp_execution_by_creation.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

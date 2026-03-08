@@ -1,6 +1,6 @@
 id: 06992680-d97e-5899-b8c3-dd822f309462
 name: Recon Information for Export with Command Prompt
-description: 'Once established within a system or network, an adversary may use automated techniques for collecting internal data. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_recon.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_recon.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

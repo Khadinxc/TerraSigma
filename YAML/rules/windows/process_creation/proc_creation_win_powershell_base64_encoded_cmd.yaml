@@ -1,6 +1,6 @@
 id: 45a2dc9d-8af7-5954-a431-287918471aa8
 name: Suspicious Encoded PowerShell Command Line
-description: 'Detects suspicious powershell process starts with base64 encoded commands (e.g. Emotet) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_encoded_cmd.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_encoded_cmd.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

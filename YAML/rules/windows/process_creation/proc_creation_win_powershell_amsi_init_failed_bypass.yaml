@@ -1,6 +1,6 @@
 id: d32bbc51-8282-5b6e-b060-a6c0bb011bf8
 name: Potential AMSI Bypass Via .NET Reflection
-description: 'Detects Request to "amsiInitFailed" that can be used to disable AMSI Scanning Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_amsi_init_failed_bypass.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_amsi_init_failed_bypass.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: f548300f-ee87-53e2-97b7-c53ee128c9f3
 name: Firewall Rule Update Via Netsh.EXE
-description: 'Detects execution of netsh with the "advfirewall" and the "set" option in order to set new values for properties of a existing rule Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_set_rule.yml - Legitimate administration activity - Software installations and removal | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_set_rule.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

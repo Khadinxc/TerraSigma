@@ -1,6 +1,6 @@
 id: fddafb06-84f5-5431-8334-ac812fb61352
 name: ETW Logging Disabled For SCM
-description: 'Detects changes to the "TracingDisabled" key in order to disable ETW logging for services.exe (SCM) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_services_etw_tamper.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_services_etw_tamper.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

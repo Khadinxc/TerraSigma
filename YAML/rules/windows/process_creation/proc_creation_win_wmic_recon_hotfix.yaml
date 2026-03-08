@@ -1,6 +1,6 @@
 id: 989910a1-7c8d-54b3-b614-0938b1c8dfa1
 name: Windows Hotfix Updates Reconnaissance Via Wmic.EXE
-description: 'Detects the execution of wmic with the "qfe" flag in order to obtain information about installed hotfix updates on the system. This is often used by pentester and attacker enumeration scripts Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_hotfix.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_hotfix.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

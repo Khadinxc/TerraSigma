@@ -1,6 +1,6 @@
 id: 9952768c-13a1-5656-bd49-c9f698dd2ccc
 name: CrashControl CrashDump Disabled
-description: 'Detects disabling the CrashDump per registry (as used by HermeticWiper) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_crashdump_disabled.yml - Legitimate disabling of crashdumps | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_crashdump_disabled.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

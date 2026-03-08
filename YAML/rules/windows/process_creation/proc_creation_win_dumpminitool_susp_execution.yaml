@@ -1,6 +1,6 @@
 id: 45877839-9e44-5198-b68b-3898fa459d9f
 name: Suspicious DumpMinitool Execution
-description: 'Detects suspicious ways to use the "DumpMinitool.exe" binary Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dumpminitool_susp_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dumpminitool_susp_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

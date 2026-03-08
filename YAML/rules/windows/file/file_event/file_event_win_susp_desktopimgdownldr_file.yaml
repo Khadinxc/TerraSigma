@@ -1,6 +1,6 @@
 id: b4140a24-5832-5af4-97b6-9758936af90d
 name: Suspicious Desktopimgdownldr Target File
-description: 'Detects a suspicious Microsoft desktopimgdownldr file creation that stores a file to a suspicious location or contains a file with a suspicious extension Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_desktopimgdownldr_file.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_desktopimgdownldr_file.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

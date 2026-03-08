@@ -1,6 +1,6 @@
 id: fe4de93c-5d07-576c-a135-daef0ec01779
 name: Disable Windows Firewall by Registry
-description: 'Detect set EnableFirewall to 0 to disable the Windows firewall Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_windows_firewall.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_windows_firewall.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

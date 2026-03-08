@@ -1,6 +1,6 @@
 id: 24e6664b-4fa9-5387-bdda-f8e68ff8986f
 name: WMIC Remote Command Execution
-description: 'Detects the execution of WMIC to query information on a remote system Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_remote_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_remote_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

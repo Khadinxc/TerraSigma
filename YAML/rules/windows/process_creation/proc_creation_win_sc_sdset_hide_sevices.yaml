@@ -1,6 +1,6 @@
 id: f1520ad6-c2a1-52b9-bd5d-6c36cf6d0ba3
 name: Service DACL Abuse To Hide Services Via Sc.EXE
-description: 'Detects usage of the "sc.exe" utility adding a new service with special permission seen used by threat actors which makes the service hidden and unremovable. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_sdset_hide_sevices.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_sdset_hide_sevices.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

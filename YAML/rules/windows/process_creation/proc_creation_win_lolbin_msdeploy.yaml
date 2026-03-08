@@ -1,6 +1,6 @@
 id: 13ce926c-3946-5c38-a580-683a22ce37b8
 name: Execute Files with Msdeploy.exe
-description: 'Detects file execution using the msdeploy.exe lolbin Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_msdeploy.yml - System administrator Usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_msdeploy.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

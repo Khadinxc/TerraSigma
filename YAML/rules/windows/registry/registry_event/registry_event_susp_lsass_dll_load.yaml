@@ -1,6 +1,6 @@
 id: 8ef162df-59c7-5672-b5e8-968e130d8bd5
 name: DLL Load via LSASS
-description: 'Detects a method to load DLL via LSASS process using an undocumented Registry key Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_lsass_dll_load.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_lsass_dll_load.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

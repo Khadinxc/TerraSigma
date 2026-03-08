@@ -1,6 +1,6 @@
 id: 66c3bb1a-8a68-5d73-90fe-94116e40adee
 name: Flush Iptables Ufw Chain
-description: 'Detect use of iptables to flush all firewall rules, tables and chains and allow all network traffic Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_iptables_flush_ufw.yml - Network administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_iptables_flush_ufw.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

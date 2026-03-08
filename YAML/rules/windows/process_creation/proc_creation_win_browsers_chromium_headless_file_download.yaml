@@ -1,6 +1,6 @@
 id: fbc13ba9-2ac0-538b-8360-68a5ecb8fca5
 name: File Download with Headless Browser
-description: 'Detects execution of chromium based browser in headless mode using the "dump-dom" command line to download files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_headless_file_download.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_chromium_headless_file_download.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

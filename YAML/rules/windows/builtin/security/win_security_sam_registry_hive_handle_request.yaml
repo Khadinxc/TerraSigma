@@ -1,6 +1,6 @@
 id: c4724b96-8090-5f8f-9388-50d8853aec1e
 name: SAM Registry Hive Handle Request
-description: 'Detects handles requested to SAM registry hive Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_sam_registry_hive_handle_request.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_sam_registry_hive_handle_request.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

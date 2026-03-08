@@ -1,6 +1,6 @@
 id: a7b4eb53-bf0b-5fac-8f1b-9d0df8593804
 name: Run Once Task Execution as Configured in Registry
-description: 'This rule detects the execution of Run Once task as configured in the registry Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_runonce_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_runonce_execution.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

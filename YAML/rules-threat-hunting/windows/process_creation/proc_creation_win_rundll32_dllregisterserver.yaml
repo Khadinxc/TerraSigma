@@ -1,6 +1,6 @@
 id: 92b0766a-c82f-5705-9733-2dbcdf667cf1
 name: Rundll32.EXE Calling DllRegisterServer Export Function Explicitly
-description: 'Detects when the DLL export function ''DllRegisterServer'' is called in the commandline by Rundll32 explicitly where the DLL is located in a non-standard path. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_rundll32_dllregisterserver.yml - Legitimate usage as part of application installation, but less likely from e.g. temporary paths. - Not every instance is considered malicious, but this rule will capture the malicious usages. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_rundll32_dllregisterserver.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

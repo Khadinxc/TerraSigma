@@ -1,6 +1,6 @@
 id: 1eec95cc-38f5-5bec-8d09-29d63126bb5b
 name: Suspicious Control Panel DLL Load
-description: 'Detects suspicious Rundll32 execution from control.exe as used by Equation Group and Exploit Kits Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_control_dll_load.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_control_dll_load.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

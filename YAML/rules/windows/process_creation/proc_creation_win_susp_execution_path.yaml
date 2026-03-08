@@ -1,6 +1,6 @@
 id: b87c580d-eb86-5fbe-8fab-0aa8a82c1df4
 name: Process Execution From A Potentially Suspicious Folder
-description: 'Detects a potentially suspicious execution from an uncommon folder. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_execution_path.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_execution_path.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

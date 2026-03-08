@@ -1,6 +1,6 @@
 id: 39d54d1b-23e8-5918-8a73-594776ade5cd
 name: Browser Started with Remote Debugging
-description: 'Detects browsers starting with the remote debugging flags. Which is a technique often used to perform browser injection attacks Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_remote_debugging.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_browsers_remote_debugging.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

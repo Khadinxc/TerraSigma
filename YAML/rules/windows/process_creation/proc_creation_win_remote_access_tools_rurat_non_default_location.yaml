@@ -1,6 +1,6 @@
 id: b414f5c9-1313-5438-8391-31ed642e45cb
 name: Remote Access Tool - RURAT Execution From Unusual Location
-description: 'Detects execution of Remote Utilities RAT (RURAT) from an unusual location (outside of ''C:\Program Files'') Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_rurat_non_default_location.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_rurat_non_default_location.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

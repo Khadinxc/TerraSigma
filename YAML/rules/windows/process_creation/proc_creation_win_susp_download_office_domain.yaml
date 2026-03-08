@@ -1,6 +1,6 @@
 id: e2c52467-5d19-59d7-ae6b-ddd3785da35a
 name: Suspicious Download from Office Domain
-description: 'Detects suspicious ways to download files from Microsoft domains that are used to store attachments in Emails or OneNote documents Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_download_office_domain.yml - Scripts or tools that download attachments from these domains (OneNote, Outlook 365) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_download_office_domain.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: ff6d6236-9fb7-54d0-bb17-13abd31ef313
 name: Suspicious File Access to Browser Credential Storage
-description: 'Detects file access to browser credential storage paths by non-browser processes, which may indicate credential access attempts. Adversaries may attempt to access browser credential storage to extract sensitive information such as usernames and passwords or cookies. This behavior is often commonly observed in credential stealing malware. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_susp_process_access_browser_cred_files.yml - Antivirus, Anti-Spyware, Anti-Malware Software - Legitimate software accessing browser data for synchronization or backup purposes. - Legitimate software installed on partitions other than "C:\" | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_susp_process_access_browser_cred_files.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

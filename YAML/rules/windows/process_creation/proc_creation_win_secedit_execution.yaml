@@ -1,6 +1,6 @@
 id: a709cfff-57dc-580b-8712-a15bc9d52d7a
 name: Potential Suspicious Activity Using SeCEdit
-description: 'Detects potential suspicious behaviour using secedit.exe. Such as exporting or modifying the security policy Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_secedit_execution.yml - Legitimate administrative use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_secedit_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

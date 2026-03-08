@@ -1,6 +1,6 @@
 id: f1320f30-0bab-5617-a10c-a144fa8d04cb
 name: Potential Mftrace.EXE Abuse
-description: 'Detects child processes of the "Trace log generation tool for Media Foundation Tools" (Mftrace.exe) which can abused to execute arbitrary binaries. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mftrace_child_process.yml - Legitimate use for tracing purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mftrace_child_process.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

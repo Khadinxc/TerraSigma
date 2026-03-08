@@ -1,6 +1,6 @@
 id: e1686b5e-0c68-585d-a208-4e81cfeb8bf1
 name: Nslookup PowerShell Download Cradle - ProcessCreation
-description: 'Detects suspicious powershell download cradle using nslookup. This cradle uses nslookup to extract payloads from DNS records Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_nslookup_poweshell_download.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_nslookup_poweshell_download.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

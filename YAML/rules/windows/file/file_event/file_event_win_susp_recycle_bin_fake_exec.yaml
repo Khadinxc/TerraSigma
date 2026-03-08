@@ -1,6 +1,6 @@
 id: 70285c2e-0f85-5860-b720-dcd25d969ef9
 name: Suspicious File Creation Activity From Fake Recycle.Bin Folder
-description: 'Detects file write event from/to a fake recycle bin folder that is often used as a staging directory for malware Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_recycle_bin_fake_exec.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_recycle_bin_fake_exec.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: b9ee6eaf-0e14-517f-bb44-f7db78bb5c43
 name: Application Terminated Via Wmic.EXE
-description: 'Detects calls to the "terminate" function via wmic in order to kill an application Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_terminate_application.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_terminate_application.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

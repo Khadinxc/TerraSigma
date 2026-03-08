@@ -1,6 +1,6 @@
 id: 36f5cb9f-35bb-5244-b33d-59f3e5b7bf67
 name: APT29 2018 Phishing Campaign CommandLine Indicators
-description: 'Detects indicators of APT 29 (Cozy Bear) phishing-campaign as reported by mandiant Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT29-CozyBear/proc_creation_win_apt_apt29_phishing_campaign_indicators.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT29-CozyBear/proc_creation_win_apt_apt29_phishing_campaign_indicators.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

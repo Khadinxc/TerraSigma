@@ -1,6 +1,6 @@
 id: d672d63b-ca3d-510c-95a5-a791320d5b78
 name: Scheduled Task Creation From Potential Suspicious Parent Location
-description: 'Detects the execution of "schtasks.exe" from a parent that is located in a potentially suspicious location. Multiple malware strains were seen exhibiting a similar behavior in order to achieve persistence. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_schtasks_creation_from_susp_parent.yml - Software installers that run from temporary folders and also install scheduled tasks | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_schtasks_creation_from_susp_parent.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: ec34b149-b3e5-5fe1-937c-fe4f552f4c78
 name: JScript Compiler Execution
-description: 'Detects the execution of the "jsc.exe" (JScript Compiler). Attacker might abuse this in order to compile JScript files on the fly and bypassing application whitelisting. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_jsc_execution.yml - Legitimate use to compile JScript by developers. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_jsc_execution.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

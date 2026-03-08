@@ -1,6 +1,6 @@
 id: 163ca15c-c458-5d86-81f7-f7eb23c0f360
 name: Suspicious Processes Spawned by Java.EXE
-description: 'Detects suspicious processes spawned from a Java host process which could indicate a sign of exploitation (e.g. log4j) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_java_susp_child_process.yml - Legitimate calls to system binaries - Company specific internal usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_java_susp_child_process.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

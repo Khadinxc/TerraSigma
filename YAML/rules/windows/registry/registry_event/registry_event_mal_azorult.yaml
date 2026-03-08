@@ -1,6 +1,6 @@
 id: 618bcbf2-7bf9-5631-b9b4-717ad6f2a85f
 name: Registry Entries For Azorult Malware
-description: 'Detects the presence of a registry key created during Azorult execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_mal_azorult.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_mal_azorult.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

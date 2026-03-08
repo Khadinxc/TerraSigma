@@ -1,6 +1,6 @@
 id: 35df1b25-fad3-5b9c-978a-5394915dfee6
 name: Net.EXE Execution
-description: 'Detects execution of "Net.EXE". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_net_execution.yml - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_net_execution.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

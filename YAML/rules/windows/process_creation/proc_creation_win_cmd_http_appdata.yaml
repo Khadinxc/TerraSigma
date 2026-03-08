@@ -1,6 +1,6 @@
 id: 59e9a293-a409-5196-bff1-ce3bb56d3f66
 name: Command Line Execution with Suspicious URL and AppData Strings
-description: 'Detects a suspicious command line execution that includes an URL and AppData string in the command line parameters as used by several droppers (js/vbs > powershell) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_http_appdata.yml - High | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_http_appdata.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 073b6d47-b486-5400-af63-f88b19de6e7e
 name: Python WebServer Execution - Linux
-description: 'Detects the execution of Python web servers via command line interface (CLI). After gaining access to target systems, adversaries may use Python''s built-in HTTP server modules to quickly establish a web server without requiring additional software. This technique is commonly used in post-exploitation scenarios as it provides a simple method for transferring files between the compromised host and attacker-controlled systems. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_python_http_server_execution.yml - Testing or development activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_python_http_server_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

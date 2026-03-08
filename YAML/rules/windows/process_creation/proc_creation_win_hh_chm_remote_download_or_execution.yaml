@@ -1,6 +1,6 @@
 id: 17681535-dce8-52aa-88d1-7526648f680b
 name: Remote CHM File Download/Execution Via HH.EXE
-description: 'Detects the usage of "hh.exe" to execute/download remotely hosted ".chm" files. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hh_chm_remote_download_or_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hh_chm_remote_download_or_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

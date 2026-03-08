@@ -1,6 +1,6 @@
 id: 55bb7a28-a21e-579f-b24f-3e527482b1bb
 name: Suspicious Java Children Processes
-description: 'Detects java process spawning suspicious children Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_java_children.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_java_children.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

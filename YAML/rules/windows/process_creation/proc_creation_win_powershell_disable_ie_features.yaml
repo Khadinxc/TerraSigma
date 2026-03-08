@@ -1,6 +1,6 @@
 id: 3208e363-78eb-5da4-9103-fadde9ecb59a
 name: Disabled IE Security Features
-description: 'Detects command lines that indicate unwanted modifications to registry keys that disable important Internet Explorer security features Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_disable_ie_features.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_disable_ie_features.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

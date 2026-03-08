@@ -1,6 +1,6 @@
 id: a876c48c-84dd-59af-b080-e871b8533082
 name: UAC Bypass With Fake DLL
-description: 'Attempts to load dismcore.dll after dropping it Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_uac_bypass_via_dism.yml - Actions of a legitimate telnet client | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_uac_bypass_via_dism.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

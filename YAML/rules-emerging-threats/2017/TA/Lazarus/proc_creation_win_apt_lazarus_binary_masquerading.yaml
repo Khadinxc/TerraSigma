@@ -1,6 +1,6 @@
 id: 5efdeb20-2a9a-5d9d-84de-ff723a870e6e
 name: Lazarus System Binary Masquerading
-description: 'Detects binaries used by the Lazarus group which use system names but are executed and launched from non-default location Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Lazarus/proc_creation_win_apt_lazarus_binary_masquerading.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2017/TA/Lazarus/proc_creation_win_apt_lazarus_binary_masquerading.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

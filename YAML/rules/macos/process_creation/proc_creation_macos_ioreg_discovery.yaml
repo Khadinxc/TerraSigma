@@ -1,6 +1,6 @@
 id: 0c096533-5774-5d6b-a680-846bb8bab6a9
 name: System Information Discovery Using Ioreg
-description: 'Detects the use of "ioreg" which will show I/O Kit registry information. This process is used for system information discovery. It has been observed in-the-wild by calling this process directly or using bash and grep to look for specific strings. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_ioreg_discovery.yml - Legitimate administrative activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_ioreg_discovery.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

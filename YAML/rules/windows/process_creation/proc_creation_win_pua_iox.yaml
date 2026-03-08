@@ -1,6 +1,6 @@
 id: 7c21c72e-7b6e-583d-9415-7674544670da
 name: PUA- IOX Tunneling Tool Execution
-description: 'Detects the use of IOX - a tool for port forwarding and intranet proxy purposes Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_iox.yml - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_iox.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

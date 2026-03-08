@@ -1,6 +1,6 @@
 id: ada9ebc5-24ec-50cf-913b-4314ef2068ef
 name: AgentExecutor PowerShell Execution
-description: 'Detects execution of the AgentExecutor.exe binary. Which can be abused as a LOLBIN to execute powershell scripts with the ExecutionPolicy "Bypass" or any binary named "powershell.exe" located in the path provided by 6th positional argument Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_agentexecutor_potential_abuse.yml - Legitimate use via Intune management. You exclude script paths and names to reduce FP rate | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_agentexecutor_potential_abuse.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

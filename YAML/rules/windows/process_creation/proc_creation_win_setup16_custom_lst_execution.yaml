@@ -1,6 +1,6 @@
 id: 23ca6eb1-78a0-58a0-96ef-a1b1a9555381
 name: Setup16.EXE Execution With Custom .Lst File
-description: 'Detects the execution of "Setup16.EXE" and old installation utility with a custom ".lst" file. These ".lst" file can contain references to external program that "Setup16.EXE" will execute. Attackers and adversaries might leverage this as a living of the land utility. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_setup16_custom_lst_execution.yml - On modern Windows system, the "Setup16" utility is practically never used, hence false positive should be very rare. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_setup16_custom_lst_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

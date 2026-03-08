@@ -1,6 +1,6 @@
 id: b701bd83-ff50-5b65-ad92-c1883d184cf3
 name: Potential ACTINIUM Persistence Activity
-description: 'Detects specific process parameters as used by ACTINIUM scheduled task persistence creation. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2022/TA/ACTINIUM/proc_creation_win_apt_actinium_persistence.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2022/TA/ACTINIUM/proc_creation_win_apt_actinium_persistence.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 2cc57a33-4057-5b2c-bdb1-0435eafa983e
 name: Lazarus Group Activity
-description: 'Detects different process execution behaviors as described in various threat reports on Lazarus group activity Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Lazarus/proc_creation_win_apt_lazarus_group_activity.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Lazarus/proc_creation_win_apt_lazarus_group_activity.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

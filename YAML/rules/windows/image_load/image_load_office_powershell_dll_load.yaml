@@ -1,6 +1,6 @@
 id: cc3cef93-e54a-569a-a979-ac190161bc6c
 name: PowerShell Core DLL Loaded Via Office Application
-description: 'Detects PowerShell core DLL being loaded by an Office Product Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_powershell_dll_load.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_powershell_dll_load.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

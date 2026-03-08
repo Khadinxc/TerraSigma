@@ -1,6 +1,6 @@
 id: c18f8dee-9b8c-52ce-9006-6a1fb2683524
 name: Powershell Defender Exclusion
-description: 'Detects requests to exclude files, folders or processes from Antivirus scanning using PowerShell cmdlets Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_defender_exclusion.yml - Possible Admin Activity - Other Cmdlets that may use the same parameters | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_defender_exclusion.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

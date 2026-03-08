@@ -1,6 +1,6 @@
 id: ee39e0e3-3f3e-5532-b6ca-3d883965f72c
 name: Gpscript Execution
-description: 'Detects the execution of the LOLBIN gpscript, which executes logon or startup scripts configured in Group Policy Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_gpscript.yml - Legitimate uses of logon scripts distributed via group policy | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_gpscript.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

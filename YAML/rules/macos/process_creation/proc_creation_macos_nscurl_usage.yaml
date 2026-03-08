@@ -1,6 +1,6 @@
 id: d92a4c59-c5cf-5caf-980a-ae3a3b08e880
 name: File Download Via Nscurl - MacOS
-description: 'Detects the execution of the nscurl utility in order to download files. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_nscurl_usage.yml - Legitimate usage of nscurl by administrators and users. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_nscurl_usage.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

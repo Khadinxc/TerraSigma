@@ -1,6 +1,6 @@
 id: 614353f5-9515-5ba3-82f0-89bf9d9d76b7
 name: User Added To Admin Group Via Dscl
-description: 'Detects attempts to create and add an account to the admin group via "dscl" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_dscl_add_user_to_admin_group.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_dscl_add_user_to_admin_group.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

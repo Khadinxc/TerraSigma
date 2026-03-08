@@ -1,6 +1,6 @@
 id: 0f88b68e-f6e0-54b0-858e-61b1d8db6671
 name: ImagingDevices Unusual Parent/Child Processes
-description: 'Detects unusual parent or children of the ImagingDevices.exe (Windows Contacts) process as seen being used with Bumblebee activity Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_imagingdevices_unusual_parents.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_imagingdevices_unusual_parents.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

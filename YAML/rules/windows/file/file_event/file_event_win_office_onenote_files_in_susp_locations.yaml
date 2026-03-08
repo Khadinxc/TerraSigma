@@ -1,6 +1,6 @@
 id: 7c265484-34b5-5385-8e74-d5298abddb50
 name: OneNote Attachment File Dropped In Suspicious Location
-description: 'Detects creation of files with the ".one"/".onepkg" extension in suspicious or uncommon locations. This could be a sign of attackers abusing OneNote attachments Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_onenote_files_in_susp_locations.yml - Legitimate usage of ".one" or ".onepkg" files from those locations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_onenote_files_in_susp_locations.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

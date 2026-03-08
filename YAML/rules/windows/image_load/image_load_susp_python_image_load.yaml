@@ -1,6 +1,6 @@
 id: c6a105b2-f165-56fa-88bf-02a9d5a38da6
 name: Python Image Load By Non-Python Process
-description: 'Detects the image load of "Python Core" by a non-Python process. This might be indicative of a execution of executable that has been bundled from Python code. Various tools like Py2Exe, PyInstaller, and cx_Freeze are used to bundle Python code into standalone executables. Threat actors often use these tools to bundle malicious Python scripts into executables, sometimes to obfuscate the code or to bypass security measures. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_susp_python_image_load.yml - Legitimate Py2Exe Binaries - Known false positive caused with Python Anaconda - Various legitimate software is bundled from Python code into executables | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_susp_python_image_load.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

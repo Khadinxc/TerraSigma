@@ -1,6 +1,6 @@
 id: e9696dbd-cbe8-5f55-aa7b-7eee48184403
 name: Suspicious Usage of For Loop with Recursive Directory Search in CMD
-description: 'Detects suspicious usage of the cmd.exe ''for /f'' loop combined with the ''tokens='' parameter and a recursive directory listing. This pattern may indicate an attempt to discover and execute system binaries dynamically, for example powershell, a technique sometimes used by attackers to evade detection. This behavior has been observed in various malicious lnk files. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_cmd_for_loop_execution_with_recursive_directory_search.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_cmd_for_loop_execution_with_recursive_directory_search.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

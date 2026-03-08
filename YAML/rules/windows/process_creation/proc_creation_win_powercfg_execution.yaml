@@ -1,6 +1,6 @@
 id: dd9c04cd-c5f7-5ccb-8093-08ae4a25eddc
 name: Suspicious Powercfg Execution To Change Lock Screen Timeout
-description: 'Detects suspicious execution of ''Powercfg.exe'' to change lock screen timeout Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powercfg_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powercfg_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

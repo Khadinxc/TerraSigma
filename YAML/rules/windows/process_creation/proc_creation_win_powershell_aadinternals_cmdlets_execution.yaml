@@ -1,6 +1,6 @@
 id: 707ca14a-f900-55bf-99eb-665cf77b630a
 name: AADInternals PowerShell Cmdlets Execution - ProccessCreation
-description: 'Detects ADDInternals Cmdlet execution. A tool for administering Azure AD and Office 365. Which can be abused by threat actors to attack Azure AD or Office 365. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_aadinternals_cmdlets_execution.yml - Legitimate use of the library for administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_aadinternals_cmdlets_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

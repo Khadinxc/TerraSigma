@@ -1,6 +1,6 @@
 id: 57658814-ed41-580b-8b18-f3cd2ff799eb
 name: Renamed NirCmd.EXE Execution
-description: 'Detects the execution of a renamed "NirCmd.exe" binary based on the PE metadata fields. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_nircmd.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_nircmd.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

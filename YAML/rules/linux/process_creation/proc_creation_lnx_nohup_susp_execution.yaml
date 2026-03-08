@@ -1,6 +1,6 @@
 id: fe9e7342-f1e1-5252-8b20-8239e7217fb0
 name: Suspicious Nohup Execution
-description: 'Detects execution of binaries located in potentially suspicious locations via "nohup" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_nohup_susp_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_nohup_susp_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

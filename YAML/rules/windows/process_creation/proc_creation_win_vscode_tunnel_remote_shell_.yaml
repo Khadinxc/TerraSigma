@@ -1,6 +1,6 @@
 id: ce975e1f-56c0-5a9c-9a5a-635f3336c96b
 name: Visual Studio Code Tunnel Shell Execution
-description: 'Detects the execution of a shell (powershell, bash, wsl...) via Visual Studio Code tunnel. Attackers can abuse this functionality to establish a C2 channel and execute arbitrary commands on the system. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_tunnel_remote_shell_.yml - Legitimate use of Visual Studio Code tunnel and running code from there | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_tunnel_remote_shell_.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

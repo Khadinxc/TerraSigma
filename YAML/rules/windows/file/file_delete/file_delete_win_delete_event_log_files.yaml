@@ -1,6 +1,6 @@
 id: 56ba5776-b51c-5820-aff2-51682eafc70a
 name: EventLog EVTX File Deleted
-description: 'Detects the deletion of the event log files which may indicate an attempt to destroy forensic evidence Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_event_log_files.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_event_log_files.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

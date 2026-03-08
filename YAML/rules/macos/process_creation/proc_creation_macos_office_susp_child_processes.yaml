@@ -1,6 +1,6 @@
 id: b7073d5e-e552-57fa-bd70-c62b4b6d111a
 name: Suspicious Microsoft Office Child Process - MacOS
-description: 'Detects suspicious child processes spawning from microsoft office suite applications such as word or excel. This could indicates malicious macro execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_office_susp_child_processes.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_office_susp_child_processes.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

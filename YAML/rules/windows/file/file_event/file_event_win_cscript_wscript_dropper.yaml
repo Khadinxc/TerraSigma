@@ -1,6 +1,6 @@
 id: abec236c-173c-5f2d-b81e-b7526600cf0f
 name: WScript or CScript Dropper - File
-description: 'Detects a file ending in jse, vbe, js, vba, vbs written by cscript.exe or wscript.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_cscript_wscript_dropper.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_cscript_wscript_dropper.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

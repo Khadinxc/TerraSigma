@@ -1,6 +1,6 @@
 id: 1b13d3e2-0276-5b96-b4bd-22a7166d86fd
 name: PUA - RunXCmd Execution
-description: 'Detects the use of the RunXCmd tool to execute commands with System or TrustedInstaller accounts Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_runxcmd.yml - Legitimate use by administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_runxcmd.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

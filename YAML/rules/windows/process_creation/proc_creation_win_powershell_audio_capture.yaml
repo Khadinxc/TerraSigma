@@ -1,6 +1,6 @@
 id: 56029f1d-f19b-5b8e-a7a8-e6d3cea445ca
 name: Audio Capture via PowerShell
-description: 'Detects audio capture via PowerShell Cmdlet. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_audio_capture.yml - Legitimate audio capture by legitimate user. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_audio_capture.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

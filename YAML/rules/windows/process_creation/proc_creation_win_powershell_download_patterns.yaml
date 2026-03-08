@@ -1,6 +1,6 @@
 id: b9444e65-474b-5032-988d-155de14a36ce
 name: PowerShell Download Pattern
-description: 'Detects a Powershell process that contains download commands in its command line string Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_download_patterns.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_download_patterns.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

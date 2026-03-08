@@ -1,6 +1,6 @@
 id: a7c48283-1dd9-5bd3-a7fe-9f5bf8f9f5c1
 name: Uncommon Child Process Of BgInfo.EXE
-description: 'Detects uncommon child processes of "BgInfo.exe" which could be a sign of potential abuse of the binary to proxy execution via external VBScript Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bginfo_uncommon_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bginfo_uncommon_child_process.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

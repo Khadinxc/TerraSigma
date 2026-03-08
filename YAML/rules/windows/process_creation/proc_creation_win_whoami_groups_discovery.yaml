@@ -1,6 +1,6 @@
 id: 587603f3-c9ed-56c2-a2d1-88c239ce0a1e
 name: Group Membership Reconnaissance Via Whoami.EXE
-description: 'Detects the execution of whoami.exe with the /group command line flag to show group membership for the current user, account type, security identifiers (SID), and attributes. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_whoami_groups_discovery.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_whoami_groups_discovery.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

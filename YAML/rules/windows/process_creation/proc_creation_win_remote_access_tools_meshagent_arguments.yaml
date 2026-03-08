@@ -1,6 +1,6 @@
 id: a0a067ad-52f7-5d44-a6bd-6dc4ebb4375e
 name: Remote Access Tool - Potential MeshAgent Execution - Windows
-description: 'Detects potential execution of MeshAgent which is a tool used for remote access. Historical data shows that threat actors rename MeshAgent binary to evade detection. Matching command lines with the ''--meshServiceName'' argument can indicate that the MeshAgent is being used for remote access. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_meshagent_arguments.yml - Environments that legitimately use MeshAgent | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_meshagent_arguments.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

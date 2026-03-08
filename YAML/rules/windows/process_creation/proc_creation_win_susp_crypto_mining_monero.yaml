@@ -1,6 +1,6 @@
 id: 0e29937f-f94f-5e3c-ad7c-1ff0e51d13b8
 name: Potential Crypto Mining Activity
-description: 'Detects command line parameters or strings often used by crypto miners Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_crypto_mining_monero.yml - Legitimate use of crypto miners - Some build frameworks | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_crypto_mining_monero.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

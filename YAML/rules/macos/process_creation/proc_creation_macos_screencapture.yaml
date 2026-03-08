@@ -1,6 +1,6 @@
 id: 981d4e84-5b08-5555-956b-3c8f7a20311f
 name: Screen Capture - macOS
-description: 'Detects attempts to use screencapture to collect macOS screenshots Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_screencapture.yml - Legitimate user activity taking screenshots | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_screencapture.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

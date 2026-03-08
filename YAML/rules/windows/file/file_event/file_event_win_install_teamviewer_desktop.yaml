@@ -1,6 +1,6 @@
 id: 3e17923d-1d70-54da-aa8c-15c3e6a40354
 name: Installation of TeamViewer Desktop
-description: 'TeamViewer_Desktop.exe is create during install Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_install_teamviewer_desktop.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_install_teamviewer_desktop.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

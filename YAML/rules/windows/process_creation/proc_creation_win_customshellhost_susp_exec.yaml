@@ -1,6 +1,6 @@
 id: 66e5320b-bdbf-55ae-bdf5-215690234b4f
 name: Suspicious CustomShellHost Execution
-description: 'Detects the execution of CustomShellHost.exe where the child isn''t located in ''C:\Windows\explorer.exe''. CustomShellHost is a known LOLBin that can be abused by attackers for defense evasion techniques. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_customshellhost_susp_exec.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_customshellhost_susp_exec.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

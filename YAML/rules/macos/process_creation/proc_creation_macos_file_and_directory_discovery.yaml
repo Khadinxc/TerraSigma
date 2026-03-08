@@ -1,6 +1,6 @@
 id: f858d7b9-ece6-5cfe-bd91-f0e30a87ae3c
 name: File and Directory Discovery - MacOS
-description: 'Detects usage of system utilities to discover files and directories Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_file_and_directory_discovery.yml - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_file_and_directory_discovery.yml'
+description: No description provided
 severity: Informational
 queryFrequency: PT1H
 queryPeriod: PT1H

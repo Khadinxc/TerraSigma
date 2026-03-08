@@ -1,6 +1,6 @@
 id: 508a6c2f-a458-5261-baa7-0b87a552b93f
 name: Unattend.XML File Access Attempt
-description: 'Detects attempts to access the "unattend.xml" file, where credentials might be stored. This file is used during the unattended windows install process. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/file_access_win_susp_unattend_xml.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/file_access_win_susp_unattend_xml.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

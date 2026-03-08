@@ -1,6 +1,6 @@
 id: 124f1c7e-315c-5d80-9530-d035c48a2b03
 name: Binary Proxy Execution Via Dotnet-Trace.EXE
-description: 'Detects commandline arguments for executing a child process via dotnet-trace.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dotnet_trace_lolbin_execution.yml - Legitimate usage of the utility in order to debug and trace a program. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dotnet_trace_lolbin_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

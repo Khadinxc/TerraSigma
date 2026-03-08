@@ -1,6 +1,6 @@
 id: 26b98037-af7d-55fa-ae5a-131d0a4df11d
 name: UNC2452 Process Creation Patterns
-description: 'Detects a specific process creation patterns as seen used by UNC2452 and provided by Microsoft as Microsoft Defender ATP queries Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/SolarWinds-Supply-Chain/proc_creation_win_apt_unc2452_cmds.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/SolarWinds-Supply-Chain/proc_creation_win_apt_unc2452_cmds.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

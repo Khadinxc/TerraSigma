@@ -1,6 +1,6 @@
 id: 4d4155f7-de24-59e2-8b2f-78dd11139350
 name: EventLog Query Requests By Builtin Utilities
-description: 'Detect attempts to query the contents of the event log using command line utilities. Attackers use this technique in order to look for sensitive information in the logs such as passwords, usernames, IPs, etc. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_event_log_query.yml - Legitimate log access by administrators or troubleshooting tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_event_log_query.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

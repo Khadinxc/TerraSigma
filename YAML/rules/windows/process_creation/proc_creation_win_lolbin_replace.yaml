@@ -1,6 +1,6 @@
 id: b2bcfc4a-357c-5ce4-a5f4-337857357ff3
 name: Replace.exe Usage
-description: 'Detects the use of Replace.exe which can be used to replace file with another file Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_replace.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_replace.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: aa991c55-f886-510c-8c71-a2075d67d24a
 name: PUA - NirCmd Execution As LOCAL SYSTEM
-description: 'Detects the use of NirCmd tool for command execution as SYSTEM user Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_nircmd_as_system.yml - Legitimate use by administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_nircmd_as_system.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

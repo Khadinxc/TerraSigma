@@ -1,6 +1,6 @@
 id: 6d846155-1c04-5fa3-ba1c-5622728cd9eb
 name: Potential Tampering With Security Products Via WMIC
-description: 'Detects uninstallation or termination of security products using the WMIC utility Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_uninstall_security_products.yml - Legitimate administration | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_uninstall_security_products.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

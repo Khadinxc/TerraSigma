@@ -1,6 +1,6 @@
 id: 8c43fa8c-1853-5f79-b253-029e3559579a
 name: File With Uncommon Extension Created By An Office Application
-description: 'Detects the creation of files with an executable or script extension by an Office application. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_susp_file_extension.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_susp_file_extension.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

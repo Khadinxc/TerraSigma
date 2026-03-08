@@ -1,6 +1,6 @@
 id: 764b80f9-90ef-5a90-ba7b-877b80dd39a5
 name: HackTool - XORDump Execution
-description: 'Detects suspicious use of XORDump process memory dumping utility Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_xordump.yml - Another tool that uses the command line switches of XORdump | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_xordump.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

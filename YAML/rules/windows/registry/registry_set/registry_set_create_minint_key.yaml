@@ -1,6 +1,6 @@
 id: 0e2dc0be-fd1e-5c62-b40d-1d15bed9d1fc
 name: Security Event Logging Disabled via MiniNt Registry Key - Registry Set
-description: 'Detects the addition of the ''MiniNt'' key to the registry. Upon a reboot, Windows Event Log service will stop writing events. Windows Event Log is a service that collects and stores event logs from the operating system and applications. It is an important component of Windows security and auditing. Adversary may want to disable this service to disable logging of security events which could be used to detect their activities. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_create_minint_key.yml - Highly Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_create_minint_key.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

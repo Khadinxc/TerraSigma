@@ -1,6 +1,6 @@
 id: a01e4c27-a342-5a2d-93dc-eee73f6c936d
 name: Persistence Via New SIP Provider
-description: 'Detects when an attacker register a new SIP provider for persistence and defense evasion Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_sip_persistence.yml - Legitimate SIP being registered by the OS or different software. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_sip_persistence.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

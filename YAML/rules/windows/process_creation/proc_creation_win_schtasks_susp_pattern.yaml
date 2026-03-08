@@ -1,6 +1,6 @@
 id: b9b33705-431c-5d59-bd87-84e3b334d22b
 name: Suspicious Command Patterns In Scheduled Task Creation
-description: 'Detects scheduled task creation using "schtasks" that contain potentially suspicious or uncommon commands Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_susp_pattern.yml - Software installers that run from temporary folders and also install scheduled tasks are expected to generate some false positives | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_susp_pattern.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

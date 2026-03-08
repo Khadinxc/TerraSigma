@@ -1,6 +1,6 @@
 id: 7a12f647-d320-5934-b633-88c0385a0045
 name: Potential Commandline Obfuscation Using Escape Characters
-description: 'Detects potential commandline obfuscation using known escape characters Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_cli_obfuscation_escape_char.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_cli_obfuscation_escape_char.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

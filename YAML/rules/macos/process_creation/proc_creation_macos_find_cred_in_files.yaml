@@ -1,6 +1,6 @@
 id: 518e3be2-d714-5318-bf2a-fdb2c87e7b6e
 name: Credentials In Files
-description: 'Detecting attempts to extract passwords with grep and laZagne Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_find_cred_in_files.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_find_cred_in_files.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

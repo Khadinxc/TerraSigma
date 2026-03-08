@@ -1,6 +1,6 @@
 id: a3282345-5a02-5173-af6b-e7cc49440efd
 name: Potential Rundll32 Execution With DLL Stored In ADS
-description: 'Detects execution of rundll32 where the DLL being called is stored in an Alternate Data Stream (ADS). Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_ads_stored_dll_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_ads_stored_dll_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

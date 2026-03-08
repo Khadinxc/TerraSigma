@@ -1,6 +1,6 @@
 id: db9aa1b0-0933-504d-83a0-577e8544b5b4
 name: Suspicious Program Names
-description: 'Detects suspicious patterns in program names or folders that are often found in malicious samples or hacktools Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_progname.yml - Legitimate tools that accidentally match on the searched patterns | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_progname.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

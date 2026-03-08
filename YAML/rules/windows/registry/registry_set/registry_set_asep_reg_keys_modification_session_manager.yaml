@@ -1,6 +1,6 @@
 id: ab940953-ed72-50d1-b2f6-b58c4cae0ba6
 name: Session Manager Autorun Keys Modification
-description: 'Detects modification of autostart extensibility point (ASEP) in registry. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_session_manager.yml - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reason - Legitimate administrator sets up autorun keys for legitimate reason | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_session_manager.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 5ed20589-c888-5438-af86-9119ce1f6001
 name: VsCode Powershell Profile Modification
-description: 'Detects the creation or modification of a vscode related powershell profile which could indicate suspicious activity as the profile can be used as a mean of persistence Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_vscode_powershell_profile.yml - Legitimate use of the profile by developers or administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_vscode_powershell_profile.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: dcbfd469-f61f-5205-bef4-a44dc5cf5222
 name: Potential SPN Enumeration Via Setspn.EXE
-description: 'Detects service principal name (SPN) enumeration used for Kerberoasting Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_setspn_spn_enumeration.yml - Administration activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_setspn_spn_enumeration.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

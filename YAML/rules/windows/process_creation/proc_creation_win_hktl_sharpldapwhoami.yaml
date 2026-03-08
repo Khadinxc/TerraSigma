@@ -1,6 +1,6 @@
 id: d88cf122-ae37-5d4c-ad78-3fb6f745b673
 name: HackTool - SharpLdapWhoami Execution
-description: 'Detects SharpLdapWhoami, a whoami alternative that queries the LDAP service on a domain controller Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpldapwhoami.yml - Programs that use the same command line flags | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpldapwhoami.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

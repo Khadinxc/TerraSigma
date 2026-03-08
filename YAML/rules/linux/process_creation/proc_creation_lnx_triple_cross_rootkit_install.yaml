@@ -1,6 +1,6 @@
 id: 691bf92d-82e5-5c50-911d-c9160a88167a
 name: Triple Cross eBPF Rootkit Install Commands
-description: 'Detects default install commands of the Triple Cross eBPF rootkit based on the "deployer.sh" script Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_triple_cross_rootkit_install.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_triple_cross_rootkit_install.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

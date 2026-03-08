@@ -1,6 +1,6 @@
 id: 5719e644-9dfe-5628-a5d6-ca23ebc252d2
 name: Shadow Copies Deletion Using Operating Systems Utilities
-description: 'Shadow Copies deletion using operating systems utilities Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_shadow_copies_deletion.yml - Legitimate Administrator deletes Shadow Copies using operating systems utilities for legitimate reason - LANDesk LDClient Ivanti-PSModule (PS EncodedCommand) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_shadow_copies_deletion.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

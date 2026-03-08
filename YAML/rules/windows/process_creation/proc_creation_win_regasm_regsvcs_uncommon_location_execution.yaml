@@ -1,6 +1,6 @@
 id: 06f29cb7-206b-5cbc-9d1a-1de43ba8b90a
 name: Potentially Suspicious Execution Of Regasm/Regsvcs From Uncommon Location
-description: 'Detects potentially suspicious execution of the Regasm/Regsvcs utilities from a potentially suspicious location Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regasm_regsvcs_uncommon_location_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regasm_regsvcs_uncommon_location_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

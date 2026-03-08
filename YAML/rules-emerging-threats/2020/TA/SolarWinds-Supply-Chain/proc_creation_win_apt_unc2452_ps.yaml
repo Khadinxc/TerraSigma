@@ -1,6 +1,6 @@
 id: 7a7fd885-c8c5-5dcf-87bd-6bf4be9ac438
 name: UNC2452 PowerShell Pattern
-description: 'Detects a specific PowerShell command line pattern used by the UNC2452 actors as mentioned in Microsoft and Symantec reports Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/SolarWinds-Supply-Chain/proc_creation_win_apt_unc2452_ps.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/SolarWinds-Supply-Chain/proc_creation_win_apt_unc2452_ps.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

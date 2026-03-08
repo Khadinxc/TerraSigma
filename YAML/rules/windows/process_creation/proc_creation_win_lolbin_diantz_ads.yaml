@@ -1,6 +1,6 @@
 id: 62836ee5-62a3-5f85-bc9c-77f579de12db
 name: Suspicious Diantz Alternate Data Stream Execution
-description: 'Compress target file into a cab file stored in the Alternate Data Stream (ADS) of the target file. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_diantz_ads.yml - Very Possible | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_diantz_ads.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

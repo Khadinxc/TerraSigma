@@ -1,6 +1,6 @@
 id: 10b5a898-b092-5cf4-b0cb-9bd13895bf07
 name: Persistence Via Hhctrl.ocx
-description: 'Detects when an attacker modifies the registry value of the "hhctrl" to point to a custom binary Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_hhctrl_persistence.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_hhctrl_persistence.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

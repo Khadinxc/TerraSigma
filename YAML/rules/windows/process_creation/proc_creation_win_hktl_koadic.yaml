@@ -1,6 +1,6 @@
 id: bdaff26b-b8b7-5441-86c5-fa1e28ba03f7
 name: HackTool - Koadic Execution
-description: 'Detects command line parameters used by Koadic hack tool Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_koadic.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_koadic.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

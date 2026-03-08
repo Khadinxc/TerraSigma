@@ -1,6 +1,6 @@
 id: 67fa141f-0031-5930-890f-348dc30cbd7c
 name: Use of Wfc.exe
-description: 'The Workflow Command-line Compiler can be used for AWL bypass and is listed in Microsoft''s recommended block rules. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_wfc.yml - Legitimate use by a software developer | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_wfc.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

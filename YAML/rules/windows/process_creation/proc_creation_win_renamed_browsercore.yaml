@@ -1,6 +1,6 @@
 id: f47a8578-a650-5812-bdd6-e8edcbe5b284
 name: Renamed BrowserCore.EXE Execution
-description: 'Detects process creation with a renamed BrowserCore.exe (used to extract Azure tokens) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_browsercore.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_browsercore.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

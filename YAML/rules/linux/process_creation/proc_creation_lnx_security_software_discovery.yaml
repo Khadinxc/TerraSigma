@@ -1,6 +1,6 @@
 id: 66471c45-9541-5a29-ab37-995d8ce3aacf
 name: Security Software Discovery - Linux
-description: 'Detects usage of system utilities (only grep and egrep for now) to discover security software discovery Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_security_software_discovery.yml - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_security_software_discovery.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

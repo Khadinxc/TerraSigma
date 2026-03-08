@@ -1,6 +1,6 @@
 id: 486f3bb6-4296-5958-a0ff-b1407385783d
 name: New ODBC Driver Registered
-description: 'Detects the registration of a new ODBC driver. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_odbc_driver_registered.yml - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_odbc_driver_registered.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

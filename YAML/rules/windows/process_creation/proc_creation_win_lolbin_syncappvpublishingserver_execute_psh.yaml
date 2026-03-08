@@ -1,6 +1,6 @@
 id: 71a94e09-abcc-5579-81aa-91d025fe4bac
 name: SyncAppvPublishingServer Execute Arbitrary PowerShell Code
-description: 'Executes arbitrary PowerShell code using SyncAppvPublishingServer.exe. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_syncappvpublishingserver_execute_psh.yml - App-V clients | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_syncappvpublishingserver_execute_psh.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: f9d65abd-947e-59e8-a60a-f298c70859a1
 name: Import LDAP Data Interchange Format File Via Ldifde.EXE
-description: 'Detects the execution of "Ldifde.exe" with the import flag "-i". The can be abused to include HTTP-based arguments which will allow the arbitrary download of files from a remote server. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ldifde_file_load.yml - Since the content of the files are unknown, false positives are expected | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ldifde_file_load.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

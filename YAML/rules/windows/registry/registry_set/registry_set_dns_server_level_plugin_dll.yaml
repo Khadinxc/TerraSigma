@@ -1,6 +1,6 @@
 id: 84730392-5cef-53a9-b536-90801f1ee474
 name: New DNS ServerLevelPluginDll Installed
-description: 'Detects the installation of a DNS plugin DLL via ServerLevelPluginDll parameter in registry, which can be used to execute code in context of the DNS server (restart required) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_dns_server_level_plugin_dll.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_dns_server_level_plugin_dll.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

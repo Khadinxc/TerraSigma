@@ -1,6 +1,6 @@
 id: d67e6f8d-6fd2-5e97-b774-b05d25204e2e
 name: Obfuscated PowerShell OneLiner Execution
-description: 'Detects the execution of a specific OneLiner to download and execute powershell modules in memory. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_download_cradle_obfuscated.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_download_cradle_obfuscated.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

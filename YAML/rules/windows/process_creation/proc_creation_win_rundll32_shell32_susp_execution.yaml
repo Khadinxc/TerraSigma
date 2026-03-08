@@ -1,6 +1,6 @@
 id: c4436db4-70db-56ad-aad4-e5ae69dc4a02
 name: Shell32 DLL Execution in Suspicious Directory
-description: 'Detects shell32.dll executing a DLL in a suspicious directory Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_shell32_susp_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_shell32_susp_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

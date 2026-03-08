@@ -1,6 +1,6 @@
 id: 626d1143-935a-50bd-8e0c-add29a11164e
 name: Onyx Sleet APT File Creation Indicators
-description: 'Detects file creation activity that is related to Onyx Sleet APT activity Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Onyx-Sleet/file_event_win_apt_onyx_sleet_indicators.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Onyx-Sleet/file_event_win_apt_onyx_sleet_indicators.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

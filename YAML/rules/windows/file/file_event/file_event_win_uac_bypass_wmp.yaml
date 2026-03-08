@@ -1,6 +1,6 @@
 id: 1fe8779b-2cd8-56a0-a7d9-f4dad6da0e33
 name: UAC Bypass Using Windows Media Player - File
-description: 'Detects the pattern of UAC Bypass using Windows Media Player osksupport.dll (UACMe 32) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_wmp.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_wmp.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

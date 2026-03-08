@@ -1,6 +1,6 @@
 id: 520e5b98-aad2-5c06-b1d3-b4909f5586a0
 name: Potential Persistence Via CHM Helper DLL
-description: 'Detects when an attacker modifies the registry key "HtmlHelp Author" to achieve persistence Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_chm.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_chm.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

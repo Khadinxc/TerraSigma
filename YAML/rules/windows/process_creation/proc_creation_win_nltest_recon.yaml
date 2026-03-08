@@ -1,6 +1,6 @@
 id: 4b1ab0a1-84a5-5a61-ab8d-03c83b73bc29
 name: Potential Recon Activity Via Nltest.EXE
-description: 'Detects nltest commands that can be used for information discovery Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_nltest_recon.yml - Legitimate administration use but user and host must be investigated | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_nltest_recon.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

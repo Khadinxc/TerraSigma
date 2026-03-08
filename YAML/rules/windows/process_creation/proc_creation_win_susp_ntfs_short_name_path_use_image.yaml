@@ -1,6 +1,6 @@
 id: 160bd69a-c6ec-5c52-b538-171bfa169281
 name: Use Short Name Path in Image
-description: 'Detect use of the Windows 8.3 short name. Which could be used as a method to avoid Image detection Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_ntfs_short_name_path_use_image.yml - Applications could use this notation occasionally which might generate some false positives. In that case Investigate the parent and child process. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_ntfs_short_name_path_use_image.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

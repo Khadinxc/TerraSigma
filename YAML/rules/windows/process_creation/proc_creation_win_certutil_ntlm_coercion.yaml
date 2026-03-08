@@ -1,6 +1,6 @@
 id: 06d682cd-1c37-5cf5-a836-c34a8c6a9259
 name: Potential NTLM Coercion Via Certutil.EXE
-description: 'Detects possible NTLM coercion via certutil using the ''syncwithWU'' flag Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_ntlm_coercion.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_ntlm_coercion.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

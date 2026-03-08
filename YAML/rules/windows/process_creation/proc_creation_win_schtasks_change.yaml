@@ -1,6 +1,6 @@
 id: 9affcf72-0c57-5a4f-9875-acb622ac81d2
 name: Suspicious Modification Of Scheduled Tasks
-description: 'Detects when an attacker tries to modify an already existing scheduled tasks to run from a suspicious location Attackers can create a simple looking task in order to avoid detection on creation as it''s often the most focused on Instead they modify the task after creation to include their malicious payload Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_change.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_change.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

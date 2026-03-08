@@ -1,6 +1,6 @@
 id: ccdd1497-dd4c-5a8c-ae90-1fd2f0adaa85
 name: Add Debugger Entry To Hangs Key For Persistence
-description: 'Detects when an attacker adds a new "Debugger" value to the "Hangs" key in order to achieve persistence which will get invoked when an application crashes Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_hangs_debugger_persistence.yml - This value is not set by default but could be rarly used by administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_hangs_debugger_persistence.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

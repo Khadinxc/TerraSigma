@@ -1,6 +1,6 @@
 id: 2d2cfefd-44a2-5323-abe4-59049d045a61
 name: Potential System DLL Sideloading From Non System Locations
-description: 'Detects DLL sideloading of DLLs usually located in system locations (System32, SysWOW64, etc.). Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_from_non_system_location.yml - Legitimate applications loading their own versions of the DLLs mentioned in this rule | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_from_non_system_location.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

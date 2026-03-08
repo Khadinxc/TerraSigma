@@ -1,6 +1,6 @@
 id: fb1085a0-3a03-58e8-b7e7-e246e3e430ed
 name: Potential Persistence Using DebugPath
-description: 'Detects potential persistence using Appx DebugPath Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_appx_debugger.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_appx_debugger.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

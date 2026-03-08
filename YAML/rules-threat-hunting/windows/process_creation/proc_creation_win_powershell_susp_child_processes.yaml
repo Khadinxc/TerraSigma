@@ -1,6 +1,6 @@
 id: 223786a1-68b5-5559-b66b-aef8339f97f5
 name: Potentially Suspicious PowerShell Child Processes
-description: 'Detects potentially suspicious child processes spawned by PowerShell. Use this rule to hunt for potential anomalies initiating from PowerShell scripts and commands. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_susp_child_processes.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_susp_child_processes.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: a5b0e4c4-2a67-5990-8ad9-c13056e74e4c
 name: PowerShell Logging Disabled Via Registry Key Tampering
-description: 'Detects changes to the registry for the currently logged-in user. In order to disable PowerShell module logging, script block logging or transcription and script execution logging Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_powershell_logging_disabled.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_powershell_logging_disabled.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 44f73be5-1ad2-5f44-b5ac-8c4c5c6a5cd3
 name: Write Protect For Storage Disabled
-description: 'Detects applications trying to modify the registry in order to disable any write-protect property for storage devices. This could be a precursor to a ransomware attack and has been an observed technique used by cypherpunk group. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_write_protect_for_storage_disabled.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_write_protect_for_storage_disabled.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

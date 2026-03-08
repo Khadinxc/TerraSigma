@@ -1,6 +1,6 @@
 id: a5e0b5d2-40d1-586a-95e4-bbabe13a3238
 name: Proxy Execution via Vshadow
-description: 'Detects the invocation of vshadow.exe with the -exec parameter that executes a specified script or command after the shadow copies are created but before the VShadow tool exits. VShadow is a command-line tool that you can use to create and manage volume shadow copies. While legitimate backup or administrative scripts may use this flag, attackers can leverage this parameter to proxy the execution of malware. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vshadow_exec.yml - System backup or administrator tools - Legitimate administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vshadow_exec.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

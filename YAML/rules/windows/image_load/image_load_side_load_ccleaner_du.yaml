@@ -1,6 +1,6 @@
 id: e0ef42b3-1a57-597c-b889-84dffd182f38
 name: Potential CCleanerDU.DLL Sideloading
-description: 'Detects potential DLL sideloading of "CCleanerDU.dll" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_ccleaner_du.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_ccleaner_du.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

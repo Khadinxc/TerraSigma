@@ -1,6 +1,6 @@
 id: 184db5ee-bccc-5b05-bf53-d758b0479b3c
 name: Potential Persistence Via Microsoft Compatibility Appraiser
-description: 'Detects manual execution of the "Microsoft Compatibility Appraiser" task via schtasks. In order to trigger persistence stored in the "\AppCompatFlags\TelemetryController" registry key. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_persistence_windows_telemetry.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_persistence_windows_telemetry.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

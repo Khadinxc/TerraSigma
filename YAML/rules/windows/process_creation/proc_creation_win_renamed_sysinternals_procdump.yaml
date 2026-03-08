@@ -1,6 +1,6 @@
 id: 5fb14642-0d02-55f6-9ec7-28a4db1d7cc4
 name: Renamed ProcDump Execution
-description: 'Detects the execution of a renamed ProcDump executable. This often done by attackers or malware in order to evade defensive mechanisms. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_sysinternals_procdump.yml - Procdump illegally bundled with legitimate software. - Administrators who rename binaries (should be investigated). | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_sysinternals_procdump.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

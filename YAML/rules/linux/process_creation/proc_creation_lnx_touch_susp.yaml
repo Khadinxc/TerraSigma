@@ -1,6 +1,6 @@
 id: 1174d4c6-be60-5e63-95b7-27f7bf532da9
 name: Touch Suspicious Service File
-description: 'Detects usage of the "touch" process in service file. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_touch_susp.yml - Admin changing date of files. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_touch_susp.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

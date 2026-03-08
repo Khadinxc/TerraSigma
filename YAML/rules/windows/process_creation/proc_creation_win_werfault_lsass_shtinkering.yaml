@@ -1,6 +1,6 @@
 id: 9eeed83e-404a-5ecd-9e51-c970a56bd8cf
 name: Potential Credential Dumping Via WER
-description: 'Detects potential credential dumping via Windows Error Reporting LSASS Shtinkering technique which uses the Windows Error Reporting to dump lsass Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_werfault_lsass_shtinkering.yml - Windows Error Reporting might produce similar behavior. In that case, check the PID associated with the "-p" parameter in the CommandLine. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_werfault_lsass_shtinkering.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 218f25ec-2a5e-5321-addc-1236f6b5dc0d
 name: Remote Access Tool - AnyDesk Silent Installation
-description: 'Detects AnyDesk Remote Desktop silent installation. Which can be used by attackers to gain remote access. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_anydesk_silent_install.yml - Legitimate deployment of AnyDesk | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_access_tools_anydesk_silent_install.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

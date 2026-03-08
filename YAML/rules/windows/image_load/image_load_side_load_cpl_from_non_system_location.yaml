@@ -1,6 +1,6 @@
 id: 30c3c720-4d41-55ce-b753-05c8041b04aa
 name: System Control Panel Item Loaded From Uncommon Location
-description: 'Detects image load events of system control panel items (.cpl) from uncommon or non-system locations that may indicate DLL sideloading or other abuse techniques. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_cpl_from_non_system_location.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_cpl_from_non_system_location.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

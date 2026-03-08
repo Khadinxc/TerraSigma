@@ -1,6 +1,6 @@
 id: 2e847665-cbcf-532e-a268-1b3ee1483f8a
 name: Disable Or Stop Services
-description: 'Detects the usage of utilities such as ''systemctl'', ''service''...etc to stop or disable tools and services Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_services_stop_and_disable.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_services_stop_and_disable.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

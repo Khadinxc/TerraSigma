@@ -1,6 +1,6 @@
 id: 9a129d70-d4ae-5ecf-81eb-54ff2acf8abd
 name: Modify Group Policy Settings
-description: 'Detect malicious GPO modifications can be used to implement many other malicious behaviors. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_modify_group_policy_settings.yml - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_modify_group_policy_settings.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

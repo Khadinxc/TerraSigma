@@ -1,6 +1,6 @@
 id: acac080a-9e52-58ad-a6ab-4b0fa9a02181
 name: Nltest.EXE Execution
-description: 'Detects nltest commands that can be used for information discovery Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_nltest_execution.yml - Legitimate administration activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_nltest_execution.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

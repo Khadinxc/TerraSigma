@@ -1,6 +1,6 @@
 id: c27071a3-41e1-5de3-a3ff-e9d3adcf25e0
 name: Uncommon Child Process Spawned By Odbcconf.EXE
-description: 'Detects an uncommon child process of "odbcconf.exe" binary which normally shouldn''t have any child processes. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_odbcconf_uncommon_child_process.yml - In rare occurrences where "odbcconf" crashes. It might spawn a "werfault" process - Other child processes will depend on the DLL being registered by actions like "regsvr". In case where the DLLs have external calls (which should be rare). Other child processes might spawn and additional filters need to be applied. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_odbcconf_uncommon_child_process.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

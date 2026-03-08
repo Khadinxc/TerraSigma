@@ -1,6 +1,6 @@
 id: 0c7ade6c-b4fa-5ce8-95b9-fb6c3f3fe550
 name: MMC Loading Script Engines DLLs
-description: 'Detects when the Microsoft Management Console (MMC) loads the DLL libraries like vbscript, jscript etc which might indicate an attempt to execute malicious scripts within a trusted system process for bypassing application whitelisting or defense evasion. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_win_mmc_loads_script_engine_dll.yml - Legitimate MMC operations or extensions loading these libraries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_win_mmc_loads_script_engine_dll.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

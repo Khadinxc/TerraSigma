@@ -1,6 +1,6 @@
 id: c255d995-2c16-5699-92cd-c90ae02e302b
 name: Virtualbox Driver Installation or Starting of VMs
-description: 'Adversaries can carry out malicious operations using a virtual instance to avoid detection. This rule is built to detect the registration of the Virtualbox driver or start of a Virtualbox VM. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_virtualbox_execution.yml - This may have false positives on hosts where Virtualbox is legitimately being used for operations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_virtualbox_execution.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

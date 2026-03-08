@@ -1,6 +1,6 @@
 id: 8deddb2f-ceb2-5fb2-9afc-8e942df90696
 name: Potential RDP Session Hijacking Activity
-description: 'Detects potential RDP Session Hijacking activity on Windows systems Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tscon_rdp_session_hijacking.yml - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tscon_rdp_session_hijacking.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

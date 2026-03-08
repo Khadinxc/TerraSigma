@@ -1,6 +1,6 @@
 id: 9d67ef4f-3734-514e-890d-2d84efe3efb3
 name: Suspicious MsiExec Embedding Parent
-description: 'Adversaries may abuse msiexec.exe to proxy the execution of malicious payloads Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_embedding.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_embedding.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

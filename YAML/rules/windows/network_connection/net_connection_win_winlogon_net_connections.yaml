@@ -1,6 +1,6 @@
 id: 1a2117a9-b6a8-5c2a-a338-8f45e9f9ff7c
 name: Outbound Network Connection To Public IP Via Winlogon
-description: 'Detects a "winlogon.exe" process that initiate network communications with public IP addresses Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_winlogon_net_connections.yml - Communication to other corporate systems that use IP addresses from public address spaces | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_winlogon_net_connections.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

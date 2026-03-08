@@ -1,6 +1,6 @@
 id: 28e2f3c3-e228-5c1a-8005-0e732fb436c0
 name: Creation of an Executable by an Executable
-description: 'Detects the creation of an executable by another executable. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/file_event_win_susp_binary_dropper.yml - Software installers - Update utilities - 32bit applications launching their 64bit versions | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/file_event_win_susp_binary_dropper.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

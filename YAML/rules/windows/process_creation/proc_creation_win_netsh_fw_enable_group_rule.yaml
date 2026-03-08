@@ -1,6 +1,6 @@
 id: a9df7426-a786-5ca4-bca6-63cffe1a7394
 name: Netsh Allow Group Policy on Microsoft Defender Firewall
-description: 'Adversaries may modify system firewalls in order to bypass controls limiting network usage Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_enable_group_rule.yml - Legitimate administration activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_enable_group_rule.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: a24f8cbf-08dd-59a2-8446-c1de19c6dd79
 name: Service Started/Stopped Via Wmic.EXE
-description: 'Detects usage of wmic to start or stop a service Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_service_manipulation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_service_manipulation.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

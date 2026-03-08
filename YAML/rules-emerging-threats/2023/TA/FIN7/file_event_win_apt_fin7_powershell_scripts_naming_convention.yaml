@@ -1,6 +1,6 @@
 id: 02e84a3a-d01f-56cf-bf3f-1bf58953a295
 name: Potential APT FIN7 Related PowerShell Script Created
-description: 'Detects PowerShell script file creation with specific name or suffix which was seen being used often by FIN7 PowerShell scripts Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/FIN7/file_event_win_apt_fin7_powershell_scripts_naming_convention.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/FIN7/file_event_win_apt_fin7_powershell_scripts_naming_convention.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

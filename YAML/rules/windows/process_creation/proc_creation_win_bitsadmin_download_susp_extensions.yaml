@@ -1,6 +1,6 @@
 id: 36abe4ec-07c5-5e1a-9eea-7c7dc294e8bc
 name: File With Suspicious Extension Downloaded Via Bitsadmin
-description: 'Detects usage of bitsadmin downloading a file with a suspicious extension Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download_susp_extensions.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download_susp_extensions.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

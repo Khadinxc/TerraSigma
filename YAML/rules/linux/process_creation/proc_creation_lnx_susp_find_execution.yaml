@@ -1,6 +1,6 @@
 id: 6dc3d2fc-0065-5235-94d0-d7edb3062f9d
 name: Potential Discovery Activity Using Find - Linux
-description: 'Detects usage of "find" binary in a suspicious manner to perform discovery Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_find_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_find_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

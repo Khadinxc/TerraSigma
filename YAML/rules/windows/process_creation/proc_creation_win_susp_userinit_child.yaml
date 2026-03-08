@@ -1,6 +1,6 @@
 id: e77cfd58-1219-50a7-bf68-30ef9d3a3387
 name: Suspicious Userinit Child Process
-description: 'Detects a suspicious child process of userinit Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_userinit_child.yml - Administrative scripts | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_userinit_child.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: accb3838-78ee-5daf-86ae-3b963ebc4231
 name: Scheduled Task/Job At
-description: 'Detects the use of at/atd which are utilities that are used to schedule tasks. They are often abused by adversaries to maintain persistence or to perform task scheduling for initial or recurring execution of malicious code Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_at_command.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_at_command.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

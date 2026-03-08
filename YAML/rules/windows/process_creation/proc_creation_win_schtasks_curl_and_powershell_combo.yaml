@@ -1,6 +1,6 @@
 id: 907f74c9-87c3-5c52-9a1e-7c6cdf9e2da4
 name: Scheduled Task Creation with Curl and PowerShell Execution Combo
-description: 'Detects the creation of a scheduled task using schtasks.exe, potentially in combination with curl for downloading payloads and PowerShell for executing them. This facilitates executing malicious payloads or connecting with C&C server persistently without dropping the malware sample on the host. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_curl_and_powershell_combo.yml - Legitimate use of schtasks for administrative purposes. - Automation scripts combining curl and PowerShell in controlled environments. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_curl_and_powershell_combo.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

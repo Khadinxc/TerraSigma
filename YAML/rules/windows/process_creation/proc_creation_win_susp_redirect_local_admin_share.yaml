@@ -1,6 +1,6 @@
 id: 7e9b67a8-9ed7-5b7a-a0a6-a06684a67f5a
 name: Suspicious Redirection to Local Admin Share
-description: 'Detects a suspicious output redirection to the local admins share, this technique is often found in malicious scripts or hacktool stagers Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_redirect_local_admin_share.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_redirect_local_admin_share.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

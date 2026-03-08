@@ -1,6 +1,6 @@
 id: 09679c88-2eea-55c5-9533-44870cd5cb3a
 name: Potential PowerShell Obfuscation Via Reversed Commands
-description: 'Detects the presence of reversed PowerShell commands in the CommandLine. This is often used as a method of obfuscation by attackers Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cmdline_reversed_strings.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cmdline_reversed_strings.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

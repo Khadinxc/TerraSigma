@@ -1,6 +1,6 @@
 id: 70ae8a38-e0a6-5236-b93b-221da96662a0
 name: Regsvr32 DLL Execution With Suspicious File Extension
-description: 'Detects the execution of REGSVR32.exe with DLL files masquerading as other files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_susp_extensions.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_susp_extensions.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

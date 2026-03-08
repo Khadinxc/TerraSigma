@@ -1,6 +1,6 @@
 id: e6fba913-568a-5fc7-a9cf-4f09eb3e0691
 name: Dynamic .NET Compilation Via Csc.EXE
-description: 'Detects execution of "csc.exe" to compile .NET code. Attackers often leverage this to compile code on the fly and use it in other stages. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_csc_susp_dynamic_compilation.yml - Legitimate software from program files - https://twitter.com/gN3mes1s/status/1206874118282448897 - Legitimate Microsoft software - https://twitter.com/gabriele_pippi/status/1206907900268072962 - Ansible | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_csc_susp_dynamic_compilation.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

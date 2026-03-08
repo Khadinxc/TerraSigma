@@ -1,6 +1,6 @@
 id: d78f5237-b69a-5ff9-88b1-3e9b409ce775
 name: Time Travel Debugging Utility Usage - Image
-description: 'Detects usage of Time Travel Debugging Utility. Adversaries can execute malicious processes and dump processes, such as lsass.exe, via tttracer.exe. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_tttracer_module_load.yml - Legitimate usage by software developers/testers | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_tttracer_module_load.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: a8e07c82-a435-5e09-9bcd-d5fd55098615
 name: Raccine Uninstall
-description: 'Detects commands that indicate a Raccine removal from an end system. Raccine is a free ransomware protection tool. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_disable_raccine.yml - Legitimate deinstallation by administrative staff | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_disable_raccine.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

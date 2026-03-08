@@ -1,6 +1,6 @@
 id: 3a123a03-68e7-5f34-bf9b-9dc2a93c6861
 name: Uncommon Extension Shim Database Installation Via Sdbinst.EXE
-description: 'Detects installation of a potentially suspicious new shim with an uncommon extension using sdbinst.exe. Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by application shims Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sdbinst_susp_extension.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sdbinst_susp_extension.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

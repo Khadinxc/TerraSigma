@@ -1,6 +1,6 @@
 id: 70f980fa-cbec-5a0d-a380-636819f23137
 name: Legitimate Application Dropped Script
-description: 'Detects programs on a Windows system that should not write scripts to disk Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_script.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_script.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

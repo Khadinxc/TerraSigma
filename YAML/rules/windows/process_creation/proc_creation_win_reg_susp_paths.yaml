@@ -1,6 +1,6 @@
 id: ae0ac6cb-a26c-5d98-bbcf-460e88b00964
 name: Reg Add Suspicious Paths
-description: 'Detects when an adversary uses the reg.exe utility to add or modify new keys or subkeys Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_susp_paths.yml - Rare legitimate add to registry via cli (to these locations) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_susp_paths.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

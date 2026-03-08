@@ -1,6 +1,6 @@
 id: 40f0d712-8f3f-535a-b707-49886384e760
 name: Suspicious Execution of Shutdown to Log Out
-description: 'Detects the rare use of the command line tool shutdown to logoff a user Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_shutdown_logoff.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_shutdown_logoff.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

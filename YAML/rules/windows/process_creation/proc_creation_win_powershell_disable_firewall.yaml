@@ -1,6 +1,6 @@
 id: a82fa8e3-e754-56f3-b8eb-8fa31ac78f7d
 name: Windows Firewall Disabled via PowerShell
-description: 'Detects attempts to disable the Windows Firewall using PowerShell Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_disable_firewall.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_disable_firewall.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

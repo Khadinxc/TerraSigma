@@ -1,6 +1,6 @@
 id: 88872b1b-0f7f-5f6c-b126-f41f6b5bb7d0
 name: VMToolsd Suspicious Child Process
-description: 'Detects suspicious child process creations of VMware Tools process which may indicate persistence setup Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vmware_vmtoolsd_susp_child_process.yml - Legitimate use by VM administrator | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vmware_vmtoolsd_susp_child_process.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 1aa2207d-0643-5afc-8011-4a20ddae08b7
 name: Ping Hex IP
-description: 'Detects a ping command that uses a hex encoded IP address Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ping_hex_ip.yml - Unlikely, because no sane admin pings IP addresses in a hexadecimal form | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ping_hex_ip.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

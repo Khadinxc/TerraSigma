@@ -1,6 +1,6 @@
 id: 27d696ae-ff81-5332-a6de-0df93642d147
 name: Container Residence Discovery Via Proc Virtual FS
-description: 'Detects potential container discovery via listing of certain kernel features in the "/proc" virtual filesystem Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_container_residence_discovery.yml - Legitimate system administrator usage of these commands - Some container tools or deployments may use these techniques natively to determine how they proceed with execution, and will need to be filtered | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_container_residence_discovery.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

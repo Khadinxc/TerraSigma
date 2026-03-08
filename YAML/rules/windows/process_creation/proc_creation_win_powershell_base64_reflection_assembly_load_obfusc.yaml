@@ -1,6 +1,6 @@
 id: 8f68b207-7ebf-5cb9-8724-0cea6456a2fa
 name: Suspicious Encoded And Obfuscated Reflection Assembly Load Function Call
-description: 'Detects suspicious base64 encoded and obfuscated "LOAD" keyword used in .NET "reflection.assembly" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_reflection_assembly_load_obfusc.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_reflection_assembly_load_obfusc.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

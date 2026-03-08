@@ -1,6 +1,6 @@
 id: d0d725ed-75a8-58c1-987c-404e44ab3a53
 name: User Added To Root/Sudoers Group Using Usermod
-description: 'Detects usage of the "usermod" binary to add users add users to the root or suoders groups Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_usermod_susp_group.yml - Legitimate administrator activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_usermod_susp_group.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

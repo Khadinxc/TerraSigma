@@ -1,6 +1,6 @@
 id: c7117459-0036-5b4b-862e-0866f31248c0
 name: HackTool - SharPersist Execution
-description: 'Detects the execution of the hacktool SharPersist - used to deploy various different kinds of persistence mechanisms Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpersist.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_sharpersist.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

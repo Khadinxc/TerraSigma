@@ -1,6 +1,6 @@
 id: 511cc32b-ccfa-5c32-9807-1bc42dd1e618
 name: Audio Capture via SoundRecorder
-description: 'Detect attacker collecting audio via SoundRecorder application. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_soundrecorder_audio_capture.yml - Legitimate audio capture by legitimate user. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_soundrecorder_audio_capture.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

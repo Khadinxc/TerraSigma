@@ -1,6 +1,6 @@
 id: 49e0da40-5908-5049-8187-a4f8784f7e81
 name: Decode Base64 Encoded Text
-description: 'Detects usage of base64 utility to decode arbitrary base64-encoded text Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_base64_decode.yml - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_base64_decode.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

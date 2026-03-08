@@ -1,6 +1,6 @@
 id: f77e782b-a05b-5892-9563-5d9c03f0dc4c
 name: Potential BOINC Software Execution (UC-Berkeley Signature)
-description: 'Detects the use of software that is related to the University of California, Berkeley via metadata information. This indicates it may be related to BOINC software and can be used maliciously if unauthorized. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_boinc_execution.yml - This software can be used for legitimate purposes when installed intentionally. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_boinc_execution.yml'
+description: No description provided
 severity: Informational
 queryFrequency: PT1H
 queryPeriod: PT1H

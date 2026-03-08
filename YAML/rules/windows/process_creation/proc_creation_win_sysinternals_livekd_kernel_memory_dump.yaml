@@ -1,6 +1,6 @@
 id: 74f2baf2-88af-5ab7-a87d-c8348c352e98
 name: Kernel Memory Dump Via LiveKD
-description: 'Detects execution of LiveKD with the "-m" flag to potentially dump the kernel memory Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_livekd_kernel_memory_dump.yml - Unlikely in production environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_livekd_kernel_memory_dump.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

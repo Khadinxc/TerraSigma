@@ -1,6 +1,6 @@
 id: 341b14a8-ef27-5fa4-81ca-c6fcdd27b119
 name: Bypass UAC Using DelegateExecute
-description: 'Bypasses User Account Control using a fileless method Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_bypass_uac_using_delegateexecute.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_bypass_uac_using_delegateexecute.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

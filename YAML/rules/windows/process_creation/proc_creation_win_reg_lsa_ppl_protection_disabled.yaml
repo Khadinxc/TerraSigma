@@ -1,6 +1,6 @@
 id: ae886946-de5e-5911-b764-b0750caf4130
 name: LSA PPL Protection Disabled Via Reg.EXE
-description: 'Detects the usage of the "reg.exe" utility to disable PPL protection on the LSA process Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_lsa_ppl_protection_disabled.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_lsa_ppl_protection_disabled.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

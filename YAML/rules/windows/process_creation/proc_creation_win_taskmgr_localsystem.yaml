@@ -1,6 +1,6 @@
 id: 4a34d91e-1bc9-578b-817f-a4122dfbe95f
 name: Taskmgr as LOCAL_SYSTEM
-description: 'Detects the creation of taskmgr.exe process in context of LOCAL_SYSTEM Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_taskmgr_localsystem.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_taskmgr_localsystem.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

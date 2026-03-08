@@ -1,6 +1,6 @@
 id: 316952fe-525d-5eac-a280-414fdeb902ee
 name: JAMF MDM Potential Suspicious Child Process
-description: 'Detects potential suspicious child processes of "jamf". Could be a sign of potential abuse of Jamf as a C2 server as seen by Typhon MythicAgent. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_jamf_susp_child.yml - Legitimate execution of custom scripts or commands by Jamf administrators. Apply additional filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_jamf_susp_child.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

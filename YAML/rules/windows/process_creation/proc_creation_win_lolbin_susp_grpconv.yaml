@@ -1,6 +1,6 @@
 id: 5ab36ae5-87bd-5a33-9fc9-e2a198016f0d
 name: Suspicious GrpConv Execution
-description: 'Detects the suspicious execution of a utility to convert Windows 3.x .grp files or for persistence purposes by malicious software or actors Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_susp_grpconv.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_susp_grpconv.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

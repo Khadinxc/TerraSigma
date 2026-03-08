@@ -1,6 +1,6 @@
 id: d2281cf1-e712-5d21-911c-2133706c66d0
 name: Suspicious Runscripthelper.exe
-description: 'Detects execution of powershell scripts via Runscripthelper.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_runscripthelper.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_runscripthelper.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

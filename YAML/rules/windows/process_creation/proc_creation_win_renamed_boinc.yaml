@@ -1,6 +1,6 @@
 id: 3d19a52f-c06e-57c0-95bd-1ad38d22969c
 name: Renamed BOINC Client Execution
-description: 'Detects the execution of a renamed BOINC binary. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_boinc.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_boinc.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

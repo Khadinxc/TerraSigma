@@ -1,6 +1,6 @@
 id: cbbdad83-c0a9-58eb-b1d6-be8c339766a6
 name: HackTool - Dumpert Process Dumper Execution
-description: 'Detects the use of Dumpert process dumper, which dumps the lsass.exe process memory Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_dumpert.yml - Very unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_dumpert.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

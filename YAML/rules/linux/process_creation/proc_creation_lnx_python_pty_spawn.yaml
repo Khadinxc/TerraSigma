@@ -1,6 +1,6 @@
 id: 773d0452-a14b-5878-a510-5d0020ac1684
 name: Python Spawning Pretty TTY Via PTY Module
-description: 'Detects a python process calling to the PTY module in order to spawn a pretty tty which could be indicative of potential reverse shell activity. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_python_pty_spawn.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_python_pty_spawn.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

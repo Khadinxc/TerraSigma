@@ -1,6 +1,6 @@
 id: ea430246-88cf-5740-aa52-41fcc510dd81
 name: Microsoft Excel Add-In Loaded From Uncommon Location
-description: 'Detects Microsoft Excel loading an Add-In (.xll) file from an uncommon location Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_excel_xll_susp_load.yml - Some tuning might be required to allow or remove certain locations used by the rule if you consider them as safe locations | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_excel_xll_susp_load.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

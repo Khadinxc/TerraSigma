@@ -1,6 +1,6 @@
 id: f00182b0-a54a-591c-a508-7b88ec150672
 name: Wow6432Node CurrentVersion Autorun Keys Modification
-description: 'Detects modification of autostart extensibility point (ASEP) in registry. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_wow6432node.yml - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reason - Legitimate administrator sets up autorun keys for legitimate reason | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_wow6432node.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

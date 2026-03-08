@@ -1,6 +1,6 @@
 id: b93fc03c-147a-522a-a941-f42ba661d957
 name: Diamond Sleet APT Process Activity Indicators
-description: 'Detects process creation activity indicators related to Diamond Sleet APT Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/proc_creation_win_apt_diamond_sleet_indicators.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/proc_creation_win_apt_diamond_sleet_indicators.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

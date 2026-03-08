@@ -1,6 +1,6 @@
 id: 0a247031-00c8-5377-9f69-85a42e1ec5e4
 name: New Windows Firewall Rule Added Via New-NetFirewallRule Cmdlet
-description: 'Detects calls to the "New-NetFirewallRule" cmdlet from PowerShell in order to add a new firewall rule with an "Allow" action. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_new_netfirewallrule_allow.yml - Administrator script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_new_netfirewallrule_allow.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

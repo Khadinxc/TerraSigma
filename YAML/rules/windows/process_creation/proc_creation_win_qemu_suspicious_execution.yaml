@@ -1,6 +1,6 @@
 id: daff9cd9-0f0a-53e6-b24d-b916b27f8afc
 name: Potentially Suspicious Usage Of Qemu
-description: 'Detects potentially suspicious execution of the Qemu utility in a Windows environment. Threat actors have leveraged this utility and this technique for achieving network access as reported by Kaspersky. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_qemu_suspicious_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_qemu_suspicious_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

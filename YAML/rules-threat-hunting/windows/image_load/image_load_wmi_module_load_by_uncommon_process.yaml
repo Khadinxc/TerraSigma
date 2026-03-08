@@ -1,6 +1,6 @@
 id: aceacf6c-c879-5901-99d1-12398a15bbe6
 name: WMI Module Loaded By Uncommon Process
-description: 'Detects WMI modules being loaded by an uncommon process Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_wmi_module_load_by_uncommon_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_wmi_module_load_by_uncommon_process.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

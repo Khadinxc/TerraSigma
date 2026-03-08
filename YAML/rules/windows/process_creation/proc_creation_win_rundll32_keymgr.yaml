@@ -1,6 +1,6 @@
 id: 9ac85098-589c-5d2b-83d2-04a03fe7a738
 name: Suspicious Key Manager Access
-description: 'Detects the invocation of the Stored User Names and Passwords dialogue (Key Manager) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_keymgr.yml - Administrative activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_keymgr.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

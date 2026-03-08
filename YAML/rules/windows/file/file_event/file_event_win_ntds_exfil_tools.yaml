@@ -1,6 +1,6 @@
 id: 17ed2fec-d048-51be-87de-e9899e302e3c
 name: NTDS Exfiltration Filename Patterns
-description: 'Detects creation of files with specific name patterns seen used in various tools that export the NTDS.DIT for exfiltration. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_ntds_exfil_tools.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_ntds_exfil_tools.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

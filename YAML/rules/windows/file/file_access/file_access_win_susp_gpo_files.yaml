@@ -1,6 +1,6 @@
 id: 1f17039b-453e-58c2-bdb3-607b39bf49c1
 name: Access To Potentially Sensitive Sysvol Files By Uncommon Applications
-description: 'Detects file access requests to potentially sensitive files hosted on the Windows Sysvol share. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_susp_gpo_files.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_susp_gpo_files.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

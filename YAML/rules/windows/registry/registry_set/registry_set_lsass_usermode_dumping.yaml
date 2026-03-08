@@ -1,6 +1,6 @@
 id: 09aa68dc-0d38-5f2b-94f1-8a893e546ad5
 name: Lsass Full Dump Request Via DumpType Registry Settings
-description: 'Detects the setting of the "DumpType" registry value to "2" which stands for a "Full Dump". Technique such as LSASS Shtinkering requires this value to be "2" in order to dump LSASS. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_lsass_usermode_dumping.yml - Legitimate application that needs to do a full dump of their process | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_lsass_usermode_dumping.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

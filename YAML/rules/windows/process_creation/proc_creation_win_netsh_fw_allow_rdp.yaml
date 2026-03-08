@@ -1,6 +1,6 @@
 id: d75b0838-47c1-517a-8a6f-721303476f64
 name: RDP Connection Allowed Via Netsh.EXE
-description: 'Detects usage of the netsh command to open and allow connections to port 3389 (RDP). As seen used by Sarwent Malware Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_allow_rdp.yml - Legitimate administration activity | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_allow_rdp.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: be0afbf1-365c-5c2a-b9a6-904b96193171
 name: Suspicious Cabinet File Execution Via Msdt.EXE
-description: 'Detects execution of msdt.exe using the "cab" flag which could indicates suspicious diagcab files with embedded answer files leveraging CVE-2022-30190 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msdt_susp_cab_options.yml - Legitimate usage of ".diagcab" files | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msdt_susp_cab_options.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

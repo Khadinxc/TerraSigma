@@ -1,6 +1,6 @@
 id: b0da704b-dd35-53fa-b38e-2d26730c8a35
 name: Suspicious Rundll32 Invoking Inline VBScript
-description: 'Detects suspicious process related to rundll32 based on command line that invokes inline VBScript as seen being used by UNC2452 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_inline_vbs.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_inline_vbs.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 5582e8f5-6252-5c2e-b7e0-7484b0ec6333
 name: Compressed File Extraction Via Tar.EXE
-description: 'Detects execution of "tar.exe" in order to extract compressed file. Adversaries may abuse various utilities in order to decompress data to avoid detection. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tar_extraction.yml - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tar_extraction.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

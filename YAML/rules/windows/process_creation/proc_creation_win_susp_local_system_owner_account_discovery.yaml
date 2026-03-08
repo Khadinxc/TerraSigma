@@ -1,6 +1,6 @@
 id: c6ba2809-7ae0-525b-9446-7e12f74fe0ee
 name: Local Accounts Discovery
-description: 'Local accounts, System Owner/User discovery using operating systems utilities Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_local_system_owner_account_discovery.yml - Legitimate administrator or user enumerates local users for legitimate reason | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_local_system_owner_account_discovery.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

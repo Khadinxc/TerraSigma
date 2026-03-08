@@ -1,6 +1,6 @@
 id: c2717da3-3369-55ae-8b03-edc6b47b3879
 name: Visual Basic Command Line Compiler Usage
-description: 'Detects successful code compilation via Visual Basic Command Line Compiler that utilizes Windows Resource to Object Converter. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_visual_basic_compiler.yml - Utilization of this tool should not be seen in enterprise environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_visual_basic_compiler.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

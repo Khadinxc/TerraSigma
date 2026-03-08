@@ -1,6 +1,6 @@
 id: 1c7e4a42-157c-5075-91f0-3ef8f3c80a7b
 name: Suspicious X509Enrollment - Process Creation
-description: 'Detect use of X509Enrollment Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_x509enrollment.yml - Legitimate administrative script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_x509enrollment.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

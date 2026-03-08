@@ -1,6 +1,6 @@
 id: c61c5ac1-cc5e-5c21-a9ef-1fd9b7a48fbc
 name: Add DisallowRun Execution to Registry
-description: 'Detect set DisallowRun to 1 to prevent user running specific computer program Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disallowrun_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disallowrun_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

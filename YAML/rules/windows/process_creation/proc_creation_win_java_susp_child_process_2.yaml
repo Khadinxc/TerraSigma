@@ -1,6 +1,6 @@
 id: d4aa5c1e-b611-5874-8954-a1d2df4a7a01
 name: Shell Process Spawned by Java.EXE
-description: 'Detects shell spawned from Java host process, which could be a sign of exploitation (e.g. log4j exploitation) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_java_susp_child_process_2.yml - Legitimate calls to system binaries - Company specific internal usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_java_susp_child_process_2.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

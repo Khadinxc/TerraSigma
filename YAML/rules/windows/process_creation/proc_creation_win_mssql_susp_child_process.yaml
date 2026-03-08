@@ -1,6 +1,6 @@
 id: 3473ecb8-b0da-57f2-9783-6cd54334f6d4
 name: Suspicious Child Process Of SQL Server
-description: 'Detects suspicious child processes of the SQLServer process. This could indicate potential RCE or SQL Injection. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mssql_susp_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mssql_susp_child_process.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

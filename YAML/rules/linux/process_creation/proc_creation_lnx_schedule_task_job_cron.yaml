@@ -1,6 +1,6 @@
 id: cdb14275-f7ed-5244-88c9-a7357f9de3f9
 name: Scheduled Cron Task/Job - Linux
-description: 'Detects abuse of the cron utility to perform task scheduling for initial or recurring execution of malicious code. Detection will focus on crontab jobs uploaded from the tmp folder. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_schedule_task_job_cron.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_schedule_task_job_cron.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

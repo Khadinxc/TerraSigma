@@ -1,6 +1,6 @@
 id: c8185cbe-1bac-5007-aeaf-eb4bcf616642
 name: NTDS.DIT Created
-description: 'Detects creation of a file named "ntds.dit" (Active Directory Database) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_ntds_dit_creation.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_ntds_dit_creation.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

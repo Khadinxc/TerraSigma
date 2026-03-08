@@ -1,6 +1,6 @@
 id: 678f96cd-edb9-5ab3-8d2b-2df18f001b35
 name: New Generic Credentials Added Via Cmdkey.EXE
-description: 'Detects usage of "cmdkey.exe" to add generic credentials. As an example, this can be used before connecting to an RDP session via command line interface. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmdkey_adding_generic_creds.yml - Legitimate usage for administration purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmdkey_adding_generic_creds.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

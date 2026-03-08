@@ -1,6 +1,6 @@
 id: b2e835f0-593c-56ca-bfb4-7e62c231efcf
 name: File Encryption Using Gpg4win
-description: 'Detects usage of Gpg4win to encrypt files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gpg4win_encryption.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gpg4win_encryption.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

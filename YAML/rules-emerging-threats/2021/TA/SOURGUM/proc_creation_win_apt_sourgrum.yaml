@@ -1,6 +1,6 @@
 id: 35eb43ac-f73a-5461-9c01-1b9650446cad
 name: SOURGUM Actor Behaviours
-description: 'Suspicious behaviours related to an actor tracked by Microsoft as SOURGUM Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/TA/SOURGUM/proc_creation_win_apt_sourgrum.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/TA/SOURGUM/proc_creation_win_apt_sourgrum.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

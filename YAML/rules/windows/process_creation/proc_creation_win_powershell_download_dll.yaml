@@ -1,6 +1,6 @@
 id: 1f8aeec8-3b24-5c92-80cc-36bbfdfc6a77
 name: Potential DLL File Download Via PowerShell Invoke-WebRequest
-description: 'Detects potential DLL files being downloaded using the PowerShell Invoke-WebRequest or Invoke-RestMethod cmdlets. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_download_dll.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_download_dll.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

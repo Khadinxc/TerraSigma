@@ -1,6 +1,6 @@
 id: 33bf7beb-5dea-5403-8d40-a3348e21092c
 name: User Discovery And Export Via Get-ADUser Cmdlet
-description: 'Detects usage of the Get-ADUser cmdlet to collect user information and output it to a file Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_user_discovery_get_aduser.yml - Legitimate admin scripts may use the same technique, it''s better to exclude specific computers or users who execute these commands or scripts often | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_user_discovery_get_aduser.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

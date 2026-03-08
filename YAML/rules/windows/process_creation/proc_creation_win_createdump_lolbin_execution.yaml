@@ -1,6 +1,6 @@
 id: 0c6bc14c-14d2-5e1a-9d03-0f1d38cba5f3
 name: CreateDump Process Dump
-description: 'Detects uses of the createdump.exe LOLOBIN utility to dump process memory Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_createdump_lolbin_execution.yml - Command lines that use the same flags | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_createdump_lolbin_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

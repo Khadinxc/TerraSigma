@@ -1,6 +1,6 @@
 id: 518dbf2e-d982-5e4e-bea1-a3c9f2758300
 name: BloodHound Collection Files
-description: 'Detects default file names outputted by the BloodHound collection tool SharpHound Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_bloodhound_collection.yml - Some false positives may arise in some environment and this may require some tuning. Add additional filters or reduce level depending on the level of noise | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_bloodhound_collection.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

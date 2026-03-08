@@ -1,6 +1,6 @@
 id: 42a4c640-ece3-52e7-af1e-6bc0f5d8a397
 name: InfDefaultInstall.exe .inf Execution
-description: 'Executes SCT script using scrobj.dll from a command in entered into a specially prepared INF file. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_infdefaultinstall_execute_sct_scripts.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_infdefaultinstall_execute_sct_scripts.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 114d879d-8852-571c-a94b-9a1a60fcbd1f
 name: PowerShell Web Access Feature Enabled Via DISM
-description: 'Detects the use of DISM to enable the PowerShell Web Access feature, which could be used for remote access and potential abuse Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dism_enable_powershell_web_access_feature.yml - Legitimate PowerShell Web Access installations by administrators | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dism_enable_powershell_web_access_feature.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

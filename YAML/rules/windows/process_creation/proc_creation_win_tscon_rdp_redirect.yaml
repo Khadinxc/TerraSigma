@@ -1,6 +1,6 @@
 id: 3d81d130-57d8-57aa-918e-ff9809607a1d
 name: Suspicious RDP Redirect Using TSCON
-description: 'Detects a suspicious RDP session redirect using tscon.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tscon_rdp_redirect.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tscon_rdp_redirect.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

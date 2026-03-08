@@ -1,6 +1,6 @@
 id: ce3341a7-bbe1-5f3b-b07a-01e5c7729870
 name: Suspicious File Execution From Internet Hosted WebDav Share
-description: 'Detects the execution of the "net use" command to mount a WebDAV server and then immediately execute some content in it. As seen being used in malicious LNK files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_net_use_and_exec_combo.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_net_use_and_exec_combo.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

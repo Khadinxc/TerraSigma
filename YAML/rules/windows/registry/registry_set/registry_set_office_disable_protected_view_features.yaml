@@ -1,6 +1,6 @@
 id: c1a23bc9-a905-5931-ac21-4ed5e51fd21b
 name: Microsoft Office Protected View Disabled
-description: 'Detects changes to Microsoft Office protected view registry keys with which the attacker disables this feature. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_disable_protected_view_features.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_disable_protected_view_features.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

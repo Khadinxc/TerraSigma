@@ -1,6 +1,6 @@
 id: e1a9f8e0-572c-5507-abb9-372e5735e140
 name: Execute Code with Pester.bat as Parent
-description: 'Detects code execution via Pester.bat (Pester - Powershell Modulte for testing) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_pester.yml - Legitimate use of Pester for writing tests for Powershell scripts and modules | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_pester.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

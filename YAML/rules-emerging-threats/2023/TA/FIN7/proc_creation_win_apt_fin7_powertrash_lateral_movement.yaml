@@ -1,6 +1,6 @@
 id: 18c1ba65-abed-5e62-9ffc-7b28c983105e
 name: Potential APT FIN7 Reconnaissance/POWERTRASH Related Activity
-description: 'Detects specific command line execution used by FIN7 as reported by WithSecureLabs for reconnaissance and POWERTRASH execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/FIN7/proc_creation_win_apt_fin7_powertrash_lateral_movement.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/FIN7/proc_creation_win_apt_fin7_powertrash_lateral_movement.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

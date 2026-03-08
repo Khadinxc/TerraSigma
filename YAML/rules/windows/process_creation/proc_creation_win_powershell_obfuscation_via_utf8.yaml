@@ -1,6 +1,6 @@
 id: cb99d4a9-69e0-55a6-8dd5-1b9dd353b879
 name: Potential PowerShell Obfuscation Via WCHAR/CHAR
-description: 'Detects suspicious encoded character syntax often used for defense evasion Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_obfuscation_via_utf8.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_obfuscation_via_utf8.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

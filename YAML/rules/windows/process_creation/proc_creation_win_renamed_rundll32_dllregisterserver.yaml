@@ -1,6 +1,6 @@
 id: 0fa1d71b-14e5-5840-9286-09afc920001e
 name: Potential Renamed Rundll32 Execution
-description: 'Detects when ''DllRegisterServer'' is called in the commandline and the image is not rundll32. This could mean that the ''rundll32'' utility has been renamed in order to avoid detection Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_rundll32_dllregisterserver.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_rundll32_dllregisterserver.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

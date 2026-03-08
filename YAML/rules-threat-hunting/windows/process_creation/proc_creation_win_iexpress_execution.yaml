@@ -1,6 +1,6 @@
 id: 1c640a7d-bceb-5387-9b8f-aa39d920d3ac
 name: New Self Extracting Package Created Via IExpress.EXE
-description: 'Detects the "iexpress.exe" utility creating self-extracting packages. Attackers where seen leveraging "iexpress" to compile packages on the fly via ".sed" files. Investigate the command line options provided to "iexpress" and in case of a ".sed" file, check the contents and legitimacy of it. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_iexpress_execution.yml - Administrators building packages using iexpress.exe | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_iexpress_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

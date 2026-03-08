@@ -1,6 +1,6 @@
 id: e41920ec-64d7-50d6-9fb6-a0f8a4dc41ce
 name: Potentially Suspicious Electron Application CommandLine
-description: 'Detects potentially suspicious CommandLine of electron apps (teams, discord, slack, etc.). This could be a sign of abuse to proxy execution through a signed binary. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_electron_execution_proxy.yml - Legitimate usage for debugging purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_electron_execution_proxy.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

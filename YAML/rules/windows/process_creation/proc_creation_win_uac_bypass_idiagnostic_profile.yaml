@@ -1,6 +1,6 @@
 id: 372e0804-71d3-5168-b9dc-b6ce81df502c
 name: UAC Bypass Using IDiagnostic Profile
-description: 'Detects the "IDiagnosticProfileUAC" UAC bypass technique Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_idiagnostic_profile.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_idiagnostic_profile.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

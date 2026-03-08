@@ -1,6 +1,6 @@
 id: 165e1cb2-93f6-5093-aa41-f308875ac0ff
 name: Potential PowerShell Execution Policy Tampering
-description: 'Detects changes to the PowerShell execution policy in order to bypass signing requirements for script execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_powershell_execution_policy.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_powershell_execution_policy.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

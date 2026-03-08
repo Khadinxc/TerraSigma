@@ -1,6 +1,6 @@
 id: 765a2077-8ce6-5166-9e05-37f486ec6b99
 name: Access To Sysvol Policies Share By Uncommon Process
-description: 'Detects file access requests to the Windows Sysvol Policies Share by uncommon processes Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/file_access_win_susp_gpo_access_uncommon_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/file_access_win_susp_gpo_access_uncommon_process.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

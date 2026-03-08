@@ -1,6 +1,6 @@
 id: b521bf8e-c442-5323-a9cd-e08e237109c1
 name: Possible Privilege Escalation via Weak Service Permissions
-description: 'Detection of sc.exe utility spawning by user with Medium integrity level to change service ImagePath or FailureCommand Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_change_sevice_image_path_by_non_admin.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_change_sevice_image_path_by_non_admin.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

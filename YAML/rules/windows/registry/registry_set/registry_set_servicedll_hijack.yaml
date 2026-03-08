@@ -1,6 +1,6 @@
 id: 9c8c7f1e-f5e9-537e-931b-72c9ef6bf1fe
 name: ServiceDll Hijack
-description: 'Detects changes to the "ServiceDLL" value related to a service in the registry. This is often used as a method of persistence. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_servicedll_hijack.yml - Administrative scripts - Installation of a service | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_servicedll_hijack.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

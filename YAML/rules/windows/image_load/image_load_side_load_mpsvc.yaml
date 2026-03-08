@@ -1,6 +1,6 @@
 id: f9282b57-eeba-52bd-8b3b-cb011346cefd
 name: Potential DLL Sideloading Of MpSvc.DLL
-description: 'Detects potential DLL sideloading of "MpSvc.dll". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_mpsvc.yml - Legitimate applications loading their own versions of the DLL mentioned in this rule. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_mpsvc.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

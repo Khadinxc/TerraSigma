@@ -1,6 +1,6 @@
 id: 7af4ab8c-81cc-5933-af5a-a94f8f5e022d
 name: HackTool - Impacket Tools Execution
-description: 'Detects the execution of different compiled Windows binaries of the impacket toolset (based on names or part of their names - could lead to false positives) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_impacket_tools.yml - Legitimate use of the impacket tools | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_impacket_tools.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

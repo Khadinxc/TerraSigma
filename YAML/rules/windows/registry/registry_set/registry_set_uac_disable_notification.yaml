@@ -1,6 +1,6 @@
 id: 0f5dbd38-143b-5a6c-97a8-590b4a184260
 name: UAC Notification Disabled
-description: 'Detects when an attacker tries to disable User Account Control (UAC) notification by tampering with the "UACDisableNotify" value. UAC is a critical security feature in Windows that prevents unauthorized changes to the operating system. It prompts the user for permission or an administrator password before allowing actions that could affect the system''s operation or change settings that affect other users. When "UACDisableNotify" is set to 1, UAC prompts are suppressed. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_uac_disable_notification.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_uac_disable_notification.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 1adad2aa-65ef-5082-9a9a-cb28e269cd27
 name: Potential Persistence Via Excel Add-in - Registry
-description: 'Detect potential persistence via the creation of an excel add-in (XLL) file to make it run automatically when Excel is started. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_xll.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_xll.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

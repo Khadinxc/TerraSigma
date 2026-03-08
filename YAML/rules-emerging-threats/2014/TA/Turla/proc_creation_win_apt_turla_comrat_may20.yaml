@@ -1,6 +1,6 @@
 id: d025e8fd-c9d8-5229-bd1a-1ed86af45774
 name: Turla Group Commands May 2020
-description: 'Detects commands used by Turla group as reported by ESET in May 2020 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2014/TA/Turla/proc_creation_win_apt_turla_comrat_may20.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2014/TA/Turla/proc_creation_win_apt_turla_comrat_may20.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

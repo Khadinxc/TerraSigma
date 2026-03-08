@@ -1,6 +1,6 @@
 id: 4db0746f-59bc-5733-b4f7-dcd19bdd578e
 name: JXA In-memory Execution Via OSAScript
-description: 'Detects possible malicious execution of JXA in-memory via OSAScript Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_jxa_in_memory_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_jxa_in_memory_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 0c3b30fd-2aaa-5828-a571-2b2d3d95d3e8
 name: Potentially Suspicious WebDAV LNK Execution
-description: 'Detects possible execution via LNK file accessed on a WebDAV server. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_webdav_lnk_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_webdav_lnk_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

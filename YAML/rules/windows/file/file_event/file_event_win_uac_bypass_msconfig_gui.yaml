@@ -1,6 +1,6 @@
 id: 9491b8a5-3c4c-5177-b182-b9f8be4f8a89
 name: UAC Bypass Using MSConfig Token Modification - File
-description: 'Detects the pattern of UAC Bypass using a msconfig GUI hack (UACMe 55) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_msconfig_gui.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_uac_bypass_msconfig_gui.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: fad2c3fa-2b7c-50c9-a043-89557f926d48
 name: System Network Discovery - Linux
-description: 'Detects enumeration of local network configuration Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_system_network_discovery.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_system_network_discovery.yml'
+description: No description provided
 severity: Informational
 queryFrequency: PT1H
 queryPeriod: PT1H

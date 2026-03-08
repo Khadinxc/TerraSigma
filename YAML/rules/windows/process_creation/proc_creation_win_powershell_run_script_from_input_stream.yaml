@@ -1,6 +1,6 @@
 id: 6a2e3213-b6df-552a-85d9-d6042d67298a
 name: Run PowerShell Script from Redirected Input Stream
-description: 'Detects PowerShell script execution via input stream redirect Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_run_script_from_input_stream.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_run_script_from_input_stream.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

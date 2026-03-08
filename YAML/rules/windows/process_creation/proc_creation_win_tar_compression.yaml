@@ -1,6 +1,6 @@
 id: 3d8a5243-c8e4-5d8d-b734-c126dbdf1c5d
 name: Compressed File Creation Via Tar.EXE
-description: 'Detects execution of "tar.exe" in order to create a compressed file. Adversaries may abuse various utilities to compress or encrypt data before exfiltration. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tar_compression.yml - Likely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tar_compression.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

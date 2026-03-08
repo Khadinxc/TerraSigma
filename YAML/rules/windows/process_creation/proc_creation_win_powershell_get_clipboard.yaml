@@ -1,6 +1,6 @@
 id: ed9ed2ef-6024-5cae-ba2f-4dcb13714548
 name: PowerShell Get-Clipboard Cmdlet Via CLI
-description: 'Detects usage of the ''Get-Clipboard'' cmdlet via CLI Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_get_clipboard.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_get_clipboard.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

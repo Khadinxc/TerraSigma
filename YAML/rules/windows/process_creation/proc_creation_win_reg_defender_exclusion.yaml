@@ -1,6 +1,6 @@
 id: 78624334-6fd6-5e10-b92b-8afa3d1f8d50
 name: Suspicious Windows Defender Folder Exclusion Added Via Reg.EXE
-description: 'Detects the usage of "reg.exe" to add Defender folder exclusions. Qbot has been seen using this technique to add exclusions for folders within AppData and ProgramData. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_defender_exclusion.yml - Legitimate use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_defender_exclusion.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

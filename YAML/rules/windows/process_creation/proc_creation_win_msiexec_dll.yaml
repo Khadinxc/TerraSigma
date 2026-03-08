@@ -1,6 +1,6 @@
 id: 281cf572-b4ba-5ea9-be33-7d8f3af7a05a
 name: DllUnregisterServer Function Call Via Msiexec.EXE
-description: 'Detects MsiExec loading a DLL and calling its DllUnregisterServer function Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_dll.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_dll.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

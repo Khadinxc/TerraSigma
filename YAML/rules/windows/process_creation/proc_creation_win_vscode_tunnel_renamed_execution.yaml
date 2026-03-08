@@ -1,6 +1,6 @@
 id: 712fa6c0-bed0-5197-8390-1d0a69e836da
 name: Renamed Visual Studio Code Tunnel Execution
-description: 'Detects renamed Visual Studio Code tunnel execution. Attackers can abuse this functionality to establish a C2 channel Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_tunnel_renamed_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vscode_tunnel_renamed_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 6d945e81-a9ff-5ad9-9824-c527fdd466de
 name: Network Connection Initiated By Regsvr32.EXE
-description: 'Detects a network connection initiated by "Regsvr32.exe" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_regsvr32_network_activity.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_regsvr32_network_activity.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

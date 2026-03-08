@@ -1,6 +1,6 @@
 id: 4e1fb282-780b-50be-a77c-745a30c0520f
 name: Suspicious Child Process Of Veeam Dabatase
-description: 'Detects suspicious child processes of the Veeam service process. This could indicate potential RCE or SQL Injection. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mssql_veaam_susp_child_processes.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mssql_veaam_susp_child_processes.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

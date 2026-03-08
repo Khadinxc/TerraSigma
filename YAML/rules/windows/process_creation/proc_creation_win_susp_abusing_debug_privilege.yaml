@@ -1,6 +1,6 @@
 id: 4a4e9eb6-38e6-543a-9d71-8a67344a44eb
 name: Abused Debug Privilege by Arbitrary Parent Processes
-description: 'Detection of unusual child processes by different system processes Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_abusing_debug_privilege.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_abusing_debug_privilege.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

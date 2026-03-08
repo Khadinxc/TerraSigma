@@ -1,6 +1,6 @@
 id: 58cd6101-ea7f-5b1a-b362-a20ebf4c5426
 name: Renamed Sysinternals Sdelete Execution
-description: 'Detects the use of a renamed SysInternals Sdelete, which is something an administrator shouldn''t do (the renaming) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_sysinternals_sdelete.yml - System administrator usage | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_sysinternals_sdelete.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

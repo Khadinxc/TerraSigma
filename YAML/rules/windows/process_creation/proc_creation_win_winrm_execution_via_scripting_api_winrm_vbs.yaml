@@ -1,6 +1,6 @@
 id: 8b96cc3d-5744-57c4-880d-838a5fd34006
 name: Remote Code Execute via Winrm.vbs
-description: 'Detects an attempt to execute code or create service on remote host via winrm.vbs. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winrm_execution_via_scripting_api_winrm_vbs.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winrm_execution_via_scripting_api_winrm_vbs.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

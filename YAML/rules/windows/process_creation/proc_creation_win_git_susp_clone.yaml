@@ -1,6 +1,6 @@
 id: 4344e9c6-8817-5406-beb4-50001c65956e
 name: Suspicious Git Clone
-description: 'Detects execution of "git" in order to clone a remote repository that contain suspicious keywords which might be suspicious Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_git_susp_clone.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_git_susp_clone.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

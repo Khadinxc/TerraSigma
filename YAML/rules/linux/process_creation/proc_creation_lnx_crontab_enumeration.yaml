@@ -1,6 +1,6 @@
 id: aac481aa-f9eb-5237-bc6a-533c3da971bb
 name: Crontab Enumeration
-description: 'Detects usage of crontab to list the tasks of the user Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_crontab_enumeration.yml - Legitimate use of crontab | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_crontab_enumeration.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

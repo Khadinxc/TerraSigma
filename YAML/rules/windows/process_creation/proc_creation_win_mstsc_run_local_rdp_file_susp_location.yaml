@@ -1,6 +1,6 @@
 id: b09c57c8-7aed-5a61-b306-11a6ca310076
 name: Suspicious Mstsc.EXE Execution With Local RDP File
-description: 'Detects potential RDP connection via Mstsc using a local ".rdp" file located in suspicious locations. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mstsc_run_local_rdp_file_susp_location.yml - Likelihood is related to how often the paths are used in the environment | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mstsc_run_local_rdp_file_susp_location.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

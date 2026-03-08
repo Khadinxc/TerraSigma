@@ -1,6 +1,6 @@
 id: 7db6c306-57a6-5cc3-9e35-f92e07a25854
 name: Disable Internal Tools or Feature in Registry
-description: 'Detects registry modifications that change features of internal Windows tools (malware like Agent Tesla uses this technique) Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_function_user.yml - Legitimate admin script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_function_user.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

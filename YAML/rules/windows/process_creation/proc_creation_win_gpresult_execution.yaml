@@ -1,6 +1,6 @@
 id: 1759057d-6969-5bd5-8fd2-13aae1412a56
 name: Gpresult Display Group Policy Information
-description: 'Detects cases in which a user uses the built-in Windows utility gpresult to display the Resultant Set of Policy (RSoP) information Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gpresult_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gpresult_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

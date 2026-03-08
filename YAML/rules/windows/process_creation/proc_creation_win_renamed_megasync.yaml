@@ -1,6 +1,6 @@
 id: 4ed530fc-84a4-52e2-9dc7-84c83f493c18
 name: Renamed MegaSync Execution
-description: 'Detects the execution of a renamed MegaSync.exe as seen used by ransomware families like Nefilim, Sodinokibi, Pysa, and Conti. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_megasync.yml - Software that illegally integrates MegaSync in a renamed form - Administrators that have renamed MegaSync | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_megasync.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

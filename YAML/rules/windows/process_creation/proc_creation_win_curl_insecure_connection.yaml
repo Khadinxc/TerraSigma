@@ -1,6 +1,6 @@
 id: 1277c018-e774-5555-bb82-df120da0bdc9
 name: Insecure Transfer Via Curl.EXE
-description: 'Detects execution of "curl.exe" with the "--insecure" flag. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_insecure_connection.yml - Access to badly maintained internal or development systems | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_insecure_connection.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

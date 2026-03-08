@@ -1,6 +1,6 @@
 id: be0b5a81-be45-5db8-bfe3-9504eade9d68
 name: Windows Defender Exclusions Added - Registry
-description: 'Detects the Setting of Windows Defender Exclusions Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_defender_exclusions.yml - Administrator actions | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_defender_exclusions.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: f2330650-d3c5-5252-98ce-886ce1688132
 name: Gatekeeper Bypass via Xattr
-description: 'Detects macOS Gatekeeper bypass via xattr utility Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_xattr_gatekeeper_bypass.yml - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_xattr_gatekeeper_bypass.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

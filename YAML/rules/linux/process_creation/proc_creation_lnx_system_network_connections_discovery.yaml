@@ -1,6 +1,6 @@
 id: 756ee05e-1d3f-5045-9d39-04225cce4e67
 name: System Network Connections Discovery - Linux
-description: 'Detects usage of system utilities to discover system network connections Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_system_network_connections_discovery.yml - Legitimate activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_system_network_connections_discovery.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

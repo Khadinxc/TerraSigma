@@ -1,6 +1,6 @@
 id: f2ff5f45-76ac-5a53-bc5d-5a55f1b30432
 name: RemCom Service File Creation
-description: 'Detects default RemCom service filename which indicates RemCom service installation and execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_remcom_service.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_remcom_service.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

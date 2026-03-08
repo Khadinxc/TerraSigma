@@ -1,6 +1,6 @@
 id: fe56aef8-3955-5285-a0b5-e815d69cdb64
 name: Suspicious PowerShell Invocations - Specific - ProcessCreation
-description: 'Detects suspicious PowerShell invocation command parameters Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_invocation_specific.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_invocation_specific.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

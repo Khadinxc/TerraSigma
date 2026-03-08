@@ -1,6 +1,6 @@
 id: 6cd5d412-f9cf-5dd9-ae80-39886dac716e
 name: Persistence Via TypedPaths - CommandLine
-description: 'Detects modification addition to the ''TypedPaths'' key in the user or admin registry via the commandline. Which might indicate persistence attempt Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_typed_paths_persistence.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_typed_paths_persistence.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

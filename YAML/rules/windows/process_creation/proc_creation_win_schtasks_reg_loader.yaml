@@ -1,6 +1,6 @@
 id: 415c1c63-4096-56f8-aa05-c5ecf1a2c5f8
 name: Scheduled Task Executing Payload from Registry
-description: 'Detects the creation of a schtasks that potentially executes a payload stored in the Windows Registry using PowerShell. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_reg_loader.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_reg_loader.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

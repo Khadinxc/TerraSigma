@@ -1,6 +1,6 @@
 id: 47e41eac-78b1-5463-b107-460f46c0e00b
 name: Potential Vivaldi_elf.DLL Sideloading
-description: 'Detects potential DLL sideloading of "vivaldi_elf.dll" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_vivaldi_elf.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_vivaldi_elf.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

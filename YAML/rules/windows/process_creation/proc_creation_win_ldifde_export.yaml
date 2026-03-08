@@ -1,6 +1,6 @@
 id: f43a66cf-5891-58b0-9a4b-61f8400ce71b
 name: Active Directory Structure Export Via Ldifde.EXE
-description: 'Detects the execution of "ldifde.exe" in order to export organizational Active Directory structure. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ldifde_export.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ldifde_export.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

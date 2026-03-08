@@ -1,6 +1,6 @@
 id: 34c3ce06-db87-55e5-b1ea-e263bb3baa85
 name: Potential Arbitrary DLL Load Using Winword
-description: 'Detects potential DLL sideloading using the Microsoft Office winword process via the ''/l'' flag. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_winword_dll_load.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_winword_dll_load.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

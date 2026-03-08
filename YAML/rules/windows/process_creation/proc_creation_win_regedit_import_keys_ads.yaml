@@ -1,6 +1,6 @@
 id: 9ec3a832-8e18-5744-be52-7e44b2115c44
 name: Imports Registry Key From an ADS
-description: 'Detects the import of a alternate datastream to the registry with regedit.exe. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regedit_import_keys_ads.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regedit_import_keys_ads.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

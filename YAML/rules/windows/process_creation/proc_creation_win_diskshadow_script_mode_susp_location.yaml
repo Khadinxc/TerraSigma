@@ -1,6 +1,6 @@
 id: 17d69ccd-5996-54df-ad92-9ec3a752c171
 name: Diskshadow Script Mode - Execution From Potential Suspicious Location
-description: 'Detects execution of "Diskshadow.exe" in script mode using the "/s" flag where the script is located in a potentially suspicious location. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_diskshadow_script_mode_susp_location.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_diskshadow_script_mode_susp_location.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

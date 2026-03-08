@@ -1,6 +1,6 @@
 id: 908fe232-dae3-5055-ae9f-2ef8167a5032
 name: Running Chrome VPN Extensions via the Registry 2 VPN Extension
-description: 'Running Chrome VPN Extensions via the Registry install 2 vpn extension Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_chrome_extension.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_chrome_extension.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 333682b1-0846-554f-90e8-e4812c679f97
 name: Potential Suspicious Change To Sensitive/Critical Files
-description: 'Detects changes of sensitive and critical files. Monitors files that you don''t expect to change without planning on Linux system. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_sensitive_file_access.yml - Some false positives are to be expected on user or administrator machines. Apply additional filters as needed. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_sensitive_file_access.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

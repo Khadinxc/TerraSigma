@@ -1,6 +1,6 @@
 id: 814e6a5e-c385-5940-a5b1-cb267fb41162
 name: Potential Persistence Via Mpnotify
-description: 'Detects when an attacker register a new SIP provider for persistence and defense evasion Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_mpnotify.yml - Might trigger if a legitimate new SIP provider is registered. But this is not a common occurrence in an environment and should be investigated either way | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_mpnotify.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

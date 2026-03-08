@@ -1,6 +1,6 @@
 id: 7cfb7136-064e-520e-acdc-1367be9419c1
 name: Suspicious Reg Add BitLocker
-description: 'Detects suspicious addition to BitLocker related registry keys via the reg.exe utility Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_bitlocker.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_bitlocker.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: e08ebb78-2325-5e17-9b26-a1adb8676e67
 name: PowerShell Base64 Encoded Invoke Keyword
-description: 'Detects UTF-8 and UTF-16 Base64 encoded powershell ''Invoke-'' calls Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_invoke.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_invoke.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

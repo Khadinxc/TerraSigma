@@ -1,6 +1,6 @@
 id: 2699bc30-7733-58c3-9bed-f3564e3c6bd6
 name: MSHTA Execution with Suspicious File Extensions
-description: 'Detects execution of mshta.exe with file types that looks like they do not typically represent HTA (HTML Application) content, such as .png, .jpg, .zip, .pdf, and others, which are often polyglots. MSHTA is a legitimate Windows utility for executing HTML Applications containing VBScript or JScript. Threat actors often abuse this lolbin utility to download and execute malicious scripts disguised as benign files or hosted under misleading extensions to evade detection. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_susp_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_susp_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

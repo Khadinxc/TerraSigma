@@ -1,6 +1,6 @@
 id: 0e8dad50-4d88-5e71-893d-1c1930688898
 name: EvilNum APT Golden Chickens Deployment Via OCX Files
-description: 'Detects Golden Chickens deployment method as used by Evilnum and described in ESET July 2020 report Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Evilnum/proc_creation_win_apt_evilnum_jul20.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Evilnum/proc_creation_win_apt_evilnum_jul20.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

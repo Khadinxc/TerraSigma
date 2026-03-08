@@ -1,6 +1,6 @@
 id: 4e83e482-b811-597a-848b-a30194ed9904
 name: Discovery of a System Time
-description: 'Identifies use of various commands to query a systems time. This technique may be used before executing a scheduled task or to discover the time zone of a target system. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_time_discovery.yml - Legitimate use of the system utilities to discover system time for legitimate reason | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_remote_time_discovery.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

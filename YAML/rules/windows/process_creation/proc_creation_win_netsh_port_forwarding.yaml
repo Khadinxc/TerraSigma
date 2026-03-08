@@ -1,6 +1,6 @@
 id: e798281b-b270-525c-a6e7-1d7b39f207b8
 name: New Port Forwarding Rule Added Via Netsh.EXE
-description: 'Detects the execution of netsh commands that configure a new port forwarding (PortProxy) rule Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_port_forwarding.yml - Legitimate administration activity - WSL2 network bridge PowerShell script used for WSL/Kubernetes/Docker (e.g. https://github.com/microsoft/WSL/issues/4150#issuecomment-504209723) | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_port_forwarding.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

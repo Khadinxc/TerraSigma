@@ -1,6 +1,6 @@
 id: 125a90fa-1a2e-5f30-9844-abf858c6e704
 name: Potential Manage-bde.wsf Abuse To Proxy Execution
-description: 'Detects potential abuse of the "manage-bde.wsf" script as a LOLBIN to proxy execution Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_manage_bde.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_manage_bde.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

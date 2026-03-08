@@ -1,6 +1,6 @@
 id: 32cba630-f6dd-5685-a19b-4fac2b9d8b88
 name: Trusted Path Bypass via Windows Directory Spoofing
-description: 'Detects DLLs loading from a spoofed Windows directory path with an extra space (e.g "C:\Windows \System32") which can bypass Windows trusted path verification. This technique tricks Windows into treating the path as trusted, allowing malicious DLLs to load with high integrity privileges bypassing UAC. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_win_trusted_path_bypass.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_win_trusted_path_bypass.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

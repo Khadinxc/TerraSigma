@@ -1,6 +1,6 @@
 id: 9d52fb96-0de1-5970-858f-611b7216102d
 name: Suspicious File Download From IP Via Wget.EXE - Paths
-description: 'Detects potentially suspicious file downloads directly from IP addresses and stored in suspicious locations using Wget.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wget_download_susp_locations.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wget_download_susp_locations.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

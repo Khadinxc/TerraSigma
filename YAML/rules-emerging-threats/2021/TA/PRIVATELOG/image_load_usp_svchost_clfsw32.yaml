@@ -1,6 +1,6 @@
 id: 56e52ccf-0dd7-5357-aadb-c5b1b1ff1c64
 name: APT PRIVATELOG Image Load Pattern
-description: 'Detects an image load pattern as seen when a tool named PRIVATELOG is used and rarely observed under legitimate circumstances Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/TA/PRIVATELOG/image_load_usp_svchost_clfsw32.yml - Rarely observed | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2021/TA/PRIVATELOG/image_load_usp_svchost_clfsw32.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

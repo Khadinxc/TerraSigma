@@ -1,6 +1,6 @@
 id: 5ae828ad-d020-5b9c-842d-48b3becbf9ad
 name: Private Keys Reconnaissance Via CommandLine Tools
-description: 'Adversaries may search for private key certificate files on compromised systems for insecurely stored credential Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_private_keys_recon.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_private_keys_recon.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: a1123a73-4bf3-5944-9ef3-01e9c543efac
 name: Potential Binary Proxy Execution Via VSDiagnostics.EXE
-description: 'Detects execution of "VSDiagnostics.exe" with the "start" command in order to launch and proxy arbitrary binaries. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vsdiagnostics_execution_proxy.yml - Legitimate usage for tracing and diagnostics purposes | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vsdiagnostics_execution_proxy.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

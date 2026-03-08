@@ -1,6 +1,6 @@
 id: 695bf584-0327-5c3a-bfd4-d55ca081776b
 name: Potentially Suspicious Desktop Background Change Via Registry
-description: 'Detects registry value settings that would replace the user''s desktop background. This is a common technique used by malware to change the desktop background to a ransom note or other image. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_desktop_background_change.yml - Administrative scripts that change the desktop background to a company logo or other image. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_desktop_background_change.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

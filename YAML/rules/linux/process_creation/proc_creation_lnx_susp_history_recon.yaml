@@ -1,6 +1,6 @@
 id: 362d3c34-7a6d-5d8e-aea8-d05425310604
 name: Print History File Contents
-description: 'Detects events in which someone prints the contents of history files to the commandline or redirects it to a file for reconnaissance Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_history_recon.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_history_recon.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: da8c2b07-d9ed-5046-9c72-eeff3f828372
 name: Visual Studio NodejsTools PressAnyKey Renamed Execution
-description: 'Detects renamed execution of "Microsoft.NodejsTools.PressAnyKey.exe", which can be abused as a LOLBIN to execute arbitrary binaries Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_pressanykey.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_pressanykey.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

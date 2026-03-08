@@ -1,6 +1,6 @@
 id: be200dc4-ebfd-538b-bdd4-80a959a8a22b
 name: HackTool - Mimikatz Kirbi File Creation
-description: 'Detects the creation of files created by mimikatz such as ".kirbi", "mimilsa.log", etc. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_mimikatz_files.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_mimikatz_files.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: b3996d8e-d83b-596d-9eca-29c9692f2bc1
 name: PUA - Nimgrab Execution
-description: 'Detects the usage of nimgrab, a tool bundled with the Nim programming framework and used for downloading files. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_nimgrab.yml - Legitimate use of Nim on a developer systems | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_nimgrab.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

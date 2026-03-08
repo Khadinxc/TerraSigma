@@ -1,6 +1,6 @@
 id: 33823145-4142-5605-b571-65fbffd02345
 name: Amsi.DLL Load By Uncommon Process
-description: 'Detects loading of Amsi.dll by uncommon processes Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_dll_amsi_uncommon_process.yml - Legitimate third party apps installed in "ProgramData" and "AppData" might generate some false positives. Apply additional filters accordingly | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_dll_amsi_uncommon_process.yml'
+description: No description provided
 severity: Low
 queryFrequency: PT1H
 queryPeriod: PT1H

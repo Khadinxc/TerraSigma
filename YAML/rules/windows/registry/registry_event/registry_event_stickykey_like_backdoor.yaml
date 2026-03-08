@@ -1,6 +1,6 @@
 id: 7d8507dd-d888-5fb8-8bc0-cc38fc5da6d3
 name: Sticky Key Like Backdoor Usage - Registry
-description: 'Detects the usage and installation of a backdoor that uses an option to register a malicious debugger for built-in tools that are accessible in the login screen Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_stickykey_like_backdoor.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_stickykey_like_backdoor.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

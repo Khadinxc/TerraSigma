@@ -1,6 +1,6 @@
 id: 711b0145-b9fd-5136-a85d-1f32c6dfe63b
 name: MMC Spawning Windows Shell
-description: 'Detects a Windows command line executable started from MMC Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mmc_susp_child_process.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mmc_susp_child_process.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

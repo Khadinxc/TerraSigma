@@ -1,6 +1,6 @@
 id: eeeb79f4-f845-52df-a94e-570cf52b18ad
 name: Unusual Parent Process For Cmd.EXE
-description: 'Detects suspicious parent process for cmd.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_unusual_parent.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_unusual_parent.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 1e6137c7-5994-5799-8d26-cace7a7c7136
 name: Legitimate Application Dropped Executable
-description: 'Detects programs on a Windows system that should not write executables to disk Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_exe.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_exe.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

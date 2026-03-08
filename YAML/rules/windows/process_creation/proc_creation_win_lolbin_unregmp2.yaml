@@ -1,6 +1,6 @@
 id: 488fbcfe-cd86-582e-a221-f36eb0a3f5ca
 name: Lolbin Unregmp2.exe Use As Proxy
-description: 'Detect usage of the "unregmp2.exe" binary as a proxy to launch a custom version of "wmpnscfg.exe" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_unregmp2.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_unregmp2.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

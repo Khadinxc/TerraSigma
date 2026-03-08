@@ -1,6 +1,6 @@
 id: b53614bb-4672-5e25-a2de-25edbda8c318
 name: Filter Driver Unloaded Via Fltmc.EXE
-description: 'Detect filter driver unloading activity via fltmc.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fltmc_unload_driver.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fltmc_unload_driver.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

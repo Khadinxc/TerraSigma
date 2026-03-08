@@ -1,6 +1,6 @@
 id: 411792e1-e015-54ee-a93d-7726bc6f9d09
 name: Suspicious File Created In PerfLogs
-description: 'Detects suspicious file based on their extension being created in "C:\PerfLogs\". Note that this directory mostly contains ".etl" files Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_perflogs_susp_files.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_perflogs_susp_files.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

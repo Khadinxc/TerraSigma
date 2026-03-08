@@ -1,6 +1,6 @@
 id: 701d6656-e3b0-5921-9deb-8ae314ae1e2e
 name: Clipboard Data Collection Via Pbpaste
-description: 'Detects execution of the "pbpaste" utility, which retrieves the contents of the clipboard (a.k.a. pasteboard) and writes them to the standard output (stdout). The utility is often used for creating new files with the clipboard content or for piping clipboard contents to other commands. It can also be used in shell scripts that may require clipboard content as input. Attackers can abuse this utility in order to collect data from the user clipboard, which may contain passwords or sensitive information. Use this rule to hunt for potential abuse of the utility by looking at the parent process and any potentially suspicious command line content. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/macos/process_creation/proc_creation_macos_pbpaste_execution.yml - Legitimate administration activities | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/macos/process_creation/proc_creation_macos_pbpaste_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 235f072e-a694-5fed-a9e9-efc8d97f29c5
 name: Obfuscated IP Download Activity
-description: 'Detects use of an encoded/obfuscated version of an IP address (hex, octal...) in an URL combined with a download command Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_obfuscated_ip_download.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_obfuscated_ip_download.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

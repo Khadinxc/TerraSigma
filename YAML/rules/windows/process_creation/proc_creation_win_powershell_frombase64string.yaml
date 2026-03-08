@@ -1,6 +1,6 @@
 id: 5216e70a-d0f0-5e7b-a842-3bdd7b867550
 name: Base64 Encoded PowerShell Command Detected
-description: 'Detects usage of the "FromBase64String" function in the commandline which is used to decode a base64 encoded string Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_frombase64string.yml - Administrative script libraries | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_frombase64string.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

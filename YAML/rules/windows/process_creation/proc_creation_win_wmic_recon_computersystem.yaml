@@ -1,6 +1,6 @@
 id: bd424ece-d534-5cd8-853f-1a11865ac84d
 name: Computer System Reconnaissance Via Wmic.EXE
-description: 'Detects execution of wmic utility with the "computersystem" flag in order to obtain information about the machine such as the domain, username, model, etc. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_computersystem.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_computersystem.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

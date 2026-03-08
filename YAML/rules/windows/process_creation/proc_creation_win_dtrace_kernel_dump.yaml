@@ -1,6 +1,6 @@
 id: 8a6ebb8f-f3fa-52ce-a7c9-cf1546182120
 name: Suspicious Kernel Dump Using Dtrace
-description: 'Detects suspicious way to dump the kernel on Windows systems using dtrace.exe, which is available on Windows systems since Windows 10 19H1 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dtrace_kernel_dump.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dtrace_kernel_dump.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

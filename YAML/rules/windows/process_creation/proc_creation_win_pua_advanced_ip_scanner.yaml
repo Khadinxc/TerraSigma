@@ -1,6 +1,6 @@
 id: cd4f4d85-b808-5c47-847c-5902213797ad
 name: PUA - Advanced IP Scanner Execution
-description: 'Detects the use of Advanced IP Scanner. Seems to be a popular tool for ransomware groups. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_advanced_ip_scanner.yml - Legitimate administrative use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_advanced_ip_scanner.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

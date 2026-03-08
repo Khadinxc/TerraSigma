@@ -1,6 +1,6 @@
 id: d27ff947-92c2-5d34-91f3-d7b43eaed8d5
 name: Add Windows Capability Via PowerShell Cmdlet
-description: 'Detects usage of the "Add-WindowsCapability" cmdlet to add Windows capabilities. Notable capabilities could be "OpenSSH" and others. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_add_windows_capability.yml - Legitimate usage of the capabilities by administrators or users. Add additional filters accordingly. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_add_windows_capability.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

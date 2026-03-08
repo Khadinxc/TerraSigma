@@ -1,6 +1,6 @@
 id: 416e07b6-e6a1-55b4-90a8-cefaf8975a86
 name: Lace Tempest Malware Loader Execution
-description: 'Detects execution of a specific binary based on filename and hash used by Lace Tempest to load additional malware as reported by SysAid Team Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lace-Tempest/proc_creation_win_apt_lace_tempest_loader_execution.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lace-Tempest/proc_creation_win_apt_lace_tempest_loader_execution.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

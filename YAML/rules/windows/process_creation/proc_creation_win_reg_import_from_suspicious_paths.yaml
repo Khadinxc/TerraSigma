@@ -1,6 +1,6 @@
 id: 99f4872b-cf15-558b-8c27-2afaf967a205
 name: Potential Suspicious Registry File Imported Via Reg.EXE
-description: 'Detects the import of ''.reg'' files from suspicious paths using the ''reg.exe'' utility Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_import_from_suspicious_paths.yml - Legitimate import of keys | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_import_from_suspicious_paths.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

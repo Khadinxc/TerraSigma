@@ -1,6 +1,6 @@
 id: bce66680-1a9c-5786-adcc-02f1e8aa7721
 name: Potential SentinelOne Shell Context Menu Scan Command Tampering
-description: 'Detects potentially suspicious changes to the SentinelOne context menu scan command by a process other than SentinelOne. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_sentinelone_shell_context_tampering.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_sentinelone_shell_context_tampering.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: f84a3b67-b26f-5513-ada5-087bbff5c80f
 name: New File Association Using Exefile
-description: 'Detects the abuse of the exefile handler in new file association. Used for bypass of security products. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_file_association_exefile.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_file_association_exefile.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

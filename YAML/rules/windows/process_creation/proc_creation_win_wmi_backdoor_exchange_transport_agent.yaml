@@ -1,6 +1,6 @@
 id: b26e3b0f-378e-5a8f-a63e-8ffbdd9d5c94
 name: WMI Backdoor Exchange Transport Agent
-description: 'Detects a WMI backdoor in Exchange Transport Agents via WMI event filters Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmi_backdoor_exchange_transport_agent.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmi_backdoor_exchange_transport_agent.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

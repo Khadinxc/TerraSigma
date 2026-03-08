@@ -1,6 +1,6 @@
 id: c1ea54f0-0a41-537c-8f2e-7bd8cb0c27c7
 name: Suspicious Process By Web Server Process
-description: 'Detects potentially suspicious processes being spawned by a web server process which could be the result of a successfully placed web shell or exploitation Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_webshell_susp_process_spawned_from_webserver.yml - Particular web applications may spawn a shell process legitimately | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_webshell_susp_process_spawned_from_webserver.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

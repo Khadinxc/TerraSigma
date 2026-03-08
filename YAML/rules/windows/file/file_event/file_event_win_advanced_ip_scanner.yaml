@@ -1,6 +1,6 @@
 id: 751b13ff-f796-5a3f-88ad-92c6cc25d6a6
 name: Advanced IP Scanner - File Event
-description: 'Detects the use of Advanced IP Scanner. Seems to be a popular tool for ransomware groups. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_advanced_ip_scanner.yml - Legitimate administrative use | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_advanced_ip_scanner.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

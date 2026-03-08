@@ -1,6 +1,6 @@
 id: 99fa37f9-d1d6-53d0-a8ee-3daf957b0ff3
 name: HackTool - NPPSpy Hacktool Usage
-description: 'Detects the use of NPPSpy hacktool that stores cleartext passwords of users that logged in to a local file Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_nppspy.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_nppspy.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

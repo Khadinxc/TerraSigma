@@ -1,6 +1,6 @@
 id: d261dc85-2683-51fa-8a18-35508c1994c9
 name: Linux Crypto Mining Pool Connections
-description: 'Detects process connections to a Monero crypto mining pool Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/network_connection/net_connection_lnx_crypto_mining_indicators.yml - Legitimate use of crypto miners | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/network_connection/net_connection_lnx_crypto_mining_indicators.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: c3d5f0c7-12da-5591-98db-5a6b5a01a3d2
 name: Remote Access Tool - Cmd.EXE Execution via AnyViewer
-description: 'Detects execution of "cmd.exe" via the AnyViewer RMM agent on a remote management sessions. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_remote_access_tools_anyviewer_shell_exec.yml - Legitimate use for admin activity. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_remote_access_tools_anyviewer_shell_exec.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

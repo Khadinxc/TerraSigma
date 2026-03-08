@@ -1,6 +1,6 @@
 id: 844b31cd-a265-51e2-9fc1-42c8e6d8a89f
 name: Suspicious Run Key from Download
-description: 'Detects the suspicious RUN keys created by software located in Download or temporary Outlook/Internet Explorer directories Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_download_run_key.yml - Software installers downloaded and used by users | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_download_run_key.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

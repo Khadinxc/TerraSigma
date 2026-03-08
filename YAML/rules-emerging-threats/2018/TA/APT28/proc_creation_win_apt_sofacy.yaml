@@ -1,6 +1,6 @@
 id: 11f4a182-03b1-533b-9a89-f29c5257b2fe
 name: Sofacy Trojan Loader Activity
-description: 'Detects Trojan loader activity as used by APT28 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT28/proc_creation_win_apt_sofacy.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT28/proc_creation_win_apt_sofacy.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

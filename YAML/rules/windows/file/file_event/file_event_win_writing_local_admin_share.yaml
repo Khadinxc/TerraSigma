@@ -1,6 +1,6 @@
 id: 15bbe29d-7ee1-54a4-84b1-a85686094b67
 name: Writing Local Admin Share
-description: 'Aversaries may use to interact with a remote network share using Server Message Block (SMB). This technique is used by post-exploitation frameworks. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_writing_local_admin_share.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_writing_local_admin_share.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

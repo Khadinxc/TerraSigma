@@ -1,6 +1,6 @@
 id: 5f67ff4a-6672-51e7-a9c8-eed7ecf321bd
 name: Suspicious Scan Loop Network
-description: 'Adversaries may attempt to get a listing of other systems by IP address, hostname, or other logical identifier on a network that may be used for Lateral Movement from the current system Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_network_scan_loop.yml - Legitimate script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_network_scan_loop.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

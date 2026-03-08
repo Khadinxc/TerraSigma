@@ -1,6 +1,6 @@
 id: e77ea81b-5eab-5783-8d5c-b93151922632
 name: Potential Arbitrary Command Execution Via FTP.EXE
-description: 'Detects execution of "ftp.exe" script with the "-s" or "/s" flag and any child processes ran by "ftp.exe". Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ftp_arbitrary_command_execution.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_ftp_arbitrary_command_execution.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

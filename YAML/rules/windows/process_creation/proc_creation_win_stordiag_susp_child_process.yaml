@@ -1,6 +1,6 @@
 id: 6f49e263-e7c4-51aa-9b10-e31d09d6ae04
 name: Execution via stordiag.exe
-description: 'Detects the use of stordiag.exe to execute schtasks.exe systeminfo.exe and fltmc.exe Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_stordiag_susp_child_process.yml - Legitimate usage of stordiag.exe. | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_stordiag_susp_child_process.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: 311cb5ab-bcc3-5369-b6e8-ee51199df2b5
 name: Removal Of Index Value to Hide Schedule Task - Registry
-description: 'Detects when the "index" value of a scheduled task is removed or deleted from the registry. Which effectively hides it from any tooling such as "schtasks /query" Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/registry_delete_schtasks_hide_task_via_index_value_removal.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/registry_delete_schtasks_hide_task_via_index_value_removal.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

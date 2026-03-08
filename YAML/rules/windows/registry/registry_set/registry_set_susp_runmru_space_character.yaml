@@ -1,6 +1,6 @@
 id: a0abf91c-fb1e-5709-b197-8c1b3459c79f
 name: Suspicious Space Characters in RunMRU Registry Path - ClickFix
-description: 'Detects the occurrence of numerous space characters in RunMRU registry paths, which may indicate execution via phishing lures using clickfix techniques to hide malicious commands in the Windows Run dialog box from naked eyes. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_runmru_space_character.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_runmru_space_character.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

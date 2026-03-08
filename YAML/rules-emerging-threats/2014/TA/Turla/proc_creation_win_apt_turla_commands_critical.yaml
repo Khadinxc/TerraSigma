@@ -1,6 +1,6 @@
 id: 1a286d2f-3be4-56e1-8529-0536c51d998b
 name: Turla Group Lateral Movement
-description: 'Detects automated lateral movement by Turla group Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2014/TA/Turla/proc_creation_win_apt_turla_commands_critical.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2014/TA/Turla/proc_creation_win_apt_turla_commands_critical.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

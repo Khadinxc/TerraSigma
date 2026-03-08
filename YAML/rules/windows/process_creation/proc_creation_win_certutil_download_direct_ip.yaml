@@ -1,6 +1,6 @@
 id: af7f1f6d-3b2c-5fb9-9a56-fa5d63208b09
 name: Suspicious File Downloaded From Direct IP Via Certutil.EXE
-description: 'Detects the execution of certutil with certain flags that allow the utility to download files from direct IPs. Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_download_direct_ip.yml | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_download_direct_ip.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H

@@ -1,6 +1,6 @@
 id: e10d8b6b-44f4-5440-aeaf-fd813e31fa03
 name: Disable Privacy Settings Experience in Registry
-description: 'Detects registry modifications that disable Privacy Settings Experience Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_privacy_settings_experience.yml - Legitimate admin script | Source: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_privacy_settings_experience.yml'
+description: No description provided
 severity: Medium
 queryFrequency: PT1H
 queryPeriod: PT1H

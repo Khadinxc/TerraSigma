@@ -1,6 +1,6 @@
 id: 66bcf4f2-23fb-57f1-81b6-56cf1c39d159
 name: Potential MuddyWater APT Activity
-description: 'Detects potential Muddywater APT activity Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/MuddyWater/proc_creation_win_apt_muddywater_activity.yml - Unlikely | Source: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/MuddyWater/proc_creation_win_apt_muddywater_activity.yml'
+description: No description provided
 severity: High
 queryFrequency: PT1H
 queryPeriod: PT1H
