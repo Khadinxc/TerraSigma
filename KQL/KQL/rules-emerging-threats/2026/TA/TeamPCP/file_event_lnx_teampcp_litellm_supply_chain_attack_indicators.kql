@@ -1,0 +1,13 @@
+// Title: TeamPCP LiteLLM Supply Chain Attack Persistence Indicators
+// Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+// Date: 2026-03-30
+// Level: high
+// Description: Detects the creation of specific persistence files as observed in the LiteLLM PyPI supply chain attack.
+// In March 2026, a supply chain attack was discovered involving the popular open-source LLM framework LiteLLM by Threat Actor TeamPCP.
+// The malicious package harvests every credential on the system, encrypts and exfiltrates them, and installs a persistent C2 backdoor.
+// MITRE Tactic: Persistence
+// Tags: attack.persistence, attack.privilege-escalation, attack.t1543.002, attack.initial-access, attack.t1195.002, detection.emerging-threats
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2026/TA/TeamPCP/file_event_lnx_teampcp_litellm_supply_chain_attack_indicators.yml
+
+DeviceFileEvents
+| where InitiatingProcessFolderPath contains "/python3" and (FolderPath endswith "/.config/sysmon/sysmon.py" or FolderPath endswith "/.config/systemd/user/sysmon.service")

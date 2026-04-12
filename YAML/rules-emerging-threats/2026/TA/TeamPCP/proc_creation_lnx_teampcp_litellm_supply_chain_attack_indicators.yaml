@@ -1,0 +1,51 @@
+id: 214be123-eafd-5b4a-a56c-b9d21a64e020
+name: LiteLLM / TeamPCP Supply Chain Attack Indicators
+description: No description provided
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- InitialAccess
+- Collection
+- Persistence
+- PrivilegeEscalation
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "models.litellm.cloud" and ProcessCommandLine contains "X-Filename: tpcp.tar.gz") and FolderPath endswith "/curl") or ((ProcessCommandLine contains "exec(base64.b64decode('aW1wb3J0" and ProcessCommandLine contains "kI2NF9TQ1JJUFQgPSAiYV") and FolderPath contains "/python3") or ((ProcessCommandLine contains "systemctl" and ProcessCommandLine contains "--user" and ProcessCommandLine contains "sysmon") and InitiatingProcessFolderPath contains "/python3") or ((ProcessCommandLine contains "tpcp.tar.gz" and ProcessCommandLine contains "payload.enc" and ProcessCommandLine contains "session.key.enc") and FolderPath endswith "/tar")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1195
+- T1560
+- T1543
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

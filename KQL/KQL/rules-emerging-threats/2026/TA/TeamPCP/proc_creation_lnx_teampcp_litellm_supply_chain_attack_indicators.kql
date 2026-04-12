@@ -1,0 +1,13 @@
+// Title: LiteLLM / TeamPCP Supply Chain Attack Indicators
+// Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+// Date: 2026-03-30
+// Level: high
+// Description: Detects process executions related to the backdoored versions of LiteLLM (v1.82.7 or v1.82.8).
+// In March 2026, a supply chain attack was discovered involving the popular open-source LLM framework LiteLLM by Threat Actor TeamPCP.
+// The malicious package harvests every credential on the system, encrypts and exfiltrates them, and installs a persistent C2 backdoor.
+// MITRE Tactic: Initial Access
+// Tags: attack.initial-access, attack.t1195.002, attack.collection, attack.t1560.001, attack.persistence, attack.privilege-escalation, attack.t1543.002, detection.emerging-threats
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2026/TA/TeamPCP/proc_creation_lnx_teampcp_litellm_supply_chain_attack_indicators.yml
+
+DeviceProcessEvents
+| where ((ProcessCommandLine contains "models.litellm.cloud" and ProcessCommandLine contains "X-Filename: tpcp.tar.gz") and FolderPath endswith "/curl") or ((ProcessCommandLine contains "exec(base64.b64decode('aW1wb3J0" and ProcessCommandLine contains "kI2NF9TQ1JJUFQgPSAiYV") and FolderPath contains "/python3") or ((ProcessCommandLine contains "systemctl" and ProcessCommandLine contains "--user" and ProcessCommandLine contains "sysmon") and InitiatingProcessFolderPath contains "/python3") or ((ProcessCommandLine contains "tpcp.tar.gz" and ProcessCommandLine contains "payload.enc" and ProcessCommandLine contains "session.key.enc") and FolderPath endswith "/tar")

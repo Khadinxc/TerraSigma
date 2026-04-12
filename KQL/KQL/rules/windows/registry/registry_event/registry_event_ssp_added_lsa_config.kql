@@ -8,4 +8,4 @@
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_ssp_added_lsa_config.yml
 
 DeviceRegistryEvents
-| where (RegistryKey endswith "\\Control\\Lsa\\Security Packages" or RegistryKey endswith "\\Control\\Lsa\\OSConfig\\Security Packages") and (not((InitiatingProcessFolderPath in~ ("C:\\Windows\\system32\\msiexec.exe", "C:\\Windows\\syswow64\\MsiExec.exe"))))
+| where (RegistryKey endswith "\\Control\\Lsa\\Security Packages" or RegistryKey endswith "\\Control\\Lsa\\OSConfig\\Security Packages") and (not((isnull(InitiatingProcessFolderPath) or (InitiatingProcessFolderPath in~ ("C:\\Windows\\system32\\msiexec.exe", "C:\\Windows\\syswow64\\MsiExec.exe")))))

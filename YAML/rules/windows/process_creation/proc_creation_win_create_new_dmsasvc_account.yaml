@@ -1,0 +1,50 @@
+id: dda8bdfa-2c96-515c-870b-85afc36d5624
+name: New DMSA Service Account Created in Specific OUs
+description: No description provided
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- InitialAccess
+- DefenseEvasion
+- Persistence
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "New-ADServiceAccount" and ProcessCommandLine contains "-CreateDelegatedServiceAccount" and ProcessCommandLine contains "-path") and ((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe" or FolderPath endswith "\\powershell_ise.exe") or (ProcessVersionInfoOriginalFileName in~ ("powershell.exe", "pwsh.dll", "powershell_ise.exe")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1078
+- T1098
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

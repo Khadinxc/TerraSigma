@@ -1,0 +1,43 @@
+id: 324969ca-ff7d-5cc9-ae1c-e43b7449d731
+name: TeamPCP LiteLLM Supply Chain Attack Persistence Indicators
+description: No description provided
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- PrivilegeEscalation
+- InitialAccess
+query: |-
+  DeviceFileEvents
+  | where InitiatingProcessFolderPath contains "/python3" and (FolderPath endswith "/.config/sysmon/sysmon.py" or FolderPath endswith "/.config/systemd/user/sysmon.service")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1543
+- T1195
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents
