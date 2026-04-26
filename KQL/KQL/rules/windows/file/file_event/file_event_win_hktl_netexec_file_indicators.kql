@@ -1,0 +1,16 @@
+// Title: HackTool - NetExec File Indicators
+// Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+// Date: 2026-04-08
+// Level: high
+// Description: Detects file creation events indicating NetExec (nxc.exe) execution on the local machine.
+// NetExec is a PyInstaller-bundled binary that extracts its embedded data files to a "_MEI<random>" directory
+// under the Temp folder upon execution. Files dropped under the "\nxc\" sub-directory of that
+// extraction path are unique to NetExec and serve as reliable on-disk indicators of execution.
+// NetExec (formerly CrackMapExec) is a widely used post-exploitation and lateral movement tool used for
+// Active Directory enumeration, credential harvesting, and remote code execution.
+// MITRE Tactic: Execution
+// Tags: attack.execution, attack.lateral-movement, attack.discovery, attack.t1021.002, attack.t1059.005
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_netexec_file_indicators.yml
+
+DeviceFileEvents
+| where InitiatingProcessFolderPath contains "\\nxc-windows-latest\\" or (FolderPath contains "\\Temp\\_MEI" and FolderPath contains "\\nxc\\data\\")
