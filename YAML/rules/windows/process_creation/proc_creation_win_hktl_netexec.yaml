@@ -1,0 +1,46 @@
+id: a1fa14f9-99f1-5e91-bc1c-b54f7ae7f2e9
+name: HackTool - NetExec Execution
+description: No description provided
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+- LateralMovement
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains " ftp " or ProcessCommandLine contains " ldap " or ProcessCommandLine contains " mssql " or ProcessCommandLine contains " nfs " or ProcessCommandLine contains " rdp " or ProcessCommandLine contains " smb " or ProcessCommandLine contains " ssh " or ProcessCommandLine contains " vnc " or ProcessCommandLine contains " winrm " or ProcessCommandLine contains " wmi ") and FolderPath endswith "\\nxc.exe"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1018
+- T1021
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

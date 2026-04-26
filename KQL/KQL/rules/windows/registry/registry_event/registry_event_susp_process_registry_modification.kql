@@ -12,4 +12,4 @@
 //   - Some legitimate admin or install scripts may use these processes for registry modifications.
 
 DeviceRegistryEvents
-| where InitiatingProcessFolderPath endswith "\\mshta.exe" or InitiatingProcessFolderPath endswith "\\wscript.exe" or InitiatingProcessFolderPath endswith "\\cscript.exe"
+| where (InitiatingProcessFolderPath endswith "\\mshta.exe" or InitiatingProcessFolderPath endswith "\\wscript.exe" or InitiatingProcessFolderPath endswith "\\cscript.exe") and (not((InitiatingProcessFolderPath endswith "\\wscript.exe" and (RegistryKey endswith "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Notifications\\Data*" or RegistryKey contains "\\Services\\bam\\State\\UserSettings\\S-1-" or RegistryKey endswith "Software\\Microsoft\\Windows Script\\Settings\\Telemetry\\wscript.exe*" or RegistryKey endswith "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings*"))))
