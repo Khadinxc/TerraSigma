@@ -1,0 +1,14 @@
+// Title: Python One-Liners with Base64 Decoding
+// Author: Hugh Ryan (HueCodes), Swachchhanda Shrawan Poudel (Nextron Systems)
+// Date: 2026-03-09
+// Level: high
+// Description: Detects Python one-liners that use base64 decoding functions in command line executions.
+// Malicious scripts or attackers often use python one-liners to decode and execute base64-encoded payloads, which is a common technique for obfuscation and evasion.
+// MITRE Tactic: Execution
+// Tags: attack.execution, attack.t1059.006, attack.defense-evasion, attack.t1027.010
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_python_base64_encoded_execution.yml
+// False Positives:
+//   - Legitimate use of Python for decoding data, which is uncommon in typical enterprise environments but possible in development or data analysis contexts.
+
+DeviceProcessEvents
+| where ((ProcessCommandLine contains ".decode" or ProcessCommandLine contains "b16decode" or ProcessCommandLine contains "b32decode" or ProcessCommandLine contains "b32hexdecode" or ProcessCommandLine contains "b64decode" or ProcessCommandLine contains "b85decode" or ProcessCommandLine contains "z85decode") and (ProcessCommandLine contains "import" and ProcessCommandLine contains "base64" and ProcessCommandLine contains " -c")) and (FolderPath contains "\\python" or ProcessVersionInfoOriginalFileName contains "python")

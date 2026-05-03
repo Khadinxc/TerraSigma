@@ -1,0 +1,14 @@
+// Title: LSA PPL Protection Setting Modification via CommandLine
+// Author: Florian Roth (Nextron Systems), Swachchhanda Shrawan Poudel (Nextron Systems)
+// Date: 2022-03-22
+// Level: medium
+// Description: Detects modification of LSA PPL protection settings via CommandLine.
+// It may indicate an attempt to disable protection and enable credential dumping tools to access LSASS process memory.
+// MITRE Tactic: Defense Evasion
+// Tags: attack.defense-evasion, attack.t1562.010
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lsa_ppl_protection_setting_modification_via_cli.yml
+// False Positives:
+//   - Unlikely
+
+DeviceProcessEvents
+| where ((ProcessCommandLine contains "Set-ItemProperty" or ProcessCommandLine contains "New-ItemProperty" or ProcessCommandLine contains " add ") and (ProcessCommandLine contains "ControlSet" and ProcessCommandLine contains "\\Control\\Lsa")) and ((FolderPath endswith "\\reg.exe" or FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe") or (ProcessVersionInfoOriginalFileName in~ ("reg.exe", "powershell.exe", "pwsh.dll"))) and (ProcessCommandLine contains "IsPplAutoEnabled" or ProcessCommandLine contains "RunAsPPL" or ProcessCommandLine contains "RunAsPPLBoot")

@@ -1,0 +1,43 @@
+id: 7c569664-f9f4-5dc9-9963-0a854df1650b
+name: HackTool - NetExec File Indicators
+description: No description provided
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- LateralMovement
+- Discovery
+query: |-
+  DeviceFileEvents
+  | where InitiatingProcessFolderPath contains "\\nxc-windows-latest\\" or (FolderPath contains "\\Temp\\_MEI" and FolderPath contains "\\nxc\\data\\")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1021
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

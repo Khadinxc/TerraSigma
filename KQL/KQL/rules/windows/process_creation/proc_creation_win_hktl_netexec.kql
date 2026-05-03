@@ -1,0 +1,16 @@
+// Title: HackTool - NetExec Execution
+// Author: Chirag Damani
+// Date: 2026-03-29
+// Level: high
+// Description: Detects execution of the hacktool NetExec.
+// NetExec (formerly CrackMapExec) is a widely used post-exploitation tool designed for Active Directory penetration testing and network enumeration
+// In enterprise environments, the use of NetExec is considered suspicious or potentially malicious because it enables attackers to enumerate hosts, exploit network services, and move laterally across systems.
+// Threat actors and red teams commonly use NetExec to identify vulnerable systems, harvest credentials, and execute commands remotely.
+// MITRE Tactic: Discovery
+// Tags: attack.discovery, attack.t1018, attack.lateral-movement, attack.t1021
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_netexec.yml
+// False Positives:
+//   - Legitimate use of NetExec by security professionals or system administrators for network assessment and management.
+
+DeviceProcessEvents
+| where (ProcessCommandLine contains " ftp " or ProcessCommandLine contains " ldap " or ProcessCommandLine contains " mssql " or ProcessCommandLine contains " nfs " or ProcessCommandLine contains " rdp " or ProcessCommandLine contains " smb " or ProcessCommandLine contains " ssh " or ProcessCommandLine contains " vnc " or ProcessCommandLine contains " winrm " or ProcessCommandLine contains " wmi ") and FolderPath endswith "\\nxc.exe"

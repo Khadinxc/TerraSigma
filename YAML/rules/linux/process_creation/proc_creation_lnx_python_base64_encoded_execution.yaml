@@ -1,0 +1,46 @@
+id: 3dd569af-89b7-5113-a0bf-10222e6c7b25
+name: Python One-Liners with Base64 Decoding - Linux
+description: No description provided
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- DefenseEvasion
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains ".decode" or ProcessCommandLine contains "b16decode" or ProcessCommandLine contains "b32decode" or ProcessCommandLine contains "b32hexdecode" or ProcessCommandLine contains "b64decode" or ProcessCommandLine contains "b85decode" or ProcessCommandLine contains "z85decode") and (ProcessCommandLine contains "import" and ProcessCommandLine contains "base64" and ProcessCommandLine contains " -c")) and FolderPath contains "/python"
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1059
+- T1027
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents
