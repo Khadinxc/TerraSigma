@@ -3,8 +3,8 @@
 // Date: 2025-07-11
 // Level: medium
 // Description: Detects deletion of registry key that adds 'Scan with Defender' option in context menu. Attackers may use this to make it harder for users to scan files that are suspicious.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.defense-impairment
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/registry_delete_defender_context_menu.yml
 // False Positives:
 //   - Unlikely as this weakens defenses and normally would not be done even if using another AV.

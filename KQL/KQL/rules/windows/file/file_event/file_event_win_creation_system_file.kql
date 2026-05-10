@@ -4,8 +4,8 @@
 // Level: medium
 // Description: Detects the creation of an executable with a system process name in folders other than the system ones (System32, SysWOW64, etc.).
 // It is highly recommended to perform an initial baseline before using this rule in production.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1036.005
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1036.005
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_creation_system_file.yml
 // False Positives:
 //   - System processes copied outside their default folders for testing purposes

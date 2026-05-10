@@ -7,7 +7,7 @@
 // Ex: cmd /c >> example.txt set /p="test data". This will append "test data" to contents of "example.txt".
 // The typical use case of the "set /p=" command is to prompt the user for input.
 // MITRE Tactic: Execution
-// Tags: attack.execution, attack.defense-evasion, detection.threat-hunting
+// Tags: attack.execution, detection.threat-hunting, attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_cmd_set_prompt_abuse.yml
 // False Positives:
 //   - Legitimate use of the SET with the "/p" flag for user prompting. command in administrative scripts or user-generated scripts.

@@ -1,0 +1,46 @@
+id: a08517ae-2c7a-54e8-9bb5-3f6d2fbcfb6b
+name: PUA - Memory Dump Mount Via MemProcFS
+description: No description provided
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- CredentialAccess
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine contains "-device" and (FolderPath endswith "\\MemProcFS.exe" or ProcessVersionInfoOriginalFileName =~ "MemProcFS.exe" or ProcessVersionInfoFileDescription =~ "MemProcFS")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1003
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

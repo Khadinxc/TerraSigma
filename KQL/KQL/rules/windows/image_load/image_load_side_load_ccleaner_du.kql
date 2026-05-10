@@ -3,8 +3,8 @@
 // Date: 2023-07-13
 // Level: medium
 // Description: Detects potential DLL sideloading of "CCleanerDU.dll"
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.persistence, attack.privilege-escalation, attack.t1574.001
+// MITRE Tactic: Persistence
+// Tags: attack.persistence, attack.privilege-escalation, attack.execution, attack.stealth, attack.t1574.001
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_ccleaner_du.yml
 // False Positives:
 //   - False positives could occur from other custom installation paths. Apply additional filters accordingly.

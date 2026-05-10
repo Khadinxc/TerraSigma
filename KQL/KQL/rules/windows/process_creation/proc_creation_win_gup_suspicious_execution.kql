@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects execution of the Notepad++ updater in a suspicious directory, which is often used in DLL side-loading attacks
 // MITRE Tactic: Privilege Escalation
-// Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.t1574.001
+// Tags: attack.privilege-escalation, attack.persistence, attack.execution, attack.stealth, attack.t1574.001
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gup_suspicious_execution.yml
 // False Positives:
 //   - Execution of tools named GUP.exe and located in folders different than Notepad++\updater

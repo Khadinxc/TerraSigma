@@ -3,8 +3,8 @@
 // Date: 2023-09-15
 // Level: low
 // Description: Detects file access requests to files ending with either the ".hive"/".reg" extension, usually associated with Windows Registry backups.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.t1112, attack.defense-evasion, attack.persistence, detection.threat-hunting
+// MITRE Tactic: Persistence
+// Tags: attack.defense-impairment, attack.t1112, attack.persistence, detection.threat-hunting
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_access/file_access_win_susp_reg_and_hive.yml
 // False Positives:
 //   - Third party software installed in the user context might generate a lot of FPs. Heavy baselining and tuning might be required.

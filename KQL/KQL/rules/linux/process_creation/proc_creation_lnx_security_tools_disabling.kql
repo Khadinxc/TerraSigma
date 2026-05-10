@@ -3,8 +3,8 @@
 // Date: 2020-06-17
 // Level: medium
 // Description: Detects disabling security tools
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1562.004
+// MITRE Tactic: Uncategorized
+// Tags: attack.defense-impairment, attack.t1686
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_security_tools_disabling.yml
 // False Positives:
 //   - Legitimate administration activities

@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects the execution of a renamed "jusched.exe" as seen used by the cobalt group
 // MITRE Tactic: Execution
-// Tags: attack.execution, attack.defense-evasion, attack.t1036.003
+// Tags: attack.execution, attack.stealth, attack.t1036.003
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_jusched.yml
 
 DeviceProcessEvents

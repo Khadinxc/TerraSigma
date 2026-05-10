@@ -3,8 +3,8 @@
 // Date: 2021-01-21
 // Level: high
 // Description: Detects commands that indicate a Raccine removal from an end system. Raccine is a free ransomware protection tool.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1562.001
+// MITRE Tactic: Uncategorized
+// Tags: attack.defense-impairment, attack.t1685
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_disable_raccine.yml
 // False Positives:
 //   - Legitimate deinstallation by administrative staff

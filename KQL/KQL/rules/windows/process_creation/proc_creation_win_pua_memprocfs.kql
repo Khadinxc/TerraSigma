@@ -1,0 +1,16 @@
+// Title: PUA - Memory Dump Mount Via MemProcFS
+// Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+// Date: 2026-04-27
+// Level: high
+// Description: Detects execution of MemProcFS a memory forensics tool with the '-device' parameter.
+// MemProcFS mounts physical memory as a virtual file system, allowing direct access to process memory and system structures.
+// Threat actors were seen abusing this utility to mount memory dumps and then extract sensitive information from processes like LSASS or extract registry hives to obtain credentials, LSA secrets, SAM data, and cached domain credentials.
+// MemProcFS usage that is not part of authorized forensic analysis should be treated as suspicious and warrants further investigation.
+// MITRE Tactic: Credential Access
+// Tags: attack.credential-access, attack.t1003, attack.t1003.001, attack.t1003.004, attack.t1003.002
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_memprocfs.yml
+// False Positives:
+//   - Legitimate use during memory forensics; if not part of authorized analysis, warrants urgent investigation
+
+DeviceProcessEvents
+| where ProcessCommandLine contains "-device" and (FolderPath endswith "\\MemProcFS.exe" or ProcessVersionInfoOriginalFileName =~ "MemProcFS.exe" or ProcessVersionInfoFileDescription =~ "MemProcFS")

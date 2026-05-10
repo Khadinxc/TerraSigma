@@ -3,8 +3,8 @@
 // Date: 2023-10-24
 // Level: high
 // Description: Detects DLL sideloading activity seen used by Diamond Sleet APT
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.persistence, attack.privilege-escalation, attack.t1574.001, detection.emerging-threats
+// MITRE Tactic: Persistence
+// Tags: attack.persistence, attack.privilege-escalation, attack.execution, attack.stealth, attack.t1574.001, detection.emerging-threats
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/image_load_apt_diamond_sleet_side_load.yml
 // False Positives:
 //   - Unlikely

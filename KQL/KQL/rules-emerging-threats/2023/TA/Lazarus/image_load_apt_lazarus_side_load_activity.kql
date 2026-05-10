@@ -3,8 +3,8 @@
 // Date: 2023-10-18
 // Level: high
 // Description: Detects sideloading of trojanized DLLs used in Lazarus APT campaign in the case of a Spanish aerospace company
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.privilege-escalation, attack.persistence, attack.t1574.001, attack.g0032, detection.emerging-threats
+// MITRE Tactic: Privilege Escalation
+// Tags: attack.privilege-escalation, attack.persistence, attack.execution, attack.stealth, attack.t1574.001, attack.g0032, detection.emerging-threats
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Lazarus/image_load_apt_lazarus_side_load_activity.yml
 // False Positives:
 //   - Unlikely

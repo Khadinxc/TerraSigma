@@ -3,8 +3,8 @@
 // Date: 2022-07-05
 // Level: high
 // Description: Detects default install commands of the Triple Cross eBPF rootkit based on the "deployer.sh" script
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1014
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1014
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_triple_cross_rootkit_install.yml
 // False Positives:
 //   - Unlikely

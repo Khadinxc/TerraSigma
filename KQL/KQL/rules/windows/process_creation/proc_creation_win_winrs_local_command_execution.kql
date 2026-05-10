@@ -5,7 +5,7 @@
 // Description: Detects the execution of Winrs.exe where it is used to execute commands locally.
 // Commands executed this way are launched under Winrshost.exe and can represent proxy execution used for defense evasion or lateral movement.
 // MITRE Tactic: Lateral Movement
-// Tags: attack.lateral-movement, attack.defense-evasion, attack.t1021.006, attack.t1218
+// Tags: attack.lateral-movement, attack.stealth, attack.t1021.006, attack.t1218
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winrs_local_command_execution.yml
 // False Positives:
 //   - Unlikely

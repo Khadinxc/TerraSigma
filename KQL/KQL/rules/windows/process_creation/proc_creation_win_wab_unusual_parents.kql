@@ -3,8 +3,8 @@
 // Date: 2022-08-12
 // Level: high
 // Description: Detects unusual parent or children of the wab.exe (Windows Contacts) and Wabmig.exe (Microsoft Address Book Import Tool) processes as seen being used with bumblebee activity
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.execution
+// MITRE Tactic: Execution
+// Tags: attack.execution, attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wab_unusual_parents.yml
 
 DeviceProcessEvents

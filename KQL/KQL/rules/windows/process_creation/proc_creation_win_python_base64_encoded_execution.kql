@@ -5,7 +5,7 @@
 // Description: Detects Python one-liners that use base64 decoding functions in command line executions.
 // Malicious scripts or attackers often use python one-liners to decode and execute base64-encoded payloads, which is a common technique for obfuscation and evasion.
 // MITRE Tactic: Execution
-// Tags: attack.execution, attack.t1059.006, attack.defense-evasion, attack.t1027.010
+// Tags: attack.execution, attack.stealth, attack.t1059.006, attack.t1027.010
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_python_base64_encoded_execution.yml
 // False Positives:
 //   - Legitimate use of Python for decoding data, which is uncommon in typical enterprise environments but possible in development or data analysis contexts.

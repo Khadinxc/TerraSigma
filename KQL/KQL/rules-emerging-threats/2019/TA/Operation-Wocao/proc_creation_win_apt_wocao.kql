@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects activity mentioned in Operation Wocao report
 // MITRE Tactic: Privilege Escalation
-// Tags: attack.privilege-escalation, attack.persistence, attack.discovery, attack.t1012, attack.defense-evasion, attack.t1036.004, attack.t1027, attack.execution, attack.t1053.005, attack.t1059.001, detection.emerging-threats
+// Tags: attack.privilege-escalation, attack.persistence, attack.discovery, attack.stealth, attack.t1012, attack.t1036.004, attack.t1027, attack.execution, attack.t1053.005, attack.t1059.001, detection.emerging-threats
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/Operation-Wocao/proc_creation_win_apt_wocao.yml
 // False Positives:
 //   - Administrators that use checkadmin.exe tool to enumerate local administrators

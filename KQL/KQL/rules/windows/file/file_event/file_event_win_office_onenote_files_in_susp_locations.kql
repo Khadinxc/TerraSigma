@@ -3,8 +3,8 @@
 // Date: 2023-01-22
 // Level: medium
 // Description: Detects creation of files with the ".one"/".onepkg" extension in suspicious or uncommon locations. This could be a sign of attackers abusing OneNote attachments
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_onenote_files_in_susp_locations.yml
 // False Positives:
 //   - Legitimate usage of ".one" or ".onepkg" files from those locations

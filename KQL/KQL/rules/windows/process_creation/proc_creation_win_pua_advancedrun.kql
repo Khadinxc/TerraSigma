@@ -4,7 +4,7 @@
 // Level: medium
 // Description: Detects the execution of AdvancedRun utility
 // MITRE Tactic: Execution
-// Tags: attack.execution, attack.defense-evasion, attack.privilege-escalation, attack.t1564.003, attack.t1134.002, attack.t1059.003
+// Tags: attack.execution, attack.privilege-escalation, attack.stealth, attack.t1564.003, attack.t1134.002, attack.t1059.003
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_advancedrun.yml
 
 DeviceProcessEvents

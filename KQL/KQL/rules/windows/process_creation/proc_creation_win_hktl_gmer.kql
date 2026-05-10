@@ -3,8 +3,8 @@
 // Date: 2022-10-05
 // Level: high
 // Description: Detects the execution GMER tool based on image and hash fields.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_gmer.yml
 // False Positives:
 //   - Unlikely

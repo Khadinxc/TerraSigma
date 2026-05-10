@@ -3,8 +3,8 @@
 // Date: 2019-10-24
 // Level: low
 // Description: Detects the execution of "hh.exe" to open ".chm" files.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1218.001
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1218.001
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hh_chm_execution.yml
 // False Positives:
 //   - False positives are expected with legitimate ".CHM"

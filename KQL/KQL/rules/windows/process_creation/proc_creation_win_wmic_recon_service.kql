@@ -11,4 +11,4 @@
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_service.yml
 
 DeviceProcessEvents
-| where ProcessCommandLine contains "service" and (FolderPath endswith "\\WMIC.exe" or ProcessVersionInfoOriginalFileName =~ "wmic.exe")
+| where (ProcessCommandLine contains "service" and (FolderPath endswith "\\WMIC.exe" or ProcessVersionInfoOriginalFileName =~ "wmic.exe")) and (not((ProcessCommandLine contains "Change" or ProcessCommandLine contains "Create" or ProcessCommandLine contains "Delete" or ProcessCommandLine contains "PauseService" or ProcessCommandLine contains "ResumeService" or ProcessCommandLine contains "SetSecurityDescriptor" or ProcessCommandLine contains "StartService" or ProcessCommandLine contains "StopService" or ProcessCommandLine contains "UserControlService")))

@@ -4,7 +4,7 @@
 // Level: medium
 // Description: Detects the modification of the PortProxy registry key which is used for port forwarding.
 // MITRE Tactic: Lateral Movement
-// Tags: attack.lateral-movement, attack.defense-evasion, attack.command-and-control, attack.t1090
+// Tags: attack.lateral-movement, attack.command-and-control, attack.t1090
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_portproxy_registry_key.yml
 // False Positives:
 //   - WSL2 network bridge PowerShell script used for WSL/Kubernetes/Docker (e.g. https://github.com/microsoft/WSL/issues/4150#issuecomment-504209723)

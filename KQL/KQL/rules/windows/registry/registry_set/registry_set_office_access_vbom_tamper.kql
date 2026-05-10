@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects registry changes to Microsoft Office "AccessVBOM" to a value of "1" which disables trust access for VBA on the victim machine and lets attackers execute malicious macros without any Microsoft Office warnings.
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.defense-evasion, attack.t1112
+// Tags: attack.persistence, attack.defense-impairment, attack.t1112
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_access_vbom_tamper.yml
 // False Positives:
 //   - Unlikely

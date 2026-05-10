@@ -5,7 +5,7 @@
 // Description: Detects the use of the PhoneDeepLink parameter to potentially sideload a DLL file that does not exist. This non-existent DLL file is named "ShellChromeAPI.dll".
 // Adversaries can drop their own renamed DLL and execute it via DeviceEnroller.exe using this parameter
 // MITRE Tactic: Privilege Escalation
-// Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.t1574.001
+// Tags: attack.privilege-escalation, attack.persistence, attack.execution, attack.stealth, attack.t1574.001
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_deviceenroller_dll_sideloading.yml
 
 DeviceProcessEvents

@@ -4,8 +4,8 @@
 // Level: high
 // Description: Detects potential commandline obfuscation using unicode characters.
 // Adversaries may attempt to make an executable or file difficult to discover or analyze by encrypting, encoding, or otherwise obfuscating its contents on the system or in transit.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1027
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1027
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_cli_obfuscation_unicode_img.yml
 
 DeviceProcessEvents

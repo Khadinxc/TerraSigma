@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects specific process characteristics of Chinese TAIDOOR RAT malware load
 // MITRE Tactic: Privilege Escalation
-// Tags: attack.privilege-escalation, attack.defense-evasion, attack.execution, attack.t1055.001, detection.emerging-threats
+// Tags: attack.privilege-escalation, attack.execution, attack.stealth, attack.t1055.001, detection.emerging-threats
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/TAIDOOR-RAT/proc_creation_win_apt_taidoor.yml
 
 DeviceProcessEvents

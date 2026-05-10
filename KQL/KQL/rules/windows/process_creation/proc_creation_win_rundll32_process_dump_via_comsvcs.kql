@@ -3,8 +3,8 @@
 // Date: 2020-02-18
 // Level: high
 // Description: Detects a process memory dump via "comsvcs.dll" using rundll32, covering multiple different techniques (ordinal, minidump function, etc.)
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.credential-access, attack.t1036, attack.t1003.001, car.2013-05-009
+// MITRE Tactic: Credential Access
+// Tags: attack.credential-access, attack.stealth, attack.t1036, attack.t1003.001, car.2013-05-009
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_process_dump_via_comsvcs.yml
 // False Positives:
 //   - Unlikely

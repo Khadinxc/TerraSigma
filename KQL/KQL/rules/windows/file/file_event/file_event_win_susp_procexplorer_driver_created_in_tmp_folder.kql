@@ -4,8 +4,8 @@
 // Level: medium
 // Description: Detects the creation of the PROCEXP152.sys file in the application-data local temporary folder.
 // This driver is used by Sysinternals Process Explorer but also by KDU (https://github.com/hfiref0x/KDU) or Ghost-In-The-Logs (https://github.com/bats3c/Ghost-In-The-Logs), which uses KDU.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.t1562.001, attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.defense-impairment, attack.t1685
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_procexplorer_driver_created_in_tmp_folder.yml
 // False Positives:
 //   - Other legimate tools using this driver and filename (like Sysinternals). Note - Clever attackers may easily bypass this detection by just renaming the driver filename. Therefore just Medium-level and don't rely on it.

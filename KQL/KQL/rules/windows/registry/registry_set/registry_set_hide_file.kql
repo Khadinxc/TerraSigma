@@ -4,8 +4,8 @@
 // Level: medium
 // Description: Detects modifications to the "Hidden" and "ShowSuperHidden" explorer registry values in order to disable showing of hidden files and system files.
 // This technique is abused by several malware families to hide their files from normal users.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1564.001
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1564.001
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_hide_file.yml
 
 DeviceRegistryEvents

@@ -3,8 +3,8 @@
 // Date: 2022-01-20
 // Level: high
 // Description: Detects the execution of AdvancedRun utility in the context of the TrustedInstaller, SYSTEM, Local Service or Network Service accounts
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1134.002
+// MITRE Tactic: Privilege Escalation
+// Tags: attack.privilege-escalation, attack.stealth, attack.t1134.002
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_advancedrun_priv_user.yml
 
 DeviceProcessEvents

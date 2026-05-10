@@ -3,8 +3,8 @@
 // Date: 2022-06-28
 // Level: high
 // Description: Detects usage of bitsadmin downloading a file with a suspicious extension
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.persistence, attack.t1197, attack.s0190, attack.t1036.003, attack.command-and-control, attack.t1105
+// MITRE Tactic: Persistence
+// Tags: attack.persistence, attack.execution, attack.stealth, attack.t1197, attack.s0190, attack.t1036.003, attack.command-and-control, attack.t1105
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download_susp_extensions.yml
 
 DeviceProcessEvents

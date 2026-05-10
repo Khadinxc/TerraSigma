@@ -7,7 +7,7 @@
 // This could be indication of malicious software deployment or lateral movement attempts using Windows Installer functionality.
 // And the usage of WindowsInstaller COM object rather than msiexec could be an attempt to bypass the detection.
 // MITRE Tactic: Execution
-// Tags: attack.execution, attack.t1059.001, attack.defense-evasion, attack.t1218, attack.command-and-control, attack.t1105
+// Tags: attack.execution, attack.stealth, attack.t1059.001, attack.t1218, attack.command-and-control, attack.t1105
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_comobject_msi_remote.yml
 
 DeviceProcessEvents

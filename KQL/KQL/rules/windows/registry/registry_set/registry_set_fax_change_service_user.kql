@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detect change of the user account associated with the FAX service to avoid the escalation problem.
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.defense-evasion, attack.t1112
+// Tags: attack.persistence, attack.defense-impairment, attack.t1112
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_fax_change_service_user.yml
 
 DeviceRegistryEvents

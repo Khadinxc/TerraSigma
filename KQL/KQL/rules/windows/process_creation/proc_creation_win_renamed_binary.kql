@@ -3,8 +3,8 @@
 // Date: 2019-06-15
 // Level: medium
 // Description: Detects the execution of a renamed binary often used by attackers or malware leveraging new Sysmon OriginalFileName datapoint.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1036.003
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1036.003
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_binary.yml
 // False Positives:
 //   - Custom applications use renamed binaries adding slight change to binary name. Typically this is easy to spot and add to whitelist

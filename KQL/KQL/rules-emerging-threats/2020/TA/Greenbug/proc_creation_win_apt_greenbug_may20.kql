@@ -4,7 +4,7 @@
 // Level: critical
 // Description: Detects tools and process executions used by Greenbug in their May 2020 campaign as reported by Symantec
 // MITRE Tactic: Execution
-// Tags: attack.g0049, attack.execution, attack.t1059.001, attack.command-and-control, attack.t1105, attack.defense-evasion, attack.t1036.005, detection.emerging-threats
+// Tags: attack.stealth, attack.g0049, attack.execution, attack.t1059.001, attack.command-and-control, attack.t1105, attack.t1036.005, detection.emerging-threats
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Greenbug/proc_creation_win_apt_greenbug_may20.yml
 // False Positives:
 //   - Unlikely

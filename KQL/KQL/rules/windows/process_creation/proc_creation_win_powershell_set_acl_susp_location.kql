@@ -3,8 +3,8 @@
 // Date: 2022-10-18
 // Level: high
 // Description: Detects PowerShell scripts to set the ACL to a file in the Windows folder
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_set_acl_susp_location.yml
 
 DeviceProcessEvents

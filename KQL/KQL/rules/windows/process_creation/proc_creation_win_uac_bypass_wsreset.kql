@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects use of WSReset.exe to bypass User Account Control (UAC). Adversaries use this technique to execute privileged processes.
 // MITRE Tactic: Privilege Escalation
-// Tags: attack.privilege-escalation, attack.defense-evasion, attack.t1548.002
+// Tags: attack.privilege-escalation, attack.t1548.002
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_wsreset.yml
 // False Positives:
 //   - Unknown sub processes of Wsreset.exe

@@ -4,7 +4,7 @@
 // Level: medium
 // Description: Detects a suspicious child process of userinit
 // MITRE Tactic: Privilege Escalation
-// Tags: attack.privilege-escalation, attack.defense-evasion, attack.t1055
+// Tags: attack.privilege-escalation, attack.stealth, attack.t1055
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_userinit_child.yml
 // False Positives:
 //   - Administrative scripts

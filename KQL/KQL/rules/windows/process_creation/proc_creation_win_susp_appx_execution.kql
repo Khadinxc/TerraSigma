@@ -3,8 +3,8 @@
 // Date: 2023-01-12
 // Level: medium
 // Description: Detects potentially suspicious child process of applications launched from inside the WindowsApps directory. This could be a sign of a rogue ".appx" package installation/execution
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_appx_execution.yml
 // False Positives:
 //   - Legitimate packages that make use of external binaries such as Windows Terminal

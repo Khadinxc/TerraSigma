@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects the execution of "reg.exe" for enabling/disabling the RDP service on the host by tampering with the 'CurrentControlSet\Control\Terminal Server' values
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.defense-evasion, attack.lateral-movement, attack.t1021.001, attack.t1112
+// Tags: attack.persistence, attack.lateral-movement, attack.defense-impairment, attack.t1021.001, attack.t1112
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_rdp_keys_tamper.yml
 
 DeviceProcessEvents

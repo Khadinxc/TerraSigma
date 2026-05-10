@@ -3,8 +3,8 @@
 // Date: 2022-01-23
 // Level: medium
 // Description: Uses the .NET InstallUtil.exe application in order to execute image without log
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_instalutil_no_log_execution.yml
 
 DeviceProcessEvents

@@ -3,8 +3,8 @@
 // Date: 2020-10-06
 // Level: medium
 // Description: Detects execution of attacker-controlled WsmPty.xsl or WsmTxt.xsl via winrm.vbs and copied cscript.exe (can be renamed)
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1216
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1216
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_winrm_awl_bypass.yml
 // False Positives:
 //   - Unlikely

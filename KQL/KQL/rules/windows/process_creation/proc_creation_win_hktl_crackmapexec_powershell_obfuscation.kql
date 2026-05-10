@@ -4,7 +4,7 @@
 // Level: high
 // Description: The CrachMapExec pentesting framework implements a PowerShell obfuscation with some static strings detected by this rule.
 // MITRE Tactic: Execution
-// Tags: attack.execution, attack.t1059.001, attack.defense-evasion, attack.t1027.005
+// Tags: attack.execution, attack.stealth, attack.t1059.001, attack.t1027.005
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_crackmapexec_powershell_obfuscation.yml
 
 DeviceProcessEvents

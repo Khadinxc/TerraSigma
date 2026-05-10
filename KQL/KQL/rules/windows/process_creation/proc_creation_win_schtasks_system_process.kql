@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects the creation of scheduled tasks that involve system processes, which may indicate malicious actors masquerading as or abusing these processes to execute payloads or maintain persistence.
 // MITRE Tactic: Privilege Escalation
-// Tags: attack.privilege-escalation, attack.execution, attack.persistence, attack.t1053.005, attack.defense-evasion, attack.t1036.004, attack.t1036.005
+// Tags: attack.privilege-escalation, attack.execution, attack.persistence, attack.stealth, attack.t1053.005, attack.t1036.004, attack.t1036.005
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_system_process.yml
 // False Positives:
 //   - Legitimate system administration tasks scheduling trusted system processes.

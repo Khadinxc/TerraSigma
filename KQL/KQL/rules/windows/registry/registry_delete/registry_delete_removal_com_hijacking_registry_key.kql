@@ -5,7 +5,7 @@
 // Description: Detects any deletion of entries in ".*\shell\open\command" registry keys.
 // These registry keys might have been used for COM hijacking activities by a threat actor or an attacker and the deletion could indicate steps to remove its tracks.
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.defense-evasion, attack.t1112
+// Tags: attack.persistence, attack.defense-impairment, attack.t1112
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_delete/registry_delete_removal_com_hijacking_registry_key.yml
 // False Positives:
 //   - Legitimate software (un)installations are known to cause false positives. Please add them as a filter when encountered

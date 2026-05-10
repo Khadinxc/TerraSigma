@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects process execution from a fake recycle bin folder, often used to avoid security solution.
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.defense-evasion
+// Tags: attack.persistence, attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_recycle_bin_fake_execution.yml
 // False Positives:
 //   - Unlikely

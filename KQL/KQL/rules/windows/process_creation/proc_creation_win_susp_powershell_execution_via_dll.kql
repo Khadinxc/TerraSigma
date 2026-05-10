@@ -4,8 +4,8 @@
 // Level: high
 // Description: Detects potential PowerShell execution from a DLL instead of the usual PowerShell process as seen used in PowerShdll.
 // This detection assumes that PowerShell commands are passed via the CommandLine.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1218.011
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1218.011
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_powershell_execution_via_dll.yml
 
 DeviceProcessEvents

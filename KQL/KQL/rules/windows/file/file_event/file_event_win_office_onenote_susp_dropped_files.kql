@@ -3,8 +3,8 @@
 // Date: 2023-02-09
 // Level: high
 // Description: Detects suspicious files created via the OneNote application. This could indicate a potential malicious ".one"/".onepkg" file was executed as seen being used in malware activity in the wild
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_office_onenote_susp_dropped_files.yml
 // False Positives:
 //   - False positives should be very low with the extensions list cited. Especially if you don't heavily utilize OneNote.

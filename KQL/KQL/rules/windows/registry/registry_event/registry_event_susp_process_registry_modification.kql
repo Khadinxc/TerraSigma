@@ -5,11 +5,11 @@
 // Description: Detects suspicious registry modifications made by suspicious processes such as script engine processes such as WScript, or CScript etc.
 // These processes are rarely used for legitimate registry modifications, and their activity may indicate an attempt to modify the registry
 // without using standard tools like regedit.exe or reg.exe, potentially for evasion and persistence.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.persistence, attack.execution, attack.t1112, attack.t1059.005
+// MITRE Tactic: Persistence
+// Tags: attack.persistence, attack.execution, attack.defense-impairment, attack.t1112, attack.t1059.005
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_susp_process_registry_modification.yml
 // False Positives:
 //   - Some legitimate admin or install scripts may use these processes for registry modifications.
 
 DeviceRegistryEvents
-| where (InitiatingProcessFolderPath endswith "\\mshta.exe" or InitiatingProcessFolderPath endswith "\\wscript.exe" or InitiatingProcessFolderPath endswith "\\cscript.exe") and (not((InitiatingProcessFolderPath endswith "\\wscript.exe" and (RegistryKey endswith "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Notifications\\Data*" or RegistryKey contains "\\Services\\bam\\State\\UserSettings\\S-1-" or RegistryKey endswith "Software\\Microsoft\\Windows Script\\Settings\\Telemetry\\wscript.exe*" or RegistryKey endswith "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings*"))))
+| where (InitiatingProcessFolderPath endswith "\\mshta.exe" or InitiatingProcessFolderPath endswith "\\wscript.exe" or InitiatingProcessFolderPath endswith "\\cscript.exe") and (not((RegistryValueData =~ "Binary Data" or isnull(RegistryValueData) or (InitiatingProcessFolderPath endswith "\\wscript.exe" and (RegistryKey endswith "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Notifications\\Data*" or RegistryKey contains "\\Services\\bam\\State\\UserSettings\\S-1-" or RegistryKey endswith "Software\\Microsoft\\Windows Script\\Settings\\Telemetry\\wscript.exe*" or RegistryKey endswith "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings*")) or (InitiatingProcessFolderPath endswith "\\wscript.exe" and RegistryKey contains "\\wscript.exe"))))

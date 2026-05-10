@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects registry changes to Office trust records where the path is located in a potentially suspicious location
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.defense-evasion, attack.t1112
+// Tags: attack.persistence, attack.defense-impairment, attack.t1112
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_trust_record_susp_location.yml
 // False Positives:
 //   - Unlikely

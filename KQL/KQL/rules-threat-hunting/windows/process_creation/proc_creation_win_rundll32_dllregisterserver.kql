@@ -3,8 +3,8 @@
 // Date: 2023-10-17
 // Level: medium
 // Description: Detects when the DLL export function 'DllRegisterServer' is called in the commandline by Rundll32 explicitly where the DLL is located in a non-standard path.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1218, detection.threat-hunting
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1218, detection.threat-hunting
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_rundll32_dllregisterserver.yml
 // False Positives:
 //   - Legitimate usage as part of application installation, but less likely from e.g. temporary paths.

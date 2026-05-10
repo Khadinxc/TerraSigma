@@ -4,7 +4,7 @@
 // Level: medium
 // Description: Detects common command used to enable bpf kprobes tracing
 // MITRE Tactic: Execution
-// Tags: attack.execution, attack.defense-evasion
+// Tags: attack.execution, attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_bpf_kprob_tracing_enabled.yml
 
 DeviceProcessEvents

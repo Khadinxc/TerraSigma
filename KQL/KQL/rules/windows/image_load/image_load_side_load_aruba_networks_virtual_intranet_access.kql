@@ -3,8 +3,8 @@
 // Date: 2023-01-22
 // Level: high
 // Description: Detects potential DLL sideloading activity via the Aruba Networks Virtual Intranet Access "arubanetsvc.exe" process using DLL Search Order Hijacking
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.privilege-escalation, attack.persistence, attack.t1574.001
+// MITRE Tactic: Privilege Escalation
+// Tags: attack.privilege-escalation, attack.persistence, attack.execution, attack.stealth, attack.t1574.001
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_aruba_networks_virtual_intranet_access.yml
 
 DeviceImageLoadEvents

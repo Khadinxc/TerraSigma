@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects suspicious filenames that contain a right-to-left override character and a potentially spoofed file extensions.
 // MITRE Tactic: Execution
-// Tags: attack.execution, attack.defense-evasion, attack.t1036.002
+// Tags: attack.execution, attack.stealth, attack.t1036.002
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_right_to_left_override_extension_spoofing.yml
 // False Positives:
 //   - Filenames that contains scriptures such as arabic or hebrew might make use of this character

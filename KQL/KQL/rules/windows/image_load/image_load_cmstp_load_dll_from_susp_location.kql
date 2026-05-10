@@ -3,8 +3,8 @@
 // Date: 2022-08-30
 // Level: high
 // Description: Detects cmstp loading "dll" or "ocx" files from suspicious locations
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1218.003
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1218.003
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_cmstp_load_dll_from_susp_location.yml
 // False Positives:
 //   - Unikely

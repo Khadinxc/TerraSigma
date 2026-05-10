@@ -3,8 +3,8 @@
 // Date: 2022-07-05
 // Level: high
 // Description: Detects execution of a the file "execve_hijack" which is used by the Triple Cross rootkit as a way to elevate privileges
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.privilege-escalation
+// MITRE Tactic: Privilege Escalation
+// Tags: attack.privilege-escalation, attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_triple_cross_rootkit_execve_hijack.yml
 // False Positives:
 //   - Unlikely

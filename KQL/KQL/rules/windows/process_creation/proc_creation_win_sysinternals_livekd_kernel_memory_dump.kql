@@ -3,8 +3,8 @@
 // Date: 2023-05-16
 // Level: high
 // Description: Detects execution of LiveKD with the "-m" flag to potentially dump the kernel memory
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_livekd_kernel_memory_dump.yml
 // False Positives:
 //   - Unlikely in production environment

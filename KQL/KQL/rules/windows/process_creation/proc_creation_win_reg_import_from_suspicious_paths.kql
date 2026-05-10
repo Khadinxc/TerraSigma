@@ -4,7 +4,7 @@
 // Level: medium
 // Description: Detects the import of '.reg' files from suspicious paths using the 'reg.exe' utility
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.t1112, attack.defense-evasion
+// Tags: attack.persistence, attack.defense-impairment, attack.t1112
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_import_from_suspicious_paths.yml
 // False Positives:
 //   - Legitimate import of keys

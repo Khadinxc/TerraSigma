@@ -3,8 +3,8 @@
 // Date: 2019-10-24
 // Level: high
 // Description: Detects execution of javascript code using "mshta.exe".
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1218.005
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1218.005
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_javascript.yml
 
 DeviceProcessEvents

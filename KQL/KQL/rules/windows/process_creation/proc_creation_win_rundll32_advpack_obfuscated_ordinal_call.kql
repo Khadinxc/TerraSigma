@@ -3,8 +3,8 @@
 // Date: 2023-05-17
 // Level: high
 // Description: Detects execution of "rundll32" calling "advpack.dll" with potential obfuscated ordinal calls in order to leverage the "RegisterOCX" function
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_advpack_obfuscated_ordinal_call.yml
 // False Positives:
 //   - Unlikely

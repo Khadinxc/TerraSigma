@@ -4,7 +4,7 @@
 // Level: low
 // Description: Detects modification of the registry settings used for Internet Explorer and other Windows components that use these settings. An attacker can abuse this registry key to add a domain to the trusted sites Zone or insert JavaScript for persistence
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.defense-evasion, attack.t1112
+// Tags: attack.persistence, attack.defense-impairment, attack.t1112
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_ie.yml
 
 DeviceRegistryEvents

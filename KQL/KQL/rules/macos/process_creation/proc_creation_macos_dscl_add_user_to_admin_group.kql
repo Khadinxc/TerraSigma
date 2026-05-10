@@ -4,7 +4,7 @@
 // Level: medium
 // Description: Detects attempts to create and add an account to the admin group via "dscl"
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.defense-evasion, attack.initial-access, attack.privilege-escalation, attack.t1078.003
+// Tags: attack.persistence, attack.initial-access, attack.privilege-escalation, attack.stealth, attack.t1078.003
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_dscl_add_user_to_admin_group.yml
 // False Positives:
 //   - Legitimate administration activities

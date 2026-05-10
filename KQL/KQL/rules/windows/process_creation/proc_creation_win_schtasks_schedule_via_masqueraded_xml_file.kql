@@ -4,7 +4,7 @@
 // Level: medium
 // Description: Detects the creation of a scheduled task using the "-XML" flag with a file without the '.xml' extension. This behavior could be indicative of potential defense evasion attempt during persistence
 // MITRE Tactic: Privilege Escalation
-// Tags: attack.privilege-escalation, attack.execution, attack.defense-evasion, attack.persistence, attack.t1036.005, attack.t1053.005
+// Tags: attack.privilege-escalation, attack.execution, attack.persistence, attack.stealth, attack.t1036.005, attack.t1053.005
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_schedule_via_masqueraded_xml_file.yml
 
 DeviceProcessEvents

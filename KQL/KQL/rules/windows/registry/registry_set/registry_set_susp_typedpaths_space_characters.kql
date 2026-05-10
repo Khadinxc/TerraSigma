@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects the occurrence of numerous space characters in TypedPaths registry paths, which may indicate execution via phishing lures using file-fix techniques to hide malicious commands.
 // MITRE Tactic: Execution
-// Tags: attack.execution, attack.t1204.004, attack.defense-evasion, attack.t1027.010
+// Tags: attack.execution, attack.stealth, attack.t1204.004, attack.t1027.010
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_typedpaths_space_characters.yml
 // False Positives:
 //   - Unlikely

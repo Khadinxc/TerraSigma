@@ -3,8 +3,8 @@
 // Date: 2022-05-16
 // Level: medium
 // Description: Detects the execution of the LOLBIN gpscript, which executes logon or startup scripts configured in Group Policy
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1218
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1218
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_gpscript.yml
 // False Positives:
 //   - Legitimate uses of logon scripts distributed via group policy

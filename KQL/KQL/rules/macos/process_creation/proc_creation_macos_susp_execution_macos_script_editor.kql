@@ -4,7 +4,7 @@
 // Level: medium
 // Description: Detects when the macOS Script Editor utility spawns an unusual child process.
 // MITRE Tactic: Initial Access
-// Tags: attack.t1566, attack.t1566.002, attack.initial-access, attack.t1059, attack.t1059.002, attack.t1204, attack.t1204.001, attack.execution, attack.persistence, attack.t1553, attack.defense-evasion
+// Tags: attack.defense-impairment, attack.t1566, attack.t1566.002, attack.initial-access, attack.t1059, attack.t1059.002, attack.t1204, attack.t1204.001, attack.execution, attack.persistence, attack.t1553
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_susp_execution_macos_script_editor.yml
 
 DeviceProcessEvents

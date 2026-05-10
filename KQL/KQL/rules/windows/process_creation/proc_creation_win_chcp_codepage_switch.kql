@@ -3,8 +3,8 @@
 // Date: 2019-10-14
 // Level: medium
 // Description: Detects a code page switch in command line or batch scripts to a rare language
-// MITRE Tactic: Defense Evasion
-// Tags: attack.t1036, attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1036
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_chcp_codepage_switch.yml
 // False Positives:
 //   - Administrative activity (adjust code pages according to your organization's region)

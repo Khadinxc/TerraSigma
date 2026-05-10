@@ -4,8 +4,8 @@
 // Level: medium
 // Description: Detects installation of NalDrv or PROCEXP152 services via registry-keys to non-system32 folders.
 // Both services are used in the tool Ghost-In-The-Logs (https://github.com/bats3c/Ghost-In-The-Logs), which uses KDU (https://github.com/hfiref0x/KDU)
-// MITRE Tactic: Defense Evasion
-// Tags: attack.t1562.001, attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.defense-impairment, attack.t1685
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_service_installed.yml
 // False Positives:
 //   - Other legimate tools using this service names and drivers. Note - clever attackers may easily bypass this detection by just renaming the services. Therefore just Medium-level and don't rely on it.

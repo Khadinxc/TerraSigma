@@ -4,7 +4,7 @@
 // Level: medium
 // Description: Detects potential "ShellDispatch.dll" functionality abuse to execute arbitrary binaries via "ShellExecute"
 // MITRE Tactic: Execution
-// Tags: attack.execution, attack.defense-evasion
+// Tags: attack.execution, attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_shelldispatch_potential_abuse.yml
 // False Positives:
 //   - Unlikely

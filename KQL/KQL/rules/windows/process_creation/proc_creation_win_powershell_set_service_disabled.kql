@@ -4,7 +4,7 @@
 // Level: medium
 // Description: Detects the use of the PowerShell "Set-Service" cmdlet to change the startup type of a service to "disabled" or "manual"
 // MITRE Tactic: Execution
-// Tags: attack.execution, attack.defense-evasion, attack.t1562.001
+// Tags: attack.execution, attack.defense-impairment, attack.t1685
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_set_service_disabled.yml
 // False Positives:
 //   - False positives may occur with troubleshooting scripts

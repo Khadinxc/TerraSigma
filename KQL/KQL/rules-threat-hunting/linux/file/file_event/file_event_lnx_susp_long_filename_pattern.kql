@@ -6,7 +6,7 @@
 // This is a hunting rule to identify potential threats that use long filenames to evade detection. Keep in mind that on a legitimate system, such long filenames can and are common. Run this detection in the context of threat hunting rather than alerting.
 // Adjust the threshold of filename length as needed based on your environment.
 // MITRE Tactic: Execution
-// Tags: attack.execution, attack.t1059.004, attack.defense-evasion, attack.t1027, detection.threat-hunting
+// Tags: attack.execution, attack.stealth, attack.t1059.004, attack.t1027, detection.threat-hunting
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/linux/file/file_event/file_event_lnx_susp_long_filename_pattern.yml
 // False Positives:
 //   - Legitimate files with long filenames.

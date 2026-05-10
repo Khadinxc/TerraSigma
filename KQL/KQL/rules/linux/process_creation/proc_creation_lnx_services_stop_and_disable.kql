@@ -2,12 +2,14 @@
 // Author: Nasreddine Bencherchali (Nextron Systems)
 // Date: 2022-09-15
 // Level: medium
-// Description: Detects the usage of utilities such as 'systemctl', 'service'...etc to stop or disable tools and services
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion
+// Description: Detects the usage of utilities such as 'systemctl', 'service'...etc to stop or disable tools and services on Linux systems.
+// Attackers may stop or disable security tools and services to evade detection, maintain persistence, or disrupt system operations.
+// MITRE Tactic: Impact
+// Tags: attack.defense-impairment, attack.t1685, attack.impact, attack.t1489
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_services_stop_and_disable.yml
 // False Positives:
 //   - Legitimate administration activities
+//   - Some false positives are to be expected. Apply additional filters as needed before pushing to production.
 
 DeviceProcessEvents
-| where (ProcessCommandLine contains "stop" or ProcessCommandLine contains "disable") and (FolderPath endswith "/service" or FolderPath endswith "/systemctl" or FolderPath endswith "/chkconfig")
+| where ((ProcessCommandLine contains " stop " or ProcessCommandLine contains " disable ") and (FolderPath endswith "/service" or FolderPath endswith "/systemctl" or FolderPath endswith "/chkconfig")) and (not((((ProcessCommandLine contains "--no-reload disable snap-snapd-" or ProcessCommandLine contains " stop snap-snapd-") and FolderPath endswith "/systemctl") or ((ProcessCommandLine contains " stop " and ProcessCommandLine contains "ssh.") and FolderPath endswith "/systemctl" and InitiatingProcessCommandLine contains "tmp.ci/preinst upgrade") or (FolderPath endswith "/systemctl" and InitiatingProcessCommandLine contains "/dpkg/info/ubuntu-pro-client.prerm upgrade")))) and (not((ProcessCommandLine endswith "snap.amazon-ssm-agent.amazon-ssm-agent.service" and FolderPath endswith "/systemctl")))

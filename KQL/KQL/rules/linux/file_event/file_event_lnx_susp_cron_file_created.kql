@@ -1,0 +1,18 @@
+// Title: New Cron File Created
+// Author: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research), MSTIC
+// Date: 2021-10-15
+// Level: low
+// Description: Detects the creation of cron files in Cron directories, which could indicate potential persistence mechanisms being established by an attacker.
+// Note that not all cron file creations are malicious - legitimate system administration activities and software installations may also create cron files.
+// This detection should be investigated in context, considering factors such as the user creating the file, the timing of creation, and the contents of the cron job.
+// Focus investigation on unexpected cron files created by non-administrative users or during suspicious timeframes.
+// Additionally, it is recommended to review the contents of the newly created cron files to assess their intent.
+// Furthermore, it is suggested to baseline normal cron file creation and apply additional filters to reduce false positives based on the specific environment.
+// MITRE Tactic: Privilege Escalation
+// Tags: attack.privilege-escalation, attack.execution, attack.persistence, attack.t1053.003
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_susp_cron_file_created.yml
+// False Positives:
+//   - Legitimate administrative tasks, package managers, containers, configuration management tools, cloud agents, or system maintenance operations might cause false positives. Apply baselining before deployment.
+
+DeviceFileEvents
+| where ((FolderPath startswith "/etc/cron.d/" or FolderPath startswith "/etc/cron.daily/" or FolderPath startswith "/etc/cron.hourly/" or FolderPath startswith "/etc/cron.monthly/" or FolderPath startswith "/etc/cron.weekly/" or FolderPath startswith "/var/spool/cron/crontabs/" or FolderPath startswith "/var/spool/cron/root") or (FolderPath contains "/etc/cron.allow" or FolderPath contains "/etc/cron.deny" or FolderPath contains "/etc/crontab")) and (not((FolderPath in~ ("/etc/cron.daily/apt", "/etc/cron.daily/dpkg", "/etc/cron.daily/passwd", "/etc/crontabs/root"))))

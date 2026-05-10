@@ -3,8 +3,8 @@
 // Date: 2022-08-12
 // Level: high
 // Description: Detects execution of wab.exe (Windows Contacts) and Wabmig.exe (Microsoft Address Book Import Tool) from non default locations as seen with bumblebee activity
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.execution
+// MITRE Tactic: Execution
+// Tags: attack.execution, attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wab_execution_from_non_default_location.yml
 
 DeviceProcessEvents

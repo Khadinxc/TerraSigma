@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects changes to 'HKCU\Software\Classes\Folder\shell\open\command\DelegateExecute'
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.defense-evasion, attack.privilege-escalation, attack.t1546, attack.t1548
+// Tags: attack.persistence, attack.privilege-escalation, attack.t1546, attack.t1548
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_comhijack_sdclt.yml
 
 DeviceRegistryEvents

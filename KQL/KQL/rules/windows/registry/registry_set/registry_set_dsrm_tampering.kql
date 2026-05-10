@@ -8,8 +8,8 @@
 // If the "DsrmAdminLogonBehavior" value is set to "0", the administrator account can only be used if the DC starts in DSRM.
 // If the "DsrmAdminLogonBehavior" value is set to "1", the administrator account can only be used if the local AD DS service is stopped.
 // If the "DsrmAdminLogonBehavior" value is set to "2", the administrator account can always be used.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.credential-access, attack.persistence, attack.t1556
+// MITRE Tactic: Credential Access
+// Tags: attack.credential-access, attack.persistence, attack.defense-impairment, attack.t1556
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_dsrm_tampering.yml
 
 DeviceRegistryEvents

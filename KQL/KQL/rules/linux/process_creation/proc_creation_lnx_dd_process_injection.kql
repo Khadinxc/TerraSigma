@@ -4,7 +4,7 @@
 // Level: medium
 // Description: Detects the injection of code by overwriting the memory map of a Linux process using the "dd" Linux command.
 // MITRE Tactic: Privilege Escalation
-// Tags: attack.privilege-escalation, attack.defense-evasion, attack.t1055.009
+// Tags: attack.privilege-escalation, attack.stealth, attack.t1055.009
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_dd_process_injection.yml
 
 DeviceProcessEvents

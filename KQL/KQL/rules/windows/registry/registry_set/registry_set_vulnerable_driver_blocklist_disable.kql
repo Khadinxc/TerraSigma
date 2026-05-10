@@ -7,8 +7,8 @@
 // particularly in scenarios involving Endpoint Detection and Response (EDR) bypass techniques.
 // This rule applies to systems that support the Vulnerable Driver Blocklist feature, including Windows 10 version 1903 and later, and Windows Server 2022 and later.
 // Note that this change will require a reboot to take effect, and this rule only detects the registry modification action.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1562.001
+// MITRE Tactic: Uncategorized
+// Tags: attack.defense-impairment, attack.t1685
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_vulnerable_driver_blocklist_disable.yml
 // False Positives:
 //   - Unlikely and should be investigated immediately.

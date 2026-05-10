@@ -3,8 +3,8 @@
 // Date: 2022-11-18
 // Level: medium
 // Description: Detects suspicious execution of 'Powercfg.exe' to change lock screen timeout
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powercfg_execution.yml
 
 DeviceProcessEvents

@@ -3,8 +3,8 @@
 // Date: 2023-04-17
 // Level: medium
 // Description: Detects changes to the AppInstaller (winget) policy. Specifically the activation of the local manifest installation, which allows a user to install new packages via custom manifests.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.persistence
+// MITRE Tactic: Persistence
+// Tags: attack.persistence, attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_winget_enable_local_manifest.yml
 // False Positives:
 //   - Administrators or developers might enable this for testing purposes or to install custom private packages

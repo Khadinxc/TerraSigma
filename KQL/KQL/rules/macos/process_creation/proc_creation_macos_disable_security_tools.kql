@@ -3,8 +3,8 @@
 // Date: 2020-10-19
 // Level: medium
 // Description: Detects disabling security tools
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1562.001
+// MITRE Tactic: Uncategorized
+// Tags: attack.defense-impairment, attack.t1685
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_disable_security_tools.yml
 // False Positives:
 //   - Legitimate activities

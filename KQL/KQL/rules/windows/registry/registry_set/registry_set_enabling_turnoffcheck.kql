@@ -3,8 +3,8 @@
 // Date: 2022-06-15
 // Level: medium
 // Description: Detects enabling TurnOffCheck which can be used to bypass defense of MSDT Follina vulnerability
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1562.001
+// MITRE Tactic: Uncategorized
+// Tags: attack.defense-impairment, attack.t1685
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_enabling_turnoffcheck.yml
 // False Positives:
 //   - Administrator actions

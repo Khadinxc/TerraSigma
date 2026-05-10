@@ -3,8 +3,8 @@
 // Date: 2022-08-14
 // Level: high
 // Description: Detects DLL sideloading of DLLs usually located in system locations (System32, SysWOW64, etc.).
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.persistence, attack.privilege-escalation, attack.t1574.001
+// MITRE Tactic: Persistence
+// Tags: attack.persistence, attack.privilege-escalation, attack.execution, attack.stealth, attack.t1574.001
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_from_non_system_location.yml
 // False Positives:
 //   - Legitimate applications loading their own versions of the DLLs mentioned in this rule

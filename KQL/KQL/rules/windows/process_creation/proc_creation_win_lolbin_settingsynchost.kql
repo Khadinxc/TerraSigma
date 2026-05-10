@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects using SettingSyncHost.exe to run hijacked binary
 // MITRE Tactic: Privilege Escalation
-// Tags: attack.privilege-escalation, attack.persistence, attack.execution, attack.defense-evasion, attack.t1574.008
+// Tags: attack.privilege-escalation, attack.persistence, attack.execution, attack.stealth, attack.t1574.008
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_settingsynchost.yml
 
 DeviceProcessEvents

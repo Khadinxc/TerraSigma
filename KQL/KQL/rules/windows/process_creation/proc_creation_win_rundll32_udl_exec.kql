@@ -4,8 +4,8 @@
 // Level: medium
 // Description: Detects the execution of rundll32.exe with the oledb32.dll library to open a UDL file.
 // Threat actors can abuse this technique as a phishing vector to capture authentication credentials or other sensitive data.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.execution, attack.command-and-control, attack.t1218.011, attack.t1071
+// MITRE Tactic: Execution
+// Tags: attack.execution, attack.command-and-control, attack.stealth, attack.t1218.011, attack.t1071
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_udl_exec.yml
 // False Positives:
 //   - UDL files serve as a convenient and flexible tool for managing and testing database connections in various development and administrative scenarios.

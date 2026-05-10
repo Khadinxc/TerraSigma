@@ -4,7 +4,7 @@
 // Level: medium
 // Description: Detects the execution of System Informer, a task manager tool to view and manipulate processes, kernel options and other low level operations
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.privilege-escalation, attack.discovery, attack.defense-evasion, attack.t1082, attack.t1564, attack.t1543
+// Tags: attack.persistence, attack.privilege-escalation, attack.discovery, attack.stealth, attack.t1082, attack.t1564, attack.t1543
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_system_informer.yml
 // False Positives:
 //   - System Informer is regularly used legitimately by system administrators or developers. Apply additional filters accordingly

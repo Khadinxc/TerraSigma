@@ -4,7 +4,7 @@
 // Level: critical
 // Description: Detects the execution of DLL side-loading malware used by threat group Emissary Panda aka APT27
 // MITRE Tactic: Privilege Escalation
-// Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.t1574.001, attack.g0027, detection.emerging-threats
+// Tags: attack.privilege-escalation, attack.persistence, attack.execution, attack.stealth, attack.t1574.001, attack.g0027, detection.emerging-threats
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT27/proc_creation_win_apt_apt27_emissary_panda.yml
 // False Positives:
 //   - Unlikely

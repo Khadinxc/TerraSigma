@@ -3,8 +3,8 @@
 // Date: 2022-07-03
 // Level: high
 // Description: Detects suspicious network connections made by a well-known Windows binary run with no command line parameters
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_susp_binary_no_cmdline.yml
 
 DeviceNetworkEvents

@@ -3,8 +3,8 @@
 // Date: 2020-07-10
 // Level: critical
 // Description: Detects Golden Chickens deployment method as used by Evilnum and described in ESET July 2020 report
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1218.011, detection.emerging-threats
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1218.011, detection.emerging-threats
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/Evilnum/proc_creation_win_apt_evilnum_jul20.yml
 
 DeviceProcessEvents

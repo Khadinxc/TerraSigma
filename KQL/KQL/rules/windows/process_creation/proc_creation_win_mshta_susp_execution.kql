@@ -6,8 +6,8 @@
 // such as .png, .jpg, .zip, .pdf, and others, which are often polyglots. MSHTA is a legitimate Windows utility for executing HTML Applications
 // containing VBScript or JScript. Threat actors often abuse this lolbin utility to download and
 // execute malicious scripts disguised as benign files or hosted under misleading extensions to evade detection.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1140, attack.t1218.005, attack.execution, attack.t1059.007, cve.2020-1599
+// MITRE Tactic: Execution
+// Tags: attack.stealth, attack.t1140, attack.t1218.005, attack.execution, attack.t1059.007, cve.2020-1599
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_susp_execution.yml
 // False Positives:
 //   - False positives depend on scripts and administrative tools used in the monitored environment

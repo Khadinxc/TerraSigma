@@ -3,8 +3,8 @@
 // Date: 2022-08-14
 // Level: high
 // Description: Detects execution of commands that leverage the "mshtml.dll" RunHTMLApplication export to run arbitrary code via different protocol handlers (vbscript, javascript, file, http...)
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.execution
+// MITRE Tactic: Execution
+// Tags: attack.execution, attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_mshtml_runhtmlapplication.yml
 // False Positives:
 //   - Unlikely

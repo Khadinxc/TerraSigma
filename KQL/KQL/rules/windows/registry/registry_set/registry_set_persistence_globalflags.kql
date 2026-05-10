@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects registry persistence technique using the GlobalFlags and SilentProcessExit keys
 // MITRE Tactic: Privilege Escalation
-// Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.t1546.012, car.2013-01-002
+// Tags: attack.privilege-escalation, attack.persistence, attack.t1546.012, car.2013-01-002
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_globalflags.yml
 
 DeviceRegistryEvents

@@ -3,8 +3,8 @@
 // Date: 2024-06-04
 // Level: medium
 // Description: Detects the execution of the nscurl utility in order to download files.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.command-and-control, attack.t1105
+// MITRE Tactic: Command and Control
+// Tags: attack.command-and-control, attack.t1105
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_nscurl_usage.yml
 // False Positives:
 //   - Legitimate usage of nscurl by administrators and users.

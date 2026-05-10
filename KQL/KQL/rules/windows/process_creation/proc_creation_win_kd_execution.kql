@@ -3,8 +3,8 @@
 // Date: 2023-05-15
 // Level: medium
 // Description: Detects execution of the Windows Kernel Debugger "kd.exe".
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.privilege-escalation
+// MITRE Tactic: Privilege Escalation
+// Tags: attack.privilege-escalation, attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_kd_execution.yml
 // False Positives:
 //   - Rare occasions of legitimate cases where kernel debugging is necessary in production. Investigation is required

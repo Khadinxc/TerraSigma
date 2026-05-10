@@ -10,4 +10,4 @@
 //   - Administrative activity
 
 DeviceRegistryEvents
-| where RegistryKey endswith "\\SOFTWARE\\Microsoft\\Office*" and RegistryKey endswith "\\Outlook\\Security*"
+| where (RegistryKey endswith "\\SOFTWARE\\Microsoft\\Office*" and RegistryKey endswith "\\Outlook\\Security*") and (not((InitiatingProcessFolderPath endswith "\\OUTLOOK.EXE" and (InitiatingProcessFolderPath startswith "C:\\Program Files\\Microsoft Office\\" or InitiatingProcessFolderPath startswith "C:\\Program Files (x86)\\Microsoft Office\\"))))

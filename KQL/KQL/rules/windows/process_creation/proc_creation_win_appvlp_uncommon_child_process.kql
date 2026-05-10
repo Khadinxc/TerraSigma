@@ -6,8 +6,8 @@
 // Appvlp or the Application Virtualization Utility is included with Microsoft Office. Attackers are able to abuse "AppVLP" to execute shell commands.
 // Normally, this binary is used for Application Virtualization, but it can also be abused to circumvent the ASR file path rule folder
 // or to mark a file as a system file.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.t1218, attack.defense-evasion, attack.execution
+// MITRE Tactic: Execution
+// Tags: attack.stealth, attack.t1218, attack.execution
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_appvlp_uncommon_child_process.yml
 
 DeviceProcessEvents

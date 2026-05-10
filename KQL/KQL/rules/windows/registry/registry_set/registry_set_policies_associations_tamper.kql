@@ -3,8 +3,8 @@
 // Date: 2022-08-01
 // Level: high
 // Description: Detects tampering with attachment manager settings policies associations to lower the default file type risks (See reference for more information)
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.defense-impairment
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_policies_associations_tamper.yml
 // False Positives:
 //   - Unlikely

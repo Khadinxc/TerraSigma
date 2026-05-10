@@ -1,0 +1,13 @@
+// Title: Service Startup Type Change Via Wmic.EXE
+// Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+// Date: 2026-04-27
+// Level: medium
+// Description: Detects changes to service startup type to 'disabled' or 'manual' using the WMIC command-line utility.
+// MITRE Tactic: Execution
+// Tags: attack.execution, attack.defense-impairment, attack.t1047, attack.t1685
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_service_startup_change.yml
+// False Positives:
+//   - Legitimate administrative changes to service startup types using WMIC, investigate accordingly.
+
+DeviceProcessEvents
+| where ((ProcessCommandLine contains "Manual" or ProcessCommandLine contains "Disabled") and (ProcessCommandLine contains " service " and ProcessCommandLine contains "ChangeStartMode")) and (FolderPath endswith "\\WMIC.exe" or ProcessVersionInfoOriginalFileName =~ "wmic.exe")

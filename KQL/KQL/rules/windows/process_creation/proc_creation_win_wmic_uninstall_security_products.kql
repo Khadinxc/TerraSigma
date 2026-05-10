@@ -3,8 +3,8 @@
 // Date: 2021-01-30
 // Level: high
 // Description: Detects uninstallation or termination of security products using the WMIC utility
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1562.001
+// MITRE Tactic: Uncategorized
+// Tags: attack.defense-impairment, attack.t1685
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_uninstall_security_products.yml
 // False Positives:
 //   - Legitimate administration

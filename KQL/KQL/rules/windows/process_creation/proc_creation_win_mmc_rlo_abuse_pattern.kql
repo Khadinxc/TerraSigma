@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects malicious behavior where the MMC utility (`mmc.exe`) executes files with reversed extensions caused by Right-to-Left Override (RLO) abuse, disguising them as document formats.
 // MITRE Tactic: Execution
-// Tags: attack.execution, attack.t1204.002, attack.defense-evasion, attack.t1218.014, attack.t1036.002
+// Tags: attack.execution, attack.stealth, attack.t1204.002, attack.t1218.014, attack.t1036.002
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mmc_rlo_abuse_pattern.yml
 // False Positives:
 //   - Legitimate administrative actions using MMC to execute misnamed `.msc` files.

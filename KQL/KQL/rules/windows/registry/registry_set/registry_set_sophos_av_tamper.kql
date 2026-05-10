@@ -3,8 +3,8 @@
 // Date: 2022-09-02
 // Level: high
 // Description: Detects tamper attempts to sophos av functionality via registry key modification
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1562.001
+// MITRE Tactic: Uncategorized
+// Tags: attack.defense-impairment, attack.t1685
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_sophos_av_tamper.yml
 // False Positives:
 //   - Some FP may occur when the feature is disabled by the AV itself, you should always investigate if the action was legitimate

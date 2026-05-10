@@ -1,0 +1,11 @@
+// Title: System Restore Registry Modification via CommandLine
+// Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+// Date: 2026-03-11
+// Level: high
+// Description: Detects system restore registry modification via command line, which can be used by adversaries to disable system restore on the computer.
+// MITRE Tactic: Impact
+// Tags: attack.impact, attack.t1490
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_system_restore_modification.yml
+
+DeviceProcessEvents
+| where (ProcessCommandLine contains " add " or ProcessCommandLine contains "Set-ItemProperty" or ProcessCommandLine contains "New-ItemProperty") and (ProcessCommandLine contains "DisableConfig" or ProcessCommandLine contains "DisableSR") and (ProcessCommandLine contains "\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\SystemRestore" or ProcessCommandLine contains "\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\SystemRestore") and ((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe" or FolderPath endswith "\\reg.exe") or (ProcessVersionInfoOriginalFileName in~ ("powershell.exe", "pwsh.dll", "reg.exe")))
