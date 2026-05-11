@@ -9,7 +9,6 @@ triggerThreshold: 0
 tactics:
 - PrivilegeEscalation
 - InitialAccess
-- DefenseEvasion
 - Persistence
 query: |-
   DeviceProcessEvents

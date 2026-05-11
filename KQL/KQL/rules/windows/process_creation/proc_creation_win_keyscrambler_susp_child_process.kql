@@ -4,7 +4,7 @@
 // Level: medium
 // Description: Detects potentially suspicious child processes of KeyScrambler.exe
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.execution, attack.defense-evasion, attack.privilege-escalation, attack.t1203, attack.t1574.001
+// Tags: attack.persistence, attack.execution, attack.privilege-escalation, attack.stealth, attack.t1203, attack.t1574.001
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_keyscrambler_susp_child_process.yml
 
 DeviceProcessEvents

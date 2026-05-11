@@ -6,8 +6,8 @@
 // This rule identifies suspicious command-line patterns that combine memory dump flags (-ma, -mm, -mp) with LSASS-related process markers.
 // LSASS (Local Security Authority Subsystem Service) contains sensitive authentication data including plaintext passwords, NTLM hashes, and Kerberos tickets in memory.
 // Attackers commonly dump LSASS memory to extract credentials for lateral movement and privilege escalation.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1036, attack.credential-access, attack.t1003.001, car.2013-05-009
+// MITRE Tactic: Credential Access
+// Tags: attack.stealth, attack.t1036, attack.credential-access, attack.t1003.001, car.2013-05-009
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_procdump_lsass.yml
 // False Positives:
 //   - Unlikely, because no one should dump an lsass process memory

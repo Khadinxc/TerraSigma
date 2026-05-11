@@ -3,8 +3,8 @@
 // Date: 2022-08-25
 // Level: medium
 // Description: Detects potentially suspicious execution of the Regasm/Regsvcs utilities from a potentially suspicious location
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1218.009
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1218.009
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regasm_regsvcs_uncommon_location_execution.yml
 
 DeviceProcessEvents

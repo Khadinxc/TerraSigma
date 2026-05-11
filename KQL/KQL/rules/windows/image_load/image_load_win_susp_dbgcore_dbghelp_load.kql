@@ -5,7 +5,7 @@
 // Description: Detects loading of dbgcore.dll or dbghelp.dll from uncommon locations such as user directories.
 // These DLLs contain the MiniDumpWriteDump function, which can be abused for credential dumping purposes or in some cases for evading EDR/AV detection by suspending processes.
 // MITRE Tactic: Credential Access
-// Tags: attack.credential-access, attack.t1003, attack.defense-evasion, attack.t1562.001
+// Tags: attack.credential-access, attack.defense-impairment, attack.t1003, attack.t1685
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_win_susp_dbgcore_dbghelp_load.yml
 
 DeviceImageLoadEvents

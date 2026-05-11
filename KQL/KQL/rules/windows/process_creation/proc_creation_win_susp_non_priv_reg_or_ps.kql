@@ -4,7 +4,7 @@
 // Level: high
 // Description: Search for usage of reg or Powershell by non-privileged users to modify service configuration in registry
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.defense-evasion, attack.t1112
+// Tags: attack.persistence, attack.defense-impairment, attack.t1112
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_non_priv_reg_or_ps.yml
 
 DeviceProcessEvents

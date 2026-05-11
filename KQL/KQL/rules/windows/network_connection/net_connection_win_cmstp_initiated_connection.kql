@@ -4,8 +4,8 @@
 // Level: high
 // Description: Detects a network connection initiated by Cmstp.EXE
 // Its uncommon for "cmstp.exe" to initiate an outbound network connection. Investigate the source of such requests to determine if they are malicious.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1218.003
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1218.003
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_cmstp_initiated_connection.yml
 
 DeviceNetworkEvents

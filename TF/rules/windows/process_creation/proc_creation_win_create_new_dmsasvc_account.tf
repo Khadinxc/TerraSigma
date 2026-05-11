@@ -18,7 +18,7 @@ QUERY
   trigger_threshold          = 0
   suppression_enabled        = false
   suppression_duration       = "PT5H"
-  tactics                    = ["PrivilegeEscalation", "InitialAccess", "DefenseEvasion", "Persistence"]
+  tactics                    = ["PrivilegeEscalation", "InitialAccess", "Persistence"]
   techniques                 = ["T1078", "T1098"]
   enabled                    = true
 

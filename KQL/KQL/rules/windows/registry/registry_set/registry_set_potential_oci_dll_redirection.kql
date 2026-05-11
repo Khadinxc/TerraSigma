@@ -5,7 +5,7 @@
 // Description: Detects registry modifications related to 'OracleOciLib' and 'OracleOciLibPath' under 'MSDTC' settings.
 // Threat actors may modify these registry keys to redirect the loading of 'oci.dll' to a malicious DLL, facilitating phantom DLL hijacking via the MSDTC service.
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.privilege-escalation, attack.defense-evasion, attack.t1112, attack.t1574.001
+// Tags: attack.persistence, attack.privilege-escalation, attack.execution, attack.stealth, attack.defense-impairment, attack.t1112, attack.t1574.001
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_potential_oci_dll_redirection.yml
 // False Positives:
 //   - Unlikely

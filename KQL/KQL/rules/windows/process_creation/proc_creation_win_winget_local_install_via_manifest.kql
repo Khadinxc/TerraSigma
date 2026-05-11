@@ -5,8 +5,8 @@
 // Description: Detects usage of winget to install applications via manifest file. Adversaries can abuse winget to download payloads remotely and execute them.
 // The manifest option enables you to install an application by passing in a YAML file directly to the client.
 // Winget can be used to download and install exe, msi or msix files later.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.execution, attack.t1059
+// MITRE Tactic: Execution
+// Tags: attack.execution, attack.t1059
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_winget_local_install_via_manifest.yml
 // False Positives:
 //   - Some false positives are expected in some environment that may use this functionality to install and test their custom applications

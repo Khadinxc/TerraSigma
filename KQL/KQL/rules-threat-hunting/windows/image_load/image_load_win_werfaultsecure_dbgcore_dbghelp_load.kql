@@ -7,8 +7,8 @@
 // When threat hunting, look for this activity in conjunction with other suspicious processes starting, network connections, or file modifications that occur shortly after the DLL load.
 // Pay special attention to timing - if other malicious activities occur during or immediately after this library loading, it may indicate EDR evasion attempts.
 // Also correlate with any EDR/AV process suspension events or gaps in security monitoring during the timeframe.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1562.001, detection.threat-hunting
+// MITRE Tactic: Uncategorized
+// Tags: attack.defense-impairment, attack.t1685, detection.threat-hunting
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/image_load/image_load_win_werfaultsecure_dbgcore_dbghelp_load.yml
 
 DeviceImageLoadEvents

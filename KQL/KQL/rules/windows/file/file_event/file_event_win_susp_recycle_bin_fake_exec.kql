@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects file write event from/to a fake recycle bin folder that is often used as a staging directory for malware
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.defense-evasion
+// Tags: attack.persistence, attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_recycle_bin_fake_exec.yml
 
 DeviceFileEvents

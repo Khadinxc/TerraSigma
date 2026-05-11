@@ -7,7 +7,7 @@
 // This can be abused by actors to create a backdoor within the system and for persistence.
 // It will be chained in a BITS job to schedule the download of malware/additional binaries and execute the program after being downloaded.
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.defense-evasion, attack.t1197
+// Tags: attack.persistence, attack.execution, attack.stealth, attack.t1197
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_potential_persistence.yml
 
 DeviceProcessEvents

@@ -3,8 +3,8 @@
 // Date: 2022-06-04
 // Level: medium
 // Description: Detects a suspicious call to the user32.dll function that locks the user workstation
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_user32_dll.yml
 // False Positives:
 //   - Scripts or links on the user desktop used to lock the workstation instead of Windows+L or the menu option

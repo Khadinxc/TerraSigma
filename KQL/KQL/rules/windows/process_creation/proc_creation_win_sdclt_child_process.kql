@@ -3,8 +3,8 @@
 // Date: 2020-05-02
 // Level: medium
 // Description: A General detection for sdclt spawning new processes. This could be an indicator of sdclt being used for bypass UAC techniques.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1548.002
+// MITRE Tactic: Privilege Escalation
+// Tags: attack.privilege-escalation, attack.t1548.002
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sdclt_child_process.yml
 
 DeviceProcessEvents

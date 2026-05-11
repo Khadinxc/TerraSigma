@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects a suspicious process creation as SYSTEM user (suspicious program or command line parameter)
 // MITRE Tactic: Credential Access
-// Tags: attack.credential-access, attack.defense-evasion, attack.privilege-escalation, attack.t1134, attack.t1003, attack.t1027
+// Tags: attack.credential-access, attack.privilege-escalation, attack.stealth, attack.t1134, attack.t1003, attack.t1027
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_system_user_anomaly.yml
 // False Positives:
 //   - Administrative activity

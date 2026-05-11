@@ -3,8 +3,8 @@
 // Date: 2021-12-18
 // Level: high
 // Description: Detects the use of CleanWipe a tool usually used to delete Symantec antivirus.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1562.001
+// MITRE Tactic: Uncategorized
+// Tags: attack.defense-impairment, attack.t1685
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_pua_cleanwipe.yml
 // False Positives:
 //   - Legitimate administrative use (Should be investigated either way)

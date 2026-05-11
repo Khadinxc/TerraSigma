@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects usage of the "Set-Service" powershell cmdlet to configure a new SecurityDescriptor that allows a service to be hidden from other utilities such as "sc.exe", "Get-Service"...etc. (Works only in powershell 7)
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.defense-evasion, attack.privilege-escalation, attack.t1574.011
+// Tags: attack.persistence, attack.privilege-escalation, attack.execution, attack.stealth, attack.t1574.011
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_hide_services_via_set_service.yml
 // False Positives:
 //   - Rare intended use of hidden services

@@ -4,7 +4,7 @@
 // Level: medium
 // Description: Detects suspicious interactive bash as a parent to rather uncommon child processes
 // MITRE Tactic: Execution
-// Tags: attack.execution, attack.defense-evasion, attack.t1059.004, attack.t1036
+// Tags: attack.execution, attack.stealth, attack.t1059.004, attack.t1036
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_interactive_bash.yml
 // False Positives:
 //   - Legitimate software that uses these patterns

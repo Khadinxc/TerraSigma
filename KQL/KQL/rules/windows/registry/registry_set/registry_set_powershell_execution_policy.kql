@@ -3,8 +3,8 @@
 // Date: 2023-01-11
 // Level: medium
 // Description: Detects changes to the PowerShell execution policy in order to bypass signing requirements for script execution
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.defense-impairment
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_powershell_execution_policy.yml
 
 DeviceRegistryEvents

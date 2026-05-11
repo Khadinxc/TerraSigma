@@ -8,7 +8,7 @@
 // On top of that, if the user that is creating the dMSASvc account is not a legitimate administrator or does not have the necessary permissions,
 // it is a strong signal of an attempted or successful abuse of the BaDSuccessor vulnerability for privilege escalation within the Windows Server 2025 Active Directory environment.
 // MITRE Tactic: Privilege Escalation
-// Tags: attack.privilege-escalation, attack.initial-access, attack.defense-evasion, attack.persistence, attack.t1078.002, attack.t1098
+// Tags: attack.privilege-escalation, attack.initial-access, attack.persistence, attack.stealth, attack.t1078.002, attack.t1098
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_create_new_dmsasvc_account.yml
 
 DeviceProcessEvents

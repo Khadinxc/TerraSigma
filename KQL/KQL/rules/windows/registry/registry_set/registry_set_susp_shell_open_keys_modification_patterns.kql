@@ -5,8 +5,8 @@
 // Description: Detects modifications to shell open registry keys that point to suspicious locations typically used by malware for persistence.
 // Generally, modifications to the `*\shell\open\command` registry key can indicate an attempt to change the default action for opening files,
 // and various UAC bypass or persistence techniques involve modifying these keys to execute malicious scripts or binaries.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.privilege-escalation, attack.persistence, attack.t1548.002, attack.t1546.001
+// MITRE Tactic: Privilege Escalation
+// Tags: attack.privilege-escalation, attack.persistence, attack.t1548.002, attack.t1546.001
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_shell_open_keys_modification_patterns.yml
 // False Positives:
 //   - Legitimate software installations or updates that modify the shell open command registry keys to these locations.

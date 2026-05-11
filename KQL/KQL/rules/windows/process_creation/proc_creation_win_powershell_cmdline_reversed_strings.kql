@@ -3,8 +3,8 @@
 // Date: 2020-10-11
 // Level: high
 // Description: Detects the presence of reversed PowerShell commands in the CommandLine. This is often used as a method of obfuscation by attackers
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1027, attack.execution, attack.t1059.001
+// MITRE Tactic: Execution
+// Tags: attack.stealth, attack.t1027, attack.execution, attack.t1059.001
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cmdline_reversed_strings.yml
 // False Positives:
 //   - Unlikely

@@ -4,7 +4,7 @@
 // Level: medium
 // Description: Detects changes to the ClickOnce trust prompt registry key in order to enable an installation from different locations such as the Internet.
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.defense-evasion, attack.t1112
+// Tags: attack.persistence, attack.defense-impairment, attack.t1112
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_clickonce_trust_prompt.yml
 // False Positives:
 //   - Legitimate internal requirements.

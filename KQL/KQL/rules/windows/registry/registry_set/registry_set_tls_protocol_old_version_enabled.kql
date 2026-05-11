@@ -3,8 +3,8 @@
 // Date: 2023-09-05
 // Level: medium
 // Description: Detects applications or users re-enabling old TLS versions by setting the "Enabled" value to "1" for the "Protocols" registry key.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_tls_protocol_old_version_enabled.yml
 // False Positives:
 //   - Legitimate enabling of the old tls versions due to incompatibility

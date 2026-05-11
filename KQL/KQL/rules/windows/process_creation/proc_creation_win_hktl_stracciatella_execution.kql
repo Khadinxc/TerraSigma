@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects Stracciatella which executes a Powershell runspace from within C# (aka SharpPick technique) with AMSI, ETW and Script Block Logging disabled based on PE metadata characteristics.
 // MITRE Tactic: Execution
-// Tags: attack.execution, attack.defense-evasion, attack.t1059, attack.t1562.001
+// Tags: attack.execution, attack.defense-impairment, attack.t1059, attack.t1685
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_stracciatella_execution.yml
 // False Positives:
 //   - Unlikely

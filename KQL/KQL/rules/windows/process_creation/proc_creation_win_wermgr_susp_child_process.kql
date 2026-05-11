@@ -3,8 +3,8 @@
 // Date: 2022-10-14
 // Level: high
 // Description: Detects suspicious Windows Error Reporting manager (wermgr.exe) child process
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1055, attack.t1036
+// MITRE Tactic: Privilege Escalation
+// Tags: attack.privilege-escalation, attack.stealth, attack.t1055, attack.t1036
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wermgr_susp_child_process.yml
 
 DeviceProcessEvents

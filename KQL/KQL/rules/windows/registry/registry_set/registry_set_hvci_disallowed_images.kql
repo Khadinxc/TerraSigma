@@ -3,8 +3,8 @@
 // Date: 2023-12-05
 // Level: high
 // Description: Detects changes to the "HVCIDisallowedImages" registry value to potentially add a driver to the list, in order to prevent it from loading.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_hvci_disallowed_images.yml
 // False Positives:
 //   - Legitimate usage of this key would also trigger this. Investigate the driver being added and make sure its intended

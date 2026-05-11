@@ -4,8 +4,8 @@
 // Level: medium
 // Description: Detects a command line process that uses explorer.exe to launch arbitrary commands or binaries,
 // which is similar to cmd.exe /c, only it breaks the process tree and makes its parent a new instance of explorer spawning from "svchost"
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1036
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1036
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_explorer_break_process_tree.yml
 
 DeviceProcessEvents

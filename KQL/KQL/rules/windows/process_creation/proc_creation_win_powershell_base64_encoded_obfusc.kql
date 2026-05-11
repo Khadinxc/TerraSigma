@@ -3,8 +3,8 @@
 // Date: 2022-07-11
 // Level: high
 // Description: Detects suspicious UTF16 and base64 encoded and often obfuscated PowerShell code often used in command lines
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_encoded_obfusc.yml
 
 DeviceProcessEvents

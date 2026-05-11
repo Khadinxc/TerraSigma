@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects the execution of the LOLBIN PrintBrm.exe, which can be used to create or extract ZIP files. PrintBrm.exe should not be run on a normal workstation.
 // MITRE Tactic: Command and Control
-// Tags: attack.command-and-control, attack.t1105, attack.defense-evasion, attack.t1564.004
+// Tags: attack.command-and-control, attack.stealth, attack.t1105, attack.t1564.004
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_printbrm.yml
 
 DeviceProcessEvents

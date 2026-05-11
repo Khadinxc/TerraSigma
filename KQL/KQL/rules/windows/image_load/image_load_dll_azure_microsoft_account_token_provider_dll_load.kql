@@ -5,7 +5,7 @@
 // Description: Detects abusing Azure Browser SSO by requesting OAuth 2.0 refresh tokens for an Azure-AD-authenticated Windows user (i.e. the machine is joined to Azure AD and a user logs in with their Azure AD account) wanting to perform SSO authentication in the browser.
 // An attacker can use this to authenticate to Azure AD in a browser as that user.
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.defense-evasion, attack.privilege-escalation, attack.t1574.001
+// Tags: attack.persistence, attack.privilege-escalation, attack.execution, attack.stealth, attack.t1574.001
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_azure_microsoft_account_token_provider_dll_load.yml
 // False Positives:
 //   - False positives are expected since this rules is only looking for the DLL load event. This rule is better used in correlation with related activity

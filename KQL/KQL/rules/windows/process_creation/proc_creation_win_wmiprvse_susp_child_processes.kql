@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects suspicious and uncommon child processes of WmiPrvSE
 // MITRE Tactic: Execution
-// Tags: attack.execution, attack.defense-evasion, attack.t1047, attack.t1204.002, attack.t1218.010
+// Tags: attack.execution, attack.stealth, attack.t1047, attack.t1204.002, attack.t1218.010
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmiprvse_susp_child_processes.yml
 
 DeviceProcessEvents

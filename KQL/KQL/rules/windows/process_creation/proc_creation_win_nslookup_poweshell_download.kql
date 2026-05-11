@@ -3,8 +3,8 @@
 // Date: 2022-09-05
 // Level: medium
 // Description: Detects suspicious powershell download cradle using nslookup. This cradle uses nslookup to extract payloads from DNS records
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_nslookup_poweshell_download.yml
 
 DeviceProcessEvents

@@ -3,8 +3,8 @@
 // Date: 2023-05-16
 // Level: medium
 // Description: Detects changes to the Internet Explorer "DisableFirstRunCustomize" value, which prevents Internet Explorer from running the first run wizard the first time a user starts the browser after installing Internet Explorer or Windows.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.defense-impairment
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_internet_explorer_disable_first_run_customize.yml
 // False Positives:
 //   - As this is controlled by group policy as well as user settings. Some false positives may occur.

@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects the occurrence of numerous space characters in RunMRU registry paths, which may indicate execution via phishing lures using clickfix techniques to hide malicious commands in the Windows Run dialog box from naked eyes.
 // MITRE Tactic: Execution
-// Tags: attack.execution, attack.t1204.004, attack.defense-evasion, attack.t1027.010
+// Tags: attack.execution, attack.stealth, attack.t1204.004, attack.t1027.010
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_susp_runmru_space_character.yml
 // False Positives:
 //   - Unlikely

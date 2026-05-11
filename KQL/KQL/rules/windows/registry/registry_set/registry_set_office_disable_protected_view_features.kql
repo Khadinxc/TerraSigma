@@ -3,8 +3,8 @@
 // Date: 2021-06-08
 // Level: high
 // Description: Detects changes to Microsoft Office protected view registry keys with which the attacker disables this feature.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1562.001
+// MITRE Tactic: Uncategorized
+// Tags: attack.defense-impairment, attack.t1685
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_disable_protected_view_features.yml
 // False Positives:
 //   - Unlikely

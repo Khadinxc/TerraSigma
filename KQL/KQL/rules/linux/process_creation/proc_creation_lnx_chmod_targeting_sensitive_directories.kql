@@ -1,0 +1,14 @@
+// Title: Chmod Targeting Sensitive Directories
+// Author: Christopher Peacock @SecurePeacock, SCYTHE @scythe_io
+// Date: 2022-06-03
+// Level: medium
+// Description: Detects chmod targeting files in sensitive directory paths on Linux systems.
+// Attackers may use chmod to change permissions of files in these directories to maintain persistence, escalate privileges, or disrupt system operations.
+// MITRE Tactic: Uncategorized
+// Tags: attack.defense-impairment, attack.t1222.002
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_chmod_targeting_sensitive_directories.yml
+// False Positives:
+//   - Some false positives are to be expected. Apply additional filters as needed before pushing to production.
+
+DeviceProcessEvents
+| where ((ProcessCommandLine contains "/tmp/" or ProcessCommandLine contains "/.Library/" or ProcessCommandLine contains "/etc/" or ProcessCommandLine contains "/opt/") and FolderPath endswith "/chmod") and (not((ProcessCommandLine startswith "chmod 700 /tmp/apt-key-gpghome." or ProcessCommandLine =~ "chmod 0775 /etc/landscape/" or ProcessCommandLine startswith "chmod 755 /var/tmp/mkinitramfs" or (ProcessCommandLine contains "/etc/" and (InitiatingProcessCommandLine contains "/var/lib/dpkg/info/" and InitiatingProcessCommandLine contains ".postinst configure")) or ProcessCommandLine =~ "chmod 644 /etc/apparmor.d/tunables/home.d/ubuntu" or (ProcessCommandLine contains "chmod --reference=/etc/shells" and InitiatingProcessCommandLine endswith "/update-shells"))))

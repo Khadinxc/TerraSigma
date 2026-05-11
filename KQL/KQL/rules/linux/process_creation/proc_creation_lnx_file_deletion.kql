@@ -3,8 +3,8 @@
 // Date: 2020-10-07
 // Level: informational
 // Description: Detects file deletion using "rm", "shred" or "unlink" commands which are used often by adversaries to delete files left behind by the actions of their intrusion activity
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1070.004
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1070.004
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_file_deletion.yml
 // False Positives:
 //   - Legitimate administration activities

@@ -2,7 +2,10 @@
 // Author: Victor Sergeev, Daniil Yugoslavskiy, Gleb Sukhodolskiy, Timur Zinniatullin, oscd.community, Tim Shelton, frack113 (split)
 // Date: 2019-10-25
 // Level: medium
-// Description: Detects modification of autostart extensibility point (ASEP) in registry.
+// Description: Detects modification of Windows Registry Classes keys used for persistence.
+// Adversaries modify these autostart extensibility points (ASEP) to execute malicious code when file types are opened or actions are performed.
+// Various legitimate software also uses these keys. Currently, this rule only filters out known legitimate software paths,
+// thus it is recommended to review and tune filters for your environment to reduce false positives before deploying to production.
 // MITRE Tactic: Privilege Escalation
 // Tags: attack.privilege-escalation, attack.persistence, attack.t1547.001
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_classes.yml

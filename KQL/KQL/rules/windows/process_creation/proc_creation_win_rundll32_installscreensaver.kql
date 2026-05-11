@@ -3,8 +3,8 @@
 // Date: 2022-04-28
 // Level: medium
 // Description: An attacker may execute an application as a SCR File using rundll32.exe desk.cpl,InstallScreenSaver
-// MITRE Tactic: Defense Evasion
-// Tags: attack.t1218.011, attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1218.011
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_installscreensaver.yml
 // False Positives:
 //   - Legitimate installation of a new screensaver

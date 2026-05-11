@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detection of sc.exe utility spawning by user with Medium integrity level to change service ImagePath or FailureCommand
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.defense-evasion, attack.privilege-escalation, attack.t1574.011
+// Tags: attack.persistence, attack.privilege-escalation, attack.execution, attack.stealth, attack.t1574.011
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sc_change_sevice_image_path_by_non_admin.yml
 
 DeviceProcessEvents

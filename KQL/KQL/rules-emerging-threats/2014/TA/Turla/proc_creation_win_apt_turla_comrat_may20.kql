@@ -4,7 +4,7 @@
 // Level: critical
 // Description: Detects commands used by Turla group as reported by ESET in May 2020
 // MITRE Tactic: Privilege Escalation
-// Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.g0010, attack.execution, attack.t1059.001, attack.t1053.005, attack.t1027, detection.emerging-threats
+// Tags: attack.privilege-escalation, attack.persistence, attack.stealth, attack.g0010, attack.execution, attack.t1059.001, attack.t1053.005, attack.t1027, detection.emerging-threats
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2014/TA/Turla/proc_creation_win_apt_turla_comrat_may20.yml
 
 DeviceProcessEvents

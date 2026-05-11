@@ -3,8 +3,8 @@
 // Date: 2022-08-05
 // Level: high
 // Description: Detects the creation of suspicious files and folders inside the user's AppData folder but not inside any of the common and well known directories (Local, Romaing, LocalLow). This method could be used as a method to bypass detection who exclude the AppData folder in fear of FPs
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.execution
+// MITRE Tactic: Execution
+// Tags: attack.execution, attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_new_files_in_uncommon_appdata_folder.yml
 // False Positives:
 //   - Unlikely

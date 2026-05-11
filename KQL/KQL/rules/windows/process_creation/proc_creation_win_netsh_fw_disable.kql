@@ -3,8 +3,8 @@
 // Date: 2019-11-01
 // Level: medium
 // Description: Detects netsh commands that turns off the Windows firewall
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1562.004, attack.s0108
+// MITRE Tactic: Uncategorized
+// Tags: attack.defense-impairment, attack.t1686.003, attack.s0108
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_disable.yml
 // False Positives:
 //   - Legitimate administration activity

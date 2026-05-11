@@ -3,8 +3,8 @@
 // Date: 2023-05-26
 // Level: high
 // Description: Detects execution of regsvr32 where the DLL is located in a highly suspicious locations
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1218.010
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1218.010
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_susp_exec_path_2.yml
 // False Positives:
 //   - Unlikely

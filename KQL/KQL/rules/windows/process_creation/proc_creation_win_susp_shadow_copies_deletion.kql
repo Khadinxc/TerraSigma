@@ -3,8 +3,8 @@
 // Date: 2019-10-22
 // Level: high
 // Description: Shadow Copies deletion using operating systems utilities
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.impact, attack.t1070, attack.t1490
+// MITRE Tactic: Impact
+// Tags: attack.impact, attack.stealth, attack.t1070, attack.t1490
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_shadow_copies_deletion.yml
 // False Positives:
 //   - Legitimate Administrator deletes Shadow Copies using operating systems utilities for legitimate reason

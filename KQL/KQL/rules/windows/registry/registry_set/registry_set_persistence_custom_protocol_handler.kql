@@ -4,7 +4,7 @@
 // Level: medium
 // Description: Detects potential persistence activity via the registering of a new custom protocole handlers. While legitimate applications register protocole handlers often times during installation. And attacker can abuse this by setting a custom handler to be used as a persistence mechanism.
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.defense-evasion, attack.t1112
+// Tags: attack.persistence, attack.defense-impairment, attack.t1112
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_persistence_custom_protocol_handler.yml
 // False Positives:
 //   - Many legitimate applications can register a new custom protocol handler. Additional filters needs to applied according to your environment.

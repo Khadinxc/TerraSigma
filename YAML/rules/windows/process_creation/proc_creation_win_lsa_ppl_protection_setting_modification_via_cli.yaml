@@ -6,15 +6,14 @@ queryFrequency: PT1H
 queryPeriod: PT1H
 triggerOperator: gt
 triggerThreshold: 0
-tactics:
-- DefenseEvasion
+tactics: []
 query: |-
   DeviceProcessEvents
   | where ((ProcessCommandLine contains "Set-ItemProperty" or ProcessCommandLine contains "New-ItemProperty" or ProcessCommandLine contains " add ") and (ProcessCommandLine contains "ControlSet" and ProcessCommandLine contains "\\Control\\Lsa")) and ((FolderPath endswith "\\reg.exe" or FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe") or (ProcessVersionInfoOriginalFileName in~ ("reg.exe", "powershell.exe", "pwsh.dll"))) and (ProcessCommandLine contains "IsPplAutoEnabled" or ProcessCommandLine contains "RunAsPPL" or ProcessCommandLine contains "RunAsPPLBoot")
 version: 1.0.0
 kind: Scheduled
 relevantTechniques:
-- T1562
+- T1689
 entityMappings:
 - entityType: Account
   fieldMappings:

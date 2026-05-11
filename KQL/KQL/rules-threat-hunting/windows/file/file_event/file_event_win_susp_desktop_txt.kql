@@ -1,0 +1,12 @@
+// Title: Suspicious Creation TXT File in User Desktop
+// Author: frack113
+// Date: 2021-12-26
+// Level: medium
+// Description: Detects creation of .txt files in user desktop folders via cmd.exe. This behavior may indicate ransomware deploying ransom notes, but can also occur during legitimate administrative tasks.
+// Analysts should investigate for suspicious filenames (e.g., "RANSOM", "DECRYPT", "READ_ME"), bulk file creation patterns, or concurrent encryption activity to determine if this is part of a ransomware attack.
+// MITRE Tactic: Impact
+// Tags: attack.impact, attack.t1486, detection.threat-hunting
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_event/file_event_win_susp_desktop_txt.yml
+
+DeviceFileEvents
+| where InitiatingProcessFolderPath endswith "\\cmd.exe" and (FolderPath contains "\\Users\\" and FolderPath contains "\\Desktop\\") and FolderPath endswith ".txt"

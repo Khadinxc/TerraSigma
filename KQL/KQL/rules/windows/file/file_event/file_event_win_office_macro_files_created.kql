@@ -10,4 +10,4 @@
 //   - Very common in environments that rely heavily on macro documents
 
 DeviceFileEvents
-| where FolderPath endswith ".docm" or FolderPath endswith ".dotm" or FolderPath endswith ".xlsm" or FolderPath endswith ".xltm" or FolderPath endswith ".potm" or FolderPath endswith ".pptm"
+| where (FolderPath endswith ".docm" or FolderPath endswith ".dotm" or FolderPath endswith ".xlsm" or FolderPath endswith ".xltm" or FolderPath endswith ".potm" or FolderPath endswith ".pptm") and (not(((InitiatingProcessFolderPath endswith "\\WINWORD.EXE" or InitiatingProcessFolderPath endswith "\\EXCEL.EXE" or InitiatingProcessFolderPath endswith "\\POWERPNT.EXE") and (InitiatingProcessFolderPath startswith "C:\\Program Files\\Microsoft Office\\" or InitiatingProcessFolderPath startswith "C:\\Program Files (x86)\\Microsoft Office\\") and FolderPath contains "\\~$")))

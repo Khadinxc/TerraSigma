@@ -6,15 +6,14 @@ queryFrequency: PT1H
 queryPeriod: PT1H
 triggerOperator: gt
 triggerThreshold: 0
-tactics:
-- DefenseEvasion
+tactics: []
 query: |-
   DeviceImageLoadEvents
   | where (FolderPath endswith "\\dbgcore.dll" or FolderPath endswith "\\dbghelp.dll") and InitiatingProcessFolderPath endswith "\\WerFaultSecure.exe"
 version: 1.0.0
 kind: Scheduled
 relevantTechniques:
-- T1562
+- T1685
 entityMappings:
 - entityType: Account
   fieldMappings:

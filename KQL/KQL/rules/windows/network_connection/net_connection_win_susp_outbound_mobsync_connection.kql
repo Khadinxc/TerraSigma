@@ -4,7 +4,7 @@
 // Level: medium
 // Description: Detects suspicious connections from Microsoft Sync Center to non-private IPs.
 // MITRE Tactic: Privilege Escalation
-// Tags: attack.privilege-escalation, attack.t1055, attack.t1218, attack.execution, attack.defense-evasion
+// Tags: attack.privilege-escalation, attack.stealth, attack.t1055, attack.t1218, attack.execution
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_susp_outbound_mobsync_connection.yml
 
 DeviceNetworkEvents

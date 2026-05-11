@@ -3,8 +3,8 @@
 // Date: 2020-10-10
 // Level: medium
 // Description: Detects creation of a hidden user account on macOS (UserID < 500) or with IsHidden option
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1564.002
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1564.002
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_create_hidden_account.yml
 // False Positives:
 //   - Legitimate administration activities

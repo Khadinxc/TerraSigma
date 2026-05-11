@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects the installation of a DNS plugin DLL via ServerLevelPluginDll parameter in registry, which can be used to execute code in context of the DNS server (restart required)
 // MITRE Tactic: Privilege Escalation
-// Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.t1574.001, attack.t1112
+// Tags: attack.privilege-escalation, attack.persistence, attack.execution, attack.stealth, attack.defense-impairment, attack.t1574.001, attack.t1112
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dnscmd_install_new_server_level_plugin_dll.yml
 
 DeviceProcessEvents

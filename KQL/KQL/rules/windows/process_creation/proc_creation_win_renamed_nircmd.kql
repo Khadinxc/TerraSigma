@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects the execution of a renamed "NirCmd.exe" binary based on the PE metadata fields.
 // MITRE Tactic: Execution
-// Tags: attack.execution, attack.t1059, attack.defense-evasion, attack.t1202
+// Tags: attack.execution, attack.stealth, attack.t1059, attack.t1202
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_nircmd.yml
 
 DeviceProcessEvents

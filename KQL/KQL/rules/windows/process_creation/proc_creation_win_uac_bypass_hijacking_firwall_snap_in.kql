@@ -3,8 +3,8 @@
 // Date: 2022-09-27
 // Level: medium
 // Description: Detects attempts to bypass User Account Control (UAC) by hijacking the Microsoft Management Console (MMC) Windows Firewall snap-in
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1548
+// MITRE Tactic: Privilege Escalation
+// Tags: attack.privilege-escalation, attack.t1548
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_hijacking_firwall_snap_in.yml
 
 DeviceProcessEvents

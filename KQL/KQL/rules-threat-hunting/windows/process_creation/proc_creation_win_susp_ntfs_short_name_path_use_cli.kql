@@ -9,8 +9,8 @@
 // - Web servers on Windows (especially Apache) where short filenames could bypass security controls
 // - Correlation with other suspicious behaviors
 // - baseline of short name usage in your environment and look for deviations
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1564.004, detection.threat-hunting
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1564.004, detection.threat-hunting
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_ntfs_short_name_path_use_cli.yml
 // False Positives:
 //   - Applications could use this notation occasionally which might generate some false positives. In that case investigate the parent and child process.

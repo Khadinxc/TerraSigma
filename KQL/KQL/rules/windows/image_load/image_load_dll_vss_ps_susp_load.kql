@@ -5,8 +5,8 @@
 // Description: Detects the image load of vss_ps.dll by uncommon executables. This DLL is used by the Volume Shadow Copy Service (VSS) to manage shadow copies of files and volumes.
 // It is often abused by attackers to delete or manipulate shadow copies, which can hinder forensic investigations and data recovery efforts.
 // The fact that it is loaded by processes that are not typically associated with VSS operations can indicate suspicious activity.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.impact, attack.t1490
+// MITRE Tactic: Impact
+// Tags: attack.impact, attack.t1490
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_vss_ps_susp_load.yml
 
 DeviceImageLoadEvents

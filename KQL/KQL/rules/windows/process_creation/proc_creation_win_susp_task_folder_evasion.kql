@@ -6,7 +6,7 @@
 // Adversaries can take advantage of this and load or influence any script hosts or ANY .NET Application
 // in Tasks to load and execute a custom assembly into cscript, wscript, regsvr32, mshta, eventvwr
 // MITRE Tactic: Privilege Escalation
-// Tags: attack.privilege-escalation, attack.defense-evasion, attack.persistence, attack.execution, attack.t1574.001
+// Tags: attack.privilege-escalation, attack.persistence, attack.execution, attack.stealth, attack.t1574.001
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_task_folder_evasion.yml
 
 DeviceProcessEvents

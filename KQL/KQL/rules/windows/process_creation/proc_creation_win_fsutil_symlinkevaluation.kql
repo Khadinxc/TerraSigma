@@ -4,7 +4,7 @@
 // Level: medium
 // Description: Detects the modification of NTFS symbolic link behavior using fsutil, which could be used to enable remote to local or remote to remote symlinks for potential attacks.
 // MITRE Tactic: Execution
-// Tags: attack.execution, attack.t1059, attack.defense-evasion, attack.t1222.001
+// Tags: attack.execution, attack.defense-impairment, attack.t1059, attack.t1222.001
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_symlinkevaluation.yml
 // False Positives:
 //   - Legitimate usage, investigate the parent process and context to determine if benign.

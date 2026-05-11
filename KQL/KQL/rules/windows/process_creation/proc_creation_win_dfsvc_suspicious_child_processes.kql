@@ -4,7 +4,7 @@
 // Level: medium
 // Description: Detects potentially suspicious child processes of a ClickOnce deployment application
 // MITRE Tactic: Execution
-// Tags: attack.execution, attack.defense-evasion
+// Tags: attack.execution, attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dfsvc_suspicious_child_processes.yml
 
 DeviceProcessEvents

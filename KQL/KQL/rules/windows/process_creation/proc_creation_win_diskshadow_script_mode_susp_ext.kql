@@ -4,8 +4,8 @@
 // Level: medium
 // Description: Detects execution of "Diskshadow.exe" in script mode to execute an script with a potentially uncommon extension.
 // Initial baselining of the allowed extension list is required.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1218
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1218
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_diskshadow_script_mode_susp_ext.yml
 // False Positives:
 //   - False postitve might occur with legitimate or uncommon extensions used internally. Initial baseline is required.

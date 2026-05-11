@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detect modification of services configuration (ImagePath, FailureCommand and ServiceDLL) in registry by processes with Medium integrity level
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.defense-evasion, attack.privilege-escalation, attack.t1574.011
+// Tags: attack.persistence, attack.privilege-escalation, attack.execution, attack.stealth, attack.t1574.011
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_registry_privilege_escalation_via_service_key.yml
 
 DeviceProcessEvents

@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects suspicious base64 encoded and obfuscated "LOAD" keyword used in .NET "reflection.assembly"
 // MITRE Tactic: Execution
-// Tags: attack.execution, attack.defense-evasion, attack.t1059.001, attack.t1027
+// Tags: attack.execution, attack.stealth, attack.t1059.001, attack.t1027
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_reflection_assembly_load_obfusc.yml
 // False Positives:
 //   - Unlikely

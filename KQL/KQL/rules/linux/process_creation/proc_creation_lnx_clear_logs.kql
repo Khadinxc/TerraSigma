@@ -1,13 +1,14 @@
-// Title: Clear Linux Logs
+// Title: Linux Logs Clearing Attempts
 // Author: Ömer Günal, oscd.community
 // Date: 2020-10-07
 // Level: medium
-// Description: Detects attempts to clear logs on the system. Adversaries may clear system logs to hide evidence of an intrusion
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1070.002
+// Description: Detects logs clearing attempts on Linux systems via utilities such as 'rm', 'rmdir', 'shred', and 'unlink' targeting log files and directories.
+// Adversaries often try to clear logs to cover their tracks after performing malicious activities.
+// MITRE Tactic: Uncategorized
+// Tags: attack.defense-impairment, attack.t1685.006
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_clear_logs.yml
 // False Positives:
 //   - Legitimate administration activities
 
 DeviceProcessEvents
-| where (ProcessCommandLine contains "/var/log" or ProcessCommandLine contains "/var/spool/mail") and (FolderPath endswith "/rm" or FolderPath endswith "/shred" or FolderPath endswith "/unlink")
+| where ((ProcessCommandLine contains "/var/log" or ProcessCommandLine contains "/var/spool/mail") and (FolderPath endswith "/rm" or FolderPath endswith "/rmdir" or FolderPath endswith "/shred" or FolderPath endswith "/unlink")) and (not(((ProcessCommandLine startswith "rm -f -- /var/log//dmesg" and FolderPath endswith "/rm") or (ProcessCommandLine startswith "rm -f /var/log/sysstat/" and FolderPath endswith "/rm"))))

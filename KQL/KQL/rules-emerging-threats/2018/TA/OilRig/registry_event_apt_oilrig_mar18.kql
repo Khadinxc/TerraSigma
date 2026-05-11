@@ -4,7 +4,7 @@
 // Level: critical
 // Description: Detects OilRig registry persistence as reported by Nyotron in their March 2018 report
 // MITRE Tactic: Privilege Escalation
-// Tags: attack.privilege-escalation, attack.execution, attack.persistence, attack.g0049, attack.t1053.005, attack.s0111, attack.t1543.003, attack.defense-evasion, attack.t1112, attack.command-and-control, attack.t1071.004, detection.emerging-threats
+// Tags: attack.privilege-escalation, attack.execution, attack.persistence, attack.defense-impairment, attack.g0049, attack.t1053.005, attack.s0111, attack.t1543.003, attack.t1112, attack.command-and-control, attack.t1071.004, detection.emerging-threats
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/OilRig/registry_event_apt_oilrig_mar18.yml
 // False Positives:
 //   - Unlikely

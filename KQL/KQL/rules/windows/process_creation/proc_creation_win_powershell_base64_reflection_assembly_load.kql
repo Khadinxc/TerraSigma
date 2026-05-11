@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects base64 encoded .NET reflective loading of Assembly
 // MITRE Tactic: Execution
-// Tags: attack.execution, attack.t1059.001, attack.defense-evasion, attack.t1027, attack.t1620
+// Tags: attack.execution, attack.stealth, attack.t1059.001, attack.t1027, attack.t1620
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_reflection_assembly_load.yml
 // False Positives:
 //   - Unlikely

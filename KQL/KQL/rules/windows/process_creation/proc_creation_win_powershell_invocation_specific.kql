@@ -3,8 +3,8 @@
 // Date: 2023-01-05
 // Level: medium
 // Description: Detects suspicious PowerShell invocation command parameters
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_invocation_specific.yml
 
 DeviceProcessEvents

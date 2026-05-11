@@ -3,8 +3,8 @@
 // Date: 2022-11-22
 // Level: high
 // Description: Detects the pattern of UAC Bypass using Event Viewer RecentViews
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.privilege-escalation
+// MITRE Tactic: Privilege Escalation
+// Tags: attack.privilege-escalation, attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_eventvwr_recentviews.yml
 
 DeviceProcessEvents

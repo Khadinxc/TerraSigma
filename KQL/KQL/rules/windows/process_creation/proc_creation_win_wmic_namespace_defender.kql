@@ -3,8 +3,8 @@
 // Date: 2022-12-11
 // Level: high
 // Description: Detects potential tampering with Windows Defender settings such as adding exclusion using wmic
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.execution, attack.t1047, attack.t1562
+// MITRE Tactic: Execution
+// Tags: attack.execution, attack.defense-impairment, attack.t1047, attack.t1685
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_namespace_defender.yml
 
 DeviceProcessEvents

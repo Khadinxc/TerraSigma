@@ -4,7 +4,7 @@
 // Level: medium
 // Description: Detects when a shell program such as the Windows command prompt or PowerShell is launched with system privileges. Use this rule to hunt for potential suspicious processes.
 // MITRE Tactic: Privilege Escalation
-// Tags: attack.privilege-escalation, attack.defense-evasion, attack.execution, attack.t1059, detection.threat-hunting
+// Tags: attack.privilege-escalation, attack.execution, attack.t1059, detection.threat-hunting
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_elevated_system_shell.yml
 
 DeviceProcessEvents

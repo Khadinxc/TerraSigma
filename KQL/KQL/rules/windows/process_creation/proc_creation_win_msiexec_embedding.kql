@@ -3,8 +3,8 @@
 // Date: 2022-04-16
 // Level: medium
 // Description: Adversaries may abuse msiexec.exe to proxy the execution of malicious payloads
-// MITRE Tactic: Defense Evasion
-// Tags: attack.t1218.007, attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1218.007
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_embedding.yml
 
 DeviceProcessEvents

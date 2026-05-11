@@ -3,8 +3,8 @@
 // Date: 2019-04-02
 // Level: high
 // Description: Detects potential EmpireMonkey APT activity
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1218.010, detection.emerging-threats
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1218.010, detection.emerging-threats
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2019/TA/EmpireMonkey/proc_creation_win_apt_empiremonkey.yml
 // False Positives:
 //   - Unlikely

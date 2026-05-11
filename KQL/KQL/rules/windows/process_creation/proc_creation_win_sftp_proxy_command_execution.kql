@@ -1,0 +1,14 @@
+// Title: Indirect Command Execution via SFTP ProxyCommand
+// Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+// Date: 2026-04-27
+// Level: medium
+// Description: Detects the use of SFTP.exe to execute commands indirectly via ProxyCommand parameter.
+// Threat actors were seen leveraging this legitimate Windows binary to bypass security controls and execute arbitrary commands while evading detection.
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1202
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sftp_proxy_command_execution.yml
+// False Positives:
+//   - Legitimate use of SFTP with proxy commands for administration or networking tasks
+
+DeviceProcessEvents
+| where ProcessCommandLine contains "ProxyCommand=" and FolderPath endswith "\\sftp.exe"

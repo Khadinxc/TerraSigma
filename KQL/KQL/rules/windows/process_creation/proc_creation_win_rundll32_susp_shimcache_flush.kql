@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects actions that clear the local ShimCache and remove forensic evidence
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.defense-evasion, attack.t1112
+// Tags: attack.persistence, attack.defense-impairment, attack.t1112
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_shimcache_flush.yml
 
 DeviceProcessEvents

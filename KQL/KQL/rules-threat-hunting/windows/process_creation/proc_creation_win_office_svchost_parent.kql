@@ -5,7 +5,7 @@
 // Description: Detects an svchost process spawning an instance of an office application. This happens when the initial word application creates an instance of one of the Office COM objects such as 'Word.Application', 'Excel.Application', etc.
 // This can be used by malicious actors to create malicious Office documents with macros on the fly. (See vba2clr project in the references)
 // MITRE Tactic: Execution
-// Tags: attack.execution, attack.defense-evasion, detection.threat-hunting
+// Tags: attack.execution, detection.threat-hunting, attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_office_svchost_parent.yml
 // False Positives:
 //   - Legitimate usage of office automation via scripting

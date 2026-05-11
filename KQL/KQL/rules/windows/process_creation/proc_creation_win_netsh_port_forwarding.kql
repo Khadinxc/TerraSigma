@@ -4,7 +4,7 @@
 // Level: medium
 // Description: Detects the execution of netsh commands that configure a new port forwarding (PortProxy) rule
 // MITRE Tactic: Lateral Movement
-// Tags: attack.lateral-movement, attack.defense-evasion, attack.command-and-control, attack.t1090
+// Tags: attack.lateral-movement, attack.command-and-control, attack.t1090
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_port_forwarding.yml
 // False Positives:
 //   - Legitimate administration activity

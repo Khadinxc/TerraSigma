@@ -4,7 +4,7 @@
 // Level: critical
 // Description: Detects registry keys created in OceanLotus (also known as APT32) attacks
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.defense-evasion, attack.t1112, detection.emerging-threats
+// Tags: attack.persistence, attack.defense-impairment, attack.t1112, detection.emerging-threats
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2018/TA/APT32-Oceanlotus/registry_event_apt_oceanlotus_registry.yml
 
 DeviceRegistryEvents

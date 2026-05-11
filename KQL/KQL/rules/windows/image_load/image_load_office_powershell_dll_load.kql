@@ -3,8 +3,8 @@
 // Date: 2023-06-01
 // Level: medium
 // Description: Detects PowerShell core DLL being loaded by an Office Product
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_powershell_dll_load.yml
 
 DeviceImageLoadEvents

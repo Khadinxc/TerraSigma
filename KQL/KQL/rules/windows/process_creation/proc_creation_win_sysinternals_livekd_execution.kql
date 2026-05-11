@@ -3,8 +3,8 @@
 // Date: 2023-05-15
 // Level: medium
 // Description: Detects execution of LiveKD based on PE metadata or image name
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_livekd_execution.yml
 // False Positives:
 //   - Administration and debugging activity (must be investigated)

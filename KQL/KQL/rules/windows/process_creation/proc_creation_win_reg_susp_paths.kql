@@ -4,7 +4,7 @@
 // Level: high
 // Description: Detects when an adversary uses the reg.exe utility to add or modify new keys or subkeys
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.defense-evasion, attack.t1112, attack.t1562.001
+// Tags: attack.persistence, attack.defense-impairment, attack.t1112, attack.t1685
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_susp_paths.yml
 // False Positives:
 //   - Rare legitimate add to registry via cli (to these locations)

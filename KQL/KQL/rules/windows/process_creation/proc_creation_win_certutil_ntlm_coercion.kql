@@ -3,8 +3,8 @@
 // Date: 2022-09-01
 // Level: high
 // Description: Detects possible NTLM coercion via certutil using the 'syncwithWU' flag
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1218
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1218
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_ntlm_coercion.yml
 
 DeviceProcessEvents

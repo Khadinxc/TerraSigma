@@ -4,7 +4,7 @@
 // Level: low
 // Description: Detects changes to the "TracingDisabled" key in order to disable ETW logging for services.exe (SCM)
 // MITRE Tactic: Persistence
-// Tags: attack.persistence, attack.defense-evasion, attack.t1112, attack.t1562
+// Tags: attack.persistence, attack.defense-impairment, attack.t1112, attack.t1685
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_services_etw_tamper.yml
 
 DeviceRegistryEvents

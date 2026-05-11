@@ -4,8 +4,8 @@
 // Level: medium
 // Description: Detects modification of LSA PPL protection settings via CommandLine.
 // It may indicate an attempt to disable protection and enable credential dumping tools to access LSASS process memory.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1562.010
+// MITRE Tactic: Uncategorized
+// Tags: attack.defense-impairment, attack.t1689
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lsa_ppl_protection_setting_modification_via_cli.yml
 // False Positives:
 //   - Unlikely

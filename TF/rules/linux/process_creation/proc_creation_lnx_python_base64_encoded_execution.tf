@@ -21,7 +21,7 @@ QUERY
   trigger_threshold          = 0
   suppression_enabled        = false
   suppression_duration       = "PT5H"
-  tactics                    = ["Execution", "DefenseEvasion"]
+  tactics                    = ["Execution"]
   techniques                 = ["T1059", "T1027"]
   enabled                    = true
 

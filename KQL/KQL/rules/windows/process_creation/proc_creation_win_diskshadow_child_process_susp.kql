@@ -3,8 +3,8 @@
 // Date: 2023-09-15
 // Level: medium
 // Description: Detects potentially suspicious child processes of "Diskshadow.exe". This could be an attempt to bypass parent/child relationship detection or application whitelisting rules.
-// MITRE Tactic: Defense Evasion
-// Tags: attack.defense-evasion, attack.t1218
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1218
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_diskshadow_child_process_susp.yml
 // False Positives:
 //   - False postitve can occur in cases where admin scripts levreage the "exec" flag to execute applications
