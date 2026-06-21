@@ -1,0 +1,17 @@
+// Title: NTLM Hash Leak Via Curl NTLM Authentication
+// Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+// Date: 2026-06-04
+// Level: high
+// Description: Detects the use of curl with NTLM authentication and empty credentials (-u :), which can be abused to leak the currently logged-in user's NTLMv2 challenge-response to an
+// attacker-controlled server, enabling offline cracking or relay attacks.
+// When no credentials are provided, the Microsoft-shipped curl passes a NULL identity to Windows SSPI, which automatically falls back to the current user's logon session credentials
+// stored in LSASS — without requiring a plaintext password.
+// This behavior is exclusive to the curl binary shipped by Microsoft (available since Windows 10 / Windows Server 2019), which is built with SSPI support.
+// MITRE Tactic: Credential Access
+// Tags: attack.credential-access, attack.t1187
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_ntlm_hash_leak_attempt.yml
+// False Positives:
+//   - Should be very rare as it's not widely known or used, but could occur in legitimate use cases where curl is used with NTLM authentication and empty credentials, such as in certain scripts or automation tasks.
+
+DeviceProcessEvents
+| where ProcessCommandLine matches regex "(?i)\\s(-u|--user)\\s*:" and (FolderPath endswith "\\curl.exe" or ProcessVersionInfoOriginalFileName =~ "curl.exe") and ProcessCommandLine contains "--ntlm"

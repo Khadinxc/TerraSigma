@@ -1,0 +1,15 @@
+// Title: Registry Enumeration via WMI Stdregprov
+// Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+// Date: 2025-07-30
+// Level: medium
+// Description: Detects the usage of wmic.exe to enumerate or read Windows registry via the WMI StdRegProv class read methods (EnumKey, EnumValues, GetStringValue, etc.).
+// While registry reads are common, attackers may use this technique to perform reconnaissance and discover sensitive configuration values, credentials, or installed software.
+// The use of WMI as an alternative to standard tools like reg.exe can indicate an attempt to evade detection focused on traditional registry query commands.
+// MITRE Tactic: Execution
+// Tags: attack.execution, attack.t1047, attack.discovery, attack.t1012
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_stdregprov_reg_enumeration.yml
+// False Positives:
+//   - Legitimate administrative activity
+
+DeviceProcessEvents
+| where ((ProcessCommandLine contains "CheckAccess" or ProcessCommandLine contains "EnumKey" or ProcessCommandLine contains "EnumValues" or ProcessCommandLine contains "GetBinaryValue" or ProcessCommandLine contains "GetDWORDValue" or ProcessCommandLine contains "GetExpandedStringValue" or ProcessCommandLine contains "GetMultiStringValue" or ProcessCommandLine contains "GetQWORDValue" or ProcessCommandLine contains "GetSecurityDescriptor" or ProcessCommandLine contains "GetStringValue") and (ProcessCommandLine contains "stdregprov" and ProcessCommandLine contains "call")) and (FolderPath endswith "\\wmic.exe" or ProcessVersionInfoOriginalFileName =~ "wmic.exe")

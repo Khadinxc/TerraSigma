@@ -1,11 +1,12 @@
-// Title: Process Reconnaissance Via Wmic.EXE
+// Title: Potential Process Reconnaissance via Wmic.EXE
 // Author: frack113
 // Date: 2022-01-01
 // Level: medium
-// Description: Detects the execution of "wmic" with the "process" flag, which adversary might use to list processes running on the compromised host or list installed software hotfixes and patches.
+// Description: Detects the execution of "wmic" with the "process" flag, which might indicate an attempt to perform reconnaissance on running processes.
+// Adversaries may use wmic to query for running processes and their details as part of their reconnaissance efforts.
 // MITRE Tactic: Execution
-// Tags: attack.execution, attack.t1047
+// Tags: attack.execution, attack.t1047, attack.discovery, attack.t1057
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_process.yml
 
 DeviceProcessEvents
-| where (ProcessCommandLine contains "process" and (FolderPath endswith "\\WMIC.exe" or ProcessVersionInfoOriginalFileName =~ "wmic.exe")) and (not((ProcessCommandLine contains "call" and ProcessCommandLine contains "create")))
+| where (ProcessCommandLine contains "process" and (FolderPath endswith "\\WMIC.exe" or ProcessVersionInfoOriginalFileName =~ "wmic.exe")) and (not(((ProcessCommandLine contains "call" and ProcessCommandLine contains "create") or (ProcessCommandLine contains "call" and ProcessCommandLine contains "terminate"))))

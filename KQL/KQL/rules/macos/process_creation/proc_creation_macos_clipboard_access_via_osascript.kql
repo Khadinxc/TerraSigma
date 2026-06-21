@@ -1,0 +1,14 @@
+// Title: Clipboard Access Via OSAScript
+// Author: Sohan G (D4rkCiph3r)
+// Date: 2023-01-31
+// Level: medium
+// Description: Detects access to clipboard content via osascript, which may be used for data collection but also occurs in legitimate clipboard utilities and automation scripts
+// MITRE Tactic: Collection
+// Tags: attack.collection, attack.execution, attack.t1115, attack.t1059.002
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_clipboard_access_via_osascript.yml
+// False Positives:
+//   - Legitimate clipboard utilities and automation scripts that read or write clipboard content
+//   - Developer tools and IDEs that use osascript for clipboard integration
+
+DeviceProcessEvents
+| where ((ProcessCommandLine contains " -e " and ProcessCommandLine contains "clipboard") and FolderPath endswith "/osascript") and (not(((ProcessCommandLine contains "osascript" and ProcessCommandLine contains " -e " and ProcessCommandLine contains "set imageData to the clipboard" and ProcessCommandLine contains "set fileRef") and InitiatingProcessFolderPath endswith "opencode")))

@@ -1,13 +1,15 @@
-// Title: Ufw Force Stop Using Ufw-Init
+// Title: UFW Disable Attempt
 // Author: Joseliyo Sanchez, @Joseliyo_Jstnk
 // Date: 2023-01-18
 // Level: medium
-// Description: Detects attempts to force stop the ufw using ufw-init
+// Description: Detects attempts to disable the Uncomplicated Firewall (UFW) on Linux systems.
+// UFW is a popular firewall management tool that provides an easy-to-use interface for configuring firewall rules.
+// Disabling UFW can leave a system vulnerable to attacks, as it may allow unauthorized access to network services and resources.
 // MITRE Tactic: Uncategorized
 // Tags: attack.defense-impairment, attack.t1686
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_disable_ufw.yml
 // False Positives:
-//   - Network administrators
+//   - Legitimate actions by system administrators to disable UFW.
 
 DeviceProcessEvents
-| where (ProcessCommandLine contains "-ufw-init" and ProcessCommandLine contains "force-stop") or (ProcessCommandLine contains "ufw" and ProcessCommandLine contains "disable")
+| where (ProcessCommandLine contains "ufw " and ProcessCommandLine contains "disable") or ((ProcessCommandLine contains " force-stop" or ProcessCommandLine contains " stop" or ProcessCommandLine contains " flush") and FolderPath endswith "/ufw-init")

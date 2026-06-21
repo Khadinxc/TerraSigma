@@ -8,4 +8,4 @@
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_werfault_dll_hijacking.yml
 
 DeviceFileEvents
-| where (FolderPath endswith "\\WerFault.exe" or FolderPath endswith "\\wer.dll") and (not((FolderPath startswith "C:\\Windows\\SoftwareDistribution\\" or FolderPath startswith "C:\\Windows\\System32\\" or FolderPath startswith "C:\\Windows\\SysWOW64\\" or FolderPath startswith "C:\\Windows\\WinSxS\\" or FolderPath startswith "C:\\Windows\\UUS\\arm64\\")))
+| where (FolderPath endswith "\\WerFault.exe" or FolderPath endswith "\\wer.dll") and (not(((FolderPath startswith "C:\\Windows\\SoftwareDistribution\\" or FolderPath startswith "C:\\Windows\\System32\\" or FolderPath startswith "C:\\Windows\\SysWOW64\\" or FolderPath startswith "C:\\Windows\\WinSxS\\" or FolderPath startswith "C:\\Windows\\UUS\\") or InitiatingProcessFolderPath endswith "\\wuaucltcore.exe")))

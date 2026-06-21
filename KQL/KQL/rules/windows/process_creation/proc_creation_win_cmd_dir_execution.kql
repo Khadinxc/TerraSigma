@@ -10,4 +10,4 @@
 //   - Likely
 
 DeviceProcessEvents
-| where (ProcessCommandLine =~ "*dir*-s*" or ProcessCommandLine =~ "*dir*/s*" or ProcessCommandLine =~ "*dir*–s*" or ProcessCommandLine =~ "*dir*—s*" or ProcessCommandLine =~ "*dir*―s*") and (FolderPath endswith "\\cmd.exe" or ProcessVersionInfoOriginalFileName =~ "Cmd.Exe")
+| where ((ProcessCommandLine contains "dir " and (ProcessCommandLine contains "-s" or ProcessCommandLine contains "/s" or ProcessCommandLine contains "–s" or ProcessCommandLine contains "—s" or ProcessCommandLine contains "―s")) and (FolderPath endswith "\\cmd.exe" or ProcessVersionInfoOriginalFileName =~ "Cmd.Exe")) and (not(ProcessCommandLine contains "rmdir"))

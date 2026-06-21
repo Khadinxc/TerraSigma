@@ -10,4 +10,4 @@
 //   - Application installers might contain scripts as part of the installation process.
 
 DeviceProcessEvents
-| where (ProcessCommandLine contains " -e " or ProcessCommandLine contains ".scpt" or ProcessCommandLine contains ".js") and FolderPath endswith "/osascript"
+| where ((ProcessCommandLine contains " -e " or ProcessCommandLine contains ".scpt" or ProcessCommandLine contains ".js") and FolderPath endswith "/osascript") and (not(((ProcessCommandLine contains "osascript" and ProcessCommandLine contains " -e " and ProcessCommandLine contains "set imageData to the clipboard" and ProcessCommandLine contains "set fileRef") and InitiatingProcessFolderPath endswith "opencode")))
