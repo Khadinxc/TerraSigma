@@ -1,0 +1,48 @@
+id: e05a9153-5b66-5540-b7b9-ab361af5c199
+name: Registry Enumeration via WMI Stdregprov
+description: No description provided
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains "CheckAccess" or ProcessCommandLine contains "EnumKey" or ProcessCommandLine contains "EnumValues" or ProcessCommandLine contains "GetBinaryValue" or ProcessCommandLine contains "GetDWORDValue" or ProcessCommandLine contains "GetExpandedStringValue" or ProcessCommandLine contains "GetMultiStringValue" or ProcessCommandLine contains "GetQWORDValue" or ProcessCommandLine contains "GetSecurityDescriptor" or ProcessCommandLine contains "GetStringValue") and (ProcessCommandLine contains "stdregprov" and ProcessCommandLine contains "call")) and (FolderPath endswith "\\wmic.exe" or ProcessVersionInfoOriginalFileName =~ "wmic.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1047
+- T1012
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

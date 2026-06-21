@@ -1,8 +1,10 @@
-// Title: Application Terminated Via Wmic.EXE
+// Title: Application Termination Attempt via Wmic.EXE
 // Author: Nasreddine Bencherchali (Nextron Systems)
 // Date: 2023-09-11
 // Level: medium
-// Description: Detects calls to the "terminate" function via wmic in order to kill an application
+// Description: Detects an attempt to terminate a process via "wmic" with the "call terminate" flag. Adversaries may
+// use wmic to terminate security products or other applications on the compromised host. This event is
+// triggered on on attempt and process creation can be either successful or unsuccessful.
 // MITRE Tactic: Execution
 // Tags: attack.execution, attack.t1047
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_terminate_application.yml

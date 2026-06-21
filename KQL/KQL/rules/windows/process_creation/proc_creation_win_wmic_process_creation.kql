@@ -1,8 +1,11 @@
-// Title: New Process Created Via Wmic.EXE
+// Title: Process Creation Attempt via Wmic.EXE
 // Author: Michael Haag, Florian Roth (Nextron Systems), juju4, oscd.community
 // Date: 2019-01-16
 // Level: medium
-// Description: Detects new process creation using WMIC via the "process call create" flag
+// Description: Detects the attempt to create a process via "wmic" with the "process call create" flag, which might
+// indicate an attempt to execute a malicious process on the compromised host. Adversaries may use
+// wmic to execute a process on the compromised host as part of their attack. This event is triggered on
+// on attempt and process creation can be either successful or unsuccessful.
 // MITRE Tactic: Execution
 // Tags: attack.execution, attack.t1047, car.2016-03-002
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_process_creation.yml

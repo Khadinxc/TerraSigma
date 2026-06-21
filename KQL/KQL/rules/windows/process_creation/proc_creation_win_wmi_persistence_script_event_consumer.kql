@@ -2,7 +2,12 @@
 // Author: Thomas Patzke
 // Date: 2018-03-07
 // Level: medium
-// Description: Detects WMI script event consumers
+// Description: Detects the execution of a script event consumer. When scrcons.exe launches, it does so in response to the creation of an ActiveScriptEventConsumer instance
+// and will execute registered JScript or VBScript code as a result.
+// Script event consumers are a built-in Windows Management Instrumentation (WMI) class that
+// automatically executes a predefined script (in VBScript or JScript) whenever a specific system event occurs.
+// Adversaries often abuse script event consumers to maintain persistence on a compromised host
+// by executing a malicious script whenever a specific event occurs.
 // MITRE Tactic: Persistence
 // Tags: attack.persistence, attack.privilege-escalation, attack.t1546.003
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmi_persistence_script_event_consumer.yml

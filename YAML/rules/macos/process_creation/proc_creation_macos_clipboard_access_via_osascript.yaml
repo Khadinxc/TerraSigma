@@ -1,0 +1,46 @@
+id: 2dd1c97a-63de-5bc0-90af-70f034ed3f5b
+name: Clipboard Access Via OSAScript
+description: No description provided
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Collection
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where ((ProcessCommandLine contains " -e " and ProcessCommandLine contains "clipboard") and FolderPath endswith "/osascript") and (not(((ProcessCommandLine contains "osascript" and ProcessCommandLine contains " -e " and ProcessCommandLine contains "set imageData to the clipboard" and ProcessCommandLine contains "set fileRef") and InitiatingProcessFolderPath endswith "opencode")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1115
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents
