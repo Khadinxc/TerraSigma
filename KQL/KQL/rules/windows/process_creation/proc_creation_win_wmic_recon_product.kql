@@ -8,4 +8,4 @@
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_product.yml
 
 DeviceProcessEvents
-| where (ProcessCommandLine contains "Product" and (FolderPath endswith "\\wmic.exe" or ProcessVersionInfoOriginalFileName =~ "wmic.exe")) and (not((ProcessCommandLine contains " uninstall" or ProcessCommandLine contains " install")))
+| where (ProcessCommandLine contains "Product" and (FolderPath endswith "\\wmic.exe" or ProcessVersionInfoOriginalFileName =~ "wmic.exe")) and (not(((ProcessCommandLine contains " uninstall" or ProcessCommandLine contains " install") or ProcessCommandLine contains "csproduct")))
