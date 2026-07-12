@@ -10,4 +10,4 @@
 //   - Unlikely
 
 DeviceProcessEvents
-| where ProcessCommandLine contains "msmpeng.exe" and (ProcessVersionInfoOriginalFileName =~ "pssuspend.exe" or (FolderPath endswith "\\pssuspend.exe" or FolderPath endswith "\\pssuspend64.exe"))
+| where ProcessCommandLine contains "msmpeng.exe" and (ProcessVersionInfoOriginalFileName =~ "pssuspend.exe" or (FolderPath endswith "\\pssuspend.exe" or FolderPath endswith "\\pssuspend64.exe" or FolderPath endswith "\\pssuspend64a.exe"))

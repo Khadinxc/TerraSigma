@@ -10,4 +10,4 @@
 //   - Some false positives may occur with legitimate renamed process monitor binaries
 
 DeviceFileEvents
-| where (FolderPath contains "\\procmon" and FolderPath endswith ".sys") and (not((InitiatingProcessFolderPath endswith "\\procmon.exe" or InitiatingProcessFolderPath endswith "\\procmon64.exe")))
+| where (FolderPath contains "\\procmon" and FolderPath endswith ".sys") and (not((InitiatingProcessFolderPath endswith "\\procmon.exe" or InitiatingProcessFolderPath endswith "\\procmon64.exe" or InitiatingProcessFolderPath endswith "\\procmon64a.exe")))

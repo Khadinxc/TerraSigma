@@ -10,4 +10,4 @@
 //   - System administrator usage
 
 DeviceProcessEvents
-| where ProcessVersionInfoOriginalFileName =~ "sdelete.exe" and (not((FolderPath endswith "\\sdelete.exe" or FolderPath endswith "\\sdelete64.exe")))
+| where ProcessVersionInfoOriginalFileName =~ "sdelete.exe" and (not((FolderPath endswith "\\sdelete.exe" or FolderPath endswith "\\sdelete64.exe" or FolderPath endswith "\\sdelete64a.exe")))

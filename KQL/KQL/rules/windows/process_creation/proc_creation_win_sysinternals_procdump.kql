@@ -10,4 +10,4 @@
 //   - Legitimate use of procdump by a developer or administrator
 
 DeviceProcessEvents
-| where FolderPath endswith "\\procdump.exe" or FolderPath endswith "\\procdump64.exe"
+| where FolderPath endswith "\\procdump.exe" or FolderPath endswith "\\procdump64.exe" or FolderPath endswith "\\procdump64a.exe"

@@ -10,4 +10,4 @@
 //   - System administrator Usage
 
 DeviceProcessEvents
-| where (ProcessCommandLine contains "uwcqv " or ProcessCommandLine contains "kwsu " or ProcessCommandLine contains "qwsu " or ProcessCommandLine contains "uwdqs ") and (ProcessVersionInfoProductName endswith "AccessChk" or ProcessVersionInfoFileDescription contains "Reports effective permissions" or (FolderPath endswith "\\accesschk.exe" or FolderPath endswith "\\accesschk64.exe") or ProcessVersionInfoOriginalFileName =~ "accesschk.exe")
+| where (ProcessCommandLine contains "uwcqv " or ProcessCommandLine contains "kwsu " or ProcessCommandLine contains "qwsu " or ProcessCommandLine contains "uwdqs ") and (ProcessVersionInfoProductName endswith "AccessChk" or ProcessVersionInfoFileDescription contains "Reports effective permissions" or (FolderPath endswith "\\accesschk.exe" or FolderPath endswith "\\accesschk64.exe" or FolderPath endswith "\\accesschk64a.exe") or ProcessVersionInfoOriginalFileName =~ "accesschk.exe")

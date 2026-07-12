@@ -11,4 +11,4 @@
 //   - Other legimate tools using this driver and filename (like Sysinternals). Note - Clever attackers may easily bypass this detection by just renaming the driver filename. Therefore just Medium-level and don't rely on it.
 
 DeviceFileEvents
-| where (FolderPath contains "\\AppData\\Local\\Temp\\" and FolderPath endswith "PROCEXP152.sys") and (not((InitiatingProcessFolderPath contains "\\procexp64.exe" or InitiatingProcessFolderPath contains "\\procexp.exe" or InitiatingProcessFolderPath contains "\\procmon64.exe" or InitiatingProcessFolderPath contains "\\procmon.exe")))
+| where (FolderPath contains "\\AppData\\Local\\Temp\\" and FolderPath endswith "PROCEXP152.sys") and (not((InitiatingProcessFolderPath contains "\\procexp64.exe" or InitiatingProcessFolderPath contains "\\procexp64a.exe" or InitiatingProcessFolderPath contains "\\procexp.exe" or InitiatingProcessFolderPath contains "\\procmon64.exe" or InitiatingProcessFolderPath contains "\\procmon64a.exe" or InitiatingProcessFolderPath contains "\\procmon.exe")))
