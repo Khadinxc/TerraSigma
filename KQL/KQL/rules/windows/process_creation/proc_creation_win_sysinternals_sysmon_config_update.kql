@@ -10,4 +10,4 @@
 //   - Legitimate administrators might use this command to update Sysmon configuration.
 
 DeviceProcessEvents
-| where (ProcessCommandLine contains "-c" or ProcessCommandLine contains "/c" or ProcessCommandLine contains "–c" or ProcessCommandLine contains "—c" or ProcessCommandLine contains "―c") and ((FolderPath endswith "\\Sysmon64.exe" or FolderPath endswith "\\Sysmon.exe") or ProcessVersionInfoFileDescription =~ "System activity monitor")
+| where (ProcessCommandLine contains "-c" or ProcessCommandLine contains "/c" or ProcessCommandLine contains "–c" or ProcessCommandLine contains "—c" or ProcessCommandLine contains "―c") and ((FolderPath endswith "\\Sysmon64.exe" or FolderPath endswith "\\Sysmon64a.exe" or FolderPath endswith "\\Sysmon.exe") or ProcessVersionInfoFileDescription =~ "System activity monitor")

@@ -10,4 +10,4 @@
 //   - Legitimate use of PsService by an administrator
 
 DeviceProcessEvents
-| where ProcessVersionInfoOriginalFileName =~ "psservice.exe" or (FolderPath endswith "\\PsService.exe" or FolderPath endswith "\\PsService64.exe")
+| where ProcessVersionInfoOriginalFileName =~ "psservice.exe" or (FolderPath endswith "\\PsService.exe" or FolderPath endswith "\\PsService64.exe" or FolderPath endswith "\\PsService64a.exe")

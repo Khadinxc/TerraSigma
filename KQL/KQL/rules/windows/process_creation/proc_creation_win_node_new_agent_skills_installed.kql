@@ -1,0 +1,20 @@
+// Title: New Agent Skills Installation Attempt Via Node.EXE
+// Author: Marco Pedrinazzi (@pedrinazziM) (InTheCyber)
+// Date: 2026-02-03
+// Level: medium
+// Description: Detects the attempt to install new skills for AI agents using the "npx skills" command.
+// Agent skills enhance AI agents with new capabilities, but attackers may abuse this mechanism to inject malicious commands executed by the agent on behalf of the user.
+// The "npx skills" command can install skills for various agents (e.g., Claude Code, Cursor, and others).
+// Analysts should review any installed skills to verify their legitimacy.
+// Note: Tune this rule based on whether AI agent tooling is allowed in your environment.
+// In environments where such tooling is authorized, this detection may reflect normal activity and the alert level should be adjusted accordingly.
+// In environments where AI agent tooling is not permitted, this activity is likely suspicious and may require immediate investigation.
+// MITRE Tactic: Execution
+// Tags: attack.execution, attack.t1059.007
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_node_new_agent_skills_installed.yml
+// False Positives:
+//   - This rule will be triggered when a new agent skill is installed regardless if it is benign or malicious.
+//   - High false positive rate expected in environments where AI agent tooling is authorized and commonly used.
+
+DeviceProcessEvents
+| where (ProcessCommandLine contains "npx-cli.js" and ProcessCommandLine contains "skills " and ProcessCommandLine contains " add ") and (FolderPath endswith "\\node.exe" or ProcessVersionInfoOriginalFileName =~ "node.exe")

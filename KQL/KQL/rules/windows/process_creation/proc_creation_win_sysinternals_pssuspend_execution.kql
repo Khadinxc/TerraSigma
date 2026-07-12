@@ -8,4 +8,4 @@
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_pssuspend_execution.yml
 
 DeviceProcessEvents
-| where ProcessVersionInfoOriginalFileName =~ "pssuspend.exe" or (FolderPath endswith "\\pssuspend.exe" or FolderPath endswith "\\pssuspend64.exe")
+| where ProcessVersionInfoOriginalFileName =~ "pssuspend.exe" or (FolderPath endswith "\\pssuspend.exe" or FolderPath endswith "\\pssuspend64.exe" or FolderPath endswith "\\pssuspend64a.exe")

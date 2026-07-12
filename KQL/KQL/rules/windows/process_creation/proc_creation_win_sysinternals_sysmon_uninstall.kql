@@ -10,4 +10,4 @@
 //   - Legitimate administrators might use this command to remove Sysmon for debugging purposes
 
 DeviceProcessEvents
-| where (ProcessCommandLine contains "-u" or ProcessCommandLine contains "/u" or ProcessCommandLine contains "–u" or ProcessCommandLine contains "—u" or ProcessCommandLine contains "―u") and ((FolderPath endswith "\\Sysmon64.exe" or FolderPath endswith "\\Sysmon.exe") or ProcessVersionInfoFileDescription =~ "System activity monitor")
+| where (ProcessCommandLine contains "-u" or ProcessCommandLine contains "/u" or ProcessCommandLine contains "–u" or ProcessCommandLine contains "—u" or ProcessCommandLine contains "―u") and ((FolderPath endswith "\\Sysmon64.exe" or FolderPath endswith "\\Sysmon64a.exe" or FolderPath endswith "\\Sysmon.exe") or ProcessVersionInfoFileDescription =~ "System activity monitor")

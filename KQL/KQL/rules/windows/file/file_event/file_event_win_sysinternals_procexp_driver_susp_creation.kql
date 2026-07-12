@@ -11,4 +11,4 @@
 //   - Some false positives may occur with legitimate renamed process explorer binaries
 
 DeviceFileEvents
-| where (FolderPath contains "\\PROCEXP" and FolderPath endswith ".sys") and (not((InitiatingProcessFolderPath endswith "\\procexp.exe" or InitiatingProcessFolderPath endswith "\\procexp64.exe")))
+| where (FolderPath contains "\\PROCEXP" and FolderPath endswith ".sys") and (not((InitiatingProcessFolderPath endswith "\\procexp.exe" or InitiatingProcessFolderPath endswith "\\procexp64.exe" or InitiatingProcessFolderPath endswith "\\procexp64a.exe")))
