@@ -2,10 +2,12 @@
 // Author: Max Altgelt (Nextron Systems)
 // Date: 2021-12-09
 // Level: high
-// Description: Checks whether the image specified in a process creation event is not a full, absolute path (caused by process ghosting or other unorthodox methods to start a process)
-// MITRE Tactic: Uncategorized
-// Tags: attack.stealth
+// Description: Detects process creation events where the Image field lacks an absolute path,
+// which occurs when the backing file no longer exists on disk at the time of
+// logging - commonly caused by Process Ghosting or other unorthodox process creation techniques.
+// MITRE Tactic: Privilege Escalation
+// Tags: attack.stealth, attack.privilege-escalation, attack.t1055
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_image_missing.yml
 
 DeviceProcessEvents
-| where (not(FolderPath contains "\\")) and (not((((FolderPath in~ ("System", "Registry", "MemCompression", "vmmem")) or (ProcessCommandLine in~ ("Registry", "MemCompression", "vmmem"))) or (FolderPath in~ ("-", "")) or isnull(FolderPath))))
+| where (not(FolderPath contains "\\")) and (not((((FolderPath in~ ("MemCompression", "Registry", "System", "vmmem", "vmmemWSL")) or (ProcessCommandLine in~ ("MemCompression", "Registry", "vmmem", "vmmemWSL"))) or (FolderPath in~ ("-", "")) or isnull(FolderPath))))
