@@ -2,7 +2,8 @@
 // Author: Alejandro Ortuno, oscd.community
 // Date: 2020-10-08
 // Level: low
-// Description: Detects enumeration of local systeam accounts on MacOS
+// Description: Detects enumeration of local system accounts on MacOS systems.
+// This can be used by attackers to identify accounts for lateral movement or privilege escalation.
 // MITRE Tactic: Discovery
 // Tags: attack.discovery, attack.t1087.001
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_local_account.yml
@@ -10,4 +11,4 @@
 //   - Legitimate administration activities
 
 DeviceProcessEvents
-| where ((ProcessCommandLine contains "list" and ProcessCommandLine contains "/users") and FolderPath endswith "/dscl") or ((ProcessCommandLine contains "-q" and ProcessCommandLine contains "user") and FolderPath endswith "/dscacheutil") or ProcessCommandLine contains "'x:0:'" or ((ProcessCommandLine contains "/etc/passwd" or ProcessCommandLine contains "/etc/sudoers") and FolderPath endswith "/cat") or FolderPath endswith "/id" or (ProcessCommandLine contains "-u" and FolderPath endswith "/lsof")
+| where ((ProcessCommandLine contains "-q" and ProcessCommandLine contains "user") and FolderPath endswith "/dscacheutil") or ((ProcessCommandLine contains "list" and ProcessCommandLine contains "/users") and FolderPath endswith "/dscl") or ((ProcessCommandLine endswith "/Users" or ProcessCommandLine endswith "/Users'" or ProcessCommandLine endswith "/Users\"") and FolderPath endswith "/ls") or FolderPath endswith "/id" or (FolderPath endswith "/who" or FolderPath endswith "/w" or FolderPath endswith "/users" or FolderPath endswith "/last") or (ProcessCommandLine contains "com.apple.loginwindow" and (FolderPath endswith "/defaults" or FolderPath endswith "/plutil")) or (ProcessCommandLine contains "-u" and FolderPath endswith "/lsof") or ((ProcessCommandLine contains "/etc/passwd" or ProcessCommandLine contains "/etc/sudoers") and (FolderPath endswith "/cat" or FolderPath endswith "/awk" or FolderPath endswith "/grep")) or ProcessCommandLine =~ "*'*:0:'*"
