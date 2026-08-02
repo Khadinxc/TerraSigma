@@ -9,4 +9,4 @@
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_susp_dpapi_master_key_access.yml
 
 DeviceFileEvents
-| where (FileName contains "\\Microsoft\\Protect\\S-1-5-18\\" or FileName contains "\\Microsoft\\Protect\\S-1-5-21-") and (not((InitiatingProcessFolderPath startswith "C:\\Program Files\\" or InitiatingProcessFolderPath startswith "C:\\Program Files (x86)\\" or InitiatingProcessFolderPath startswith "C:\\Windows\\system32\\" or InitiatingProcessFolderPath startswith "C:\\Windows\\SysWOW64\\")))
+| where (FileName contains "\\Microsoft\\Protect\\S-1-5-18\\" or FileName contains "\\Microsoft\\Protect\\S-1-5-21-") and (not((InitiatingProcessFolderPath =~ "C:\\Windows\\explorer.exe" or (InitiatingProcessFolderPath startswith "C:\\Program Files\\" or InitiatingProcessFolderPath startswith "C:\\Program Files (x86)\\" or InitiatingProcessFolderPath startswith "C:\\Windows\\system32\\" or InitiatingProcessFolderPath startswith "C:\\Windows\\SysWOW64\\"))))
