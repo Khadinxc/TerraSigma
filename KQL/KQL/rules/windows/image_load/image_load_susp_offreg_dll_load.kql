@@ -1,0 +1,17 @@
+// Title: Potentially Suspicious Image Load of Offreg.dll
+// Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+// Date: 2026-07-23
+// Level: medium
+// Description: Detects potentially suspicious loading of the Offline Registry Library (offreg.dll).
+// Offreg.dll enables direct read/write access to offline registry hives without invoking the Windows Registry API,
+// bypassing its associated audit logging and telemetry. Attackers may abuse this to stealthily modify registry hives
+// while evading detection mechanisms that rely on standard registry event logs.
+// MITRE Tactic: Persistence
+// Tags: attack.defense-impairment, attack.persistence, attack.t1112
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_susp_offreg_dll_load.yml
+// False Positives:
+//   - Third-party backup or forensic software that performs offline registry parsing
+//   - Windows deployment tools (DISM, ADK) run from non-standard paths
+
+DeviceImageLoadEvents
+| where FolderPath endswith "\\offreg.dll" and (not(((InitiatingProcessFolderPath contains "\\AppData\\Local\\Programs\\" and InitiatingProcessFolderPath startswith "C:\\Users\\") or (InitiatingProcessFolderPath endswith "\\MsMpEng.exe" and InitiatingProcessFolderPath startswith "C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\") or (InitiatingProcessFolderPath startswith "C:\\Program Files\\" or InitiatingProcessFolderPath startswith "C:\\Program Files (x86)\\") or (InitiatingProcessFolderPath startswith "C:\\Windows\\System32\\" or InitiatingProcessFolderPath startswith "C:\\Windows\\SysWOW64\\" or InitiatingProcessFolderPath startswith "C:\\Windows\\WinSxS\\"))))
