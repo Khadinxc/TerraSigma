@@ -1,0 +1,42 @@
+id: 516f2eec-5cb7-55b0-a8fc-c59f074d1a4b
+name: Registry Hive File Staged Outside Standard User Profile Path
+description: No description provided
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- PrivilegeEscalation
+- CredentialAccess
+query: |-
+  DeviceFileEvents
+  | where (FolderPath endswith "\\UsrClass.dat" or FolderPath endswith "\\NTUSER.DAT") and (not((FolderPath matches regex "(?i)^C:\\\\Users\\\\[^\\\\]+\\\\NTUSER\\.DAT$" or (FolderPath startswith "C:\\Windows\\System32\\config\\" or FolderPath startswith "C:\\Windows\\SYSVOL\\" or FolderPath startswith "C:\\Windows\\ServiceProfiles\\") or FolderPath endswith "\\AppData\\Local\\Microsoft\\Windows\\UsrClass.dat")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1548
+- T1003
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents
