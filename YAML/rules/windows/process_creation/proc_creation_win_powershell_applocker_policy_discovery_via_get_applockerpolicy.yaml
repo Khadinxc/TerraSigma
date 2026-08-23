@@ -1,0 +1,46 @@
+id: cbe077ac-c6cc-564c-ae20-2404a5e2235f
+name: PowerShell AppLocker Policy Discovery Via Get-AppLockerPolicy
+description: No description provided
+severity: Low
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Discovery
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine contains "Get-AppLockerPolicy" and (ProcessCommandLine contains " -Effective" or ProcessCommandLine contains " /Effective" or ProcessCommandLine contains " –Effective" or ProcessCommandLine contains " —Effective" or ProcessCommandLine contains " ―Effective" or ProcessCommandLine contains " -Ldap " or ProcessCommandLine contains " /Ldap " or ProcessCommandLine contains " –Ldap " or ProcessCommandLine contains " —Ldap " or ProcessCommandLine contains " ―Ldap " or ProcessCommandLine contains " -Local" or ProcessCommandLine contains " /Local" or ProcessCommandLine contains " –Local" or ProcessCommandLine contains " —Local" or ProcessCommandLine contains " ―Local") and ((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe") or (ProcessVersionInfoOriginalFileName in~ ("PowerShell.EXE", "pwsh.dll")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1518
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents
