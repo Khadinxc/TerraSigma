@@ -1,0 +1,13 @@
+// Title: PowerShell AppLocker Policy Discovery Via Get-AppLockerPolicy
+// Author: Tom3306
+// Date: 2026-08-19
+// Level: low
+// Description: Detects AppLocker policy enumeration attempts via PowerShell using the Get-AppLockerPolicy cmdlet and an policy scope of either Effective, LDAP, or Local.
+// MITRE Tactic: Discovery
+// Tags: attack.discovery, attack.t1518.001
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_applocker_policy_discovery_via_get_applockerpolicy.yml
+// False Positives:
+//   - PowerShell-based AppLocker auditing and policy troubleshooting by administrators.
+
+DeviceProcessEvents
+| where ProcessCommandLine contains "Get-AppLockerPolicy" and (ProcessCommandLine contains " -Effective" or ProcessCommandLine contains " /Effective" or ProcessCommandLine contains " –Effective" or ProcessCommandLine contains " —Effective" or ProcessCommandLine contains " ―Effective" or ProcessCommandLine contains " -Ldap " or ProcessCommandLine contains " /Ldap " or ProcessCommandLine contains " –Ldap " or ProcessCommandLine contains " —Ldap " or ProcessCommandLine contains " ―Ldap " or ProcessCommandLine contains " -Local" or ProcessCommandLine contains " /Local" or ProcessCommandLine contains " –Local" or ProcessCommandLine contains " —Local" or ProcessCommandLine contains " ―Local") and ((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe") or (ProcessVersionInfoOriginalFileName in~ ("PowerShell.EXE", "pwsh.dll")))

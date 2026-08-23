@@ -1,0 +1,16 @@
+// Title: New User Account Creation Attempt Via ADSI in CommandLine
+// Author: William Gokah (idea), Raylee Hawkins, Swachchhanda Shrawan Poudel (Nextron Systems)
+// Date: 2026-08-13
+// Level: medium
+// Description: Detects PowerShell command line arguments containing ADSI (Active Directory Service Interfaces) patterns
+// trying to create a new user account via the WinNT or LDAP provider. This is an uncommon method to create
+// user accounts and may indicate an attempt to evade detection by avoiding more commonly monitored commands
+// such as "net user", "New-LocalUser" or "New-ADUser".
+// MITRE Tactic: Persistence
+// Tags: attack.persistence, attack.t1136.001, attack.t1136.002
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_adsi_create_user.yml
+// False Positives:
+//   - Legitimate administrative scripts that use ADSI to provision user accounts but should be rare in most environments
+
+DeviceProcessEvents
+| where ProcessCommandLine contains "[ADSI]" and (ProcessCommandLine contains "WinNT://" or ProcessCommandLine contains "LDAP://") and (ProcessCommandLine contains ".Create(\"user" or ProcessCommandLine contains ".Create('user") and ((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe") or (ProcessVersionInfoOriginalFileName in~ ("PowerShell.EXE", "pwsh.dll")))

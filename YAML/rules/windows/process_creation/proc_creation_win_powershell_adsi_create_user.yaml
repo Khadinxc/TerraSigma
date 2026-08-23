@@ -1,0 +1,46 @@
+id: 6331fe1d-fd7f-57a6-8e4f-72271f605bdb
+name: New User Account Creation Attempt Via ADSI in CommandLine
+description: No description provided
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+query: |-
+  DeviceProcessEvents
+  | where ProcessCommandLine contains "[ADSI]" and (ProcessCommandLine contains "WinNT://" or ProcessCommandLine contains "LDAP://") and (ProcessCommandLine contains ".Create(\"user" or ProcessCommandLine contains ".Create('user") and ((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe") or (ProcessVersionInfoOriginalFileName in~ ("PowerShell.EXE", "pwsh.dll")))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1136
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents
