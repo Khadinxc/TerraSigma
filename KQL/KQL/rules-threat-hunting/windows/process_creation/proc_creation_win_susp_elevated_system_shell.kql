@@ -8,4 +8,4 @@
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_elevated_system_shell.yml
 
 DeviceProcessEvents
-| where ((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\powershell_ise.exe" or FolderPath endswith "\\pwsh.exe" or FolderPath endswith "\\cmd.exe") or (ProcessVersionInfoOriginalFileName in~ ("PowerShell.EXE", "powershell_ise.EXE", "pwsh.dll", "Cmd.Exe"))) and (LogonId =~ "0x3e7" and (AccountName contains "AUTHORI" or AccountName contains "AUTORI"))
+| where (((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\powershell_ise.exe" or FolderPath endswith "\\pwsh.exe" or FolderPath endswith "\\cmd.exe") or (ProcessVersionInfoOriginalFileName in~ ("PowerShell.EXE", "powershell_ise.EXE", "pwsh.dll", "Cmd.Exe"))) and (LogonId =~ "0x3e7" and (AccountName contains "AUTHORI" or AccountName contains "AUTORI"))) and (not(((InitiatingProcessCommandLine =~ "C:\\Windows\\system32\\cmd.exe /d /c C:\\Windows\\system32\\silcollector.cmd configure" and InitiatingProcessFolderPath endswith "\\cmd.exe") or InitiatingProcessFolderPath endswith "\\svchost.exe")))
