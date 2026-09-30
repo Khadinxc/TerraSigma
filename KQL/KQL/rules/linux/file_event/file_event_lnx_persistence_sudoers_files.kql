@@ -1,15 +1,14 @@
-// Title: Persistence Via Sudoers.d Files
+// Title: Persistence Via Sudoers Files
 // Author: Nasreddine Bencherchali (Nextron Systems)
 // Date: 2022-07-05
 // Level: medium
-// Description: Detects the creation or modification of files within the "sudoers.d" directory on Linux systems.
-// Such activity may indicate an attempt to establish or maintain privilege escalation by granting specific users elevated permissions.
-// Unauthorized changes to sudoers files are a common technique used by attackers to persist administrative access.
+// Description: Detects the creation or modification of the main "/etc/sudoers" file or files within the "/etc/sudoers.d/" directory on Linux systems.
+// Adversaries may alter sudoers configuration to execute commands with elevated privileges without supplying a password.
 // MITRE Tactic: Privilege Escalation
 // Tags: attack.privilege-escalation, attack.persistence, attack.t1548.003
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/file_event/file_event_lnx_persistence_sudoers_files.yml
 // False Positives:
-//   - Creation of legitimate files in sudoers.d folder as part of administrator work
+//   - Legitimate sudoers changes by administrators or configuration-management tools
 
 DeviceFileEvents
-| where FolderPath startswith "/etc/sudoers.d/" and (not((InitiatingProcessFolderPath endswith "/usr/bin/dpkg" and FolderPath =~ "/etc/sudoers.d/README.dpkg-new")))
+| where (FolderPath in~ ("/etc/sudoers") or FolderPath startswith "/etc/sudoers.d/") and (not((InitiatingProcessFolderPath endswith "/usr/bin/dpkg" and FolderPath =~ "/etc/sudoers.d/README.dpkg-new")))

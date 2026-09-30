@@ -8,4 +8,4 @@
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_arbitrary_cli_download.yml
 
 DeviceProcessEvents
-| where (ProcessCommandLine contains "http://" or ProcessCommandLine contains "https://") and ((FolderPath endswith "\\EXCEL.EXE" or FolderPath endswith "\\POWERPNT.EXE" or FolderPath endswith "\\WINWORD.exe") or (ProcessVersionInfoOriginalFileName in~ ("Excel.exe", "POWERPNT.EXE", "WinWord.exe")))
+| where (ProcessCommandLine contains "http://" or ProcessCommandLine contains "https://") and ((FolderPath endswith "\\EXCEL.EXE" or FolderPath endswith "\\MSOXMLED.EXE" or FolderPath endswith "\\POWERPNT.EXE" or FolderPath endswith "\\WINWORD.exe") or (ProcessVersionInfoOriginalFileName in~ ("Excel.exe", "msoxmled.exe", "POWERPNT.EXE", "WinWord.exe")))
