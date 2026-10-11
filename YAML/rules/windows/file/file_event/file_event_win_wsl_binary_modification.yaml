@@ -1,0 +1,40 @@
+id: 56fe464b-621c-56bd-8cbf-087c771e484b
+name: Potential WSL Binary Modification from Installed Location
+description: No description provided
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics: []
+query: |-
+  DeviceFileEvents
+  | where (FolderPath endswith "\\wsl.exe" and ((FolderPath contains ":\\Program files\\wsl\\" or FolderPath contains ":\\Program files\\WindowsApps\\MicrosoftCorporationII.WindowsSubsystemForLinux_") or (FolderPath contains ":\\Users\\" and FolderPath contains "\\AppData\\Local\\Microsoft\\WindowsApps\\"))) and (not(((InitiatingProcessFolderPath in~ ("C:\\Windows\\System32\\msiexec.exe", "C:\\Windows\\SysWOW64\\msiexec.exe")) or (InitiatingProcessFolderPath =~ "C:\\Windows\\System32\\svchost.exe" and FolderPath contains "\\WindowsApps\\"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1036
+- T1218
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceFileEvents

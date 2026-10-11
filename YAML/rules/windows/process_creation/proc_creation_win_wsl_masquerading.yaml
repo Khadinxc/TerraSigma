@@ -1,0 +1,42 @@
+id: df6b9d3c-b091-5fd3-b9a5-e9f566f9a098
+name: Suspicious WSL Binary Masquerading
+description: No description provided
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics: []
+query: |-
+  DeviceProcessEvents
+  | where FolderPath endswith "\\wsl.exe" and (not((ProcessVersionInfoOriginalFileName =~ "wsl.exe" or isnull(ProcessVersionInfoOriginalFileName))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1036
+- T1218
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

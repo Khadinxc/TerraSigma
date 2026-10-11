@@ -1,0 +1,40 @@
+id: b811d4cb-a240-5227-a809-b13a2a1f343c
+name: Suspicious WSL Binary Hijack via Proxy Execution
+description: No description provided
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics: []
+query: |-
+  DeviceProcessEvents
+  | where (FolderPath endswith "\\wsl.exe" and InitiatingProcessFolderPath =~ "C:\\Windows\\System32\\wsl.exe") and (not(((FolderPath in~ ("C:\\Windows\\System32\\wsl.exe", "C:\\Program Files\\WSL\\wsl.exe")) or (FolderPath startswith "C:\\Windows\\WinSxS\\amd64_microsoft-windows-lxss-wsl_" or FolderPath startswith "C:\\Windows\\WinSxS\\arm64_microsoft-windows-lxss-wsl_" or FolderPath startswith "C:\\Program Files\\WindowsApps\\MicrosoftCorporationII.WindowsSubsystemForLinux") or (FolderPath contains "\\AppData\\Local\\Microsoft\\WindowsApps\\" and FolderPath startswith "C:\\Users\\"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1036
+- T1218
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents
