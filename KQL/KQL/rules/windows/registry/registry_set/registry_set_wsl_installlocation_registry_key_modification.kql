@@ -1,0 +1,14 @@
+// Title: Potential WSL InstallLocation Registry Key Modification
+// Author: Liran Ravich, Swachchhanda Shrawan Poudel (Nextron Systems)
+// Date: 2026-05-05
+// Level: medium
+// Description: Detects modifications to the Windows Subsystem for Linux (WSL) InstallLocation registry key.
+// Attackers can modify this registry key to redirect the execution flow of legitimate WSL processes (wsl.exe or bash.exe) to a malicious payload, acting as a proxy execution and defense evasion technique.
+// MITRE Tactic: Persistence
+// Tags: attack.stealth, attack.defense-impairment, attack.persistence, attack.t1112, attack.t1218
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_wsl_installlocation_registry_key_modification.yml
+// False Positives:
+//   - Unlikely
+
+DeviceRegistryEvents
+| where RegistryKey contains "\\Lxss\\MSI\\InstallLocation" and (not((((RegistryValueData in~ ("C:\\Program Files\\WSL", "%ProgramFiles%\\WSL")) or (RegistryValueData contains ":\\Program Files\\WindowsApps\\MicrosoftCorporationII.WindowsSubsystemForLinux_" or RegistryValueData contains "\\AppData\\Local\\Microsoft\\WindowsApps" or RegistryValueData contains "%ProgramFiles%\\WindowsApps\\MicrosoftCorporationII.WindowsSubsystemForLinux_")) or (InitiatingProcessFolderPath in~ ("C:\\Windows\\System32\\msiexec.exe", "C:\\Windows\\SysWOW64\\msiexec.exe")))))

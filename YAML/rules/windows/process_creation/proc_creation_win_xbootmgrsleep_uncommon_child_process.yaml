@@ -1,0 +1,39 @@
+id: 63a51af1-b74b-5714-8f81-0beb834a45b0
+name: Uncommon Child Process Spawned From XBootMgrSleep.EXE
+description: No description provided
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics: []
+query: |-
+  DeviceProcessEvents
+  | where InitiatingProcessFolderPath endswith "\\xbootmgrsleep.exe" and (not(FolderPath =~ "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\xbootmgr.exe"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1202
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

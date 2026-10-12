@@ -1,0 +1,14 @@
+// Title: Potential WSL Binary Modification from Installed Location
+// Author: Liran Ravich, Swachchhanda Shrawan Poudel (Nextron Systems)
+// Date: 2026-05-05
+// Level: medium
+// Description: Detects the modification of the wsl.exe binary from its installed location.
+// Attackers can replace the legitimate wsl.exe binary with a malicious payload in its place, which is then executed when the user runs WSL, acting as a proxy execution and defense evasion technique.
+// MITRE Tactic: Uncategorized
+// Tags: attack.stealth, attack.t1036.005, attack.t1218
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_wsl_binary_modification.yml
+// False Positives:
+//   - Unlikely
+
+DeviceFileEvents
+| where (FolderPath endswith "\\wsl.exe" and ((FolderPath contains ":\\Program files\\wsl\\" or FolderPath contains ":\\Program files\\WindowsApps\\MicrosoftCorporationII.WindowsSubsystemForLinux_") or (FolderPath contains ":\\Users\\" and FolderPath contains "\\AppData\\Local\\Microsoft\\WindowsApps\\"))) and (not(((InitiatingProcessFolderPath in~ ("C:\\Windows\\System32\\msiexec.exe", "C:\\Windows\\SysWOW64\\msiexec.exe")) or (InitiatingProcessFolderPath =~ "C:\\Windows\\System32\\svchost.exe" and FolderPath contains "\\WindowsApps\\"))))

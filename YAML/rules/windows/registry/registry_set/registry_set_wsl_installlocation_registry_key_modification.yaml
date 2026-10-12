@@ -1,0 +1,45 @@
+id: 91cb2a11-8de0-5d08-992e-59168165413e
+name: Potential WSL InstallLocation Registry Key Modification
+description: No description provided
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+query: |-
+  DeviceRegistryEvents
+  | where RegistryKey contains "\\Lxss\\MSI\\InstallLocation" and (not((((RegistryValueData in~ ("C:\\Program Files\\WSL", "%ProgramFiles%\\WSL")) or (RegistryValueData contains ":\\Program Files\\WindowsApps\\MicrosoftCorporationII.WindowsSubsystemForLinux_" or RegistryValueData contains "\\AppData\\Local\\Microsoft\\WindowsApps" or RegistryValueData contains "%ProgramFiles%\\WindowsApps\\MicrosoftCorporationII.WindowsSubsystemForLinux_")) or (InitiatingProcessFolderPath in~ ("C:\\Windows\\System32\\msiexec.exe", "C:\\Windows\\SysWOW64\\msiexec.exe")))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1112
+- T1218
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents
