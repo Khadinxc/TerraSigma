@@ -1,0 +1,47 @@
+id: f13fbd6f-9fc9-5a23-8464-5694f9f6a3c1
+name: PowerShell Dynamic Module Invocation Via ExportedCommands Array Index
+description: No description provided
+severity: High
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Execution
+query: |-
+  DeviceProcessEvents
+  | where ((FolderPath endswith "\\powershell.exe" or FolderPath endswith "\\pwsh.exe") or (ProcessVersionInfoOriginalFileName in~ ("powershell.exe", "pwsh.dll"))) and ProcessCommandLine =~ "*[*]*" and ((ProcessCommandLine contains "Get-Module " or ProcessCommandLine contains "gmo ") and (ProcessCommandLine contains "ListAvailable" and ProcessCommandLine contains "Microsoft.PowerShell.Utility" and ProcessCommandLine contains "ExportedCommands" and ProcessCommandLine contains "Values"))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1027
+- T1059
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents
