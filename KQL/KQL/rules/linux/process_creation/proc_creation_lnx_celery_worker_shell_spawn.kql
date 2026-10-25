@@ -1,0 +1,16 @@
+// Title: Shell Spawned by Celery Worker Process
+// Author: Jennifer Batina
+// Date: 2026-10-17
+// Level: medium
+// Description: Detects a system shell interpreter being spawned directly by a Celery worker process.
+// This behavior indicates a Python background task execution framework is evaluating raw string input through a shell execution context,
+// which is highly indicative of successful command or prompt injection exploitation against an LLM agent task.
+// MITRE Tactic: Execution
+// Tags: attack.execution, attack.t1059.004
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_celery_worker_shell_spawn.yml
+// False Positives:
+//   - Legacy or custom administrative tasks deliberately hardcoded with shell=True or os.system execution inside Celery task functions.
+//   - Media processing, deployment, or reporting pipelines that intentionally shell out to external tools (e.g. ffmpeg, git) from within a task.
+
+DeviceProcessEvents
+| where ((FolderPath endswith "/ash" or FolderPath endswith "/bash" or FolderPath endswith "/busybox" or FolderPath endswith "/csh" or FolderPath endswith "/dash" or FolderPath endswith "/fish" or FolderPath endswith "/ksh" or FolderPath endswith "/sh" or FolderPath endswith "/tcsh" or FolderPath endswith "/zsh") and InitiatingProcessCommandLine contains "celery") and ((InitiatingProcessFolderPath endswith "/python" or InitiatingProcessFolderPath endswith "/python3") or InitiatingProcessFolderPath contains "/python3.")

@@ -1,0 +1,13 @@
+// Title: Add Authorized Applications to Microsoft Defender Firewall via Registry
+// Author: frack113
+// Date: 2026-10-13
+// Level: medium
+// Description: Detects the degradation of the system firewall security by the creation or re-enabling of per-application
+// exceptions via registry writes to the AuthorizedApplications\List keys under FirewallPolicy, which grants
+// the targeted executable network access and can be abused by malware to bypass network restrictions.
+// MITRE Tactic: Uncategorized
+// Tags: attack.defense-impairment, attack.t1686.003
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_defender_firewall_add_exception.yml
+
+DeviceRegistryEvents
+| where RegistryValueData contains ":Enabled:" and (RegistryKey endswith "\\Services\\SharedAccess\\Parameters\\FirewallPolicy*" and RegistryKey contains "\\AuthorizedApplications\\List")

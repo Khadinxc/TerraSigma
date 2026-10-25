@@ -13,4 +13,4 @@
 //   - An unknown bug seems to trigger the Windows "svchost" process to drop EVTX files in the "C:\Windows\Temp" directory in the form "<log_name">_<uuid>.evtx". See https://superuser.com/questions/1371229/low-disk-space-after-filling-up-c-windows-temp-with-evtx-and-txt-files
 
 DeviceFileEvents
-| where FolderPath endswith ".evtx" and (not(((FolderPath endswith "\\Windows\\System32\\winevt\\Logs\\" and FolderPath startswith "C:\\ProgramData\\Microsoft\\Windows\\Containers\\BaseImages\\") or FolderPath startswith "C:\\Windows\\System32\\winevt\\Logs\\")))
+| where FolderPath endswith ".evtx" and (not(((FolderPath contains "\\Windows\\System32\\winevt\\Logs\\" and FolderPath startswith "C:\\ProgramData\\Microsoft\\Windows\\Containers\\BaseImages\\") or FolderPath startswith "C:\\Windows\\System32\\winevt\\Logs\\")))

@@ -1,0 +1,43 @@
+id: 82eb0ee4-2963-5d97-b0b9-0bdabeaa0dcf
+name: Add Authorized Applications to Microsoft Defender Firewall via Registry
+description: No description provided
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics: []
+query: |-
+  DeviceRegistryEvents
+  | where RegistryValueData contains ":Enabled:" and (RegistryKey endswith "\\Services\\SharedAccess\\Parameters\\FirewallPolicy*" and RegistryKey contains "\\AuthorizedApplications\\List")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1686
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

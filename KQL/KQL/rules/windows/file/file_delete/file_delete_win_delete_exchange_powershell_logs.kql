@@ -10,4 +10,4 @@
 //   - Possible FP during log rotation
 
 DeviceFileEvents
-| where FolderPath contains "_Cmdlet_" and FolderPath startswith "\\Logging\\CmdletInfra\\LocalPowerShell\\Cmdlet\\"
+| where FolderPath contains "\\Logging\\CmdletInfra\\LocalPowerShell\\Cmdlet\\" and FolderPath contains "_Cmdlet_"
