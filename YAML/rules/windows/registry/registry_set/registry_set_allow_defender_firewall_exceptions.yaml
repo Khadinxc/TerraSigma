@@ -1,0 +1,43 @@
+id: f1d4f22b-21f9-576f-8b2a-fd4b1322fd7e
+name: Allow Exceptions in Microsoft Defender Firewall via Registry
+description: No description provided
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics: []
+query: |-
+  DeviceRegistryEvents
+  | where (RegistryValueData =~ "DWORD (0x00000000)" and RegistryKey endswith "\\Services\\SharedAccess\\Parameters\\FirewallPolicy*" and RegistryKey endswith "\\DoNotAllowExceptions") and (not((InitiatingProcessFolderPath in~ ("C:\\Windows\\System32\\svchost.exe", "C:\\Windows\\SysWOW64\\svchost.exe"))))
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1686
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: RegistryKey
+  fieldMappings:
+  - identifier: Key
+    columnName: RegistryKey
+- entityType: RegistryValue
+  fieldMappings:
+  - identifier: Value
+    columnName: RegistryValueData
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceRegistryEvents

@@ -1,0 +1,46 @@
+id: 79cf22c7-eedb-520f-ae80-50e44a872c4d
+name: Registry Tampering Of Internal Tools Settings
+description: No description provided
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+query: |-
+  DeviceProcessEvents
+  | where (ProcessCommandLine contains "ConsentPromptBehaviorAdmin" or ProcessCommandLine contains "DisableChangePassword" or ProcessCommandLine contains "DisableCMD" or ProcessCommandLine contains "DisableLockWorkstation" or ProcessCommandLine contains "DisableNotificationCenter" or ProcessCommandLine contains "DisableRegistryTools" or ProcessCommandLine contains "DisableTaskmgr" or ProcessCommandLine contains "HideSCAHealth" or ProcessCommandLine contains "HideSCANetwork" or ProcessCommandLine contains "HideSCAVolume" or ProcessCommandLine contains "InactivityTimeoutSecs" or ProcessCommandLine contains "NoClose" or ProcessCommandLine contains "NoControlPanel" or ProcessCommandLine contains "NoDesktop" or ProcessCommandLine contains "NoDispBackgroundPage" or ProcessCommandLine contains "NoDispCPL" or ProcessCommandLine contains "NoDrives" or ProcessCommandLine contains "NoFileMenu" or ProcessCommandLine contains "NoFind" or ProcessCommandLine contains "NoLogOff" or ProcessCommandLine contains "NoPropertiesMyDocuments" or ProcessCommandLine contains "NoRun" or ProcessCommandLine contains "NoSetTaskbar" or ProcessCommandLine contains "NoTrayContextMenu" or ProcessCommandLine contains "StartMenuLogOff" or ProcessCommandLine contains "shutdownwithoutlogon") and (ProcessCommandLine contains "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer" or ProcessCommandLine contains "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System" or ProcessCommandLine contains "SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer" or ProcessCommandLine contains "SOFTWARE\\Policies\\Microsoft\\Windows\\System") and ProcessCommandLine contains " add " and (FolderPath endswith "\\reg.exe" or ProcessVersionInfoOriginalFileName =~ "reg.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1112
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: Process
+  fieldMappings:
+  - identifier: CommandLine
+    columnName: ProcessCommandLine
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceProcessEvents

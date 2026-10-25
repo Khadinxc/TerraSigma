@@ -10,4 +10,4 @@
 //   - Legitimate administration activities
 
 DeviceProcessEvents
-| where FolderPath endswith "/update-ca-certificates" or FolderPath endswith "/update-ca-trust"
+| where ProcessCommandLine contains "/update-ca-certificates" or ProcessCommandLine contains "/update-ca-trust"

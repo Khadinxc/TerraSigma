@@ -2,10 +2,11 @@
 // Author: Nasreddine Bencherchali (Nextron Systems)
 // Date: 2022-09-05
 // Level: medium
-// Description: Detects suspicious powershell download cradle using nslookup. This cradle uses nslookup to extract payloads from DNS records
-// MITRE Tactic: Uncategorized
-// Tags: attack.stealth
+// Description: Detects suspicious powershell download cradle using nslookup.
+// This cradle uses nslookup to extract payloads from DNS records
+// MITRE Tactic: Command and Control
+// Tags: attack.command-and-control, attack.t1071.004
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_nslookup_poweshell_download.yml
 
 DeviceProcessEvents
-| where ((ProcessCommandLine contains " -q=txt " or ProcessCommandLine contains " -querytype=txt ") and (InitiatingProcessFolderPath endswith "\\powershell.exe" or InitiatingProcessFolderPath endswith "\\pwsh.exe")) and (FolderPath contains "\\nslookup.exe" or ProcessVersionInfoOriginalFileName =~ "\\nslookup.exe")
+| where ((ProcessCommandLine contains " -q=txt " or ProcessCommandLine contains " -querytype=txt " or ProcessCommandLine contains " -type=txt") and (InitiatingProcessFolderPath endswith "\\powershell.exe" or InitiatingProcessFolderPath endswith "\\pwsh.exe")) and (FolderPath endswith "\\nslookup.exe" or ProcessVersionInfoOriginalFileName =~ "nslookup.exe")

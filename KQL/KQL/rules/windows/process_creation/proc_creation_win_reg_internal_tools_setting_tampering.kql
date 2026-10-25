@@ -1,0 +1,13 @@
+// Title: Registry Tampering Of Internal Tools Settings
+// Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+// Date: 2026-10-18
+// Level: medium
+// Description: Detects registry modifications that tamper with internal Windows tools settings, commonly used by malware to disable security features or system tools
+// MITRE Tactic: Persistence
+// Tags: attack.persistence, attack.defense-impairment, attack.t1112
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_internal_tools_setting_tampering.yml
+// False Positives:
+//   - Legitimate use of reg.exe to change system settings
+
+DeviceProcessEvents
+| where (ProcessCommandLine contains "ConsentPromptBehaviorAdmin" or ProcessCommandLine contains "DisableChangePassword" or ProcessCommandLine contains "DisableCMD" or ProcessCommandLine contains "DisableLockWorkstation" or ProcessCommandLine contains "DisableNotificationCenter" or ProcessCommandLine contains "DisableRegistryTools" or ProcessCommandLine contains "DisableTaskmgr" or ProcessCommandLine contains "HideSCAHealth" or ProcessCommandLine contains "HideSCANetwork" or ProcessCommandLine contains "HideSCAVolume" or ProcessCommandLine contains "InactivityTimeoutSecs" or ProcessCommandLine contains "NoClose" or ProcessCommandLine contains "NoControlPanel" or ProcessCommandLine contains "NoDesktop" or ProcessCommandLine contains "NoDispBackgroundPage" or ProcessCommandLine contains "NoDispCPL" or ProcessCommandLine contains "NoDrives" or ProcessCommandLine contains "NoFileMenu" or ProcessCommandLine contains "NoFind" or ProcessCommandLine contains "NoLogOff" or ProcessCommandLine contains "NoPropertiesMyDocuments" or ProcessCommandLine contains "NoRun" or ProcessCommandLine contains "NoSetTaskbar" or ProcessCommandLine contains "NoTrayContextMenu" or ProcessCommandLine contains "StartMenuLogOff" or ProcessCommandLine contains "shutdownwithoutlogon") and (ProcessCommandLine contains "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer" or ProcessCommandLine contains "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System" or ProcessCommandLine contains "SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer" or ProcessCommandLine contains "SOFTWARE\\Policies\\Microsoft\\Windows\\System") and ProcessCommandLine contains " add " and (FolderPath endswith "\\reg.exe" or ProcessVersionInfoOriginalFileName =~ "reg.exe")
