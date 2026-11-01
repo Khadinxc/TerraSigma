@@ -1,0 +1,11 @@
+// Title: HackTool - GoldenDMSA Execution
+// Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+// Date: 2026-10-19
+// Level: high
+// Description: Detects execution of GoldenDMSA hacktool used for Directory Service Account manipulation.
+// MITRE Tactic: Persistence
+// Tags: attack.persistence, attack.privilege-escalation, attack.t1098, attack.credential-access, attack.t1110.001, attack.t1558.003
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_goldendmsa.yml
+
+DeviceProcessEvents
+| where ((ProcessCommandLine contains "wordlist" or ProcessCommandLine contains "bruteforce") and (ProcessCommandLine contains " -s " and ProcessCommandLine contains "S-1-5-21-" and ProcessCommandLine contains " -d " and ProcessCommandLine contains " -k ")) or FolderPath endswith "\\GoldenDMSA.exe"

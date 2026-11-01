@@ -10,4 +10,4 @@
 //   - Legitimate administration activities
 
 DeviceProcessEvents
-| where ((FolderPath endswith "/nc" or FolderPath endswith "/netcat") and (not(ProcessCommandLine contains "l"))) or (FolderPath endswith "/nmap" or FolderPath endswith "/telnet")
+| where ((FolderPath endswith "/nc" or FolderPath endswith "/netcat") and (not(ProcessCommandLine matches regex "\\s(?:--listen\\b|-[46DdknrtuUvz]{0,10}l[46DdknrtuUvz]{0,10})"))) or (FolderPath endswith "/nmap" or FolderPath endswith "/telnet")
