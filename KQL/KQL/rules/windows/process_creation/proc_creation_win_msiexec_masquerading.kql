@@ -8,4 +8,4 @@
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_masquerading.yml
 
 DeviceProcessEvents
-| where (FolderPath endswith "\\msiexec.exe" or ProcessVersionInfoOriginalFileName =~ "\\msiexec.exe") and (not((FolderPath startswith "C:\\Windows\\System32\\" or FolderPath startswith "C:\\Windows\\SysWOW64\\" or FolderPath startswith "C:\\Windows\\WinSxS\\")))
+| where (FolderPath endswith "\\msiexec.exe" or ProcessVersionInfoOriginalFileName =~ "msiexec.exe") and (not((FolderPath startswith "C:\\Windows\\System32\\" or FolderPath startswith "C:\\Windows\\SysWOW64\\" or FolderPath startswith "C:\\Windows\\WinSxS\\")))

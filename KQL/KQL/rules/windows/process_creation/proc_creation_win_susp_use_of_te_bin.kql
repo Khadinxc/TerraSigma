@@ -11,4 +11,4 @@
 //   - It's not an uncommon to use te.exe directly to execute legal TAEF tests
 
 DeviceProcessEvents
-| where FolderPath endswith "\\te.exe" or InitiatingProcessFolderPath endswith "\\te.exe" or ProcessVersionInfoOriginalFileName =~ "\\te.exe"
+| where FolderPath endswith "\\te.exe" or InitiatingProcessFolderPath endswith "\\te.exe" or ProcessVersionInfoOriginalFileName =~ "te.exe"

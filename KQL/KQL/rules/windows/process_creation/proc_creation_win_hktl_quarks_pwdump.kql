@@ -10,4 +10,4 @@
 //   - Unlikely
 
 DeviceProcessEvents
-| where (ProcessCommandLine in~ (" -dhl", " --dump-hash-local", " -dhdc", " --dump-hash-domain-cached", " --dump-bitlocker", " -dhd ", " --dump-hash-domain ", "--ntds-file")) or FolderPath endswith "\\QuarksPwDump.exe"
+| where (ProcessCommandLine contains " -dhl" or ProcessCommandLine contains " --dump-hash-local" or ProcessCommandLine contains " -dhdc" or ProcessCommandLine contains " --dump-hash-domain-cached" or ProcessCommandLine contains " --dump-bitlocker" or ProcessCommandLine contains " -dhd " or ProcessCommandLine contains " --dump-hash-domain " or ProcessCommandLine contains "--ntds-file") or FolderPath endswith "\\QuarksPwDump.exe"
