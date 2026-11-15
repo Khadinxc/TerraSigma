@@ -9,4 +9,4 @@
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dump64_defender_av_bypass_rename.yml
 
 DeviceProcessEvents
-| where (FolderPath contains "\\Microsoft Visual Studio\\" and FolderPath endswith "\\dump64.exe" and FolderPath startswith ":\\Program Files") and (ProcessVersionInfoOriginalFileName =~ "procdump" or (ProcessCommandLine contains " -ma " or ProcessCommandLine contains " -mp "))
+| where (FolderPath contains "\\Microsoft Visual Studio\\" and FolderPath endswith "\\dump64.exe" and FolderPath startswith "C:\\Program Files") and (ProcessVersionInfoOriginalFileName =~ "procdump" or (ProcessCommandLine contains " -ma " or ProcessCommandLine contains " -mp "))

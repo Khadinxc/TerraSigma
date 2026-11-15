@@ -11,4 +11,4 @@
 //   - Direct PS command execution through SQLToolsPS.exe is uncommon, childprocess sqltoolsps.exe spawned by smss.exe is a legitimate action.
 
 DeviceProcessEvents
-| where (FolderPath endswith "\\sqltoolsps.exe" or InitiatingProcessFolderPath endswith "\\sqltoolsps.exe" or ProcessVersionInfoOriginalFileName =~ "\\sqltoolsps.exe") and (not(InitiatingProcessFolderPath endswith "\\smss.exe"))
+| where (FolderPath endswith "\\sqltoolsps.exe" or InitiatingProcessFolderPath endswith "\\sqltoolsps.exe" or ProcessVersionInfoOriginalFileName =~ "sqltoolsps.exe") and (not(InitiatingProcessFolderPath endswith "\\smss.exe"))

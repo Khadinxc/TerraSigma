@@ -10,4 +10,4 @@
 //   - Unlikely
 
 DeviceImageLoadEvents
-| where (InitiatingProcessFolderPath =~ "\\SystemResetPlatform.exe" and FolderPath endswith "\\RjvPlatform.dll") and (not(InitiatingProcessFolderPath startswith "C:\\Windows\\System32\\SystemResetPlatform\\"))
+| where (FolderPath endswith "\\RjvPlatform.dll" and InitiatingProcessFolderPath endswith "\\SystemResetPlatform.exe") and (not(InitiatingProcessFolderPath startswith "C:\\Windows\\System32\\SystemResetPlatform\\"))
