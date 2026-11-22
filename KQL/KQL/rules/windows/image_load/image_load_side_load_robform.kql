@@ -10,4 +10,4 @@
 //   - If installed on a per-user level, the path would be located in "AppData\Local". Add additional filters to reflect this mode of installation
 
 DeviceImageLoadEvents
-| where (FolderPath endswith "\\roboform.dll" or FolderPath endswith "\\roboform-x64.dll") and (not(((InitiatingProcessFolderPath endswith "\\robotaskbaricon.exe" or InitiatingProcessFolderPath endswith "\\robotaskbaricon-x64.exe") and (InitiatingProcessFolderPath startswith " C:\\Program Files (x86)\\Siber Systems\\AI RoboForm\\" or InitiatingProcessFolderPath startswith " C:\\Program Files\\Siber Systems\\AI RoboForm\\"))))
+| where (FolderPath endswith "\\roboform.dll" or FolderPath endswith "\\roboform-x64.dll") and (not(((InitiatingProcessFolderPath endswith "\\robotaskbaricon.exe" or InitiatingProcessFolderPath endswith "\\robotaskbaricon-x64.exe") and (InitiatingProcessFolderPath startswith "C:\\Program Files (x86)\\Siber Systems\\AI RoboForm\\" or InitiatingProcessFolderPath startswith "C:\\Program Files\\Siber Systems\\AI RoboForm\\"))))

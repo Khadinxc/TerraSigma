@@ -8,4 +8,4 @@
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/FIN7/file_event_win_apt_fin7_powershell_scripts_naming_convention.yml
 
 DeviceFileEvents
-| where FolderPath in~ ("host_ip.ps1") or FolderPath endswith "_64refl.ps1"
+| where FolderPath endswith "_64refl.ps1" or FolderPath endswith "\\host_ip.ps1"

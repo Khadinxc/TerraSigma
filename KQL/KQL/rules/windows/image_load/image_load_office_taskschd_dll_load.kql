@@ -1,0 +1,15 @@
+// Title: Microsoft Office Application Loading Task Scheduler DLL
+// Author: Saksham Bhattarai, Swachchhanda Shrawan Poudel (Nextron Systems)
+// Date: 2026-11-04
+// Level: medium
+// Description: Detects a Microsoft Office application loading taskschd.dll, which exposes COM interfaces for managing Windows Scheduled Tasks.
+// This load is an early precursor to scheduled task creation or modification and has been frequently observed in macro-enabled
+// malicious documents attempting to establish persistence.
+// MITRE Tactic: Persistence
+// Tags: attack.persistence, attack.privilege-escalation, attack.t1053.005, attack.execution, attack.t1204.002
+// Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_taskschd_dll_load.yml
+// False Positives:
+//   - Legitimate add-ins or automation scripts that use Office applications to manage scheduled tasks (rare in most environments)
+
+DeviceImageLoadEvents
+| where (FolderPath endswith "\\taskschd.dll" or InitiatingProcessVersionInfoOriginalFileName =~ "taskschd.dll") and (InitiatingProcessFolderPath endswith "\\eqnedt32.exe" or InitiatingProcessFolderPath endswith "\\excel.exe" or InitiatingProcessFolderPath endswith "\\fltldr.exe" or InitiatingProcessFolderPath endswith "\\graph.exe" or InitiatingProcessFolderPath endswith "\\msaccess.exe" or InitiatingProcessFolderPath endswith "\\mspub.exe" or InitiatingProcessFolderPath endswith "\\onenote.exe" or InitiatingProcessFolderPath endswith "\\onenoteim.exe" or InitiatingProcessFolderPath endswith "\\onenotem.exe" or InitiatingProcessFolderPath endswith "\\outlook.exe" or InitiatingProcessFolderPath endswith "\\powerpnt.exe" or InitiatingProcessFolderPath endswith "\\visio.exe" or InitiatingProcessFolderPath endswith "\\winproj.exe" or InitiatingProcessFolderPath endswith "\\winword.exe")

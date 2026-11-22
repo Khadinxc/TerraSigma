@@ -1,8 +1,10 @@
-// Title: Local Groups Discovery - Linux
+// Title: Local Groups Discovery Attempt - Linux
 // Author: Ömer Günal, Alejandro Ortuno, oscd.community
 // Date: 2020-10-11
 // Level: low
-// Description: Detects enumeration of local system groups. Adversaries may attempt to find local system groups and permission settings
+// Description: Detects attempts to enumerate local groups and group membership via common Linux utilities and sensitive file access.
+// Adversaries may read files such as /etc/group and /etc/gshadow, or use tools like getent and groups to identify
+// group memberships and privilege assignments on a compromised system.
 // MITRE Tactic: Discovery
 // Tags: attack.discovery, attack.t1069.001
 // Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_local_groups.yml
@@ -10,4 +12,4 @@
 //   - Legitimate administration activities
 
 DeviceProcessEvents
-| where FolderPath endswith "/groups" or (ProcessCommandLine contains "/etc/group" and (FolderPath endswith "/cat" or FolderPath endswith "/ed" or FolderPath endswith "/head" or FolderPath endswith "/less" or FolderPath endswith "/more" or FolderPath endswith "/nano" or FolderPath endswith "/tail" or FolderPath endswith "/vi" or FolderPath endswith "/vim"))
+| where ((ProcessCommandLine contains " group" or ProcessCommandLine contains " gshadow") and FolderPath endswith "/getent") or FolderPath endswith "/groups" or ((ProcessCommandLine contains "group" or ProcessCommandLine contains "gshadow") and (FolderPath endswith "/cat" or FolderPath endswith "/ed" or FolderPath endswith "/emacs" or FolderPath endswith "/head" or FolderPath endswith "/less" or FolderPath endswith "/makemap" or FolderPath endswith "/more" or FolderPath endswith "/nano" or FolderPath endswith "/sqlite3" or FolderPath endswith "/tail" or FolderPath endswith "/vi" or FolderPath endswith "/vim")) or (ProcessCommandLine contains "group" and FolderPath endswith "/ypcat")
