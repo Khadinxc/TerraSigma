@@ -10,4 +10,4 @@
 //   - Unlikely
 
 DeviceImageLoadEvents
-| where (InitiatingProcessFolderPath =~ "C:\\ProgramData\\Adobe\\colorcpl.exe" and FolderPath =~ "C:\\ProgramData\\Adobe\\colorui.dll") or (InitiatingProcessFolderPath =~ "C:\\ProgramData\\Adobe\\ARM\\tabcal.exe" and FolderPath =~ "C:\\ProgramData\\Adobe\\ARM\\HID.dll") or (InitiatingProcessFolderPath =~ "C:\\ProgramData\\Oracle\\Java\\fixmapi.exe" and FolderPath =~ "C:\\ProgramData\\Oracle\\Java\\mapistub.dll") or (InitiatingProcessFolderPath =~ "C:\\ProgramShared\\PresentationHost.exe" and FolderPath =~ ":\\ProgramShared\\mscoree.dll")
+| where (InitiatingProcessFolderPath =~ "C:\\ProgramData\\Adobe\\colorcpl.exe" and FolderPath =~ "C:\\ProgramData\\Adobe\\colorui.dll") or (InitiatingProcessFolderPath =~ "C:\\ProgramData\\Adobe\\ARM\\tabcal.exe" and FolderPath =~ "C:\\ProgramData\\Adobe\\ARM\\HID.dll") or (InitiatingProcessFolderPath =~ "C:\\ProgramData\\Oracle\\Java\\fixmapi.exe" and FolderPath =~ "C:\\ProgramData\\Oracle\\Java\\mapistub.dll") or (InitiatingProcessFolderPath =~ "C:\\ProgramShared\\PresentationHost.exe" and FolderPath endswith ":\\ProgramShared\\mscoree.dll")

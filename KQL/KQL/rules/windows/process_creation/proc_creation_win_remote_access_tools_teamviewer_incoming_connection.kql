@@ -11,4 +11,4 @@
 //   - Legitimate usage of TeamViewer
 
 DeviceProcessEvents
-| where ProcessCommandLine endswith "TeamViewer_Desktop.exe --IPCport 5939 --Module 1" and FolderPath =~ "TeamViewer_Desktop.exe" and InitiatingProcessFolderPath =~ "TeamViewer_Service.exe"
+| where ProcessCommandLine endswith "TeamViewer_Desktop.exe --IPCport 5939 --Module 1" and FolderPath endswith "\\TeamViewer_Desktop.exe" and InitiatingProcessFolderPath endswith "\\TeamViewer_Service.exe"

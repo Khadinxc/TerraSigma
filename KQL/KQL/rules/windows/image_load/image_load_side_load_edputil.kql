@@ -10,4 +10,4 @@
 //   - Unlikely
 
 DeviceImageLoadEvents
-| where FolderPath endswith "\\edputil.dll" and (not((FolderPath startswith "C:\\Windows\\System32\\" or FolderPath startswith "C:\\Windows\\SysWOW64\\" or FolderPath startswith "C\\Windows\\WinSxS\\")))
+| where FolderPath endswith "\\edputil.dll" and (not((FolderPath startswith "C:\\Windows\\System32\\" or FolderPath startswith "C:\\Windows\\SysWOW64\\" or FolderPath startswith "C:\\Windows\\WinSxS\\")))

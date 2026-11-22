@@ -10,4 +10,4 @@
 //   - False positives are expected in environement leveraging ClickOnce deployments. An initial baselining is required before using this rule in production.
 
 DeviceProcessEvents
-| where FolderPath endswith "\\AppData\\Local\\Apps\\2.0\\" and InitiatingProcessFolderPath endswith "\\dfsvc.exe"
+| where FolderPath contains "\\AppData\\Local\\Apps\\2.0\\" and InitiatingProcessFolderPath endswith "\\dfsvc.exe"

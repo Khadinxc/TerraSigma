@@ -1,0 +1,45 @@
+id: d7d63e87-7269-5524-8d67-2e17e4f38061
+name: Microsoft Office Application Loading Task Scheduler DLL
+description: No description provided
+severity: Medium
+queryFrequency: PT1H
+queryPeriod: PT1H
+triggerOperator: gt
+triggerThreshold: 0
+tactics:
+- Persistence
+- PrivilegeEscalation
+- Execution
+query: |-
+  DeviceImageLoadEvents
+  | where (FolderPath endswith "\\taskschd.dll" or InitiatingProcessVersionInfoOriginalFileName =~ "taskschd.dll") and (InitiatingProcessFolderPath endswith "\\eqnedt32.exe" or InitiatingProcessFolderPath endswith "\\excel.exe" or InitiatingProcessFolderPath endswith "\\fltldr.exe" or InitiatingProcessFolderPath endswith "\\graph.exe" or InitiatingProcessFolderPath endswith "\\msaccess.exe" or InitiatingProcessFolderPath endswith "\\mspub.exe" or InitiatingProcessFolderPath endswith "\\onenote.exe" or InitiatingProcessFolderPath endswith "\\onenoteim.exe" or InitiatingProcessFolderPath endswith "\\onenotem.exe" or InitiatingProcessFolderPath endswith "\\outlook.exe" or InitiatingProcessFolderPath endswith "\\powerpnt.exe" or InitiatingProcessFolderPath endswith "\\visio.exe" or InitiatingProcessFolderPath endswith "\\winproj.exe" or InitiatingProcessFolderPath endswith "\\winword.exe")
+version: 1.0.0
+kind: Scheduled
+relevantTechniques:
+- T1053
+- T1204
+entityMappings:
+- entityType: Account
+  fieldMappings:
+  - identifier: Name
+    columnName: InitiatingProcessAccountName
+  - identifier: NTDomain
+    columnName: InitiatingProcessAccountDomain
+  - identifier: Sid
+    columnName: InitiatingProcessAccountSid
+- entityType: Host
+  fieldMappings:
+  - identifier: HostName
+    columnName: DeviceName
+  - identifier: AzureID
+    columnName: DeviceId
+- entityType: File
+  fieldMappings:
+  - identifier: Name
+    columnName: FileName
+  - identifier: Directory
+    columnName: FolderPath
+requiredDataConnectors:
+- connectorId: MicrosoftThreatProtection
+  dataTypes:
+  - DeviceImageLoadEvents
